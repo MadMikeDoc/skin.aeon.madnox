@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+    <allowoverlay>no</allowoverlay>
+    <coordinates>
+        <posx>0</posx>
+        <posy>0</posy>
+        <system>1</system>
+    </coordinates>
+    <controls>
+        <control type="group">
+            <control type="image" id="299">
+                <description>list</description>
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>0</width>
+                <height>0</height>
+                <texture>-</texture>
+            </control>
+            <control type="label">
+                <posx>8</posx>
+                <posy>25</posy>
+                <width>1754</width>
+                <height>45</height>
+                <align>left</align>
+                <label>2413</label>
+                <font>Font_Bold30</font>
+                <textcolor>red</textcolor>
+                <animation effect="fade" time="800">WindowOpen</animation>
+                <animation effect="fade" time="160">WindowClose</animation>
+            </control>
+            <!-- ** Requigrey ** Do not change <id> or <type> (Text box for lyrics) -->
+            <control type="textbox" id="100">
+                <posx>82</posx>
+                <posy>150</posy>
+                <width>1754</width>
+                <height>478</height>
+                <align>left</align>
+                <font>Font_Bold30</font>
+                <pagecontrol>101</pagecontrol>
+                <animation effect="fade" time="800" delay="320">WindowOpen</animation>
+                <animation effect="fade" time="160">WindowClose</animation>
+            </control>
+            <control type="spincontrol" id="101">
+                <posx>1800</posx>
+                <posy>6</posy>
+                <height>98</height>
+                <textoffsetx>0</textoffsetx>
+                <textcolor>white</textcolor>
+                <spinposx>-4</spinposx>
+                <subtype>page</subtype>
+                <onleft>101</onleft>
+                <onright>101</onright>
+                <ondown>101</ondown>
+                <onup>101</onup>
+                <visible>Control.IsVisible(100)</visible>
+                <spinwidth>60</spinwidth>
+                <spinheight>92</spinheight>
+                <animation effect="fade" time="800">WindowOpen</animation>
+                <animation effect="fade" time="160">WindowClose</animation>
+            </control>
+            <!-- ** Requigrey ** Do not change <id> or <type> (Smooth scrolling list for lyrics) -->
+            <control type="list" id="110">
+                <posx>40</posx>
+                <posy>90</posy>
+                <width>1754</width>
+                <height>460</height>
+                <onleft>111</onleft>
+                <onright>111</onright>
+                <onup>110</onup>
+                <ondown>110</ondown>
+                <pagecontrol>111</pagecontrol>
+                <scrolltime>200</scrolltime>
+                <animation effect="fade" time="800">WindowOpen</animation>
+                <animation effect="fade" time="160">WindowClose</animation>
+                <itemlayout height="38">
+                    <control type="label">
+                        <posx>7</posx>
+                        <width>1754</width>
+                        <height>38</height>
+                        <align>left</align>
+                        <font>Font_Bold30</font>
+                        <textcolor>black</textcolor>
+                        <shadowcolor>black</shadowcolor>
+						<info>ListItem.Label</info>
+                    </control>
+					<control type="label">
+                        <posx>9</posx>
+                        <width>1754</width>
+                        <height>38</height>
+                        <align>left</align>
+                        <font>Font_Bold30</font>
+                        <textcolor>black</textcolor>
+                        <shadowcolor>black</shadowcolor>
+						<info>ListItem.Label</info>
+                    </control>
+					<control type="label">
+                        <posx>8</posx>
+                        <posy>-1</posy>
+						<width>1754</width>
+                        <height>38</height>
+                        <align>left</align>
+                        <font>Font_Bold30</font>
+                        <textcolor>black</textcolor>
+                        <shadowcolor>black</shadowcolor>
+						<info>ListItem.Label</info>
+                    </control>
+					<control type="label">
+                        <posx>8</posx>
+                        <posy>1</posy>
+						<width>1754</width>
+                        <height>38</height>
+                        <align>left</align>
+                        <font>Font_Bold30</font>
+                        <textcolor>black</textcolor>
+                        <shadowcolor>black</shadowcolor>
+						<info>ListItem.Label</info>
+                    </control>
+					<control type="label">
+                        <posx>8</posx>
+                        <width>1754</width>
+                        <height>38</height>
+                        <align>left</align>
+                        <font>Font_Bold30</font>
+                        <textcolor>white</textcolor>
+                        <info>ListItem.Label</info>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="38">
+                    <control type="label">
+                        <posx>8</posx>
+                        <width>1754</width>
+                        <height>38</height>
+                        <align>left</align>
+                        <label>$INFO[ListItem.Label]</label>
+                        <font>Font_Bold30</font>
+                        <textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+                        <visible>!Control.HasFocus(110)</visible>
+                    </control>
+                    <control type="label">
+                        <posx>7</posx>
+                        <width>1754</width>
+                        <height>38</height>
+                        <align>left</align>
+                        <label fallback="--">$INFO[ListItem.Label]</label>
+                        <font>Font_Bold30</font>
+                        <textcolor>black</textcolor>
+                        <shadowcolor>black</shadowcolor>
+						<visible>Control.HasFocus(110)</visible>
+                        <animation type="Focus" reversible="false">
+                            <effect type="fade" end="100" time="240" />
+                        </animation>
+                        <animation type="UnFocus" reversible="false">
+                            <effect type="fade" start="100" end="0" time="160" />
+                        </animation>
+                    </control>
+                    <control type="label">
+                        <posx>9</posx>
+                        <width>1754</width>
+                        <height>38</height>
+                        <align>left</align>
+                        <label fallback="--">$INFO[ListItem.Label]</label>
+                        <font>Font_Bold30</font>
+                        <textcolor>black</textcolor>
+                        <shadowcolor>black</shadowcolor>
+						<visible>Control.HasFocus(110)</visible>
+                        <animation type="Focus" reversible="false">
+                            <effect type="fade" end="100" time="240" />
+                        </animation>
+                        <animation type="UnFocus" reversible="false">
+                            <effect type="fade" start="100" end="0" time="160" />
+                        </animation>
+                    </control>
+					<control type="label">
+                        <posx>8</posx>
+                        <posy>1</posy>
+						<width>1754</width>
+                        <height>38</height>
+                        <align>left</align>
+                        <label fallback="--">$INFO[ListItem.Label]</label>
+                        <font>Font_Bold30</font>
+                        <textcolor>black</textcolor>
+                        <shadowcolor>black</shadowcolor>
+						<visible>Control.HasFocus(110)</visible>
+                        <animation type="Focus" reversible="false">
+                            <effect type="fade" end="100" time="240" />
+                        </animation>
+                        <animation type="UnFocus" reversible="false">
+                            <effect type="fade" start="100" end="0" time="160" />
+                        </animation>
+                    </control>
+					<control type="label">
+                        <posx>8</posx>
+                        <posy>-1</posy>
+						<width>1754</width>
+                        <height>38</height>
+                        <align>left</align>
+                        <label fallback="--">$INFO[ListItem.Label]</label>
+                        <font>Font_Bold30</font>
+                        <textcolor>black</textcolor>
+                        <shadowcolor>black</shadowcolor>
+						<visible>Control.HasFocus(110)</visible>
+                        <animation type="Focus" reversible="false">
+                            <effect type="fade" end="100" time="240" />
+                        </animation>
+                        <animation type="UnFocus" reversible="false">
+                            <effect type="fade" start="100" end="0" time="160" />
+                        </animation>
+                    </control>
+					<control type="label">
+                        <posx>8</posx>
+                        <width>1754</width>
+                        <height>38</height>
+                        <align>left</align>
+                        <label fallback="--">$INFO[ListItem.Label]</label>
+                        <font>Font_Bold30</font>
+                        <textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+                        <visible>Control.HasFocus(110)</visible>
+                        <animation type="Focus" reversible="false">
+                            <effect type="fade" end="100" time="240" />
+                        </animation>
+                        <animation type="UnFocus" reversible="false">
+                            <effect type="fade" start="100" end="0" time="160" />
+                        </animation>
+                    </control>
+				</focusedlayout>
+            </control>
+            <control type="spincontrol" id="111">
+                <posx>1800</posx>
+                <posy>6</posy>
+                <height>98</height>
+                <textoffsetx>0</textoffsetx>
+                <textcolor>white</textcolor>
+                <spinposx>-4</spinposx>
+                <subtype>page</subtype>
+                <onleft>110</onleft>
+                <onright>110</onright>
+                <ondown>110</ondown>
+                <onup>110</onup>
+                <spinwidth>60</spinwidth>
+                <spinheight>92</spinheight>
+                <visible>Control.IsVisible(110)</visible>
+                <animation effect="fade" time="800">WindowOpen</animation>
+                <animation effect="fade" time="160">WindowClose</animation>
+            </control>
+            <control type="label">
+                <posx>82</posx>
+                <posy>150</posy>
+                <width>1754</width>
+                <height>478</height>
+                <align>left</align>
+                <label>31733</label>
+                <font>Font_Reg38_Caps</font>
+                <textcolor>white</textcolor>
+                <visible>Control.IsVisible(120) + ![Control.IsVisible(100) | Control.IsVisible(110)]</visible>
+            </control>
+            <!-- ** Requigrey ** Do not change <id> or <type> (Song Chooser if it gets it wrong) -->
+            <control type="list" id="120">
+                <posx>82</posx>
+                <posy>90</posy>
+                <width>1754</width>
+                <height>450</height>
+                <onleft>121</onleft>
+                <onright>121</onright>
+                <onup>120</onup>
+                <ondown>120</ondown>
+                <pagecontrol>121</pagecontrol>
+                <scrolltime>200</scrolltime>
+                <animation effect="fade" time="800">WindowOpen</animation>
+                <animation effect="fade" time="160">WindowClose</animation>
+                <itemlayout height="60">
+                    <control type="image">
+                        <width>1754</width>
+                        <height>62</height>
+                        <texture>dialogs/setcontent_button_nofocus.png</texture>
+                    </control>
+                    <control type="label">
+                        <posx>52</posx>
+                        <width>1724</width>
+                        <height>60</height>
+                        <font>Font_Bold30</font>
+                        <textcolor>green</textcolor>
+                        <info>ListItem.Label</info>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="60">
+                    <control type="image">
+                        <width>1754</width>
+                        <height>62</height>
+                        <texture>dialogs/setcontent_button_nofocus.png</texture>
+                        <visible>!Control.HasFocus(120)</visible>
+                    </control>
+                    <control type="image">
+                        <width>1754</width>
+                        <height>62</height>
+                        <texture>dialogs/setcontent_button_focus.png</texture>
+                        <visible>Control.HasFocus(120)</visible>
+                    </control>
+                    <control type="label">
+                        <posx>52</posx>
+                        <width>1724</width>
+                        <height>60</height>
+                        <font>Font_Bold30</font>
+                        <textcolor>green</textcolor>
+                        <info>ListItem.Label</info>
+                    </control>
+                </focusedlayout>
+            </control>
+            <control type="spincontrol" id="121">
+                <posx>1800</posx>
+                <posy>6</posy>
+                <height>98</height>
+                <textoffsetx>0</textoffsetx>
+                <textcolor>white</textcolor>
+                <spinposx>-4</spinposx>
+                <subtype>page</subtype>
+                <onleft>120</onleft>
+                <onright>120</onright>
+                <ondown>120</ondown>
+                <onup>120</onup>
+                <visible>Control.IsVisible(120)</visible>
+                <spinwidth>60</spinwidth>
+                <spinheight>92</spinheight>
+                <animation effect="fade" time="800">WindowOpen</animation>
+                <animation effect="fade" time="160">WindowClose</animation>
+            </control>
+            <control type="label" id="130">
+                <posx>75</posx>
+                <posy>15</posy>
+                <width>600</width>
+                <height>45</height>
+                <textoffsetx>30</textoffsetx>
+                <!-- <label>[COLOR=green]$INFO[Skin.String(LyricScript_Path)][/COLOR] - [COLOR=FFFFFFFF]$INFO[Control.GetLabel(200)][/COLOR]</label>-->
+                <font>Font_Bold20_Caps</font>
+                <animation effect="fade" time="800">WindowOpen</animation>
+                <animation effect="fade" time="160">WindowClose</animation>
+            </control>
+            <control type="label" id="200">
+                <include>HiddenObject</include>
+            </control>
+        </control>
+    </controls>
+</window>

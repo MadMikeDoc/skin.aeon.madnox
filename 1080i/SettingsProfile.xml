@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+	<defaultcontrol always="true">9000</defaultcontrol>
+	<include condition="!Skin.HasSetting(firstrun4.0)">AutoConfig</include>
+	<animation type="WindowOpen" reversible="false" condition="!Window.Previous(settings)">
+		<effect type="zoom" start="150" end="100" center="960,540" time="240" tween="cubic"/>
+		<effect type="fade" end="100" time="240"/>
+	</animation>
+	<animation type="WindowClose" reversible="false" condition="!Window.Next(settings)">
+		<effect type="fade" start="100" end="0" time="240"/>
+		<effect type="zoom" start="100" end="130" center="960,540" time="240" tween="cubic" easing="in"/>
+	</animation>
+	<controls>
+		<control type="group">
+			<include>CommonSettingsBackground</include>
+			<include>CommonMediaPlayingBackground</include>
+			<include>Furniture_SettingsFloor</include>
+		</control>
+		<control type="group">
+			<animation effect="zoom" end="91" center="960,360" time="320" tween="cubic" easing="inout" condition="true">Conditional</animation>
+			<visible>![Window.isVisible(ProfileSettings) | Window.IsVisible(LockSettings)]</visible>
+			<include>Furniture_SettingsBackPanel</include>
+			<control type="list" id="9000">
+				<posx>63</posx>
+				<posy>195</posy>
+				<width>750</width>
+				<height>567</height>
+				<onleft>9100</onleft>
+				<onright>9100</onright>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<scrolltime>300</scrolltime>
+				<itemlayout height="74" width="570">
+					<control type="label">
+						<posx>30</posx>
+						<width>306</width>
+						<height>74</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>Font_Bold34</font>
+						<textcolor>grey2</textcolor>
+					</control>
+				</itemlayout>
+				<focusedlayout height="74" width="570">
+					<control type="image">
+						<width>324</width>
+						<height>74</height>
+						<texture colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texture>
+						<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(9000)">Conditional</animation>
+					</control>
+					<control type="label">
+						<posx>30</posx>
+						<width>306</width>
+						<height>74</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>Font_Bold34</font>
+					</control>
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<label>31999</label>
+						<onclick>noop</onclick>
+						<icon>-</icon>
+					</item>
+					<item id="2">
+						<label>13200</label>
+						<onclick>noop</onclick>
+						<icon>-</icon>
+					</item>
+				</content>
+			</control>
+			<control type="group" id="9100">
+				<posx>387</posx>
+				<posy>195</posy>
+				<control type="panel" id="2">
+					<visible>Container(9000).Hasfocus(2)</visible>
+					<width>1600</width>
+					<height>722</height>
+					<onleft>9000</onleft>
+					<onright>9000</onright>
+					<onup>2</onup>
+					<ondown>2</ondown>
+					<viewtype label="21371">list</viewtype>
+					<scrolltime>200</scrolltime>
+					<itemlayout height="350" width="292">
+						<control type="image">
+							<left>23</left>
+							<top>0</top>
+							<width>246</width>
+							<height>246</height>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<texture fallback="unknown-user.png">$INFO[Listitem.Icon]</texture>
+						</control>
+						<control type="label">
+							<left></left>
+							<top>245</top>
+							<width>280</width>
+							<height>100</height>
+							<font>Font_Reg32</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>top</aligny>
+							<info>ListItem.Label</info>
+						</control>
+						<control type="label">
+							<left></left>
+							<top>281</top>
+							<width>280</width>
+							<height>100</height>
+							<font>Font_Reg26</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>top</aligny>
+							<label fallback="13170">$LOCALIZE[32000]:</label>
+						</control>
+						<control type="label">
+							<left></left>
+							<top>310</top>
+							<width>280</width>
+							<height>100</height>
+							<font>Font_Reg26</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>top</aligny>
+							<label fallback="13170">$INFO[ListItem.Label2]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="350" width="292">
+						<control type="image">
+							<width>292</width>
+							<height>350</height>
+							<texture colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texture>
+							<visible>Control.HasFocus(2)</visible>
+							<include>PanelGlowFade</include>
+						</control>
+						<control type="image">
+							<left>23</left>
+							<top>0</top>
+							<width>246</width>
+							<height>246</height>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<texture fallback="unknown-user.png">$INFO[Listitem.Icon]</texture>
+						</control>
+						<control type="label">
+							<left></left>
+							<top>245</top>
+							<width>280</width>
+							<height>100</height>
+							<font>Font_Reg32</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>top</aligny>
+							<info>ListItem.Label</info>
+						</control>
+						<control type="label">
+							<left></left>
+							<top>281</top>
+							<width>280</width>
+							<height>100</height>
+							<font>Font_Reg26</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>top</aligny>
+							<label fallback="13170">$LOCALIZE[32000]:</label>
+						</control>
+						<control type="label">
+							<left></left>
+							<top>310</top>
+							<width>280</width>
+							<height>100</height>
+							<font>Font_Reg26</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>top</aligny>
+							<label fallback="13170">$INFO[ListItem.Label2]</label>
+						</control>
+					</focusedlayout>
+				</control>
+				<control type="grouplist" id="9001">
+					<visible>Container(9000).Hasfocus(1)</visible>
+					<width>1469</width>
+					<height>722</height>
+					<itemgap>-1</itemgap>
+					<pagecontrol>60</pagecontrol>
+					<onleft>9000</onleft>
+					<onright>9000</onright>
+					<onup>9001</onup>
+					<ondown>9001</ondown>
+					<control type="radiobutton" id="4">
+						<label>20096</label>
+						<include>Default_SettingRadioButton</include>
+					</control>
+					<control type="button" id="5">
+						<label>Auto Login (Current Setting: $INFO[System.ProfileAutoLogin])</label>
+						<include>Default_SettingButton</include>
+						<enable>!Window.IsVisible(ProfileSettings) + !System.HasLoginScreen</enable>
+					</control>
+				</control>
+			</control>
+			<control type="label">
+				<posx>358</posx>
+				<posy>100</posy>
+				<width>1491</width>
+				<align>center</align>
+				<aligny>top</aligny>
+				<label>$LOCALIZE[10034]</label>
+				<font>Font_ShowcaseMainLabel2</font>
+				<shadowcolor>black</shadowcolor>
+			</control>
+		</control>
+		    <include>Animation_HideBreadCrumbs</include>
+            <include>Breadcrumbs_BackBar</include>
+            <include>BreadcrumbsContent</include>
+            <include>Breadcrumbs_Furniture</include>
+	</controls>
+</window>

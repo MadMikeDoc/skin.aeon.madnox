@@ -1,0 +1,1112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">10</defaultcontrol>
+    <backgroundcolor>backgroundcolor</backgroundcolor>
+    <include condition="!Skin.HasSetting(firstrun4.0)">AutoConfig</include>
+    <views>10,11,12,13</views>
+    <controls>
+        <include>PVRCommonBackground</include>
+        <control type="group">
+            <description>Guide Timeline</description>
+            <visible>Control.IsVisible(10)</visible>
+            <include>Animation_OpenCloseZoom_New</include>
+            <top>30</top>
+            <control type="image">
+                <left>45</left>
+                <top>38</top>
+                <width>1830</width>
+                <height>1068</height>
+                <texture colordiffuse="$VAR[AreaColorVar]">wall/wall_bg_glow.png</texture>
+                <visible>!Skin.HasSetting(DisableGlowbar)</visible>
+                <include>PanelGlowFade</include>
+            </control>
+            <control type="image">
+                <left>45</left>
+                <top>38</top>
+                <width>1830</width>
+                <height>1068</height>
+				<texture colordiffuse="$VAR[DialogColorVar]">wall/wall_bg.png</texture>
+            </control>
+            <control type="image">
+                <left>45</left>
+                <top>38</top>
+                <width>1830</width>
+                <height>1068</height>
+                <texture>wall/wall_bg_reflection.png</texture>
+            </control>
+            <control type="epggrid" id="10">
+                <description>EPG Grid</description>
+                <left>58</left>
+                <top>51</top>
+                <width>1800</width>
+                <height>646</height>
+                <pagecontrol>10</pagecontrol>
+                <scrolltime tween="quadratic" easing="out">200</scrolltime>
+                <timeblocks>40</timeblocks>
+                <rulerunit>6</rulerunit>
+                <onup>10</onup>
+                <ondown>10</ondown>
+                <onback>9003</onback>
+                <viewtype label="19032">list</viewtype>
+                <progresstexture border="0,60,18,14">new_pvr/PVR-EpgProgressIndicator2.png</progresstexture>
+                <rulerlayout height="45" width="1400">
+                    <control type="label">
+                        <top>2</top>
+                        <width>500</width>
+                        <height>45</height>
+                        <font>Font_Reg18</font>
+                        <label>$INFO[ListItem.Label]</label>
+                        <textoffsetx>10</textoffsetx>
+                        <textcolor>$VAR[FontColorVar]</textcolor>
+                    </control>
+                </rulerlayout>
+                <channellayout height="60" width="400">
+                    <control type="label">
+                        <left>30</left>
+                        <top>-2</top>
+                        <width>50</width>
+                        <height>60</height>
+                        <font>Font_Reg20</font>
+                        <textcolor>white</textcolor>
+                        <selectedcolor>$VAR[FontColorVar]</selectedcolor>
+                        <label>$INFO[ListItem.ChannelNumber]</label>
+                        <align>center</align>
+                    </control>
+                    <control type="image">
+                        <left>65</left>
+                        <top>4</top>
+                        <width>65</width>
+                        <height>50</height>
+                        <texture background="true">$INFO[ListItem.Icon]</texture>
+                        <aspectratio>keep</aspectratio>
+                        <align>center</align>
+                        <visible>StringCompare(Skin.String(LiveTV.EpgViewChannels),2) + !IsEmpty(ListItem.Icon)</visible>
+                    </control>
+                    <control type="image">
+                        <left>65</left>
+                        <width>250</width>
+                        <height>60</height>
+                        <texture background="true">$INFO[ListItem.Icon]</texture>
+                        <aspectratio align="center">keep</aspectratio>
+                        <align>center</align>
+                        <visible>StringCompare(Skin.String(LiveTV.EpgViewChannels),1) + !IsEmpty(ListItem.Icon)</visible>
+                    </control>
+                    <control type="label">
+                        <left>65</left>
+                        <top>-2</top>
+                        <width>350</width>
+                        <height>60</height>
+                        <font>Font_Reg20</font>
+                        <textcolor>white</textcolor>
+                        <selectedcolor>$VAR[FontColorVar]</selectedcolor>
+                        <label>$INFO[ListItem.ChannelName]</label>
+                        <aligny>center</aligny>
+                        <textoffsetx>10</textoffsetx>
+                        <visible>IsEmpty(Skin.String(LiveTV.EpgViewChannels)) | IsEmpty(ListItem.Icon)</visible>
+                    </control>
+                    <control type="label">
+                        <left>130</left>
+                        <top>-2</top>
+                        <width>300</width>
+                        <height>60</height>
+                        <font>Font_Reg20</font>
+                        <textcolor>white</textcolor>
+                        <selectedcolor>$VAR[FontColorVar]</selectedcolor>
+                        <label>$INFO[ListItem.ChannelName]</label>
+                        <aligny>center</aligny>
+                        <textoffsetx>10</textoffsetx>
+                        <visible>StringCompare(Skin.String(LiveTV.EpgViewChannels),2) + !IsEmpty(ListItem.Icon)</visible>
+                    </control>
+                </channellayout>
+                <focusedchannellayout height="60" width="400">
+                    <control type="image">
+                        <width>400</width>
+                        <height>60</height>
+                        <texture colordiffuse="$VAR[FontColorVar]">views/tripanel/listselect_fo.png</texture>
+                    </control>
+                    <control type="label">
+                        <left>29</left>
+                        <top>-2</top>
+                        <width>50</width>
+                        <height>60</height>
+                        <font>Font_Reg20</font>
+                        <textcolor>white</textcolor>
+                        <selectedcolor>$VAR[FontColorVar]</selectedcolor>
+                        <label>$INFO[ListItem.ChannelNumber]</label>
+                        <align>center</align>
+                    </control>
+                    <control type="image">
+                        <left>65</left>
+                        <top>4</top>
+                        <width>65</width>
+                        <height>50</height>
+                        <texture background="true">$INFO[ListItem.Icon]</texture>
+                        <aspectratio>keep</aspectratio>
+                        <align>center</align>
+                        <visible>StringCompare(Skin.String(LiveTV.EpgViewChannels),2) + !IsEmpty(ListItem.Icon)</visible>
+                    </control>
+                    <control type="image">
+                        <left>65</left>
+                        <width>250</width>
+                        <height>60</height>
+                        <texture background="true">$INFO[ListItem.Icon]</texture>
+                        <aspectratio align="center">keep</aspectratio>
+                        <align>center</align>
+                        <visible>StringCompare(Skin.String(LiveTV.EpgViewChannels),1) + !IsEmpty(ListItem.Icon)</visible>
+                    </control>
+                    <control type="label">
+                        <left>65</left>
+                        <top>-2</top>
+                        <width>350</width>
+                        <height>60</height>
+                        <font>Font_Reg20</font>
+                        <textcolor>white</textcolor>
+                        <selectedcolor>$VAR[FontColorVar]</selectedcolor>
+                        <label>$INFO[ListItem.ChannelName]</label>
+                        <aligny>center</aligny>
+                        <textoffsetx>10</textoffsetx>
+                        <visible>IsEmpty(Skin.String(LiveTV.EpgViewChannels)) | IsEmpty(ListItem.Icon)</visible>
+                    </control>
+                    <control type="label">
+                        <left>130</left>
+                        <top>-2</top>
+                        <width>300</width>
+                        <height>60</height>
+                        <font>Font_Reg20</font>
+                        <textcolor>white</textcolor>
+                        <selectedcolor>$VAR[FontColorVar]</selectedcolor>
+                        <label>$INFO[ListItem.ChannelName]</label>
+                        <aligny>center</aligny>
+                        <textoffsetx>10</textoffsetx>
+                        <visible>StringCompare(Skin.String(LiveTV.EpgViewChannels),2) + !IsEmpty(ListItem.Icon)</visible>
+                    </control>
+                </focusedchannellayout>
+                <itemlayout height="60" width="60">
+					<control type="image" id="1">
+                        <width>60</width>
+                        <height>60</height>
+                        <aspectratio>stretch</aspectratio>
+                        <texture border="3">$INFO[ListItem.Property(GenreType),epg-genres/,.png]</texture>
+                    </control>
+                    <control type="image" id="2">
+                        <width>60</width>
+                        <height>60</height>
+                        <aspectratio>stretch</aspectratio>
+                        <texture border="3" fallback="epg-genres/0.png">$INFO[ListItem.Genre,epg-genres/,.png]</texture>
+						<visible>!Control.IsVisible(1)</visible>
+                    </control>
+                    <control type="label" id="1">
+                        <left>9</left>
+                        <top>3</top>
+                        <width>45</width>
+                        <height>50</height>
+                        <font>Font_Reg32</font>
+                        <info>ListItem.Label</info>
+                        <visible>!ListItem.HasTimer + !ListItem.IsRecording</visible>
+                    </control>
+                    <control type="label" id="1">
+                        <left>45</left>
+                        <top>3</top>
+                        <width>35</width>
+                        <height>50</height>
+                        <font>Font_Reg32</font>
+                        <info>ListItem.Label</info>
+                        <visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
+                    </control>
+                    <control type="image">
+                        <left>8</left>
+                        <top>12</top>
+                        <width>35</width>
+                        <height>35</height>
+                        <texture>pvr/PVR-IsRecording.png</texture>
+                        <visible>ListItem.IsRecording</visible>
+                    </control>
+                    <control type="image">
+                        <left>8</left>
+                        <top>12</top>
+                        <width>35</width>
+                        <height>35</height>
+                        <texture>pvr/PVR-HasTimer.png</texture>
+                        <visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="60" width="60">
+                    <control type="image" id="14">
+                        <width>60</width>
+                        <height>60</height>
+                        <aspectratio>stretch</aspectratio>
+                        <texture colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texture>
+                    </control>
+                    <control type="image" id="2">
+                        <width>60</width>
+                        <height>60</height>
+                        <top>0</top>
+                    </control>
+                    <control type="label" id="1">
+                        <left>9</left>
+                        <top>3</top>
+                        <width>35</width>
+                        <height>50</height>
+                        <font>Font_Reg32</font>
+                        <info>ListItem.Label</info>
+                        <visible>!ListItem.HasTimer + !ListItem.IsRecording</visible>
+                    </control>
+                    <control type="label" id="1">
+                        <left>45</left>
+                        <top>3</top>
+                        <width>35</width>
+                        <height>50</height>
+                        <font>Font_Reg32</font>
+                        <info>ListItem.Label</info>
+                        <visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
+                    </control>
+                    <control type="image">
+                        <left>8</left>
+                        <top>12</top>
+                        <width>35</width>
+                        <height>35</height>
+                        <texture>pvr/PVR-IsRecording.png</texture>
+                        <visible>ListItem.IsRecording</visible>
+                    </control>
+                    <control type="image">
+                        <left>8</left>
+                        <top>12</top>
+                        <width>35</width>
+                        <height>35</height>
+                        <texture>pvr/PVR-HasTimer.png</texture>
+                        <visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
+                    </control>
+                </focusedlayout>
+            </control>
+            <control type="image">
+                <left>457</left>
+                <top>95</top>
+                <width>2</width>
+                <height>601</height>
+                <texture>new_pvr/separator3.png</texture>
+            </control>
+            <control type="image">
+                <left>58</left>
+                <top>638</top>
+                <width>1806</width>
+                <height>60</height>
+                <texture>new_pvr/separator2.png</texture>
+            </control>
+            <control type="group">
+                <left>58</left>
+                <top>698</top>
+                <height>227</height>
+                <width>400</width>
+                <control type="group">
+                    <control type="image">
+                        <left>100</left>
+                        <top>35</top>
+                        <width>200</width>
+                        <height>150</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture>$INFO[Container(10).ListItem.Icon]</texture>
+                        <visible>!Control.IsVisible(55)</visible>
+                    </control>
+                    <control type="image" id="55">
+                        <left>0</left>
+                        <top>15</top>
+                        <width>400</width>
+                        <height>200</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture>$INFO[ListItem.PlotOutline]</texture>
+                        <visible>SubString(ListItem.PlotOutline,"http://",Left) | SubString(ListItem.PlotOutline,"https://",Left)</visible>
+                    </control>
+                </control>
+            </control>
+            <control type="group">
+                <visible>Control.IsVisible(10)</visible>
+                <left>480</left>
+                <top>722</top>
+                <height>227</height>
+                <width>1500</width>
+                <control type="label">
+                    <width>1350</width>
+                    <height>30</height>
+                    <textcolor>$VAR[FontColorVar]</textcolor>
+                    <font>Font_Bold18</font>
+                    <label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]  [COLOR grey]$INFO[ListItem.Title][/COLOR]      $LOCALIZE[515]: [COLOR grey]$INFO[ListItem.Genre][/COLOR]</label>
+                </control>
+                <control type="textbox">
+                    <top>40</top>
+                    <width>1350</width>
+                    <height>145</height>
+                    <font>Font_Reg20</font>
+                    <label>$INFO[ListItem.Plot]</label>
+                    <autoscroll delay="10000" time="AutoScrollTime" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
+                </control>
+            </control>
+        </control>
+        <control type="group">
+            <description>TV Guide Now</description>
+            <visible>Control.IsVisible(11)</visible>
+            <top>30</top>
+            <control type="image">
+                <left>45</left>
+                <top>38</top>
+                <width>1830</width>
+                <height>1068</height>
+                <texture colordiffuse="$VAR[AreaColorVar]">wall/wall_bg_glow.png</texture>
+                <visible>!Skin.HasSetting(DisableGlowbar)</visible>
+                <include>PanelGlowFade</include>
+            </control>
+            <control type="image">
+                <left>45</left>
+                <top>38</top>
+                <width>1830</width>
+                <height>1068</height>
+                <texture colordiffuse="$VAR[DialogColorVar]">wall/wall_bg.png</texture>
+            </control>
+            <control type="image">
+                <left>45</left>
+                <top>38</top>
+                <width>1830</width>
+                <height>1068</height>
+                <texture>wall/wall_bg_reflection.png</texture>
+            </control>
+            <control type="group">
+                <left>120</left>
+                <top>36</top>
+                <width>1740</width>
+                <height>600</height>
+                <visible>Control.IsVisible(11)</visible>
+                <control type="list" id="11">
+                    <top>60</top>
+                    <width>1740</width>
+                    <height>600</height>
+                    <onup>11</onup>
+                    <ondown>11</ondown>
+                    <onleft>9003</onleft>
+                    <onright>76</onright>
+                    <viewtype label="19030">list</viewtype>
+                    <pagecontrol>76</pagecontrol>
+                    <scrolltime>200</scrolltime>
+                    <itemlayout height="60">
+                        <control type="image">
+                            <left>-45</left>
+                            <width>1760</width>
+                            <height>60</height>
+                            <texture>osd/osd_settings_buttonnf.png</texture>
+                        </control>
+                        <control type="image">
+                            <left>3</left>
+                            <top>8</top>
+                            <width>45</width>
+                            <height>45</height>
+                            <texture fallback="DefaultVideo.png">$INFO[ListItem.Icon]</texture>
+                            <aspectratio>keep</aspectratio>
+                        </control>
+                        <control type="label">
+                            <left>60</left>
+                            <width>285</width>
+                            <height>52</height>
+                            <font>Font_Reg20</font>
+                            <info>ListItem.ChannelName</info>
+                        </control>
+                        <control type="label">
+                            <left>378</left>
+                            <width>300</width>
+                            <height>52</height>
+                            <font>Font_Reg20</font>
+                            <label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]</label>
+                        </control>
+                        <control type="progress">
+                            <left>560</left>
+                            <top>22</top>
+                            <width>180</width>
+                            <height>12</height>
+                            <visible>SubString(Window(mypvr).Property(EpgNow),true)</visible>
+                            <info>ListItem.Progress</info>
+                        </control>
+                        <control type="label">
+                            <left>750</left>
+                            <width>825</width>
+                            <height>52</height>
+                            <font>Font_Reg20</font>
+                            <textcolor>$VAR[FontColorVar]</textcolor>
+                            <info>ListItem.Label</info>
+                        </control>
+                        <control type="image">
+                            <animation effect="fade" start="100" end="40" time="1200" pulse="true" condition="true">conditional</animation>
+                            <left>1400</left>
+                            <top>15</top>
+                            <width>35</width>
+                            <height>35</height>
+                            <texture>pvr/PVR-IsRecording.png</texture>
+                            <visible>ListItem.IsRecording</visible>
+                        </control>
+                        <control type="label">
+                            <left>1445</left>
+                            <width>200</width>
+                            <height>60</height>
+                            <font>Font_Reg20</font>
+                            <label>31111</label>
+                            <visible>ListItem.IsRecording</visible>
+                        </control>
+                        <control type="image">
+                            <left>1400</left>
+                            <top>15</top>
+                            <width>35</width>
+                            <height>35</height>
+                            <texture>pvr/PVR-HasTimer.png</texture>
+                            <visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
+                        </control>
+                        <control type="label">
+                            <left>1445</left>
+                            <width>200</width>
+                            <height>60</height>
+                            <font>Font_Reg20</font>
+                            <label>31104</label>
+                            <visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="60">
+                        <control type="image">
+                            <left>-45</left>
+                            <width>1760</width>
+                            <height>60</height>
+                            <texture>osd/osd_settings_buttonnf.png</texture>
+                        </control>
+                        <control type="image">
+                            <left>0</left>
+                            <width>1665</width>
+                            <height>59</height>
+                            <texture colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texture>
+                        </control>
+                        <control type="image">
+                            <left>3</left>
+                            <top>8</top>
+                            <width>45</width>
+                            <height>45</height>
+                            <texture fallback="DefaultVideo.png">$INFO[ListItem.Icon]</texture>
+                            <aspectratio>keep</aspectratio>
+                        </control>
+                        <control type="label">
+                            <left>60</left>
+                            <width>285</width>
+                            <height>52</height>
+                            <font>Font_Reg20</font>
+                            <info>ListItem.ChannelName</info>
+                        </control>
+                        <control type="label">
+                            <left>378</left>
+                            <width>300</width>
+                            <height>52</height>
+                            <font>Font_Reg20</font>
+                            <label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]</label>
+                        </control>
+                        <control type="progress">
+                            <left>560</left>
+                            <top>22</top>
+                            <width>180</width>
+                            <height>12</height>
+                            <visible>SubString(Window(mypvr).Property(EpgNow),true)</visible>
+                            <info>ListItem.Progress</info>
+                        </control>
+                        <control type="label">
+                            <left>750</left>
+                            <width>825</width>
+                            <height>52</height>
+                            <font>Font_Reg20</font>
+                            <textcolor>$VAR[FontColorVar]</textcolor>
+                            <info>ListItem.Label</info>
+                        </control>
+                        <control type="image">
+                            <animation effect="fade" start="100" end="40" time="1200" pulse="true" condition="true">conditional</animation>
+                            <left>1400</left>
+                            <top>15</top>
+                            <width>35</width>
+                            <height>35</height>
+                            <texture>pvr/PVR-IsRecording.png</texture>
+                            <visible>ListItem.IsRecording</visible>
+                        </control>
+                        <control type="label">
+                            <left>1445</left>
+                            <width>200</width>
+                            <height>60</height>
+                            <font>Font_Reg20</font>
+                            <label>31111</label>
+                            <visible>ListItem.IsRecording</visible>
+                        </control>
+                        <control type="image">
+                            <left>1400</left>
+                            <top>15</top>
+                            <width>35</width>
+                            <height>35</height>
+                            <texture>pvr/PVR-HasTimer.png</texture>
+                            <visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
+                        </control>
+                        <control type="label">
+                            <left>1445</left>
+                            <width>200</width>
+                            <height>60</height>
+                            <font>Font_Reg20</font>
+                            <label>31104</label>
+                            <visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
+                        </control>
+                    </focusedlayout>
+                </control>
+            </control>
+            <control type="scrollbar" id="76">
+                <left>1840</left>
+                <top>92</top>
+                <width>46</width>
+                <height>600</height>
+                <onleft>11</onleft>
+                <onright>11</onright>
+            </control>
+            <control type="group">
+                <left>58</left>
+                <top>698</top>
+                <height>227</height>
+                <width>400</width>
+                <control type="group">
+                    <control type="image">
+                        <left>100</left>
+                        <top>35</top>
+                        <width>200</width>
+                        <height>150</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture>$INFO[Container(11).ListItem.Icon]</texture>
+                        <visible>!Control.IsVisible(55)</visible>
+                    </control>
+                    <control type="image" id="55">
+                        <left>0</left>
+                        <top>15</top>
+                        <width>400</width>
+                        <height>200</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture>$INFO[ListItem.PlotOutline]</texture>
+                        <visible>SubString(ListItem.PlotOutline,"http://",Left) | SubString(ListItem.PlotOutline,"https://",Left)</visible>
+                    </control>
+                </control>
+            </control>
+            <control type="group">
+                <visible>Control.IsVisible(11)</visible>
+                <left>480</left>
+                <top>722</top>
+                <height>227</height>
+                <width>1500</width>
+                <control type="label">
+                    <width>1350</width>
+                    <height>30</height>
+                    <textcolor>$VAR[FontColorVar]</textcolor>
+                    <font>Font_Bold18</font>
+                    <label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]  [COLOR grey]$INFO[ListItem.Title][/COLOR]      $LOCALIZE[515]: [COLOR grey]$INFO[ListItem.Genre][/COLOR]</label>
+                </control>
+                <control type="textbox">
+                    <top>40</top>
+                    <width>1350</width>
+                    <height>145</height>
+                    <font>Font_Reg20</font>
+                    <label>$INFO[ListItem.Plot]</label>
+                    <autoscroll delay="10000" time="AutoScrollTime" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
+                </control>
+            </control>
+        </control>
+        <control type="group">
+            <description>TV Guide Next</description>
+            <visible>Control.IsVisible(12)</visible>
+            <top>30</top>
+            <control type="image">
+                <left>45</left>
+                <top>38</top>
+                <width>1830</width>
+                <height>1068</height>
+                <texture colordiffuse="$VAR[AreaColorVar]">wall/wall_bg_glow.png</texture>
+                <visible>!Skin.HasSetting(DisableGlowbar)</visible>
+                <include>PanelGlowFade</include>
+            </control>
+            <control type="image">
+                <left>45</left>
+                <top>38</top>
+                <width>1830</width>
+                <height>1068</height>
+                <texture colordiffuse="$VAR[DialogColorVar]">wall/wall_bg.png</texture>
+            </control>
+            <control type="image">
+                <left>45</left>
+                <top>38</top>
+                <width>1830</width>
+                <height>1068</height>
+                <texture>wall/wall_bg_reflection.png</texture>
+            </control>
+            <control type="group">
+                <left>120</left>
+                <top>36</top>
+                <width>1740</width>
+                <height>600</height>
+                <visible>Control.IsVisible(12)</visible>
+                <control type="list" id="12">
+                    <top>60</top>
+                    <width>1740</width>
+                    <height>600</height>
+                    <onup>12</onup>
+                    <ondown>12</ondown>
+                    <onleft>9003</onleft>
+                    <onright>76</onright>
+                    <viewtype label="19031">list</viewtype>
+                    <pagecontrol>76</pagecontrol>
+                    <scrolltime>200</scrolltime>
+                    <itemlayout height="60">
+                        <control type="image">
+                            <left>-45</left>
+                            <width>1760</width>
+                            <height>60</height>
+                            <texture colordiffuse="$VAR[AreaColorVar]">osd/osd_settings_buttonnf.png</texture>
+                        </control>
+                        <control type="image">
+                            <left>3</left>
+                            <top>8</top>
+                            <width>45</width>
+                            <height>45</height>
+                            <texture fallback="DefaultVideo.png">$INFO[ListItem.Icon]</texture>
+                            <aspectratio>keep</aspectratio>
+                        </control>
+                        <control type="label">
+                            <left>60</left>
+                            <width>285</width>
+                            <height>52</height>
+                            <font>Font_Reg20</font>
+                            <info>ListItem.ChannelName</info>
+                        </control>
+                        <control type="label">
+                            <left>378</left>
+                            <width>300</width>
+                            <height>52</height>
+                            <font>Font_Reg20</font>
+                            <label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]</label>
+                        </control>
+                        <control type="progress">
+                            <left>560</left>
+                            <top>22</top>
+                            <width>180</width>
+                            <height>12</height>
+                            <visible>SubString(Window(mypvr).Property(EpgNow),true)</visible>
+                            <info>ListItem.Progress</info>
+                        </control>
+                        <control type="label">
+                            <left>750</left>
+                            <width>825</width>
+                            <height>52</height>
+                            <font>Font_Reg20</font>
+                            <textcolor>$VAR[FontColorVar]</textcolor>
+                            <info>ListItem.Label</info>
+                        </control>
+                        <control type="image">
+                            <animation effect="fade" start="100" end="40" time="1200" pulse="true" condition="true">conditional</animation>
+                            <left>1400</left>
+                            <top>15</top>
+                            <width>35</width>
+                            <height>35</height>
+                            <texture>pvr/PVR-IsRecording.png</texture>
+                            <visible>ListItem.IsRecording</visible>
+                        </control>
+                        <control type="label">
+                            <left>1445</left>
+                            <width>200</width>
+                            <height>60</height>
+                            <font>Font_Reg20</font>
+                            <label>31111</label>
+                            <visible>ListItem.IsRecording</visible>
+                        </control>
+                        <control type="image">
+                            <left>1400</left>
+                            <top>15</top>
+                            <width>35</width>
+                            <height>35</height>
+                            <texture>pvr/PVR-HasTimer.png</texture>
+                            <visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
+                        </control>
+                        <control type="label">
+                            <left>1445</left>
+                            <width>200</width>
+                            <height>60</height>
+                            <font>Font_Reg20</font>
+                            <label>31104</label>
+                            <visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="60">
+                        <control type="image">
+                            <left>-45</left>
+                            <width>1760</width>
+                            <height>60</height>
+                            <texture>osd/osd_settings_buttonnf.png</texture>
+                        </control>
+                        <control type="image">
+                            <left>0</left>
+                            <width>1665</width>
+                            <height>59</height>
+                            <texture colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texture>
+                        </control>
+                        <control type="image">
+                            <left>3</left>
+                            <top>8</top>
+                            <width>45</width>
+                            <height>45</height>
+                            <texture fallback="DefaultVideo.png">$INFO[ListItem.Icon]</texture>
+                            <aspectratio>keep</aspectratio>
+                        </control>
+                        <control type="label">
+                            <left>60</left>
+                            <width>285</width>
+                            <height>52</height>
+                            <font>Font_Reg20</font>
+                            <info>ListItem.ChannelName</info>
+                        </control>
+                        <control type="label">
+                            <left>378</left>
+                            <width>300</width>
+                            <height>52</height>
+                            <font>Font_Reg20</font>
+                            <label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]</label>
+                        </control>
+                        <control type="progress">
+                            <left>560</left>
+                            <top>22</top>
+                            <width>180</width>
+                            <height>12</height>
+                            <visible>SubString(Window(mypvr).Property(EpgNow),true)</visible>
+                            <info>ListItem.Progress</info>
+                        </control>
+                        <control type="label">
+                            <left>750</left>
+                            <width>825</width>
+                            <height>52</height>
+                            <font>Font_Reg20</font>
+                            <textcolor>$VAR[FontColorVar]</textcolor>
+                            <info>ListItem.Label</info>
+                        </control>
+                        <control type="image">
+                            <animation effect="fade" start="100" end="40" time="1200" pulse="true" condition="true">conditional</animation>
+                            <left>1400</left>
+                            <top>15</top>
+                            <width>35</width>
+                            <height>35</height>
+                            <texture>pvr/PVR-IsRecording.png</texture>
+                            <visible>ListItem.IsRecording</visible>
+                        </control>
+                        <control type="label">
+                            <left>1445</left>
+                            <width>200</width>
+                            <height>60</height>
+                            <font>Font_Reg20</font>
+                            <label>31111</label>
+                            <visible>ListItem.IsRecording</visible>
+                        </control>
+                        <control type="image">
+                            <left>1400</left>
+                            <top>15</top>
+                            <width>35</width>
+                            <height>35</height>
+                            <texture>pvr/PVR-HasTimer.png</texture>
+                            <visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
+                        </control>
+                        <control type="label">
+                            <left>1445</left>
+                            <width>200</width>
+                            <height>60</height>
+                            <font>Font_Reg20</font>
+                            <label>31104</label>
+                            <visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
+                        </control>
+                    </focusedlayout>
+                </control>
+                <control type="scrollbar" id="76">
+                    <left>1722</left>
+                    <top>92</top>
+                    <width>46</width>
+                    <height>538</height>
+                    <onleft>12</onleft>
+                    <onright>12</onright>
+                </control>
+            </control>
+            <control type="group">
+                <left>58</left>
+                <top>698</top>
+                <height>227</height>
+                <width>400</width>
+                <control type="group">
+                    <visible>!Player.HasVideo</visible>
+                    <control type="image">
+                        <left>100</left>
+                        <top>35</top>
+                        <width>200</width>
+                        <height>150</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture>$INFO[Container(12).ListItem.Icon]</texture>
+                        <visible>!Control.IsVisible(55)</visible>
+                    </control>
+                    <control type="image" id="55">
+                        <left>0</left>
+                        <top>15</top>
+                        <width>400</width>
+                        <height>200</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture>$INFO[ListItem.PlotOutline]</texture>
+                        <visible>SubString(ListItem.PlotOutline,"http://",Left) | SubString(ListItem.PlotOutline,"https://",Left)</visible>
+                    </control>
+                </control>
+            </control>
+            <control type="group">
+                <visible>Control.IsVisible(12)</visible>
+                <left>480</left>
+                <top>722</top>
+                <height>227</height>
+                <width>1500</width>
+                <control type="label">
+                    <width>1350</width>
+                    <height>30</height>
+                    <textcolor>$VAR[FontColorVar]</textcolor>
+                    <font>Font_Bold18</font>
+                    <label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]  [COLOR grey]$INFO[ListItem.Title][/COLOR]      $LOCALIZE[515]: [COLOR grey]$INFO[ListItem.Genre][/COLOR]</label>
+                </control>
+                <control type="textbox">
+                    <top>40</top>
+                    <width>1350</width>
+                    <height>145</height>
+                    <font>Font_Reg20</font>
+                    <label>$INFO[ListItem.Plot]</label>
+                    <autoscroll delay="10000" time="AutoScrollTime" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
+                </control>
+            </control>
+        </control>
+        <control type="group">
+            <description>TV Guide Channel</description>
+            <visible>Control.IsVisible(13)</visible>
+            <top>30</top>
+            <control type="image">
+                <left>45</left>
+                <top>38</top>
+                <width>1830</width>
+                <height>1068</height>
+                <texture colordiffuse="$VAR[AreaColorVar]">wall/wall_bg_glow.png</texture>
+                <visible>!Skin.HasSetting(DisableGlowbar)</visible>
+                <include>PanelGlowFade</include>
+            </control>
+            <control type="image">
+                <left>45</left>
+                <top>38</top>
+                <width>1830</width>
+                <height>1068</height>
+                <texture colordiffuse="$VAR[DialogColorVar]">wall/wall_bg.png</texture>
+            </control>
+            <control type="image">
+                <left>45</left>
+                <top>38</top>
+                <width>1830</width>
+                <height>1068</height>
+                <texture>wall/wall_bg_reflection.png</texture>
+            </control>
+            <control type="group">
+                <width>1740</width>
+                <height>750</height>
+                <left>120</left>
+                <top>90</top>
+                <control type="label">
+                    <description>Time</description>
+                    <left>3</left>
+                    <top>15</top>
+                    <width>300</width>
+                    <height>30</height>
+                    <label>555</label>
+                    <font>Font_Bold34_Caps</font>
+                    <shadowcolor>black</shadowcolor>
+                </control>
+                <control type="label">
+                    <description>Title</description>
+                    <left>378</left>
+                    <top>15</top>
+                    <width>825</width>
+                    <height>30</height>
+                    <label>369</label>
+                    <font>Font_Bold34_Caps</font>
+                    <shadowcolor>black</shadowcolor>
+                </control>
+                <control type="label">
+                    <description>Status</description>
+                    <left>1400</left>
+                    <top>15</top>
+                    <width>210</width>
+                    <height>30</height>
+                    <label>126</label>
+                    <font>Font_Bold34_Caps</font>
+                    <shadowcolor>black</shadowcolor>
+                </control>
+                <control type="image">
+                    <left>-45</left>
+                    <width>1760</width>
+                    <height>60</height>
+                    <texture border="1">osd/osd_settings_buttonnf.png</texture>
+                </control>
+                <control type="list" id="13">
+                    <top>60</top>
+                    <width>1740</width>
+                    <height>750</height>
+                    <onup>13</onup>
+                    <ondown>13</ondown>
+                    <onleft>9003</onleft>
+                    <onright>75</onright>
+                    <viewtype label="19029">list</viewtype>
+                    <pagecontrol>75</pagecontrol>
+                    <scrolltime>200</scrolltime>
+					<visible>Player.HasVideo</visible>
+                    <itemlayout height="60">
+                        <control type="image">
+                            <left>-45</left>
+                            <width>1760</width>
+                            <height>60</height>
+                            <texture border="1">osd/osd_settings_buttonnf.png</texture>
+                        </control>
+                        <control type="label">
+                            <left>3</left>
+                            <width>300</width>
+                            <height>52</height>
+                            <label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]</label>
+                            <font>Font_Reg32</font>
+                        </control>
+                        <control type="label">
+                            <left>378</left>
+                            <width>825</width>
+                            <height>52</height>
+                            <font>Font_Reg32</font>
+                            <textcolor>$VAR[FontColorVar]</textcolor>
+                            <info>ListItem.Label</info>
+                        </control>
+                        <control type="image">
+                            <left>1400</left>
+                            <top>15</top>
+                            <width>35</width>
+                            <height>35</height>
+                            <texture>pvr/PVR-IsRecording.png</texture>
+                            <animation effect="fade" start="100" end="40" time="960" pulse="true" condition="true">conditional</animation>
+                            <visible>ListItem.IsRecording</visible>
+                        </control>
+                        <control type="label">
+                            <left>1445</left>
+                            <width>200</width>
+                            <height>60</height>
+                            <label>31111</label>
+                            <font>Font_Reg32</font>
+                            <visible>ListItem.IsRecording</visible>
+                        </control>
+                        <control type="image">
+                            <left>1400</left>
+                            <top>15</top>
+                            <width>35</width>
+                            <height>35</height>
+                            <texture>pvr/PVR-HasTimer.png</texture>
+                            <visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
+                        </control>
+                        <control type="label">
+                            <left>1445</left>
+                            <width>200</width>
+                            <height>60</height>
+                            <label>31104</label>
+                            <font>Font_Reg32</font>
+                            <visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="260">
+                        <control type="image">
+                            <left>-45</left>
+                            <width>1760</width>
+                            <height>60</height>
+                            <texture border="1">osd/osd_settings_buttonnf.png</texture>
+                        </control>
+                        <control type="image">
+                            <left>0</left>
+                            <width>1665</width>
+                            <height>59</height>
+                            <texture colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texture>
+                        </control>
+                        <control type="label">
+                            <left>3</left>
+                            <width>300</width>
+                            <height>52</height>
+                            <label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]</label>
+                            <font>Font_Reg32</font>
+                        </control>
+                        <control type="label">
+                            <left>378</left>
+                            <width>825</width>
+                            <height>52</height>
+                            <font>Font_Reg32</font>
+                            <textcolor>$VAR[FontColorVar]</textcolor>
+                            <info>ListItem.Label</info>
+                        </control>
+                        <control type="textbox">
+                            <left>60</left>
+                            <top>60</top>
+                            <width>1540</width>
+                            <height>200</height>
+                            <label>$INFO[ListItem.Plot]</label>
+                            <font>Font_Reg32</font>
+                            <shadowcolor>black</shadowcolor>
+                            <textcolor>grey</textcolor>
+                        </control>
+                        <control type="image">
+                            <left>1400</left>
+                            <top>15</top>
+                            <width>35</width>
+                            <height>35</height>
+                            <texture>pvr/PVR-IsRecording.png</texture>
+                            <animation effect="fade" start="100" end="40" time="960" pulse="true" condition="true">conditional</animation>
+                            <visible>ListItem.IsRecording</visible>
+                        </control>
+                        <control type="label">
+                            <left>1445</left>
+                            <width>200</width>
+                            <height>60</height>
+                            <label>31111</label>
+                            <font>Font_Reg32</font>
+                            <visible>ListItem.IsRecording</visible>
+                        </control>
+                        <control type="image">
+                            <left>1400</left>
+                            <top>15</top>
+                            <width>35</width>
+                            <height>35</height>
+                            <texture>pvr/PVR-HasTimer.png</texture>
+                            <visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
+                        </control>
+                        <control type="label">
+                            <left>1445</left>
+                            <width>200</width>
+                            <height>60</height>
+                            <label>31104</label>
+                            <font>Font_Reg32</font>
+                            <visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
+                        </control>
+                    </focusedlayout>
+                </control>
+                <control type="scrollbar" id="75">
+                    <left>1722</left>
+                    <top>50</top>
+                    <width>46</width>
+                    <height>830</height>
+                    <include>Animation_VerticalScrollBar</include>
+                    <onleft>13</onleft>
+                    <onright>13</onright>
+                </control>
+            </control>
+        </control>
+        <control type="label" id="29">
+            <font>-</font>
+            <include>HiddenObject</include>
+        </control>
+        <control type="label" id="30">
+            <font>-</font>
+            <include>HiddenObject</include>
+        </control>
+        <include>BreadcrumbsContent</include>
+        <include>Media_Menu_Furniture</include>
+        <include>PVRSideblade</include>
+        <include>ContextMenuOverlay</include>
+    </controls>
+</window>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window type="dialog" id="1165">
+    <defaultcontrol always="true">450</defaultcontrol>
+    <coordinates>
+        <left>0</left>
+        <top>0</top>
+        <system>1</system>
+    </coordinates>
+    <include>Animation_DialogPopup</include>
+    <controls>
+        <control type="image">
+            <left>357</left>
+            <top>180</top>
+            <width>1212</width>
+            <height>630</height>
+            <texture>osd/osd_settings_back_glow.png</texture>
+            <visible>!Skin.HasSetting(DisableGlowbar)</visible>
+            <include>PanelGlowFade</include>
+            <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+        </control>
+        <control type="image">
+            <left>357</left>
+            <top>180</top>
+            <width>1212</width>
+            <height>630</height>
+            <texture>osd/osd_settings_back.png</texture>
+            <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+        </control>
+        <control type="image">
+            <left>375</left>
+            <top>212</top>
+            <width>1172</width>
+            <height>60</height>
+            <texture border="1">osd/osd_settings_buttonnf.png</texture>
+        </control>
+        <control type="label">
+            <left>420</left>
+            <top>205</top>
+            <width>600</width>
+            <height>60</height>
+            <label>$LOCALIZE[32974]</label>
+            <font>Font_Bold33</font>
+            <textcolor>$VAR[TitleColorVar]</textcolor>
+        </control>
+        <control type="grouplist" id="450">
+            <left>375</left>
+            <top>272</top>
+            <width>1172</width>
+            <height>540</height>
+            <aligny>center</aligny>
+            <pagecontrol>60</pagecontrol>
+            <onleft>60</onleft>
+            <onright>60</onright>
+            <onup>450</onup>
+            <ondown>450</ondown>
+			<control type="radiobutton" id="109">
+				<label>$LOCALIZE[32966]</label>
+				<include>Objects_CommonSettingsButton</include>
+				<onclick>Skin.ToggleSetting(TVTunes.Enabled)</onclick>
+				<selected>Skin.HasSetting(TVTunes.Enabled)</selected>
+			</control>
+			<control type="radiobutton" id="125">
+				<label>$LOCALIZE[32973]</label>
+				<include>Objects_CommonSettingsButton</include>
+				<onclick>Skin.ToggleSetting(Enable.videoextras)</onclick>
+				<selected>Skin.HasSetting(Enable.videoextras)</selected>
+			</control>	
+- 
+		    <control type="radiobutton" id="112">
+				<label>Enable MPAA rating description</label>
+				<include>Objects_CommonSettingsButton</include>
+				<onclick>Skin.ToggleSetting(ExtendedMpaa)</onclick>
+				<selected>Skin.HasSetting(ExtendedMpaa)</selected>
+			</control>					
+			<control type="button" id="113">
+				<label>$LOCALIZE[31115]</label>
+				<include>Objects_CommonSettingsButton</include>
+				<onclick>Dialog.Close(1165)</onclick>
+				<onclick>ActivateWindow(1169)</onclick>
+			</control>
+			<!-- MAD - New switch for Alt Dialog Info Screen - Not complete: onup issues -->
+			<!--control type="radiobutton" id="17033">
+				<label>Alternate Info Screen</label>
+				<include>Objects_CommonSettingsButton</include>
+				<onclick>Skin.ToggleSetting(AltInfoScreen)</onclick>
+				<selected>Skin.HasSetting(AltInfoScreen)</selected>
+			</control-->																						
+        </control>
+        <control type="scrollbar" id="60">
+            <include>Objects_CommonSettingsScrollbar</include>
+            <onleft>450</onleft>
+            <onright>450</onright>
+            <ondown>60</ondown>
+            <onup>60</onup>
+        </control>
+    </controls>
+</window>

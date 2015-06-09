@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+    <defaultcontrol always="true">5</defaultcontrol>
+    <coordinates>
+        <posx>0</posx>
+        <posy>0</posy>
+        <system>1</system>
+    </coordinates>
+    <include>Animation_DialogPopupOpenClose</include>
+    <controls>
+        <control type="image">
+            <posx>-64</posx>
+            <width>662</width>
+            <height>1080</height>
+            <texture colordiffuse="$VAR[DialogColorVar]">dialogs/context_middle.png</texture>
+        </control>
+        <control type="group">
+            <posx>550</posx>
+            <include>Neon_VerticalBar</include>
+        </control>
+		<control type="image">
+                 <posx>0</posx>
+                 <posy>18</posy>
+                 <width>90</width>
+                 <height>90</height>
+           		 <texture colordiffuse="gray">special://skin/extras/BigIcons/Magicwand.png</texture>
+				
+                </control>
+				<control type="label" id="2">
+                <posx>90</posx>
+                <posy>24</posy>
+                <width>1080</width>
+                <height>60</height>
+                <label>587</label>
+                <font>Font_Bold33</font>
+                <textcolor>$VAR[FontColorVar]</textcolor>
+        </control>
+	
+        <control type="grouplist" id="5">
+            <posx>0</posx>
+            <posy>100</posy>
+            <width>570</width>
+            <height>800</height>
+            <pagecontrol>6</pagecontrol>
+            <onup>27</onup>
+            <ondown>27</ondown>
+            <onleft>Action(Close)</onleft>
+            <onright>Action(Close)</onright>
+        </control>
+        <control type="button" id="7">
+            <height>70</height>
+            <texturenofocus border="5">button-nofocus.png</texturenofocus>
+			<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+            <font>Font_Reg30</font>
+            <textcolor>grey2</textcolor>
+        </control>
+        <control type="radiobutton" id="8">
+            <height>70</height>
+            <texturenofocus border="5">button-nofocus.png</texturenofocus>
+			<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+            <font>Font_Reg30</font>
+            <textcolor>grey2</textcolor>
+        </control>
+        <control type="spincontrolex" id="9">
+            <height>70</height>
+            <aligny>center</aligny>
+            <texturenofocus colordiffuse="$VAR[FocusTextureColorVar]" border="5">button-nofocus.png</texturenofocus>
+			<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+            <font>Font_Reg30</font>
+            <textcolor>grey2</textcolor>
+        </control>
+        <control type="sliderex" id="13">
+            <height>70</height>
+            <textoffsetx>13</textoffsetx>
+            <aligny>center</aligny>
+            <texturenofocus colordiffuse="$VAR[FocusTextureColorVar]" border="5">button-nofocus.png</texturenofocus>
+			<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+            <font>Font_Reg30</font>
+            <textcolor>grey2</textcolor>
+        </control>
+       <control type="edit" id="12">
+            <height>70</height>
+            <texturenofocus colordiffuse="$VAR[FocusTextureColorVar]" border="5">button-nofocus.png</texturenofocus>
+            <font>Font_Reg30</font>
+            <textcolor>grey2</textcolor>
+        </control>
+        <control type="button" id="27">
+            <posx>0</posx>
+            <posy>900</posy>
+            <width>570</width>
+            <height>60</height>
+            <align>center</align>
+            <aligny>center</aligny>
+            <texturenofocus colordiffuse="$VAR[FocusTextureColorVar]" border="5">button-nofocus.png</texturenofocus>
+			<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+            <label>Reset</label>
+            <font>font12_title</font>
+            <onup>5</onup>
+            <onleft>Action(Close)</onleft>
+            <onright>Action(Close)</onright>
+            <ondown>5</ondown>
+        </control>
+    </controls>
+</window>

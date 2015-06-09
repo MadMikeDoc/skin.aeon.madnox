@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+    <defaultcontrol>5</defaultcontrol>
+    <coordinates>
+        <left>0</left>
+        <top>0</top>
+        <system>1</system>
+    </coordinates>
+    <animation effect="fade" start="100" end="0" time="160">WindowClose</animation>
+    <animation effect="fade" end="100" time="160">WindowOpen</animation>
+    <controls>
+        <control type="group">
+            <left>240</left>
+            <top>82</top>
+            <animation effect="fade" start="100" end="0" time="320" condition="Window.IsVisible(SliderDialog) | Window.IsVisible(FileBrowser)">Conditional</animation>
+            <control type="grouplist" id="5">
+                <left>274</left>
+                <top>60</top>
+                <width>1144</width>
+                <height>798</height>
+                <pagecontrol>60</pagecontrol>
+                <onleft>9000</onleft>
+                <onright>60</onright>
+                <onup>5</onup>
+                <ondown>5</ondown>
+            </control>
+            <control type="image">
+                <left>740</left>
+                <top>855</top>
+                <width>30</width>
+                <height>20</height>
+                <texture>arrowdown.png</texture>
+                <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+                <include>Animation_VisibleChange200</include>
+                <visible>Container(5).HasNext+ ControlGroup(5).HasFocus</visible>
+            </control>
+            <control type="scrollbar" id="60">
+                <left>1369</left>
+                <top>120</top>
+                <width>98</width>
+                <height>680</height>
+                <texturesliderbackground>-</texturesliderbackground>
+                <onleft>5</onleft>
+                <onright>9000</onright>
+                <ondown>60</ondown>
+                <onup>60</onup>
+            </control>
+            <control type="sliderex" id="13">
+                <width>600</width>
+                <font>Font_Info</font>
+            </control>
+            <control type="button" id="7">
+                <textoffsetx>40</textoffsetx>
+                <texturefocus border="8">views/tripanel/listselect_fo.png</texturefocus>
+                <texturenofocus>settings/settings_radiobuttonoff.png</texturenofocus>
+                <font>Font_Info</font>
+                <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+            </control>
+            <control type="radiobutton" id="8">
+                <width>420</width>
+                <height>62</height>
+                <textoffsetx>40</textoffsetx>
+                <texturefocus border="8">views/tripanel/listselect_fo.png</texturefocus>
+                <texturenofocus>settings/settings_radiobuttonoff.png</texturenofocus>
+                <font>Font_Info</font>
+                <textcolor>white3</textcolor>
+                <radioleft>1005</radioleft>
+                <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+            </control>
+            <control type="spincontrolex" id="9">
+                <height>62</height>
+                <textoffsetx>40</textoffsetx>
+                <texturefocus border="8">views/tripanel/listselect_fo.png</texturefocus>
+                <texturenofocus>settings/settings_radiobuttonoff.png</texturenofocus>
+                <font>Font_Info</font>
+                <textcolor>white3</textcolor>
+                <spinleft>8</spinleft>
+                <alignx>center</alignx>
+                <subtype>text</subtype>
+            </control>
+            <control type="image" id="11">
+                <height>1</height>
+                <texture>home/nowplaying/nowplayline.png</texture>
+            </control>
+            <control type="group" id="9000">
+                <top>25</top>
+                <control type="button" id="28">
+                    <left>22</left>
+                    <top>39</top>
+                    <width>252</width>
+                    <height>96</height>
+                    <textoffsetx>40</textoffsetx>
+                    <textoffsety>18</textoffsety>
+                    <align>left</align>
+                    <texturefocus border="8">views/tripanel/listselect_fo.png</texturefocus>
+                    <texturenofocus>-</texturenofocus>
+                    <label>186</label>
+                    <font>Font_Bold37</font>
+                    <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+                    <focusedcolor>white</focusedcolor>
+                    <onleft>5</onleft>
+                    <onright>5</onright>
+                    <onup>50</onup>
+                    <ondown>29</ondown>
+                </control>
+                <control type="button" id="29">
+                    <left>22</left>
+                    <top>124</top>
+                    <width>252</width>
+                    <height>96</height>
+                    <textoffsetx>40</textoffsetx>
+                    <textoffsety>18</textoffsety>
+                    <align>left</align>
+                    <texturefocus border="8">views/tripanel/listselect_fo.png</texturefocus>
+                    <texturenofocus>-</texturenofocus>
+                    <label>222</label>
+                    <font>Font_Bold37</font>
+                    <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+                    <focusedcolor>white</focusedcolor>
+                    <onleft>5</onleft>
+                    <onright>5</onright>
+                    <onup>28</onup>
+                    <ondown>50</ondown>
+                </control>
+                <control type="button" id="50">
+                    <left>22</left>
+                    <top>210</top>
+                    <width>252</width>
+                    <height>96</height>
+                    <textoffsetx>40</textoffsetx>
+                    <textoffsety>18</textoffsety>
+                    <align>left</align>
+                    <texturefocus border="8">views/tripanel/listselect_fo.png</texturefocus>
+                    <texturenofocus>-</texturenofocus>
+                    <label>409</label>
+                    <font>Font_Bold37</font>
+                    <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+                    <focusedcolor>white</focusedcolor>
+                    <onleft>5</onleft>
+                    <onright>5</onright>
+                    <onup>29</onup>
+                    <ondown>28</ondown>
+                </control>
+            </control>
+        </control>
+    </controls>
+</window>

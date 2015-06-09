@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol>50</defaultcontrol>
+    <backgroundcolor>backgroundcolor</backgroundcolor>
+    <include condition="!Skin.HasSetting(firstrun4.0)">AutoConfig</include>
+    <views>50</views>
+    <controls>
+        <include>PVRCommonBackground</include>
+        <control type="group">
+            <description>Timers group</description>
+            <top>30</top>
+            <width>1830</width>
+            <height>1068</height>
+            <include>Animation_OpenCloseZoom_New</include>
+            <control type="group">
+                <include>Animation_VisibleChange200</include>
+                <control type="image">
+                    <left>45</left>
+                    <top>38</top>
+                    <width>1830</width>
+                    <height>1068</height>
+                    <texture colordiffuse="$VAR[AreaColorVar]">wall/wall_bg_glow.png</texture>
+                    <visible>!Skin.HasSetting(DisableGlowbar)</visible>
+                    <include>PanelGlowFade</include>
+                </control>
+                <control type="image">
+                    <left>45</left>
+                    <top>38</top>
+                    <width>1830</width>
+                    <height>1068</height>
+                    <texture colordiffuse="$VAR[DialogColorVar]">wall/wall_bg.png</texture>
+                </control>
+                <control type="image">
+                    <left>45</left>
+                    <top>38</top>
+                    <width>1830</width>
+                    <height>1068</height>
+                    <texture>wall/wall_bg_reflection.png</texture>
+                </control>
+            </control>
+            <control type="group">
+                <left>120</left>
+                <top>90</top>
+                <height>750</height>
+                <width>1740</width>
+                <visible>Control.IsVisible(50)</visible>
+                <include>Animation_VisibleChange200</include>
+                <control type="group">
+                    <control type="label">
+                        <left>3</left>
+                        <top>15</top>
+                        <width>330</width>
+                        <height>30</height>
+                        <label>19029</label>
+                        <font>Font_Bold34_Caps</font>
+                        <shadowcolor>black</shadowcolor>
+                    </control>
+                    <control type="label">
+                        <left>378</left>
+                        <top>15</top>
+                        <width>450</width>
+                        <height>30</height>
+                        <label>369</label>
+                        <font>Font_Bold34_Caps</font>
+                        <shadowcolor>black</shadowcolor>
+                    </control>
+                    <control type="label">
+                        <left>880</left>
+                        <top>15</top>
+                        <width>450</width>
+                        <height>30</height>
+                        <label>31009</label>
+                        <font>Font_Bold34_Caps</font>
+                        <shadowcolor>black</shadowcolor>
+                    </control>
+                    <control type="label">
+                        <left>1400</left>
+                        <top>15</top>
+                        <width>225</width>
+                        <height>30</height>
+                        <label>126</label>
+                        <font>Font_Bold34_Caps</font>
+                        <shadowcolor>black</shadowcolor>
+                    </control>
+                    <control type="image">
+                        <left>-45</left>
+                        <width>1760</width>
+                        <height>60</height>
+                        <texture border="1">osd/osd_settings_buttonnf.png</texture>
+                    </control>
+                    <control type="list" id="50">
+                        <top>60</top>
+                        <width>1740</width>
+                        <height>750</height>
+                        <onup>50</onup>
+                        <ondown>50</ondown>
+                        <onleft>9000</onleft>
+                        <onright>73</onright>
+                        <pagecontrol>73</pagecontrol>
+                        <scrolltime>200</scrolltime>
+                        <viewtype label="535">list</viewtype>
+                        <itemlayout height="60">
+                            <control type="image">
+                                <left>-45</left>
+                                <width>1760</width>
+                                <height>60</height>
+                                <texture border="1">osd/osd_settings_buttonnf.png</texture>
+                            </control>
+                            <control type="group">
+                                <visible>IsEmpty(ListItem.Date)</visible>
+                                <control type="image">
+                                    <left>3</left>
+                                    <top>12</top>
+                                    <width>45</width>
+                                    <height>45</height>
+                                    <aspectratio>keep</aspectratio>
+                                    <texture>special://skin/extras/icons/plus.png</texture>
+                                </control>
+                                <control type="label">
+                                    <left>60</left>
+                                    <width>285</width>
+                                    <height>52</height>
+                                    <font>Font_Reg32</font>
+                                    <info>ListItem.Label</info>
+                                </control>
+                            </control>
+                            <control type="group">
+                                <visible>!IsEmpty(ListItem.Date)</visible>
+                                <control type="image">
+                                    <left>3</left>
+                                    <top>8</top>
+                                    <width>45</width>
+                                    <height>45</height>
+                                    <aspectratio>keep</aspectratio>
+                                    <texture fallback="DefaultVideo.png">$INFO[ListItem.Icon]</texture>
+                                </control>
+                                <control type="label">
+                                    <left>60</left>
+                                    <width>285</width>
+                                    <height>52</height>
+                                    <font>Font_Reg32</font>
+                                    <info>ListItem.ChannelName</info>
+                                </control>
+                                <control type="label">
+                                    <left>378</left>
+                                    <width>500</width>
+                                    <height>52</height>
+                                    <font>Font_Reg32</font>
+                                    <textcolor>$VAR[FontColorVar]</textcolor>
+                                    <info>ListItem.Label</info>
+                                </control>
+                                <control type="label">
+                                    <left>880</left>
+                                    <width>600</width>
+                                    <height>52</height>
+                                    <font>Font_Reg32</font>
+                                    <info>ListItem.Date</info>
+                                </control>
+                                <control type="label">
+                                    <left>1400</left>
+                                    <width>255</width>
+                                    <height>52</height>
+                                    <font>Font_Reg32</font>
+                                    <textcolor>grey</textcolor>
+                                    <info>ListItem.Comment</info>
+                                </control>
+                            </control>
+                        </itemlayout>
+                        <focusedlayout height="60">
+                            <control type="image">
+                                <left>-45</left>
+                                <width>1760</width>
+                                <height>60</height>
+                                <texture border="1">osd/osd_settings_buttonnf.png</texture>
+                            </control>
+                            <control type="image">
+                                <left>0</left>
+                                <width>1665</width>
+                                <height>59</height>
+                                <texture colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texture>
+                            </control>
+                            <control type="group">
+                                <visible>IsEmpty(ListItem.Date)</visible>
+                                <control type="image">
+                                    <left>3</left>
+                                    <top>12</top>
+                                    <width>45</width>
+                                    <height>45</height>
+                                    <aspectratio>keep</aspectratio>
+                                    <texture>special://skin/extras/icons/plus.png</texture>
+                                </control>
+                                <control type="label">
+                                    <left>60</left>
+                                    <width>285</width>
+                                    <height>52</height>
+                                    <font>Font_Reg32</font>
+                                    <info>ListItem.Label</info>
+                                </control>
+                            </control>
+                            <control type="group">
+                                <visible>!IsEmpty(ListItem.Date)</visible>
+                                <control type="image">
+                                    <left>3</left>
+                                    <top>8</top>
+                                    <width>45</width>
+                                    <height>45</height>
+                                    <aspectratio>keep</aspectratio>
+                                    <texture fallback="DefaultVideo.png">$INFO[ListItem.Icon]</texture>
+                                </control>
+                                <control type="label">
+                                    <left>60</left>
+                                    <width>285</width>
+                                    <height>52</height>
+                                    <font>Font_Reg32</font>
+                                    <info>ListItem.ChannelName</info>
+                                </control>
+                                <control type="label">
+                                    <left>378</left>
+                                    <width>500</width>
+                                    <height>52</height>
+                                    <font>Font_Reg32</font>
+                                    <textcolor>$VAR[FontColorVar]</textcolor>
+                                    <info>ListItem.Label</info>
+                                </control>
+                                <control type="label">
+                                    <left>880</left>
+                                    <width>600</width>
+                                    <height>52</height>
+                                    <font>Font_Reg32</font>
+                                    <info>ListItem.Date</info>
+                                </control>
+                                <control type="label">
+                                    <left>1400</left>
+                                    <width>255</width>
+                                    <height>52</height>
+                                    <font>Font_Reg32</font>
+                                    <textcolor>grey</textcolor>
+                                    <info>ListItem.Comment</info>
+                                </control>
+                            </control>
+                        </focusedlayout>
+                    </control>
+                    <control type="label">
+                        <left>82</left>
+                        <top>835</top>
+                        <width>1515</width>
+                        <height>45</height>
+                        <align>center</align>
+                        <label>$INFO[PVR.NextTimer]</label>
+                        <font>Font_Reg28</font>
+                        <textcolor>grey</textcolor>
+                        <scroll>true</scroll>
+                        <visible>PVR.HasTimer</visible>
+                    </control>
+                </control>
+            </control>
+            <control type="scrollbar" id="73">
+                <left>1843</left>
+                <top>96</top>
+                <width>46</width>
+                <height>830</height>
+                <include>Animation_VerticalScrollBar</include>
+                <onleft>50</onleft>
+                <onright>50</onright>
+            </control>
+        </control>
+        <control type="label" id="29">
+            <font>-</font>
+            <include>HiddenObject</include>
+        </control>
+        <control type="label" id="30">
+            <font>-</font>
+            <include>HiddenObject</include>
+        </control>
+        <include>BreadcrumbsContent</include>
+        <include>Media_Menu_Furniture</include>
+        <include>PVRSideblade</include>
+        <include>ContextMenuOverlay</include>
+    </controls>
+</window>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+	<defaultcontrol always="true">9000</defaultcontrol>
+	<backgroundcolor>backgroundcolor</backgroundcolor>
+	<include condition="!Skin.HasSetting(firstrun4.0)">AutoConfig</include>
+	<controls>
+		<include>CommonSettingsBackground</include>
+		<include>CommonMediaPlayingBackground</include>
+		<include>Furniture_SettingsFloor</include>
+		<control type="group">
+			<animation type="WindowOpen" reversible="false" condition="![Window.Previous(SettingsCategory.xml) | Window.Previous(systeminfo) | Window.Previous(skinsettings)]">
+				<effect type="zoom" start="150" end="100" center="960,540" time="240" tween="cubic"/>
+				<effect type="fade" end="100" time="240"/>
+			</animation>
+			<animation type="WindowClose" reversible="false" condition="![Window.Next(SettingsCategory.xml) | Window.Next(systeminfo) | Window.Next(skinsettings)]">
+				<effect type="fade" start="100" end="0" time="240"/>
+				<effect type="zoom" start="100" end="130" center="960,540" time="240" tween="cubic" easing="in"/>
+			</animation>
+			<animation effect="zoom" end="91" center="960,360" time="320" tween="cubic" easing="inout" condition="true">Conditional</animation>
+			<control type="image">
+				<posx>52</posx>
+				<posy>50</posy>
+				<width>1815</width>
+				<height>1120</height>
+				<texture colordiffuse="$VAR[DialogColorVar]">wall/wall_bg.png</texture>
+			</control>
+			<control type="image">
+				<posx>52</posx>
+				<posy>50</posy>
+				<width>1815</width>
+				<height>1120</height>
+				<texture>wall/wall_bg_reflection.png</texture>
+			</control>
+			<control type="image">
+				<posx>55</posx>
+				<posy>118</posy>
+				<width>475</width>
+				<height>292</height>
+				<texture colordiffuse="$VAR[FocusTextureColorVar]" border="40">buttons/roundedbutton-focus.png</texture>
+				<animation effect="slide" end="0,270" time="300" tween="cubic" easing="inout" condition="Container(9000).Row(2)">Conditional</animation>
+				<animation effect="slide" end="0,270" time="300" tween="cubic" easing="inout" condition="Container(9000).Row(2) | Container(9000).Row(1)">Conditional</animation>
+				<animation effect="slide" end="440,0" time="300" tween="cubic" easing="inout" condition="Container(9000).Column(4)">Conditional</animation>
+				<animation effect="slide" end="440,0" time="300" tween="cubic" easing="inout" condition="Container(9000).Column(4) | Container(9000).Column(3)">Conditional</animation>
+				<animation effect="slide" end="440,0" time="300" tween="cubic" easing="inout" condition="Container(9000).Column(4) | Container(9000).Column(3) | Container(9000).Column(2)">Conditional</animation>
+				<animation effect="slide" end="440,0" time="300" tween="cubic" easing="inout" condition="Container(9000).Column(4) | Container(9000).Column(3) | Container(9000).Column(2) | Container(9000).Column(1)">Conditional</animation>
+			</control>
+			<control type="panel" id="9000">
+				<posx>92</posx>
+				<posy>140</posy>
+				<width>1850</width>
+				<height>819</height>
+				<onleft condition="!Skin.HasSetting(quicknav)">9000</onleft>
+				<onleft condition="Skin.HasSetting(quicknav)">ActivateWindow(1121)</onleft>
+				<onright>9000</onright>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<itemlayout height="270" width="440">
+					<control type="image">
+						<width>400</width>
+						<height>250</height>
+						<aspectratio>keep</aspectratio>
+						<texture>$INFO[ListItem.Icon]</texture>
+						<bordertexture border="5">button-nofocus.png</bordertexture>
+						<bordersize>5</bordersize>
+					</control>
+					<control type="image">
+						<posy>13</posy>
+						<posx>5</posx>
+						<width>390</width>
+						<height>220</height>
+						<texture colordiffuse="55FFFFFF">common/bgcolor.png</texture>
+					</control>
+					<control type="label">
+						<width>400</width>
+						<height>400</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>Font_Reg42_2</font>
+						<align>center</align>
+						<textcolor>white2</textcolor>
+					</control>
+				</itemlayout>
+				<focusedlayout height="270" width="440">
+					<control type="group">
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" center="auto" start="100" end="105" time="300" tween="sine"/>
+						</animation>
+						<animation type="UnFocus" reversible="false">
+							<effect type="zoom" center="auto" start="105" end="100" time="300" tween="sine"/>
+						</animation>
+						<control type="image">
+							<aspectratio>keep</aspectratio>
+							<width>400</width>
+							<height>250</height>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+						</control>
+						<control type="image">
+							<aspectratio>keep</aspectratio>
+							<width>400</width>
+							<height>250</height>
+							<texture colordiffuse="$VAR[AreaColorVar]">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<animation type="Focus" reversible="true">
+								<effect type="fade" start="0" end="100" delay="1000" time="500" tween="cubic"/>
+							</animation>
+							<animation type="UnFocus" reversible="true">
+								<effect type="fade" start="100" end="0" time="500" tween="cubic"/>
+							</animation>
+						</control>
+						<control type="textbox">
+							<posx>10</posx>
+							<posy>20</posy>
+							<animation type="Focus" reversible="true">
+								<effect type="fade" start="0" end="100" delay="1000" time="500" tween="cubic"/>
+							</animation>
+							<animation type="UnFocus" reversible="true">
+								<effect type="fade" start="100" end="0" time="500" tween="cubic"/>
+							</animation>
+							<width>380</width>
+							<height>140</height>
+							<autoscroll delay="3000" time="AutoScrollTime" repeat="8001">true</autoscroll>
+							<label>$INFO[ListItem.Property(Description)]</label>
+							<font>Font_Reg25_2</font>
+							<align>center</align>
+						</control>
+						<control type="label">
+							<width>400</width>
+							<height>400</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>Font_Reg42_2</font>
+							<align>center</align>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<label>480</label>
+						<property name="description">$LOCALIZE[31400]</property>
+						<onclick>ActivateWindow(AppearanceSettings)</onclick>
+						<icon>special://skin/backgrounds/system_icons/skinsetting.jpg</icon>
+					</item>
+					<item id="2">
+						<label>157</label>
+						<property name="description">$LOCALIZE[31401]</property>
+						<onclick>ActivateWindow(VideosSettings)</onclick>
+						<icon>special://skin/backgrounds/system_icons/videos.jpg</icon>
+					</item>
+					<item id="3">
+						<label>2</label>
+						<property name="description">$LOCALIZE[31402]</property>
+						<onclick>ActivateWindow(MusicSettings)</onclick>
+						<icon>special://skin/backgrounds/system_icons/music.jpg</icon>
+					</item>
+					<item id="4">
+						<label>1</label>
+						<property name="description">$LOCALIZE[31403]</property>
+						<onclick>ActivateWindow(PicturesSettings)</onclick>
+						<icon>special://skin/backgrounds/system_icons/pictures.jpg</icon>
+					</item>
+					<item id="5">
+						<label>8</label>
+						<property name="description">$LOCALIZE[31404]</property>
+						<onclick>ActivateWindow(WeatherSettings)</onclick>
+						<icon>special://skin/backgrounds/system_icons/weather.jpg</icon>
+					</item>
+					<item id="6">
+						<label>24001</label>
+						<label2>31411</label2>
+						<property name="description">$LOCALIZE[31408]</property>
+						<onclick>ActivateWindow(AddonBrowser)</onclick>
+						<icon>special://skin/backgrounds/system_icons/programs.jpg</icon>
+					</item>
+					<item id="7">
+						<label>14036</label>
+						<property name="description">$LOCALIZE[31405]</property>
+						<onclick>ActivateWindow(ServiceSettings)</onclick>
+						<icon>special://skin/backgrounds/system_icons/network.jpg</icon>
+					</item>
+					<item id="8">
+						<label>13000</label>
+						<property name="description">$LOCALIZE[31406]</property>
+						<onclick>ActivateWindow(SystemSettings)</onclick>
+						<icon>special://skin/backgrounds/system_icons/system.jpg</icon>
+					</item>
+					<item id="21">
+						<label>31017</label>
+						<label2>31478</label2>
+						<property name="description">$LOCALIZE[31016]</property>
+						<onclick>ActivateWindow(PVRSettings)</onclick>
+						<icon>special://skin/backgrounds/system_icons/livetv.jpg</icon>
+					</item>
+					<item id="10">
+						<label>13281</label>
+						<label2>31413</label2>
+						<property name="description">$LOCALIZE[31409]</property>
+						<onclick>ActivateWindow(systeminfo)</onclick>
+						<icon>special://skin/backgrounds/system_icons/hardware.jpg</icon>
+					</item>
+					<item id="9">
+						<label>Profiles</label>
+						<property name="description">$LOCALIZE[31997]</property>
+						<onclick>ActivateWindow(Profiles)</onclick>
+						<icon>special://skin/backgrounds/system_icons/profile.jpg</icon>
+					</item>
+					<item id="9">
+						<label>File Manager</label>
+						<property name="description">$LOCALIZE[31998]</property>
+						<onclick>ActivateWindow(filemanager)</onclick>
+						<icon>special://skin/backgrounds/system_icons/file_manager.jpg</icon>
+					</item>
+				</content>
+			</control>
+			<!--            <control type="textbox">                <posx>555</posx>                <posy>810</posy>                <width>1200</width>                <height>210</height>                <label>$INFO[Container(9000).ListItem.Property(description)]</label>                <font>Font_Reg32</font>            </control>-->
+		</control>
+		<control type="group">
+			<include>Animation_HideBreadCrumbs</include>
+			<include>Breadcrumbs_BackBar</include>
+			<include>BreadcrumbsContent</include>
+			<include>Breadcrumbs_Furniture</include>
+		</control>
+		<include>Furniture_NowPlayingWidget</include>
+	</controls>
+</window>

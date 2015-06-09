@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+    <defaultcontrol>5</defaultcontrol>
+    <coordinates>
+        <posx>0</posx>
+        <posy>0</posy>
+        <system>1</system>
+    </coordinates>
+    <include>Animation_DialogPopupOpenClose</include>
+    <controls>
+        <control type="group">
+            <control type="group">
+                <control type="image">
+                    <posx>-40</posx>
+                    <width>760</width>
+                    <height>1080</height>
+                    <texture colordiffuse="$VAR[DialogColorVar]">dialogs/context_middle.png</texture>
+                </control>
+                <control type="group">
+                    <posx>670</posx>
+                    <include>Neon_VerticalBar</include>
+                </control>
+            </control>
+			<control type="image">
+                 <posx>0</posx>
+                 <posy>18</posy>
+                 <width>90</width>
+                 <height>90</height>
+           		 <texture colordiffuse="gray">special://skin/extras/BigIcons/Speaker.png</texture>
+				 <visible>Window.IsActive(OSDAudioSettings)</visible>
+                </control>
+			<control type="label">
+                <posx>90</posx>
+                <posy>24</posy>
+                <width>1080</width>
+                <height>60</height>
+                <label>Audio and Subtitle Settings</label>
+                <font>Font_Bold33</font>
+                <textcolor>$VAR[FontColorVar]</textcolor>
+                <visible>Window.IsActive(OSDAudioSettings)</visible>
+            </control>
+			<control type="image">
+                 <posx>0</posx>
+                 <posy>18</posy>
+                 <width>90</width>
+                 <height>90</height>
+                 <texture colordiffuse="gray">special://skin/extras/BigIcons/Camcorder.png</texture>
+				 <visible>Window.IsActive(OSDVideoSettings)</visible>
+                </control>
+            <control type="label">
+                <posx>90</posx>
+                <posy>24</posy>
+                <width>1080</width>
+                <height>60</height>
+                <label>Video Settings</label>
+                <font>Font_Bold33</font>
+                <textcolor>$VAR[FontColorVar]</textcolor>
+                <visible>Window.IsActive(OSDVideoSettings)</visible>
+            </control>
+            <control type="grouplist" id="5">
+                <posx>0</posx>
+                <posy>100</posy>
+                <width>688</width>
+                <height>1020</height>
+                <aligny>center</aligny>
+                <pagecontrol>60</pagecontrol>
+                <onleft>60</onleft>
+                <onright>60</onright>
+                <onup>5</onup>
+                <ondown>5</ondown>
+            </control>
+        </control>
+        <control type="button" id="7">
+			<width>1172</width>
+            <height>60</height>
+            <textoffsetx>20</textoffsetx>
+			<font>Font_Reg30</font>
+			<textcolor>grey2</textcolor>
+			<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+            <texturefocus>views/tripanel/listselect_fo.png</texturefocus>
+            <texturenofocus>osd/osd_settings_buttonnf.png</texturenofocus>
+		</control>
+		<control type="radiobutton" id="8">
+			<width>1172</width>
+            <height>60</height>
+            <textoffsetx>20</textoffsetx>
+			<font>Font_Reg30</font>
+			<textcolor>grey2</textcolor>
+			<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+            <texturefocus>views/tripanel/listselect_fo.png</texturefocus>
+            <texturenofocus>osd/osd_settings_buttonnf.png</texturenofocus>
+		</control>
+		<control type="spincontrolex" id="9">
+			<description>Default SpinControlex</description>
+			<height>60</height>
+            <textoffsetx>20</textoffsetx>
+			<font>Font_Reg30</font>
+			<textcolor>grey2</textcolor>
+			<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+            <texturefocus>views/tripanel/listselect_fo.png</texturefocus>
+            <texturenofocus>osd/osd_settings_buttonnf.png</texturenofocus>
+		</control>
+		<control type="sliderex" id="13">
+			<height>60</height>
+            <width>1172</width>
+            <textoffsetx>20</textoffsetx>
+			<textcolor>grey2</textcolor>
+			<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+            <texturefocus>views/tripanel/listselect_fo.png</texturefocus>
+            <texturenofocus>osd/osd_settings_buttonnf.png</texturenofocus>
+		</control>
+	</controls>
+</window>

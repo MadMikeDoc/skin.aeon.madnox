@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">3012</defaultcontrol>
+	<zorder>0</zorder>
+	<controls>
+		<control type="group">
+			<control type="group">
+				<animation effect="slide" start="0" end="0,-190" time="150" condition="Window.IsVisible(script-nextup-notification-NextUpInfo.xml)">Conditional</animation>
+				<animation effect="slide" start="0,110" end="0" time="150">Visible</animation>
+				<animation effect="slide" start="0,110" end="0" time="150">WindowOpen</animation>
+				<control type="image" id="3006">
+					<top>680</top>
+					<left>1414</left>
+					<bottom>110</bottom>
+					<width>500</width>
+					<height>281</height>
+					<aspectratio align="right" aligny="bottom">keep</aspectratio>
+				</control>
+				<control type="image" id="3008">
+					<visible>false</visible>
+				</control>
+				<control type="image" id="3009">
+					<visible>false</visible>
+				</control>
+				<control type="label" id="3015">
+					<visible>false</visible>
+				</control>
+				<control type="label" id="3016">
+					<visible>false</visible>
+				</control>
+				<control type="image">
+					<top>110r</top>
+					<width>100%</width>
+					<height>374</height>
+					<texture>white.png</texture>
+					<colordiffuse>ff010101</colordiffuse>
+				</control>
+			</control>
+			<control type="group">
+				<top>300r</top>
+				<bottom>0</bottom>
+				<width>100%</width>
+				<animation effect="fade" start="0" end="100" delay="150" time="150">Visible</animation>
+				<animation effect="fade" start="0" end="100" delay="150" time="150">WindowOpen</animation>
+				<control type="group">
+					<left>80</left>
+					<right>80</right>
+					<top>20</top>
+					<bottom>20</bottom>
+					<!--control type="image" id="3009">
+						<left>70</left>
+						<top>-226</top>
+						<width>334</width>
+						<height>486</height>
+					</control-->
+					<control type="image" id="3008">
+						<left>-60</left>
+						<width>341</width>
+						<height>228</height>
+						<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+						<texture background="true" diffuse="views/other/episode_diffuse.png">$INFO[Control.GetLabe(3008)]</texture>
+						<fadetime>FanartCrossfadeTime</fadetime>
+					</control>
+					<control type="image">
+						<left>-62</left>
+						<width>343</width>
+						<height>258</height>
+						<texture>wall/wall_bg_glow.png</texture>
+						<visible>!Skin.HasSetting(DisableGlowbar)</visible>
+						<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+						<include>PanelGlowFade</include>
+					</control>
+						<control type="group">
+						<left>294</left>
+						<right>0</right>
+						<control type="label">
+							<width>100%</width>
+							<top>4</top>
+							<height>40</height>
+							<font>font16</font>
+							<textcolor>B3dddddd</textcolor>
+							<label>$LOCALIZE[20373] $INFO[Control.GetLabel(3015)], Ep. $INFO[Control.GetLabel(3016)][COLOR=$VAR[FocusTextureColorVar]]$INFO[Control.GetLabel(3000), ,][/COLOR]</label>
+						</control>
+						<control type="label" description="episode/season info" id="3002">
+							<width>100%</width>
+							<top>0</top>
+							<left>175</left>
+							<height>40</height>
+							<font>font16</font>
+							<textcolor>B3dddddd</textcolor>
+							<visible>false</visible>
+						</control>
+						<control type="label" description="Title" id="3000">
+							<width>100%</width>
+							<left>267</left>
+							<top>0</top>
+							<height>40</height>
+							<font>font16</font>
+							<textcolor>$VAR[FocusTextureColorVar]</textcolor>
+							<visible>false</visible>
+						</control>
+						<control type="image">
+							<top>60</top>
+							<width>64</width>
+							<height>24</height>
+							<aspect>keep</aspect>
+							<texture>imdb.png</texture>
+							<visible>Control.IsVisible(3003)</visible>
+						</control>
+						<control type="label" id="3003" description="rating">
+							<left>85</left>
+							<width>100%</width>
+							<top>50</top>
+							<height>40</height>
+							<font>font14</font>
+							<textcolor>B3dddddd</textcolor>
+						</control>
+						<control type="label" id="3004" description="year/runtime">
+							<left>140</left>
+							<width>100%</width>
+							<top>50</top>
+							<height>40</height>
+							<font>font14</font>
+							<textcolor>B3dddddd</textcolor>
+							<scroll>false</scroll>
+							<visible>Control.IsVisible(3003)</visible>
+						</control>
+						<control type="label" id="3004" description="year/runtime">
+							<width>100%</width>
+							<top>50</top>
+							<height>40</height>
+							<font>font14</font>
+							<textcolor>B3dddddd</textcolor>
+							<scroll>false</scroll>
+							<visible>!Control.IsVisible(3003)</visible>
+						</control>
+						<control type="textbox" description="Plot" id="3001">
+							<width>85%</width>
+							<top>155</top>
+							<height>68</height>
+							<font>font12</font>
+							<align>justify</align>
+							<left>0</left>
+							<textcolor>4Ddddddd</textcolor>
+						</control>
+						<control type="label" description="Next up">
+							<width>100%</width>
+							<top>100</top>
+							<bottom>30</bottom>
+							<height>40</height>
+							<font>font12</font>
+							<textcolor>B3dddddd</textcolor>
+							<label>$ADDON[service.nextup.notification 30007]</label>
+						</control>
+						<control type="image">
+							<description>Progress Back</description>
+							<width>100%</width>
+							<bottom>10</bottom>
+							<height>8</height>
+							<texture colordiffuse="1F000000">white.png</texture>
+						</control>
+						<control type="progress" description="cache">
+							<description>Progress Bar</description>
+							<width>100%</width>
+							<bottom>10</bottom>
+							<height>8</height>
+							<info>Player.ProgressCache</info>
+							<visible>true</visible>
+							<texturebg colordiffuse="00ffffff">progress-bg.png</texturebg>
+							<lefttexture colordiffuse="FFff4081">progress-end.png</lefttexture>
+							<midtexture colordiffuse="FFff4081">progress-end.png</midtexture>
+							<righttexture colordiffuse="FFff4081">progress-end.png</righttexture>
+						</control>
+						<control type="progress" id="23">
+							<description>Progress Bar</description>
+							<width>100%</width>
+							<bottom>10</bottom>
+							<height>8</height>
+							<info>Player.Progress</info>
+							<visible>true</visible>
+						</control>
+					</control>
+				</control>
+			</control>
+		</control>
+		<control type="label" description="Total Time">
+			<top>784</top>
+			<left>1594</left>
+			<top>30</top>
+			<width>400</width>
+			<bottom>30</bottom>
+			<height>80</height>
+			<font>WeatherTemp</font>
+			<textcolor>B3dddddd</textcolor>
+			<label>[COLOR=$VAR[FocusTextureColorVar]]Starting in $INFO[Player.TimeRemaining(ss)][/COLOR]</label>
+			</control>
+		<!-- buttons -->
+		<control type="button" id="3012">
+			<description>Watch Now</description>
+			<top>864</top>
+			<left>1584</left>
+			<bottom>40</bottom>
+			<width>100</width>
+			<height>100</height>
+			<onleft>3013</onleft>
+			<onright>3013</onright>
+			<font>font14</font>
+			<!--label>$ADDON[service.nextup.notification 30006]</label-->
+			<focusedcolor>$VAR[FocusTextureColorVar]</focusedcolor>
+			<disabledcolor>B3dddddd</disabledcolor>
+			<selectedcolor>FF000000</selectedcolor>
+			<height>40</height>
+			<textcolor>ff333333</textcolor>
+			<texturefocus colordiffuse="$VAR[FocusTextureColorVar]" border="5">osd/buttons/osdplayfo.png</texturefocus>
+			<texturenofocus colordiffuse="FFFFFFFF" border="5">osd/buttons/osdplaynf.png</texturenofocus>
+		</control>
+		<control type="button" id="3013">
+			<description>Cancel</description>
+			<left>1674</left>
+			<top>864</top>
+			<bottom>-10</bottom>
+			<width>100</width>
+			<height>100</height>
+			<onleft>3012</onleft>
+			<onright>3012</onright>
+			<font>font14</font>
+			<!--label>222</label-->
+			<focusedcolor>$VAR[FocusTextureColorVar]</focusedcolor>
+			<disabledcolor>B3dddddd</disabledcolor>
+			<selectedcolor>FF000000</selectedcolor>
+			<height>40</height>
+			<textcolor>ff333333</textcolor>
+			<texturefocus colordiffuse="$VAR[FocusTextureColorVar]" border="5">osd/buttons/osdstopfo.png</texturefocus>
+			<texturenofocus colordiffuse="FFFFFFFF" border="5">osd/buttons/osdstopnf.png</texturenofocus>
+		</control>
+	</controls>
+</window>

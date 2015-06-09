@@ -1,0 +1,940 @@
+<?xml version="1.0" encoding="utf-8"?>
+<includes>
+    <include name="weatherwidgetback">
+        <control type="image">
+            <left>8</left>
+            <top>8</top>
+            <width>267</width>
+            <height>380</height>
+            <texture border="40">keyboard/keyboard_back_shadow.png</texture>
+            <visible>!Skin.HasSetting(DisableGlowbar)</visible>
+            <include>PanelGlowFade</include>
+            <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+        </control>
+        <control type="image">
+            <width>284</width>
+            <height>396</height>
+            <texture>$VAR[WeatherWidgetBackVar]</texture>
+            <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+        </control>
+    </include>
+    <include name="weatherwidget2back">
+        <control type="image">
+            <left>8</left>
+            <top>8</top>
+            <width>267</width>
+            <height>380</height>
+            <texture border="40">keyboard/keyboard_back_shadow.png</texture>
+            <visible>!Skin.HasSetting(DisableGlowbar)</visible>
+            <include>PanelGlowFade</include>
+            <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+        </control>
+        <control type="image">
+            <width>284</width>
+            <height>396</height>
+            <texture>$VAR[WeatherWidget2BackVar]</texture>
+            <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+        </control>
+    </include>
+    <include name="WeatherWorldTileImage">
+        <control type="image">
+            <width>360</width>
+            <height>60</height>
+            <texture border="5">button-nofocus.png</texture>
+            <visible>false</visible>
+        </control>
+    </include>
+    <include name="WeatherWorldTopLeftPointer">
+        <width>20</width>
+        <height>20</height>
+        <aspectratio>keep</aspectratio>
+        <texture>pointer-focus-click.png</texture>
+    </include>
+    <include name="WeatherWorldTopRightPointer">
+        <left>340</left>
+        <width>20</width>
+        <height>20</height>
+        <aspectratio>keep</aspectratio>
+        <texture flipx="true">pointer-focus-click.png</texture>
+    </include>
+    <include name="WeatherWorldConditionIconCommonValues">
+        <top>20</top>
+        <width>40</width>
+        <height>40</height>
+        <aspectratio>keep</aspectratio>
+        <fadetime>200</fadetime>
+    </include>
+    <include name="WeatherWorldCityNameCommonValues">
+        <left>20</left>
+        <top>-5</top>
+        <width>340</width>
+        <height>20</height>
+        <aligny>top</aligny>
+        <font>Font_Reg22</font>
+        <shadowcolor>black</shadowcolor>
+    </include>
+    <include name="WeatherWorldGroupListCommonValues">
+        <left>45</left>
+        <top>20</top>
+        <width>315</width>
+        <height>20</height>
+        <orientation>horizontal</orientation>
+        <itemgap>1</itemgap>
+    </include>
+    <include name="WeatherWorldTemperatureCommonValues">
+        <width min="0" max="100">auto</width>
+        <height>20</height>
+        <font>Font_Reg22</font>
+        <shadowcolor>black</shadowcolor>
+    </include>
+    <include name="WeatherWorldUnitCommonValues">
+        <width min="0" max="50">auto</width>
+        <height>18</height>
+        <font>Font_Reg17</font>
+        <shadowcolor>black</shadowcolor>
+    </include>
+    <include name="WeatherWorldLocalTimeCommonValues">
+        <width min="0" max="165">auto</width>
+        <height>20</height>
+        <font>Font_Reg22</font>
+        <shadowcolor>black</shadowcolor>
+        <textcolor>grey2</textcolor>
+    </include>
+    <include name="WeatherWorldOutLookCommonValues">
+        <left>45</left>
+        <top>40</top>
+        <width>315</width>
+        <height>20</height>
+        <font>Font_Reg22</font>
+        <shadowcolor>black</shadowcolor>
+        <textcolor>grey2</textcolor>
+    </include>
+    <include name="WeatherWorldLatitudeLongitudeCommonValues">
+        <top>60</top>
+        <width>360</width>
+        <height>20</height>
+        <aligny>top</aligny>
+        <font>Font_Reg22</font>
+        <shadowcolor>black</shadowcolor>
+        <visible>false</visible>
+    </include>
+    <include name="WeatherWorldGroup2601">
+        <control type="group" id="2601">
+            <top>-60</top>
+            <control type="group">
+                <visible>!IsEmpty(Window.Property(weatherworld.city.1.name))</visible>
+                <animation effect="slide" end="-360,0" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.1.flipx),0)">conditional</animation>
+                <animation effect="slide" end="0,-60" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.1.flipy),0)">conditional</animation>
+                <include>WeatherWorldTileImage</include>
+                <control type="image">
+                    <include>WeatherWorldTopLeftPointer</include>
+                    <visible>!IntegerGreaterThan(Window.Property(weatherworld.city.1.flipx),0) + !IntegerGreaterThan(Window.Property(weatherworld.city.1.flipy),0)</visible>
+                </control>
+                <control type="image">
+                    <include>WeatherWorldTopRightPointer</include>
+                    <visible>IntegerGreaterThan(Window.Property(weatherworld.city.1.flipx),0)</visible>
+                </control>
+                <control type="image">
+                    <texture>$INFO[Window.Property(weatherworld.city.1.icon)]</texture>
+                    <include>WeatherWorldConditionIconCommonValues</include>
+                    <animation effect="slide" end="320,0" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.1.flipx),0)">conditional</animation>
+                </control>
+                <control type="group">
+                    <visible>IntegerGreaterThan(Window.Property(weatherworld.city.1.flipx),0)</visible>
+                    <control type="label">
+                        <left>340</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.1.name)]</label>
+                        <include>WeatherWorldCityNameCommonValues</include>
+                    </control>
+                    <control type="grouplist">
+                        <align>right</align>
+                        <include>WeatherWorldGroupListCommonValues</include>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.1.localtime)]</label>
+                            <include>WeatherWorldLocalTimeCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>[COLOR=00ffffff]__[/COLOR]$INFO[Window.Property(weatherworld.city.1.temperature)]</label>
+                            <include>WeatherWorldTemperatureCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.1.unit)]</label>
+                            <include>WeatherWorldUnitCommonValues</include>
+                        </control>
+                    </control>
+                    <control type="label">
+                        <left>315</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.1.outlook)]</label>
+                        <include>WeatherWorldOutLookCommonValues</include>
+                    </control>
+                    <control type="label">
+                        <left>360</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.1.latitude)] - $INFO[Window.Property(weatherworld.city.1.longitude)]</label>
+                        <include>WeatherWorldLatitudeLongitudeCommonValues</include>
+                    </control>
+                </control>
+                <control type="group">
+                    <visible>!IntegerGreaterThan(Window.Property(weatherworld.city.1.flipx),0)</visible>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.1.name)]</label>
+                        <include>WeatherWorldCityNameCommonValues</include>
+                    </control>
+                    <control type="grouplist">
+                        <include>WeatherWorldGroupListCommonValues</include>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.1.temperature)]</label>
+                            <include>WeatherWorldTemperatureCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.1.unit)]</label>
+                            <include>WeatherWorldUnitCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>[COLOR=00ffffff]__[/COLOR]$INFO[Window.Property(weatherworld.city.1.localtime)]</label>
+                            <include>WeatherWorldLocalTimeCommonValues</include>
+                        </control>
+                    </control>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.1.outlook)]</label>
+                        <include>WeatherWorldOutLookCommonValues</include>
+                    </control>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.1.latitude)] - $INFO[Window.Property(weatherworld.city.1.longitude)]</label>
+                        <include>WeatherWorldLatitudeLongitudeCommonValues</include>
+                    </control>
+                </control>
+            </control>
+        </control>
+    </include>
+    <include name="WeatherWorldGroup2602">
+        <control type="group" id="2602">
+            <top>-60</top>
+            <control type="group">
+                <visible>!IsEmpty(Window.Property(weatherworld.city.2.name))</visible>
+                <animation effect="slide" end="-360,0" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.2.flipx),0)">conditional</animation>
+                <animation effect="slide" end="0,-60" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.2.flipy),0)">conditional</animation>
+                <include>WeatherWorldTileImage</include>
+                <control type="image">
+                    <include>WeatherWorldTopLeftPointer</include>
+                    <visible>!IntegerGreaterThan(Window.Property(weatherworld.city.2.flipx),0) + !IntegerGreaterThan(Window.Property(weatherworld.city.2.flipy),0)</visible>
+                </control>
+                <control type="image">
+                    <include>WeatherWorldTopRightPointer</include>
+                    <visible>IntegerGreaterThan(Window.Property(weatherworld.city.2.flipx),0)</visible>
+                </control>
+                <control type="image">
+                    <texture>$INFO[Window.Property(weatherworld.city.2.icon)]</texture>
+                    <include>WeatherWorldConditionIconCommonValues</include>
+                    <animation effect="slide" end="320,0" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.2.flipx),0)">conditional</animation>
+                </control>
+                <control type="group">
+                    <visible>IntegerGreaterThan(Window.Property(weatherworld.city.2.flipx),0)</visible>
+                    <control type="label">
+                        <left>340</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.2.name)]</label>
+                        <include>WeatherWorldCityNameCommonValues</include>
+                    </control>
+                    <control type="grouplist">
+                        <align>right</align>
+                        <include>WeatherWorldGroupListCommonValues</include>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.2.localtime)]</label>
+                            <include>WeatherWorldLocalTimeCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>[COLOR=00ffffff]__[/COLOR]$INFO[Window.Property(weatherworld.city.2.temperature)]</label>
+                            <include>WeatherWorldTemperatureCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.2.unit)]</label>
+                            <include>WeatherWorldUnitCommonValues</include>
+                        </control>
+                    </control>
+                    <control type="label">
+                        <left>315</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.2.outlook)]</label>
+                        <include>WeatherWorldOutLookCommonValues</include>
+                    </control>
+                    <control type="label">
+                        <left>360</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.2.latitude)] - $INFO[Window.Property(weatherworld.city.2.longitude)]</label>
+                        <include>WeatherWorldLatitudeLongitudeCommonValues</include>
+                    </control>
+                </control>
+                <control type="group">
+                    <visible>!IntegerGreaterThan(Window.Property(weatherworld.city.2.flipx),0)</visible>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.2.name)]</label>
+                        <include>WeatherWorldCityNameCommonValues</include>
+                    </control>
+                    <control type="grouplist">
+                        <include>WeatherWorldGroupListCommonValues</include>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.2.temperature)]</label>
+                            <include>WeatherWorldTemperatureCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.2.unit)]</label>
+                            <include>WeatherWorldUnitCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>[COLOR=00ffffff]__[/COLOR]$INFO[Window.Property(weatherworld.city.2.localtime)]</label>
+                            <include>WeatherWorldLocalTimeCommonValues</include>
+                        </control>
+                    </control>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.2.outlook)]</label>
+                        <include>WeatherWorldOutLookCommonValues</include>
+                    </control>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.2.latitude)] - $INFO[Window.Property(weatherworld.city.2.longitude)]</label>
+                        <include>WeatherWorldLatitudeLongitudeCommonValues</include>
+                    </control>
+                </control>
+            </control>
+        </control>
+    </include>
+    <include name="WeatherWorldGroup2603">
+        <control type="group" id="2603">
+            <top>-60</top>
+            <control type="group">
+                <visible>!IsEmpty(Window.Property(weatherworld.city.3.name))</visible>
+                <animation effect="slide" end="-360,0" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.3.flipx),0)">conditional</animation>
+                <animation effect="slide" end="0,-60" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.3.flipy),0)">conditional</animation>
+                <include>WeatherWorldTileImage</include>
+                <control type="image">
+                    <include>WeatherWorldTopLeftPointer</include>
+                    <visible>!IntegerGreaterThan(Window.Property(weatherworld.city.3.flipx),0) + !IntegerGreaterThan(Window.Property(weatherworld.city.3.flipy),0)</visible>
+                </control>
+                <control type="image">
+                    <include>WeatherWorldTopRightPointer</include>
+                    <visible>IntegerGreaterThan(Window.Property(weatherworld.city.3.flipx),0)</visible>
+                </control>
+                <control type="image">
+                    <texture>$INFO[Window.Property(weatherworld.city.3.icon)]</texture>
+                    <include>WeatherWorldConditionIconCommonValues</include>
+                    <animation effect="slide" end="320,0" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.3.flipx),0)">conditional</animation>
+                </control>
+                <control type="group">
+                    <visible>IntegerGreaterThan(Window.Property(weatherworld.city.3.flipx),0)</visible>
+                    <control type="label">
+                        <left>340</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.3.name)]</label>
+                        <include>WeatherWorldCityNameCommonValues</include>
+                    </control>
+                    <control type="grouplist">
+                        <align>right</align>
+                        <include>WeatherWorldGroupListCommonValues</include>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.3.localtime)]</label>
+                            <include>WeatherWorldLocalTimeCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>[COLOR=00ffffff]__[/COLOR]$INFO[Window.Property(weatherworld.city.3.temperature)]</label>
+                            <include>WeatherWorldTemperatureCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.3.unit)]</label>
+                            <include>WeatherWorldUnitCommonValues</include>
+                        </control>
+                    </control>
+                    <control type="label">
+                        <left>315</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.3.outlook)]</label>
+                        <include>WeatherWorldOutLookCommonValues</include>
+                    </control>
+                    <control type="label">
+                        <left>360</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.3.latitude)] - $INFO[Window.Property(weatherworld.city.3.longitude)]</label>
+                        <include>WeatherWorldLatitudeLongitudeCommonValues</include>
+                    </control>
+                </control>
+                <control type="group">
+                    <visible>!IntegerGreaterThan(Window.Property(weatherworld.city.3.flipx),0)</visible>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.3.name)]</label>
+                        <include>WeatherWorldCityNameCommonValues</include>
+                    </control>
+                    <control type="grouplist">
+                        <include>WeatherWorldGroupListCommonValues</include>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.3.temperature)]</label>
+                            <include>WeatherWorldTemperatureCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.3.unit)]</label>
+                            <include>WeatherWorldUnitCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>[COLOR=00ffffff]__[/COLOR]$INFO[Window.Property(weatherworld.city.3.localtime)]</label>
+                            <include>WeatherWorldLocalTimeCommonValues</include>
+                        </control>
+                    </control>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.3.outlook)]</label>
+                        <include>WeatherWorldOutLookCommonValues</include>
+                    </control>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.3.latitude)] - $INFO[Window.Property(weatherworld.city.3.longitude)]</label>
+                        <include>WeatherWorldLatitudeLongitudeCommonValues</include>
+                    </control>
+                </control>
+            </control>
+        </control>
+    </include>
+    <include name="WeatherWorldGroup2604">
+        <control type="group" id="2604">
+            <top>-60</top>
+            <control type="group">
+                <visible>!IsEmpty(Window.Property(weatherworld.city.4.name))</visible>
+                <animation effect="slide" end="-360,0" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.4.flipx),0)">conditional</animation>
+                <animation effect="slide" end="0,-60" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.4.flipy),0)">conditional</animation>
+                <include>WeatherWorldTileImage</include>
+                <control type="image">
+                    <include>WeatherWorldTopLeftPointer</include>
+                    <visible>!IntegerGreaterThan(Window.Property(weatherworld.city.4.flipx),0) + !IntegerGreaterThan(Window.Property(weatherworld.city.4.flipy),0)</visible>
+                </control>
+                <control type="image">
+                    <include>WeatherWorldTopRightPointer</include>
+                    <visible>IntegerGreaterThan(Window.Property(weatherworld.city.4.flipx),0)</visible>
+                </control>
+                <control type="image">
+                    <texture>$INFO[Window.Property(weatherworld.city.4.icon)]</texture>
+                    <include>WeatherWorldConditionIconCommonValues</include>
+                    <animation effect="slide" end="320,0" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.4.flipx),0)">conditional</animation>
+                </control>
+                <control type="group">
+                    <visible>IntegerGreaterThan(Window.Property(weatherworld.city.4.flipx),0)</visible>
+                    <control type="label">
+                        <left>340</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.4.name)]</label>
+                        <include>WeatherWorldCityNameCommonValues</include>
+                    </control>
+                    <control type="grouplist">
+                        <align>right</align>
+                        <include>WeatherWorldGroupListCommonValues</include>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.4.localtime)]</label>
+                            <include>WeatherWorldLocalTimeCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>[COLOR=00ffffff]__[/COLOR]$INFO[Window.Property(weatherworld.city.4.temperature)]</label>
+                            <include>WeatherWorldTemperatureCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.4.unit)]</label>
+                            <include>WeatherWorldUnitCommonValues</include>
+                        </control>
+                    </control>
+                    <control type="label">
+                        <left>315</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.4.outlook)]</label>
+                        <include>WeatherWorldOutLookCommonValues</include>
+                    </control>
+                    <control type="label">
+                        <left>360</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.4.latitude)] - $INFO[Window.Property(weatherworld.city.4.longitude)]</label>
+                        <include>WeatherWorldLatitudeLongitudeCommonValues</include>
+                    </control>
+                </control>
+                <control type="group">
+                    <visible>!IntegerGreaterThan(Window.Property(weatherworld.city.4.flipx),0)</visible>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.4.name)]</label>
+                        <include>WeatherWorldCityNameCommonValues</include>
+                    </control>
+                    <control type="grouplist">
+                        <include>WeatherWorldGroupListCommonValues</include>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.4.temperature)]</label>
+                            <include>WeatherWorldTemperatureCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.4.unit)]</label>
+                            <include>WeatherWorldUnitCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>[COLOR=00ffffff]__[/COLOR]$INFO[Window.Property(weatherworld.city.4.localtime)]</label>
+                            <include>WeatherWorldLocalTimeCommonValues</include>
+                        </control>
+                    </control>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.4.outlook)]</label>
+                        <include>WeatherWorldOutLookCommonValues</include>
+                    </control>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.4.latitude)] - $INFO[Window.Property(weatherworld.city.4.longitude)]</label>
+                        <include>WeatherWorldLatitudeLongitudeCommonValues</include>
+                    </control>
+                </control>
+            </control>
+        </control>
+    </include>
+    <include name="WeatherWorldGroup2605">
+        <control type="group" id="2605">
+            <top>-60</top>
+            <control type="group">
+                <visible>!IsEmpty(Window.Property(weatherworld.city.5.name))</visible>
+                <animation effect="slide" end="-360,0" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.5.flipx),0)">conditional</animation>
+                <animation effect="slide" end="0,-60" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.5.flipy),0)">conditional</animation>
+                <include>WeatherWorldTileImage</include>
+                <control type="image">
+                    <include>WeatherWorldTopLeftPointer</include>
+                    <visible>!IntegerGreaterThan(Window.Property(weatherworld.city.5.flipx),0) + !IntegerGreaterThan(Window.Property(weatherworld.city.5.flipy),0)</visible>
+                </control>
+                <control type="image">
+                    <include>WeatherWorldTopRightPointer</include>
+                    <visible>IntegerGreaterThan(Window.Property(weatherworld.city.5.flipx),0)</visible>
+                </control>
+                <control type="image">
+                    <texture>$INFO[Window.Property(weatherworld.city.5.icon)]</texture>
+                    <include>WeatherWorldConditionIconCommonValues</include>
+                    <animation effect="slide" end="320,0" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.5.flipx),0)">conditional</animation>
+                </control>
+                <control type="group">
+                    <visible>IntegerGreaterThan(Window.Property(weatherworld.city.5.flipx),0)</visible>
+                    <control type="label">
+                        <left>340</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.5.name)]</label>
+                        <include>WeatherWorldCityNameCommonValues</include>
+                    </control>
+                    <control type="grouplist">
+                        <align>right</align>
+                        <include>WeatherWorldGroupListCommonValues</include>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.5.localtime)]</label>
+                            <include>WeatherWorldLocalTimeCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>[COLOR=00ffffff]__[/COLOR]$INFO[Window.Property(weatherworld.city.5.temperature)]</label>
+                            <include>WeatherWorldTemperatureCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.5.unit)]</label>
+                            <include>WeatherWorldUnitCommonValues</include>
+                        </control>
+                    </control>
+                    <control type="label">
+                        <left>315</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.5.outlook)]</label>
+                        <include>WeatherWorldOutLookCommonValues</include>
+                    </control>
+                    <control type="label">
+                        <left>360</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.5.latitude)] - $INFO[Window.Property(weatherworld.city.5.longitude)]</label>
+                        <include>WeatherWorldLatitudeLongitudeCommonValues</include>
+                    </control>
+                </control>
+                <control type="group">
+                    <visible>!IntegerGreaterThan(Window.Property(weatherworld.city.5.flipx),0)</visible>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.5.name)]</label>
+                        <include>WeatherWorldCityNameCommonValues</include>
+                    </control>
+                    <control type="grouplist">
+                        <include>WeatherWorldGroupListCommonValues</include>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.5.temperature)]</label>
+                            <include>WeatherWorldTemperatureCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.5.unit)]</label>
+                            <include>WeatherWorldUnitCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>[COLOR=00ffffff]__[/COLOR]$INFO[Window.Property(weatherworld.city.5.localtime)]</label>
+                            <include>WeatherWorldLocalTimeCommonValues</include>
+                        </control>
+                    </control>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.5.outlook)]</label>
+                        <include>WeatherWorldOutLookCommonValues</include>
+                    </control>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.5.latitude)] - $INFO[Window.Property(weatherworld.city.5.longitude)]</label>
+                        <include>WeatherWorldLatitudeLongitudeCommonValues</include>
+                    </control>
+                </control>
+            </control>
+        </control>
+    </include>
+    <include name="WeatherWorldGroup2606">
+        <control type="group" id="2606">
+            <top>-60</top>
+            <control type="group">
+                <visible>!IsEmpty(Window.Property(weatherworld.city.6.name))</visible>
+                <animation effect="slide" end="-360,0" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.6.flipx),0)">conditional</animation>
+                <animation effect="slide" end="0,-60" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.6.flipy),0)">conditional</animation>
+                <include>WeatherWorldTileImage</include>
+                <control type="image">
+                    <include>WeatherWorldTopLeftPointer</include>
+                    <visible>!IntegerGreaterThan(Window.Property(weatherworld.city.6.flipx),0) + !IntegerGreaterThan(Window.Property(weatherworld.city.6.flipy),0)</visible>
+                </control>
+                <control type="image">
+                    <include>WeatherWorldTopRightPointer</include>
+                    <visible>IntegerGreaterThan(Window.Property(weatherworld.city.6.flipx),0)</visible>
+                </control>
+                <control type="image">
+                    <texture>$INFO[Window.Property(weatherworld.city.6.icon)]</texture>
+                    <include>WeatherWorldConditionIconCommonValues</include>
+                    <animation effect="slide" end="320,0" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.6.flipx),0)">conditional</animation>
+                </control>
+                <control type="group">
+                    <visible>IntegerGreaterThan(Window.Property(weatherworld.city.6.flipx),0)</visible>
+                    <control type="label">
+                        <left>340</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.6.name)]</label>
+                        <include>WeatherWorldCityNameCommonValues</include>
+                    </control>
+                    <control type="grouplist">
+                        <align>right</align>
+                        <include>WeatherWorldGroupListCommonValues</include>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.6.localtime)]</label>
+                            <include>WeatherWorldLocalTimeCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>[COLOR=00ffffff]__[/COLOR]$INFO[Window.Property(weatherworld.city.6.temperature)]</label>
+                            <include>WeatherWorldTemperatureCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.6.unit)]</label>
+                            <include>WeatherWorldUnitCommonValues</include>
+                        </control>
+                    </control>
+                    <control type="label">
+                        <left>315</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.6.outlook)]</label>
+                        <include>WeatherWorldOutLookCommonValues</include>
+                    </control>
+                    <control type="label">
+                        <left>360</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.6.latitude)] - $INFO[Window.Property(weatherworld.city.6.longitude)]</label>
+                        <include>WeatherWorldLatitudeLongitudeCommonValues</include>
+                    </control>
+                </control>
+                <control type="group">
+                    <visible>!IntegerGreaterThan(Window.Property(weatherworld.city.6.flipx),0)</visible>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.6.name)]</label>
+                        <include>WeatherWorldCityNameCommonValues</include>
+                    </control>
+                    <control type="grouplist">
+                        <include>WeatherWorldGroupListCommonValues</include>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.6.temperature)]</label>
+                            <include>WeatherWorldTemperatureCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.6.unit)]</label>
+                            <include>WeatherWorldUnitCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>[COLOR=00ffffff]__[/COLOR]$INFO[Window.Property(weatherworld.city.6.localtime)]</label>
+                            <include>WeatherWorldLocalTimeCommonValues</include>
+                        </control>
+                    </control>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.6.outlook)]</label>
+                        <include>WeatherWorldOutLookCommonValues</include>
+                    </control>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.6.latitude)] - $INFO[Window.Property(weatherworld.city.6.longitude)]</label>
+                        <include>WeatherWorldLatitudeLongitudeCommonValues</include>
+                    </control>
+                </control>
+            </control>
+        </control>
+    </include>
+    <include name="WeatherWorldGroup2607">
+        <control type="group" id="2607">
+            <top>-60</top>
+            <control type="group">
+                <visible>!IsEmpty(Window.Property(weatherworld.city.7.name))</visible>
+                <animation effect="slide" end="-360,0" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.7.flipx),0)">conditional</animation>
+                <animation effect="slide" end="0,-60" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.7.flipy),0)">conditional</animation>
+                <include>WeatherWorldTileImage</include>
+                <control type="image">
+                    <include>WeatherWorldTopLeftPointer</include>
+                    <visible>!IntegerGreaterThan(Window.Property(weatherworld.city.7.flipx),0) + !IntegerGreaterThan(Window.Property(weatherworld.city.7.flipy),0)</visible>
+                </control>
+                <control type="image">
+                    <include>WeatherWorldTopRightPointer</include>
+                    <visible>IntegerGreaterThan(Window.Property(weatherworld.city.7.flipx),0)</visible>
+                </control>
+                <control type="image">
+                    <texture>$INFO[Window.Property(weatherworld.city.7.icon)]</texture>
+                    <include>WeatherWorldConditionIconCommonValues</include>
+                    <animation effect="slide" end="320,0" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.7.flipx),0)">conditional</animation>
+                </control>
+                <control type="group">
+                    <visible>IntegerGreaterThan(Window.Property(weatherworld.city.7.flipx),0)</visible>
+                    <control type="label">
+                        <left>340</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.7.name)]</label>
+                        <include>WeatherWorldCityNameCommonValues</include>
+                    </control>
+                    <control type="grouplist">
+                        <align>right</align>
+                        <include>WeatherWorldGroupListCommonValues</include>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.7.localtime)]</label>
+                            <include>WeatherWorldLocalTimeCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>[COLOR=00ffffff]__[/COLOR]$INFO[Window.Property(weatherworld.city.7.temperature)]</label>
+                            <include>WeatherWorldTemperatureCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.7.unit)]</label>
+                            <include>WeatherWorldUnitCommonValues</include>
+                        </control>
+                    </control>
+                    <control type="label">
+                        <left>315</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.7.outlook)]</label>
+                        <include>WeatherWorldOutLookCommonValues</include>
+                    </control>
+                    <control type="label">
+                        <left>360</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.7.latitude)] - $INFO[Window.Property(weatherworld.city.7.longitude)]</label>
+                        <include>WeatherWorldLatitudeLongitudeCommonValues</include>
+                    </control>
+                </control>
+                <control type="group">
+                    <visible>!IntegerGreaterThan(Window.Property(weatherworld.city.7.flipx),0)</visible>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.7.name)]</label>
+                        <include>WeatherWorldCityNameCommonValues</include>
+                    </control>
+                    <control type="grouplist">
+                        <include>WeatherWorldGroupListCommonValues</include>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.7.temperature)]</label>
+                            <include>WeatherWorldTemperatureCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.7.unit)]</label>
+                            <include>WeatherWorldUnitCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>[COLOR=00ffffff]__[/COLOR]$INFO[Window.Property(weatherworld.city.7.localtime)]</label>
+                            <include>WeatherWorldLocalTimeCommonValues</include>
+                        </control>
+                    </control>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.7.outlook)]</label>
+                        <include>WeatherWorldOutLookCommonValues</include>
+                    </control>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.7.latitude)] - $INFO[Window.Property(weatherworld.city.7.longitude)]</label>
+                        <include>WeatherWorldLatitudeLongitudeCommonValues</include>
+                    </control>
+                </control>
+            </control>
+        </control>
+    </include>
+    <include name="WeatherWorldGroup2608">
+        <control type="group" id="2608">
+            <top>-60</top>
+            <control type="group">
+                <visible>!IsEmpty(Window.Property(weatherworld.city.8.name))</visible>
+                <animation effect="slide" end="-360,0" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.8.flipx),0)">conditional</animation>
+                <animation effect="slide" end="0,-60" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.8.flipy),0)">conditional</animation>
+                <include>WeatherWorldTileImage</include>
+                <control type="image">
+                    <include>WeatherWorldTopLeftPointer</include>
+                    <visible>!IntegerGreaterThan(Window.Property(weatherworld.city.8.flipx),0) + !IntegerGreaterThan(Window.Property(weatherworld.city.8.flipy),0)</visible>
+                </control>
+                <control type="image">
+                    <include>WeatherWorldTopRightPointer</include>
+                    <visible>IntegerGreaterThan(Window.Property(weatherworld.city.8.flipx),0)</visible>
+                </control>
+                <control type="image">
+                    <texture>$INFO[Window.Property(weatherworld.city.8.icon)]</texture>
+                    <include>WeatherWorldConditionIconCommonValues</include>
+                    <animation effect="slide" end="320,0" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.8.flipx),0)">conditional</animation>
+                </control>
+                <control type="group">
+                    <visible>IntegerGreaterThan(Window.Property(weatherworld.city.8.flipx),0)</visible>
+                    <control type="label">
+                        <left>340</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.8.name)]</label>
+                        <include>WeatherWorldCityNameCommonValues</include>
+                    </control>
+                    <control type="grouplist">
+                        <align>right</align>
+                        <include>WeatherWorldGroupListCommonValues</include>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.8.localtime)]</label>
+                            <include>WeatherWorldLocalTimeCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>[COLOR=00ffffff]__[/COLOR]$INFO[Window.Property(weatherworld.city.8.temperature)]</label>
+                            <include>WeatherWorldTemperatureCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.8.unit)]</label>
+                            <include>WeatherWorldUnitCommonValues</include>
+                        </control>
+                    </control>
+                    <control type="label">
+                        <left>315</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.8.outlook)]</label>
+                        <include>WeatherWorldOutLookCommonValues</include>
+                    </control>
+                    <control type="label">
+                        <left>360</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.8.latitude)] - $INFO[Window.Property(weatherworld.city.8.longitude)]</label>
+                        <include>WeatherWorldLatitudeLongitudeCommonValues</include>
+                    </control>
+                </control>
+                <control type="group">
+                    <visible>!IntegerGreaterThan(Window.Property(weatherworld.city.8.flipx),0)</visible>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.8.name)]</label>
+                        <include>WeatherWorldCityNameCommonValues</include>
+                    </control>
+                    <control type="grouplist">
+                        <include>WeatherWorldGroupListCommonValues</include>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.8.temperature)]</label>
+                            <include>WeatherWorldTemperatureCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.8.unit)]</label>
+                            <include>WeatherWorldUnitCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>[COLOR=00ffffff]__[/COLOR]$INFO[Window.Property(weatherworld.city.8.localtime)]</label>
+                            <include>WeatherWorldLocalTimeCommonValues</include>
+                        </control>
+                    </control>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.8.outlook)]</label>
+                        <include>WeatherWorldOutLookCommonValues</include>
+                    </control>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.8.latitude)] - $INFO[Window.Property(weatherworld.city.8.longitude)]</label>
+                        <include>WeatherWorldLatitudeLongitudeCommonValues</include>
+                    </control>
+                </control>
+            </control>
+        </control>
+    </include>
+    <include name="WeatherWorldGroup2609">
+        <control type="group" id="2609">
+            <top>-60</top>
+            <control type="group">
+                <visible>!IsEmpty(Window.Property(weatherworld.city.9.name))</visible>
+                <animation effect="slide" end="-360,0" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.9.flipx),0)">conditional</animation>
+                <animation effect="slide" end="0,-60" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.9.flipy),0)">conditional</animation>
+                <include>WeatherWorldTileImage</include>
+                <control type="image">
+                    <include>WeatherWorldTopLeftPointer</include>
+                    <visible>!IntegerGreaterThan(Window.Property(weatherworld.city.9.flipx),0) + !IntegerGreaterThan(Window.Property(weatherworld.city.9.flipy),0)</visible>
+                </control>
+                <control type="image">
+                    <include>WeatherWorldTopRightPointer</include>
+                    <visible>IntegerGreaterThan(Window.Property(weatherworld.city.9.flipx),0)</visible>
+                </control>
+                <control type="image">
+                    <texture>$INFO[Window.Property(weatherworld.city.9.icon)]</texture>
+                    <include>WeatherWorldConditionIconCommonValues</include>
+                    <animation effect="slide" end="320,0" time="0" condition="IntegerGreaterThan(Window.Property(weatherworld.city.9.flipx),0)">conditional</animation>
+                </control>
+                <control type="group">
+                    <visible>IntegerGreaterThan(Window.Property(weatherworld.city.9.flipx),0)</visible>
+                    <control type="label">
+                        <left>340</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.9.name)]</label>
+                        <include>WeatherWorldCityNameCommonValues</include>
+                    </control>
+                    <control type="grouplist">
+                        <align>right</align>
+                        <include>WeatherWorldGroupListCommonValues</include>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.9.localtime)]</label>
+                            <include>WeatherWorldLocalTimeCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>[COLOR=00ffffff]__[/COLOR]$INFO[Window.Property(weatherworld.city.9.temperature)]</label>
+                            <include>WeatherWorldTemperatureCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.9.unit)]</label>
+                            <include>WeatherWorldUnitCommonValues</include>
+                        </control>
+                    </control>
+                    <control type="label">
+                        <left>315</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.9.outlook)]</label>
+                        <include>WeatherWorldOutLookCommonValues</include>
+                    </control>
+                    <control type="label">
+                        <left>360</left>
+                        <align>right</align>
+                        <label>$INFO[Window.Property(weatherworld.city.9.latitude)] - $INFO[Window.Property(weatherworld.city.9.longitude)]</label>
+                        <include>WeatherWorldLatitudeLongitudeCommonValues</include>
+                    </control>
+                </control>
+                <control type="group">
+                    <visible>!IntegerGreaterThan(Window.Property(weatherworld.city.9.flipx),0)</visible>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.9.name)]</label>
+                        <include>WeatherWorldCityNameCommonValues</include>
+                    </control>
+                    <control type="grouplist">
+                        <include>WeatherWorldGroupListCommonValues</include>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.9.temperature)]</label>
+                            <include>WeatherWorldTemperatureCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>$INFO[Window.Property(weatherworld.city.9.unit)]</label>
+                            <include>WeatherWorldUnitCommonValues</include>
+                        </control>
+                        <control type="label">
+                            <label>[COLOR=00ffffff]__[/COLOR]$INFO[Window.Property(weatherworld.city.9.localtime)]</label>
+                            <include>WeatherWorldLocalTimeCommonValues</include>
+                        </control>
+                    </control>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.9.outlook)]</label>
+                        <include>WeatherWorldOutLookCommonValues</include>
+                    </control>
+                    <control type="label">
+                        <label>$INFO[Window.Property(weatherworld.city.9.latitude)] - $INFO[Window.Property(weatherworld.city.9.longitude)]</label>
+                        <include>WeatherWorldLatitudeLongitudeCommonValues</include>
+                    </control>
+                </control>
+            </control>
+        </control>
+    </include>
+</includes>

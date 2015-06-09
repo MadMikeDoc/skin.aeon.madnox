@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">4012</defaultcontrol>
+	<zorder>0</zorder>
+	<controls>
+		<control type="group">
+			<left>0</left>
+			<top>752</top>
+			<width>890</width>
+			<height>339</height>
+			<control type="group">
+				<control type="image" id="4002">
+					<visible>false</visible>
+				</control>
+				<control type="image" id="4001">
+					<visible>false</visible>
+				</control>
+				<control type="label" id="4000">
+					<visible>false</visible>
+				</control>
+				<control type="label" id="4008">
+					<visible>false</visible>
+				</control>
+				<control type="label" id="4009">
+					<visible>false</visible>
+				</control>
+				<control type="image">
+					<top>5</top>
+					<left>5</left>
+					<right>10</right>
+					<height>324</height>
+					<width>1920</width>
+					<animation effect="fade" start="100" end="90" time="200" condition="true">Conditional</animation>
+					<texture border="5" colordiffuse="ff010101">box.png</texture>
+				</control>
+				<!-- -->
+				<control type="image" id="4001" description="poster">
+						<left>10</left>
+						<top>-126</top>
+						<width>334</width>
+						<height>486</height>
+					<fadetime>350</fadetime>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+				</control>
+				<control type="label" description="still watching question">
+					<width>100%</width>
+					<top>60</top>
+					<left>380</left>
+					<height>60</height>
+					<font>font16</font>
+					<textcolor>B3dddddd</textcolor>
+					<label>$ADDON[service.nextup.notification 30012]</label>
+				</control>
+				<control type="label" description="Title">
+					<left>380</left>
+					<width>100%</width>
+					<top>10</top>
+					<height>40</height>
+					<font>font16</font>
+					<label>$LOCALIZE[20373] $INFO[Control.GetLabel(4008)], Ep. $INFO[Control.GetLabel(4009)][COLOR=$VAR[FocusTextureColorVar]]$INFO[Control.GetLabel(4000), ,][/COLOR]</label>
+				</control>
+				<control type="image">
+					<left>380</left>
+					<top>136</top>
+					<width>64</width>
+					<height>24</height>
+					<aspect>keep</aspect>
+					<texture>imdb.png</texture>
+					<visible>Control.IsVisible(4003)</visible>
+				</control>
+				<control type="label" id="4003" description="rating">
+					<left>455</left>
+					<width>100%</width>
+					<top>126</top>
+					<height>40</height>
+					<font>font14</font>
+					<textcolor>B3dddddd</textcolor>
+				</control>
+				<control type="label" id="4004" description="year">
+					<left>505</left>
+					<width>100%</width>
+					<top>126</top>
+					<height>40</height>
+					<font>font14</font>
+					<textcolor>B3dddddd</textcolor>
+					<scroll>false</scroll>
+				</control>
+				<control type="textbox" id="4006" description="plot">
+					<left>380</left>
+					<right>40</right>
+					<top>190</top>
+					<height>150</height>
+					<font>Tiny</font>
+					<align>justify</align>
+					<autoscroll>false</autoscroll>
+					<textcolor>4Ddddddd</textcolor>
+				</control>
+				<control type="image">
+					<left>380</left>
+					<description>Progress Back</description>
+					<width>630</width>
+					<bottom>10</bottom>
+					<height>8</height>
+					<texture colordiffuse="1F000000">white.png</texture>
+				</control>
+				<control type="progress" description="cache">
+					<left>380</left>
+					<description>Progress Bar</description>
+					<width>630</width>
+					<bottom>10</bottom>
+					<height>8</height>
+					<info>Player.ProgressCache</info>
+					<texturebg colordiffuse="00ffffff">progress-bg.png</texturebg>
+					<lefttexture colordiffuse="FFff4081">progress-end.png</lefttexture>
+					<midtexture colordiffuse="FFff4081">progress-end.png</midtexture>
+					<righttexture colordiffuse="FFff4081">progress-end.png</righttexture>
+				</control>
+				<control type="progress" id="23">
+					<description>Progress Bar</description>
+					<left>380</left>
+					<width>630</width>
+					<bottom>10</bottom>
+					<height>8</height>
+					<info>Player.Progress</info>
+				</control>
+			</control>
+		</control>
+		<control type="label" description="Total Time">
+			<top>744</top>
+			<left>1594</left>
+			<top>30</top>
+			<width>400</width>
+			<bottom>30</bottom>
+			<height>80</height>
+			<font>WeatherTemp</font>
+			<textcolor>B3dddddd</textcolor>
+			<label>[COLOR=$VAR[FocusTextureColorVar]]Ending in $INFO[Player.TimeRemaining(ss)][/COLOR]</label>
+			</control>
+		<!-- buttons -->
+		<control type="button" id="4012">
+			<description>Still watching</description>
+			<top>794</top>
+			<left>1584</left>
+			<bottom>40</bottom>
+			<width>100</width>
+			<height>100</height>
+			<onleft>4013</onleft>
+			<onright>4013</onright>
+			<font>font14</font>
+			<focusedcolor>FFededed</focusedcolor>
+			<disabledcolor>B3dddddd</disabledcolor>
+			<selectedcolor>FF000000</selectedcolor>
+			<height>40</height>
+			<textcolor>ff333333</textcolor>
+			<texturefocus colordiffuse="$VAR[FocusTextureColorVar]" border="5">osd/buttons/osdplayfo.png</texturefocus>
+			<texturenofocus colordiffuse="FFFFFFFF" border="5">osd/buttons/osdplaynf.png</texturenofocus>
+		</control>
+		<control type="button" id="4013">
+			<description>Cancel</description>
+			<left>1674</left>
+			<top>794</top>
+			<bottom>-10</bottom>
+			<width>100</width>
+			<height>100</height>
+			<onleft>4012</onleft>
+			<onright>4012</onright>
+			<font>font14</font>
+			<!--label>222</label-->
+			<focusedcolor>$VAR[FocusTextureColorVar]</focusedcolor>
+			<disabledcolor>B3dddddd</disabledcolor>
+			<selectedcolor>FF000000</selectedcolor>
+			<height>40</height>
+			<textcolor>ff333333</textcolor>
+			<texturefocus colordiffuse="$VAR[FocusTextureColorVar]" border="5">osd/buttons/osdstopfo.png</texturefocus>
+			<texturenofocus colordiffuse="FFFFFFFF" border="5">osd/buttons/osdstopnf.png</texturenofocus>
+		</control>
+		
+				
+	</controls>
+</window>

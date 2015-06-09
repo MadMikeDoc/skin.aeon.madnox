@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+	<defaultcontrol>51</defaultcontrol>
+    <allowoverlay>yes</allowoverlay>
+    <controls>
+        <control type="group">
+            <animation effect="fade" time="200">WindowOpen</animation>
+            <animation effect="fade" time="200">WindowClose</animation>
+            <include>CommonMediaPlayingBackground</include>
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<include>FullscreenDimensions</include>
+				<aspectratio>scale</aspectratio>
+				<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+				<visible>!Player.HasVideo + !Skin.HasSetting(HideBackGroundFanart) + !IsEmpty(ListItem.Property(Fanart_Image))</visible>	
+			</control>	
+			 <control type="multiimage" id="4001">
+				<imagepath background="true">$INFO[ListItem.Path,,extrafanart/]</imagepath>
+				<fadetime>350</fadetime>
+				<include>FullscreenDimensions</include>
+				<randomize>true</randomize>
+				<include>Animation_VisibleChange400</include>
+				<visible>!Player.HasVideo + Skin.HasSetting(VideoExtraFanArt)</visible>
+			</control>							
+        </control>
+        <control type="group">
+            <include>Animation_OpenClose_Furniture</include>
+            <control type="image">
+                <top>472</top>
+                <width>1920</width>
+                <height>608</height>
+                <texture>views/showcase_floor.png</texture>
+                <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+            </control>
+            <control type="image">
+                <top>-207</top>
+                <width>1920</width>
+                <height>1080</height>
+                <texture>common/bgcolor.png</texture>
+                <animation effect="fade" start="100" end="80" time="40" condition="true">Conditional</animation>
+                <animation effect="fade" end="100" time="440" delay="160">Visible</animation>
+                <animation effect="fade" start="100" end="0" time="80">Hidden</animation>
+                <visible>Skin.HasSetting(darkinfopaneve)</visible>
+            </control>
+            <control type="image">
+                <left>-105</left>
+                <width>696</width>
+                <height>1080</height>
+                <texture>views/showcase_vignette.png</texture>
+                <colordiffuse>vignette</colordiffuse>
+            </control>
+            <control type="image">
+                <left>1329</left>
+                <width>696</width>
+                <height>1080</height>
+                <texture flipx="true">views/showcase_vignette.png</texture>
+                <colordiffuse>vignette</colordiffuse>
+            </control>
+            <include>PanelSpot</include>
+            <include>Neon_Floor</include>
+        </control>
+       <include condition="!Skin.HasSetting(wrap)">VideoExtras_Layout1</include>
+	   <include condition="Skin.HasSetting(wrap)">VideoExtras_Layout2</include>
+        <control type="image">
+            <top>1012</top>
+            <width>1920</width>
+            <height>72</height>
+            <texture>views/showcase_gradient.png</texture>
+        </control>
+        <control type="group">
+            <include>Breadcrumbs_BackBar</include>
+            <include>BreadcrumbsContent</include>
+            <include>Breadcrumbs_Furniture</include>
+			<include>Furniture_NowPlayingWidget</include>
+        </control>
+        <!---MEDIA MENU-->
+        <control type="group" id="9000">
+            <visible>!Skin.HasSetting(kioskmode)</visible>
+            <animation type="Conditional" condition="Window.IsActive(1128) | Window.IsActive(1127)">
+                <effect type="slide" end="-600" time="320" easing="in" tween="cubic" />
+            </animation>
+            <include>Media_Menu_Furniture</include>
+            <control type="group">
+                <include>Animation_MediaMenuSlide2</include>
+                <control type="grouplist" id="9003">
+                    <width>450</width>
+                    <height>1080</height>
+                    <orientation>vertical</orientation>
+                    <scroll>true</scroll>
+                    <onleft>51</onleft>
+                    <onright>51</onright>
+                    <onup>9003</onup>
+                    <ondown>9003</ondown>
+                    <onback>51</onback>
+                   <control type="button" id="8">
+                        <label>5</label>
+                        <include>Objects_MediaMenuButtonAlt</include>
+						<onclick>Addon.OpenSettings(script.videoextras)</onclick>
+                    </control>
+                    <control type="radiobutton" id="1685">
+                        <label>ExtraFanart</label>
+                        <include>Objects_MediaMenuButtonAlt</include>
+                        <onclick>Skin.ToggleSetting(VideoExtraFanArt)</onclick>
+                        <selected>Skin.HasSetting(VideoExtraFanArt)</selected>
+                        <visible>!Skin.HasSetting(hideoptions)</visible>
+                    </control>						
+                   <control type="button" id="1601">
+                        <label>$LOCALIZE[31383]</label>
+                        <font>Font_Bold26_Caps</font>
+                        <disabledcolor>$VAR[FontColorVar]</disabledcolor>
+                        <include>Objects_MediaMenuButtonAlt</include>
+                        <enable>no</enable>
+                        <visible>!Skin.HasSetting(hideoptions) + Skin.HasSetting(DisableGlowbar)</visible>
+                    </control>
+                    <control type="radiobutton" id="1663">
+                        <label>$LOCALIZE[31387]</label>
+                        <include>Objects_MediaMenuButtonAlt</include>
+                        <onclick>Skin.ToggleSetting(darkinfopaneve)</onclick>
+                        <selected>Skin.HasSetting(darkinfopaneve)</selected>
+                        <visible>!Skin.HasSetting(hideoptions) + Skin.HasSetting(DisableGlowbar)</visible>
+                    </control>						
+                    <control type="button" id="1637">
+                        <label>$LOCALIZE[31272]:</label>
+                        <label2>[COLOR $VAR[FontColorVar]]$VAR[VideoExtraLayoutVar][/COLOR]</label2>
+                        <include>Objects_MediaMenuButtonAlt</include>
+                        <onclick>Skin.ToggleSetting(wrap)</onclick>
+						<onclick>dialog.close</onclick>
+                    </control>													
+                    <control type="button" id="1664">
+                        <label>31298</label>
+                        <include>Objects_MediaMenuButtonAlt</include>
+                        <onclick>ActivateWindow(1128)</onclick>
+                    </control>
+                </control>
+                <include>QuickNavLabel</include>
+            </control>
+        </control>
+        <control type="button" id="9000">
+            <include>HiddenObject</include>
+            <enable>Skin.HasSetting(kioskmode)</enable>
+            <visible>Skin.HasSetting(kioskmode)</visible>
+            <onfocus>SetFocus(50)</onfocus>
+        </control>
+        <control type="button">
+            <include>HiddenObject</include>
+            <visible>!Skin.HasSetting(kioskmode)</visible>
+            <hitrect x="-1" y="0" w="50" h="1080" />
+            <onfocus>SetFocus(9000)</onfocus>
+        </control>
+    </controls>
+</window>

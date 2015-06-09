@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="1170" type="dialog">
+	<defaultcontrol always="true">1</defaultcontrol>
+	<coordinates>
+        <system>1</system>
+        <left>440</left>
+        <top>100</top>
+    </coordinates>
+    <include>Animation_DialogPopupOpenClose</include>
+    <controls>
+        <control type="image">
+            <description>background image</description>
+			<width>1030</width>
+			<height>690</height>
+			<texture colordiffuse="$VAR[DialogColorVar]">settings/settings_panelback2.png</texture>
+        </control>
+		<control type="group">
+			<left>16</left>
+			<top>40</top>
+			<control type="grouplist" id="90500">
+				<description>menu area</description>
+				<width>240</width>
+				<height>630</height>
+				<itemgap>10</itemgap>
+				<onright>90502</onright>
+				<onup>90500</onup>
+				<ondown>90500</ondown>
+				<scrolltime tween="sine" easing="out">0</scrolltime>
+				<control type="button" id="1">
+					<description>Fullscreen</description>
+					<width>240</width>
+					<height>50</height>
+					<label>Fullscreen</label>
+					<font>Font_Bold28</font>
+					<texturenofocus>-</texturenofocus>
+					<textcolor>grey</textcolor>
+                    <focusedcolor>white</focusedcolor>
+					<onright>90501</onright>
+				</control>
+				<control type="button" id="2">
+					<description>Guide</description>
+					<width>240</width>
+					<height>50</height>
+					<label>Guide</label>
+					<font>Font_Bold28</font>
+					<texturenofocus>-</texturenofocus>
+					<textcolor>grey</textcolor>
+                    <focusedcolor>white</focusedcolor>
+					<onright>90502</onright>
+				</control>
+				<control type="button" id="3">
+					<description>Sideblade</description>
+					<width>240</width>
+					<height>50</height>
+					<label>Sideblade</label>
+					<font>Font_Bold28</font>
+					<texturenofocus>-</texturenofocus>
+					<textcolor>grey</textcolor>
+                    <focusedcolor>white</focusedcolor>
+					<onright>90503</onright>
+				</control>
+			</control>
+		</control>
+		<control type="group">
+			<left>258</left>
+			<top>30</top>
+			<visible>Control.HasFocus(1) | ControlGroup(90500).HasFocus(1)</visible>
+			<control type="label" id="200">
+				<height>30</height>
+				<width>750</width>
+				<label>[B]Fullscreen[/B]</label>
+				<align>center</align>
+				<font>Font_Reg30_Caps</font>
+			</control>
+			<control type="grouplist" id="90501">
+				<description>Fullscreen options</description>
+				<top>30</top>
+				<width>800</width>
+				<height>630</height>
+				<itemgap>1</itemgap>
+				<onleft>1</onleft>
+				<onright>1</onright>
+				<onup>90501</onup>
+				<ondown>90501</ondown>
+				<scrolltime tween="sine" easing="out">0</scrolltime>
+				<control type="label" id="200">
+					<height>52</height>
+					<width>756</width>
+					<label>Channel OSD</label>
+					<include>Objects_MediaMenuLabelAlt2</include>
+					<aligny>center</aligny>
+				</control>
+				<control type="radiobutton" id="326">
+					<label>Extended Channel OSD</label>
+					<width>756</width>
+					<onclick>Skin.ToggleSetting(alternatetvosd)</onclick>
+					<selected>Skin.HasSetting(alternatetvosd)</selected>
+				</control>
+				<control type="radiobutton" id="327">
+					<label>Switch places for progressbar & icon</label>
+					<width>756</width>
+					<onclick>Skin.ToggleSetting(iconleftprogressright)</onclick>
+					<selected>Skin.HasSetting(iconleftprogressright)</selected>
+				</control>
+				<!-- INFOBAR SETTINGS  -->
+				<control type="label" id="202">
+					<width>756</width>
+					<height>52</height>
+					<include>Objects_MediaMenuLabelAlt2</include>
+					<label>Infobar</label>
+					<aligny>center</aligny>
+				</control>
+				<control type="button" id="401">
+					<description>Infobar types</description>
+					<width>756</width>
+					<label>Infobar type:</label>
+					<label2>[COLOR selected]$VAR[LiveTvInfobarTypeOptionsLabelVar][/COLOR]</label2>
+					<onclick>$VAR[LiveTvInfobarTypeOptionsClickVar]</onclick>
+				</control>
+				<control type="radiobutton" id="406">
+					<label>Hide encryption information</label>
+					<onclick>Skin.ToggleSetting(infobar_hidetencrypt)</onclick>
+					<selected>Skin.HasSetting(infobar_hidetencrypt)</selected>
+					<width>756</width>
+				</control>
+				<control type="radiobutton" id="407">
+					<label>Hide tuner information</label>
+					<onclick>Skin.ToggleSetting(infobar_hidetuners)</onclick>
+					<selected>Skin.HasSetting(infobar_hidetuners)</selected>
+					<width>756</width>
+				</control>
+				<control type="radiobutton" id="408">
+					<label>Hide signal information</label>
+					<onclick>Skin.ToggleSetting(infobar_hidesignalinfo)</onclick>
+					<selected>Skin.HasSetting(infobar_hidesignalinfo)</selected>
+					<width>756</width>
+				</control>
+			</control>
+		</control>
+		<control type="group">
+			<left>258</left>
+			<top>30</top>
+			<visible>Control.HasFocus(2) | ControlGroup(90500).HasFocus(2)</visible>
+			<control type="label" id="200">
+				<height>30</height>
+				<width>750</width>
+				<label>[B]Guide[/B]</label>
+				<align>center</align>
+				<font>Font_Reg30_Caps</font>
+			</control>
+			<control type="grouplist" id="90502">
+				<description>Guide options</description>
+				<top>30</top>
+				<width>800</width>
+				<height>630</height>
+				<itemgap>1</itemgap>
+				<onleft>2</onleft>
+				<onright>2</onright>
+				<onup>90502</onup>
+				<ondown>90502</ondown>
+				<scrolltime tween="sine" easing="out">0</scrolltime>
+				<control type="label" id="201">
+					<width>756</width>
+					<height>52</height>
+					<label>Timeline View</label>
+					<include>Objects_MediaMenuLabelAlt2</include>
+					<aligny>center</aligny>
+				</control>
+				<control type="button" id="328">
+					<description>Epg timeline channel list</description>
+					<width>756</width>
+					<label>Channels display type:</label>
+					<label2>[COLOR selected]$VAR[LiveTvGuideTypeOptionsLabelVar][/COLOR]</label2>
+					<onclick>$VAR[LiveTvGuideTypeOptionsClickVar]</onclick>
+				</control>
+			</control>
+		</control>
+		<control type="group">
+			<left>258</left>
+			<top>30</top>
+			<visible>Control.HasFocus(3) | ControlGroup(90500).HasFocus(3)</visible>
+			<control type="label" id="200">
+				<height>30</height>
+				<width>750</width>
+				<label>[B]Sideblade[/B]</label>
+				<align>center</align>
+				<font>Font_Reg30_Caps</font>
+			</control>
+			<control type="grouplist" id="90503">
+				<description>Sideblade options</description>
+				<top>50</top>
+				<width>800</width>
+				<height>630</height>
+				<itemgap>1</itemgap>
+				<onleft>3</onleft>
+				<onright>3</onright>
+				<onup>90503</onup>
+				<ondown>90503</ondown>
+				<scrolltime tween="sine" easing="out">0</scrolltime>
+				<control type="radiobutton" id="402">
+					<label>Hide Guide</label>
+					<onclick>Skin.ToggleSetting(sideblade_hideepgtimeline)</onclick>
+					<selected>Skin.HasSetting(sideblade_hideepgtimeline)</selected>
+					<width>756</width>
+				</control>
+				<control type="radiobutton" id="403">
+					<label>Hide Recordings</label>
+					<onclick>Skin.ToggleSetting(sideblade_hiderecordings)</onclick>
+					<selected>Skin.HasSetting(sideblade_hiderecordings)</selected>
+					<width>756</width>
+				</control>
+				<control type="radiobutton" id="404">
+					<label>Hide Timer</label>
+					<onclick>Skin.ToggleSetting(sideblade_hidetimer)</onclick>
+					<selected>Skin.HasSetting(sideblade_hidetimer)</selected>
+					<width>756</width>
+				</control>
+				<control type="radiobutton" id="405">
+					<label>Hide Search</label>
+					<onclick>Skin.ToggleSetting(sideblade_hidesearch)</onclick>
+					<selected>Skin.HasSetting(sideblade_hidesearch)</selected>
+					<width>756</width>
+				</control>
+			</control>
+		</control>
+    </controls>
+</window>

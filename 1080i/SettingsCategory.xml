@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+    <defaultcontrol>3</defaultcontrol>
+    <backgroundcolor>backgroundcolor</backgroundcolor>
+    <allowoverlay>no</allowoverlay>
+    <include condition="!Skin.HasSetting(firstrun4.0)">AutoConfig</include>
+    <animation type="WindowOpen" reversible="false" condition="![Window.Previous(settings) | Window.Previous(skinsettings)]">
+        <effect type="zoom" start="150" end="100" center="960,540" time="720" tween="cubic" />
+        <effect type="fade" end="100" time="720" />
+    </animation>
+    <animation type="WindowClose" reversible="false" condition="![Window.Next(settings) | Window.Next(skinsettings)]">
+        <effect type="fade" start="100" end="0" time="240" />
+        <effect type="zoom" start="100" end="130" center="960,540" time="240" tween="cubic" easing="in" />
+    </animation>
+    <controls>
+        <control type="group">
+            <include>CommonSettingsBackground</include>
+            <include>CommonMediaPlayingBackground</include>
+            <include>Furniture_SettingsFloor</include>
+        </control>
+        <control type="group">
+            <animation effect="zoom" end="91" center="960,360" time="320" tween="cubic" easing="inout" condition="true">Conditional</animation>
+            <include>Furniture_SettingsBackPanel</include>
+            <control type="group">
+                <animation effect="fade" start="100" end="0" time="160" tween="cubic" easing="inout" condition="Window.IsActive(DialogPVRChannelManager.xml)">Conditional</animation>
+                <control type="grouplist" id="3">
+                    <left>63</left>
+                    <top>180</top>
+                    <width>326</width>
+                    <height>768</height>
+                    <onleft>ActivateWindow(1121)</onleft>
+                    <onright>5</onright>
+                    <onup>20</onup>
+                    <ondown>20</ondown>
+                </control>
+                <control type="label">
+                    <left>358</left>
+                    <top>-800</top>
+                    <width>1491</width>
+                    <align>center</align>
+                    <label>$INFO[Control.GetLabel(2)] - $LOCALIZE[5]</label>
+                    <font>Font_ShowcaseMainLabel2</font>
+                </control>
+                <control type="grouplist" id="5">
+                    <left>387</left>
+                    <top>180</top>
+                    <width>1469</width>
+                    <height>742</height>
+                    <pagecontrol>60</pagecontrol>
+                    <onleft>3</onleft>
+                    <onright>60</onright>
+                    <onup>5</onup>
+                    <ondown>5</ondown>
+                </control>
+                <control type="image">
+                    <left>1000</left>
+                    <top>918</top>
+                    <width>30</width>
+                    <height>20</height>
+                    <texture>arrowdown.png</texture>
+                    <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+                    <include>Animation_VisibleChange200</include>
+                    <visible>Container(5).HasNext</visible>
+                </control>
+                <control type="scrollbar" id="60">
+                    <left>1834</left>
+                    <top>150</top>
+                    <width>46</width>
+                    <height>800</height>
+                    <include>Animation_VerticalScrollBar</include>
+                    <onleft>5</onleft>
+                    <onright>3</onright>
+                </control>
+            </control>
+            <control type="button" id="10">
+                <width>334</width>
+                <height>74</height>
+                <textoffsetx>20</textoffsetx>
+                <textoffsety>18</textoffsety>
+                <texturefocus border="8">views/tripanel/listselect_fo.png</texturefocus>
+                <texturenofocus>-</texturenofocus>
+                <font>Font_Bold34_Caps</font>
+                <textcolor>grey</textcolor>
+                <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+                <focusedcolor>white2</focusedcolor>
+            </control>
+            <control type="button" id="7">
+                <include>Default_SettingButton</include>
+            </control>
+            <control type="radiobutton" id="8">
+                <textoffsetx>30</textoffsetx>
+                <include>Default_SettingRadioButton</include>
+            </control>
+            <control type="spincontrolex" id="9">
+                <include>Default_SettingButton</include>
+                <spinleft>40</spinleft>
+            </control>
+            <control type="image" id="11">
+                <include>HiddenObject</include>
+            </control>
+            <control type="label" id="2">
+                <include>HiddenObject</include>
+            </control>
+        </control>
+        <control type="group">
+            <include>Animation_HideBreadCrumbs</include>
+            <include>Breadcrumbs_BackBar</include>
+            <include>BreadcrumbsContent</include>
+            <include>Breadcrumbs_Furniture</include>
+        </control>
+        <include>Furniture_NowPlayingWidget</include>
+		<control type="label">
+			<left>160</left>
+			<top>700</top>
+			<width>300</width>
+			<align>left</align>
+			<font>Font_Bold22_Caps</font>    
+			<label>$LOCALIZE[32967]</label>        
+		</control>
+		<control type="button" id="20">
+			<left>144</left>
+			<top>870</top>
+			<width>294</width>
+			<onleft>ActivateWindow(1121)</onleft>
+			<onright>5</onright>
+			<onup>3</onup>
+			<ondown>3</ondown>
+			<onback>3</onback>
+			<height>74</height>
+			<textoffsetx>20</textoffsetx>
+			<textoffsety>35</textoffsety>    
+			<align>left</align>
+			<aligny>top</aligny>                
+			<texturefocus>views/tripanel/listselect_fo.png</texturefocus>
+			<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+			<texturenofocus>-</texturenofocus>
+			<font>Font_Bold34_Caps</font>
+			<textcolor>grey</textcolor>
+			<focusedcolor>white2</focusedcolor>
+			<onclick>SettingsLevelChange</onclick>
+		</control>
+        <control type="textbox" id="6">
+				<description>description area</description>
+				<left>467</left>
+				<top>885</top>
+				<width>1200</width>
+				<height>65</height>
+				<align>left</align>
+				<textcolor>gray</textcolor>
+				<font>Font_Info</font>
+				<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+			</control>		
+    </controls>
+</window>

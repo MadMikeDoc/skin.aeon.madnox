@@ -1,0 +1,1231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<includes>
+    <include name="LowList">
+	<control type="image">
+	    <texture colordiffuse="base">diffuseoverlay_blue.png</texture>
+        <include>FullscreenDimensions</include>
+	    <visible>Control.IsVisible(511)</visible>
+		<visible>Skin.HasSetting(BlueOverlay)</visible>
+    </control>
+        <control type="group">
+            <visible>Control.IsVisible(511)</visible>
+            <animation effect="slide" tween="cubic" easing="out" time="480" start="0,806" end="0,0">VisibleChange</animation>
+            <control type="image">
+                <texture>views/list_filter.png</texture>
+                <include>FullscreenDimensions</include>
+                <include>Animation_WindowFade200</include>
+                <animation effect="fade" start="100" end="80" time="40" condition="true">Conditional</animation>
+            </control>
+			<include>MovieSetsCdArt</include>
+            <control type="group">
+                <animation effect="slide" tween="cubic" easing="in" time="320" start="0,606" end="0,0">WindowOpen</animation>
+                <animation effect="slide" tween="cubic" easing="in" time="240" end="0,740">WindowClose</animation>
+                <control type="group">
+                    <animation effect="slide" end="0,-214" time="120" condition="Skin.HasSetting(nohighlist) + Control.HasFocus(7002)">Conditional</animation>
+                    <animation effect="slide" end="0,-50" time="120" condition="!Skin.HasSetting(nohighlist) + Control.HasFocus(7002)">Conditional</animation>
+                    <animation effect="slide" end="0,-165" time="120" condition="!Skin.HasSetting(nohighlist)">Conditional</animation>
+                    <control type="group">
+                        <visible>Container.Content(movies) + [Skin.HasSetting(lowlisttagline) | Control.HasFocus(7002)] + !IsEmpty(ListItem.Tagline)</visible>
+                        <!--                         <animation type="Visible">
+                            <effect type="slide" start="0,50" end="0,0" time="400" easing="in" tween="cubic" />
+                            <effect type="fade" end="100" time="300" />
+                        </animation>
+                        <animation type="Hidden">
+                            <effect type="slide" end="0,50" time="400" tween="cubic" />
+                            <effect type="fade" start="100" end="0" time="200" />
+                        </animation> -->
+                        <animation type="Visible">
+                            <effect type="zoom" end="100,100" start="100,0" time="320" easing="in" tween="cubic" center="960,755" />
+                        </animation>
+                        <animation type="Hidden">
+                            <effect type="zoom" end="100,0" start="100,100" time="320" tween="cubic" center="960,755" />
+                        </animation>
+                        <control type="image">
+                            <left>333</left>
+                            <top>667</top>
+                            <width>1173</width>
+                            <height>87</height>
+                            <texture border="150,0,150,0">osd/osd_bottom_bar.png</texture>
+                        </control>
+                        <control type="label">
+                            <left>453</left>
+                            <top>385</top>
+                            <width>985</width>
+                            <label>$INFO[ListItem.Tagline]</label>
+                            <font>Font_Reg33_Caps</font>
+                            <textcolor>FF000000</textcolor>
+                            <scroll>true</scroll>
+                        </control>
+                    </control>
+                    <control type="group">
+                        <animation effect="slide" end="-655,0" time="120" condition="!Control.IsVisible(9900) + !Control.HasFocus(7002)">Conditional</animation>
+                        <control type="image">
+                            <top>710</top>
+                            <width>2120</width>
+                            <height>651</height>
+                            <aspectratio scalediffuse="false">stretch</aspectratio>
+                            <texture>views/lowlist_panelback.png</texture>
+                            <animation effect="fade" start="100" end="80" time="40" condition="!Skin.HasSetting(listpanelthin)">Conditional</animation>
+                            <animation effect="fade" start="100" end="35" time="40" condition="Skin.HasSetting(listpanelthin)">Conditional</animation>
+                        </control>
+                        <control type="image">
+                            <left>1420</left>
+                            <top>473</top>
+                            <width>500</width>
+                            <height>281</height>
+                            <aspectratio>keep</aspectratio>
+                            <texture background="true">$VAR[TVShowClearArtVar]</texture>
+                            <fadetime>400</fadetime>
+                            <visible>Skin.HasSetting(lowlistclearart)</visible>
+                            <include>Animation_VisibleChange400</include>
+                            <visible>Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows)</visible>
+                        </control>
+                        <include>Neon_LowList</include>
+                        <control type="image">
+                            <left>1510</left>
+                            <top>600</top>
+                            <width>400</width>
+                            <height>155</height>
+                            <aspectratio>keep</aspectratio>
+                            <texture background="true">$VAR[LogoVar]</texture>
+                            <fadetime>400</fadetime>
+                            <include>Animation_VisibleChange400</include>
+                            <visible>!Skin.HasSetting(lowlistclearart) + [Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(movies) | Container.Content(sets)]</visible>
+                        </control>
+					
+						<!--control type="textbox">
+							<left>1490</left>
+                            <top>530</top>
+                            <width>400</width>
+							<height>220</height>
+							<align>center</align>
+							<aligny>top</aligny>
+							<textcolor>themecolor_transparent</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<font>font_terminator</font>
+							<label>[B]$VAR[FirstLabelVar][/B]</label>
+							<textoffsetx>15</textoffsetx>
+							<include>Animation_VisibleChange400</include>
+                            <visible>IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(rightlistfakelogo)</visible>
+							<visible>!Skin.HasSetting(lowlistclearart) + [Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(movies) | Container.Content(sets)]</visible>
+							<visible>SubString(ListItem.Title,a,Left) | SubString(ListItem.Title,b,Left) | SubString(ListItem.Title,c,Left) | SubString(ListItem.Title,d,Left)</visible>
+							<scroll>true</scroll>
+							<wrapmultiline>true</wrapmultiline>
+						</control>
+					
+						<control type="textbox">
+							<left>1490</left>
+                            <top>600</top>
+                            <width>400</width>
+							<height>220</height>
+							<align>center</align>
+							<aligny>center</aligny>
+							<textcolor>themecolor_transparent</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<font>font_terminator</font>
+							<label>[B]$VAR[FirstLabelVar][/B]</label>
+							<textoffsetx>15</textoffsetx>
+							<include>Animation_VisibleChange400</include>
+                            <visible>IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(rightlistfakelogo)</visible>
+							<visible>!Skin.HasSetting(lowlistclearart) + [Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(movies) | Container.Content(sets)]</visible>
+							<visible>SubString(ListItem.Title,u,Left) | SubString(ListItem.Title,v,Left) | SubString(ListItem.Title,w,Left) | SubString(ListItem.Title,x,Left) | SubString(ListItem.Title,y,Left) | SubString(ListItem.Title,z,Left)</visible>
+							<scroll>true</scroll>
+							<wrapmultiline>true</wrapmultiline>
+						</control-->		
+						
+                    </control>
+                    <control type="image">
+                        <left>1128</left>
+                        <top>754</top>
+                        <width>66</width>
+                        <height>490</height>
+                        <texture>views/listpanel_detailwide.png</texture>
+                        <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+                        <include>Animation_VisibleChange200</include>
+                        <visible>!Control.HasFocus(7002) + !Container.Content(seasons) + Control.IsVisible(9900)</visible>
+                    </control>
+                </control>
+                <control type="spincontrol" id="7002">
+                    <left>1815</left>
+                    <top>525</top>
+                    <onup>Control.Move(511,-1)</onup>
+                    <onleft>50</onleft>
+                    <onright condition="!Skin.HasSetting(kioskmode)">9000</onright>
+                    <ondown>Control.Move(511,1)</ondown>
+                    <onback>50</onback>
+                    <visible allowhiddenfocus="true">Control.HasFocus(7002)</visible>
+                </control>
+                <control type="group">
+                    <visible>Control.HasFocus(7002)</visible>
+                    <control type="image">
+                        <left>450</left>
+                        <top>600</top>
+                        <width>1440</width>
+                        <height>1</height>
+                        <texture>views/lowlistpanel_line.png</texture>
+                        <colordiffuse>66FFFFFF</colordiffuse>
+                    </control>
+                    <control type="image">
+                        <left>450</left>
+                        <top>975</top>
+                        <width>1440</width>
+                        <height>1</height>
+                        <texture>views/lowlistpanel_line.png</texture>
+                        <colordiffuse>66FFFFFF</colordiffuse>
+                    </control>
+                    <control type="image">
+                        <left>450</left>
+                        <top>675</top>
+                        <width>398</width>
+                        <height>1</height>
+                        <texture>views/lowlistpanel_line.png</texture>
+                        <colordiffuse>66FFFFFF</colordiffuse>
+                    </control>
+                    <control type="image">
+                        <left>450</left>
+                        <top>750</top>
+                        <width>398</width>
+                        <height>1</height>
+                        <texture>views/lowlistpanel_line.png</texture>
+                        <colordiffuse>66FFFFFF</colordiffuse>
+                    </control>
+                    <control type="image">
+                        <left>450</left>
+                        <top>825</top>
+                        <width>398</width>
+                        <height>1</height>
+                        <texture>views/lowlistpanel_line.png</texture>
+                        <colordiffuse>66FFFFFF</colordiffuse>
+                    </control>
+                    <control type="image">
+                        <left>450</left>
+                        <top>900</top>
+                        <width>398</width>
+                        <height>1</height>
+                        <texture>views/lowlistpanel_line.png</texture>
+                        <colordiffuse>66FFFFFF</colordiffuse>
+                    </control>
+                    <control type="group">
+                        <visible>!Container.Content(episodes)</visible>
+                        <control type="image">
+                            <left>855</left>
+                            <top>607</top>
+                            <width>628</width>
+                            <height>360</height>
+                            <aspectratio>scale</aspectratio>
+                            <texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+                            <fadetime>400</fadetime>
+                            <bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
+                            <bordersize>7</bordersize>
+							 <visible>!SubString(ListItem.Path,videodb://movies/sets/)</visible>
+                        </control>
+                        <control type="image">
+                            <left>855</left>
+                            <top>607</top>
+                            <width>628</width>
+                            <height>360</height>
+                            <aspectratio>scale</aspectratio>
+                            <texture background="true">$INFO[ListItem.Art(extrafanart1)]</texture>
+                            <fadetime>400</fadetime>
+                            <bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
+                            <bordersize>7</bordersize>
+							<visible>SubString(ListItem.Path,videodb://movies/sets/)</visible>
+                        </control>
+                        <control type="multiimage">
+                            <left>862</left>
+                            <top>614</top>
+                            <width>614</width>
+                            <height>346</height>
+                            <aspectratio>scale</aspectratio>
+                            <imagepath background="true">$INFO[ListItem.Path]/extrathumbs/</imagepath>
+                            <fadetime>1000</fadetime>
+                            <timeperimage>8000</timeperimage>
+							<visible>!SubString(ListItem.Path,videodb://movies/sets/)</visible>
+                        </control>
+                    </control>
+                    <control type="image">
+                        <left>855</left>
+                        <top>607</top>
+                        <width>628</width>
+                        <height>360</height>
+                        <aspectratio>scale</aspectratio>
+                        <texture background="true">$INFO[ListItem.Thumb]</texture>
+                        <fadetime>400</fadetime>
+                        <bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
+                        <bordersize>7</bordersize>
+                        <visible>Container.Content(episodes)</visible>
+                    </control>
+                    <control type="fadelabel">
+                        <left>460</left>
+                        <top>540</top>
+                        <width>1390</width>
+                        <height>60</height>
+                        <align>center</align>
+                        <label>$INFO[ListItem.Title]</label>
+                        <font>Font_Reg42_Caps</font>
+                        <textcolor>white3</textcolor>
+                    </control>
+                    <control type="label">
+                        <left>450</left>
+                        <top>600</top>
+                        <width>398</width>
+                        <height>38</height>
+                        <label>$VAR[FanartPanelDetail1Var]</label>
+                        <textcolor>$VAR[TitleColorVar]</textcolor>
+                        <scroll>true</scroll>
+                    </control>
+                    <control type="label">
+                        <left>450</left>
+                        <top>638</top>
+                        <width>398</width>
+                        <height>38</height>
+                        <aligny>top</aligny>
+                        <label fallback="31006">$VAR[FanartPanelValue1Var]</label>
+                        <textcolor>white6</textcolor>
+                        <scroll>true</scroll>
+                    </control>
+                    <control type="label">
+                        <left>450</left>
+                        <top>675</top>
+                        <width>398</width>
+                        <height>38</height>
+                        <label>$VAR[FanartPanelDetail2Var]</label>
+                        <textcolor>$VAR[TitleColorVar]</textcolor>
+                        <scroll>true</scroll>
+                    </control>
+                    <control type="label">
+                        <left>450</left>
+                        <top>712</top>
+                        <width>398</width>
+                        <height>38</height>
+                        <aligny>top</aligny>
+                        <label fallback="31006">$VAR[FanartPanelValue2Var]</label>
+                        <textcolor>white6</textcolor>
+                        <scroll>true</scroll>
+                    </control>
+                    <control type="label">
+                        <left>450</left>
+                        <top>750</top>
+                        <width>398</width>
+                        <height>38</height>
+                        <label>$VAR[FanartPanelDetail4Var]</label>
+                        <textcolor>$VAR[TitleColorVar]</textcolor>
+                        <scroll>true</scroll>
+                    </control>
+                    <control type="label">
+                        <left>450</left>
+                        <top>788</top>
+                        <width>398</width>
+                        <height>38</height>
+                        <aligny>top</aligny>
+                        <label fallback="31006">$VAR[FanartPanelValue4Var]</label>
+                        <textcolor>white6</textcolor>
+                        <scroll>true</scroll>
+                        <visible>IsEmpty(ListItem.Top250)</visible>
+                    </control>
+                    <control type="fadelabel">
+                        <left>450</left>
+                        <top>788</top>
+                        <width>398</width>
+                        <height>38</height>
+                        <aligny>top</aligny>
+                        <label fallback="31006">$INFO[ListItem.Top250,$LOCALIZE[13409] #]</label>
+                        <label fallback="31006">$INFO[ListItem.RatingAndVotes]</label>
+                        <textcolor>white6</textcolor>
+                        <visible>!IsEmpty(ListItem.Top250)</visible>
+                    </control>
+                    <control type="label">
+                        <left>450</left>
+                        <top>825</top>
+                        <width>398</width>
+                        <height>38</height>
+                        <label>$VAR[FanartPanelDetail5Var]</label>
+                        <textcolor>$VAR[TitleColorVar]</textcolor>
+                        <scroll>true</scroll>
+                    </control>
+                    <control type="label">
+                        <left>450</left>
+                        <top>862</top>
+                        <width>398</width>
+                        <height>38</height>
+                        <aligny>top</aligny>
+                        <label fallback="31006">$VAR[FanartPanelValue5Var]</label>
+                        <textcolor>white6</textcolor>
+                        <scroll>true</scroll>
+                    </control>
+                    <control type="label">
+                        <left>450</left>
+                        <top>900</top>
+                        <width>398</width>
+                        <height>38</height>
+                        <label>$VAR[FanartPanelDetail6Var]</label>
+                        <textcolor>$VAR[TitleColorVar]</textcolor>
+                        <scroll>true</scroll>
+                    </control>
+                    <control type="label">
+                        <left>450</left>
+                        <top>938</top>
+                        <width>398</width>
+                        <height>38</height>
+                        <aligny>top</aligny>
+                        <label fallback="31006">$VAR[FanartPanelValue6Var]</label>
+                        <textcolor>white6</textcolor>
+                        <scroll>true</scroll>
+                    </control>
+                    <control type="textbox">
+                        <left>1500</left>
+                        <top>606</top>
+                        <width>405</width>
+                        <height>367</height>
+                        <label>$VAR[GlobalPlotVar]</label>
+                        <font>Font_Reg30_2</font>
+                        <textcolor>white6</textcolor>
+                        <pagecontrol>7002</pagecontrol>
+                        <autoscroll delay="8000" time="AutoScrollTime" repeat="8000">Skin.HasSetting(AutoScroll)</autoscroll>
+                    </control>
+                </control>
+                <control type="group">
+                    <visible>!Control.HasFocus(7002) + Control.IsVisible(9900)</visible>
+                    <animation effect="fade" time="160">VisibleChange</animation>
+                    <control type="image">
+                        <left>1275</left>
+                        <top>994</top>
+                        <width>615</width>
+                        <height>1</height>
+                        <texture>views/lowlistpanel_line.png</texture>
+                        <colordiffuse>66FFFFFF</colordiffuse>
+                    </control>
+                    <control type="group">
+                        <top>25</top>
+                        <visible>!Skin.HasSetting(nohighlist) + !IsEmpty(ListItem.Title) + Skin.HasSetting(LowListPlotOnly) + ![Container.Content(seasons) + ListItem.IsFolder]</visible>
+                        <animation effect="fade" time="320">VisibleChange</animation>
+                        <control type="image">
+                            <left>1275</left>
+                            <top>785</top>
+                            <width>615</width>
+                            <height>1</height>
+                            <texture>views/lowlistpanel_line.png</texture>
+                            <colordiffuse>66FFFFFF</colordiffuse>
+                        </control>
+                        <control type="label">
+                            <left>1275</left>
+                            <top>788</top>
+                            <width>180</width>
+                            <height>20</height>
+                            <label>$VAR[FanartPanelDetail1Var]</label>
+                            <textcolor>grey2</textcolor>
+                            <scroll>true</scroll>
+                        </control>
+                        <control type="label">
+                            <left>1462</left>
+                            <top>788</top>
+                            <width>420</width>
+                            <height>20</height>
+                            <label fallback="31006">$VAR[FanartPanelValue1Var]</label>
+                            <textcolor>white6</textcolor>
+                            <scroll>true</scroll>
+                        </control>
+                        <control type="label">
+                            <left>1275</left>
+                            <top>825</top>
+                            <width>180</width>
+                            <height>20</height>
+                            <label>$VAR[FanartPanelDetail2Var]</label>
+                            <textcolor>grey2</textcolor>
+                            <scroll>true</scroll>
+                        </control>
+                        <control type="label">
+                            <left>1462</left>
+                            <top>825</top>
+                            <width>420</width>
+                            <height>20</height>
+                            <label fallback="31006">$VAR[FanartPanelValue2Var]</label>
+                            <textcolor>white6</textcolor>
+                            <scroll>true</scroll>
+                        </control>
+                        <control type="label">
+                            <left>1275</left>
+                            <top>862</top>
+                            <width>180</width>
+                            <height>20</height>
+                            <label>$VAR[LowListInfoDetail3]</label>
+                            <textcolor>grey2</textcolor>
+                            <scroll>true</scroll>
+                        </control>
+                        <control type="label">
+                            <left>1462</left>
+                            <top>862</top>
+                            <width>420</width>
+                            <height>20</height>
+                            <label fallback="31006">$VAR[LowListInfoValue3]</label>
+                            <textcolor>white6</textcolor>
+                            <scroll>true</scroll>
+                        </control>
+                        <control type="label">
+                            <left>1275</left>
+                            <top>900</top>
+                            <width>180</width>
+                            <height>20</height>
+                            <label>$VAR[LowListInfoDetail5]</label>
+                            <textcolor>grey2</textcolor>
+                            <scroll>false</scroll>
+                        </control>
+                        <control type="label">
+                            <left>1462</left>
+                            <top>900</top>
+                            <width>420</width>
+                            <height>20</height>
+                            <label fallback="31006">$VAR[LowListInfoValue5]</label>
+                            <textcolor>white6</textcolor>
+                            <scroll>true</scroll>
+                        </control>
+                        <control type="label">
+                            <left>1275</left>
+                            <top>938</top>
+                            <width>180</width>
+                            <height>20</height>
+                            <label>$VAR[LowListInfoDetail4]</label>
+                            <textcolor>grey2</textcolor>
+                            <scroll>true</scroll>
+                        </control>
+                        <control type="label">
+                            <left>1462</left>
+                            <top>938</top>
+                            <width>420</width>
+                            <height>20</height>
+                            <label fallback="31006">$VAR[LowListInfoValue4]</label>
+                            <textcolor>white6</textcolor>
+                            <scroll>true</scroll>
+                        </control>
+                    </control>
+                    <control type="group">
+                        <animation effect="slide" end="0,-165" time="120" condition="!Skin.HasSetting(nohighlist)">Conditional</animation>
+                        <control type="textbox">
+                            <left>1275</left>
+                            <top>756</top>
+                            <width>633</width>
+                            <height>237</height>
+                            <label>$VAR[GlobalPlotVar]</label>
+                            <font>Font_Reg30</font>
+                            <textcolor>white6</textcolor>
+                            <autoscroll delay="8000" time="AutoScrollTime" repeat="8000">Skin.HasSetting(AutoScroll)</autoscroll>
+                            <visible>Skin.HasSetting(nohighlist)</visible>
+                        </control>
+                        <control type="textbox">
+                            <left>1275</left>
+                            <top>760</top>
+                            <width>633</width>
+                            <height>196</height>
+                            <label>$VAR[GlobalPlotVar]</label>
+                            <font>Font_Reg30_2</font>
+                            <textcolor>white6</textcolor>
+                            <autoscroll delay="8000" time="AutoScrollTime" repeat="8000">Skin.HasSetting(AutoScroll)</autoscroll>
+                            <visible>Skin.HasSetting(LowListPlotOnly) + !Skin.HasSetting(nohighlist)</visible>
+                        </control>
+                        <control type="textbox">
+                            <left>1275</left>
+                            <top>760</top>
+                            <width>633</width>
+                            <height>399</height>
+                            <label>$VAR[GlobalPlotVar]</label>
+                            <font>Font_Reg30_2</font>
+                            <textcolor>white6</textcolor>
+                            <autoscroll delay="8000" time="AutoScrollTime" repeat="8000">Skin.HasSetting(AutoScroll)</autoscroll>
+                            <visible>!Skin.HasSetting(LowListPlotOnly) + !Skin.HasSetting(nohighlist)</visible>
+                        </control>
+                    </control>
+                </control>
+            </control>
+            <control type="group">
+                <left>38</left>
+                <top>232</top>
+                <visible>Player.HasVideo</visible>
+                <animation effect="slide" tween="cubic" easing="inout" time="1040" start="-1200,0" end="0,0" delay="800">Visible</animation>
+                <animation effect="slide" tween="cubic" easing="inout" time="1040" start="-1200,0" end="0,0" delay="800">WindowOpen</animation>
+                <animation effect="slide" end="0,-165" time="120" condition="!Skin.HasSetting(nohighlist) | Control.HasFocus(7002)">Conditional</animation>
+                <include>Animation_CommonFade</include>
+                <control type="image">
+                    <left>405</left>
+                    <width>1110</width>
+                    <height>480</height>
+                    <texture>common/black.png</texture>
+                    <bordertexture border="15">home/nowplaying/OverlayDialogBackground.png</bordertexture>
+                    <bordersize>15</bordersize>
+                    <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+                </control>
+                <control type="videowindow">
+                    <left>420</left>
+                    <top>15</top>
+                    <width>1080</width>
+                    <height>450</height>
+                </control>
+            </control>
+            <control type="image">
+                <left>40</left>
+                <top>235</top>
+                <width>400</width>
+                <height>400</height>
+                <aspectratio align="right">keep</aspectratio>
+                <texture background="true">$VAR[cdArtMoviesVar]</texture>
+                <animation effect="slide" tween="cubic" easing="in" time="320" start="-450" end="0">WindowOpen</animation>
+                <animation effect="slide" tween="cubic" easing="in" time="240" end="-450">WindowClose</animation>
+                <animation effect="slide" end="-40,0" time="320" easing="inout" tween="cubic" condition="Control.HasFocus(69)">Conditional</animation>
+                <animation effect="slide" end="0,-40" time="320" easing="inout" tween="cubic" condition="Skin.HasSetting(usecaseslowlist)">Conditional</animation>
+                <visible>Skin.HasSetting(lowlistcdart)</visible>
+                <visible>Container.Content(movies) + !IsEmpty(ListItem.Art(discart))</visible>
+                <animation effect="rotate" end="-360" center="auto" time="6400" delay="800" loop="false" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+				<animation effect="slide" start="0,300" end="0,0" delay="1000" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+            </control>
+			<!--MAD - Fake Disc Start -->
+				<control type="image">
+					<left>32</left>
+					<top>235</top>
+					<width>410</width>
+					<height>410</height>
+					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[ListItem.Art(poster)]</texture>
+					<animation effect="slide" end="-40,0" time="320" easing="inout" tween="cubic" condition="Control.HasFocus(69)">Conditional</animation>
+					<animation effect="slide" end="0,-40" time="320" easing="inout" tween="cubic" condition="Skin.HasSetting(usecaseslowlist)">Conditional</animation>
+					<bordersize>7</bordersize>
+					<visible>Skin.HasSetting(lowlistcdart) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Container.Content(movies) + !SubString(ListItem.Path,videodb://movies/sets/) + !Control.HasFocus(5001) + Skin.HasSetting(Fakediscart)</visible>
+					<animation effect="rotate" end="-360" center="auto" time="6400" delay="800" loop="false" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+					<animation effect="slide" start="0,300" end="0,0" delay="1000" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+				</control>
+				<control type="image">
+					<left>32</left>
+					<top>235</top>
+					<width>410</width>
+					<height>410</height>
+					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+					<texture background="true">$VAR[FakeDiscArtOverlay]</texture>
+					<animation effect="slide" tween="cubic" easing="in" time="320" start="-450" end="0">WindowOpen</animation>
+					<animation effect="slide" tween="cubic" easing="in" time="240" end="-450">WindowClose</animation>
+					<animation effect="slide" end="-40,0" time="320" easing="inout" tween="cubic" condition="Control.HasFocus(69)">Conditional</animation>
+					<animation effect="slide" end="0,-40" time="320" easing="inout" tween="cubic" condition="Skin.HasSetting(usecaseslowlist)">Conditional</animation>
+					<bordersize>7</bordersize>
+					<visible>Skin.HasSetting(lowlistcdart) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Container.Content(movies) + !SubString(ListItem.Path,videodb://movies/sets/) + !Control.HasFocus(5001) + Skin.HasSetting(Fakediscart)</visible>
+					<animation effect="rotate" end="-360" center="auto" time="6400" delay="800" loop="false" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+					<animation effect="slide" start="0,300" end="0,0" delay="1000" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+				</control>
+				<control type="image">
+					<left>40</left>
+					<top>235</top>
+					<width>400</width>
+					<height>400</height>
+					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+					<texture background="true">$VAR[FakeDischand]</texture>
+					<animation effect="slide" tween="cubic" easing="in" time="320" start="-450" end="0">WindowOpen</animation>
+					<animation effect="slide" tween="cubic" easing="in" time="240" end="-450">WindowClose</animation>
+					<animation effect="slide" end="-40,0" time="320" easing="inout" tween="cubic" condition="Control.HasFocus(69)">Conditional</animation>
+					<animation effect="slide" end="0,-40" time="320" easing="inout" tween="cubic" condition="Skin.HasSetting(usecaseslowlist)">Conditional</animation>
+					<visible>Skin.Hassetting(listcdart) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Container.Content(movies) + Skin.HasSetting(Fakedischandwriting) + !SubString(ListItem.Path,videodb://movies/sets) + Skin.HasSetting(Fakedischandwriting) + !Skin.Hassetting(Fakehanddisccolor)</visible>
+					<animation effect="rotate" end="-360" center="auto" time="6400" delay="800" loop="false" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+					<animation effect="slide" start="0,300" end="0,0" delay="1000" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+				</control>
+				<control type="image">
+					<left>40</left>
+					<top>235</top>
+					<width>400</width>
+					<height>400</height>
+					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+					<texture background="true">$VAR[FakeDischandcolor]</texture>
+					<animation effect="slide" tween="cubic" easing="in" time="320" start="-450" end="0">WindowOpen</animation>
+					<animation effect="slide" tween="cubic" easing="in" time="240" end="-450">WindowClose</animation>
+					<animation effect="slide" end="-40,0" time="320" easing="inout" tween="cubic" condition="Control.HasFocus(69)">Conditional</animation>
+					<animation effect="slide" end="0,-40" time="320" easing="inout" tween="cubic" condition="Skin.HasSetting(usecaseslowlist)">Conditional</animation>
+					<visible>Skin.Hassetting(listcdart) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Container.Content(movies) + Skin.HasSetting(Fakedischandwriting) + !SubString(ListItem.Path,videodb://movies/sets) + Skin.HasSetting(Fakedischandwriting) + Skin.HasSetting(fakehanddisccolor)</visible>
+					<animation effect="rotate" end="-360" center="auto" time="6400" delay="800" loop="false" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+					<animation effect="slide" start="0,300" end="0,0" delay="1000" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+				</control>
+				<control type="textbox">
+                    <animation effect="slide" end="-40,0" time="320" easing="inout" tween="cubic" condition="Control.HasFocus(69)">Conditional</animation>
+					<animation effect="slide" tween="cubic" easing="in" time="320" start="-450" end="0">WindowOpen</animation>
+					<animation effect="rotate" end="-360" center="240,390" time="6400" delay="800" loop="false" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious + !Control.HasFocus(69)">Conditional</animation>
+					<animation effect="rotate" end="-360" center="240,390" time="6400" delay="800" loop="false" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious + Control.HasFocus(69)">Conditional</animation>
+					<animation effect="slide" tween="cubic" easing="in" time="320" start="-450" end="0">WindowOpen</animation>
+					<animation effect="slide" tween="cubic" easing="in" time="240" end="-450">WindowClose</animation>
+					<animation effect="slide" end="0,-40" time="320" easing="inout" tween="cubic" condition="Skin.HasSetting(usecaseslowlist)">Conditional</animation>
+					<top>478</top>
+					<left>114</left>
+					<width>230</width>
+					<height>90</height>
+					<font>Hand_26</font>
+					<align>center</align>
+					<aligny>top</aligny>
+					<visible>Skin.Hassetting(listcdart) + IsEmpty(ListItem.Art(discart)) + Container.Content(movies) + Skin.HasSetting(Fakedischandwriting) + !SubString(ListItem.Path,videodb://movies/sets) + IsEmpty(ListItem.Art(clearlogo)) + !Skin.Hassetting(Fakehandtop)</visible>
+                    <label> $INFO[ListItem.Label]</label>
+                    <textcolor>black</textcolor>
+					<wrapmultiline>true</wrapmultiline>
+				</control>
+				<control type="textbox">
+                    <animation effect="slide" end="-40,0" time="320" easing="inout" tween="cubic" condition="Control.HasFocus(69)">Conditional</animation>
+					<!--animation effect="slide" tween="cubic" easing="in" time="320" start="-450" end="0">WindowOpen</animation-->
+					<animation effect="rotate" end="-360" center="240,390" time="6400" delay="800" loop="false" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious + !Control.HasFocus(69)">Conditional</animation>
+					<animation effect="rotate" end="-360" center="240,390" time="6400" delay="800" loop="false" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious + Control.HasFocus(69)">Conditional</animation>
+					<!--animation effect="slide" tween="cubic" easing="in" time="320" start="-450" end="0">WindowOpen</animation-->
+					<!--animation effect="slide" tween="cubic" easing="in" time="240" end="-450">WindowClose</animation-->
+					<animation effect="slide" start="0,300" end="0,0" delay="1040" time="920" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+					<animation effect="slide" end="0,-40" time="320" easing="inout" tween="cubic" condition="Skin.HasSetting(usecaseslowlist)">Conditional</animation>
+					<top>293</top>
+					<left>124</left>
+					<width>230</width>
+					<height>90</height>
+					<font>Hand_26</font>
+					<align>center</align>
+					<aligny>top</aligny>
+					<visible>Skin.Hassetting(listcdart) + IsEmpty(ListItem.Art(discart)) + Container.Content(movies) + Skin.HasSetting(Fakedischandwriting) + !SubString(ListItem.Path,videodb://movies/sets) + IsEmpty(ListItem.Art(clearlogo)) + Skin.Hassetting(Fakehandtop)</visible>
+                    <label> $INFO[ListItem.Label]</label>
+                    <textcolor>black</textcolor>
+					<wrapmultiline>true</wrapmultiline>
+				</control>
+				<control type="group">
+					<animation effect="slide" end="-40,0" time="320" easing="inout" tween="cubic" condition="Control.HasFocus(69)">Conditional</animation>
+					<animation effect="slide" tween="cubic" easing="in" time="320" start="-450" end="0">WindowOpen</animation>
+					<animation effect="rotate" end="-360" center="240,390" time="6400" delay="800" loop="false" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious + !Control.HasFocus(69)">Conditional</animation>
+					<animation effect="rotate" end="-360" center="240,390" time="6400" delay="800" loop="false" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious + Control.HasFocus(69)">Conditional</animation>
+					<animation effect="slide" tween="cubic" easing="in" time="320" start="-450" end="0">WindowOpen</animation>
+					<animation effect="slide" tween="cubic" easing="in" time="240" end="-450">WindowClose</animation>
+					<animation effect="slide" end="0,-40" time="320" easing="inout" tween="cubic" condition="Skin.HasSetting(usecaseslowlist)">Conditional</animation>
+					<left>124</left>
+					<top>293</top>
+					<width>230</width>
+					<height>70</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<visible>Skin.HasSetting(listcdart) + Container.Content(movies) + !IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(discart)) + !SubString(ListItem.Path,videodb://movies/sets) + Skin.HasSetting(Fakedischandwriting)</visible>
+					<control type="image">
+						<texture background="true" fallback="empty.png">$INFO[ListItem.Art(clearlogo)]</texture>
+						<animation effect="slide" start="0,300" end="0,0" delay="1040" time="920" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+					</control>
+				</control>
+				<!--MAD Fake Disc End -->
+            <control type="group">
+                <left>40</left>
+                <top>572</top>
+                <animation effect="slide" tween="cubic" easing="in" time="320" start="-450" end="0">WindowOpen</animation>
+                <animation effect="slide" tween="cubic" easing="in" time="240" end="-450">WindowClose</animation>
+                <control type="group">
+                    <animation effect="slide" end="-40,0" time="320" easing="inout" tween="cubic" condition="Control.HasFocus(69)">Conditional</animation>
+                    <visible>[!Container.Content(episodes) | Control.HasFocus(7002)]</visible>
+                    <animation effect="fade" time="120" end="100">Visible</animation>
+                    <animation effect="fade" time="120" start="100" end="0">Hidden</animation>
+                    <control type="image">
+                        <left>-34</left>
+                        <top>-172</top>
+                        <width>467</width>
+                        <height>682</height>
+                        <align>center</align>
+                        <texture background="true">thumbs/thumb_glass_shadow.png</texture>
+                        <bordersize>18</bordersize>
+                        <include>PanelGlowFade</include>
+                        <visible>!Skin.HasSetting(usecaseslowlist)</visible>
+                        <include>Animation_VisibleChange400</include>
+                        <visible>Skin.HasSetting(ExtendedGlowMode)</visible>
+                        <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+                    </control>
+                    <control type="image">
+                        <top>-130</top>
+                        <width>399</width>
+                        <height>600</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="thumbs/movieposter_mask.png">common/black.png</texture>
+                    </control>
+                    <control type="image">
+                        <top>-130</top>
+                        <width>399</width>
+                        <height>600</height>
+                        <aspectratio scalediffuse="false">fit</aspectratio>
+                        <texture background="true" diffuse="thumbs/thumb_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
+						<visible>Skin.HasSetting(genrethumbs)</visible>
+                    </control>
+					<control type="image">
+                        <top>-130</top>
+                        <width>399</width>
+                        <height>600</height>
+                        <aspectratio scalediffuse="false">fit</aspectratio>
+                        <texture background="true" diffuse="thumbs/thumb_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar1]</texture>
+						<visible>!Skin.HasSetting(genrethumbs)</visible>
+                    </control>
+                    <control type="image">
+                        <left>-19.5</left>
+                        <top>-149.5</top>
+                        <width>438</width>
+                        <height>639</height>
+                        <aspectratio scalediffuse="false">stretch</aspectratio>
+                        <texture diffuse="thumbs/movieposter_mask.png">thumbs/thumb_glass_noreflect.png</texture>
+                        <bordertexture border="19.5">thumbs/poster_shadow.png</bordertexture>
+                        <bordersize>19.5</bordersize>
+                    </control>
+                    <control type="image">
+                        <left>2</left>
+                        <top>454</top>
+                        <width>395</width>
+                        <height>300</height>
+                        <aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
+                        <texture background="true" flipy="true" diffuse="thumbs/movieposter_mask_reflect.png">$VAR[ListPosterVar]</texture>
+                        <fadetime>400</fadetime>
+                        <animation effect="slide" end="0,23" time="320" easing="inout" tween="cubic" condition="Skin.HasSetting(usecaseslowlist)">Conditional</animation>
+						<visible>Skin.HasSetting(genrethumbs)</visible>
+                    </control>
+					  <control type="image">
+                        <left>2</left>
+                        <top>454</top>
+                        <width>395</width>
+                        <height>300</height>
+                        <aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
+                        <texture background="true" flipy="true" diffuse="thumbs/movieposter_mask_reflect.png">$VAR[ListPosterVar1]</texture>
+                        <fadetime>400</fadetime>
+                        <animation effect="slide" end="0,23" time="320" easing="inout" tween="cubic" condition="Skin.HasSetting(usecaseslowlist)">Conditional</animation>
+						<visible>!Skin.HasSetting(genrethumbs)</visible>
+                    </control>
+					<control type="image">
+                        <left>-68</left>
+                        <top>-182</top>
+                        <width>490</width>
+                        <height>684</height>
+                        <aspectratio scalediffuse="false">stretch</aspectratio>
+                        <texture background="true">thumbs/boxes/$VAR[lowlistCasePathVar]/$VAR[GlobalCaseVar]</texture>
+                        <fadetime>50</fadetime>
+                        <visible>Skin.HasSetting(usecaseslowlist) + Container.Content(movies)</visible>
+                        <include>Animation_VisibleChange200</include>
+                    </control>
+                </control>
+                <control type="group">
+                    <left>-25</left>
+                    <top>194</top>
+                    <animation effect="slide" end="-21,0" time="320" easing="inout" tween="cubic" condition="Control.HasFocus(69)">Conditional</animation>
+                    <animation type="Visible">
+                        <effect type="fade" time="120" end="100" />
+                        <effect type="slide" start="0,-75" end="0,0" time="160" />
+                    </animation>
+                    <visible>Container.Content(episodes) + !Control.HasFocus(7002)</visible>
+                    <control type="image">
+                        <width>420</width>
+                        <height>237</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="thumbs/multiplex_tvmask.png" background="true">$INFO[ListItem.Icon]</texture>
+                    </control>
+                    <control type="image">
+                        <width>420</width>
+                        <height>237</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="thumbs/multiplex_tvmask.png" background="true">thumbs/multiplex_tv_glass.png</texture>
+                    </control>
+                    <control type="image">
+                        <top>240</top>
+                        <width>420</width>
+                        <height>237</height>
+                        <aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
+                        <texture background="true" flipy="true" diffuse="thumbs/multiplex_tvmaskreflect.png">$INFO[ListItem.Icon]</texture>
+                    </control>
+                    <control type="group">
+                        <visible>!Skin.HasSetting(nohighlist)</visible>
+                        <control type="image" id="2244">
+                            <top>-135</top>
+                            <width>420</width>
+                            <height>90</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="thumbs/banner_mask.png" background="true">$INFO[ListItem.Art(tvshow.banner)]</texture>
+                            <fadetime>400</fadetime>
+                            <visible>Skin.HasSetting(lowlistbanner)</visible>
+                        </control>
+                        <control type="image">
+                            <top>-135</top>
+                            <width>420</width>
+                            <height>90</height>
+                            <texture diffuse="thumbs/banner_mask.png">featured/panel_featured_overlay.png</texture>
+                            <visible>Skin.HasSetting(lowlistbanner)</visible>
+                        </control>
+                        <control type="image">
+                            <top>-135</top>
+                            <width>420</width>
+                            <height>90</height>
+                            <aspectratio scalediffuse="false">stretch</aspectratio>
+                            <texture diffuse="thumbs/banner_mask.png" background="true" fallback="empty.png">$VAR[BannerVar]</texture>
+                            <fadetime>400</fadetime>
+                            <visible>!Skin.HasSetting(lowlistbanner)</visible>
+                        </control>
+                    </control>
+                </control>
+            </control>
+            <control type="fixedlist" id="511">
+                <left>450</left>
+                <top>754</top>
+                <width>976</width>
+                <include condition="!Skin.HasSetting(nohighlist)">LowListHeightHigh</include>
+                <include condition="Skin.HasSetting(nohighlist)">LowListHeightLow</include>
+                <onleft>69</onleft>
+                <onright condition="!IsEmpty(Container.FolderPath) + !Container.Content(directors)">7002</onright>
+                <onright condition="!IsEmpty(Container.FolderPath) + Container.Content(directors)">RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Label])</onright>
+				<onright condition="IsEmpty(Container.FolderPath)">9000</onright>
+                <onup>511</onup>
+                <ondown>511</ondown>
+                <orientation>vertical</orientation>
+                <viewtype label="$LOCALIZE[31153]">BigWrap</viewtype>
+                <pagecontrol>69</pagecontrol>
+                <scrolltime tween="quadratic">200</scrolltime>
+                <preloaditems>2</preloaditems>
+                <visible>![!IsEmpty(Skin.String(DisableLowListVL)) + Window.IsActive(videos)]</visible>
+                <animation effect="slide" tween="cubic" easing="in" time="320" start="0,606" end="0,0">WindowOpen</animation>
+                <animation effect="slide" tween="cubic" easing="in" time="240" end="0,606">WindowClose</animation>
+                <animation effect="slide" end="0,-165" time="120" condition="!Skin.HasSetting(nohighlist)">Conditional</animation>
+                <animation effect="fade" start="100" end="0" time="40" condition="Control.HasFocus(7002)">Conditional</animation>
+                <itemlayout height="66" width="825" condition="![Skin.HasSetting(lowlistbanner) + Container.Content(tvshows)]">
+                    <control type="image">
+                        <left>1</left>
+                        <top>64</top>
+                        <width>795</width>
+                        <height>1</height>
+                        <texture>views/lowlistpanel_line.png</texture>
+                        <colordiffuse>66FFFFFF</colordiffuse>
+                    </control>
+                    <control type="label">
+                        <left>30</left>
+                        <width>645</width>
+                        <height>66</height>
+                        <label>$INFO[ListItem.Label]</label>
+                        <font>Font_Bold28_Caps</font>
+                        <textcolor>grey2</textcolor>
+                    </control>
+			        <control type="label">
+                        <left>670</left>
+                        <width>80</width>
+                        <height>66</height>
+                        <align>center</align>
+                        <label>$INFO[ListItem.Rating]</label>
+                        <font>Font_Bold28</font>
+                        <textcolor>$VAR[SubTitleColorVar]</textcolor>
+                    </control>
+                    <control type="image">
+                        <left>750</left>
+                        <top>8</top>
+                        <width>52</width>
+                        <height>52</height>
+                        <texture>$VAR[WatchedIconVar]</texture>
+                        <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+                    </control>
+						<control type="image">
+                        <left>750</left>
+                        <top>8</top>
+                        <width>52</width>
+                        <height>52</height>
+							<texture>$VAR[VideoextrasOverlay]</texture>
+							<visible>System.HasAddon(script.videoextras)</visible>
+						</control>					
+                </itemlayout>
+                <focusedlayout height="66" width="825" condition="![Skin.HasSetting(lowlistbanner) + Container.Content(tvshows)]">
+                    <control type="image">
+                        <left>1</left>
+                        <top>64</top>
+                        <width>795</width>
+                        <height>1</height>
+                        <texture>views/lowlistpanel_line.png</texture>
+                    </control>
+                    <control type="image">
+                        <width>814</width>
+                        <height>66</height>
+                        <texture border="8">views/tripanel/listselect_fo.png</texture>
+                        <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+                        <include>PanelGlowFade</include>
+                        <animation effect="fade" start="100" end="60" tween="sine" easing="inout" time="240" condition="!Control.HasFocus(511)">Conditional</animation>
+                    </control>
+                    <control type="label">
+                        <left>30</left>
+                        <width>645</width>
+                        <height>33</height>
+                        <label>$INFO[ListItem.Label]</label>
+						<font>Font_Bold28_Caps</font>
+                    </control>
+                    <control type="label">
+                        <left>30</left>
+                        <top>30</top>
+                        <width>645</width>
+                        <height>33</height>
+                        <label>$VAR[LowListSubTitleVar]</label>
+                        <font>Font_Info</font>
+                    </control>
+				    <control type="label">
+                        <left>670</left>
+                        <width>80</width>
+                        <height>33</height>
+                        <align>center</align>
+                        <label>$INFO[ListItem.Year]</label>
+                        <font>Font_Bold28</font>
+                    </control>
+                    <control type="label">
+                        <left>670</left>
+                        <top>33</top>
+                        <width>80</width>
+                        <height>33</height>
+                        <align>center</align>
+                        <label>$INFO[ListItem.Rating]</label>
+                        <font>Font_Info</font>
+                    </control>
+                    <control type="image">
+                        <left>750</left>
+                        <top>8</top>
+                        <width>52</width>
+                        <height>52</height>
+                        <texture>$VAR[WatchedIconVar]</texture>
+                        <colordiffuse>white</colordiffuse>
+                    </control>
+						<control type="image">
+                        <left>750</left>
+                        <top>8</top>
+                        <width>52</width>
+                        <height>52</height>
+							<texture>$VAR[VideoextrasOverlay]</texture>
+							<visible>System.HasAddon(script.videoextras)</visible>
+						</control>					
+                </focusedlayout>
+                <itemlayout height="155" width="825" condition="Skin.HasSetting(lowlistbanner) + Container.Content(tvshows)">
+                    <control type="group">
+                        <left>3</left>
+                        <control type="image">
+                            <width>798</width>
+                            <height>155</height>
+                            <aspectratio align="center">stretch</aspectratio>
+                            <texture>common/black.png</texture>
+                            <bordersize>5</bordersize>
+                        </control>
+						<control type="label">
+                            <left></left>
+                            <top>8</top>
+                            <width>816</width>
+                            <height>146</height>
+                            <align>center</align>
+                            <label>$INFO[ListItem.Label]</label>
+                            <font>Font_Bold40</font>
+                        </control>
+                        <control type="image">
+                            <width>798</width>
+                            <height>155</height>
+                            <aspectratio align="center">stretch</aspectratio>
+                            <texture background="true">$VAR[BannerVar]</texture>
+                            <bordersize>5</bordersize>
+                        </control>
+                        <control type="image">
+                            <left>703</left>
+                            <top>6</top>
+                            <width>90</width>
+                            <height>90</height>
+                            <include>OverlayVisibility0</include>
+                        </control>
+						<control type="image">
+							<left>740</left>
+							<top>110</top>
+							<width>45</width>
+							<height>45</height>
+							<texture>$VAR[VideoextrasOverlay]</texture>
+							<visible>System.HasAddon(script.videoextras)</visible>
+						</control>					
+                        <include>UnwatchedIcon</include>
+                        <control type="image">
+                            <width>798</width>
+                            <height>155</height>
+                            <aspectratio align="center">stretch</aspectratio>
+                            <texture>common/black.png</texture>
+                            <bordersize>5</bordersize>
+                            <colordiffuse>grey2</colordiffuse>
+                        </control>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="155" width="825" condition="Skin.HasSetting(lowlistbanner) + Container.Content(tvshows)">
+                    <control type="group">
+                        <left>3</left>
+						<animation effect="zoom" center="auto" start="100" end="105" time="160" tween="quadratic" reversible="false">Focus</animation>
+                        <control type="image">
+                            <width>798</width>
+                            <height>155</height>
+                            <aspectratio align="center">stretch</aspectratio>
+                            <texture>common/black.png</texture>
+                            <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+                            <bordertexture border="5">views/addonwall_select.png</bordertexture>
+                            <bordersize>5</bordersize>
+                        </control>
+						<control type="label">
+                            <left></left>
+                            <top>8</top>
+                            <width>816</width>
+                            <height>146</height>
+                            <align>center</align>
+                            <label>$INFO[ListItem.Label]</label>
+                            <font>Font_Bold40</font>
+                        </control>
+                        <control type="image">
+                            <width>798</width>
+                            <height>155</height>
+                            <aspectratio align="center">stretch</aspectratio>
+                            <texture background="true">$VAR[BannerVar]</texture>
+                            <bordersize>5</bordersize>
+                        </control>
+                        <include>UnwatchedIcon</include>
+                        <control type="image">
+                            <left>703</left>
+                            <top>5</top>
+                            <width>90</width>
+                            <height>90</height>
+                            <include>OverlayVisibility0</include>
+                        </control>
+						<control type="image">
+							<left>740</left>
+							<top>110</top>
+							<width>45</width>
+							<height>45</height>
+							<texture>$VAR[VideoextrasOverlay]</texture>
+							<visible>System.HasAddon(script.videoextras)</visible>
+						</control>							
+                    </control>
+                </focusedlayout>
+            </control>
+            <control type="group">
+                <left>413</left>
+                <animation effect="fade" start="100" end="0" time="160" condition="!Control.HasFocus(69)">Conditional</animation>
+                <visible>Control.IsVisible(511)</visible>
+                <control type="scrollbar" id="69">
+                    <top>626</top>
+                    <width>46</width>
+                    <height>410</height>
+                    <visible>!Skin.HasSetting(nohighlist)</visible>
+                    <include>Animation_VerticalScrollBar</include>
+                    <texturesliderbackground>views/scrollbarbacklist.png</texturesliderbackground>
+                    <onleft>9000</onleft>
+                    <onright>511</onright>
+                </control>
+                <control type="scrollbar" id="69">
+                    <top>791</top>
+                    <width>46</width>
+                    <height>270</height>
+                    <include>Animation_VerticalScrollBar</include>
+                    <visible>Skin.HasSetting(nohighlist)</visible>
+                    <texturesliderbackground>views/scrollbarbacklist.png</texturesliderbackground>
+                    <onleft>9000</onleft>
+                    <onright>511</onright>
+                </control>
+            </control>
+        </control>
+    </include>
+    <include name="LowListHeightHigh">
+        <height>480</height>
+        <focusposition>3</focusposition>
+    </include>
+    <include name="LowListHeightLow">
+        <height>330</height>
+        <focusposition>1</focusposition>
+    </include>
+    <include name="MovieSetsCdArt">
+			<control type="group">
+				<top>1</top>
+                <animation effect="slide" tween="cubic" easing="in" time="320" start="0,606" end="0,0">WindowOpen</animation>
+                <animation effect="slide" tween="cubic" easing="in" time="240" end="0,740">WindowClose</animation>
+				<animation effect="slide" end="0,-214" time="120" condition="Skin.HasSetting(nohighlist) + Control.HasFocus(7002)">Conditional</animation>
+				<animation effect="slide" end="0,-50" time="120" condition="!Skin.HasSetting(nohighlist) + Control.HasFocus(7002)">Conditional</animation>
+				<animation effect="slide" end="0,-165" time="120" condition="!Skin.HasSetting(nohighlist)">Conditional</animation>
+				<animation effect="slide" end="-40,0" time="320" easing="inout" tween="cubic" condition="Control.HasFocus(69)">Conditional</animation>	
+				<visible>[Container.Content(movies) | container.content(sets)]</visible>																			
+				<control type="image">
+					<left>475</left>
+					<top>455</top>
+					<width>300</width>
+					<height>300</height>
+					<texture background="true">$INFO[Window(home).Property(Set.Movie.7.Art(discart))]</texture>	
+					<visible>Skin.HasSetting(lowlistcdart)</visible>
+					<visible>!IsEmpty(Window(home).Property(Set.Movie.7.Art(discart)))</visible>
+					<animation effect="slide" start="-350,0" end="0,0" delay="1600" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>	
+				</control>
+				<control type="image">
+					<left>625</left>
+					<top>455</top>
+					<width>300</width>
+					<height>300</height>
+					<texture background="true">$INFO[Window(home).Property(Set.Movie.8.Art(discart))]</texture>	
+					<visible>Skin.HasSetting(lowlistcdart)</visible>
+					<visible>!IsEmpty(Window(home).Property(Set.Movie.8.Art(discart)))</visible>
+					<animation effect="slide" start="-550,0" end="0,0" delay="1700" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>	
+				</control>	
+				<control type="image">
+					<left>775</left>
+					<top>455</top>
+					<width>300</width>
+					<height>300</height>
+					<texture background="true">$INFO[Window(home).Property(Set.Movie.9.Art(discart))]</texture>	
+					<visible>Skin.HasSetting(lowlistcdart)</visible>
+					<visible>!IsEmpty(Window(home).Property(Set.Movie.9.Art(discart)))</visible>
+					<animation effect="slide" start="-750,0" end="0,0" delay="1800" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>	
+				</control>
+				<control type="image">
+					<left>925</left>
+					<top>455</top>
+					<width>300</width>
+					<height>300</height>
+					<texture background="true">$INFO[Window(home).Property(Set.Movie.10.Art(discart))]</texture>	
+					<visible>Skin.HasSetting(lowlistcdart)</visible>
+					<visible>!IsEmpty(Window(home).Property(Set.Movie.10.Art(discart)))</visible>
+					<animation effect="slide" start="-950,0" end="0,0" delay="1900" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+				</control>												
+				<control type="image">
+					<left>400</left>
+					<top>602</top>
+					<width>300</width>
+					<height>300</height>
+					<texture background="true" diffuse="thumbs/cd_mask.png">$INFO[Window(home).Property(Set.Movie.1.Art(discart))]</texture>	
+					<visible>Skin.HasSetting(lowlistcdart)</visible>
+					<visible>!IsEmpty(Window(home).Property(Set.Movie.1.Art(discart)))</visible>
+					<animation effect="slide" start="-300,0" end="0,0" delay="1000" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>					
+				</control>
+				<control type="image">
+					<left>550</left>
+					<top>602</top>
+					<width>300</width>
+					<height>300</height>
+					<texture background="true" diffuse="thumbs/cd_mask.png">$INFO[Window(home).Property(Set.Movie.2.Art(discart))]</texture>	
+					<visible>Skin.HasSetting(lowlistcdart)</visible>
+					<visible>!IsEmpty(Window(home).Property(Set.Movie.2.Art(discart)))</visible>
+					<animation effect="slide" start="-450,0" end="0,0" delay="1100" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>	
+				</control>	
+				<control type="image">
+					<left>700</left>
+					<top>602</top>
+					<width>300</width>
+					<height>300</height>
+					<texture background="true" diffuse="thumbs/cd_mask.png">$INFO[Window(home).Property(Set.Movie.3.Art(discart))]</texture>	
+					<visible>Skin.HasSetting(lowlistcdart)</visible>
+					<visible>!IsEmpty(Window(home).Property(Set.Movie.3.Art(discart)))</visible>
+					<animation effect="slide" start="-600,0" end="0,0" delay="1200" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>	
+				</control>	
+				<control type="image">
+					<left>850</left>
+					<top>602</top>
+					<width>300</width>
+					<height>300</height>
+					<texture background="true" diffuse="thumbs/cd_mask.png">$INFO[Window(home).Property(Set.Movie.4.Art(discart))]</texture>	
+					<visible>Skin.HasSetting(lowlistcdart)</visible>
+					<visible>!IsEmpty(Window(home).Property(Set.Movie.4.Art(discart)))</visible>
+					<animation effect="slide" start="-750,0" end="0,0" delay="1300" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>	
+				</control>		
+				<control type="image">
+					<left>1000</left>
+					<top>602</top>
+					<width>300</width>
+					<height>300</height>
+					<texture background="true" diffuse="thumbs/cd_mask.png">$INFO[Window(home).Property(Set.Movie.5.Art(discart))]</texture>	
+					<visible>Skin.HasSetting(lowlistcdart)</visible>
+					<visible>!IsEmpty(Window(home).Property(Set.Movie.5.Art(discart)))</visible>
+					<animation effect="slide" start="-870,0" end="0,0" delay="1400" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>	
+				</control>	
+				<control type="image">
+					<left>1150</left>
+					<top>602</top>
+					<width>300</width>
+					<height>300</height>
+					<texture background="true" diffuse="thumbs/cd_mask.png">$INFO[Window(home).Property(Set.Movie.6.Art(discart))]</texture>	
+					<visible>Skin.HasSetting(lowlistcdart)</visible>
+					<visible>!IsEmpty(Window(home).Property(Set.Movie.6.Art(discart)))</visible>
+					<animation effect="slide" start="-1020,0" end="0,0" delay="1500" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>	
+				</control>																												
+			</control>
+    </include>	
+	
+	
+</includes>

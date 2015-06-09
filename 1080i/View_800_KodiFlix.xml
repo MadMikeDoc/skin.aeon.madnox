@@ -1,0 +1,1130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+<include name="KodiFlixView">
+	<control type="group">
+		<visible>Control.IsVisible(800)</visible>
+		<effect type="fade" start="100" end="0" time="300" delay="0" tween="sine" easing="inout" />
+		<effect type="zoom" start="100" end="90" time="300" delay="0" center="640,360" tween="sine" easing="inout" />
+		<include>CommonSlideAnimations</include>
+		<!-- MAD - Originally 'watched' from right of logo, left of poster -->
+		<!--control type="image">
+			<left>431</left>
+			<top>2</top>
+			<width>168</width>
+            <height>165</height>
+			<include>WatchedIconVar</include>
+			<include>OverlayVisibility0</include>
+			<visible>!SubString(ListItem(0).Path,videodb://movies/sets)</visible>
+		</control-->
+		<!--control type="image">
+            <left>1751</left>
+			<top>2</top>
+			<width>168</width>
+            <height>165</height>
+			<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>					
+			<texture>overlayprogress.png</texture>
+			<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+		</control-->
+		<control type="image">
+			<left>50</left>
+			<top>25</top>
+			<width>490</width>
+			<height>210</height>
+			<fadetime>100</fadetime>
+			<aspectratio align="left" aligny="bottom">keep</aspectratio>
+			<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+			<visible>Skin.HasSetting(NetFiixShowLogoAsTtile) + !IsEmpty(ListItem.Art(clearlogo))</visible>
+		</control>
+		<!-- MAD - Fake Logos -->
+			<control type="textbox">
+				<left>50</left>
+				<top>25</top>
+				<width>510</width>
+				<height>220</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textcolor>$VAR[TitleColorVar]</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<font>font_SimplerE3D_bold</font>
+				<label>[B]$VAR[FirstLabelVar][/B]</label>
+				<textoffsetx>15</textoffsetx>
+				<visible>[Container.Content(movies) | Container.Content(sets) + IsEmpty(ListItem.Art(clearlogo))] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) + IsEmpty(ListItem.Art(tvshow.clearlogo))]</visible>
+				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + Skin.HasSetting(NetFiixShowLogoAsTtile) + [SubString(ListItem.Title,a,Left) | SubString(ListItem.Title,b,Left) | SubString(ListItem.Title,c,Left) | SubString(ListItem.Title,d,Left)]</visible>
+				<scroll>true</scroll>
+				<wrapmultiline>true</wrapmultiline>
+			</control>
+			<control type="textbox">
+				<left>50</left>
+				<top>25</top>
+				<width>510</width>
+				<height>220</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textcolor>$VAR[TitleColorVar]</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<font>font_armyofdarkness</font>
+				<label>[B]$VAR[FirstLabelVar][/B]</label>
+				<textoffsetx>15</textoffsetx>
+				<visible>[Container.Content(movies) | Container.Content(sets) + IsEmpty(ListItem.Art(clearlogo))] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + Skin.HasSetting(NetFiixShowLogoAsTtile)</visible>
+				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + Skin.HasSetting(NetFiixShowLogoAsTtile) + [SubString(ListItem.Title,e,Left) | SubString(ListItem.Title,f,Left) | SubString(ListItem.Title,g,Left) | SubString(ListItem.Title,h,Left)]</visible>
+				<scroll>true</scroll>
+				<wrapmultiline>true</wrapmultiline>
+			</control>
+			<control type="textbox">
+				<left>50</left>
+				<top>25</top>
+				<width>510</width>
+				<height>220</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textcolor>$VAR[TitleColorVar]</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<font>font_babylon5</font>
+				<label>[B]$VAR[FirstLabelVar][/B]</label>
+				<textoffsetx>15</textoffsetx>
+				<visible>[Container.Content(movies) | Container.Content(sets) + IsEmpty(ListItem.Art(clearlogo))] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + Skin.HasSetting(NetFiixShowLogoAsTtile)</visible>
+				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + Skin.HasSetting(NetFiixShowLogoAsTtile) + [SubString(ListItem.Title,i,Left) | SubString(ListItem.Title,j,Left) | SubString(ListItem.Title,k,Left) | SubString(ListItem.Title,l,Left)]</visible>
+				<scroll>true</scroll>
+				<wrapmultiline>true</wrapmultiline>
+			</control>
+			<control type="textbox">
+				<left>50</left>
+				<top>25</top>
+				<width>510</width>
+				<height>220</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textcolor>$VAR[TitleColorVar]</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<font>font_bachelorpad</font>
+				<label>[B]$VAR[FirstLabelVar][/B]</label>
+				<textoffsetx>15</textoffsetx>
+				<visible>[Container.Content(movies) | Container.Content(sets) + IsEmpty(ListItem.Art(clearlogo))] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + Skin.HasSetting(NetFiixShowLogoAsTtile)</visible>
+				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + Skin.HasSetting(NetFiixShowLogoAsTtile) + [SubString(ListItem.Title,m,Left) | SubString(ListItem.Title,n,Left) | SubString(ListItem.Title,o,Left) | SubString(ListItem.Title,p,Left)]</visible>
+				<scroll>true</scroll>
+				<wrapmultiline>true</wrapmultiline>
+			</control>
+			<control type="textbox">
+				<left>50</left>
+				<top>25</top>
+				<width>510</width>
+				<height>220</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textcolor>$VAR[TitleColorVar]</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<font>font_bullpen3d</font>
+				<label>[B]$VAR[FirstLabelVar][/B]</label>
+				<textoffsetx>15</textoffsetx>
+				<visible>[Container.Content(movies) | Container.Content(sets) + IsEmpty(ListItem.Art(clearlogo))] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + Skin.HasSetting(NetFiixShowLogoAsTtile)</visible>
+				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + Skin.HasSetting(NetFiixShowLogoAsTtile) + [SubString(ListItem.Title,q,Left) | SubString(ListItem.Title,r,Left) | SubString(ListItem.Title,s,Left) | SubString(ListItem.Title,t,Left)]</visible>
+				<scroll>true</scroll>
+				<wrapmultiline>true</wrapmultiline>
+			</control>
+			<control type="textbox">
+				<left>50</left>
+				<top>25</top>
+				<width>510</width>
+				<height>220</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textcolor>$VAR[TitleColorVar]</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<font>font_terminator</font>
+				<label>[B]$VAR[FirstLabelVar][/B]</label>
+				<textoffsetx>15</textoffsetx>
+				<visible>[Container.Content(movies) | Container.Content(sets) + IsEmpty(ListItem.Art(clearlogo))] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + Skin.HasSetting(NetFiixShowLogoAsTtile)</visible>
+				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + Skin.HasSetting(NetFiixShowLogoAsTtile) + [SubString(ListItem.Title,u,Left) | SubString(ListItem.Title,v,Left) | SubString(ListItem.Title,w,Left) | SubString(ListItem.Title,x,Left) | SubString(ListItem.Title,y,Left) | SubString(ListItem.Title,z,Left)]</visible>
+				<scroll>true</scroll>
+				<wrapmultiline>true</wrapmultiline>
+			</control>
+			<!--MAD - End of Fake Logo -->
+		<control type="image">
+			<left>50</left>
+			<top>25</top>
+			<width>490</width>
+			<height>210</height>
+			<fadetime>100</fadetime>
+			<aspectratio align="left" aligny="bottom">keep</aspectratio>
+			<texture background="true">$INFO[ListItem.Art(tvshow.clearlogo)]</texture>
+			<visible>Skin.HasSetting(NetFiixShowLogoAsTtile) + IsEmpty(ListItem.Art(clearlogo)) + !IsEmpty(ListItem.Art(tvshow.clearlogo))</visible>
+		</control>
+		<control type="textbox">
+			<left>54</left>
+			<top>200</top>
+			<height>50</height>
+			<width>1000</width>
+			<textcolor>white</textcolor>
+			<shadowcolor>77000000</shadowcolor>
+			<font>FontSize_36B</font>
+			<scroll>false</scroll>
+			<align>left</align>
+			<label>$VAR[KodiFlix.Label]</label>
+			<visible>![Skin.HasSetting(NetFiixShowLogoAsTtile) | [IsEmpty(ListItem.Art(clearlogo)) + !stringcompare(ListItem.Label,..)]]</visible>
+		</control>
+		<!-- New Plot Info -->
+		<control type="group">
+			<left>40</left>
+			<top>240</top>
+			<width>650</width>
+			<height>270</height>
+			<include>VisibleFadeEffect</include>
+			<textcolor>$VAR[TitleColorVar]</textcolor>
+			<control type="grouplist">
+				<visible>Container.Content(movies) + ![SubString(ListItem.Path,videodb://movies/sets) + !Stringcompare(ListItem.Label,..)]</visible>
+				<control type="label">
+					<label>[COLOR $VAR[TitleColorVar]]Directed by: [/COLOR]$INFO[ListItem.Director]</label>
+					<width>580</width>
+					<textcolor>white</textcolor>
+					<include>KodiFlixButtonsValues</include>
+					<visible>!IsEmpty(ListItem.Director)</visible>
+				</control>
+				<control type="label">
+					<label>[COLOR $VAR[TitleColorVar]]$LOCALIZE[515]: [/COLOR][COLOR white]$INFO[ListItem.Genre][/COLOR]</label>
+					<width>580</width>
+					<include>KodiFlixButtonsValues</include>
+					<visible>!IsEmpty(ListItem.Genre)</visible>
+				</control>
+			</control>
+			<control type="grouplist">
+				<visible>[SubString(ListItem.Path,videodb://movies/sets) + !Stringcompare(ListItem.Label,..)]</visible>
+				<control type="label">
+					<label>[COLOR $VAR[TitleColorVar]]$LOCALIZE[31156]: [/COLOR][COLOR white]$INFO[Window(home).Property(Set.Movies.Director)][/COLOR]</label>
+					<width>580</width>
+					<include>KodiFlixButtonsValues</include>
+					<visible>!IsEmpty(Window(home).Property(Set.Movies.Director)) + [Container.Content(movies) | Container.Content(sets)]</visible>
+					</control>
+				<control type="label">
+					<label>[COLOR $VAR[TitleColorVar]]$LOCALIZE[515]: [/COLOR][COLOR white]$INFO[Window(home).Property(Set.Movies.Genre)][/COLOR]</label>
+					<width>580</width>
+					<include>KodiFlixButtonsValues</include>
+					<visible>!IsEmpty(Window(home).Property(Set.Movies.Genre)) + [Container.Content(movies) | Container.Content(sets)]</visible>
+				</control>
+			</control>
+			<control type="grouplist">
+				<visible>!Container.Content(episodes) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
+				<control type="label">
+					<label>[COLOR $VAR[TitleColorVar]]$LOCALIZE[31190]: [/COLOR][COLOR white]$INFO[Window(Home).Property(NextAired.NextTitle)][/COLOR]</label>
+					<width>580</width>
+					<include>KodiFlixButtonsValues</include>
+					<visible>!IsEmpty(Window(Home).Property(NextAired.NextDate)) + !Skin.HasSetting(Disable.NextAired)</visible>
+					<visible>!Container.Content(episodes) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
+				</control>
+				<control type="label">
+					<label>[COLOR $VAR[TitleColorVar]]$LOCALIZE[31819]: [/COLOR][COLOR white]$INFO[Window(Home).Property(NextAired.NextDate),,][/COLOR]</label>
+					<width>580</width>
+					<include>KodiFlixButtonsValues</include>
+					<visible>!IsEmpty(Window(Home).Property(NextAired.NextDate)) + !Skin.HasSetting(Disable.NextAired)</visible>
+					<visible>!Container.Content(episodes) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
+				</control>
+				<control type="label">
+					<label>[COLOR $VAR[TitleColorVar]]$LOCALIZE[126]: [/COLOR][COLOR white]$INFO[Window(Home).Property(NextAired.Status)][/COLOR]</label>
+					<width>580</width>
+					<include>KodiFlixButtonsValues</include>
+					<visible>[Container.Content(tvshows) | Container.Content(seasons)] + [!IsEmpty(Window(Home).Property(NextAired.Status)) + IsEmpty(Window(Home).Property(NextAired.NextDate)) + !Skin.HasSetting(Disable.NextAired)]</visible>
+					</control>
+				<control type="label">
+					<label>[COLOR $VAR[TitleColorVar]]$LOCALIZE[515]: [/COLOR][COLOR white]$INFO[ListItem.Genre][/COLOR]</label>
+					<width>580</width>
+					<include>KodiFlixButtonsValues</include>
+					<visible>!Container.Content(episodes) + [Container.Content(tvshows) | Container.Content(seasons)] + !IsEmpty(ListItem.Genre)</visible>
+				</control>
+			</control>
+			<control type="grouplist">
+				<visible>Container.Content(episodes)</visible>
+				<control type="label">
+					<label>[COLOR $VAR[TitleColorVar]]$LOCALIZE[32031]: [/COLOR][COLOR white]$INFO[ListItem.Title][/COLOR]</label>
+					<width>650</width>
+					<include>KodiFlixButtonsValues</include>
+					<visible>!IsEmpty(ListItem.Premiered)</visible>
+				</control>
+				<control type="label">
+					<label>[COLOR $VAR[TitleColorVar]]$LOCALIZE[20416]: [/COLOR][COLOR white]$INFO[ListItem.Premiered][/COLOR]</label>
+					<width>650</width>
+					<include>KodiFlixButtonsValues</include>
+					<visible>!IsEmpty(ListItem.Premiered)</visible>
+				</control>
+				<control type="label">
+					<label>[COLOR $VAR[TitleColorVar]]$LOCALIZE[2050]: [/COLOR][COLOR white]$INFO[ListItem.Duration,, $LOCALIZE[12391][/COLOR]]</label>
+					<width>650</width>
+					<include>KodiFlixButtonsValues</include>
+					<visible>!IsEmpty(ListItem.Duration)</visible>
+				</control>
+			</control>
+		</control>
+		<control type="image">
+			<left>386</left>
+			<top>414</top>
+			<height>30</height>
+			<width>71</width>
+			<align>center</align>
+			<texture>stars/$INFO[ListItem.Rating,,.png]</texture>
+			<visible>!Substring(ListItem.Path,videodb://movies/sets/,left)</visible>
+		</control>
+		<control type="image">
+			<left>460</left>
+			<top>414</top>
+			<width>65</width>
+			<height>30</height>
+			<texture>imdb.png</texture>
+			<visible>!IsEmpty(ListItem.Top250)</visible>
+		</control>
+		<control type="Label">
+			<left>530</left>
+			<top>409</top>
+			<width>125</width>
+			<height>45</height>
+			<align>left</align>
+			<label>[B]$INFO[ListItem.Top250,#][/B]</label>
+			<font>font14</font>
+			<shadowcolor>shadow</shadowcolor>
+			<textcolor>fffeec900</textcolor>
+			<visible>!IsEmpty(ListItem.Top250)</visible>
+		</control>
+		<control type="group">
+			<left>40</left>
+			<top>344</top>
+			<visible>[Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + Skin.HasSetting(inforightlist)</visible>
+			<include>VisibleFadeEffect</include>
+			<control type="textbox" id="70">
+				<label>$VAR[VideoPlotVar3]</label>
+				<left>15</left>
+				<top>110</top>
+				<width>530</width>
+				<height>238</height>
+				<textcolor>white</textcolor>
+				<font>font14_textbox</font>
+				<pagecontrol>63</pagecontrol>
+				<include>ShowCaseInfoPanelButtonsValues</include>
+				<autoscroll time="3000" delay="4000" repeat="5000"></autoscroll>
+			</control>
+			<!--control type="scrollbar" id="63">
+				<left>640</left>
+				<top>120</top>
+				<width>12</width>
+				<height>198</height>
+				<onup>PageUp(70)</onup>
+				<ondown>PageUp(70)</ondown>
+				<onleft>9000</onleft>
+				<onright>700</onright>
+				<texturesliderbackground>scrollbar/texturesliderbackground2.png</texturesliderbackground>
+				<texturesliderbar>scrollbar/texturesliderbar2.png</texturesliderbar>
+				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
+				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(63) + !Container.Scrolling">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(63) + !Container.Scrolling">Conditional</animation>
+			</control-->
+		</control>
+		<!--Plot Info-->
+		<control type="image">
+			<description>KodiFlix Fanart</description>
+			<left>600</left>
+			<top>0</top>
+			<width>1320</width>
+			<height>830</height>
+			<aspectratio>scale</aspectratio>
+			<texture background="true" diffuse="views/KodiFlix/fanart_diffuse.png">$INFO[ListItem.Art(fanart)]</texture>
+			<include>FanartFade</include>
+			<visible>Control.IsVisible(800) + !SubString(ListItem.Path,videodb://movies/sets) + !Skin.HasSetting(NetFiixExtraFanart)</visible>
+			<fadetime>250</fadetime>
+			<include>BackgroundAnimation</include>
+			<!--<animation effect="fade" start="100" end="40" time="300" condition="Window.IsActive(PlayerControls)">Conditional</animation>-->
+		</control>	
+		<control type="image">
+			<description>KodiFlix Fanart</description>
+			<left>600</left>
+			<top>0</top>
+			<width>1320</width>
+			<height>830</height>
+			<aspectratio>scale</aspectratio>
+			<texture background="true" diffuse="views/KodiFlix/fanart_diffuse.png">$INFO[ListItem.Art(extrafanart1)]</texture>
+			<include>FanartFade</include>
+			<visible>Control.IsVisible(800) + SubString(ListItem.Path,videodb://movies/sets)</visible>
+			<fadetime>250</fadetime>
+			<include>BackgroundAnimation</include>
+			<!--<animation effect="fade" start="100" end="40" time="300" condition="Window.IsActive(PlayerControls)">Conditional</animation>-->
+		</control>	
+		<control type="multiimage" id="5900">
+			<description>KodiFlix Fanart extrafanart</description>
+			<left>400</left>
+			<top>0</top>
+			<width>1520</width>
+			<height>830</height>
+			<aspectratio>scale</aspectratio>
+			<randomize>true</randomize>
+			<fadetime>500</fadetime>
+			<include condition="Window.IsActive(pictures)">Aspectratio_Keep</include>
+			<include condition="!Window.IsActive(pictures)">Aspectratio_Scale</include>
+			<timeperimage>3000</timeperimage>
+			<imagepath background="true" diffuse="views/KodiFlix/fanart_diffuse.png">$VAR[VideoExtraFanartVar]</imagepath>
+			<visible>Control.IsVisible(800) + Skin.HasSetting(NetFiixExtraFanart) + !SubString(ListItem.Path,videodb://movies/sets)</visible>
+			<include>Animation_VisibleChange200</include>
+		</control>
+		<control type="image">
+			<left>1751</left>
+			<top>2</top>
+			<width>168</width>
+            <height>165</height>
+			<include>WatchedIconVar</include>
+			<include>OverlayVisibility0</include>
+			<visible>!SubString(ListItem(0).Path,videodb://movies/sets)</visible>
+		</control>
+		<control type="image">
+            <left>1751</left>
+			<top>2</top>
+			<width>168</width>
+            <height>165</height>
+			<texture>overlayprogress.png</texture>
+			<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+		</control>
+		<!--label subinfo logo-->
+		<control type="grouplist">
+			<left>52</left>
+			<top>418</top>
+			<width>850</width>
+			<height>30</height>
+			<itemgap>10</itemgap>
+			<orientation>horizontal</orientation>
+			<control type="group">
+				<width>115</width>
+				<control type="image">
+					<left>0</left>
+					<top>-2</top>
+					<width>118</width>
+					<height>24</height>
+					<aspectratio align="left" aligny="center">keep</aspectratio>
+					<texture background="true">$INFO[ListItem.StarRating]</texture>
+				</control>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>38</width>
+				<height>23</height>
+				<colordiffuse>white</colordiffuse>
+				<aspectratio align="left" aligny="center">stretch</aspectratio>
+				<texture background="true">flags/sets/sets.png</texture>
+				<visible>Substring(ListItem.Path,videodb://movies/sets/,left) + ListItem.IsFolder + !IsEmpty(ListItem.Title)</visible>
+			</control>
+			<control type="label">
+				<left>0</left>
+				<top>0</top>
+				<width min="0" max="250">auto</width>
+				<height>22</height>
+				<textcolor>white</textcolor>
+				<shadowcolor>77000000</shadowcolor>
+				<font>FontSize_22</font>
+				<scroll>false</scroll>
+				<align>left</align>
+				<aligny>center</aligny>
+				<label>$VAR[KodiFlixSubLabelInfo]</label>
+			</control>
+			<control type="label">
+				<left>0</left>
+				<top>0</top>
+				<width min="0" max="180">auto</width>
+				<height>21</height>
+				<textcolor>white</textcolor>
+				<shadowcolor>77000000</shadowcolor>
+				<font>FontSize_22</font>
+				<scroll>false</scroll>
+				<align>left</align>
+				<aligny>center</aligny>
+				<label>$VAR[KodiFlix.Duration]</label>
+				<visible>[Container.Content(Movies) + !SubString(ListItem.Path,videodb://movies/sets/,left)] + [!IsEmpty(ListItem.Duration) + IntegerGreaterThan(ListItem.Duration,0)]</visible>
+			</control>
+			<control type="label">
+				<left>0</left>
+				<top>0</top>
+				<width min="0" max="200">auto</width>
+				<height>21</height>
+				<textcolor>white</textcolor>
+				<shadowcolor>77000000</shadowcolor>
+				<font>FontSize_22</font>
+				<scroll>false</scroll>
+				<align>left</align>
+				<aligny>center</aligny>
+				<!--label>$VAR[KodiFlix.Duration]</label-->
+				<label> • $INFO[Window(home).Property(Set.Movies.Runtime)] $LOCALIZE[12391]</label>
+				<visible>Container.Content(Movies) + SubString(ListItem.Path,videodb://movies/sets/,left)</visible>
+			</control>
+		</control>
+		<!--content container-->
+		<control type="fixedlist" id="800">
+			<left>47</left>
+			<!--top>420</top-->
+			<top>720</top>
+			<width>1850</width>
+			<height>800</height>
+			<onleft>800</onleft>
+			<onup condition="Control.IsVisible(63)">9000</onup>
+			<onup condition="!Control.IsVisible(63) + Control.IsVisible(800)">9000</onup>
+			<onfocus>XBMC.RunScript(script.duration,duration=$INFO[ListItem.Duration])</onfocus>	
+			<onright>800</onright>
+			<onup>63</onup>
+			<ondown>60</ondown>
+			<viewtype label="KodiFlix">List</viewtype>
+			<scrolltime tween="Quadratic" easing="out">300</scrolltime>
+			<orientation>horizontal</orientation>
+			<preloaditems>2</preloaditems>
+			<focusposition>0</focusposition>
+			<pagecontrol>60</pagecontrol>
+			<visible>Container.Content(Movies) | Container.Content(Sets) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes)</visible>
+			<!--Movies-->
+			<itemlayout condition="[[Container.Content(Movies) | Container.Content(sets)] + !Skin.HasSetting(KodiFlixLandscapeView)]" width="156.5" height="356">
+				<control type="image">
+					<width>140</width>
+					<height>203</height>
+					<aspectratio align="center" aligny="center">stretch</aspectratio>
+					<texture border="30">views/other/panel.png</texture>
+				</control>
+				<control type="image">
+					<top>200</top>
+					<width>140</width>
+					<height>203</height>
+					<aspectratio align="center" aligny="center">stretch</aspectratio>
+					<texture border="30" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/other/panel2.png</texture>
+				</control>
+				<control type="image">
+					<left>1</left>
+					<top>2</top>
+					<width>138</width>
+					<height>199</height>
+					<aspectratio align="center" aligny="center">stretch</aspectratio>
+					<texture background="true" fallback="thumbs/fallback_episode_tp.png">$VAR[ListPosterVar]</texture>
+					<bordertexture border="15">thumbs/thumb_border.png</bordertexture>
+					<bordersize>6</bordersize>
+				</control>
+				<control type="image">
+					<left>1</left>
+					<top>204</top>
+					<width>138</width>
+					<height>199</height>
+					<aspectratio align="center" aligny="center">stretch</aspectratio>
+					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_episode_tp.png">$VAR[ListPosterVar]</texture>
+					<bordertexture border="15">thumbs/thumb_border_fade.png</bordertexture>
+					<bordersize>6</bordersize>
+				</control>
+			</itemlayout>
+			<focusedlayout condition="[[Container.Content(Movies) | Container.Content(Sets)] + !Skin.HasSetting(KodiFlixLandscapeView)]" width="149.5" height="256">
+				<control type="image">
+					<width>140</width>
+					<height>203</height>
+					<aspectratio align="center" aligny="center">stretch</aspectratio>
+					<texture border="30">views/other/panel.png</texture>
+				</control>
+				<control type="image">
+					<top>200</top>
+					<width>142</width>
+					<height>203</height>
+					<aspectratio align="center" aligny="center">stretch</aspectratio>
+					<texture border="30" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/other/panel2.png</texture>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>2</top>
+					<width>138</width>
+					<height>199</height>
+					<aspectratio align="center" aligny="center">scale</aspectratio>
+					<texture background="true" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar]</texture>
+					<bordertexture border="15">thumbs/thumb_border.png</bordertexture>
+					<bordersize>8</bordersize>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>204</top>
+					<width>138</width>
+					<height>199</height>
+					<aspectratio align="center" aligny="center">stretch</aspectratio>
+					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar]</texture>
+					<bordersize>8</bordersize>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>2</top>
+					<width>138</width>
+					<height>199</height>
+					<aspectratio aligny="center" align="center">stretch</aspectratio>
+					<texture>overlays/unwatched/thumbs/$VAR[WatchedStateOverlay]_Poster.png</texture>
+					<visible>[StringCompare(Skin.String(WatchedFlag),unwatched) + stringcompare(ListItem.Overlay,OverlayUnWatched.png)] | [StringCompare(Skin.String(WatchedFlag),watched) + stringcompare(ListItem.Overlay,OverlayWatched.png)]</visible>
+					<bordersize>8</bordersize>
+				</control>
+			</focusedlayout>
+			<!--MAD - Landscape Movies -->
+			<itemlayout condition="[[Container.Content(Movies) | Container.Content(sets)] + Skin.HasSetting(KodiFlixLandscapeView)]" width="313.5" height="376">
+				<control type="image">
+					<left>-2</left>
+					<top>-8</top>
+					<width>291</width>
+					<height>205</height>
+					<aspectratio align="center" aligny="center">stretch</aspectratio>
+					<texture border="30">views/other/panel.png</texture>
+				</control>
+				<control type="image">
+					<left>-2</left>
+					<top>194</top>
+					<width>291</width>
+					<height>205</height>
+					<aspectratio align="center" aligny="center">stretch</aspectratio>
+					<texture border="30" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/other/panel2.png</texture>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>-2</top>
+					<width>287</width>
+					<height>201</height>
+					<aspectratio align="center" aligny="center">stretch</aspectratio>
+					<texture background="true" fallback="thumbs/fallback_episode_tp.png">$VAR[KodiFlixLandscapeThumb]</texture>
+					<bordertexture border="15">thumbs/thumb_border.png</bordertexture>
+					<bordersize>6</bordersize>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>-8</top>
+					<width>287</width>
+					<height>201</height>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+					<visible>!Container.Content(Episodes) + IsEmpty(ListItem.Art(landscape)) + !IsEmpty(ListItem.Art(clearlogo)) + [!SubString(ListItem.Path,videodb://movies/sets) | !Container.Content(sets)]</visible>
+					<bordersize>40</bordersize>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>197</top>
+					<width>287</width>
+					<height>161</height>
+					<aspectratio align="center" aligny="center">stretch</aspectratio>
+					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_episode_tp.png">$VAR[KodiFlixLandscapeThumb]</texture>
+					<bordertexture border="15">thumbs/thumb_border_fade.png</bordertexture>
+					<bordersize>6</bordersize>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>197</top>
+					<width>287</width>
+					<height>161</height>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" >$INFO[ListItem.Art(clearlogo)]</texture>
+					<visible>!Container.Content(Episodes) + IsEmpty(ListItem.Art(landscape)) + !IsEmpty(ListItem.Art(clearlogo)) + [!SubString(ListItem.Path,videodb://movies/sets) | !Container.Content(sets)]</visible>
+					<bordertexture border="15">thumbs/thumb_border_fade.png</bordertexture>
+					<bordersize>40</bordersize>
+					<animation type="Conditional" reversible="false" condition="true">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>32</top>
+					<width>287</width>
+					<height>161</height>
+					<aspectratio aligny="center" align="center">stretch</aspectratio>
+					<texture>overlays/unwatched/banners/$VAR[WatchedStateOverlay]_banner.png</texture>
+					<visible>StringCompare(Skin.String(WatchedFlag),unwatched) | StringCompare(Skin.String(WatchedFlag),watched)</visible>
+					<bordersize>6</bordersize>
+				</control>
+			</itemlayout>
+			<focusedlayout condition="[[Container.Content(Movies) | Container.Content(sets)] + Skin.HasSetting(KodiFlixLandscapeView)]" width="313.5" height="376">
+				<control type="image">
+					<left>-2</left>
+					<top>-8</top>
+					<width>291</width>
+					<height>205</height>
+					<aspectratio align="center" aligny="center">stretch</aspectratio>
+					<texture border="30">views/other/panel.png</texture>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>-2</top>
+					<width>287</width>
+					<height>201</height>
+					<aspectratio align="center" aligny="center">stretch</aspectratio>
+					<texture background="true" fallback="thumbs/fallback_episode_tp.png">$VAR[KodiFlixLandscapeThumb]</texture>
+					<bordertexture border="15">thumbs/thumb_border.png</bordertexture>
+					<bordersize>8</bordersize>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>-2</top>
+					<width>287</width>
+					<height>201</height>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+					<visible>!Container.Content(Episodes) + IsEmpty(ListItem.Art(landscape)) + !IsEmpty(ListItem.Art(clearlogo)) + [!SubString(ListItem.Path,videodb://movies/sets) | !Container.Content(sets)]</visible>
+					<bordersize>40</bordersize>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>196</top>
+					<width>287</width>
+					<height>201</height>
+					<aspectratio align="center" aligny="center">stretch</aspectratio>
+					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_episode_tp.png">$VAR[KodiFlixLandscapeThumb]</texture>
+					<bordersize>8</bordersize>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>197</top>
+					<width>287</width>
+					<height>201</height>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" >$INFO[ListItem.Art(clearlogo)]</texture>
+					<visible>!Container.Content(Episodes) + IsEmpty(ListItem.Art(landscape)) + !IsEmpty(ListItem.Art(clearlogo)) + [!SubString(ListItem.Path,videodb://movies/sets) | !Container.Content(sets)]</visible>
+					<bordertexture border="15">thumbs/thumb_border_fade.png</bordertexture>
+					<bordersize>40</bordersize>
+					<animation type="Conditional" reversible="false" condition="true">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>32</top>
+					<width>287</width>
+					<height>201</height>
+					<aspectratio aligny="center" align="center">stretch</aspectratio>
+					<texture>overlays/unwatched/banners/$VAR[WatchedStateOverlay]_banner.png</texture>
+					<visible>[StringCompare(Skin.String(WatchedFlag),unwatched) + stringcompare(ListItem.Overlay,OverlayUnWatched.png)] | [StringCompare(Skin.String(WatchedFlag),watched) + stringcompare(ListItem.Overlay,OverlayWatched.png)]</visible>
+					<bordersize>8</bordersize>
+				</control>
+			</focusedlayout>
+			<!--tvshows-->
+			<itemlayout condition="Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes)" width="313.5" height="376">
+				<control type="image">
+					<left>-2</left>
+					<top>-8</top>
+					<width>291</width>
+					<height>205</height>
+					<aspectratio align="center" aligny="center">stretch</aspectratio>
+					<texture border="30">views/other/panel.png</texture>
+				</control>
+				<control type="image">
+					<left>-2</left>
+					<top>194</top>
+					<width>291</width>
+					<height>205</height>
+					<aspectratio align="center" aligny="center">stretch</aspectratio>
+					<texture border="30" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/other/panel2.png</texture>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>-2</top>
+					<width>287</width>
+					<height>201</height>
+					<aspectratio align="center" aligny="center">stretch</aspectratio>
+					<texture background="true" fallback="thumbs/fallback_episode_tp.png">$VAR[KodiFlixLandscapeThumb]</texture>
+					<bordertexture border="15">thumbs/thumb_border.png</bordertexture>
+					<bordersize>6</bordersize>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>-8</top>
+					<width>287</width>
+					<height>201</height>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+					<visible>!Container.Content(Episodes) + IsEmpty(ListItem.Art(landscape)) + IsEmpty(ListItem.Art(tvshow.landscape)) + !IsEmpty(ListItem.Art(clearlogo))</visible>
+					<bordersize>40</bordersize>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>197</top>
+					<width>287</width>
+					<height>161</height>
+					<aspectratio align="center" aligny="center">stretch</aspectratio>
+					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_episode_tp.png">$VAR[KodiFlixLandscapeThumb]</texture>
+					<bordertexture border="15">thumbs/thumb_border_fade.png</bordertexture>
+					<bordersize>6</bordersize>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>197</top>
+					<width>287</width>
+					<height>161</height>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" >$INFO[ListItem.Art(clearlogo)]</texture>
+					<visible>!Container.Content(Episodes) + IsEmpty(ListItem.Art(landscape)) + IsEmpty(ListItem.Art(tvshow.landscape)) + !IsEmpty(ListItem.Art(clearlogo))</visible>
+					<bordertexture border="15">thumbs/thumb_border_fade.png</bordertexture>
+					<bordersize>40</bordersize>
+					<animation type="Conditional" reversible="false" condition="true">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>32</top>
+					<width>287</width>
+					<height>161</height>
+					<aspectratio aligny="center" align="center">stretch</aspectratio>
+					<texture>overlays/unwatched/banners/$VAR[WatchedStateOverlay]_Episodes.png</texture>
+					<visible>StringCompare(Skin.String(WatchedFlag),unwatched) | StringCompare(Skin.String(WatchedFlag),watched)</visible>
+					<bordersize>6</bordersize>
+				</control>
+				<control type="image">
+					<left>213</left>
+					<top>155</top>
+					<width>61</width>
+					<height>30</height>
+					<aspectratio align="center" aligny="center">stretch</aspectratio>
+					<texture border="1">views/other/episode_number.png</texture>
+					<visible>[Container.Content(Seasons) | Container.Content(Episodes) | IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)] + !stringcompare(ListItem.Label,..)</visible>
+				</control>
+				<control type="label">
+					<left>213</left>
+					<top>147</top>
+					<width>61</width>
+					<height>43</height>
+					<font>FontSize_16B</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>99000000</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$VAR[ThumbnailsOnThumbLabel]</label>
+				</control>
+			</itemlayout>
+			<focusedlayout condition="Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes)" width="313.5" height="376">
+				<control type="image">
+					<left>-2</left>
+					<top>-8</top>
+					<width>291</width>
+					<height>205</height>
+					<aspectratio align="center" aligny="center">stretch</aspectratio>
+					<texture border="30">views/other/panel.png</texture>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>-2</top>
+					<width>287</width>
+					<height>201</height>
+					<aspectratio align="center" aligny="center">stretch</aspectratio>
+					<texture background="true" fallback="thumbs/fallback_episode_tp.png">$VAR[KodiFlixLandscapeThumb]</texture>
+					<bordertexture border="15">thumbs/thumb_border.png</bordertexture>
+					<bordersize>8</bordersize>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>-2</top>
+					<width>287</width>
+					<height>201</height>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+					<visible>!Container.Content(Episodes) + IsEmpty(ListItem.Art(landscape)) + IsEmpty(ListItem.Art(tvshow.landscape)) + !IsEmpty(ListItem.Art(clearlogo))</visible>
+					<bordersize>40</bordersize>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>196</top>
+					<width>287</width>
+					<height>201</height>
+					<aspectratio align="center" aligny="center">stretch</aspectratio>
+					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_episode_tp.png">$VAR[KodiFlixLandscapeThumb]</texture>
+					<bordersize>8</bordersize>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>197</top>
+					<width>287</width>
+					<height>201</height>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" >$INFO[ListItem.Art(clearlogo)]</texture>
+					<visible>!Container.Content(Episodes) + IsEmpty(ListItem.Art(landscape)) + IsEmpty(ListItem.Art(tvshow.landscape)) + !IsEmpty(ListItem.Art(clearlogo))</visible>
+					<bordertexture border="15">thumbs/thumb_border_fade.png</bordertexture>
+					<bordersize>40</bordersize>
+					<animation type="Conditional" reversible="false" condition="true">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>32</top>
+					<width>287</width>
+					<height>201</height>
+					<aspectratio aligny="center" align="center">stretch</aspectratio>
+					<texture>overlays/unwatched/banners/$VAR[WatchedStateOverlay]_Episodes.png</texture>
+					<visible>[StringCompare(Skin.String(WatchedFlag),unwatched) + stringcompare(ListItem.Overlay,OverlayUnWatched.png)] | [StringCompare(Skin.String(WatchedFlag),watched) + stringcompare(ListItem.Overlay,OverlayWatched.png)]</visible>
+					<bordersize>8</bordersize>
+				</control>
+				<control type="image">
+					<left>213</left>
+					<top>155</top>
+					<width>61</width>
+					<height>30</height>
+					<aspectratio align="center" aligny="center">stretch</aspectratio>
+					<texture border="1">views/other/episode_number.png</texture>
+					<visible>[Container.Content(Seasons) | Container.Content(Episodes) | IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)] + !stringcompare(ListItem.Label,..)</visible>
+				</control>
+				<control type="label">
+					<left>213</left>
+					<top>147</top>
+					<width>61</width>
+					<height>43</height>
+					<font>FontSize_16B</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>99000000</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$VAR[ThumbnailsOnThumbLabel]</label>
+				</control>
+			</focusedlayout>
+		</control>
+		<control type="image">
+			<left>45</left>
+			<!--top>420</top-->
+			<top>720</top>
+			<width>142</width>
+			<height>203</height>
+			<aspectratio align="center" aligny="center">stretch</aspectratio>
+			<texture border="15">views/addonwall_select.png</texture>
+            <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+			<visible>[[Container.Content(Movies) | Container.Content(Sets)] + !Skin.HasSetting(KodiFlixLandscapeView)]</visible>
+			<animation type="Focus" reversible="false" condition="Container(800).OnNext">
+					<effect type="slide" start="26,0" end="0,0" time="150" tween="Cubic" easing="out" />
+					<effect type="fade" start="20" end="100" time="750" delay="0" tween="sine" easing="out" />
+				</animation>
+			<animation type="Focus" reversible="false" condition="Container(800).OnPrevious">
+					<effect type="slide" start="-26,0" end="0,0" time="150" tween="Cubic" easing="out" />
+					<effect type="fade" start="20" end="100" time="750" delay="0" tween="sine" easing="out" />
+				</animation>
+		</control>
+		<control type="image">
+			<left>45</left>
+			<!--top>622</top-->
+			<top>922</top>
+			<width>142</width>
+			<height>203</height>
+			<aspectratio align="center" aligny="center">stretch</aspectratio>
+			<texture border="15" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/addonwall_select.png</texture>
+			<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+			<visible>[[Container.Content(Movies) | Container.Content(Sets)] + !Skin.HasSetting(KodiFlixLandscapeView)]</visible>
+		</control>
+		<control type="image">
+			<left>45</left>
+			<top>716</top>
+			<width>291</width>
+			<height>201</height>
+			<aspectratio align="center" aligny="center">stretch</aspectratio>
+			<texture border="15">views/addonwall_select.png</texture>
+			<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+			<visible>[[Container.Content(Movies) | Container.Content(Sets)] + Skin.HasSetting(KodiFlixLandscapeView)] | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes)</visible>
+		</control>
+		<control type="image">
+			<left>45</left>
+			<top>914</top>
+			<width>291</width>
+			<height>165</height>
+			<aspectratio align="center" aligny="center">stretch</aspectratio>
+			<texture border="15" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/addonwall_select.png</texture>
+			<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+			<visible>[[Container.Content(Movies) | Container.Content(Sets)] + Skin.HasSetting(KodiFlixLandscapeView)] | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes)</visible>
+		</control>
+		<!-- Media Flags -->
+		<control type="group">
+			<left>300</left>
+			<top>980</top>
+			<width>1840</width>
+			<height>90</height>
+			<visible>![SubString(ListItem.Path,videodb://movies/sets) + !Stringcompare(ListItem.Label,..)]</visible>
+			<control type="image">
+				<colordiffuse>floor</colordiffuse>
+				<texture>$VAR[ColorFlagsSource]source/$VAR[SourceFlagVar,,.png]</texture>
+                <include>AudioFlagsVars</include>
+                <include>VisibleFadeEffect</include>
+			</control>
+			<control type="image">
+				<left>200</left>
+				<colordiffuse>floor</colordiffuse>
+				<texture>$VAR[ColorFlagsResolution]resolution/$INFO[ListItem.VideoResolution,,.png]</texture>
+                <include>AudioFlagsVars</include>
+				<visible>!IsEmpty(ListItem.VideoResolution)</visible>
+				<include>VisibleFadeEffect</include>
+			</control>
+			<control type="image">
+				<left>400</left>
+				<colordiffuse>floor</colordiffuse>
+				<texture>$VAR[ColorFlagsAspectRatio]aspectratio/$INFO[ListItem.VideoAspect,,.png]</texture>
+                <include>AudioFlagsVars</include>
+                <include>VisibleFadeEffect</include>
+			</control>
+			<control type="image">
+				<top>12</top>
+				<left>800</left>
+				<width>120</width>
+				<height>68</height>
+				<aspectratio>keep</aspectratio>
+				<texture fallback="flags/colored/rating/NR.png">$VAR[RatingFlagVar]</texture>
+				<colordiffuse>floor</colordiffuse>
+				<include>MediaFlagVars</include>
+				<visible>!Container.Content(tvshows) + !Container.Content(seasons) + !IsEmpty(ListItem.Title)</visible>
+			</control>
+			<control type="image">
+				<left>800</left>
+				<width>200</width>
+				<colordiffuse>floor</colordiffuse>
+				<texture>$VAR[ColorFlagsRating]rating/$VAR[RatingFlagVar,,.png]</texture>
+                <include>AudioFlagsVars</include>
+				<visible>!Container.Content(tvshows) + !Container.Content(seasons) + !IsEmpty(ListItem.Title)</visible>
+			</control>
+			<control type="image">
+				<left>600</left>
+				<colordiffuse>floor</colordiffuse>
+				<texture>$VAR[ColorFlagsAudio]audio/$VAR[AudioFlagVar,,.png]</texture>
+                <include>AudioFlagsVars</include>
+                <visible>!IsEmpty(ListItem.VideoCodec)</visible>
+				<include>VisibleFadeEffect</include>
+			</control>
+			<control type="image">
+				<left>1100</left>
+				<top>-13</top>
+				<colordiffuse>floor</colordiffuse>
+				<include>MediaFlagVars</include>
+				<texture>$VAR[ColorFlagsStudio]$INFO[ListItem.Studio,,.png]</texture>
+				<visible>!IsEmpty(ListItem.Studio)	+ !Container.Content(tvshows) + !Container.Content(seasons)</visible>
+				<include>VisibleFadeEffect</include>
+			</control>
+			<control type="image">
+				<left>1100</left>
+				<top>-13</top>
+				<colordiffuse>floor</colordiffuse>
+			    <texture>$VAR[ColorFlagsStudio]default-studio.png</texture>
+                <include>AudioFlagsVars</include>
+                <visible>IsEmpty(ListItem.Studio)</visible>
+            </control>
+			<control type="label">
+               	<left>1100</left>
+				<top>-13</top>
+			    <width>155</width>
+                <height>70</height>
+                <align>center</align>
+                <label>$INFO[ListItem.Studio]</label>
+                <font>Font_Reg22_Caps</font>
+                <textcolor>grey</textcolor>
+                <wrapmultiline>true</wrapmultiline>
+                <visible>IsEmpty(ListItem.Studio) + !Skin.HasSetting(DisableStudiosColorFlag)</visible>
+            </control>
+			<!--control type="image">
+				<left>1200</left>
+				<colordiffuse>grey</colordiffuse>
+				<include>MediaFlagVars</include>
+				<texture>$VAR[PathFlagsAudioChannels]</texture>
+				<visible>!IsEmpty(ListItem.AudioChannels) + !Container.Content(seasons)</visible>
+				<include>VisibleFadeEffect</include>
+			</control-->
+			<control type="group">
+				<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
+				<include>VisibleFadeEffect</include>
+				<control type="image">
+					<left>625</left>
+					<colordiffuse>floor</colordiffuse>
+					<include>MediaFlagVars</include>
+					<texture>$VAR[ColorFlagsStudio]$INFO[ListItem.Studio,,.png]</texture>
+					<visible>!IsEmpty(ListItem.Title) + !Container.Content(seasons)</visible>
+				</control>
+				<control type="image">
+					<left>800</left>
+						<top>12</top>
+					<colordiffuse>floor</colordiffuse>
+					<texture>$VAR[ColorFlagsRating]rating/$VAR[RatingFlagVar,,.png]</texture>
+					<include>AudioFlagsVars</include>
+					<visible>!Container.Content(seasons)</visible>
+				</control>
+					<control type="group">
+						<left>960</left>
+						<top>-6</top>
+						<width>162.5</width>
+						<visible>!IsEmpty(ListItem.Property(TotalSeasons))</visible>
+						<control type="label">
+							<left>0</left>
+							<top>2</top>
+							<width>162.5</width>
+							<height>60</height>
+							<align>center</align>
+							<label>$INFO[ListItem.Property(TotalSeasons)]</label>
+							<font>font48_bold</font>
+							<wrapmultiline>true</wrapmultiline>
+							<textcolor>grey</textcolor>
+						</control>
+						<control type="label">
+							<top>52</top>
+							<width>162.5</width>
+							<height>30</height>
+							<align>center</align>
+							<label>[LOWERCASE]$VAR[OneOrMoreSeasonsVar][/LOWERCASE]</label>
+							<font>font12</font>
+							<textcolor>grey</textcolor>
+						</control>
+					</control>
+					<control type="group">
+						<visible>!IsEmpty(ListItem.Property(TotalEpisodes))</visible>
+						<width>162.5</width>
+						<left>1100</left>
+						<top>-6</top>
+						<control type="label">
+						<left>0</left>
+						<top>2</top>
+						<width>162.5</width>
+						<height>60</height>
+						<align>center</align>
+						<label>$INFO[ListItem.Property(TotalEpisodes)]</label>
+						<font>font48_bold</font>
+						<wrapmultiline>true</wrapmultiline>
+						<textcolor>grey</textcolor>
+					</control>
+					<control type="label">
+						<top>52</top>
+						<width>162.5</width>
+						<height>30</height>
+						<align>center</align>
+						<label>[LOWERCASE]$VAR[OneOrMoreEpisodesVar][/LOWERCASE]</label>
+						<font>font12</font>
+						<textcolor>grey</textcolor>
+					</control>
+				</control>
+				<control type="group">
+					<visible>!IsEmpty(ListItem.Property(UnWatchedEpisodes))</visible>
+					<width>200</width>
+					<left>1220</left>
+					<top>-6</top>
+					<control type="label">
+						<left>0</left>
+						<width>200</width>
+						<height>60</height>
+						<align>center</align>
+						<label>$INFO[ListItem.Property(UnWatchedEpisodes)]</label>
+						<font>font48_bold</font>
+						<wrapmultiline>true</wrapmultiline>
+						<textcolor>grey</textcolor>
+					</control>
+					<control type="label">
+						<top>52</top>
+						<width>200</width>
+						<height>30</height>
+						<align>center</align>
+						<label>[LOWERCASE]$LOCALIZE[16101][/LOWERCASE]</label>
+						<font>font12</font>
+						<textcolor>grey</textcolor>
+					</control>
+				</control>
+			</control>
+		</control>
+		<control type="scrollbar" id="60">
+			<left>45</left>
+			<top>702</top>
+			<width>1188</width>
+			<height>8</height>
+			<texturesliderbackground>-</texturesliderbackground>
+			<texturesliderbar border="14,0,14,0">views/scrollbar/scrollbar_horizontal.png</texturesliderbar>
+			<texturesliderbarfocus border="14,0,14,0">views/scrollbar/scrollbar_horizontal.png</texturesliderbarfocus>
+			<textureslidernib>-</textureslidernib>
+			<textureslidernibfocus>-</textureslidernibfocus>
+			<!--onup>63</onup-->
+			<onup condition="Control.IsVisible(63)">63</onup>
+			<onup condition="!Control.IsVisible(63)">9000</onup>
+			<ondown>800</ondown>
+			<onleft>62</onleft>
+			<showonepage>false</showonepage>
+			<orientation>horizontal</orientation>
+			<animation effect="fade" start="100" end="0" time="250" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
+			<visible>Control.IsVisible(800)</visible>
+		</control>
+	</control>
+</include>
+</includes>

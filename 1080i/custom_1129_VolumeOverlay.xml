@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window type="dialog" id="52">
+    <zorder>2</zorder>
+    <visible>Window.IsVisible(mutebug) | Window.IsVisible(volumebar)</visible>
+    <animation type="WindowOpen" reversible="false">
+        <effect type="zoom" start="80" end="100" center="960,540" delay="160" tween="back" time="240" />
+        <effect type="fade" delay="160" end="100" time="240" />
+    </animation>
+    <animation type="WindowClose" reversible="false">
+        <effect type="zoom" start="100" end="80" center="960,540" easing="in" tween="back" time="240" />
+        <effect type="fade" start="100" end="0" time="240" />
+    </animation>
+    <controls>
+        <control type="group">
+            <left>-300r</left>
+            <top>800</top>
+            <width>764</width>
+            <height>136</height>
+            <animation effect="slide" end="0,-870" time="0" condition="True">Conditional</animation>
+            <animation effect="zoom" start="100" end="60" center="960,1080" time="640" easing="inout" tween="circle" condition="true">Conditional</animation>
+            <control type="image">
+                <left>-4</left>
+                <top>-4</top>
+                <width>300</width>
+                <height>147</height>
+                <texture>dialogs/scan_backg_shadow.png</texture>
+                <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+                <visible>!Skin.HasSetting(DisableGlowbar)</visible>
+                <include>PanelGlowFade</include>
+                <include>Animation_VisibleChange400</include>
+            </control>
+		    <control type="image">
+                <left>-4</left>
+                <top>-4</top>
+                <width>330</width>
+                <height>162</height>
+                <texture>dialogs/scan_backg.png</texture>
+                <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+            </control>
+            <control type="group">
+                <visible>!Window.IsVisible(mutebug)</visible>
+                <control type="image">
+                    <left>-10</left>
+                    <top>-5</top>
+                    <width>150</width>
+                    <height>150</height>
+                    <texture>$VAR[VolumeIconVar]</texture>
+                    <fadetime>0</fadetime>
+                    <colordiffuse>$VAR[VolumeColorVar]</colordiffuse>
+                </control>
+			    <control type="image">
+                    <left>40</left>
+                    <top>45</top>
+                    <width>55</width>
+                    <height>55</height>
+                    <texture>dialogs/volume.png</texture>
+                    <colordiffuse>white2</colordiffuse>
+                </control>
+            </control>
+            <control type="group">
+                <visible>!player.passthrough</visible>
+                <control type="progress" id="20">
+                    <include>HiddenObject</include>
+                    <info>Player.Volume</info>
+                </control>
+                <control type="label">
+                    <left>163</left>
+                    <top>-35</top>
+                    <width>564</width>
+                    <height>200</height>
+                    <align>left</align>
+                    <label>$INFO[Control.GetLabel(20)] %</label>
+                    <font>Font_MainClassic3</font>
+                    <scroll>true</scroll>
+                    <visible>!Window.IsVisible(mutebug)</visible>
+                </control>
+            </control>
+		    <control type="label">
+			    <left>12</left>
+				<top>110</top>
+			    <align>left</align>
+                <label>29802</label>
+                <include>Dialogs_Label2</include>
+                <visible>player.passthrough</visible>
+            </control>
+            <control type="group">
+                <visible>Window.IsVisible(mutebug)</visible>
+			    <control type="image">
+                    <left>26</left>
+                    <top>30</top>
+                    <width>100</width>
+                    <height>100</height>
+                    <texture>dialogs/mute.png</texture>
+                    <colordiffuse>white2</colordiffuse>
+                </control>
+				<control type="label">
+                    <left>158</left>
+                    <top>-25</top>
+                    <width>564</width>
+                    <height>200</height>
+                    <align>left</align>
+                    <label>31832</label>
+                    <font>Font_MainClassic3</font>
+                    <scroll>true</scroll>
+                </control>
+            </control>
+        </control>
+    </controls>
+</window>

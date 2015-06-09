@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<includes>
+    <include name="VideoExtras_art">
+		<control type="group">
+        <left>1345</left>
+					<top>387</top>
+					<control type="image">
+						<left>-1</left>
+						<top>-8</top>
+						<width>439</width>
+						<height>561</height>
+						<align>center</align>
+						<aspectratio scalediffuse="true">keep</aspectratio>
+						<fadetime>0</fadetime>
+						<bordertexture border="18">thumbs/poster_shadow.png</bordertexture>
+						<bordersize>18</bordersize>
+						<texture background="true" diffuse="thumbs/posterdiffuse.png">$INFO[ListItem.Icon]</texture>
+					</control>					
+				</control>				
+				<control type="image">
+					<left>1355</left>
+					<top>138</top>
+					<width>410</width>
+					<height>240</height>
+					<aspectratio align="center">keep</aspectratio>
+					<texture background="true">$VAR[VideoExtraFanart]</texture>
+				</control>
+			<control type="group">
+			    <left>1665</left>
+				<top>145</top>	
+				<visible>Skin.HasSetting(OverlaySetting)</visible>
+				<control type="image">
+					<width>100</width>
+					<height>101</height>
+					<aspectratio align="center">keep</aspectratio>
+					<texture background="true">thumbs/OverlayResume.png</texture>
+					<visible>ListItem.IsResumable</visible>
+				</control>
+				<control type="image">
+					<width>100</width>
+					<height>101</height>
+					<aspectratio align="center">keep</aspectratio>
+					<texture background="true">thumbs/OverlayUnWatched.png</texture>
+					<visible>!ListItem.IsResumable</visible>
+				</control>				
+				<control type="image">
+					<width>100</width>
+					<height>101</height>
+					<aspectratio align="center">keep</aspectratio>
+					<texture background="true">thumbs/OverlayWatched.png</texture>
+					<visible>IntegerGreaterThan(ListItem.PlayCount,0)</visible>
+				</control>
+			</control>
+    </include>
+
+    <include name="VideoExtras_LayoutNofocus">
+		<control type="image">
+			<left>30</left>
+			<top>32</top>
+			<width>1140</width>
+			<height>60</height>
+			<texture border="1">settings/settings_separator.png</texture>
+			<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>	
+		</control>			
+		<control type="label">
+			<left>70</left>
+			<top>20</top>
+			<width>1000</width>
+			<height>40</height>
+			<font>font15</font>
+			<textcolor>grey2</textcolor>
+			<align>left</align>
+			<aligny>center</aligny>
+			<label>$INFO[ListItem.Label]</label>
+		</control>
+		<control type="label">
+			<left>1160</left>
+			<top>20</top>
+			<width>200</width>
+			<height>40</height>
+			<font>font15</font>
+			<textcolor>grey2</textcolor>
+			<align>right</align>
+			<aligny>center</aligny>
+			<visible>!IsEmpty(ListItem.Label2)</visible>
+			<label>$INFO[ListItem.Label2]</label>
+		</control>
+		<control type="image">
+			<left>15</left>
+			<top>20</top>
+			<width>45</width>
+			<height>45</height>
+			<texture>dialogs/circle/46.png</texture>
+			<visible>ListItem.IsResumable</visible>
+		</control>
+		<control type="image">
+			<left>15</left>
+			<top>20</top>
+			<width>45</width>
+			<height>45</height>
+			<!-- Default XBMC Icon -->
+			<texture>OverlayWatched.png</texture>
+			<visible>IntegerGreaterThan(ListItem.PlayCount,0)</visible>
+		</control>
+    </include>		
+    <include name="VideoExtras_Layoutfocus">
+		<control type="image">
+			<left>30</left>
+			<top>32</top>
+			<width>1140</width>
+			<height>60</height>
+			<texture border="1">settings/settings_separator.png</texture>
+			<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>	
+		</control>	
+		<control type="image">
+		<top>0</top>
+			<width>1210</width>
+			<height>90</height>
+			<texture border="5">views/tripanel/listselect_fo.png</texture>
+			<visible>Control.HasFocus(51)</visible>
+			<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+		</control>								
+		<control type="label">
+			<left>70</left>
+			<top>20</top>
+			<width>1000</width>
+			<height>40</height>
+			<font>font15</font>
+			<textcolor>white</textcolor>
+			<align>left</align>
+			<aligny>center</aligny>
+			<label>$INFO[ListItem.Label]</label>
+		</control>>				
+		<control type="label">
+			<left>1160</left>
+			<top>20</top>
+			<width>200</width>
+			<height>40</height>
+			<font>font15</font>
+			<textcolor>white</textcolor>
+			<align>right</align>
+			<aligny>center</aligny>
+			<visible>!IsEmpty(ListItem.Label2)</visible>
+			<label>$INFO[ListItem.Label2]</label>
+		</control>
+		<control type="image">
+			<left>15</left>
+			<top>20</top>
+			<width>45</width>
+			<height>45</height>
+			<texture>dialogs/circle/46.png</texture>
+			<visible>ListItem.IsResumable</visible>
+		</control>
+		
+		<control type="image">
+			<left>15</left>
+			<top>20</top>
+			<width>45</width>
+			<height>45</height>
+			<texture>OverlayWatched.png</texture>
+			<visible>IntegerGreaterThan(ListItem.PlayCount,0)</visible>
+		</control>
+    </include>	
+
+<include name="VideoExtras_Layout1">
+  <control type="group">
+            <animation type="WindowOpen" reversible="false">
+                <effect type="zoom" start="150" end="100" center="960,540" time="600" tween="cubic" />
+                <effect type="fade" end="100" time="100" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" start="100" end="0" time="300" />
+                <effect type="zoom" start="100" end="130" center="960,540" time="300" tween="cubic" easing="in" />
+            </animation>
+            <control type="group">
+                <top>-15</top>
+                <control type="image">
+                    <left>112</left>
+                    <top>82</top>
+                    <width>1695</width>
+                    <height>1040</height>
+                    <texture>wall/wall_bg_glow.png</texture>
+                    <include>PanelGlowFade</include>
+                    <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+                    <visible>!Skin.HasSetting(DisableGlowbar)</visible>
+                </control>
+                <control type="image">
+                    <left>112</left>
+                    <top>82</top>
+                    <width>1695</width>
+                    <height>1040</height>
+                    <texture>wall/wall_bg.png</texture>
+                    <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+                </control>
+                <control type="image">
+                    <left>112</left>
+                    <top>82</top>
+                    <width>1695</width>
+                    <height>1012</height>
+                    <colordiffuse>white</colordiffuse>
+                    <texture>views/grid-ve.png</texture>
+                </control>
+                <control type="image">
+                    <left>112</left>
+                    <top>108</top>
+                    <width>1695</width>
+                    <height>1012</height>
+                    <texture>wall/wall_bg_reflection.png</texture>
+                </control>	
+             <control type="list" id="51">
+				<left>122</left>
+				<top>138</top>
+				<width>1220</width>
+				<height>800</height>
+				<onright>60</onright>
+				<onleft>9000</onleft>
+				<onup>51</onup>
+				<ondown>51</ondown>
+				<viewtype label="537">list</viewtype>
+				<pagecontrol>60</pagecontrol>
+				<scrolltime>200</scrolltime>
+				<itemlayout width="1210" height="90">
+					<include>VideoExtras_LayoutNofocus</include>
+				</itemlayout>
+				<focusedlayout width="1210" height="90">
+					<include>VideoExtras_Layoutfocus</include>
+				</focusedlayout>
+			</control>
+				<include>VideoExtras_art</include>	
+				<control type="scrollbar" id="60">
+					<left>1320</left>
+					<top>80</top>
+					<onleft>51</onleft>	
+					<width>25</width>
+					<height>950</height>
+					<texturesliderbar border="0,14,0,14">ScrollBarV_bar.png</texturesliderbar>
+					<texturesliderbarfocus border="0,14,0,14">ScrollBarV_bar.png</texturesliderbarfocus>
+					<showonepage>false</showonepage>
+					<orientation>vertical</orientation>
+					<visible>Control.IsVisible(51)</visible>
+				</control>
+			</control>
+		</control>	
+    </include>
+	
+    <include name="VideoExtras_Layout2">
+        <control type="group">
+            <include>Animation_VisibleChange400</include>
+            <control type="image">
+                <texture>views/episodebgoverlay.png</texture>
+                <include>FullscreenDimensions</include>
+                <include>Animation_WindowFade200</include>
+                <visible>Skin.HasSetting(altoverlayinfowall)</visible>
+            </control>
+            <control type="image">
+                <texture>common/bgcolor.png</texture>
+                <include>FullscreenDimensions</include>
+                <animation effect="fade" start="100" end="80" time="40" condition="true">Conditional</animation>
+                <visible>!Skin.HasSetting(altoverlayinfowall)</visible>
+                <include>Animation_WindowFade200</include>
+            </control>
+        </control>
+        <control type="group">
+            <include>Animation_Widgets</include>
+            <!-- Browser -->
+            <control type="fixedlist" id="51">
+                <left>590</left>
+				<top>55</top>
+                <width>1400</width>
+                <height>1020</height>
+                <viewtype label="20359">list</viewtype>
+                <scrolltime>100</scrolltime>
+                <orientation>vertical</orientation>
+                <movement>3</movement>
+                <focusposition>4</focusposition>
+                <onup>51</onup>
+                <ondown>51</ondown>
+                <onleft>9000</onleft>
+                <onright>61</onright>
+                <preloaditems>2</preloaditems>
+                <pagecontrol>61</pagecontrol>
+                <animation effect="slide" end="-40,0" time="240" tween="cubic" easing="inout" condition="Control.HasFocus(61)">Conditional</animation>
+                <animation effect="slide" end="-40,0" time="240" tween="cubic" easing="inout" condition="Container.Content(episodes)">Conditional</animation>
+                <animation effect="slide" end="0,65" time="0" condition="!Skin.HasSetting(ClassicTopBar) + !Skin.HasSetting(disabletopbar)">Conditional</animation>
+                <animation effect="slide" end="0,15" time="160" condition="Container(51).Row(0)">Conditional</animation>
+                <animation effect="slide" end="0,8" time="160" condition="Container(51).Row(1)">Conditional</animation>
+                <animation effect="slide" end="0,0" time="160" condition="Container(51).Row(2)">Conditional</animation>
+                <animation effect="slide" end="0,-8" time="160" condition="Container(51).Row(3)">Conditional</animation>
+                <animation effect="slide" end="0,-15" time="160" condition="Container(51).Row(4)">Conditional</animation>
+                <animation effect="slide" end="0,-22" time="160" condition="Container(51).Row(5)">Conditional</animation>
+                <animation effect="slide" end="0,-29" time="160" condition="Container(51).Row(6)">Conditional</animation>
+                <animation effect="slide" end="0,-36" time="160" condition="Container(51).Row(7)">Conditional</animation>
+                <animation effect="slide" end="0,-43" time="160" condition="Container(51).Row(8)">Conditional</animation>
+        <itemlayout width="950" height="90">
+            <control type="label">
+                <left>1280</left>
+                <width>500</width>
+                <height>45</height>
+                <align>right</align>
+                <aligny>bottom</aligny>
+                <label>$INFO[ListItem.Label]</label>
+                <font>Font_Reg42_Caps</font>
+                <textcolor>$VAR[TitleColorVar]</textcolor>
+				<autoscroll time="AutoScrollTime" delay="6000" repeat="6000">Skin.HasSetting(AutoScroll)</autoscroll>
+            </control>
+				<control type="image">
+					<left>1230</left>
+					<top>43</top>
+					<width>45</width>
+					<height>45</height>
+					<texture>dialogs/circle/46.png</texture>
+					<visible>ListItem.IsResumable</visible>
+				</control>
+				<control type="image">
+					<left>1230</left>
+					<top>43</top>
+					<width>45</width>
+					<height>45</height>
+					<!-- Default XBMC Icon -->
+					<texture>OverlayWatched.png</texture>
+					<visible>IntegerGreaterThan(ListItem.PlayCount,0)</visible>
+				</control>				
+                <control type="image">
+                    <left>1230</left>
+                    <top>43</top>
+					<width>45</width>
+					<height>45</height>
+					<!-- Default XBMC Icon -->
+					<texture>common/new.png</texture>
+					<visible>!ListItem.IsResumable + !IntegerGreaterThan(ListItem.PlayCount,0)</visible>
+                </control>	
+                <control type="label">
+                    <left>1220</left>
+                    <top>45</top>
+                    <width>825</width>
+                    <height>90</height>
+                    <align>right</align>
+                    <aligny>bottom</aligny>
+                    <label>$INFO[ListItem.Label2] min</label>
+                    <font>Font_Reg28</font>
+                    <textcolor>grey</textcolor>
+                </control>							
+        </itemlayout>
+        <focusedlayout width="950" height="346">
+			<control type="image">
+				<left>969</left>
+				<top>-13</top>
+				<width>344</width>
+				<height>348</height>
+				<align>center</align>
+				<texture background="true">thumbs/thumb_glass_shadow.png</texture>
+				<bordersize>18</bordersize>
+				<include>PanelGlowFade</include>
+				<include>Animation_VisibleChange400</include>
+				<visible>Skin.HasSetting(ExtendedGlowMode)</visible>
+				<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+			</control>		
+            <control type="image">
+                <left>980</left>
+                <width>322</width>
+                <height>322</height>
+                <aspectratio scalediffuse="false">scale</aspectratio>
+                <texture background="true" diffuse="thumbs/cdcover_mask.png" fallback="DefaultVideo.png">$VAR[VideoExtraLandscape]</texture>
+                <bordertexture border="20">thumbs/cd_shadow.png</bordertexture>
+                <bordersize>20</bordersize>
+				<visible>IsEmpty(ListItem.thumb)</visible>
+            </control>		
+            <control type="image">
+                <left>980</left>
+                <width>322</width>
+                <height>322</height>
+                <aspectratio scalediffuse="false">scale</aspectratio>
+                <texture background="true" diffuse="thumbs/cdcover_mask.png">$INFO[ListItem.thumb]</texture>
+                <bordertexture border="20">thumbs/cd_shadow.png</bordertexture>
+                <bordersize>20</bordersize>
+            </control>
+            <control type="group">
+                <left>150</left>
+                <control type="label">
+                    <left>838</left>
+                    <top>22</top>
+                    <width>980</width>
+                    <align>right</align>
+                    <aligny>bottom</aligny>
+                    <label>$INFO[ListItem.Label]</label>
+                    <font>Font_Reg42_Caps</font>
+                    <textcolor>$VAR[TitleColorVar]</textcolor>
+                    <scrollspeed>40</scrollspeed>
+                </control>
+			<control type="group">
+			    <left>1032</left>
+				<top>18</top>	
+				<visible>Skin.HasSetting(OverlaySetting)</visible>
+				<control type="image">
+					<width>100</width>
+					<height>101</height>
+					<aspectratio align="center">keep</aspectratio>
+					<texture background="true">thumbs/OverlayResume.png</texture>
+					<visible>ListItem.IsResumable</visible>
+				</control>
+				<control type="image">
+					<width>100</width>
+					<height>101</height>
+					<aspectratio align="center">keep</aspectratio>
+					<texture background="true">thumbs/OverlayUnWatched.png</texture>
+					<visible>!ListItem.IsResumable</visible>
+				</control>				
+				<control type="image">
+					<width>100</width>
+					<height>101</height>
+					<aspectratio align="center">keep</aspectratio>
+					<texture background="true">thumbs/OverlayWatched.png</texture>
+					<visible>IntegerGreaterThan(ListItem.PlayCount,0)</visible>
+				</control>
+			</control>	
+			<control type="group">
+                    <left>800</left>
+                    <top>67</top>
+				<visible>!Skin.HasSetting(OverlaySetting)</visible>
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>45</width>
+					<height>45</height>
+					<texture>dialogs/circle/46.png</texture>
+					<visible>ListItem.IsResumable</visible>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>45</width>
+					<height>45</height>
+					<!-- Default XBMC Icon -->
+					<texture>OverlayWatched.png</texture>
+					<visible>IntegerGreaterThan(ListItem.PlayCount,0)</visible>
+				</control>				
+                <control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>45</width>
+					<height>45</height>
+					<!-- Default XBMC Icon -->
+					<texture>common/new.png</texture>
+					<visible>!ListItem.IsResumable + !IntegerGreaterThan(ListItem.PlayCount,0)</visible>
+                </control>	
+			</control>				
+                <control type="label">
+                    <left>838</left>
+                    <top>75</top>
+                    <width>825</width>
+                    <height>90</height>
+                    <align>right</align>
+                    <aligny>bottom</aligny>
+                    <label>$INFO[ListItem.Label2] min</label>
+                    <font>Font_Reg28</font>
+                    <textcolor>grey</textcolor>
+					<animation effect="slide" end="-50,0" time="0" condition="!Skin.HasSetting(OverlaySetting)">Conditional</animation>
+                </control>				
+                <control type="textbox">
+                    <left>99</left>
+                    <top>107</top>
+                    <width>740</width>
+                    <height>194</height>
+                    <align>right</align>
+                    <label>$INFO[ListItem.plot]</label>
+                    <font>Font_Reg30_2</font>
+                    <autoscroll time="AutoScrollTime" delay="6000" repeat="6000">Skin.HasSetting(AutoScroll)</autoscroll>
+                </control>
+            </control>
+        </focusedlayout>
+            </control>
+            <control type="scrollbar" id="61">
+                <left>1875</left>
+                <top>100</top>
+                <width>46</width>
+                <height>910</height>
+                <animation effect="zoom" start="70" end="100" center="auto" tween="back" time="320" condition="Control.HasFocus(61)">Conditional</animation>
+                <animation effect="fade" start="100" end="0" time="240" condition="!Control.HasFocus(61)">Conditional</animation>
+                <texturesliderbackground>views/scrollbarbacklist.png</texturesliderbackground>
+                <include>Animation_VerticalScrollBar</include>
+                <orientation>vertical</orientation>
+                <onleft>51</onleft>
+                <onright>9000</onright>
+            </control>			
+            <control type="image">
+                <left>102</left>
+                <top>60</top>
+                <width>399</width>
+                <height>142</height>
+                <aspectratio>keep</aspectratio>
+                <texture background="true">$VAR[VideoExtraLogo]</texture>
+                <fadetime>400</fadetime>
+            </control>		
+            <control type="group">
+                <control type="image">
+                    <left>30</left>
+                    <top>210</top>
+                    <width>540</width>
+                    <height>800</height>
+                    <align>center</align>
+                    <texture background="true">thumbs/thumb_glass_shadow.png</texture>
+                    <bordersize>18</bordersize>
+                    <include>PanelGlowFade</include>
+                    <include>Animation_VisibleChange400</include>
+                    <visible>Skin.HasSetting(ExtendedGlowMode)</visible>
+                    <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+                    <visible>!IsEmpty(Control.GetLabel(3822)) | !IsEmpty(Control.GetLabel(3823))</visible>
+                </control>
+				<control type="image" id="3822">
+                    <left>49</left>
+                    <top>240</top>
+                    <width>502</width>
+                    <height>739</height>
+                    <aspectratio scalediffuse="false">stretch</aspectratio>
+                    <texture background="true" diffuse="thumbs/movieposter_mask.png">$VAR[VideoExtraPoster]</texture>
+                    <bordertexture border="19.5">thumbs/poster_shadow.png</bordertexture>
+                    <bordersize>19</bordersize>
+                </control>
+				<control type="image"  id="3823">
+                    <left>49</left>
+                    <top>240</top>
+                    <width>502</width>
+                    <height>739</height>
+                    <aspectratio scalediffuse="false">stretch</aspectratio>
+                    <texture background="true" diffuse="thumbs/movieposter_mask.png">$INFO[ListItem.thumb]</texture>
+                    <bordertexture border="19.5">thumbs/poster_shadow.png</bordertexture>
+                    <bordersize>19</bordersize>
+					 <visible>!IsEmpty(ListItem.thumb)</visible>
+                </control>				
+            </control>
+            <control type="image">
+                <left>200</left>
+                <top>190</top>
+                <width>200</width>
+                <height>105</height>
+                <aspectratio>keep</aspectratio>
+                <texture background="true">videoextras/extras.png</texture>
+                <fadetime>400</fadetime>
+            </control>				
+        </control>
+
+    </include>	
+	
+	
+</includes>

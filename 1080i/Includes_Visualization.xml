@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<includes>
+    <include name="MusicVizBG">
+        <aspectratio align="center" aligny="top">scale</aspectratio>
+        <fadetime>1000</fadetime>
+        <include>FullscreenDimensions</include>
+        <include>Animation_WindowFade250</include>
+        <include>Animation_VisibleChange400</include>
+        <animation effect="zoom" start="110" end="130" center="auto" time="12000" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+        <animation effect="slide" start="-15,-15" end="15,15" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+        <timeperimage>10000</timeperimage>
+    </include>
+    <include name="cdwall-musicvisualisation">
+        <control type="group" id="2355">
+            <left>-52</left>
+            <top>-22</top>
+            <!--         <animation effect="zoom" start="110" end="130" center="auto" time="15000" pulse="true" condition="true">Conditional</animation>
+        <animation effect="slide" start="-15,-15" end="15,15" time="7500" tween="sine" easing="inout" pulse="true" condition="true">Conditional</animation>
+        <animation effect="rotatex" start="" end="15" time="0" condition="true">Conditional</animation> -->
+            <visible>[Window.IsActive(visualisation) + StringCompare(Skin.String(MusicViz.MultiFanart),cd-wall)] | [Player.HasAudio + [Window.IsActive(home) | Window.IsActive(1158)] + Skin.HasSetting(homecdwall)] | Stringcompare(Control.GetLabel(4322),cdwall)</visible>
+            <animation effect="zoom" start="110" end="130" center="auto" time="12000" pulse="true" condition="[![Window.IsActive(home) | Window.IsActive(1124)] + Skin.HasSetting(animation_bg)] | [[Window.IsActive(home) | Window.IsActive(1124)] + Skin.HasSetting(animatedbghome)]">Conditional</animation>
+            <animation effect="slide" start="-15,-15" end="15,15" time="6000" tween="sine" easing="inout" pulse="true" condition="[![Window.IsActive(home) | Window.IsActive(1124)] + Skin.HasSetting(animation_bg)] | [[Window.IsActive(home) | Window.IsActive(1124)] + Skin.HasSetting(animatedbghome)]">Conditional</animation>
+            <include>Animation_WindowFade250</include>
+            <include>Animation_VisibleChange400</include>
+            <control type="group">
+                <control type="multiimage">
+                    <timeperimage>63000</timeperimage>
+                    <include>CDWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>225</left>
+                    <timeperimage>77000</timeperimage>
+                    <include>CDWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>450</left>
+                    <timeperimage>80000</timeperimage>
+                    <include>CDWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>675</left>
+                    <timeperimage>60000</timeperimage>
+                    <include>CDWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>900</left>
+                    <timeperimage>40000</timeperimage>
+                    <include>CDWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>1125</left>
+                    <timeperimage>55000</timeperimage>
+                    <include>CDWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>1350</left>
+                    <timeperimage>50000</timeperimage>
+                    <include>CDWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>1575</left>
+                    <timeperimage>62000</timeperimage>
+                    <include>CDWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>1800</left>
+                    <timeperimage>66000</timeperimage>
+                    <include>CDWallThumbs</include>
+                </control>
+            </control>
+            <control type="group">
+                <top>225</top>
+                <control type="multiimage">
+                    <timeperimage>65000</timeperimage>
+                    <include>CDWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>225</left>
+                    <timeperimage>72000</timeperimage>
+                    <include>CDWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>450</left>
+                    <timeperimage>51000</timeperimage>
+                    <include>CDWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>675</left>
+                    <timeperimage>31105</timeperimage>
+                    <include>CDWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>900</left>
+                    <timeperimage>41000</timeperimage>
+                    <include>CDWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>1125</left>
+                    <timeperimage>57000</timeperimage>
+                    <include>CDWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>1350</left>
+                    <timeperimage>44000</timeperimage>
+                    <include>CDWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>1575</left>
+                    <timeperimage>68000</timeperimage>
+                    <include>CDWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>1800</left>
+                    <timeperimage>78000</timeperimage>
+                    <include>CDWallThumbs</include>
+                </control>
+            </control>
+            <control type="group">
+                <top>450</top>
+                <control type="multiimage">
+                    <timeperimage>81000</timeperimage>
+                    <include>CDWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>225</left>
+                    <timeperimage>49000</timeperimage>
+                    <include>CDWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>450</left>
+                    <timeperimage>53000</timeperimage>
+                    <include>CDWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>675</left>
+                    <timeperimage>45000</timeperimage>
+                    <include>CDWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>900</left>
+                    <timeperimage>70000</timeperimage>
+                    <include>CDWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>1125</left>
+                    <include>CDWallThumbs</include>
+                    <timeperimage>64000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>1350</left>
+                    <include>CDWallThumbs</include>
+                    <timeperimage>83000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>1575</left>
+                    <include>CDWallThumbs</include>
+                    <timeperimage>75000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>1800</left>
+                    <include>CDWallThumbs</include>
+                    <timeperimage>69000</timeperimage>
+                </control>
+            </control>
+            <control type="group">
+                <top>675</top>
+                <control type="multiimage">
+                    <include>CDWallThumbs</include>
+                    <timeperimage>42000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>225</left>
+                    <include>CDWallThumbs</include>
+                    <timeperimage>58000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>450</left>
+                    <include>CDWallThumbs</include>
+                    <timeperimage>56000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>675</left>
+                    <include>CDWallThumbs</include>
+                    <timeperimage>73000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>900</left>
+                    <include>CDWallThumbs</include>
+                    <timeperimage>47000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>1125</left>
+                    <include>CDWallThumbs</include>
+                    <timeperimage>48000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>1350</left>
+                    <include>CDWallThumbs</include>
+                    <timeperimage>54000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>1575</left>
+                    <include>CDWallThumbs</include>
+                    <timeperimage>71000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>1800</left>
+                    <include>CDWallThumbs</include>
+                    <timeperimage>31105</timeperimage>
+                </control>
+            </control>
+            <control type="group">
+                <top>900</top>
+                <control type="multiimage">
+                    <include>CDWallThumbs</include>
+                    <timeperimage>76000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>225</left>
+                    <include>CDWallThumbs</include>
+                    <timeperimage>43000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>450</left>
+                    <include>CDWallThumbs</include>
+                    <timeperimage>59000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>675</left>
+                    <include>CDWallThumbs</include>
+                    <timeperimage>61000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>900</left>
+                    <include>CDWallThumbs</include>
+                    <timeperimage>82000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>1125</left>
+                    <include>CDWallThumbs</include>
+                    <timeperimage>67000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>1350</left>
+                    <include>CDWallThumbs</include>
+                    <timeperimage>46000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>1575</left>
+                    <include>CDWallThumbs</include>
+                    <timeperimage>79000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>1800</left>
+                    <include>CDWallThumbs</include>
+                    <timeperimage>74000</timeperimage>
+                </control>
+            </control>
+            <control type="image">
+                <left>52</left>
+                <top>22</top>
+                <texture background="true">cdwall-grid.png</texture>
+                <include>FullscreenDimensions</include>
+            </control>
+        </control>
+    </include>
+    <include name="CDWallThumbs">
+        <width>225</width>
+        <height>225</height>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <fadetime>500</fadetime>
+    </include>
+    <include name="MovieWall">
+        <control type="group" id="2355">
+            <left>-52</left>
+            <top>-22</top>
+            <!--         <animation effect="zoom" start="110" end="130" center="auto" time="15000" pulse="true" condition="true">Conditional</animation>
+        <animation effect="slide" start="-15,-15" end="15,15" time="7500" tween="sine" easing="inout" pulse="true" condition="true">Conditional</animation>
+        <animation effect="rotatex" start="" end="15" time="0" condition="true">Conditional</animation> -->
+            <visible>SubString(Control.GetLabel(4322),moviewall)</visible>
+            <animation effect="zoom" start="110" end="130" center="auto" time="12000" pulse="true" condition="[![Window.IsActive(home) | Window.IsActive(1124)] + Skin.HasSetting(animation_bg)] | [[Window.IsActive(home) | Window.IsActive(1124)] + Skin.HasSetting(animatedbghome)]">Conditional</animation>
+            <animation effect="slide" start="-15,-15" end="15,15" time="6000" tween="sine" easing="inout" pulse="true" condition="[![Window.IsActive(home) | Window.IsActive(1124)] + Skin.HasSetting(animation_bg)] | [[Window.IsActive(home) | Window.IsActive(1124)] + Skin.HasSetting(animatedbghome)]">Conditional</animation>
+            <include>Animation_WindowFade250</include>
+            <include>Animation_VisibleChange400</include>
+            <control type="group">
+                <control type="multiimage">
+                    <timeperimage>63000</timeperimage>
+                    <include>MovieWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>225</left>
+                    <timeperimage>77000</timeperimage>
+                    <include>MovieWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>450</left>
+                    <timeperimage>80000</timeperimage>
+                    <include>MovieWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>675</left>
+                    <timeperimage>60000</timeperimage>
+                    <include>MovieWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>900</left>
+                    <timeperimage>40000</timeperimage>
+                    <include>MovieWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>1125</left>
+                    <timeperimage>55000</timeperimage>
+                    <include>MovieWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>1350</left>
+                    <timeperimage>50000</timeperimage>
+                    <include>MovieWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>1575</left>
+                    <timeperimage>62000</timeperimage>
+                    <include>MovieWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>1800</left>
+                    <timeperimage>66000</timeperimage>
+                    <include>MovieWallThumbs</include>
+                </control>
+            </control>
+            <control type="group">
+                <top>337</top>
+                <control type="multiimage">
+                    <timeperimage>65000</timeperimage>
+                    <include>MovieWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>225</left>
+                    <timeperimage>72000</timeperimage>
+                    <include>MovieWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>450</left>
+                    <timeperimage>51000</timeperimage>
+                    <include>MovieWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>675</left>
+                    <timeperimage>31105</timeperimage>
+                    <include>MovieWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>900</left>
+                    <timeperimage>41000</timeperimage>
+                    <include>MovieWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>1125</left>
+                    <timeperimage>57000</timeperimage>
+                    <include>MovieWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>1350</left>
+                    <timeperimage>44000</timeperimage>
+                    <include>MovieWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>1575</left>
+                    <timeperimage>68000</timeperimage>
+                    <include>MovieWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>1800</left>
+                    <timeperimage>78000</timeperimage>
+                    <include>MovieWallThumbs</include>
+                </control>
+            </control>
+            <control type="group">
+                <top>674</top>
+                <control type="multiimage">
+                    <timeperimage>81000</timeperimage>
+                    <include>MovieWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>225</left>
+                    <timeperimage>49000</timeperimage>
+                    <include>MovieWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>450</left>
+                    <timeperimage>53000</timeperimage>
+                    <include>MovieWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>675</left>
+                    <timeperimage>45000</timeperimage>
+                    <include>MovieWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>900</left>
+                    <timeperimage>70000</timeperimage>
+                    <include>MovieWallThumbs</include>
+                </control>
+                <control type="multiimage">
+                    <left>1125</left>
+                    <include>MovieWallThumbs</include>
+                    <timeperimage>64000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>1350</left>
+                    <include>MovieWallThumbs</include>
+                    <timeperimage>83000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>1575</left>
+                    <include>MovieWallThumbs</include>
+                    <timeperimage>75000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>1800</left>
+                    <include>MovieWallThumbs</include>
+                    <timeperimage>69000</timeperimage>
+                </control>
+            </control>
+            <control type="group">
+                <top>1011</top>
+                <control type="multiimage">
+                    <include>MovieWallThumbs</include>
+                    <timeperimage>42000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>225</left>
+                    <include>MovieWallThumbs</include>
+                    <timeperimage>58000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>450</left>
+                    <include>MovieWallThumbs</include>
+                    <timeperimage>56000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>675</left>
+                    <include>MovieWallThumbs</include>
+                    <timeperimage>73000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>900</left>
+                    <include>MovieWallThumbs</include>
+                    <timeperimage>47000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>1125</left>
+                    <include>MovieWallThumbs</include>
+                    <timeperimage>48000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>1350</left>
+                    <include>MovieWallThumbs</include>
+                    <timeperimage>54000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>1575</left>
+                    <include>MovieWallThumbs</include>
+                    <timeperimage>71000</timeperimage>
+                </control>
+                <control type="multiimage">
+                    <left>1800</left>
+                    <include>MovieWallThumbs</include>
+                    <timeperimage>31105</timeperimage>
+                </control>
+            </control>
+            <control type="image">
+                <left>52</left>
+                <top>-76</top>
+                <width>1920</width>
+                <height>1360</height>
+                <texture background="true">moviewall-grid.png</texture>
+            </control>
+        </control>
+    </include>
+    <include name="MovieWallThumbs">
+        <width>225</width>
+        <height>337</height>
+        <imagepath background="true">$VAR[MovieWallPathVar]</imagepath>
+        <fadetime>500</fadetime>
+    </include>
+</includes>
