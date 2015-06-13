@@ -1,4 +1,4 @@
-## Aeon Madnox [PLUS LIVE TV MOD] 
+## Aeon Madnoxx [PLUS LIVE TV MOD] 
 
 
 
@@ -7,5 +7,5 @@ skin originally created by **Big_Noid** and **phil65**
 
 ###Installation
 
-* Copy skin.aeon.madnox folder and its content (~450=Mb) to Kodi/addons/
-* In Kodi, go to System > Appearance > Skin and select Aeon Madnox
+* Copy skin.aeon.madnox folder and its content (~310Mo) to Kodi/addons/
+* In Kodi, go to System > Appearance > Skin and select Aeon Madnox Helix
