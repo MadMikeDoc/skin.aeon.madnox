@@ -2,7 +2,7 @@
 
 
 
-Aeon Nox Shednox based skin made by **Mike_Doc** for Kodi 14 helix / 15 Isengard  
+Aeon Nox Shednox based skin made by **Mike_Doc** and **Schimi2k** for Kodi 14 helix / 15 Isengard  
 skin originally created by **Big_Noid** and **phil65**
 
 ###Installation
