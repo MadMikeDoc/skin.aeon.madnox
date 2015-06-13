@@ -1,0 +1,869 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+    <defaultcontrol always="true">40</defaultcontrol>
+    <onload>ClearProperty(logo,home)</onload>
+    <onload>ClearProperty(Banner,home)</onload>
+    <onload>ClearProperty(Fanart,home)</onload>
+    <onload>ClearProperty(Fanart2,home)</onload>
+    <onload>ClearProperty(Fanart3,home)</onload>
+    <onload condition="Container.Content(artists)">RunScript(script.extendedinfo,info=artistdetails,artistname='$ESCINFO[ListItem.Artist]',silent=False)</onload>
+    <onload condition="Container.Content(albums)">RunScript(script.extendedinfo,info=artistdetails,info=albuminfo,artistname='$ESCINFO[ListItem.Artist]',albumname='$ESCINFO[ListItem.Album]',silent=False)</onload>
+    <include>Animation_OpenCloseZoom_New</include>
+    <controls>
+        <control id="9023" type="button">
+            <include>HiddenObject</include>
+            <onfocus>RunScript(script.home,container=8010,focuscontrol=5015)</onfocus>
+        </control>
+        <control id="5014" type="button">
+            <include>HiddenObject</include>
+            <texturenofocus>-</texturenofocus>
+            <onfocus>SetProperty(WidgetType,onlinealbum,home)</onfocus>
+            <onfocus>Runscript(script.extendedinfo,info=extendedalbuminfo,id=$INFO[Container(6010).ListItem.Property(Id)],silent=False)</onfocus>
+            <onfocus>SetFocus(6010)</onfocus>
+            <onfocus>ActivateWindow(1172)</onfocus>
+            <animation delay="140" effect="fade" reversible="false" time="1">Hidden</animation>
+            <visible>Control.HasFocus(6010)</visible>
+        </control>
+        <control id="5014" type="button">
+            <include>HiddenObject</include>
+            <onfocus>SetProperty(PanelWidgetInfo,true,home)</onfocus>
+            <onfocus>SetProperty(WidgetPosition,Widget1,home)</onfocus>
+            <onfocus>SetProperty(WidgetType,artists,home)</onfocus>
+            <onfocus>RunScript(script.home,container=5010,focuscontrol=5015)</onfocus>
+            <animation delay="140" effect="fade" reversible="false" time="1">Hidden</animation>
+            <visible>Control.HasFocus(5010)</visible>
+        </control>
+        <control id="5015" type="button">
+            <include>HiddenObject</include>
+            <onfocus>SetFocus(40)</onfocus>
+            <onfocus>ActivateWindow(1172)</onfocus>
+        </control>
+        <control id="9025" type="button">
+            <include>HiddenObject</include>
+            <texturenofocus>-</texturenofocus>
+            <onfocus>SetProperty(WidgetType,onlinealbum,home)</onfocus>
+            <onfocus>Runscript(script.extendedinfo,info=albuminfo,id=$INFO[Container(6010).ListItem.Property(Id)],silent=False)</onfocus>
+            <onfocus>SetFocus(6010)</onfocus>
+            <onfocus>ActivateWindow(1172)</onfocus>
+        </control>
+        <control type="fadelabel" id="4324">
+            <pauseatend>7500</pauseatend>
+            <width>11479</width>
+            <height>118</height>
+            <font>Font_Reg22_Caps</font>
+            <textcolor>00FFFFFF</textcolor>
+            <label>$INFO[ListItem.Art(fanart)]</label>
+            <label>$INFO[Window(Home).Property(Fanart)]</label>
+            <label>$INFO[Window(Home).Property(Fanart2)]</label>
+            <label>$INFO[Window(Home).Property(Fanart3)]</label>
+        </control>
+        <control type="image">
+            <aspectratio>scale</aspectratio>
+            <texture fallback="special://skin/backgrounds/fallback_music.jpg">$INFO[Control.GetLabel(4324)]</texture>
+            <include>FullscreenDimensions</include>
+        </control>
+        <control type="multiimage">
+            <imagepath>$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist,,/extrafanart/]</imagepath>
+            <fadetime>FanartCrossfadeTime</fadetime>
+            <visible>[Skin.HasSetting(musicextrafanart) + !IsEmpty(Skin.String(ArtistsLogosPath))]</visible>
+        </control>
+        <control type="image">
+            <posy>404</posy>
+            <width>2220</width>
+            <height>780</height>
+            <texture colordiffuse="black">home/nowplaying_shadow.png</texture>
+        </control>
+        <control type="image">
+            <width>2220</width>
+            <height>170</height>
+            <texture colordiffuse="black" flipy="true">home/nav_back_shadow.png</texture>
+            <animation condition="true" effect="fade" end="70" pulse="true" start="100" time="2000">conditional</animation>
+        </control>
+        <control type="image">
+            <texture colordiffuse="$VAR[DialogColorVar]">diffuseoverlay.png</texture>
+            <include>FullscreenDimensions</include>
+            <include>Animation_WindowFade200</include>
+            <animation effect="fade" start="100" end="80" time="0" condition="true">Conditional</animation>
+            <animation effect="fade" end="100" time="320" delay="80">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="320">Hidden</animation>
+        </control>
+        <control type="group">
+            <control type="group">
+                <posx>20</posx>
+                <posy>40</posy>
+                <control id="8308" type="image">
+                    <width>640</width>
+                    <height>320</height>
+                    <aligny>bottom</aligny>
+                    <aspectratio>keep</aspectratio>
+                    <texture fallback="empty.png">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist,,/logo.png]</texture>
+                    <fadetime>400</fadetime>
+                    <animation condition="Substring(Control.GetLabel(8308),empty.png)" effect="fade" end="0" start="100" time="0">Conditional</animation>
+                    <visible>!IsEmpty(Skin.String(ArtistsLogosPath))</visible>
+                </control>
+                <control type="image">
+                    <width>920</width>
+                    <height>320</height>
+                    <aligny>bottom</aligny>
+                    <aspectratio>keep</aspectratio>
+                    <texture fallback="empty.png">$INFO[Window(home).Property(Logo)]</texture>
+                    <fadetime>400</fadetime>
+                    <visible>Substring(Control.GetLabel(8308),empty.png)</visible>
+                </control>
+            </control>
+            <control type="label">
+                <posx>0</posx>
+                <posy>20</posy>
+                <width>1920</width>
+                <height>38</height>
+                <align>center</align>
+                <label>$VAR[DialogAlbumInfoTopLabelVar]</label>
+                <font>Font_MainClassic2</font>
+                <shadowcolor>black</shadowcolor>
+                <textcolor>white3</textcolor>
+                <scroll>true</scroll>
+                <visible>[Substring(Control.GetLabel(8308),empty.png) + IsEmpty(Window(home).Property(Logo))] | Container.Content(albums)</visible>
+            </control>
+        </control>
+        <!--Main Group-->
+        <control type="group">
+            <control id="40" type="grouplist">
+                <posx>0</posx>
+                <posy>430</posy>
+                <width>1920</width>
+                <height>1100</height>
+                <animation reversible="false" type="WindowOpen">
+                    <effect center="960,540" end="100" start="80" time="800" tween="back" type="zoom" delay="1200"/>
+                    <effect end="100" time="800" type="fade" delay="1200"/>
+                </animation>
+                <animation reversible="false" type="Visible">
+                    <effect center="960,540" delay="560" end="100" start="20" time="740" tween="back" type="zoom"/>
+                    <effect delay="560" end="100" time="440" type="fade"/>
+                </animation>
+                <animation reversible="false" type="Hidden">
+                    <effect center="960,540" delay="560" end="40" start="100" time="740" tween="back" type="zoom"/>
+                    <effect delay="560" end="0" start="100" time="440" type="fade"/>
+                </animation>
+                <visible>!Window.IsActive(1172)</visible>
+                <scrolltime easing="inout" tween="cubic">500</scrolltime>
+                <orientation>vertical</orientation>
+                <itemgap>-200</itemgap>
+                <animation reversible="false" type="WindowClose">
+                    <effect end="0" start="100" time="240" type="fade"/>
+                    <effect center="960,540" easing="in" end="130" start="100" time="240" tween="cubic" type="zoom"/>
+                </animation>
+                <!--Bio-->
+                <control id="7000" type="group">
+                    <width>1920</width>
+                    <height>800</height>
+                    <!--
+                    <animation condition="![ControlGroup(7000).HasFocus | Control.HasFocus(7012)]" type="Conditional">
+                        <effect easing="inout" end="80" start="100" time="400" tween="cubic" type="fade"/>
+                        <effect center="auto" easing="inout" end="70" start="100" time="400" tween="cubic" type="zoom"/>
+                    </animation>-->
+                    <control type="multiimage">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>650</width>
+                        <height>650</height>
+                        <aligny>top</aligny>
+                        <aspectratio>scale</aspectratio>
+                        <imagepath>$INFO[ListItem.Icon]</imagepath>
+                        <fadetime>750</fadetime>
+                        <timeperimage>5000</timeperimage>
+                    </control>
+                    <control type="button" id="7010">
+                        <posx>680</posx>
+                        <posy>230</posy>
+                        <width>1160</width>
+                        <height>290</height>
+                        <textoffsetx>30</textoffsetx>
+                        <align>center</align>
+                        <texturefocus border="40" colordiffuse="black">buttons/roundedbutton-focus.png</texturefocus>
+                        <texturenofocus border="40">buttons/roundedbutton-nofocus.png</texturenofocus>
+                        <onclick>TextViewer(Info,$ESCVAR[ArtistInfoTextBoxVar])</onclick>
+                        <textcolor>grey2</textcolor>
+                        <focusedcolor>white3</focusedcolor>
+                        <onup>7010</onup>
+                        <ondown>9000</ondown>
+                        <onleft>7010</onleft>
+                        <onright>7010</onright>
+                    </control>
+                    <control type="grouplist">
+                        <orientation>vertical</orientation>
+                        <posx>700</posx>
+                        <posy>30</posy>
+                        <height>600</height>
+                        <itemgap>20</itemgap>
+                        <control type="image">
+                            <aspectratio align="left">keep</aspectratio>
+                            <width>1500</width>
+                            <height>200</height>
+                            <texture>$INFO[Window(home).Property(Banner)]</texture>
+                            <visible>!IsEmpty(Window(home).Property(Banner))</visible>
+                        </control>
+                        <control type="label">
+                            <width>900</width>
+                            <height>200</height>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <font>font30_title</font>
+                            <label>$INFO[ListItem.Label]</label>
+                            <visible>IsEmpty(Window(home).Property(Banner))</visible>
+                        </control>
+                        <control type="textbox">
+                            <posx>150</posx>
+                            <width>1120</width>
+                            <height max="250" min="0">auto</height>
+                            <label>$VAR[ArtistInfoTextBoxVar]</label>
+                            <font>Font_Reg30_2</font>
+                            <autoscroll delay="8000" time="1500" repeat="7000">true</autoscroll>
+                        </control>
+                    </control>
+                    <control id="9000" type="group">
+                        <posx>700</posx>
+                        <posy>530</posy>
+                        <visible>!Skin.HasSetting(kioskmode)</visible>
+                        <control id="9003" type="grouplist">
+                            <width>1200</width>
+                            <height>1080</height>
+                            <orientation>horizontal</orientation>
+                            <scroll>true</scroll>
+                            <onright>5000</onright>
+                            <onup>7010</onup>
+                            <ondown>6010</ondown>
+                            <onback>5000</onback>
+                            <control id="20" type="radiobutton">
+                                <label>$LOCALIZE[208]</label>
+                                <selected>Control.HasFocus(20)</selected>
+                                <textureradioon colordiffuse="$VAR[FocusTextureColorVar]">special://skin/extras/icons/play.png</textureradioon>
+                                <textureradiooff colordiffuse="grey">special://skin/extras/icons/play.png</textureradiooff>
+                                <width>280</width>
+                                <height>140</height>
+                                <textoffsetx>0</textoffsetx>
+                                <align>center</align>
+                                <texturefocus border="40" colordiffuse="$INFO[Window(home).Property(movie.ImageColor)]">buttons/roundedbutton-focus.png</texturefocus>
+                                <texturenofocus border="40" colordiffuse="$INFO[Window(home).Property(movie.ImageColor)]">buttons/roundedbutton-nofocus.png</texturenofocus>
+                                <font>font13</font>
+                                <textcolor>FF999999</textcolor>
+                                <focusedcolor>FFFAFAFA</focusedcolor>
+                                <aligny>bottom</aligny>
+                                <textoffsety>77</textoffsety>
+                                <radioposx>118</radioposx>
+                                <radioposy>30</radioposy>
+                                <radiowidth>44</radiowidth>
+                                <radioheight>44</radioheight>
+                                <onclick>RunScript(script.playalbum,albumid=$INFO[ListItem.DBID])</onclick>
+                                <visible>System.HasAddon(script.playalbum) + Container.Content(albums)</visible>
+                            </control>
+                            <control id="22" type="radiobutton">
+                                <label>$LOCALIZE[31096]</label>
+                                <selected>Control.HasFocus(22)</selected>
+                                <textureradioon colordiffuse="$VAR[FocusTextureColorVar]">special://skin/extras/icons/youtube.png</textureradioon>
+                                <textureradiooff colordiffuse="grey">special://skin/extras/icons/youtube.png</textureradiooff>
+                                <onclick condition="Container.Content(artists)">SetProperty(listcontent,$INFO[ListItem.Artist],home)</onclick>
+                                <onclick condition="Container.Content(albums)">SetProperty(listcontent,$INFO[ListItem.Artist] $INFO[ListItem.Album],home)</onclick>
+                                <width>280</width>
+                                <height>140</height>
+                                <textoffsetx>0</textoffsetx>
+                                <align>center</align>
+                                <texturefocus border="40" colordiffuse="$INFO[Window(home).Property(movie.ImageColor)]">buttons/roundedbutton-focus.png</texturefocus>
+                                <texturenofocus border="40" colordiffuse="$INFO[Window(home).Property(movie.ImageColor)]">buttons/roundedbutton-nofocus.png</texturenofocus>
+                                <font>font13</font>
+                                <textcolor>FF999999</textcolor>
+                                <focusedcolor>FFFAFAFA</focusedcolor>
+                                <aligny>bottom</aligny>
+                                <textoffsety>77</textoffsety>
+                                <radioposx>118</radioposx>
+                                <radioposy>30</radioposy>
+                                <radiowidth>44</radiowidth>
+                                <radioheight>44</radioheight>
+                                <onclick>ActivateWindow(1173)</onclick>
+                                <visible>Container.Content(artists) | Container.Content(albums)</visible>
+                            </control>
+                            <control id="6" type="radiobutton">
+                                <label>$LOCALIZE[184]</label>
+                                <selected>Control.HasFocus(6)</selected>
+                                <textureradioon colordiffuse="$VAR[FocusTextureColorVar]">special://skin/extras/icons/refresh2.png</textureradioon>
+                                <textureradiooff colordiffuse="grey">special://skin/extras/icons/refresh2.png</textureradiooff>
+                                <width>280</width>
+                                <height>140</height>
+                                <textoffsetx>0</textoffsetx>
+                                <align>center</align>
+                                <texturefocus border="40" colordiffuse="$INFO[Window(home).Property(movie.ImageColor)]">buttons/roundedbutton-focus.png</texturefocus>
+                                <texturenofocus border="40" colordiffuse="$INFO[Window(home).Property(movie.ImageColor)]">buttons/roundedbutton-nofocus.png</texturenofocus>
+                                <font>font13</font>
+                                <textcolor>FF999999</textcolor>
+                                <focusedcolor>FFFAFAFA</focusedcolor>
+                                <aligny>bottom</aligny>
+                                <textoffsety>77</textoffsety>
+                                <radioposx>118</radioposx>
+                                <radioposy>30</radioposy>
+                                <radiowidth>44</radiowidth>
+                                <radioheight>44</radioheight>
+                                <visible>Control.IsEnabled(6)</visible>
+                            </control>
+                            <control id="10" type="radiobutton">
+                                <label>$LOCALIZE[13405]</label>
+                                <selected>Control.HasFocus(10)</selected>
+                                <textureradioon colordiffuse="$VAR[FocusTextureColorVar]">special://skin/extras/icons/image6.png</textureradioon>
+                                <textureradiooff colordiffuse="grey">special://skin/extras/icons/image6.png</textureradiooff>
+                                <width>280</width>
+                                <height>140</height>
+                                <textoffsetx>0</textoffsetx>
+                                <align>center</align>
+                                <texturefocus border="40" colordiffuse="$INFO[Window(home).Property(movie.ImageColor)]">buttons/roundedbutton-focus.png</texturefocus>
+                                <texturenofocus border="40" colordiffuse="$INFO[Window(home).Property(movie.ImageColor)]">buttons/roundedbutton-nofocus.png</texturenofocus>
+                                <font>font13</font>
+                                <textcolor>FF999999</textcolor>
+                                <focusedcolor>FFFAFAFA</focusedcolor>
+                                <aligny>bottom</aligny>
+                                <textoffsety>77</textoffsety>
+                                <radioposx>118</radioposx>
+                                <radioposy>30</radioposy>
+                                <radiowidth>44</radiowidth>
+                                <radioheight>44</radioheight>
+                                <visible>Control.IsEnabled(10)</visible>
+                            </control>
+                            <control id="11" type="radiobutton">
+                                <label>15200</label>
+                                <selected>Control.HasFocus(11)</selected>
+                                <textureradioon colordiffuse="$VAR[FocusTextureColorVar]">special://skin/extras/icons/note.png</textureradioon>
+                                <textureradiooff colordiffuse="grey">special://skin/extras/icons/note.png</textureradiooff>
+                                <width>280</width>
+                                <height>140</height>
+                                <textoffsetx>0</textoffsetx>
+                                <align>center</align>
+                                <texturefocus border="40" colordiffuse="$INFO[Window(home).Property(movie.ImageColor)]">buttons/roundedbutton-focus.png</texturefocus>
+                                <texturenofocus border="40" colordiffuse="$INFO[Window(home).Property(movie.ImageColor)]">buttons/roundedbutton-nofocus.png</texturenofocus>
+                                <font>font13</font>
+                                <textcolor>FF999999</textcolor>
+                                <focusedcolor>FFFAFAFA</focusedcolor>
+                                <aligny>bottom</aligny>
+                                <textoffsety>77</textoffsety>
+                                <radioposx>118</radioposx>
+                                <radioposy>30</radioposy>
+                                <radiowidth>44</radiowidth>
+                                <radioheight>44</radioheight>
+                                <visible>Control.IsEnabled(11)</visible>
+                            </control>
+                            <control id="12" type="radiobutton">
+                                <label>$LOCALIZE[20413]</label>
+                                <selected>Control.HasFocus(12)</selected>
+                                <textureradioon colordiffuse="$VAR[FocusTextureColorVar]">special://skin/extras/icons/image4.png</textureradioon>
+                                <textureradiooff colordiffuse="grey">special://skin/extras/icons/image4.png</textureradiooff>
+                                <width>280</width>
+                                <height>140</height>
+                                <textoffsetx>0</textoffsetx>
+                                <align>center</align>
+                                <texturefocus border="40" colordiffuse="$INFO[Window(home).Property(movie.ImageColor)]">buttons/roundedbutton-focus.png</texturefocus>
+                                <texturenofocus border="40" colordiffuse="$INFO[Window(home).Property(movie.ImageColor)]">buttons/roundedbutton-nofocus.png</texturenofocus>
+                                <font>font13</font>
+                                <textcolor>FF999999</textcolor>
+                                <focusedcolor>FFFAFAFA</focusedcolor>
+                                <aligny>bottom</aligny>
+                                <textoffsety>77</textoffsety>
+                                <radioposx>118</radioposx>
+                                <radioposy>30</radioposy>
+                                <radiowidth>44</radiowidth>
+                                <radioheight>44</radioheight>
+                                <visible>Container.Content(artists)</visible>
+                                <visible>Control.IsEnabled(12)</visible>
+                            </control>
+                            <control id="120" type="radiobutton">
+                                <label>31614</label>
+                                <selected>Control.HasFocus(120)</selected>
+                                <textureradioon colordiffuse="$VAR[FocusTextureColorVar]">special://skin/extras/icons/disc.png</textureradioon>
+                                <textureradiooff colordiffuse="grey">special://skin/extras/icons/disc.png</textureradiooff>
+                                <width>280</width>
+                                <height>140</height>
+                                <textoffsetx>0</textoffsetx>
+                                <align>center</align>
+                                <texturefocus border="40" colordiffuse="$INFO[Window(home).Property(movie.ImageColor)]">buttons/roundedbutton-focus.png</texturefocus>
+                                <texturenofocus border="40" colordiffuse="$INFO[Window(home).Property(movie.ImageColor)]">buttons/roundedbutton-nofocus.png</texturenofocus>
+                                <font>font13</font>
+                                <textcolor>FF999999</textcolor>
+                                <focusedcolor>FFFAFAFA</focusedcolor>
+                                <aligny>bottom</aligny>
+                                <textoffsety>77</textoffsety>
+                                <radioposx>118</radioposx>
+                                <radioposy>30</radioposy>
+                                <radiowidth>44</radiowidth>
+                                <radioheight>44</radioheight>
+                                <onclick>RunAddon(script.cdartmanager)</onclick>
+                                <visible>System.HasAddon(script.cdartmanager)</visible>
+                            </control>
+                        </control>
+                    </control>
+                </control>
+                <!--Discography-->
+                <control id="6000" type="group">
+                    <width>2325</width>
+                    <height>800</height>
+                    <visible>IntegerGreaterThan(Container(6010).NumItems,0)</visible>
+                    <!--
+                    <animation condition="![ControlGroup(6000).HasFocus | Control.HasFocus(6012)]" type="Conditional">
+                        <effect easing="inout" end="80" start="100" time="400" tween="cubic" type="fade"/>
+                        <effect center="auto" easing="inout" end="70" start="100" time="400" tween="cubic" type="zoom"/>
+                    </animation>-->
+                    <control type="label">
+                        <posx>100</posx>
+                        <posy>50</posy>
+                        <width>500</width>
+                        <height>25</height>
+                        <aligny>center</aligny>
+                        <font>font14</font>
+                        <label>Discography</label>
+                    </control>
+                    <control id="6010" type="panel">
+                        <posx>0</posx>
+                        <posy>-22</posy>
+                        <width>1920</width>
+                        <height>550</height>
+                        <onup>9003</onup>
+                        <ondown>8010</ondown>
+                        <onright>6010</onright>
+                        <onleft>6010</onleft>
+                        <animation type="WindowOpen">
+                            <effect type="fade" end="100" delay="320" time="160" />
+                        </animation>
+                        <orientation>horizontal</orientation>
+                        <scrolltime easing="inout" tween="cubic">400</scrolltime>
+                        <preloaditems>2</preloaditems>
+                        <itemlayout height="550" width="440">
+                            <include>SquareWallitemLayout</include>
+                        </itemlayout>
+                        <focusedlayout height="550" width="440">
+                            <control type="image">
+                                <animation type="Focus">
+                                    <effect type="zoom" time="150" start="100" end="105" center="245,260" />
+                                    <effect type="fade" time="150" start="0" end="100" />
+                                </animation>
+                                <animation type="UnFocus">
+                                    <effect type="zoom" time="150" start="105" end="100" center="245,260" />
+                                    <effect type="fade" time="150" start="100" end="0" />
+                                </animation>
+                                <posx>70</posx>
+                                <posy>101</posy>
+                                <width>454</width>
+                                <height>444</height>
+                                <animation effect="fade" time="320" delay="300">Visible</animation>
+                                <texture colordiffuse="$VAR[FocusTextureColorVar]" border="40">buttons/roundedbutton-focus.png</texture>
+                            </control>
+                            <include>SquareWallFocusedLayout</include>
+                        </focusedlayout>
+                        <content>plugin://script.extendedinfo?info=discography&amp;&amp;artistname=$INFO[ListItem.Artist]</content>
+                    </control>
+                </control>
+                <!--Concerts-->
+                <control id="8000" type="group">
+                    <width>2325</width>
+                    <height>800</height>
+                    <visible>IntegerGreaterThan(Container(8010).NumItems,0)</visible>
+                    <!--
+                    <animation condition="![ControlGroup(8000).HasFocus | Control.HasFocus(8012)]" type="Conditional">
+                        <effect easing="inout" end="80" start="100" time="400" tween="cubic" type="fade"/>
+                        <effect center="1160,412" easing="inout" end="70" start="100" time="400" tween="cubic" type="zoom"/>
+                    </animation>-->
+                    <control type="label">
+                        <posx>100</posx>
+                        <posy>50</posy>
+                        <width>500</width>
+                        <height>25</height>
+                        <aligny>center</aligny>
+                        <font>font14</font>
+                        <label>Concerts</label>
+                    </control>
+                    <control id="8010" type="panel">
+                        <animation type="WindowOpen">
+                            <effect type="fade" end="100" delay="320" time="160" />
+                        </animation>
+                        <posx>0</posx>
+                        <posy>-18</posy>
+                        <width>1920</width>
+                        <height>550</height>
+                        <onup>6010</onup>
+                        <ondown>5010</ondown>
+                        <onleft>8010</onleft>
+                        <onright>8010</onright>
+                        <orientation>horizontal</orientation>
+                        <scrolltime easing="inout" tween="cubic">400</scrolltime>
+                        <preloaditems>2</preloaditems>
+                        <itemlayout height="550" width="440">
+                            <control type="group">
+                                <posx>75</posx>
+                                <posy>130</posy>
+                                <control type="image">
+                                    <posx>25</posx>
+                                    <width>390</width>
+                                    <height>380</height>
+                                    <fadetime>200</fadetime>
+                                    <aspectratio aligny="center">scale</aspectratio>
+                                    <texture background="true">$INFO[ListItem.Icon]</texture>
+                                    <bordertexture border="5">thumbs/bordershadow4.png</bordertexture>
+                                    <bordersize>5</bordersize>
+                                </control>
+                                <control type="image">
+                                    <posx>25</posx>
+                                    <width>390</width>
+                                    <height>380</height>
+                                    <texture colordiffuse="55FFFFFF">common/bgcolor.png</texture>
+                                </control>
+                                <control type="image">
+                                    <posx>30</posx>
+                                    <posy>340</posy>
+                                    <width>380</width>
+                                    <height>35</height>
+                                    <texture colordiffuse="black">common/bgcolor.png</texture>
+                                </control>
+                                <control type="label">
+                                    <posx>20</posx>
+                                    <posy>307</posy>
+                                    <height>100</height>
+                                    <width>400</width>
+                                    <textoffsetx>15</textoffsetx>
+                                    <label>$INFO[ListItem.Property(eventname)]</label>
+                                    <align>center</align>
+                                    <font>Font_Reg28_2</font>
+                                    <textcolor>grey2</textcolor>
+                                </control>
+                            </control>
+                        </itemlayout>
+                        <focusedlayout height="550" width="440">
+                            <control type="image">
+                                <animation type="Focus">
+                                    <effect type="zoom" time="150" start="100" end="105" center="245,260" />
+                                    <effect type="fade" time="150" start="0" end="100" />
+                                </animation>
+                                <animation type="UnFocus">
+                                    <effect type="zoom" time="150" start="105" end="100" center="245,260" />
+                                    <effect type="fade" time="150" start="100" end="0" />
+                                </animation>
+                                <posx>70</posx>
+                                <posy>101</posy>
+                                <width>454</width>
+                                <height>444</height>
+                                <animation effect="fade" time="320" delay="300">Visible</animation>
+                                <texture colordiffuse="$VAR[FocusTextureColorVar]" border="40">buttons/roundedbutton-focus.png</texture>
+                            </control>
+                            <control type="group">
+                                <posx>75</posx>
+                                <posy>130</posy>
+                                <animation type="Focus">
+                                    <effect type="zoom" time="150" start="100" end="105" center="245,260" />
+                                </animation>
+                                <animation type="UnFocus">
+                                    <effect type="zoom" time="150" start="105" end="100" center="245,260" />
+                                </animation>
+                                <!--
+                                <control type="image">
+                                    <posy>-45</posy>
+                                    <width>440</width>
+                                    <height>410</height>
+                                    <texture colordiffuse="$VAR[FocusTextureColorVar]" border="40">buttons/roundedbutton-focus.png</texture>
+                                </control>-->
+                                <control type="image">
+                                    <posx>25</posx>
+                                    <width>390</width>
+                                    <height>380</height>
+                                    <aspectratio aligny="center">scale</aspectratio>
+                                    <texture background="true">$INFO[ListItem.Icon]</texture>
+                                    <bordertexture border="5">thumbs/bordershadow4.png</bordertexture>
+                                    <bordersize>5</bordersize>
+                                </control>
+                                <control type="image">
+                                    <animation effect="fade" time="300" start="100" end="0" delay="100">Focus</animation>
+                                    <animation effect="fade" time="300" start="0" end="100">UnFocus</animation>
+                                    <posx>25</posx>
+                                    <width>390</width>
+                                    <height>380</height>
+                                    <texture colordiffuse="55FFFFFF">common/bgcolor.png</texture>
+                                </control>
+                                <control type="image">
+                                    <posx>30</posx>
+                                    <posy>340</posy>
+                                    <width>380</width>
+                                    <height>35</height>
+                                    <texture colordiffuse="black">common/bgcolor.png</texture>
+                                </control>
+                                <control type="label">
+                                    <posx>30</posx>
+                                    <posy>307</posy>
+                                    <height>100</height>
+                                    <width>380</width>
+                                    <align>center</align>
+                                    <label>$INFO[ListItem.Property(eventname)]</label>
+                                    <animation effect="fade" time="300" start="70" end="100" delay="100" reversible="false">Focus</animation>
+                                    <animation effect="fade" time="300" start="100" end="50" reversible="false">UnFocus</animation>
+                                    <font>Font_Reg28_2</font>
+                                    <scroll>true</scroll>
+                                </control>
+                            </control>
+                        </focusedlayout>
+                        <content>plugin://script.extendedinfo?info=artistevents&amp;&amp;artistname=$INFO[ListItem.Artist]</content>
+                    </control>
+                </control>
+                <!--Similar Artists-->
+                <control id="5000" type="group">
+                    <width>2325</width>
+                    <height>800</height>
+                    <visible>IntegerGreaterThan(Container(5010).NumItems,0)</visible>
+                    <!--
+                    <animation condition="!ControlGroup(5000).HasFocus" type="Conditional">
+                        <effect easing="inout" end="80" start="100" time="400" tween="cubic" type="fade"/>
+                        <effect center="auto" easing="inout" end="70" start="100" time="400" tween="cubic" type="zoom"/>
+                    </animation>-->
+                    <control type="label">
+                        <posx>100</posx>
+                        <posy>50</posy>
+                        <width>500</width>
+                        <height>25</height>
+                        <aligny>center</aligny>
+                        <font>font14</font>
+                        <label>Similar artists</label>
+                    </control>
+                    <control id="5010" type="panel">
+                        <animation type="WindowOpen">
+                            <effect type="fade" end="100" delay="320" time="160" />
+                        </animation>
+                        <posx>0</posx>
+                        <posy>-22</posy>
+                        <width>1920</width>
+                        <height>550</height>
+                        <onup>8010</onup>
+                        <ondown>10010</ondown>
+                        <onright>5010</onright>
+                        <onleft>5010</onleft>
+                        <orientation>horizontal</orientation>
+                        <scrolltime easing="inout" tween="cubic">400</scrolltime>
+                        <preloaditems>2</preloaditems>
+                        <itemlayout height="410" width="440">
+                            <include>SquareWallitemLayout</include>
+                        </itemlayout>
+                        <focusedlayout height="410" width="440">
+                            <control type="image">
+                                <animation type="Focus">
+                                    <effect type="zoom" time="150" start="100" end="105" center="245,260" />
+                                    <effect type="fade" time="150" start="0" end="100" />
+                                </animation>
+                                <animation type="UnFocus">
+                                    <effect type="zoom" time="150" start="105" end="100" center="245,260" />
+                                    <effect type="fade" time="150" start="100" end="0" />
+                                </animation>
+                                <posx>70</posx>
+                                <posy>101</posy>
+                                <width>454</width>
+                                <height>444</height>
+                                <animation effect="fade" time="320" delay="300">Visible</animation>
+                                <texture colordiffuse="$VAR[FocusTextureColorVar]" border="40">buttons/roundedbutton-focus.png</texture>
+                            </control>
+                            <include>SquareWallFocusedLayout</include>
+                        </focusedlayout>
+                        <content>plugin://script.extendedinfo?info=similarartistsinlibrary&amp;&amp;artistname=$INFO[ListItem.Artist]</content>
+                    </control>
+                </control>
+                <!--MusicVideos-->
+                <control id="10000" type="group">
+                    <width>2325</width>
+                    <height>800</height>
+                    <visible>IntegerGreaterThan(Container(10010).NumItems,0)</visible>
+                    <!--
+                    <animation condition="!ControlGroup(10000).HasFocus" type="Conditional">
+                        <effect easing="inout" end="80" start="100" time="400" tween="cubic" type="fade"/>
+                        <effect center="auto" easing="inout" end="70" start="100" time="400" tween="cubic" type="zoom"/>
+                    </animation>-->
+                    <control type="label">
+                        <posx>100</posx>
+                        <posy>50</posy>
+                        <width>500</width>
+                        <height>25</height>
+                        <aligny>center</aligny>
+                        <font>font14</font>
+                        <label>Music videos</label>
+                    </control>
+                    <control id="10010" type="panel">
+                        <animation type="WindowOpen">
+                            <effect type="fade" end="100" delay="320" time="160" />
+                        </animation>
+                        <posx>0</posx>
+                        <posy>25</posy>
+                        <width>1920</width>
+                        <height>420</height>
+                        <onup>5010</onup>
+                        <ondown>11010</ondown>
+                        <onleft>10010</onleft>
+                        <onright>10010</onright>
+                        <orientation>horizontal</orientation>
+                        <scrolltime tween="quadratic">200</scrolltime>
+                        <preloaditems>2</preloaditems>
+                        <itemlayout height="410" width="440">
+                            <include>SquareWallitemLayout</include>
+                        </itemlayout>
+                        <focusedlayout height="410" width="440">
+                            <control type="image">
+                                <animation type="Focus">
+                                    <effect type="zoom" time="150" start="100" end="105" center="245,260" />
+                                    <effect type="fade" time="150" start="0" end="100" />
+                                </animation>
+                                <animation type="UnFocus">
+                                    <effect type="zoom" time="150" start="105" end="100" center="245,260" />
+                                    <effect type="fade" time="150" start="100" end="0" />
+                                </animation>
+                                <posx>70</posx>
+                                <posy>101</posy>
+                                <width>454</width>
+                                <height>444</height>
+                                <animation effect="fade" time="320" delay="300">Visible</animation>
+                                <texture colordiffuse="$VAR[FocusTextureColorVar]" border="40">buttons/roundedbutton-focus.png</texture>
+                            </control>
+                            <include>SquareWallFocusedLayout</include>
+                        </focusedlayout>
+                        <content>plugin://script.extendedinfo?info=musicvideos&amp;&amp;artistname=$INFO[ListItem.Artist]</content>
+                    </control>
+                </control>
+                <!--MusicVideos-->
+                <control id="1000" type="group">
+                    <width>2325</width>
+                    <height>800</height>
+                    <!--
+                    <animation condition="!ControlGroup(11000).HasFocus" type="Conditional">
+                        <effect easing="inout" end="80" start="100" time="400" tween="cubic" type="fade"/>
+                        <effect center="auto" easing="inout" end="70" start="100" time="400" tween="cubic" type="zoom"/>
+                    </animation>-->
+                    <control type="label">
+                        <posx>100</posx>
+                        <posy>50</posy>
+                        <width>500</width>
+                        <height>25</height>
+                        <aligny>center</aligny>
+                        <font>font14</font>
+                        <label>Youtube videos</label>
+                    </control>
+                    <control id="11010" type="list">
+                        <animation type="WindowOpen">
+                            <effect type="fade" end="100" delay="320" time="160" />
+                        </animation>
+                        <posx>0</posx>
+                        <posy>25</posy>
+                        <width>1920</width>
+                        <height>550</height>
+                        <onup>10010</onup>
+                        <ondown>950</ondown>
+                        <onleft>11010</onleft>
+                        <onright>11010</onright>
+                        <orientation>horizontal</orientation>
+                        <scrolltime tween="quadratic">200</scrolltime>
+                        <preloaditems>2</preloaditems>
+                        <itemlayout height="550" width="440">
+                            <include>YoutubeItemLayout</include>
+                        </itemlayout>
+                        <focusedlayout height="550" width="440">
+                            <control type="image">
+                                <animation type="Focus">
+                                    <effect type="zoom" time="150" start="100" end="105" center="245,260" />
+                                    <effect type="fade" time="150" start="0" end="100" />
+                                </animation>
+                                <animation type="UnFocus">
+                                    <effect type="zoom" time="150" start="105" end="100" center="245,260" />
+                                    <effect type="fade" time="150" start="100" end="0" />
+                                </animation>
+                                <posx>70</posx>
+                                <posy>101</posy>
+                                <width>454</width>
+                                <height>444</height>
+                                <animation effect="fade" time="320" delay="300">Visible</animation>
+                                <texture colordiffuse="$VAR[FocusTextureColorVar]" border="40">buttons/roundedbutton-focus.png</texture>
+                            </control>
+                            <include>YoutubeFocusedLayout</include>
+                        </focusedlayout>
+                        <content>$VAR[YouTubeContentVar]</content>
+                    </control>
+                </control>
+                <control type="group">
+                    <visible>IntegerGreaterThan(Container(950).NumItems,0)</visible>
+                    <height>700</height>
+                    <control type="label">
+                        <posx>25</posx>
+                        <posy>6</posy>
+                        <width>500</width>
+                        <height>25</height>
+                        <aligny>center</aligny>
+                        <font>font14</font>
+                        <label>Shouts$INFO[Container(950).NumItems, (,)]</label>
+                    </control>
+                    <control type="panel" id="950">
+                        <animation type="WindowOpen" reversible="false">
+                            <effect type="slide" start="0,2080" end="0,0" delay="1000" tween="sine" time="1300" />
+                        </animation>
+                        <posx>-45</posx>
+                        <posy>30</posy>
+                        <width>1940</width>
+                        <height>700</height>
+                        <onleft>950</onleft>
+                        <onright>950</onright>
+                        <onup>11010</onup>
+                        <ondown>7010</ondown>
+                        <pagecontrol>60</pagecontrol>
+                        <scrolltime>300</scrolltime>
+                        <orientation>vertical</orientation>
+                        <preloaditems>2</preloaditems>
+                        <itemlayout height="170" width="380">
+                            <control type="group">
+                                <posx>50</posx>
+                                <posy>0</posy>
+                                <control type="image">
+                                    <posx>0</posx>
+                                    <posy>0</posy>
+                                    <width>390</width>
+                                    <height>170</height>
+                                    <texture border="40" colordiffuse="$INFO[Window(home).Property(movie.ImageColor)]">buttons/roundedbutton-nofocus.png</texture>
+                                </control>
+                                <control type="textbox">
+                                    <posy>0</posy>
+                                    <posx>20</posx>
+                                    <width>350</width>
+                                    <height>170</height>
+                                    <align>center</align>
+                                    <aligny>center</aligny>
+                                    <label>$INFO[ListItem.Property(comment)]</label>
+                                    <font>font12</font>
+                                </control>
+                            </control>
+                        </itemlayout>
+                        <focusedlayout height="170" width="380">
+                            <control type="group">
+                                <posy>0</posy>
+                                <posx>50</posx>
+                                <control type="image">
+                                    <width>390</width>
+                                    <height>170</height>
+                                    <texture border="40" colordiffuse="$INFO[Window(home).Property(movie.ImageColor)]">buttons/roundedbutton-nofocus.png</texture>
+                                </control>
+                                <control type="image">
+                                    <posx>0</posx>
+                                    <posy>0</posy>
+                                    <width>390</width>
+                                    <height>170</height>
+                                    <texture border="40" colordiffuse="$INFO[Window(home).Property(movie.ImageColor)]">buttons/roundedbutton-focus.png</texture>
+                                    <animation effect="fade" start="0" end="100" time="160">Focus</animation>
+                                    <animation effect="fade" start="0" end="100" time="0">UnFocus</animation>
+                                </control>
+                                <control type="textbox">
+                                    <posx>20</posx>
+                                    <posy>0</posy>
+                                    <width>350</width>
+                                    <height>170</height>
+                                    <align>center</align>
+                                    <aligny>center</aligny>
+                                    <label>$INFO[ListItem.Property(comment)]</label>
+                                    <font>font12</font>
+                                </control>
+                            </control>
+                        </focusedlayout>
+                        <content>plugin://script.extendedinfo?info=artistshouts&amp;&amp;artistname=$INFO[ListItem.Artist]</content>
+                    </control>
+                </control>
+            </control>
+        </control>
+    </controls>
+</window>
