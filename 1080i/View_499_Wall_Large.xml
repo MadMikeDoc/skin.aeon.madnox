@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 	<includes>
-	
 		<include name="Movie_Info">
 			<!--Mad Alt Movie / TV Show Info Version -->
 			<control type="group">
-				<animation effect="slide" start="-2620,0" end="0,0" time="250" tween="sine" easing="out"></animation>
+				<animation effect="slide" start="-2620,0" end="0,0" time="250" tween="sine" easing="out">VisibleChange</animation>
 				<control type="image">
 					<posy>388</posy>
 					<posx>375</posx>
@@ -352,7 +351,6 @@
 							<top>3</top>
 							<width>55</width>
                             <height>52</height>
-							<include>WatchedIconVar</include>
 							<include>OverlayVisibility0</include>
 							<visible>![Skin.HasSetting(NoCaseForMovieset) + SubString(ListItem(0).Path,videodb://movies/sets)]</visible>
 						</control>
@@ -361,7 +359,6 @@
 							<top>4</top>
 							<width>55</width>
                             <height>52</height>
-							<include>WatchedIconVar</include>
 							<include>OverlayVisibility0</include>
 							<visible>[Skin.HasSetting(NoCaseForMovieset) + SubString(ListItem(0).Path,videodb://movies/sets)]</visible>
 						</control>
@@ -696,7 +693,6 @@
 							<top>2</top>
 							<width>50</width>
                             <height>47</height>
-							<include>WatchedIconVar</include>
 							<include>OverlayVisibility0</include>
 							<visible>![Skin.HasSetting(NoCaseForMovieset) + SubString(ListItem(0).Path,videodb://movies/sets)]</visible>
 						</control>						
@@ -705,7 +701,6 @@
 							<top>2</top>
 							<width>50</width>
                             <height>47</height>
-							<include>WatchedIconVar</include>
 							<include>OverlayVisibility0</include>
 							<visible>[Skin.HasSetting(NoCaseForMovieset) + SubString(ListItem(0).Path,videodb://movies/sets)]</visible>
 						</control>
@@ -927,8 +922,8 @@
 									<visible>Skin.HasSetting(clearcases) + Skin.Hassetting(WallLargeCases) + [Container.Content(movies) | Container.Content(sets)]</visible>
 							</control>
 							<control type="image">     <!-- ????? -->
-									<left>72</left>
-									<top>4</top>
+									<left>88</left>
+									<top>3</top>
 									<width>50</width>
                                     <height>47</height>
 									<include>WatchedOverlayShowCase</include>

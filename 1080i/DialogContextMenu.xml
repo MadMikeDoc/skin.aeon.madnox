@@ -180,6 +180,22 @@
                 <onclick condition="Substring(ListItem.Property(Addon.ID),plugin.,left)">RunAddon($INFO[ListItem.Property(Addon.ID)])</onclick>
             </control>
 
+			<control type="button" id="2021">
+                <width>462</width>
+                <height>58</height>
+                <textoffsety>12</textoffsety>
+                <align>center</align>
+                <texturefocus>dialogs/context_highlight.png</texturefocus>
+                <texturenofocus>dialogs/context_nofocus.png</texturenofocus>
+                <label>Choose Artwork</label>
+                <font>Font_Reg30_2</font>
+                <textcolor>context</textcolor>
+                <focusedcolor>white2</focusedcolor>
+                <colordiffuse>$VAR[SpotColorVar2]</colordiffuse>
+                <onclick>SendClick(2003,10)</onclick>
+				<visible>System.HasAddon(script.artwork.downloader) + [Container.Content(tvshows) | Container.Content(movies) | Container.Content(musicvideos)]</visible>
+			</control>
+			
 			<control type="button" id="2020">
                 <width>462</width>
                 <height>58</height>
@@ -187,7 +203,7 @@
                 <align>center</align>
                 <texturefocus>dialogs/context_highlight.png</texturefocus>
                 <texturenofocus>dialogs/context_nofocus.png</texturenofocus>
-                <label>Get Artwotk</label>
+                <label>Get Artwork</label>
                 <font>Font_Reg30_2</font>
                 <textcolor>context</textcolor>
                 <focusedcolor>white2</focusedcolor>

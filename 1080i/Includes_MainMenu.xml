@@ -715,6 +715,18 @@
 			<onclick>ActivateWindow(Videos,MovieSets,return)</onclick>
 			<visible>Substring(Control.GetLabel(4327),movie) + IsEmpty(Skin.String(MoviesSub11))</visible>
 		</item>
+		<item>
+			<label>Top 250</label>
+			<onclick>SetProperty(DontRunTVShowScripts,True,Home)</onclick>
+			<onclick>ActivateWindow(Videos,special://skin/extras/playlists/video/Top250.xsp,return)</onclick>
+			<visible>Substring(Control.GetLabel(4327),movie) + IsEmpty(Skin.String(MoviesSub12)) + !Skin.HasSetting(OscarsTop250MainMenu)</visible>
+		</item>
+		<item>
+			<label>Oscars</label>
+			<onclick>SetProperty(DontRunTVShowScripts,True,Home)</onclick>
+			<onclick>ActivateWindow(Videos,special://skin/extras/playlists/video/BestPicture.xsp,return)</onclick>
+			<visible>Substring(Control.GetLabel(4327),movie) + IsEmpty(Skin.String(MoviesSub13)) + !Skin.HasSetting(OscarsTop250MainMenu)</visible>
+		</item>
 		<include condition="System.HasAddon(script.randommovie) + IsEmpty(Skin.String(MoviesSub10))">RandomMovieScriptButton</include>
 	</include>
 	<include name="DefaultSubLiveTV">
@@ -873,12 +885,13 @@
 			<onclick>SetProperty($INFO[Window(home).Property(MenuName)],OscarsHomeItem,home)</onclick>
 			<onclick>SetFocus(9006)</onclick>
 			<icon fallback="special://skin/backgrounds/oscars/">$INFO[Skin.String(OscarsHomeItem.MultiFanart)]</icon>
+			<visible>Skin.HasSetting(OscarsTop250MainMenu)</visible>
 		</item>
 	</include>
 	<include name="Top250MainMenu">
 		<item id="116">
 			<label fallback="Top250">$INFO[Skin.String(Top250HomeItem.Label)]</label>
-			<property name="Path" fallback="RunScript(script.imdb250.view)">$INFO[Skin.String(Top250HomeItem.Path)]</property>
+			<property name="Path" fallback="ActivateWindow(Videos,special://skin/extras/playlists/video/Top250.xsp,return)">$INFO[Skin.String(Top250HomeItem.Path)]</property>
 			<property name="Type" fallback="custom">$INFO[Skin.String(Top250HomeItem.Type)]</property>
 			<property name="SubMenu" fallback="none">$INFO[Skin.String(Top250HomeItem.SubMenu)]</property>
 			<property name="InfoLine" fallback="none">$INFO[Skin.String(Top250HomeItem.InfoLine)]</property>
@@ -888,9 +901,10 @@
 			<property name="WidgetTitle">$INFO[Skin.String(Top250HomeItem.WidgetTitle)]</property>
 			<property name="Widget2">$INFO[Skin.String(Top250HomeItem.Widget2)]</property>
 			<property name="Widget">$INFO[Skin.String(Top250HomeItem.Widget)]</property>
-			<onclick>SetProperty($INFO[Window(home).Property(MenuName)],Top250HomeItem,home)</onclick>
+			<onclick>ActivateWindow(Videos,special://skin/extras/playlists/video/Top250.xsp,return)</onclick>
 			<onclick>SetFocus(9006)</onclick>
 			<icon fallback="special://skin/backgrounds/top250/">$INFO[Skin.String(Top250HomeItem.MultiFanart)]</icon>
+			<visible>Skin.HasSetting(OscarsTop250MainMenu)</visible>
 		</item>
 	</include>
 	<include name="SearchMainMenu">

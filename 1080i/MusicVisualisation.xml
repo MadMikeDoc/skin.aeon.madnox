@@ -311,6 +311,22 @@
                     <textcolor>black</textcolor>
 					<wrapmultiline>true</wrapmultiline>
 				</control>
+				<!--MAD - Disc number start-->
+				<control type="label">
+                    <animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+                    <width>230</width>
+                    <height>75</height>
+                    <posx>455</posx>
+                    <posy>-91</posy>
+                    <align>center</align>
+					<font>Hand_34</font>
+                    <visible>IsEmpty(Control.GetLabel(3333)) + Skin.HasSetting(cdartinvis) + !Skin.HasSetting(vinylart)</visible>
+					<aligny>center</aligny>
+					<label>Disc $INFO[MusicPlayer.Discnumber]</label>
+                    <textcolor>black</textcolor>
+					<wrapmultiline>true</wrapmultiline>
+				</control>
+				<!--MAD - Disc number end -->
 				<control type="image">
                     <animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
                     <aspectratio>keep</aspectratio>

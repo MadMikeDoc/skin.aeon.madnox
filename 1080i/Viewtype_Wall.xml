@@ -83,7 +83,7 @@
 		</control>			
     </include>
 	<include name="WallContent">
-		<itemlayout height="268" width="275" condition="!Container.Content(studios) + ![Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos) | [Window.IsActive(videolibrary) + Container.Content(genres)] | [Window.IsActive(pictures) + Substring(Container.FolderPath,\comics\)]] + [Skin.HasSetting(titlewall) | StringCompare(Container.FolderName,youtube)]">
+		<itemlayout height="268" width="275" condition="[!Container.Content(studios) + !Container.Content(years)] + ![Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos) | [Window.IsActive(videolibrary) + Container.Content(genres)] | [Window.IsActive(pictures) + Substring(Container.FolderPath,\comics\)]] + [Skin.HasSetting(titlewall) | StringCompare(Container.FolderName,youtube)]">
 		<control type="group">
 				<posx>20</posx>
 				<posy>23</posy>
@@ -189,7 +189,7 @@
 		    </control>
         </itemlayout>
 
-		<focusedlayout height="268" width="275" condition="!Container.Content(studios) + ![Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos) | [Window.IsActive(videolibrary) + Container.Content(genres)] | [Window.IsActive(pictures) + Substring(Container.FolderPath,\comics\)]] + [Skin.HasSetting(titlewall) | StringCompare(Container.FolderName,youtube)]">
+		<focusedlayout height="268" width="275" condition="[!Container.Content(studios) + !Container.Content(years)] + ![Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos) | [Window.IsActive(videolibrary) + Container.Content(genres)] | [Window.IsActive(pictures) + Substring(Container.FolderPath,\comics\)]] + [Skin.HasSetting(titlewall) | StringCompare(Container.FolderName,youtube)]">
 			<control type="group">
 				<posx>20</posx>
 				<posy>23</posy>
@@ -352,7 +352,7 @@
 			</control>
         </itemlayout>
 
-		<focusedlayout height="132" width="185" condition="Container.Content(studios)">
+		<focusedlayout height="232" width="285" condition="Container.Content(studios)">
 			<control type="group">
 				<posx>20</posx>
 				<posy>23</posy>
@@ -364,14 +364,14 @@
 					<colordiffuse>FF1F98CC</colordiffuse>
 				</control-->
 				<control type="image">
-					<left>-10</left>
-					<top>-2</top>
-					<width>185</width>
-					<height>130</height>
+					<left>-32</left>
+					<top>-42</top>
+					<width>205</width>
+					<height>180</height>
 					<aspectratio>keep</aspectratio>
 					<texture fallback="special://skin/extras/Alticons/color studios/studios/Default-Studio.png">special://skin/extras/Alticons/color studios/studios/$INFO[ListItem.Label,,.png]</texture>
 					<!--texture>$VAR[ColorFlagsStudio]$INFO[ListItem.Label,,.png]</texture-->
-					<bordertexture border="15">thumbs/bordershadow4.png</bordertexture>
+					<bordertexture border="15">thumbs/bordershadow2.png</bordertexture>
 					<bordersize>15</bordersize>
 					<visible>Container.Content(studios) + !StringCompare(ListItem.Label,..)</visible>
 				</control>
@@ -397,6 +397,76 @@
 					<visible>Skin.HasSetting(iconlabel)</visible>
 				</control>
 			</control>
+        </focusedlayout>
+		
+		<!--MAD - New Studios Layout-->
+		<itemlayout height="120" width="120" condition="Container.Content(years)">
+			<control type="image">
+				<width>115</width>
+				<height>115</height>
+				<texture>tile.png</texture>
+			</control>
+			<control type="image">
+				<left>20</left>
+				<top>20</top>
+				<width>75</width>
+				<height>75</height>
+				<texture>icons/calendar.png</texture>
+			</control>
+			<control type="label">
+				<top>7</top>
+				<width>115</width>
+				<height>115</height>
+				<align>center</align>
+				<aligny>center</aligny>
+                <label>$INFO[ListItem.Label]</label>
+				<font>Font_Reg32_Caps</font>
+            </control>
+        </itemlayout>
+
+		<focusedlayout height="120" width="120" condition="Container.Content(years)">
+			<!--control type="image">
+				<width>115</width>
+				<height>115</height>
+				<texture>button.png</texture>
+				<animation type="Focus" reversible="false">
+					<effect type="fade" start="0" end="100" time="400" easing="out" tween="square" />
+				</animation>
+			</control-->
+			<control type="image">
+				<left>20</left>
+				<top>20</top>
+				<width>75</width>
+				<height>75</height>
+				<texture>icons/calendar.png</texture>
+			</control>
+            <control type="label">
+				<top>7</top>
+				<width>115</width>
+				<height>115</height>
+				<align>center</align>
+				<aligny>center</aligny>
+                <label>$INFO[ListItem.Label]</label>
+				<font>Font_Reg32_Caps</font>
+            </control>
+			<control type="image">
+			    <left>14</left>
+			    <posy>191</posy>
+				<width>217</width>
+				<height>35</height>
+				<texture>common/bgcolor.png</texture>
+				<animation effect="fade" start="100" end="80" time="40" condition="true">Conditional</animation>
+				<visible>Skin.HasSetting(iconlabel)</visible>
+			</control>
+			<control type="image">
+            	<width>115</width>
+				<height>115</height>
+				<aspectratio align="center" aligny="center">stretch</aspectratio>
+				<texture border="15">views/addonwall_select.png</texture>
+				<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				<visible>!Skin.HasSetting(InfoWallZoom)</visible>
+            </control>
+				
         </focusedlayout>
 		
 		

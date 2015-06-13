@@ -4232,5 +4232,21 @@
 		<value condition="SubString(ListItem.Filename, 4K.) | SubString(ListItem.Filename, 4k.)">common/discart/4k.png</value>
 		<value>common/discart/$INFO[ListItem.VideoResolution]p.png</value>
 	</variable>
-	
+	<variable name="DialogAlbumInfoTopLabelVar">
+        <value condition="Container.Content(artists)">$INFO[ListItem.Artist]</value>
+        <value>[COLOR white2]$INFO[ListItem.Album][/COLOR]$INFO[ListItem.Year, [,] ]</value>
+    </variable>
+	<variable name="ArtistInfoTextBoxVar">
+        <value condition="!IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description),$LOCALIZE[21887]:  [COLOR white6],[/COLOR]]</value>
+        <value>$INFO[Window(home).Property(Description),$LOCALIZE[24016]:  [COLOR white6],[/COLOR][CR]]</value>
+    </variable>
+	<variable name="YouTubeContentVar">
+        <value condition="Container.Content(albums)">plugin://script.extendedinfo?info=youtubesearch&amp;&amp;id=$ESCINFO[ListItem.Artist] $ESCINFO[ListItem.Album]</value>
+        <value>plugin://script.extendedinfo?info=youtubesearch&amp;&amp;id=$ESCINFO[ListItem.Artist] Music</value>
+    </variable>	
+	<variable name="KodiFlix.Label">
+		<value condition="ListItem.IsPlaying">[COLOR=$VAR[FocusTextureColorVar]]$INFO[ListItem.Label][/COLOR]</value>
+	<value>$INFO[ListItem.Label]</value>
+</variable>
+
 </includes>

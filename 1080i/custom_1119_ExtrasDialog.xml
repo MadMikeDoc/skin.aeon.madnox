@@ -77,7 +77,7 @@
 				<onclick>Dialog.Close(1119)</onclick>
 				<onclick condition="Container.Content(movies)">RunScript(script.artwork.downloader, mediatype=movie, dbid=$INFO[ListItem.DBID])</onclick>
 				<onclick condition="Container.Content(tvshows)">RunScript(script.artwork.downloader, mediatype=tvshow, dbid=$INFO[ListItem.DBID])</onclick>
-				<label>$INFO[System.AddonTitle(script.artwork.downloader,,: $LOCALIZE[32002]]</label>
+				<label>$INFO[System.AddonTitle(script.artwork.downloader),,: $LOCALIZE[32002]]</label>
 				<visible>System.HasAddon(script.artwork.downloader) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 			</control>
 			<control type="button" id="115">

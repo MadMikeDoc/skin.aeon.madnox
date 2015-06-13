@@ -730,6 +730,7 @@
                         <height>600</height>
                         <aspectratio scalediffuse="false">scale</aspectratio>
                         <texture diffuse="thumbs/movieposter_mask.png">common/black.png</texture>
+						<visible>!Container.Content(years)</visible>
                     </control>
                     <control type="image">
                         <top>-130</top>
@@ -737,8 +738,38 @@
                         <height>600</height>
                         <aspectratio scalediffuse="false">fit</aspectratio>
                         <texture background="true" diffuse="thumbs/thumb_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
-						<visible>Skin.HasSetting(genrethumbs)</visible>
+						<visible>Skin.HasSetting(genrethumbs) + !Container.Content(years)</visible>
                     </control>
+					
+					<!--control type="image">
+						<top>190</top>
+						<left>-80</left>
+						<width>399</width>
+						<height>399</height>
+						<texture>tile.png</texture>
+						<visible>Container.Content(years)</visible>
+					</control-->
+					<control type="image">
+						<left>20</left>
+						<top>200</top>
+						<width>275</width>
+						<height>275</height>
+						<texture>icons/calendar.png</texture>
+						<visible>Container.Content(years)</visible>
+					</control>
+					<control type="label">
+						<top>257</top>
+						<left>-2</left>
+						<width>315</width>
+						<height>215</height>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+						<font>Font_ShowcaseMainLabel3x_Caps</font>
+						<visible>Container.Content(years)</visible>
+					</control>
+					
+					
 					<control type="image">
                         <top>-130</top>
                         <width>399</width>
@@ -756,6 +787,7 @@
                         <texture diffuse="thumbs/movieposter_mask.png">thumbs/thumb_glass_noreflect.png</texture>
                         <bordertexture border="19.5">thumbs/poster_shadow.png</bordertexture>
                         <bordersize>19.5</bordersize>
+						<visible>!Container.Content(years)</visible>
                     </control>
                     <control type="image">
                         <left>2</left>

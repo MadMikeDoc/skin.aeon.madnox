@@ -400,7 +400,7 @@
 			<control type="group">
 				<left>545</left>
 				<top>291</top>
-				<include>Animation_Fade</include>
+				<include>Animation_CommonFade</include>
 				<control type="image">
 					<left>500</left>
 					<top>216</top>
@@ -442,8 +442,7 @@
 						<aligny>center</aligny>
 						<font>Font_22</font>
 						<label>$INFO[ListItem.Label]</label>
-						<include>listcolor</include>
-					</control>
+						</control>
 				</itemlayout>
 				<focusedlayout height="40">
 					<control type="image">
@@ -461,7 +460,7 @@
 						<height>40</height>
 						<texture>arrow_settings.png</texture>
 						<colordiffuse>$VAR[TitleColorVar]</colordiffuse>
-						<include>Animation_Fade</include>
+						<include>Animation_CommonFade</include>
 						<animation effect="fade" start="20" end="80" time="700" condition="true" pulse="true">Conditional</animation>
 						<visible>SubString(ListItem.Path,videodb://movies/sets,left)</visible>
 					</control>
@@ -473,7 +472,6 @@
 						<aligny>center</aligny>
 						<font>Font_24A</font>
 						<label>$INFO[ListItem.Label]</label>
-						<include>listcolorfocus</include>
 					</control>
 				</focusedlayout>
 			</control>
@@ -507,7 +505,7 @@
 			<height>360</height>
 			<onleft>9900</onleft>
 			<onright>65</onright>
-			<include>Animation_Fade</include>
+			<include>Animation_CommonFade</include>
 			<visible allowhiddenfocus="true">Control.IsVisible(900) + Control.HasFocus(80)</visible>
 		</control>
 		<!-- Movies in Set -->

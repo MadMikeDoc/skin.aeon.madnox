@@ -4,8 +4,9 @@
     <onload condition="!Player.HasAudio + System.HasAddon(script.artistslideshow)">SetProperty(CURRENTARTIST,$INFO[ListItem.Artist])</onload>
     <onload condition="!Player.HasAudio + System.HasAddon(script.artistslideshow)">SetProperty(ArtistSlideshow.ExternalCall,True)</onload>
     <onload condition="!Player.HasAudio + System.HasAddon(script.artistslideshow)">RunScript(script.artistslideshow,windowid=12001&amp;artistfield=CURRENTARTIST)</onload>
- 	<onload condition="System.HasAddon(script.moreinfo)">RunScript(script.moreinfo,info=artistevents,artistname=$INFO[ListItem.Artist])</onload>
-   <onunload condition="System.HasAddon(script.artistslideshow)">clearProperty(ArtistSlideshow.ExternalCall)</onunload>
+ 	<onload condition="Container.Content(artists)">RunScript(script.extendedinfo,info=artistdetails,artistname='$ESCINFO[ListItem.Artist]',silent=False)</onload>
+    <onload condition="Container.Content(albums)">RunScript(script.extendedinfo,info=artistdetails,info=albuminfo,artistname='$ESCINFO[ListItem.Artist]',albumname='$ESCINFO[ListItem.Album]',silent=False)</onload>
+    <onunload condition="System.HasAddon(script.artistslideshow)">clearProperty(ArtistSlideshow.ExternalCall)</onunload>
     <animation type="WindowOpen" reversible="false">
         <effect type="zoom" start="150" end="100" center="960,540" time="400" tween="cubic" />
         <effect type="fade" end="100" time="200" />
@@ -694,6 +695,7 @@
             </control>
             <control type="button" id="24">
                 <label>$LOCALIZE[31172]</label>
+				<ondown>50</ondown>
                 <include>HiddenObject</include>
             </control>
             <control type="togglebutton" id="13">
@@ -709,8 +711,10 @@
             <control type="button" id="15">
                 <label>$LOCALIZE[31074]</label>
                 <include>HiddenObject</include>
-                <onclick>RunScript(script.metadata.actors,$INFO[ListItem.Artist])</onclick>
-                <visible>Container.Content(Artists) + System.HasAddon(script.metadata.actors)</visible>
+                <onclick>RunScript(script.extendedinfo,info=artistdetails,artistname='$ESCINFO[ListItem.Artist]')</onclick>
+				<visible>Container.Content(Artists)</visible>
+				<!--onclick>RunScript(script.metadata.actors,$INFO[ListItem.Artist])</onclick>
+                <visible>Container.Content(Artists) + System.HasAddon(script.metadata.actors)</visible-->
             </control>
             <control type="button" id="22">
                 <label>$LOCALIZE[31096]</label>
