@@ -123,14 +123,14 @@
                             <onclick>ActivateWindow(1137)</onclick>
                             <visible>Library.HasContent(movies)</visible>
                         </item>
-                        <item>
+                        <!--item>
                             <label>$LOCALIZE[31093]</label>
                             <onclick>RunScript(script.metadata.actors,borntoday,10,random)</onclick>
                             <onclick>SetProperty(CustomYesNoDialog,actors,1124)</onclick>
                             <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[31336])</onclick>
                             <onclick>ActivateWindow(1137)</onclick>
                             <visible>Library.HasContent(movies) + System.HasAddon(script.metadata.actors)</visible>
-                        </item>
+                        </item-->
                         <item>
                             <label>$LOCALIZE[31324]</label>
                             <onclick>SetProperty(CustomYesNoDialog,recenttv,1124)</onclick>
@@ -269,11 +269,11 @@
                         </item>
                         <item>
                             <label>31818</label>
-                            <onclick>RunScript(script.moreinfo,info=NearEvents)</onclick>
+                            <onclick>RunScript(script.extendedinfo,info=NearEvents)</onclick>
                             <onclick>SetProperty(CustomYesNoDialog,concertspanel,1124)</onclick>
                             <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[31818])</onclick>
                             <onclick>ActivateWindow(1146)</onclick>
-                            <visible>System.HasAddon(script.moreinfo)</visible>
+                            <visible>System.HasAddon(script.extendedinfo)</visible>
                         </item>
                         <item>
                             <label>31820</label>
@@ -285,9 +285,9 @@
                             <label>XKCD</label>
                             <onclick>SetProperty(CustomYesNoDialog,xkcdimages,1124)</onclick>
                             <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,XKCD)</onclick>
-                            <onclick>RunScript(script.moreinfo,info=xkcd)</onclick>
+                            <onclick>RunScript(script.extendedinfo,info=xkcd)</onclick>
                             <onclick>ActivateWindow(1137)</onclick>
-                            <visible>System.HasAddon(script.moreinfo)</visible>
+                            <visible>System.HasAddon(script.extendedinfo)</visible>
                         </item>
                         <item>
                             <label>31327</label>
