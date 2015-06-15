@@ -308,9 +308,13 @@
 					<!--animation effect="slide" start="0" end="85" center="auto" time="750" delay="5" reversible="false" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems, 009)">Conditional</animation>
 					<animation effect="slide" start="0" end="185" center="auto" time="750" delay="5" reversible="false" tween="cubic" easing="inout" condition="IntegerLessThan(Container(499).NumItems, 018)">Conditional</animation-->
 					
-					<animation effect="slide" start="0,0" end="0,-270" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,009)">Conditional</animation>
-					<animation effect="slide" start="0,0" end="0,-310" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,018)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-300" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,008) + !Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-290" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,017) + !Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
 					
+					<animation effect="slide" start="0,0" end="0,60" delay="0" time="800" tween="cubic" easing="inout" condition="Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-220" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,011) + Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-210" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,023) + Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-210" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,035) + Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
 					
                     <include>Wall_Dimmer</include>
 					<posx>127</posx>
