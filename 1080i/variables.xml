@@ -570,8 +570,7 @@
 		<value>$LOCALIZE[208]</value>
 	</variable>
 	<variable name="InfoWallPreviewTextureVar">
-		<!--value condition="System.HasAddon(script.metadata.actors) + [Container.Content(actors) | Container.Content(directors)]">$INFO[Window.Property(current.actor.fanart_image)]</value-->
-		<value condition="System.HasAddon(script.extendedinfo) + [Container.Content(actors) | Container.Content(directors)]">$INFO[Window(home).Property(fanart)]</value>
+		<value condition="System.HasAddon(script.metadata.actors) + [Container.Content(actors) | Container.Content(directors)]">$INFO[Window.Property(current.actor.fanart_image)]</value>
 		<value condition="[Window.IsActive(musicfiles) | Window.IsActive(musiclibrary) | Window.IsActive(musicplaylist)] + IsEmpty(ListItem.Art(fanart))">special://skin/backgrounds/music/music.jpg</value>
 		<value condition="Container.Content(addons) + IsEmpty(ListItem.Art(fanart))">special://skin/backgrounds/programs/programs.jpg</value>
 		<value condition="Container.Content(movies) + IsEmpty(ListItem.Art(fanart))">special://skin/backgrounds/fallback_movies.jpg</value>
@@ -2407,8 +2406,8 @@
 		<value condition="Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/genre/video/icons/,.jpg]</value>
 		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
-		<value condition="!IntegerGreaterThan(ListItem.Season,9) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">$INFO[ListItem.Path]$INFO[ListItem.Season,../season0,-poster.jpg]</value>
-		<value condition="Container.Content(episodes)">$INFO[ListItem.Path]$INFO[ListItem.Season,../season,-poster.jpg]</value>
+		<value condition="!IntegerGreaterThan(ListItem.Season,9)">$INFO[ListItem.Path]$INFO[ListItem.Season,../season0,-poster.jpg]</value>
+		<value>$INFO[ListItem.Path]$INFO[ListItem.Season,../season,-poster.jpg]</value>
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Art(tvshow.poster)]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
@@ -2417,8 +2416,8 @@
 		<value condition="Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/genre/video/iconsBW/,.jpg]</value>
 		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
-		<value condition="!IntegerGreaterThan(ListItem.Season,9) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">$INFO[ListItem.Path]$INFO[ListItem.Season,../season0,-poster.jpg]</value>
-		<value condition="Container.Content(episodes)">$INFO[ListItem.Path]$INFO[ListItem.Season,../season,-poster.jpg]</value>
+		<value condition="!IntegerGreaterThan(ListItem.Season,9)">$INFO[ListItem.Path]$INFO[ListItem.Season,../season0,-poster.jpg]</value>
+		<value>$INFO[ListItem.Path]$INFO[ListItem.Season,../season,-poster.jpg]</value>
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Art(tvshow.poster)]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>

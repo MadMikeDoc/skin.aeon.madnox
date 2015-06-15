@@ -2,7 +2,7 @@
 <window>
 	<defaultcontrol always="true">50</defaultcontrol>
 	<onload condition="System.HasAddon(script.videolanguage) + [Container.Content(movies) | Container.Content(episodes)]">RunScript(script.videolanguage,backend=true)</onload>
-	<!--onload condition="System.HasAddon(script.metadata.actors) + !IsEmpty(Window(home).Property(BrowseActors))">RunScript(script.metadata.actors,backend)</onload-->
+	<onload condition="System.HasAddon(script.metadata.actors) + !IsEmpty(Window(home).Property(BrowseActors))">RunScript(script.metadata.actors,backend)</onload>
 	<onload condition="System.HasAddon(script.tvtunes) + Skin.HasSetting(TVTunes.Enabled)">RunScript(script.tvtunes,backend=True)</onload>
 	<onload condition="System.HasAddon(script.duration)">RunScript(script.duration,backend=True)</onload>
 	<backgroundcolor>backgroundcolor</backgroundcolor>

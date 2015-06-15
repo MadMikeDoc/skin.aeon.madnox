@@ -8,23 +8,10 @@
 					<posy>388</posy>
 					<posx>375</posx>
 					<width>1165</width>
-					<height>427</height>
+					<height>425</height>
 					<aspectratio>scale</aspectratio>
 					<texture background="true">wall/wall_bg.png</texture>
 					<fadetime>400</fadetime>
-				</control>
-				<control type="image">    <!-- GLOW BACKROUND change by schimi-->
-					<top>355</top>
-					<left>332</left>
-					<width>1251</width>
-					<height>554</height>
-					
-					<texture background="true">thumbs/listpanel_back_glow.png</texture>
-					<bordersize>18</bordersize>
-					<include>PanelGlowFade</include>
-					<include>Animation_VisibleChange400</include>
-					<visible>!Skin.HasSetting(DisableGlowbar)</visible>
-					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
 				</control>
 				<control type="image">
 					<posy>389</posy>
@@ -295,182 +282,28 @@
                     <height>918</height>
                     <texture border="40">panel_reflect.png</texture>
                 </control>
-                
-				<!--animation effect="slide" start="0,0" end="0,-300" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,008) + !Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,-290" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,017) + !Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
-			
-				<animation effect="slide" start="0,0" end="0,60" delay="0" time="800" tween="cubic" easing="inout" condition="Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,-220" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,011) + Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,-210" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,023) + Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,-210" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,035) + Skin.Hassetting(WallLargeViewSmall)">Conditional</animation-->
-				
-				<!--Small Posters - Bottom Row-->
-				<control type="image">
+                <control type="image">
                     <description>background image</description>
                     <posx>97.5</posx>
-                    <posy>724</posy>
+                    <posy>144</posy>
                     <width>1724</width>
-                    <height>316</height>
+                    <height>916</height>
                     <texture border="40">listpanel_back.png</texture>
-					<visible>Skin.HasSetting(WallLargeEnableBackground) + Skin.Hassetting(WallLargeViewSmall) + !IntegerGreaterThan(Container(499).NumItems,011)</visible>
+					<visible>Skin.HasSetting(WallLargeEnableBackground)</visible>
                 </control>
 				<control type="image">    <!-- GLOW BACKROUND change by schimi-->
 					<posx>50</posx>
-                    <posy>713</posy>
+                    <posy>111</posy>
                     <width>1824</width>
-                    <height>381</height>
+                    <height>1111</height>
                     <align>center</align>
 					<texture background="true">thumbs/listpanel_back_glow.png</texture>
 					<bordersize>18</bordersize>
 					<include>PanelGlowFade</include>
 					<include>Animation_VisibleChange400</include>
-					<visible>!Skin.HasSetting(DisableGlowbar) + Skin.HasSetting(WallLargeEnableBackground) + Skin.Hassetting(WallLargeViewSmall) + !IntegerGreaterThan(Container(499).NumItems,011)</visible>
+					<visible>!Skin.HasSetting(DisableGlowbar) + Skin.HasSetting(WallLargeEnableBackground)</visible>
 					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
 				</control>
-				
-				<!--Normal Posters - Bottom Row-->
-				<control type="image">
-                    <description>background image</description>
-                    <posx>97.5</posx>
-                    <posy>699</posy>
-                    <width>1724</width>
-                    <height>331</height>
-                    <texture border="40">listpanel_back.png</texture>
-					<visible>Skin.HasSetting(WallLargeEnableBackground) + !Skin.Hassetting(WallLargeViewSmall) + !IntegerGreaterThan(Container(499).NumItems,008)</visible>
-                </control>
-				<control type="image">    <!-- GLOW BACKROUND change by schimi-->
-					<posx>50</posx>
-                    <posy>688</posy>
-                    <width>1824</width>
-                    <height>396</height>
-                    <align>center</align>
-					<texture background="true">thumbs/listpanel_back_glow.png</texture>
-					<bordersize>18</bordersize>
-					<include>PanelGlowFade</include>
-					<include>Animation_VisibleChange400</include>
-					<visible>!Skin.HasSetting(DisableGlowbar) + Skin.HasSetting(WallLargeEnableBackground) + !Skin.Hassetting(WallLargeViewSmall) + !IntegerGreaterThan(Container(499).NumItems,008)</visible>
-					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-				</control>
-				
-				<!--Small Posters - Bottom 2 Rows-->
-				<control type="image">
-                    <description>background image</description>
-                    <posx>97.5</posx>
-                    <posy>509</posy>
-                    <width>1724</width>
-                    <height>536</height>
-                    <texture border="40">listpanel_back.png</texture>
-					<visible>Skin.HasSetting(WallLargeEnableBackground) + Skin.Hassetting(WallLargeViewSmall) + [IntegerGreaterThan(Container(499).NumItems,011) + !IntegerGreaterThan(Container(499).NumItems,023)]</visible>
-                </control>
-				<control type="image">    <!-- GLOW BACKROUND change by schimi-->
-					<posx>50</posx>
-                    <posy>493</posy>
-                    <width>1824</width>
-                    <height>636</height>
-                    <align>center</align>
-					<texture background="true">thumbs/listpanel_back_glow.png</texture>
-					<bordersize>18</bordersize>
-					<include>PanelGlowFade</include>
-					<include>Animation_VisibleChange400</include>
-					<visible>!Skin.HasSetting(DisableGlowbar) + Skin.HasSetting(WallLargeEnableBackground) + Skin.Hassetting(WallLargeViewSmall) + [IntegerGreaterThan(Container(499).NumItems,011) + !IntegerGreaterThan(Container(499).NumItems,023)]</visible>
-					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-				</control>
-				
-				<!--Normal Posters - 2 Rows-->
-				<control type="image">
-                    <description>background image</description>
-                    <posx>97.5</posx>
-                    <posy>399</posy>
-                    <width>1724</width>
-                    <height>616</height>
-                    <texture border="40">listpanel_back.png</texture>
-					<visible>Skin.HasSetting(WallLargeEnableBackground) + !Skin.Hassetting(WallLargeViewSmall) + [IntegerGreaterThan(Container(499).NumItems,008) + !IntegerGreaterThan(Container(499).NumItems,017)]</visible>
-                </control>
-				<control type="image">    <!-- GLOW BACKROUND change by schimi-->
-					<posx>50</posx>
-                    <posy>378</posy>
-                    <width>1824</width>
-                    <height>741</height>
-                    <align>center</align>
-					<texture background="true">thumbs/listpanel_back_glow.png</texture>
-					<bordersize>18</bordersize>
-					<include>PanelGlowFade</include>
-					<include>Animation_VisibleChange400</include>
-					<visible>!Skin.HasSetting(DisableGlowbar) + Skin.HasSetting(WallLargeEnableBackground) + !Skin.Hassetting(WallLargeViewSmall) + [IntegerGreaterThan(Container(499).NumItems,008) + !IntegerGreaterThan(Container(499).NumItems,017)]</visible>
-					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-				</control>
-				
-				
-				<!--Small Posters - 3 Rows-->
-				<control type="image">
-                    <description>background image</description>
-                    <posx>97.5</posx>
-                    <posy>299</posy>
-                    <width>1724</width>
-                    <height>746</height>
-                    <texture border="40">listpanel_back.png</texture>
-					<visible>Skin.HasSetting(WallLargeEnableBackground) + Skin.Hassetting(WallLargeViewSmall) + [IntegerGreaterThan(Container(499).NumItems,023) + !IntegerGreaterThan(Container(499).NumItems,035)]</visible>
-                </control>
-				<control type="image">    <!-- GLOW BACKROUND change by schimi-->
-					<posx>50</posx>
-                    <posy>273</posy>
-                    <width>1824</width>
-                    <height>896</height>
-                    <align>center</align>
-					<texture background="true">thumbs/listpanel_back_glow.png</texture>
-					<bordersize>18</bordersize>
-					<include>PanelGlowFade</include>
-					<include>Animation_VisibleChange400</include>
-					<visible>!Skin.HasSetting(DisableGlowbar) + Skin.HasSetting(WallLargeEnableBackground) + Skin.Hassetting(WallLargeViewSmall) + [IntegerGreaterThan(Container(499).NumItems,023) + !IntegerGreaterThan(Container(499).NumItems,035)]</visible>
-					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-				</control>
-				<!--Small Posters - Full Screen-->
-				<control type="image">
-                    <description>background image</description>
-                    <posx>97.5</posx>
-                    <posy>99</posy>
-                    <width>1724</width>
-                    <height>946</height>
-                    <texture border="40">listpanel_back.png</texture>
-					<visible>Skin.HasSetting(WallLargeEnableBackground) + Skin.Hassetting(WallLargeViewSmall) + IntegerGreaterThan(Container(499).NumItems,035)</visible>
-                </control>
-				<control type="image">    <!-- GLOW BACKROUND change by schimi-->
-					<posx>50</posx>
-                    <posy>68</posy>
-                    <width>1824</width>
-                    <height>1136</height>
-                    <align>center</align>
-					<texture background="true">thumbs/listpanel_back_glow.png</texture>
-					<bordersize>18</bordersize>
-					<include>PanelGlowFade</include>
-					<include>Animation_VisibleChange400</include>
-					<visible>!Skin.HasSetting(DisableGlowbar) + Skin.HasSetting(WallLargeEnableBackground) + Skin.Hassetting(WallLargeViewSmall) + IntegerGreaterThan(Container(499).NumItems,035)</visible>
-					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-				</control>
-				<!--Normall Posters - Full Screen-->
-				<control type="image">
-                    <description>background image</description>
-                    <posx>97.5</posx>
-                    <posy>109</posy>
-                    <width>1724</width>
-                    <height>901</height>
-                    <texture border="40">listpanel_back.png</texture>
-					<visible>Skin.HasSetting(WallLargeEnableBackground) + !Skin.Hassetting(WallLargeViewSmall) + IntegerGreaterThan(Container(499).NumItems,017)</visible>
-                </control>
-				<control type="image">    <!-- GLOW BACKROUND change by schimi-->
-					<posx>50</posx>
-                    <posy>78</posy>
-                    <width>1824</width>
-                    <height>1091</height>
-                    <align>center</align>
-					<texture background="true">thumbs/listpanel_back_glow.png</texture>
-					<bordersize>18</bordersize>
-					<include>PanelGlowFade</include>
-					<include>Animation_VisibleChange400</include>
-					<visible>!Skin.HasSetting(DisableGlowbar) + Skin.HasSetting(WallLargeEnableBackground) + !Skin.Hassetting(WallLargeViewSmall) + IntegerGreaterThan(Container(499).NumItems,017)</visible>
-					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-				</control>
-				
 				<control type="panel" id="499">
 					<!--animation effect="slide" start="0" end="85" center="auto" time="750" delay="5" reversible="false" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems, 009)">Conditional</animation>
 					<animation effect="slide" start="0" end="185" center="auto" time="750" delay="5" reversible="false" tween="cubic" easing="inout" condition="IntegerLessThan(Container(499).NumItems, 018)">Conditional</animation-->
