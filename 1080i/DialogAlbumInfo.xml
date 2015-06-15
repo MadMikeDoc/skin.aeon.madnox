@@ -266,7 +266,7 @@
                 <control type="textbox" id="4">
                     <left>500</left>
                     <top>-80</top>
-                    <width>978</width>
+                    <width>778</width>
                     <height>270</height>
                     <font>Font_Reg30_2</font>
                     <shadowcolor>black</shadowcolor>
@@ -543,7 +543,7 @@
                         <top>80</top>
                         <width>778</width>
                         <orientation>horizontal</orientation>
-                        <visible>!IsEmpty(ListItem.Property(Artist_Formed))</visible>
+                        <visible>!IsEmpty(ListItem.Property(Artist_Formed)) + IsEmpty(ListItem.Property(Artist_Born))</visible>
                         <itemgap>10</itemgap>
                         <control type="label">
                             <width min="50" max="400">auto</width>
@@ -563,7 +563,36 @@
                             <pauseatend>1000</pauseatend>
                         </control>
                     </control>
-                    <control type="grouplist">
+                    
+					<control type="grouplist">
+                        <left>500</left>
+                        <top>120</top>
+                        <width>778</width>
+                        <orientation>horizontal</orientation>
+                        <visible>!IsEmpty(ListItem.Property(Artist_Formed)) + !IsEmpty(ListItem.Property(Artist_Born))</visible>
+                        <itemgap>10</itemgap>
+                        <control type="label">
+                            <width min="50" max="400">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[21894]:</label>
+                            <font>Font_Reg30_2</font>
+                            <shadowcolor>black</shadowcolor>
+                            <textcolor>$VAR[SubTitleColorVar]</textcolor>
+                        </control>
+                        <control type="fadelabel">
+                            <width>671</width>
+                            <aligny>bottom</aligny>
+                            <label>$INFO[ListItem.Property(Artist_Formed)]</label>
+                            <font>Font_Reg30_2</font>
+                            <shadowcolor>black</shadowcolor>
+                            <textcolor>white3</textcolor>
+                            <pauseatend>1000</pauseatend>
+                        </control>
+                    </control>
+                    
+					
+					
+					<control type="grouplist">
                         <left>500</left>
                         <top>120</top>
                         <width>778</width>
@@ -711,7 +740,7 @@
             <control type="button" id="15">
                 <label>$LOCALIZE[31074]</label>
                 <include>HiddenObject</include>
-                <onclick>RunScript(script.extendedinfo,info=artistdetails,artistname='$ESCINFO[ListItem.Artist]')</onclick>
+                <onclick>RunScript(script.extendedinfo,info=artistdetails,artistname=$INFO[ListItem.Artist])</onclick>
 				<visible>Container.Content(Artists)</visible>
 				<!--onclick>RunScript(script.metadata.actors,$INFO[ListItem.Artist])</onclick>
                 <visible>Container.Content(Artists) + System.HasAddon(script.metadata.actors)</visible-->
@@ -751,7 +780,7 @@
         <control type="panel" id="50">
             <left>500</left>
             <top>800</top>
-            <width>1000</width>
+            <width>800</width>
             <height>280</height>
             <aligny>bottom</aligny>
             <onleft>50</onleft>
