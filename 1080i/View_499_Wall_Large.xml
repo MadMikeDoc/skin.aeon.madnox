@@ -305,13 +305,20 @@
 					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
 				</control>
 				<control type="panel" id="499">
+					<!--animation effect="slide" start="0" end="85" center="auto" time="750" delay="5" reversible="false" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems, 009)">Conditional</animation>
+					<animation effect="slide" start="0" end="185" center="auto" time="750" delay="5" reversible="false" tween="cubic" easing="inout" condition="IntegerLessThan(Container(499).NumItems, 018)">Conditional</animation-->
+					
+					<animation effect="slide" start="0,0" end="0,-270" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,009)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-310" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,018)">Conditional</animation>
+					
+					
                     <include>Wall_Dimmer</include>
 					<posx>127</posx>
-                    <posy>177</posy>
+                    <posy>727</posy>
                     <width>1743</width>
                     <height>856</height>
 					<onleft>62</onleft>
-                    <onright condition="Control.IsVisible(60)">60</onright>
+					<onright condition="Control.IsVisible(60)">60</onright>
                     <onright condition="!Control.IsVisible(60)">SetProperty(MediaMenu,True,home)</onright>
                     <onright condition="!Control.IsVisible(60)">SetFocus(9050)</onright>
                     <onleft>SetProperty(MediaMenu,True,home)</onleft>
