@@ -2140,8 +2140,9 @@
             <onclick condition="!Substring(Window(home).Property(WidgetType),artist) + !Substring(Window(home).Property(WidgetType),addons) + !Substring(Window(home).Property(WidgetType),artists) + !Substring(Window(home).Property(WidgetType),rss) + !Substring(Window(home).Property(WidgetType),roms) + !Substring(Window(home).Property(WidgetType),musicvideo) + !Substring(Window(home).Property(WidgetType),tv) + !Substring(Window(home).Property(WidgetType),movie)">$INFO[Window(home).Property(Path)]</onclick>
             <onclick condition="Substring(Window(home).Property(WidgetType),addons)">RunAddon($INFO[Window(home).Property(Path)])</onclick>
             <onclick condition="Substring(Window(home).Property(WidgetType),rss)">PlayMedia($ESCINFO[Window(home).Property(Media)])</onclick>
-            <onclick condition="SubString(Window(home).Property(WidgetType),actor)">RunScript(script.metadata.actors,$ESCINFO[Window(home).Label])</onclick>
-            <onclick condition="Substring(Window(home).Property(WidgetType),roms)">RunScript(script.games.rom.collection.browser,launchid=$INFO[Window(home).Property(Id)])</onclick>
+            <!--onclick condition="SubString(Window(home).Property(WidgetType),actor)">RunScript(script.metadata.actors,$ESCINFO[Window(home).Label])</onclick-->
+            <onclick condition="SubString(Window(home).Property(WidgetType),actor)">RunScript(script.extendedinfo,info=extendedactorinfo,name=$ESCINFO[Window(home).Label])</onclick>
+			<onclick condition="Substring(Window(home).Property(WidgetType),roms)">RunScript(script.games.rom.collection.browser,launchid=$INFO[Window(home).Property(Id)])</onclick>
         </item>
         <item>
             <label>Resume $INFO[Window(home).Property(PercentPlayed),(,)]</label>
