@@ -320,7 +320,7 @@
 					<left>-2</left>
 					<top>4</top>
 					<width>165</width>
-					<height>110</height>
+					<height>106</height>
 					<aspectratio>keep</aspectratio>
 					<texture fallback="special://skin/extras/Alticons/color studios/studios/Default-Studio.png">special://skin/extras/Alticons/color studios/studios/$INFO[ListItem.Label,,.png]</texture>
 					<visible>Container.Content(studios) + !StringCompare(ListItem.Label,..)</visible>
@@ -371,11 +371,19 @@
 					<aspectratio>keep</aspectratio>
 					<texture fallback="special://skin/extras/Alticons/color studios/studios/Default-Studio.png">special://skin/extras/Alticons/color studios/studios/$INFO[ListItem.Label,,.png]</texture>
 					<!--texture>$VAR[ColorFlagsStudio]$INFO[ListItem.Label,,.png]</texture-->
-					<bordertexture border="15">thumbs/bordershadow2.png</bordertexture>
-					<bordersize>15</bordersize>
 					<visible>Container.Content(studios) + !StringCompare(ListItem.Label,..)</visible>
 				</control>
 				<control type="image">
+					<left>-38</left>
+					<top>-24</top>
+					<width>220</width>
+					<height>160</height>
+					<aspectratio align="center" aligny="center">stretch</aspectratio>
+					<texture border="15">views/addonwall_select.png</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				</control>
+			
+				<!--control type="image">
 					<left>-2</left>
 					<top>4</top>
 					<width>165</width>
@@ -386,8 +394,8 @@
 					<bordersize>15</bordersize>
 					<visible>Container.Content(studios) + StringCompare(ListItem.Label,..)</visible>
 					<bordersize>9</bordersize>
-				</control>
-				<control type="image">
+				</control-->
+				<!--control type="image">
 				    <left>14</left>
 				    <posy>191</posy>
 					<width>217</width>
@@ -395,7 +403,7 @@
 					<texture>common/bgcolor.png</texture>
 					<animation effect="fade" start="100" end="80" time="40" condition="true">Conditional</animation>
 					<visible>Skin.HasSetting(iconlabel)</visible>
-				</control>
+				</control-->
 			</control>
         </focusedlayout>
 		
@@ -449,7 +457,7 @@
                 <label>$INFO[ListItem.Label]</label>
 				<font>Font_Reg32_Caps</font>
             </control>
-			<control type="image">
+			<!--control type="image">
 			    <left>14</left>
 			    <posy>191</posy>
 				<width>217</width>
@@ -457,17 +465,15 @@
 				<texture>common/bgcolor.png</texture>
 				<animation effect="fade" start="100" end="80" time="40" condition="true">Conditional</animation>
 				<visible>Skin.HasSetting(iconlabel)</visible>
-			</control>
+			</control-->
 			<control type="image">
             	<width>115</width>
 				<height>115</height>
 				<aspectratio align="center" aligny="center">stretch</aspectratio>
 				<texture border="15">views/addonwall_select.png</texture>
 				<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-				<visible>!Skin.HasSetting(InfoWallZoom)</visible>
-            </control>
-				
-        </focusedlayout>
+			</control>
+		</focusedlayout>
 		
 		
 		<itemlayout height="197" width="831" condition="[Container.Content(movies) + Skin.HasSetting(MovieWallBanner)] | [Container.Content(tvshows) + Skin.HasSetting(TVWallBanner)]">
