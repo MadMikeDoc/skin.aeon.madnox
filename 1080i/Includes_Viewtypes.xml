@@ -762,8 +762,8 @@
 			<animation effect="fade" time="200">WindowOpen</animation>
 			<animation effect="slide" end="0,-1000" time="240" easing="in" tween="cubic">WindowClose</animation>
 			<animation effect="slide" end="0,00" time="400" easing="in" tween="cubic" condition="!Skin.HasSetting(no_infopane_panel) + Control.IsVisible(503)">Conditional</animation>  <!-- TV lv3 -->
-			<animation effect="slide" end="0,45" time="400" easing="inout" tween="cubic" condition="[Control.IsVisible(57) + Skin.HasSetting(smallshiftview)]">Conditional</animation>
-			<animation effect="slide" end="0,65" time="400" easing="inout" tween="cubic" condition="!Skin.HasSetting(no_infopane_panel) + Control.IsVisible(503) + [Skin.HasSetting(landscapelogo) | Skin.HasSetting(landscapeonelogo)] + [Container.Content(tvshows) | Container.Content(movies)]">Conditional</animation>
+			<animation effect="slide" end="0,45" time="400" easing="in" tween="cubic" condition="[Control.IsVisible(57) + Skin.HasSetting(smallshiftview)]">Conditional</animation>
+			<animation effect="slide" end="0,00" time="400" easing="in" tween="cubic" condition="!Skin.HasSetting(no_infopane_panel) + Control.IsVisible(503) + [Skin.HasSetting(landscapelogo) | Skin.HasSetting(landscapeonelogo)] + [Container.Content(tvshows) | Container.Content(movies)]">Conditional</animation>
 			<animation effect="zoom" end="100" center="960,500" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(no_infopane_panel)">Conditional</animation>
 			<control type="group">
 				<visible>!Skin.HasSetting(no_infopane_panel)</visible>
@@ -890,7 +890,7 @@
 				<camera x="300" y="370"/>
 				<control type="grouplist">  <!-- TV left side left panel -->
 					<orientation>vertical</orientation>
-					<top>10</top>
+					<top>-5</top>
 					<control type="label">
 						<width>250</width>
 						<height>40</height>
@@ -930,7 +930,7 @@
 				</control>    <!-- TV left side left panel end -->
 				<control type="grouplist">   <!-- TV right side left panel -->
 					<orientation>vertical</orientation>
-					<top>20</top>
+					<top>1</top>
 					<left>325</left>
 					<control type="label">
 						<width>420</width>
@@ -980,7 +980,7 @@
 					</control>
 				</control>
 				<control type="textbox">  <!-- content bottom lvl2-->
-					<top>248</top>
+					<top>228</top>
 					<width>640</width>
 					<height>205</height>
 					<label>$VAR[FanartPanelPlotVar]</label>
