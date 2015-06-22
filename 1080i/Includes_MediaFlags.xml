@@ -263,7 +263,7 @@
                         <!--studio logo-->
                         <left>155</left>
                         <animation effect="slide" end="109" condition="Control.IsVisible(512) | Control.IsVisible(550)">Conditional</animation>
-                        <control type="image" id="76">
+                        <control type="image" id="75">
                             <top>-7</top>
                             <texture>$VAR[ColorFlagsStudio]$INFO[ListItem.Studio,,.png]</texture>
                             <width>135</width>
@@ -288,7 +288,7 @@
                             <font>Font_Reg22_Caps</font>
                             <textcolor>grey</textcolor>
                             <wrapmultiline>true</wrapmultiline>
-                            <visible>IsEmpty(Control.GetLabel(76)) + Skin.HasSetting(DisableStudiosColorFlag)</visible>
+                            <visible>IsEmpty(Control.GetLabel(75)) + !Skin.HasSetting(DisableStudiosColorFlag)</visible>
                         </control>
                     </control>
                     <control type="image" id="1110">

@@ -352,7 +352,7 @@
 			</control>
         </itemlayout>
 
-		<focusedlayout height="232" width="285" condition="Container.Content(studios)">
+		<focusedlayout height="112" width="165" condition="Container.Content(studios)">
 			<control type="group">
 				<posx>20</posx>
 				<posy>23</posy>
@@ -364,20 +364,20 @@
 					<colordiffuse>FF1F98CC</colordiffuse>
 				</control-->
 				<control type="image">
-					<left>-32</left>
-					<top>-42</top>
-					<width>205</width>
-					<height>180</height>
+					<left>-2</left>
+					<top>4</top>
+					<width>165</width>
+					<height>106</height>
 					<aspectratio>keep</aspectratio>
 					<texture fallback="special://skin/extras/Alticons/color studios/studios/Default-Studio.png">special://skin/extras/Alticons/color studios/studios/$INFO[ListItem.Label,,.png]</texture>
 					<!--texture>$VAR[ColorFlagsStudio]$INFO[ListItem.Label,,.png]</texture-->
 					<visible>Container.Content(studios) + !StringCompare(ListItem.Label,..)</visible>
 				</control>
 				<control type="image">
-					<left>-38</left>
-					<top>-24</top>
-					<width>220</width>
-					<height>160</height>
+					<left>-2</left>
+					<top>4</top>
+					<width>165</width>
+					<height>106</height>
 					<aspectratio align="center" aligny="center">stretch</aspectratio>
 					<texture border="15">views/addonwall_select.png</texture>
 					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
@@ -797,7 +797,7 @@
 			<pagecontrol>61</pagecontrol>
 			<preloaditems>2</preloaditems>
 			<scrolltime tween="quadratic">200</scrolltime>
-			<animation effect="zoom" end="113" center="960,600" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(wallfullscreen)">Conditional</animation>
+			<animation effect="zoom" end="113" center="960,600" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(wallfullscreen) + !Container.Content(studios)">Conditional</animation>
 			<onleft>500</onleft>
 			<onright>500</onright>
 			<onup>9000</onup>
@@ -836,7 +836,7 @@
 			<onright>72</onright>
 			<onup>500</onup>
 			<ondown>500</ondown>
-			<animation effect="zoom" end="113" center="960,600" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(wallfullscreen)">Conditional</animation>
+			<animation effect="zoom" end="113" center="960,600" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(wallfullscreen) + !Container.Content(studios)">Conditional</animation>
 			<orientation>vertical</orientation>
 			<include>WallContent</include>
 		</control>

@@ -45,9 +45,16 @@
             <control type="button" id="198">
                 <include>HiddenObject</include>
             </control>
+			<control type="button" id="210">
+                <include>HiddenObject</include>
+            </control>
+            <control type="button" id="220">
+                <include>HiddenObject</include>
+            </control>
+            
             <!--<control type="button" id="199">
-      <include>HiddenObject</include>
-    </control>-->
+				<include>HiddenObject</include>
+			</control>-->
             <!-- Fanart -->
             <control type="image">
                 <texture background="true" fallback="special://skin/backgrounds/search/search.jpg">$VAR[GlobalSearchFanartVar]</texture>
@@ -79,7 +86,7 @@
                         <onup>9000</onup>
                         <ondown>9000</ondown>
                         <scrolltime tween="quadratic">200</scrolltime>
-                        <itemlayout height="74" width="570">
+                        <itemlayout height="94" width="570">
                             <control type="label">
                                 <left>30</left>
                                 <width>389</width>
@@ -89,19 +96,20 @@
                                 <textcolor>grey2</textcolor>
                             </control>
                             <control type="label">
-                                <left>419</left>
-                                <width>389</width>
+                                <left>30</left>
+								<top>32</top>
+								<width>389</width>
                                 <height>74</height>
-                                <align>right</align>
+                                <align>left</align>
                                 <label>[B]$INFO[ListItem.Label2][/B]</label>
                                 <font>Font_Bold34</font>
                                 <textcolor>$VAR[TitleColorVar]</textcolor>
                             </control>
                         </itemlayout>
-                        <focusedlayout height="74" width="570">
+                        <focusedlayout height="94" width="570">
                             <control type="image">
                                 <width>434</width>
-                                <height>74</height>
+                                <height>94</height>
                                 <texture border="8">views/tripanel/listselect_fo.png</texture>
                                 <animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(9000)">Conditional</animation>
                                 <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
@@ -114,68 +122,82 @@
                                 <font>Font_Bold34</font>
                             </control>
                             <control type="label">
-                                <left>419</left>
+                                <left>30</left>
+								<top>32</top>
                                 <width>389</width>
                                 <height>74</height>
-                                <align>right</align>
+                                <align>left</align>
                                 <label>[B]$INFO[ListItem.Label2][/B]</label>
                                 <font>Font_Bold34</font>
+								<textcolor>$VAR[TitleColorVar]</textcolor>
                             </control>
                         </focusedlayout>
                         <content>
                             <item id="1">
                                 <label>$LOCALIZE[20342]</label>
-                                <label2>$INFO[Control.GetLabel(110)]</label2>
+                                <label2>Found $INFO[Control.GetLabel(110)] items</label2>
                                 <onclick>noop</onclick>
                                 <visible>!IsEmpty(Control.GetLabel(110))</visible>
                             </item>
+                            <item id="9">
+                                <label>$LOCALIZE[344]</label>
+                                <label2>Found $INFO[Control.GetLabel(210)] items</label2>
+                                <onclick>noop</onclick>
+                                <visible>!IsEmpty(Control.GetLabel(210))</visible>
+                            </item>
                             <item id="2">
                                 <label>$LOCALIZE[20343]</label>
-                                <label2>$INFO[Control.GetLabel(120)]</label2>
+                                <label2>Found $INFO[Control.GetLabel(120)] items</label2>
                                 <onclick>noop</onclick>
                                 <visible>!IsEmpty(Control.GetLabel(120))</visible>
                             </item>
                             <item id="3">
                                 <label>$LOCALIZE[33054]</label>
-                                <label2>$INFO[Control.GetLabel(130)]</label2>
+                                <label2>Found $INFO[Control.GetLabel(130)] items</label2>
                                 <onclick>noop</onclick>
                                 <visible>!IsEmpty(Control.GetLabel(130))</visible>
                             </item>
                             <item id="4">
                                 <label>$LOCALIZE[20360]</label>
-                                <label2>$INFO[Control.GetLabel(140)]</label2>
+                                <label2>Found $INFO[Control.GetLabel(140)] items</label2>
                                 <onclick>noop</onclick>
                                 <visible>!IsEmpty(Control.GetLabel(140))</visible>
                             </item>
                             <item id="5">
                                 <label>$LOCALIZE[20389]</label>
-                                <label2>$INFO[Control.GetLabel(150)]</label2>
+                                <label2>Found $INFO[Control.GetLabel(150)] items</label2>
                                 <onclick>noop</onclick>
                                 <visible>!IsEmpty(Control.GetLabel(150))</visible>
                             </item>
                             <item id="6">
                                 <label>$LOCALIZE[133]</label>
-                                <label2>$INFO[Control.GetLabel(160)]</label2>
+                                <label2>Found $INFO[Control.GetLabel(160)] items</label2>
                                 <onclick>noop</onclick>
                                 <visible>!IsEmpty(Control.GetLabel(160))</visible>
                             </item>
                             <item id="7">
                                 <label>$LOCALIZE[132]</label>
-                                <label2>$INFO[Control.GetLabel(170)]</label2>
+                                <label2>Found $INFO[Control.GetLabel(170)] items</label2>
                                 <onclick>noop</onclick>
                                 <visible>!IsEmpty(Control.GetLabel(170))</visible>
                             </item>
                             <item id="8">
                                 <label>$LOCALIZE[134]</label>
-                                <label2>$INFO[Control.GetLabel(180)]</label2>
+                                <label2>Found $INFO[Control.GetLabel(180)] items</label2>
                                 <onclick>noop</onclick>
                                 <visible>!IsEmpty(Control.GetLabel(180))</visible>
                             </item>
-                            <item id="9">
+                            <item id="10">
+                                <label>$LOCALIZE[19069]</label>
+                                <label2>Found $INFO[Control.GetLabel(220)] items</label2>
+                                <onclick>noop</onclick>
+                                <visible>!IsEmpty(Control.GetLabel(220))</visible>
+                            </item>
+                            <item id="11">
                                 <label>$ADDON[script.globalsearch 32299]</label>
                                 <onclick>SendClick(198)</onclick>
                             </item>
-                            <item id="10">
+                            <item id="12">
                                 <label>31066</label>
                                 <onclick>Dialog.Close(all,true)</onclick>
                                 <visible>Control.IsVisible(199)</visible>
@@ -346,7 +368,170 @@
                                 </focusedlayout>
                             </control>
                         </control>
-                        <control type="group" id="129">
+                        
+						<control type="group" id="219">
+							<left>498</left>
+                            <top>100</top>
+                            <width>1358</width>
+                            <height>888</height>
+                            <visible>Container(9000).HasFocus(9) | Control.HasFocus(211)</visible>
+							<control type="list" id="211">
+								<width>1469</width>
+                                <height>888</height>
+                                <onup>111</onup>
+                                <ondown>111</ondown>
+                                <onleft>9000</onleft>
+                                <onright>9000</onright>
+                                <orientation>vertical</orientation>
+                                <pagecontrol>60</pagecontrol>
+                                <focusposition>0</focusposition>
+                                <scrolltime tween="quadratic">200</scrolltime>
+                                <preloaditems>2</preloaditems>
+                                <itemlayout width="1358" height="296">
+                                	<control type="image">
+                                        <left>-8</left>
+                                        <top>3</top>
+                                        <width>290</width>
+                                        <height>290</height>
+                                        <aspectratio aligny="center">keep</aspectratio>
+                                        <texture>$INFO[ListItem.Icon]</texture>
+                                        <bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
+                                        <bordersize>7</bordersize>
+                                    </control>
+                                    <control type="image">
+                                        <top>224</top>
+                                        <width>1358</width>
+                                        <height>72</height>
+                                        <texture>settings/settings_radiobuttonoff.png</texture>
+                                        <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+                                    </control>
+                                    <control type="group">
+                                        <left>250</left>
+                                        <animation effect="fade" end="60" time="0" condition="true">Conditional</animation>
+                                        <control type="label">
+                                            <width>1108</width>
+                                            <height>45</height>
+                                            <textoffsetx>22</textoffsetx>
+                                            <label>$INFO[ListItem.Label]</label>
+                                            <font>Font_Reg32</font>
+                                        </control>
+                                        <control type="label">
+                                            <top>49</top>
+                                            <width>1108</width>
+                                            <height>45</height>
+                                            <textoffsetx>22</textoffsetx>
+                                            <label>$INFO[ListItem.Property(Genre)]</label>
+                                            <font>Font_Reg32</font>
+                                        </control>
+                                        <control type="label">
+                                            <top>98</top>
+                                            <width>1108</width>
+                                            <height>45</height>
+                                            <textoffsetx>22</textoffsetx>
+                                            <label>$INFO[ListItem.Property(Year)]$INFO[ListItem.Property(Duration), • , $LOCALIZE[12391]]$INFO[ListItem.Property(Rating), • ]</label>
+                                            <font>Font_Reg32</font>
+                                        </control>
+                                        <control type="textbox">
+                                            <left>22</left>
+                                            <top>150</top>
+                                            <width>1064</width>
+                                            <height>120</height>
+                                            <aligny>top</aligny>
+                                            <label>$INFO[ListItem.Property(Plot)]</label>
+                                            <font>Font_Reg32</font>
+                                            <autoscroll>false</autoscroll>
+                                            <visible>IsEmpty(ListItem.Property(Plotoutline))</visible>
+                                        </control>
+                                        <control type="textbox">
+                                            <left>22</left>
+                                            <top>150</top>
+                                            <width>1064</width>
+                                            <height>120</height>
+                                            <aligny>top</aligny>
+                                            <label>$INFO[ListItem.Property(Plotoutline)]</label>
+                                            <font>Font_Reg32</font>
+                                            <autoscroll>false</autoscroll>
+                                        </control>
+                                    </control>
+								</itemlayout>
+								<focusedlayout width="1358" height="296">
+                                    <control type="image">
+                                        <top>224</top>
+                                        <width>1358</width>
+                                        <height>72</height>
+                                        <texture>settings/settings_radiobuttonoff.png</texture>
+                                        <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+                                        <visible>!Control.HasFocus(111)</visible>
+                                    </control>
+                                    <control type="image">
+                                        <width>1358</width>
+                                        <height>296</height>
+                                        <texture border="8">views/tripanel/listselect_fo.png</texture>
+                                        <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+                                        <animation effect="fade" start="100" end="0" time="0" condition="!Control.HasFocus(211)">Conditional</animation>
+                                    </control>
+                                    <control type="image">
+                                        <left>-8</left>
+                                        <top>3</top>
+                                        <width>290</width>
+                                        <height>290</height>
+                                        <aspectratio aligny="center">keep</aspectratio>
+                                        <texture>$INFO[ListItem.Icon]</texture>
+                                        <bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
+                                        <bordersize>7</bordersize>
+                                    </control>
+                                    <control type="group">
+                                        <left>250</left>
+                                        <animation effect="fade" start="100" end="60" time="40" condition="!Control.HasFocus(211)">Conditional</animation>
+                                        <control type="label">
+                                            <width>1108</width>
+                                            <height>45</height>
+                                            <textoffsetx>22</textoffsetx>
+                                            <label>$INFO[ListItem.Label]</label>
+                                            <font>Font_Reg32</font>
+                                        </control>
+                                        <control type="label">
+                                            <top>49</top>
+                                            <width>1108</width>
+                                            <height>45</height>
+                                            <textoffsetx>22</textoffsetx>
+                                            <label>$INFO[ListItem.Property(Genre)]</label>
+                                            <font>Font_Reg32</font>
+                                        </control>
+                                        <control type="label">
+                                            <top>98</top>
+                                            <width>1108</width>
+                                            <height>45</height>
+                                            <textoffsetx>22</textoffsetx>
+                                            <label>$INFO[ListItem.Property(Year)]$INFO[ListItem.Property(Duration), • , $LOCALIZE[12391]]$INFO[ListItem.Property(Rating), • ]</label>
+                                            <font>Font_Reg32</font>
+                                        </control>
+                                        <control type="textbox">
+                                            <left>22</left>
+                                            <top>150</top>
+                                            <width>1064</width>
+                                            <height>120</height>
+                                            <aligny>top</aligny>
+                                            <label>$INFO[ListItem.Property(Plot)]</label>
+                                            <font>Font_Reg32</font>
+                                            <autoscroll delay="8000" time="AutoScrollTime" repeat="8000">Skin.HasSetting(AutoScroll) + Control.HasFocus(211)</autoscroll>
+                                            <visible>IsEmpty(ListItem.Property(Plotoutline))</visible>
+                                        </control>
+                                        <control type="textbox">
+                                            <left>22</left>
+                                            <top>150</top>
+                                            <width>1064</width>
+                                            <height>120</height>
+                                            <aligny>top</aligny>
+                                            <label>$INFO[ListItem.Property(Plotoutline)]</label>
+                                            <font>Font_Reg32</font>
+                                            <autoscroll delay="8000" time="AutoScrollTime" repeat="8000">Skin.HasSetting(AutoScroll) + Control.HasFocus(211)</autoscroll>
+                                        </control>
+                                    </control>
+                                </focusedlayout>
+							</control>
+						</control>
+						<control type="group" id="129">
                             <left>498</left>
                             <top>100</top>
                             <width>1358</width>

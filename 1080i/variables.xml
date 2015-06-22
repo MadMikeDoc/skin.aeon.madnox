@@ -813,6 +813,7 @@
 		<value>$INFO[ListItem.Path]season-all-landscape.jpg</value>
 	</variable>
 	<variable name="FanartTextureVar">
+		<value condition="Container.Content(movies) + SubString(ListItem.Path,videodb://movies/sets) + !IsEmpty(ListItem.Art(extrafanart1))">$INFO[ListItem.Art(extrafanart1)]</value>
 		<value condition="Container.Content(movies) + IsEmpty(ListItem.Art(fanart))">special://skin/backgrounds/fallback_movies.jpg</value>
 		<value condition="[Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !Skin.HasSetting(LandscapeThumb)]] + IsEmpty(ListItem.Art(fanart))">special://skin/backgrounds/fallback_tvshows.jpg</value>
 		<value condition="Container.Content(episodes) + Skin.HasSetting(LandscapeThumb) + IsEmpty(ListItem.Thumb)">special://skin/backgrounds/fallback_tvshows.jpg</value>
