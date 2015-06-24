@@ -61,13 +61,22 @@
 						<visible>!IsEmpty(Window.Property(movie.tagline))</visible>
 					</control>                   
 				</control>
-                <control type="image">
+                <control type="image" id="20">
                     <left>1042</left>
                     <top>0</top>
                     <width>149</width>
                     <height>60</height>
                     <texture>special://home/addons/script.extendedinfo-master/resources/skins/Default/media/moviedb.png</texture>
                     <aspectratio align="left" aligny="center">keep</aspectratio>                   
+                </control>
+				<control type="image" id="20">
+                    <left>1042</left>
+                    <top>0</top>
+                    <width>149</width>
+                    <height>60</height>
+                    <texture>special://home/addons/script.extendedinfo/resources/skins/Default/media/moviedb.png</texture>
+                    <aspectratio align="left" aligny="center">keep</aspectratio>                   
+					<visible>IsEmpty(Control.GetLabel(20))</visible>
                 </control>
 				<control type="image">
 					<left>-37</left>
@@ -470,7 +479,7 @@
 					<textcolor>white</textcolor>
 					<pagecontrol>60</pagecontrol>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-					<animation effect="fade" start="100" end="78" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(60)">Conditional</animation>
+					<animation effect="fade" start="100" end="100" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(60)">Conditional</animation>
 					<visible>[ControlGroup(9000).HasFocus(5) | ControlGroup(9000).HasFocus(8)] + StringCompare(Control.GetLabel(5),$LOCALIZE[206]) + IsEmpty(Window.Property(movie.discart)) + !IsEmpty(Window.Property(movie.omdb.Awards))</visible>
 				</control>	
 				

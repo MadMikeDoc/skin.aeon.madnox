@@ -624,13 +624,21 @@
 					<include>MediaFlagVars</include>
 					<visible>!Container.Content(tvshows) + !Container.Content(seasons) + !IsEmpty(ListItem.Title)</visible>
 				</control>
+				<control type="image" id="1210">
+					<left>470</left>
+					<width>200</width>
+					<colordiffuse>floor</colordiffuse>
+					<include>AudioFlagsVars</include>
+                    <texture>$VAR[ColorFlagsRating]rating/$VAR[RatingFlagVar,,.png]</texture>
+					<visible>!Container.Content(tvshows) + !Container.Content(seasons) + !IsEmpty(ListItem.Title)</visible>
+				</control>
 				<control type="image">
 					<left>470</left>
 					<width>200</width>
 					<colordiffuse>floor</colordiffuse>
-					<texture>$VAR[ColorFlagsRating]rating/$VAR[RatingFlagVar,,.png]</texture>
-                    <include>AudioFlagsVars</include>
-					<visible>!Container.Content(tvshows) + !Container.Content(seasons) + !IsEmpty(ListItem.Title)</visible>
+					<texture>$VAR[ColorFlagsRating]rating/MPAA_NR_Certificate_US.png</texture>
+					<include>AudioFlagsVars</include>
+					<visible>IsEmpty(Control.GetLabel(1210))</visible>
 				</control>
 			</control>
 			<control type="scrollbar" id="61">

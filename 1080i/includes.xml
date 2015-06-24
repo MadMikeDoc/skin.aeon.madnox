@@ -69,7 +69,7 @@
 		<aligny>center</aligny>
 		<font>font15</font>
 		<textcolor>grey</textcolor>
-		<focusedcolor>white</focusedcolor>
+		<focusedcolor>$VAR[TitleColorVar]</focusedcolor>
 	</include>
 	<include name="ViewAnimation">
 		<animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0">VisibleChange</animation>
@@ -3882,4 +3882,14 @@ $INFO[Skin.String(OscarsHomeItem.Submenu)] $INFO[Skin.String(Top250HomeItem.Subm
             </control>
         </control>
     </include>
+	<include name="dialogeffect">
+		<animation type="WindowOpen" reversible="false">
+			<effect type="zoom" start="150" end="100" center="960,540" time="300" tween="cubic" easing="out" />
+			<effect type="fade" end="100" time="150" />
+		</animation>
+		<animation type="WindowClose" reversible="false">
+			<effect type="fade" start="100" end="0" time="100" delay="100" />
+			<effect type="zoom" start="100" end="130" center="960,540" time="200" tween="cubic" easing="in" />
+		</animation>
+	</include>
 </includes>

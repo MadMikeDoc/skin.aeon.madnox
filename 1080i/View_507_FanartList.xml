@@ -166,7 +166,18 @@
 					<include>MediaFlagVars</include>                    
                     <texture>flags/sets/sets.png</texture>
 					<visible>Container.Content(movies) + SubString(ListItem.Path,videodb://Movies/sets)</visible>
-                </control-->               
+                </control-->
+				<control type="image" id="1190">
+                    <posx>565</posx>
+                    <include>AudioFlagsVars</include>
+                    <texture>$VAR[ColorFlagsRating]rating/$VAR[RatingFlagVar,,.png]</texture>
+                </control>
+				<control type="image">
+					<posx>565</posx>
+                    <texture>$VAR[ColorFlagsRating]rating/MPAA_NR_Certificate_US.png</texture>
+					<include>AudioFlagsVars</include>
+					<visible>IsEmpty(Control.GetLabel(1190))</visible>
+				</control>				
             </control>
             <control type="group">
                 <posx>1180</posx>

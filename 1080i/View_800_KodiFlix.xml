@@ -393,9 +393,9 @@
 		</control>	
 		<control type="multiimage" id="5900">
 			<description>KodiFlix Fanart extrafanart</description>
-			<left>350</left>
+			<left>300</left>
 			<top>-2</top>
-			<width>1770</width>
+			<width>1870</width>
 			<height>770</height>
 			<aspectratio>keep</aspectratio>
 			<randomize>true</randomize>
@@ -1000,12 +1000,20 @@
 				<include>MediaFlagVars</include>
 				<visible>!Container.Content(tvshows) + !Container.Content(seasons) + !IsEmpty(ListItem.Title)</visible>
 			</control>
-			<control type="image">
+			<control type="image" id="1180">
 				<left>800</left>
 				<width>200</width>
 				<colordiffuse>floor</colordiffuse>
 				<texture>$VAR[ColorFlagsRating]rating/$VAR[RatingFlagVar,,.png]</texture>
                 <include>AudioFlagsVars</include>
+				<visible>!Container.Content(tvshows) + !Container.Content(seasons) + !IsEmpty(ListItem.Title)</visible>
+			</control>
+			<control type="image">
+            	<left>800</left>
+				<width>200</width>
+			    <texture>$VAR[ColorFlagsRating]rating/MPAA_NR_Certificate_US.png</texture>
+                <include>AudioFlagsVars</include>
+				<visible>IsEmpty(Control.GetLabel(1180))</visible>
 				<visible>!Container.Content(tvshows) + !Container.Content(seasons) + !IsEmpty(ListItem.Title)</visible>
 			</control>
 			<control type="image">
@@ -1063,13 +1071,21 @@
 					<texture>$VAR[ColorFlagsStudio]$INFO[ListItem.Studio,,.png]</texture>
 					<visible>!IsEmpty(ListItem.Title) + !Container.Content(seasons)</visible>
 				</control>
-				<control type="image">
+				<control type="image" id="1200">
 					<left>800</left>
 						<top>12</top>
 					<colordiffuse>floor</colordiffuse>
 					<texture>$VAR[ColorFlagsRating]rating/$VAR[RatingFlagVar,,.png]</texture>
 					<include>AudioFlagsVars</include>
 					<visible>!Container.Content(seasons)</visible>
+				</control>
+				<control type="image">
+					<left>800</left>
+					<top>12</top>
+					<colordiffuse>floor</colordiffuse>
+					<texture>$VAR[ColorFlagsRating]rating/MPAA_NR_Certificate_US.png</texture>
+					<include>AudioFlagsVars</include>
+					<visible>IsEmpty(Control.GetLabel(1200))</visible>
 				</control>
 					<control type="group">
 						<left>960</left>
