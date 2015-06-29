@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 <!--Square Music-->
-	<!--SQUARE SMALL-->	
-	<include name="AlbumWall">	
+	<!--SQUARE SMALL-->
+	<include name="AlbumWall">
 		<control type="image">
-			<include>transition_Content</include>
-			<include>transition_Info</include>
+			<include>transition_Content</include><!-- undefined include -->
+			<include>transition_Info</include><!-- undefined include -->
 			<left>0</left>
 			<top>183</top>
 			<width>1279</width>
 			<height>75</height>
-			<texture background="true">frames/contentpanel.png</texture> 
-			<animation condition="true" effect="Fade" start="90" end="90" time="0">Conditional</animation>					 
+			<texture background="true">frames/contentpanel.png</texture>
+			<animation condition="true" effect="Fade" start="90" end="90" time="0">Conditional</animation>
 			<aspectratio>stretch</aspectratio>
-			<visible>Control.IsVisible(810)</visible>	
+			<visible>Control.IsVisible(810)</visible>
 		</control>
 		<control type="image">
-			<include>transition_Content</include>
-			<include>transition_Info</include>
+			<include>transition_Content</include><!-- undefined include -->
+			<include>transition_Info</include><!-- undefined include -->
 			<left>0</left>
 			<top>570</top>
 			<width>1279</width>
 			<height>102</height>
-			<texture background="true">frames/contentpanel.png</texture> 
-			<animation condition="true" effect="Fade" start="90" end="90" time="0">Conditional</animation>					 
+			<texture background="true">frames/contentpanel.png</texture>
+			<animation condition="true" effect="Fade" start="90" end="90" time="0">Conditional</animation>
 			<aspectratio>stretch</aspectratio>
-			<visible>Control.IsVisible(810)</visible>	
+			<visible>Control.IsVisible(810)</visible>
 		</control>
 		<control type="image">
-			<include>transition_Content</include>
-			<include>transition_Info</include>
+			<include>transition_Content</include><!-- undefined include -->
+			<include>transition_Info</include><!-- undefined include -->
 			<left>0</left>
 			<top>250</top>
 			<width>1279</width>
 			<height>325</height>
-			<texture background="true">frames/contentpanel.png</texture> 
-			<animation condition="true" effect="Fade" start="80" end="80" time="0">Conditional</animation>					 
+			<texture background="true">frames/contentpanel.png</texture>
+			<animation condition="true" effect="Fade" start="80" end="80" time="0">Conditional</animation>
 			<aspectratio>stretch</aspectratio>
-			<visible>Control.IsVisible(810)</visible>	
+			<visible>Control.IsVisible(810)</visible>
 		</control>
 		<control type="group">
-			<include>transition_Content</include>
-			<include>transition_Info</include>
+			<include>transition_Content</include><!-- undefined include -->
+			<include>transition_Info</include><!-- undefined include -->
 			<visible>Control.IsVisible(810)</visible>
 			<visible>Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
 			<control type="grouplist" id="1000">
@@ -51,30 +51,30 @@
 				<control type="label">
 					<width>680</width>
 					<label>$INFO[ListItem.Label]</label>
-					<include>detail_Title</include>
-				</control>	
+					<include>detail_Title</include><!-- undefined include -->
+				</control>
 				<control type="label">
 						<top>27</top>
 						<width>680</width>
-						<label>$VAR[global_Info]</label>						
-						<include>detail_Sub</include>
-				</control>					
+						<label>$VAR[global_Info]</label><!-- undefifined variable -->
+						<include>detail_Sub</include><!-- undefined include -->
+				</control>
 			</control>
 			<control type="image">
 				<left>240</left>
 				<top>580</top>
 				<aspectratio align="left" aligny="center">keep</aspectratio>
-				<include>detail_StarRating</include>
+				<include>detail_StarRating</include><!-- undefined include -->
 				<visible>!Skin.HasSetting(tracklist) + Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
-			</control>	
+			</control>
 			<control type="image">
 				<left>240</left>
 				<top>580</top>
 				<aspectratio align="left" aligny="center">keep</aspectratio>
-				<include>detail_StarRating</include>
+				<include>detail_StarRating</include><!-- undefined include -->
 				<visible>Skin.HasSetting(tracklist) + Container.Content(albums) </visible>
-			</control>				
-			<control type="group">				
+			</control>
+			<control type="group">
 				<control type="image">
 				    <left>0</left>
 				    <top>255</top>
@@ -82,9 +82,9 @@
 					<height>313</height>
 					<texture>frames/frame-fo.png</texture>
 					<colordiffuse>base_1</colordiffuse>
-					<aspectratio>stretch</aspectratio>	
+					<aspectratio>stretch</aspectratio>
 					<visible>!Skin.HasSetting(tracklist) + Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
-				</control>	
+				</control>
 				<control type="image">
 				    <left>8</left>
 				    <top>230</top>
@@ -92,7 +92,7 @@
 					<height>360</height>
 					<texture border="30">frames/frame-landscape-back-alt.png</texture>
 					<colordiffuse>base_1</colordiffuse>
-					<aspectratio>stretch</aspectratio>	
+					<aspectratio>stretch</aspectratio>
 					<visible>!Skin.HasSetting(tracklist) + Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
 				</control>
 				<control type="image">
@@ -104,7 +104,7 @@
 					<animation effect="slide" start="0,-130" end="0" time="900" tween="cubic" easing="out">WindowClose</animation>
 					<width>245</width>
 					<height>245</height>
-					<texture background="true">music_Cdart/vinyl.png</texture>						
+					<texture background="true">music_Cdart/vinyl.png</texture>
 					<aspectratio>keep</aspectratio>
 					<visible>Skin.HasSetting(vinyl) + !Skin.HasSetting(tracklist)</visible>
 					<visible>!IsEmpty(ListItem.Title)</visible>
@@ -115,14 +115,14 @@
 					<width>317</width>
 					<height>317</height>
 					<aspectratio scalediffuse="false">scale</aspectratio>
-					<texture  diffuse="view/cdcover_mask2.png" background="false">$VAR[thumb_Square]</texture>
+					<texture  diffuse="view/cdcover_mask2.png" background="false">$VAR[thumb_Square]</texture><!-- undefined variable -->
 					<visible>!Skin.HasSetting(tracklist) + Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
-				</control>					
+				</control>
 				<control type="image">
 					<left>50</left>
 					<top>550</top>
 					<width>100</width>
-					<height>100</height>					   
+					<height>100</height>
 					<aspectratio align="center">keep</aspectratio>
 					<texture>$INFO[ListItem.Art(Clearlogo)]</texture>
 					<visible>!Skin.HasSetting(tracklist) + Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
@@ -131,7 +131,7 @@
 					<left>50</left>
 					<top>550</top>
 					<width>100</width>
-				    <height>100</height>					   
+				    <height>100</height>
 					<aspectratio align="center">keep</aspectratio>
 					<texture>$INFO[ListItem.Art(Clearlogo)]</texture>
 					<visible>Skin.HasSetting(tracklist) + Container.Content(albums)</visible>
@@ -142,8 +142,8 @@
 					<width>770</width>
 					<height>80</height>
 					<align>justify</align>
-					<label>$VAR[Gglobal_Plot]</label>
-					<include>detail_Text</include>
+					<label>$VAR[Global_Plot]</label> <!-- undefined variable possibly GlobalPlotVar -->
+					<include>detail_Text</include> <!-- undefined include -->
 					<visible>Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
 				</control>
 				<control type="textbox">
@@ -152,11 +152,11 @@
 					<width>300</width>
 					<height>300</height>
 					<align>justify</align>
-					<label>$VAR[Tracklist_Info]</label>						
-					<include>detail_Text</include>
-					<visible>Skin.HasSetting(tracklist) + Container.Content(albums)</visible>					
-				</control>					
-			</control>				
+					<label>$VAR[Tracklist_Info]</label><!-- undefined variable -->
+					<include>detail_Text</include><!-- undefined include -->
+					<visible>Skin.HasSetting(tracklist) + Container.Content(albums)</visible>
+				</control>
+			</control>
 		</control>
 		<!--container-->
 			<control type="panel" id="810">
@@ -171,7 +171,7 @@
 				<ondown>810</ondown>
 				<pagecontrol>70</pagecontrol>
 				<preloaditems>2</preloaditems>
-				<include>global_ListScroll</include>
+				<include>global_ListScroll</include><!-- undefined include -->
 				<visible>Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
 				<itemlayout height="80" width="80">
 					<control type="group">
@@ -187,28 +187,28 @@
 							<centertop>37</centertop>
 							<width>70</width>
 							<height>70</height>
-							<include>art_DefaultIcon</include>
+							<include>art_DefaultIcon</include><!-- undefined include -->
 						</control>
 						<control type="image">
 							<width>70</width>
 							<height>70</height>
-							<texture background="true">$VAR[thumb_Square]</texture>
+							<texture background="true">$VAR[thumb_Square]</texture><!-- undefined variable -->
 							<aspectratio scalediffuse="false">stretch</aspectratio>
 						</control>
 						<control type="image">
 							<width>75</width>
 							<height>75</height>
-							<include>art_Frame-nf</include>
-						</control>					
+							<include>art_Frame-nf</include><!-- undefined include -->
+						</control>
 					</control>
-				</itemlayout>											
+				</itemlayout>
 				<focusedlayout height="80" width="80">
 					<control type="image">
 						<left>2</left>
 						<top>2</top>
 						<width>80</width>
 						<height>80</height>
-						<include>art_Frame-fo</include>
+						<include>art_Frame-fo</include><!-- undefined include -->
 					</control>
 					<control type="group">
 						<left>7</left>
@@ -223,18 +223,17 @@
 							<centertop>37</centertop>
 							<width>70</width>
 							<height>70</height>
-							<include>art_DefaultIcon</include>
+							<include>art_DefaultIcon</include><!-- undefined include -->
 						</control>
 						<control type="image">
 							<width>70</width>
 							<height>70</height>
-							<texture background="true">$VAR[thumb_Square]</texture>
+							<texture background="true">$VAR[thumb_Square]</texture><!-- undefined variable -->
 							<aspectratio scalediffuse="false">stretch</aspectratio>
-						</control>																
+						</control>
 					</control>
 				</focusedlayout>
-			</control>	
+			</control>
 	</include>
-	<!--Fin-->		
+	<!--Fin-->
 </includes>
-	
