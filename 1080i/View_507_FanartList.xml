@@ -137,7 +137,8 @@
                 <control type="image">
                     <posx>300</posx>
                     <colordiffuse>floor</colordiffuse>
-					<aligny>right</aligny>
+                    <!-- invalid aliny maybe use align ??-->
+					<!--<aligny>right</aligny>-->
 					<texture>$VAR[ColorFlagsAudio]audio/$VAR[AudioFlagVar,,.png]</texture>
                     <include>AudioFlagsVars</include>
                     <visible>!IsEmpty(ListItem.VideoCodec)</visible>
@@ -146,7 +147,7 @@
                 <!--control type="image">
                     <posx>330</posx>
                     <colordiffuse>grey2</colordiffuse>
-                    <include>MediaFlagVars</include>                    
+                    <include>MediaFlagVars</include>
                     <texture>$INFO[ListItem.AudioChannels,flags/channels/,.png]</texture>
                     <visible>!IsEmpty(ListItem.AudioChannels)</visible>
                 </control-->
@@ -163,7 +164,7 @@
                     <posx>495</posx>
                     <colordiffuse>grey2</colordiffuse>
                     <aspectratio>keep</aspectratio>
-					<include>MediaFlagVars</include>                    
+					<include>MediaFlagVars</include>
                     <texture>flags/sets/sets.png</texture>
 					<visible>Container.Content(movies) + SubString(ListItem.Path,videodb://Movies/sets)</visible>
                 </control-->
@@ -177,7 +178,7 @@
                     <texture>$VAR[ColorFlagsRating]rating/MPAA_NR_Certificate_US.png</texture>
 					<include>AudioFlagsVars</include>
 					<visible>IsEmpty(Control.GetLabel(1190))</visible>
-				</control>				
+				</control>
             </control>
             <control type="group">
                 <posx>1180</posx>
@@ -186,7 +187,7 @@
                 <height>90</height>
                 <orientation>horizontal</orientation>
                 <include>VisibleFadeEffect</include>
-                <visible>Container.Content(tvshows) | Container.Content(seasons)</visible>              
+                <visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
                 <control type="group">
                     <posy>-5</posy>
                     <width>175</width>
@@ -334,7 +335,7 @@
 					<texture background="true" fallback="thumbs/sets/backset.png">$INFO[ListItem.Art(extrafanart1)]</texture>
 					<visible>StringCompare(Control.GetLabel(4420),fanart) + SubString(ListItem.Path,videodb://movies/sets) + !IsEmpty(ListItem.Art(extrafanart1))</visible>
 				</control>
-				
+
                 <control type="image">
                     <visible>Container.Content(episodes)</visible>
                     <width>693</width>
@@ -409,7 +410,7 @@
 							<width>90</width>
 							<height>68</height>
 							<font>font15</font>
-							
+
 							<selectedcolor>selected</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
@@ -1005,5 +1006,5 @@
 
 		</control>
 	</include>
-	
+
 </includes>

@@ -295,7 +295,7 @@
                 <animation effect="zoom" start="110" end="130" center="auto" time="12000" pulse="true" delay="480" condition="Skin.HasSetting(animatedbghome)">Conditional</animation>
                 <animation effect="slide" start="-15,-15" end="15,15" time="6000" pulse="true" delay="480" condition="Skin.HasSetting(animatedbghome)">Conditional</animation>
                 <visible>!Substring(Control.GetLabel(4322),case)</visible>
-            </control>		
+            </control>
             <control type="image">
                 <aspectratio align="center" aligny="top">scale</aspectratio>
                 <texture background="true" fallback="special://skin/backgrounds/speakergrill.jpg">$INFO[Skin.String(LiveBG)]</texture>
@@ -450,7 +450,7 @@
                         <animation effect="fade" end="100" time="600" condition="Player.HasAudio + System.IdleTime(8)">Conditional</animation>
                     </control>
                     <!-- Home Menu Bar -->
-					
+
                     <control type="image">
                         <top>453</top>
                         <width>1920</width>
@@ -459,7 +459,7 @@
                         <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
                         <animation effect="zoom" end="125,100" center="960,500" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(smallermainmenu)">Conditional</animation>
                         <animation effect="fade" start="100" end="90" time="40" condition="Skin.HasSetting(glasshome) + ![Player.HasMedia + System.IdleTime(8)]">Conditional</animation>
-                    </control>	
+                    </control>
 					<control type="group">
 						<animation effect="fade" end="20" time="600" condition="Player.HasMedia + Skin.HasSetting(glasshome)">Conditional</animation>
 						<animation effect="fade" end="30" time="600" condition="Player.HasMedia + !Skin.HasSetting(glasshome)">Conditional</animation>
@@ -472,9 +472,9 @@
 							<texturebg>osd/info/osd_progress_back_cache.png</texturebg>
 							<lefttexture border="1"></lefttexture>
 							<midtexture border="1">osd/info/osd_progress_mid.png</midtexture>
-							<righttexture border="1"></righttexture>	
-							<colordiffuse>$VAR[HomeMenuTextFocusVar]</colordiffuse>					
-							<visible>[Skin.HasSetting(ProgressMainMenu) + !Skin.HasSetting(smallermainmenu)]</visible>				
+							<righttexture border="1"></righttexture>
+							<colordiffuse>$VAR[HomeMenuTextFocusVar]</colordiffuse>
+							<visible>[Skin.HasSetting(ProgressMainMenu) + !Skin.HasSetting(smallermainmenu)]</visible>
 						</control>
 						<control type="progress">
 							<left>-245</left>
@@ -485,11 +485,11 @@
 							<texturebg>osd/info/osd_progress_back_cache.png</texturebg>
 							<lefttexture border="1"></lefttexture>
 							<midtexture border="1">osd/info/osd_progress_mid.png</midtexture>
-							<righttexture border="1"></righttexture>	
-							<colordiffuse>$VAR[HomeMenuTextFocusVar]</colordiffuse>					
-							<visible>[Skin.HasSetting(ProgressMainMenu) + Skin.HasSetting(smallermainmenu)]</visible>				
+							<righttexture border="1"></righttexture>
+							<colordiffuse>$VAR[HomeMenuTextFocusVar]</colordiffuse>
+							<visible>[Skin.HasSetting(ProgressMainMenu) + Skin.HasSetting(smallermainmenu)]</visible>
 						</control>
-					</control>										
+					</control>
                     <control type="image">
                         <top>453</top>
                         <width>1920</width>
@@ -501,7 +501,7 @@
                         <include>Animation_VisibleChange400</include>
                         <visible>!Skin.HasSetting(DisableGlowbar) | [Skin.HasSetting(ExtendedGlowMode) + Skin.HasSetting(glasshome)] | Skin.HasSetting(classichome)</visible>
                     </control>
-                    <!-- Home OSD -->									
+                    <!-- Home OSD -->
                     <control type="label">
                         <top>445</top>
                         <width>1920</width>

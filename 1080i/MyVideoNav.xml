@@ -319,7 +319,7 @@
 						<effect type="rotate" start="0" center="2670,1124" end="-720" delay="1200" time="1120" tween="quadratic" easing="out"/>
 					</animation>
 					<bordersize>7</bordersize>
-					<visible>Skin.HasSetting(showcasecdart) + IsEmpty(ListItem.Art(discart)) + Container.Content(movies) + !SubString(ListItem(0).Path,videodb://movies/sets) + Skin.Hassetting(Fakediscart)</visible>					
+					<visible>Skin.HasSetting(showcasecdart) + IsEmpty(ListItem.Art(discart)) + Container.Content(movies) + !SubString(ListItem(0).Path,videodb://movies/sets) + Skin.Hassetting(Fakediscart)</visible>
 				</control>
 				<control type="image">
 					<left>2530</left>
@@ -414,7 +414,6 @@
 					<visible>Skin.HasSetting(showcasecdart) + IsEmpty(ListItem.Art(discart)) + Container.Content(movies) + Skin.HasSetting(Fakedischandwriting) + !SubString(ListItem.Path,videodb://movies/sets) + IsEmpty(ListItem.Art(clearlogo))</visible>
 					<label> $INFO[ListItem.Label]</label>
 					<textcolor>black</textcolor>
-					<wrapmultiline>true</wrapmultiline>
 				</control>
 				<control type="textbox">
 					<animation type="Conditional" condition="Control.IsVisible(1970) + IsEmpty(Container.ListItem.Art(discart)) + !Skin.HasSetting(OpenCase)" reversible="true">

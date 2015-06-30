@@ -1,561 +1,557 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	<includes>
-		<include name="Movie_Info">
-			<!--Mad Alt Movie / TV Show Info Version -->
-			<control type="group">
-				<animation effect="slide" start="-2620,0" end="0,0" time="250" tween="sine" easing="out">VisibleChange</animation>
-				<control type="image">
-					<posy>388</posy>
-					<posx>375</posx>
-					<width>1165</width>
-					<height>427</height>
-					<aspectratio>scale</aspectratio>
-					<texture background="true">wall/wall_bg.png</texture>
-					<fadetime>400</fadetime>
-				</control>
-				<control type="image">    <!-- GLOW BACKROUND change by schimi-->
-					<top>355</top>
-					<left>332</left>
-					<width>1251</width>
-					<height>554</height>
-					
-					<texture background="true">thumbs/listpanel_back_glow.png</texture>
-					<bordersize>18</bordersize>
-					<include>PanelGlowFade</include>
-					<include>Animation_VisibleChange400</include>
-					<visible>!Skin.HasSetting(DisableGlowbar)</visible>
-					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-				</control>
-				<control type="image">
-					<posy>389</posy>
-					<posx>384</posx>
-					<width>254</width>
-					<height>423</height>
-						<aspectratio>stretch</aspectratio>
-					<texture background="true">$VAR[ListPosterVar]</texture>
-					<fadetime>400</fadetime>
-					<visible>[[!Skin.Hassetting(WallLargeCases) + Container.Content(movies)] | [Container.Content(movies) + !Skin.Hassetting(usecases) + !Skin.Hassetting(clearcases)]]</visible>
-				</control>
-				<control type="image">
-					<posy>389</posy>
-					<posx>384</posx>
-					<width>254</width>
-					<height>423</height>
-					<aspectratio>stretch</aspectratio>
-					<texture background="true">$VAR[ListPosterVar]</texture>
-					<fadetime>400</fadetime>
-					<visible>SubString(ListItem(0).Path,videodb://movies/sets) | Container.Content(tvshows) | Container.Content(seasons)</visible>
-				</control>
-				<control type="image">
-					<posy>426</posy>
-					<posx>390</posx>
-					<width>242</width>
-					<height>376</height>
-					<aspectratio>stretch</aspectratio>
-					<texture background="true">$VAR[ListPosterVar]</texture>
-					<fadetime>400</fadetime>
-					<visible>Skin.Hassetting(WallLargeCases) + Container.Content(movies) + Skin.Hassetting(usecases) + !Skin.Hassetting(clearcases) + !SubString(ListItem(0).Path,videodb://movies/sets)</visible>
-				</control>
-				<control type="image">
-					<posy>396</posy>
-					<posx>391</posx>
-					<width>242</width>
-					<height>408</height>
-					<aspectratio>stretch</aspectratio>
-					<texture background="true">$VAR[ListPosterVar]</texture>
-					<fadetime>400</fadetime>
-					<visible>Skin.Hassetting(WallLargeCases) + Container.Content(movies) + Skin.Hassetting(usecases) + Skin.Hassetting(clearcases) + !SubString(ListItem(0).Path,videodb://movies/sets)</visible>
-				</control>
-				<control type="image">
-                    <posy>385</posy>
-					<posx>339</posx>
-					<width>314</width>
-					<height>444</height>
-					<texture background="true">thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
-                	<bordersize>2</bordersize>
-					<visible>Skin.Hassetting(WallLargeCases) + Container.Content(movies) + [Skin.Hassetting(usecases) + !Skin.Hassetting(clearcases)] + !SubString(ListItem(0).Path,videodb://movies/sets)</visible>
-                </control>
-				<control type="image">
-                    <posy>360</posy>
-					<posx>340</posx>
-					<width>314</width>
-					<height>469</height>
-					<texture background="true">thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
-                    <!--aspectratio align="center" aligny="top">scale</aspectratio-->
-					<bordersize>2</bordersize>
-					<visible>Skin.Hassetting(WallLargeCases) + Container.Content(movies) + [Skin.Hassetting(usecases) + Skin.Hassetting(clearcases)] + !SubString(ListItem(0).Path,videodb://movies/sets)</visible>
-                </control>
-				<control type="image">
-					<posy>389</posy>
-					<posx>568</posx>
-					<width>70</width>
-                    <height>70</height>
-					<include>OverlayVisibility0</include>
-					<visible>!Skin.Hassetting(WallLargeCases) | [!Skin.Hassetting(usecases) + !Skin.Hassetting(clearcases)] + [Container.Content(movies) | Container.Content(sets)]</visible>
-				<control type="image">
-					<posy>379</posy>
-					<posx>568</posx>
-					<width>70</width>
-                    <height>70</height>
-					<include>OverlayVisibility0</include>
-					<visible>SubString(ListItem.Path,videodb://movies/sets)</visible>
-				</control>
-				</control>
-				<control type="image">
-					<posy>426</posy>
-					<posx>560</posx>
-					<width>70</width>
-                    <height>70</height>
-					<include>OverlayVisibility0</include>
-					<visible>Skin.Hassetting(WallLargeCases) + !Skin.HasSetting(clearcases) + Skin.HasSetting(usecases) + [Container.Content(movies) | Container.Content(sets)]</visible>
-				</control>
-				<control type="image">
-					<posy>396</posy>
-					<posx>563</posx>
-					<width>70</width>
-                    <height>70</height>
-					<include>OverlayVisibility0</include>
-					<visible>Skin.HasSetting(clearcases) + Skin.Hassetting(WallLargeCases) + [Container.Content(movies) | Container.Content(sets)]</visible>
-				</control>
-				<!--Resume flag start -->
-				<control type="image">
-                    <posy>389</posy>
-					<posx>568</posx>
-					<width>70</width>
-                    <height>70</height>
-					<texture>overlayprogress.png</texture>
-					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag) + !Skin.Hassetting(WallLargeCases) + [Container.Content(movies) | Container.Content(sets)]</visible>
-				</control>
-				<control type="image">
-                    <posy>426</posy>
-					<posx>570</posx>
-					<width>60</width>
-                    <height>60</height>
-					<texture>overlayprogress.png</texture>
-					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag) + Skin.Hassetting(WallLargeCases) + Skin.HasSetting(usecases) + !Skin.HasSetting(clearcases) + [Container.Content(movies) | Container.Content(sets)]</visible>
-				</control>
-				<control type="image">
-                    <posy>396</posy>
-					<posx>563</posx>
-					<width>70</width>
-                    <height>70</height>
-					<texture>overlayprogress.png</texture>
-					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag) + Skin.HasSetting(clearcases) + Skin.Hassetting(WallLargeCases) + [Container.Content(movies) | Container.Content(sets)]</visible>
-				</control>
-				<!--Resume flag end -->
-				<control type="label">
-					<posx>650</posx>
-					<posy>395</posy>
-					<width>700</width>
-					<height>15</height>
-					<textcolor>FFFFFAF0</textcolor>
-					<label>[COLOR $VAR[FocusTextureColorVar]]$INFO[ListItem.Label][/COLOR]</label>
-					<font>Font_18A</font>
-					<scroll>true</scroll>
-					<visible>!StringCompare(ListItem.Label,..)</visible>
-				</control>
-				<control type="image">
-					<posx>640</posx>
-					<posy>420</posy>
-					<width>900</width>
-					<height>25</height>
-					<texture>gradient_focus.png</texture>
-					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-				</control>
-				<control type="image">
-					<posx>630</posx>
-					<posy>445</posy>
-					<width>900</width>
-					<height>2</height>
-					<align>left</align>
-					<texture flipx="true">divider.png</texture>
-				</control>
-				<control type="textbox">
-					<posx>650</posx>
-					<posy>450</posy>
-					<width>860</width>
-					<height>283</height>
-					<label>$VAR[GlobalPlotVar]</label>
-					<font>Font18a</font>
-					<autoscroll delay="10000" time="4000" repeat="8000"></autoscroll>
-				</control>
-				<control type="image">
-					<posx>630</posx>
-					<posy>742</posy>
-					<width>900</width>
-					<height>2</height>
-					<align>left</align>
-					<texture flipx="true">divider.png</texture>
-				</control>
-				<control type="label">
-					<posx>650</posx>
-					<posy>751</posy>
-					<width>150</width>
-					<height>15</height>
-					<textcolor>FFFFFAF0</textcolor>
-					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[31156][/COLOR]</label>
-					<font>Font_18A</font>
-					<scroll>true</scroll>
-					<visible>!StringCompare(ListItem.Label,..) + Container.Content(movies)</visible>
-				</control>
-				<control type="label">
-					<posx>805</posx>
-					<posy>751</posy>
-					<width>700</width>
-					<height>15</height>
-					<textcolor>FFFFFAF0</textcolor>
-					<label>$INFO[ListItem.Director]</label>
-					<font>Font_18A</font>
-					<scroll>true</scroll>
-					<visible>!StringCompare(ListItem.Label,..) + Container.Content(movies) + !SubString(ListItem(0).Path,videodb://movies/sets)</visible>
-				</control>
-				<control type="label">
-					<posx>805</posx>
-					<posy>751</posy>
-					<width>645</width>
-					<height>15</height>
-					<textcolor>white6</textcolor>
-					<label>$INFO[Window(0).Property(Set.Movies.Director)]</label>
-					<font>Font_18A</font>
-					<scroll>true</scroll>
-					<visible>!StringCompare(ListItem.Label,..) + Container.Content(movies) + SubString(ListItem(0).Path,videodb://movies/sets)</visible>
-				</control>
-				<control type="label">
-					<posx>650</posx>
-					<posy>784</posy>
-					<width>120</width>
-					<height>15</height>
-					<textcolor>white6</textcolor>
-					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[2050]:[/COLOR]</label>
-					<font>Font_18A</font>
-					<scroll>true</scroll>
-					<visible>!StringCompare(ListItem.Label,..) + Container.Content(movies)</visible>
-				</control>
-				<control type="label">
-					<posx>770</posx>
-					<posy>784</posy>
-					<width>100</width>
-					<height>15</height>
-					<textcolor>white6</textcolor>
-					<label>$VAR[MovieDuration]</label>
-					<font>Font_18A</font>
-					<scroll>true</scroll>
-					<visible>!StringCompare(ListItem.Label,..) + Container.Content(movies)</visible>
-				</control><control type="label">
-					<posx>890</posx>
-					<posy>784</posy>
-					<width>220</width>
-					<height>15</height>
-					<textcolor>white6</textcolor>
-					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[515]:[/COLOR]</label>
-					<font>Font_18A</font>
-					<scroll>true</scroll>
-					<visible>!StringCompare(ListItem.Label,..) + Container.Content(movies)</visible>
-				</control>
-				<control type="label">
-					<posx>980</posx>
-					<posy>784</posy>
-					<width>525</width>
-					<height>15</height>
-					<textcolor>white6</textcolor>
-					<label>$INFO[ListItem.Genre]</label>
-					<font>Font_18A</font>
-					<scroll>true</scroll>
-					<visible>!StringCompare(ListItem.Label,..) + Container.Content(movies) + !SubString(ListItem(0).Path,videodb://movies/sets)</visible>
-				</control>
-				<control type="label">
-					<posx>980</posx>
-					<posy>784</posy>
-					<width>525</width>
-					<height>15</height>
-					<textcolor>white6</textcolor>
-					<label>$INFO[Window(0).Property(Set.Movies.Genre)]</label>
-					<font>Font_18A</font>
-					<scroll>true</scroll>
-					<visible>!StringCompare(ListItem.Label,..) + Container.Content(movies) + SubString(ListItem(0).Path,videodb://movies/sets)</visible>
-				</control>
+<includes>
+	<include name="Movie_Info">
+		<!--Mad Alt Movie / TV Show Info Version -->
+		<control type="group">
+			<animation effect="slide" start="-2620,0" end="0,0" time="250" tween="sine" easing="out">VisibleChange</animation>
+			<control type="image">
+				<posy>388</posy>
+				<posx>375</posx>
+				<width>1165</width>
+				<height>427</height>
+				<aspectratio>scale</aspectratio>
+				<texture background="true">wall/wall_bg.png</texture>
+				<fadetime>400</fadetime>
 			</control>
-		</include>
-		<include name="Wall_Dimmer">
-			<animation effect="fade" start="100" end="25" time="300" condition="System.IdleTime(5) + Control.HasFocus(499) + Skin.HasSetting(WallLargeMovieInfo) + !StringCompare(ListItem.Label,..) + Skin.HasSetting(WallLargeMovieInfoDelay_5)">conditional</animation>
-			<animation effect="fade" start="100" end="25" time="300" condition="System.IdleTime(10) + Control.HasFocus(499) + Skin.HasSetting(WallLargeMovieInfo) + !StringCompare(ListItem.Label,..) + Skin.HasSetting(WallLargeMovieInfoDelay_10)">conditional</animation>
-			<animation effect="fade" start="100" end="25" time="300" condition="System.IdleTime(20) + Control.HasFocus(499) + Skin.HasSetting(WallLargeMovieInfo) + !StringCompare(ListItem.Label,..) + Skin.HasSetting(WallLargeMovieInfoDelay_20)">conditional</animation>
-			<animation effect="fade" start="100" end="25" time="300" condition="System.IdleTime(30) + Control.HasFocus(499) + Skin.HasSetting(WallLargeMovieInfo) + !StringCompare(ListItem.Label,..) + Skin.HasSetting(WallLargeMovieInfoDelay_30)">conditional</animation>
-		</include>
-		<include name="Wall_Large">
-			    <control type="group">
-                <visible>Control.IsVisible(499) + !Window.IsActive(addoninformation)</visible>
-                <include>ViewAnimation</include>
-                <posy>-65</posy>
-                <control type="image">
-                    <description>background image</description>
-                    <posx>130</posx>
-                    <posy>1137</posy>
-                    <width>1725</width>
-                    <height>918</height>
-                    <texture border="40">panel_reflect.png</texture>
-                </control>
-                
-				<!--animation effect="slide" start="0,0" end="0,-300" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,008) + !Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,-290" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,017) + !Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
-			
-				<animation effect="slide" start="0,0" end="0,60" delay="0" time="800" tween="cubic" easing="inout" condition="Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,-220" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,011) + Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,-210" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,023) + Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,-210" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,035) + Skin.Hassetting(WallLargeViewSmall)">Conditional</animation-->
-				
-				<!--Small Posters - Bottom Row-->
-				<control type="image">
-                    <description>background image</description>
-                    <posx>97.5</posx>
-                    <posy>724</posy>
-                    <width>1724</width>
-                    <height>316</height>
-                    <texture border="40">listpanel_back.png</texture>
-					<visible>Skin.HasSetting(WallLargeEnableBackground) + Skin.Hassetting(WallLargeViewSmall) + !IntegerGreaterThan(Container(499).NumItems,011)</visible>
-                </control>
-				<control type="image">    <!-- GLOW BACKROUND change by schimi-->
-					<posx>50</posx>
-                    <posy>713</posy>
-                    <width>1824</width>
-                    <height>381</height>
-                    <align>center</align>
-					<texture background="true">thumbs/listpanel_back_glow.png</texture>
-					<bordersize>18</bordersize>
-					<include>PanelGlowFade</include>
-					<include>Animation_VisibleChange400</include>
-					<visible>!Skin.HasSetting(DisableGlowbar) + Skin.HasSetting(WallLargeEnableBackground) + Skin.Hassetting(WallLargeViewSmall) + !IntegerGreaterThan(Container(499).NumItems,011)</visible>
-					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-				</control>
-				
-				<!--Normal Posters - Bottom Row-->
-				<control type="image">
-                    <description>background image</description>
-                    <posx>97.5</posx>
-                    <posy>699</posy>
-                    <width>1724</width>
-                    <height>331</height>
-                    <texture border="40">listpanel_back.png</texture>
-					<visible>Skin.HasSetting(WallLargeEnableBackground) + !Skin.Hassetting(WallLargeViewSmall) + !IntegerGreaterThan(Container(499).NumItems,008)</visible>
-                </control>
-				<control type="image">    <!-- GLOW BACKROUND change by schimi-->
-					<posx>50</posx>
-                    <posy>688</posy>
-                    <width>1824</width>
-                    <height>396</height>
-                    <align>center</align>
-					<texture background="true">thumbs/listpanel_back_glow.png</texture>
-					<bordersize>18</bordersize>
-					<include>PanelGlowFade</include>
-					<include>Animation_VisibleChange400</include>
-					<visible>!Skin.HasSetting(DisableGlowbar) + Skin.HasSetting(WallLargeEnableBackground) + !Skin.Hassetting(WallLargeViewSmall) + !IntegerGreaterThan(Container(499).NumItems,008)</visible>
-					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-				</control>
-				
-				<!--Small Posters - Bottom 2 Rows-->
-				<control type="image">
-                    <description>background image</description>
-                    <posx>97.5</posx>
-                    <posy>509</posy>
-                    <width>1724</width>
-                    <height>536</height>
-                    <texture border="40">listpanel_back.png</texture>
-					<visible>Skin.HasSetting(WallLargeEnableBackground) + Skin.Hassetting(WallLargeViewSmall) + [IntegerGreaterThan(Container(499).NumItems,011) + !IntegerGreaterThan(Container(499).NumItems,023)]</visible>
-                </control>
-				<control type="image">    <!-- GLOW BACKROUND change by schimi-->
-					<posx>50</posx>
-                    <posy>493</posy>
-                    <width>1824</width>
-                    <height>636</height>
-                    <align>center</align>
-					<texture background="true">thumbs/listpanel_back_glow.png</texture>
-					<bordersize>18</bordersize>
-					<include>PanelGlowFade</include>
-					<include>Animation_VisibleChange400</include>
-					<visible>!Skin.HasSetting(DisableGlowbar) + Skin.HasSetting(WallLargeEnableBackground) + Skin.Hassetting(WallLargeViewSmall) + [IntegerGreaterThan(Container(499).NumItems,011) + !IntegerGreaterThan(Container(499).NumItems,023)]</visible>
-					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-				</control>
-				
-				<!--Normal Posters - 2 Rows-->
-				<control type="image">
-                    <description>background image</description>
-                    <posx>97.5</posx>
-                    <posy>399</posy>
-                    <width>1724</width>
-                    <height>616</height>
-                    <texture border="40">listpanel_back.png</texture>
-					<visible>Skin.HasSetting(WallLargeEnableBackground) + !Skin.Hassetting(WallLargeViewSmall) + [IntegerGreaterThan(Container(499).NumItems,008) + !IntegerGreaterThan(Container(499).NumItems,017)]</visible>
-                </control>
-				<control type="image">    <!-- GLOW BACKROUND change by schimi-->
-					<posx>50</posx>
-                    <posy>378</posy>
-                    <width>1824</width>
-                    <height>741</height>
-                    <align>center</align>
-					<texture background="true">thumbs/listpanel_back_glow.png</texture>
-					<bordersize>18</bordersize>
-					<include>PanelGlowFade</include>
-					<include>Animation_VisibleChange400</include>
-					<visible>!Skin.HasSetting(DisableGlowbar) + Skin.HasSetting(WallLargeEnableBackground) + !Skin.Hassetting(WallLargeViewSmall) + [IntegerGreaterThan(Container(499).NumItems,008) + !IntegerGreaterThan(Container(499).NumItems,017)]</visible>
-					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-				</control>
-				
-				
-				<!--Small Posters - 3 Rows-->
-				<control type="image">
-                    <description>background image</description>
-                    <posx>97.5</posx>
-                    <posy>299</posy>
-                    <width>1724</width>
-                    <height>746</height>
-                    <texture border="40">listpanel_back.png</texture>
-					<visible>Skin.HasSetting(WallLargeEnableBackground) + Skin.Hassetting(WallLargeViewSmall) + [IntegerGreaterThan(Container(499).NumItems,023) + !IntegerGreaterThan(Container(499).NumItems,035)]</visible>
-                </control>
-				<control type="image">    <!-- GLOW BACKROUND change by schimi-->
-					<posx>50</posx>
-                    <posy>273</posy>
-                    <width>1824</width>
-                    <height>896</height>
-                    <align>center</align>
-					<texture background="true">thumbs/listpanel_back_glow.png</texture>
-					<bordersize>18</bordersize>
-					<include>PanelGlowFade</include>
-					<include>Animation_VisibleChange400</include>
-					<visible>!Skin.HasSetting(DisableGlowbar) + Skin.HasSetting(WallLargeEnableBackground) + Skin.Hassetting(WallLargeViewSmall) + [IntegerGreaterThan(Container(499).NumItems,023) + !IntegerGreaterThan(Container(499).NumItems,035)]</visible>
-					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-				</control>
-				<!--Small Posters - Full Screen-->
-				<control type="image">
-                    <description>background image</description>
-                    <posx>97.5</posx>
-                    <posy>99</posy>
-                    <width>1724</width>
-                    <height>946</height>
-                    <texture border="40">listpanel_back.png</texture>
-					<visible>Skin.HasSetting(WallLargeEnableBackground) + Skin.Hassetting(WallLargeViewSmall) + IntegerGreaterThan(Container(499).NumItems,035)</visible>
-                </control>
-				<control type="image">    <!-- GLOW BACKROUND change by schimi-->
-					<posx>50</posx>
-                    <posy>68</posy>
-                    <width>1824</width>
-                    <height>1136</height>
-                    <align>center</align>
-					<texture background="true">thumbs/listpanel_back_glow.png</texture>
-					<bordersize>18</bordersize>
-					<include>PanelGlowFade</include>
-					<include>Animation_VisibleChange400</include>
-					<visible>!Skin.HasSetting(DisableGlowbar) + Skin.HasSetting(WallLargeEnableBackground) + Skin.Hassetting(WallLargeViewSmall) + IntegerGreaterThan(Container(499).NumItems,035)</visible>
-					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-				</control>
-				<!--Normall Posters - Full Screen-->
-				<control type="image">
-                    <description>background image</description>
-                    <posx>97.5</posx>
-                    <posy>109</posy>
-                    <width>1724</width>
-                    <height>901</height>
-                    <texture border="40">listpanel_back.png</texture>
-					<visible>Skin.HasSetting(WallLargeEnableBackground) + !Skin.Hassetting(WallLargeViewSmall) + IntegerGreaterThan(Container(499).NumItems,017)</visible>
-                </control>
-				<control type="image">    <!-- GLOW BACKROUND change by schimi-->
-					<posx>50</posx>
-                    <posy>78</posy>
-                    <width>1824</width>
-                    <height>1091</height>
-                    <align>center</align>
-					<texture background="true">thumbs/listpanel_back_glow.png</texture>
-					<bordersize>18</bordersize>
-					<include>PanelGlowFade</include>
-					<include>Animation_VisibleChange400</include>
-					<visible>!Skin.HasSetting(DisableGlowbar) + Skin.HasSetting(WallLargeEnableBackground) + !Skin.Hassetting(WallLargeViewSmall) + IntegerGreaterThan(Container(499).NumItems,017)</visible>
-					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-				</control>
-				
-				<control type="panel" id="499">
+			<control type="image">    <!-- GLOW BACKROUND change by schimi-->
+				<top>355</top>
+				<left>332</left>
+				<width>1251</width>
+				<height>554</height>
+				<texture background="true">thumbs/listpanel_back_glow.png</texture>
+				<bordersize>18</bordersize>
+				<include>PanelGlowFade</include>
+				<include>Animation_VisibleChange400</include>
+				<visible>!Skin.HasSetting(DisableGlowbar)</visible>
+				<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+			</control>
+			<control type="image">
+				<posy>389</posy>
+				<posx>384</posx>
+				<width>254</width>
+				<height>423</height>
+				<aspectratio>stretch</aspectratio>
+				<texture background="true">$VAR[ListPosterVar]</texture>
+				<fadetime>400</fadetime>
+				<visible>[[!Skin.Hassetting(WallLargeCases) + Container.Content(movies)] | [Container.Content(movies) + !Skin.Hassetting(usecases) + !Skin.Hassetting(clearcases)]]</visible>
+			</control>
+			<control type="image">
+				<posy>389</posy>
+				<posx>384</posx>
+				<width>254</width>
+				<height>423</height>
+				<aspectratio>stretch</aspectratio>
+				<texture background="true">$VAR[ListPosterVar]</texture>
+				<fadetime>400</fadetime>
+				<visible>SubString(ListItem(0).Path,videodb://movies/sets) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+			</control>
+			<control type="image">
+				<posy>426</posy>
+				<posx>390</posx>
+				<width>242</width>
+				<height>376</height>
+				<aspectratio>stretch</aspectratio>
+				<texture background="true">$VAR[ListPosterVar]</texture>
+				<fadetime>400</fadetime>
+				<visible>Skin.Hassetting(WallLargeCases) + Container.Content(movies) + Skin.Hassetting(usecases) + !Skin.Hassetting(clearcases) + !SubString(ListItem(0).Path,videodb://movies/sets)</visible>
+			</control>
+			<control type="image">
+				<posy>396</posy>
+				<posx>391</posx>
+				<width>242</width>
+				<height>408</height>
+				<aspectratio>stretch</aspectratio>
+				<texture background="true">$VAR[ListPosterVar]</texture>
+				<fadetime>400</fadetime>
+				<visible>Skin.Hassetting(WallLargeCases) + Container.Content(movies) + Skin.Hassetting(usecases) + Skin.Hassetting(clearcases) + !SubString(ListItem(0).Path,videodb://movies/sets)</visible>
+			</control>
+			<control type="image">
+				<posy>385</posy>
+				<posx>339</posx>
+				<width>314</width>
+				<height>444</height>
+				<texture background="true">thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+				<bordersize>2</bordersize>
+				<visible>Skin.Hassetting(WallLargeCases) + Container.Content(movies) + [Skin.Hassetting(usecases) + !Skin.Hassetting(clearcases)] + !SubString(ListItem(0).Path,videodb://movies/sets)</visible>
+			</control>
+			<control type="image">
+				<posy>360</posy>
+				<posx>340</posx>
+				<width>314</width>
+				<height>469</height>
+				<texture background="true">thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+				<!--aspectratio align="center" aligny="top">scale</aspectratio-->
+				<bordersize>2</bordersize>
+				<visible>Skin.Hassetting(WallLargeCases) + Container.Content(movies) + [Skin.Hassetting(usecases) + Skin.Hassetting(clearcases)] + !SubString(ListItem(0).Path,videodb://movies/sets)</visible>
+			</control>
+			<control type="image">
+				<posy>389</posy>
+				<posx>568</posx>
+				<width>70</width>
+				<height>70</height>
+				<include>OverlayVisibility0</include>
+				<visible>!Skin.Hassetting(WallLargeCases) | [!Skin.Hassetting(usecases) + !Skin.Hassetting(clearcases)] + [Container.Content(movies) | Container.Content(sets)]</visible>
+			</control>
+			<control type="image">
+				<posy>379</posy>
+				<posx>568</posx>
+				<width>70</width>
+				<height>70</height>
+				<include>OverlayVisibility0</include>
+				<visible>SubString(ListItem.Path,videodb://movies/sets)</visible>
+			</control>
+			<control type="image">
+				<posy>426</posy>
+				<posx>560</posx>
+				<width>70</width>
+				<height>70</height>
+				<include>OverlayVisibility0</include>
+				<visible>Skin.Hassetting(WallLargeCases) + !Skin.HasSetting(clearcases) + Skin.HasSetting(usecases) + [Container.Content(movies) | Container.Content(sets)]</visible>
+			</control>
+			<control type="image">
+				<posy>396</posy>
+				<posx>563</posx>
+				<width>70</width>
+				<height>70</height>
+				<include>OverlayVisibility0</include>
+				<visible>Skin.HasSetting(clearcases) + Skin.Hassetting(WallLargeCases) + [Container.Content(movies) | Container.Content(sets)]</visible>
+			</control>
+			<!--Resume flag start -->
+			<control type="image">
+				<posy>389</posy>
+				<posx>568</posx>
+				<width>70</width>
+				<height>70</height>
+				<texture>overlayprogress.png</texture>
+				<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag) + !Skin.Hassetting(WallLargeCases) + [Container.Content(movies) | Container.Content(sets)]</visible>
+			</control>
+			<control type="image">
+				<posy>426</posy>
+				<posx>570</posx>
+				<width>60</width>
+				<height>60</height>
+				<texture>overlayprogress.png</texture>
+				<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag) + Skin.Hassetting(WallLargeCases) + Skin.HasSetting(usecases) + !Skin.HasSetting(clearcases) + [Container.Content(movies) | Container.Content(sets)]</visible>
+			</control>
+			<control type="image">
+				<posy>396</posy>
+				<posx>563</posx>
+				<width>70</width>
+				<height>70</height>
+				<texture>overlayprogress.png</texture>
+				<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag) + Skin.HasSetting(clearcases) + Skin.Hassetting(WallLargeCases) + [Container.Content(movies) | Container.Content(sets)]</visible>
+			</control>
+			<!--Resume flag end -->
+			<control type="label">
+				<posx>650</posx>
+				<posy>395</posy>
+				<width>700</width>
+				<height>15</height>
+				<textcolor>FFFFFAF0</textcolor>
+				<label>[COLOR $VAR[FocusTextureColorVar]]$INFO[ListItem.Label][/COLOR]</label>
+				<font>Font_18A</font>
+				<scroll>true</scroll>
+				<visible>!StringCompare(ListItem.Label,..)</visible>
+			</control>
+			<control type="image">
+				<posx>640</posx>
+				<posy>420</posy>
+				<width>900</width>
+				<height>25</height>
+				<texture>gradient_focus.png</texture>
+				<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+			</control>
+			<control type="image">
+				<posx>630</posx>
+				<posy>445</posy>
+				<width>900</width>
+				<height>2</height>
+				<align>left</align>
+				<texture flipx="true">divider.png</texture>
+			</control>
+			<control type="textbox">
+				<posx>650</posx>
+				<posy>450</posy>
+				<width>860</width>
+				<height>283</height>
+				<label>$VAR[GlobalPlotVar]</label>
+				<font>Font18a</font>
+				<autoscroll delay="10000" time="4000" repeat="8000"></autoscroll>
+			</control>
+			<control type="image">
+				<posx>630</posx>
+				<posy>742</posy>
+				<width>900</width>
+				<height>2</height>
+				<align>left</align>
+				<texture flipx="true">divider.png</texture>
+			</control>
+			<control type="label">
+				<posx>650</posx>
+				<posy>751</posy>
+				<width>150</width>
+				<height>15</height>
+				<textcolor>FFFFFAF0</textcolor>
+				<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[31156][/COLOR]</label>
+				<font>Font_18A</font>
+				<scroll>true</scroll>
+				<visible>!StringCompare(ListItem.Label,..) + Container.Content(movies)</visible>
+			</control>
+			<control type="label">
+				<posx>805</posx>
+				<posy>751</posy>
+				<width>700</width>
+				<height>15</height>
+				<textcolor>FFFFFAF0</textcolor>
+				<label>$INFO[ListItem.Director]</label>
+				<font>Font_18A</font>
+				<scroll>true</scroll>
+				<visible>!StringCompare(ListItem.Label,..) + Container.Content(movies) + !SubString(ListItem(0).Path,videodb://movies/sets)</visible>
+			</control>
+			<control type="label">
+				<posx>805</posx>
+				<posy>751</posy>
+				<width>645</width>
+				<height>15</height>
+				<textcolor>white6</textcolor>
+				<label>$INFO[Window(0).Property(Set.Movies.Director)]</label>
+				<font>Font_18A</font>
+				<scroll>true</scroll>
+				<visible>!StringCompare(ListItem.Label,..) + Container.Content(movies) + SubString(ListItem(0).Path,videodb://movies/sets)</visible>
+			</control>
+			<control type="label">
+				<posx>650</posx>
+				<posy>784</posy>
+				<width>120</width>
+				<height>15</height>
+				<textcolor>white6</textcolor>
+				<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[2050]:[/COLOR]</label>
+				<font>Font_18A</font>
+				<scroll>true</scroll>
+				<visible>!StringCompare(ListItem.Label,..) + Container.Content(movies)</visible>
+			</control>
+			<control type="label">
+				<posx>770</posx>
+				<posy>784</posy>
+				<width>100</width>
+				<height>15</height>
+				<textcolor>white6</textcolor>
+				<label>$VAR[MovieDuration]</label>
+				<font>Font_18A</font>
+				<scroll>true</scroll>
+				<visible>!StringCompare(ListItem.Label,..) + Container.Content(movies)</visible>
+			</control>
+			<control type="label">
+				<posx>890</posx>
+				<posy>784</posy>
+				<width>220</width>
+				<height>15</height>
+				<textcolor>white6</textcolor>
+				<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[515]:[/COLOR]</label>
+				<font>Font_18A</font>
+				<scroll>true</scroll>
+				<visible>!StringCompare(ListItem.Label,..) + Container.Content(movies)</visible>
+			</control>
+			<control type="label">
+				<posx>980</posx>
+				<posy>784</posy>
+				<width>525</width>
+				<height>15</height>
+				<textcolor>white6</textcolor>
+				<label>$INFO[ListItem.Genre]</label>
+				<font>Font_18A</font>
+				<scroll>true</scroll>
+				<visible>!StringCompare(ListItem.Label,..) + Container.Content(movies) + !SubString(ListItem(0).Path,videodb://movies/sets)</visible>
+			</control>
+			<control type="label">
+				<posx>980</posx>
+				<posy>784</posy>
+				<width>525</width>
+				<height>15</height>
+				<textcolor>white6</textcolor>
+				<label>$INFO[Window(0).Property(Set.Movies.Genre)]</label>
+				<font>Font_18A</font>
+				<scroll>true</scroll>
+				<visible>!StringCompare(ListItem.Label,..) + Container.Content(movies) + SubString(ListItem(0).Path,videodb://movies/sets)</visible>
+			</control>
+		</control>
+	</include>
+	<include name="Wall_Dimmer">
+		<animation effect="fade" start="100" end="25" time="300" condition="System.IdleTime(5) + Control.HasFocus(499) + Skin.HasSetting(WallLargeMovieInfo) + !StringCompare(ListItem.Label,..) + Skin.HasSetting(WallLargeMovieInfoDelay_5)">conditional</animation>
+		<animation effect="fade" start="100" end="25" time="300" condition="System.IdleTime(10) + Control.HasFocus(499) + Skin.HasSetting(WallLargeMovieInfo) + !StringCompare(ListItem.Label,..) + Skin.HasSetting(WallLargeMovieInfoDelay_10)">conditional</animation>
+		<animation effect="fade" start="100" end="25" time="300" condition="System.IdleTime(20) + Control.HasFocus(499) + Skin.HasSetting(WallLargeMovieInfo) + !StringCompare(ListItem.Label,..) + Skin.HasSetting(WallLargeMovieInfoDelay_20)">conditional</animation>
+		<animation effect="fade" start="100" end="25" time="300" condition="System.IdleTime(30) + Control.HasFocus(499) + Skin.HasSetting(WallLargeMovieInfo) + !StringCompare(ListItem.Label,..) + Skin.HasSetting(WallLargeMovieInfoDelay_30)">conditional</animation>
+	</include>
+	<include name="Wall_Large">
+		<control type="group">
+			<visible>Control.IsVisible(499) + !Window.IsActive(addoninformation)</visible>
+			<include>ViewAnimation</include>
+			<posy>-65</posy>
+			<control type="image">
+				<description>background image</description>
+				<posx>130</posx>
+				<posy>1137</posy>
+				<width>1725</width>
+				<height>918</height>
+				<texture border="40">panel_reflect.png</texture>
+			</control>
+			<!--animation effect="slide" start="0,0" end="0,-300" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,008) + !Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-290" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,017) + !Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
+
+					<animation effect="slide" start="0,0" end="0,60" delay="0" time="800" tween="cubic" easing="inout" condition="Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-220" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,011) + Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-210" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,023) + Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-210" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,035) + Skin.Hassetting(WallLargeViewSmall)">Conditional</animation-->
+					<!--Small Posters - Bottom Row-->
+					<control type="image">
+						<description>background image</description>
+						<posx>97.5</posx>
+						<posy>724</posy>
+						<width>1724</width>
+						<height>316</height>
+						<texture border="40">listpanel_back.png</texture>
+						<visible>Skin.HasSetting(WallLargeEnableBackground) + Skin.Hassetting(WallLargeViewSmall) + !IntegerGreaterThan(Container(499).NumItems,011)</visible>
+					</control>
+					<control type="image">    <!-- GLOW BACKROUND change by schimi-->
+						<posx>50</posx>
+						<posy>713</posy>
+						<width>1824</width>
+						<height>381</height>
+						<align>center</align>
+						<texture background="true">thumbs/listpanel_back_glow.png</texture>
+						<bordersize>18</bordersize>
+						<include>PanelGlowFade</include>
+						<include>Animation_VisibleChange400</include>
+						<visible>!Skin.HasSetting(DisableGlowbar) + Skin.HasSetting(WallLargeEnableBackground) + Skin.Hassetting(WallLargeViewSmall) + !IntegerGreaterThan(Container(499).NumItems,011)</visible>
+						<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+					</control>
+
+					<!--Normal Posters - Bottom Row-->
+					<control type="image">
+						<description>background image</description>
+						<posx>97.5</posx>
+						<posy>699</posy>
+						<width>1724</width>
+						<height>331</height>
+						<texture border="40">listpanel_back.png</texture>
+						<visible>Skin.HasSetting(WallLargeEnableBackground) + !Skin.Hassetting(WallLargeViewSmall) + !IntegerGreaterThan(Container(499).NumItems,008)</visible>
+					</control>
+					<control type="image">    <!-- GLOW BACKROUND change by schimi-->
+						<posx>50</posx>
+						<posy>688</posy>
+						<width>1824</width>
+						<height>396</height>
+						<align>center</align>
+						<texture background="true">thumbs/listpanel_back_glow.png</texture>
+						<bordersize>18</bordersize>
+						<include>PanelGlowFade</include>
+						<include>Animation_VisibleChange400</include>
+						<visible>!Skin.HasSetting(DisableGlowbar) + Skin.HasSetting(WallLargeEnableBackground) + !Skin.Hassetting(WallLargeViewSmall) + !IntegerGreaterThan(Container(499).NumItems,008)</visible>
+						<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+					</control>
+
+					<!--Small Posters - Bottom 2 Rows-->
+					<control type="image">
+						<description>background image</description>
+						<posx>97.5</posx>
+						<posy>509</posy>
+						<width>1724</width>
+						<height>536</height>
+						<texture border="40">listpanel_back.png</texture>
+						<visible>Skin.HasSetting(WallLargeEnableBackground) + Skin.Hassetting(WallLargeViewSmall) + [IntegerGreaterThan(Container(499).NumItems,011) + !IntegerGreaterThan(Container(499).NumItems,023)]</visible>
+					</control>
+					<control type="image">    <!-- GLOW BACKROUND change by schimi-->
+						<posx>50</posx>
+						<posy>493</posy>
+						<width>1824</width>
+						<height>636</height>
+						<align>center</align>
+						<texture background="true">thumbs/listpanel_back_glow.png</texture>
+						<bordersize>18</bordersize>
+						<include>PanelGlowFade</include>
+						<include>Animation_VisibleChange400</include>
+						<visible>!Skin.HasSetting(DisableGlowbar) + Skin.HasSetting(WallLargeEnableBackground) + Skin.Hassetting(WallLargeViewSmall) + [IntegerGreaterThan(Container(499).NumItems,011) + !IntegerGreaterThan(Container(499).NumItems,023)]</visible>
+						<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+					</control>
+
+					<!--Normal Posters - 2 Rows-->
+					<control type="image">
+						<description>background image</description>
+						<posx>97.5</posx>
+						<posy>399</posy>
+						<width>1724</width>
+						<height>616</height>
+						<texture border="40">listpanel_back.png</texture>
+						<visible>Skin.HasSetting(WallLargeEnableBackground) + !Skin.Hassetting(WallLargeViewSmall) + [IntegerGreaterThan(Container(499).NumItems,008) + !IntegerGreaterThan(Container(499).NumItems,017)]</visible>
+					</control>
+					<control type="image">    <!-- GLOW BACKROUND change by schimi-->
+						<posx>50</posx>
+						<posy>378</posy>
+						<width>1824</width>
+						<height>741</height>
+						<align>center</align>
+						<texture background="true">thumbs/listpanel_back_glow.png</texture>
+						<bordersize>18</bordersize>
+						<include>PanelGlowFade</include>
+						<include>Animation_VisibleChange400</include>
+						<visible>!Skin.HasSetting(DisableGlowbar) + Skin.HasSetting(WallLargeEnableBackground) + !Skin.Hassetting(WallLargeViewSmall) + [IntegerGreaterThan(Container(499).NumItems,008) + !IntegerGreaterThan(Container(499).NumItems,017)]</visible>
+						<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+					</control>
+
+
+					<!--Small Posters - 3 Rows-->
+					<control type="image">
+						<description>background image</description>
+						<posx>97.5</posx>
+						<posy>299</posy>
+						<width>1724</width>
+						<height>746</height>
+						<texture border="40">listpanel_back.png</texture>
+						<visible>Skin.HasSetting(WallLargeEnableBackground) + Skin.Hassetting(WallLargeViewSmall) + [IntegerGreaterThan(Container(499).NumItems,023) + !IntegerGreaterThan(Container(499).NumItems,035)]</visible>
+					</control>
+					<control type="image">    <!-- GLOW BACKROUND change by schimi-->
+						<posx>50</posx>
+						<posy>273</posy>
+						<width>1824</width>
+						<height>896</height>
+						<align>center</align>
+						<texture background="true">thumbs/listpanel_back_glow.png</texture>
+						<bordersize>18</bordersize>
+						<include>PanelGlowFade</include>
+						<include>Animation_VisibleChange400</include>
+						<visible>!Skin.HasSetting(DisableGlowbar) + Skin.HasSetting(WallLargeEnableBackground) + Skin.Hassetting(WallLargeViewSmall) + [IntegerGreaterThan(Container(499).NumItems,023) + !IntegerGreaterThan(Container(499).NumItems,035)]</visible>
+						<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+					</control>
+					<!--Small Posters - Full Screen-->
+					<control type="image">
+						<description>background image</description>
+						<posx>97.5</posx>
+						<posy>99</posy>
+						<width>1724</width>
+						<height>946</height>
+						<texture border="40">listpanel_back.png</texture>
+						<visible>Skin.HasSetting(WallLargeEnableBackground) + Skin.Hassetting(WallLargeViewSmall) + IntegerGreaterThan(Container(499).NumItems,035)</visible>
+					</control>
+					<control type="image">    <!-- GLOW BACKROUND change by schimi-->
+						<posx>50</posx>
+						<posy>68</posy>
+						<width>1824</width>
+						<height>1136</height>
+						<align>center</align>
+						<texture background="true">thumbs/listpanel_back_glow.png</texture>
+						<bordersize>18</bordersize>
+						<include>PanelGlowFade</include>
+						<include>Animation_VisibleChange400</include>
+						<visible>!Skin.HasSetting(DisableGlowbar) + Skin.HasSetting(WallLargeEnableBackground) + Skin.Hassetting(WallLargeViewSmall) + IntegerGreaterThan(Container(499).NumItems,035)</visible>
+						<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+					</control>
+					<!--Normall Posters - Full Screen-->
+					<control type="image">
+						<description>background image</description>
+						<posx>97.5</posx>
+						<posy>109</posy>
+						<width>1724</width>
+						<height>901</height>
+						<texture border="40">listpanel_back.png</texture>
+						<visible>Skin.HasSetting(WallLargeEnableBackground) + !Skin.Hassetting(WallLargeViewSmall) + IntegerGreaterThan(Container(499).NumItems,017)</visible>
+					</control>
+					<control type="image">    <!-- GLOW BACKROUND change by schimi-->
+						<posx>50</posx>
+						<posy>78</posy>
+						<width>1824</width>
+						<height>1091</height>
+						<align>center</align>
+						<texture background="true">thumbs/listpanel_back_glow.png</texture>
+						<bordersize>18</bordersize>
+						<include>PanelGlowFade</include>
+						<include>Animation_VisibleChange400</include>
+						<visible>!Skin.HasSetting(DisableGlowbar) + Skin.HasSetting(WallLargeEnableBackground) + !Skin.Hassetting(WallLargeViewSmall) + IntegerGreaterThan(Container(499).NumItems,017)</visible>
+						<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+					</control>
+
+					<control type="panel" id="499">
 					<!--animation effect="slide" start="0" end="85" center="auto" time="750" delay="5" reversible="false" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems, 009)">Conditional</animation>
 					<animation effect="slide" start="0" end="185" center="auto" time="750" delay="5" reversible="false" tween="cubic" easing="inout" condition="IntegerLessThan(Container(499).NumItems, 018)">Conditional</animation-->
-					
+
 					<animation effect="slide" start="0,0" end="0,-300" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,008) + !Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
 					<animation effect="slide" start="0,0" end="0,-290" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,017) + !Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
-					
+
 					<animation effect="slide" start="0,0" end="0,60" delay="0" time="800" tween="cubic" easing="inout" condition="Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
 					<animation effect="slide" start="0,0" end="0,-220" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,011) + Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
 					<animation effect="slide" start="0,0" end="0,-210" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,023) + Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
 					<animation effect="slide" start="0,0" end="0,-210" delay="0" time="800" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(499).NumItems,035) + Skin.Hassetting(WallLargeViewSmall)">Conditional</animation>
-					
-                    <include>Wall_Dimmer</include>
+
+					<include>Wall_Dimmer</include>
 					<posx>127</posx>
-                    <posy>727</posy>
-                    <width>1743</width>
-                    <height>856</height>
+					<posy>727</posy>
+					<width>1743</width>
+					<height>856</height>
 					<onleft>62</onleft>
 					<onright condition="Control.IsVisible(60)">60</onright>
-                    <onright condition="!Control.IsVisible(60)">SetProperty(MediaMenu,True,home)</onright>
-                    <onright condition="!Control.IsVisible(60)">SetFocus(9050)</onright>
-                    <onleft>SetProperty(MediaMenu,True,home)</onleft>
-                    <onleft>SetFocus(9050)</onleft>
-                    <onup>499</onup>
-                    <ondown>499</ondown>
-                    <pagecontrol>60</pagecontrol>
-                    <preloaditems>2</preloaditems>
-                    <viewtype label="Wall Large">Panel</viewtype>
-                    <scrolltime tween="quadratic" easing="out">300</scrolltime>
-                    <visible>Container.Content(tvshows) | Container.Content(movies) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets) | Container.Content(genres)</visible>
-                    <itemlayout height="285" width="185" condition="!Skin.Hassetting(WallLargeViewSmall)">
-                        <control type="image">                      
+					<onright condition="!Control.IsVisible(60)">SetProperty(MediaMenu,True,home)</onright>
+					<onright condition="!Control.IsVisible(60)">SetFocus(9050)</onright>
+					<onleft>SetProperty(MediaMenu,True,home)</onleft>
+					<onleft>SetFocus(9050)</onleft>
+					<onup>499</onup>
+					<ondown>499</ondown>
+					<pagecontrol>60</pagecontrol>
+					<preloaditems>2</preloaditems>
+					<viewtype label="Wall Large">Panel</viewtype>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<visible>Container.Content(tvshows) | Container.Content(movies) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets) | Container.Content(genres)</visible>
+					<itemlayout height="285" width="185" condition="!Skin.Hassetting(WallLargeViewSmall)">
+						<control type="image">
 							<width>185</width>
-                            <height>275</height>
-                            <aspectratio>fit</aspectratio>
-                            <texture background="true">$VAR[ListPosterVar]</texture>
-                            <fadetime>400</fadetime>
-                            <bordertexture border="2">thumbs/panel_border3.png</bordertexture>
-                            <bordersize>4</bordersize>
-                            <colordiffuse>BAffffff</colordiffuse>	
+							<height>275</height>
+							<texture background="true">$VAR[ListPosterVar]</texture>
+							<fadetime>400</fadetime>
+							<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
+							<bordersize>4</bordersize>
+							<colordiffuse>BAffffff</colordiffuse>
 							<visible>Skin.Hassetting(WallLargeTransparentPoster)</visible>
-                        </control>
-						<control type="image">                      
+						</control>
+						<control type="image">
 							<width>185</width>
-                            <height>275</height>
-                            <aspectratio>fit</aspectratio>
-                            <texture background="true">$VAR[ListPosterVar]</texture>
-                            <fadetime>400</fadetime>
-                            <bordertexture border="2">thumbs/panel_border3.png</bordertexture>
-                            <bordersize>4</bordersize>
-                            <visible>!Skin.Hassetting(WallLargeTransparentPoster)</visible>
-                        </control>
+							<height>275</height>
+							<texture background="true">$VAR[ListPosterVar]</texture>
+							<fadetime>400</fadetime>
+							<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
+							<bordersize>4</bordersize>
+							<visible>!Skin.Hassetting(WallLargeTransparentPoster)</visible>
+						</control>
 						<!--Flags Start -->
-                        <control type="image">  <!-- inactive watched badges -->
+						<control type="image">  <!-- inactive watched badges -->
 							<left>127</left>
 							<top>3</top>
 							<width>55</width>
-                            <height>52</height>
+							<height>52</height>
 							<include>OverlayVisibility0</include>
 							<visible>![Skin.HasSetting(NoCaseForMovieset) + SubString(ListItem(0).Path,videodb://movies/sets)]</visible>
 						</control>
-						<control type="image">  <!-- inactive watched badges movieset view --> 
+						<control type="image">  <!-- inactive watched badges movieset view -->
 							<left>127</left>
 							<top>4</top>
 							<width>55</width>
-                            <height>52</height>
+							<height>52</height>
 							<include>OverlayVisibility0</include>
 							<visible>[Skin.HasSetting(NoCaseForMovieset) + SubString(ListItem(0).Path,videodb://movies/sets)]</visible>
 						</control>
 						<control type="image"> <!-- inactive resume badges -->
-                            <left>126</left>
+							<left>126</left>
 							<top>3</top>
-                            <width>55</width>
-                            <height>52</height>
+							<width>55</width>
+							<height>52</height>
 							<texture>overlayprogress.png</texture>
 							<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
 						</control>
 						<!--Flags End -->
-				    </itemlayout>
-                    <focusedlayout height="285" width="185" condition="!Skin.Hassetting(WallLargeViewSmall)">
-                        <control type="group">
-                            <animation type="Focus">
-                                <effect type="zoom" start="85" end="125" time="200" tween="sine" easing="inout" center="auto" />
-                                <effect type="fade" start="85" end="125" time="200" tween="sine" easing="in" />
-                            </animation>
+					</itemlayout>
+					<focusedlayout height="285" width="185" condition="!Skin.Hassetting(WallLargeViewSmall)">
+						<control type="group">
+							<animation type="Focus">
+								<effect type="zoom" start="85" end="125" time="200" tween="sine" easing="inout" center="auto" />
+								<effect type="fade" start="85" end="125" time="200" tween="sine" easing="in" />
+							</animation>
 							<control type="image">
 								<left>-1</left>
 								<top>52</top>
@@ -564,12 +560,12 @@
 								<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
 								<texture background="true">$INFO[ListItem.Art(discart)]</texture>
 								<animation type="focus" condition="Skin.Hassetting(WallLargeCDart)" reversible="false">
-									<effect type="slide" start="0" end="85" center="auto" time="750" delay="5" reversible="false" tween="cubic" easing="inout"/>
-									<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" reversible="false" tween="cubic" easing="inout"/>
+									<effect type="slide" start="0" end="85" center="auto" time="750" delay="5" tween="cubic" easing="inout"/>
+									<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" tween="cubic" easing="inout"/>
 								</animation>
 								<bordersize>7</bordersize>
 								<visible>Skin.Hassetting(WallLargeCDart) + !IsEmpty(ListItem.Art(discart))</visible>
-				            </control>
+							</control>
 							<control type="image">
 								<left>-5</left>
 								<top>42</top>
@@ -578,12 +574,12 @@
 								<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
 								<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[ListItem.Art(poster)]</texture>
 								<animation type="focus" condition="Skin.Hassetting(WallLargeCDart)" reversible="false">
-									<effect type="slide" start="0" end="85" center="auto" time="750" delay="5" reversible="false" tween="cubic" easing="inout"/>
-									<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" reversible="false" tween="cubic" easing="inout"/>
+									<effect type="slide" start="0" end="85" center="auto" time="750" delay="5" tween="cubic" easing="inout"/>
+									<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" tween="cubic" easing="inout"/>
 								</animation>
 								<bordersize>7</bordersize>
 								<visible>Skin.Hassetting(WallLargeCDart) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + [Container.Content(movies) | Container.Content(sets)] + Skin.Hassetting(Fakediscart)</visible>
-				            </control>
+							</control>
 							<control type="image">
 								<left>-5</left>
 								<top>42</top>
@@ -592,12 +588,12 @@
 								<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
 								<texture background="true">$VAR[FakeDiscArtOverlay]</texture>
 								<animation type="focus" condition="Skin.Hassetting(WallLargeCDart)" reversible="false">
-									<effect type="slide" start="0" end="85" center="auto" time="750" delay="5" reversible="false" tween="cubic" easing="inout"/>
-									<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" reversible="false" tween="cubic" easing="inout"/>
+									<effect type="slide" start="0" end="85" center="auto" time="750" delay="5" tween="cubic" easing="inout"/>
+									<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" tween="cubic" easing="inout"/>
 								</animation>
 								<bordersize>7</bordersize>
 								<visible>Skin.Hassetting(WallLargeCDart) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + [Container.Content(movies) | Container.Content(sets)] + Skin.Hassetting(Fakediscart)</visible>
-				            </control>
+							</control>
 							<control type="image">
 								<left>-5</left>
 								<top>42</top>
@@ -606,12 +602,12 @@
 								<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
 								<texture background="true">$VAR[FakeDischand]</texture>
 								<animation type="focus" condition="Skin.Hassetting(WallLargeCDart)" reversible="false">
-									<effect type="slide" start="0" end="85" center="auto" time="750" delay="5" reversible="false" tween="cubic" easing="inout"/>
-									<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" reversible="false" tween="cubic" easing="inout"/>
+									<effect type="slide" start="0" end="85" center="auto" time="750" delay="5" tween="cubic" easing="inout"/>
+									<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" tween="cubic" easing="inout"/>
 								</animation>
 								<bordersize>7</bordersize>
 								<visible>Skin.Hassetting(WallLargeCDart) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + [Container.Content(movies) | Container.Content(sets)] + Skin.Hassetting(Fakedischandwriting) + !SubString(ListItem(0).Path,videodb://movies/sets) + !Skin.Hassetting(Fakehanddisccolor)</visible>
-				            </control>
+							</control>
 							<control type="image">
 								<left>-5</left>
 								<top>42</top>
@@ -620,16 +616,16 @@
 								<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
 								<texture background="true">$VAR[FakeDischandcolor]</texture>
 								<animation type="focus" condition="Skin.Hassetting(WallLargeCDart)" reversible="false">
-									<effect type="slide" start="0" end="85" center="auto" time="750" delay="5" reversible="false" tween="cubic" easing="inout"/>
-									<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" reversible="false" tween="cubic" easing="inout"/>
+									<effect type="slide" start="0" end="85" center="auto" time="750" delay="5" tween="cubic" easing="inout"/>
+									<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" tween="cubic" easing="inout"/>
 								</animation>
 								<bordersize>7</bordersize>
 								<visible>Skin.Hassetting(WallLargeCDart) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + [Container.Content(movies) | Container.Content(sets)] + Skin.Hassetting(Fakedischandwriting) + !SubString(ListItem(0).Path,videodb://movies/sets) + Skin.Hassetting(fakehanddisccolor)</visible>
-				            </control>
+							</control>
 							<control type="textbox">
 								<animation type="focus" condition="Skin.Hassetting(WallLargeCDart) + Skin.Hassetting(Fakedischandwriting) + IsEmpty(Container.ListItem.Art(discart))" reversible="false">
-									<effect type="slide" start="0" end="85" center="auto" time="750" delay="5" reversible="false" tween="cubic" easing="inout"/>
-									<effect type="rotate" end="-360" center="90,137" time="6400" delay="1200" reversible="false" tween="cubic" easing="inout"/>
+									<effect type="slide" start="0" end="85" center="auto" time="750" delay="5" tween="cubic" easing="inout"/>
+									<effect type="rotate" end="-360" center="90,137" time="6400" delay="1200" tween="cubic" easing="inout"/>
 								</animation>
 								<left>25</left>
 								<top>62</top>
@@ -640,14 +636,12 @@
 								<aligny>top</aligny>
 								<visible>Skin.HasSetting(WallLargeCDart) + IsEmpty(ListItem.Art(discart)) + Container.Content(movies) + Skin.HasSetting(Fakedischandwriting) + !SubString(ListItem.Path,videodb://movies/sets) + IsEmpty(ListItem.Art(clearlogo))</visible>
 								<label>[CR][CR][CR][CR][CR][CR] $INFO[ListItem.Title]</label>
-								<scroll>false</scroll>
-								<wrapmultiline>true</wrapmultiline>
 								<textcolor>black</textcolor>
-								</control>
+							</control>
 							<control type="group">
 								<animation type="focus" condition="Skin.Hassetting(WallLargeCDart) + Skin.Hassetting(Fakedischandwriting) + IsEmpty(Container.ListItem.Art(discart))" reversible="false">
-									<effect type="slide" start="0" end="85" center="auto" time="750" delay="5" reversible="false" tween="cubic" easing="inout"/>
-									<effect type="rotate" end="-360" center="90,137" time="6400" delay="1200" reversible="false" tween="cubic" easing="inout"/>
+									<effect type="slide" start="0" end="85" center="auto" time="750" delay="5" tween="cubic" easing="inout"/>
+									<effect type="rotate" end="-360" center="90,137" time="6400" delay="1200" tween="cubic" easing="inout"/>
 								</animation>
 								<left>45</left>
 								<top>67</top>
@@ -659,44 +653,41 @@
 								<control type="image">
 									<texture background="true" fallback="empty.png">$INFO[ListItem.Art(clearlogo)]</texture>
 								</control>
-							</control>							
+							</control>
 							<!-- changed by schimi -->
 							<control type="image">
-									<posx>-1</posx>
-									<posy>19</posy>
-                                    <width>182</width>
-                                    <height>263</height>
-                                    <aspectratio>fit</aspectratio>
-                                    <texture background="true">$VAR[ListPosterVar]</texture>
-                                    <fadetime>400</fadetime>
-                                    <bordersize>8</bordersize>
-									<visible>Skin.Hassetting(WallLargeCases) + !Skin.HasSetting(clearcases) + [Container.Content(movies) | Container.Content(sets) | Container.Content(genres)]</visible>
-                            </control>
+								<posx>-1</posx>
+								<posy>19</posy>
+								<width>182</width>
+								<height>263</height>
+								<texture background="true">$VAR[ListPosterVar]</texture>
+								<fadetime>400</fadetime>
+								<bordersize>8</bordersize>
+								<visible>Skin.Hassetting(WallLargeCases) + !Skin.HasSetting(clearcases) + [Container.Content(movies) | Container.Content(sets) | Container.Content(genres)]</visible>
+							</control>
 							<!-- changed by schimi -->
 							<control type="image">
-									<posx>-2</posx>
-									<posy>14</posy>
-                                    <width>186</width>
-                                    <height>271</height>
-                                    <aspectratio>fit</aspectratio>
-                                    <texture background="true">$VAR[ListPosterVar]</texture>
-                                    <fadetime>400</fadetime>
-                                    <bordersize>9</bordersize>
-									<visible>Skin.Hassetting(WallLargeCases) + Skin.HasSetting(clearcases) + [Container.Content(movies) | Container.Content(sets) | Container.Content(genres)]</visible>
-                            </control>
+								<posx>-2</posx>
+								<posy>14</posy>
+								<width>186</width>
+								<height>271</height>
+								<texture background="true">$VAR[ListPosterVar]</texture>
+								<fadetime>400</fadetime>
+								<bordersize>9</bordersize>
+								<visible>Skin.Hassetting(WallLargeCases) + Skin.HasSetting(clearcases) + [Container.Content(movies) | Container.Content(sets) | Container.Content(genres)]</visible>
+							</control>
 							<!-- changed by schimi -->
 							<control type="image">
-									<posx>-2</posx>
-									<posy>15</posy>
-                                    <width>182</width>
-                                    <height>268</height>
-                                    <aspectratio>fit</aspectratio>
-                                    <texture background="true">$VAR[ListPosterVar]</texture>
-                                    <fadetime>400</fadetime>
-                                    <bordertexture border="8">thumbs/thumbnail_focused.png</bordertexture>
-                                    <bordersize>9</bordersize>
-									<visible>Container.Content(genres)</visible>
-                            </control>
+								<posx>-2</posx>
+								<posy>15</posy>
+								<width>182</width>
+								<height>268</height>
+								<texture background="true">$VAR[ListPosterVar]</texture>
+								<fadetime>400</fadetime>
+								<bordertexture border="8">thumbs/thumbnail_focused.png</bordertexture>
+								<bordersize>9</bordersize>
+								<visible>Container.Content(genres)</visible>
+							</control>
 							<!--MAD - Below is to replace thumbnail_focused above - but not 100% working -->
 							<!--control type="image">
 								<posx>-2</posx>
@@ -711,16 +702,15 @@
 							</control-->
 							<!-- changed by schimi -->
 							<control type="image">
-									<posy>4</posy>
-                                    <width>182</width>
-                                    <height>268</height>
-                                    <aspectratio>fit</aspectratio>
-                            		<texture background="true">$VAR[PosterThumbVar]</texture>
-                                    <fadetime>400</fadetime>
-                                    <bordertexture border="8">thumbs/thumbnail_focused.png</bordertexture>
-                                    <bordersize>7</bordersize>
-									<visible>[!Skin.Hassetting(WallLargeCases) + Container.Content(movies)] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
-                            </control>
+								<posy>4</posy>
+								<width>182</width>
+								<height>268</height>
+								<texture background="true">$VAR[PosterThumbVar]</texture>
+								<fadetime>400</fadetime>
+								<bordertexture border="8">thumbs/thumbnail_focused.png</bordertexture>
+								<bordersize>7</bordersize>
+								<visible>[!Skin.Hassetting(WallLargeCases) + Container.Content(movies)] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
+							</control>
 							<!--MAD - Below is to replace thumbnail_focused above - but not 100% working -->
 							<!--control type="image">
 								<posx>-6</posx>
@@ -738,305 +728,301 @@
                                     <texture>$VAR[OverlayVar]</texture>
 									<aspectratio align="center" aligny="top">keep</aspectratio>
                                     <bordersize>2</bordersize>
-                            </control-->
-							<control type="image">
-                                    <posx>-24</posx>
-                                    <width>212</width>
-                                    <height>281</height>
-                            		<texture background="true">thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
-                                    <aspectratio align="center" aligny="top">scale</aspectratio>
-                                    <bordersize>2</bordersize>
-									<visible>Skin.Hassetting(WallLargeCases) + Container.Content(movies) + [Skin.Hassetting(usecases) | Skin.Hassetting(clearcases)] + !SubString(ListItem(0).Path,videodb://movies/sets)</visible>
+                                </control-->
+                                <control type="image">
+                                	<posx>-24</posx>
+                                	<width>212</width>
+                                	<height>281</height>
+                                	<texture background="true">thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+                                	<aspectratio align="center" aligny="top">scale</aspectratio>
+                                	<bordersize>2</bordersize>
+                                	<visible>Skin.Hassetting(WallLargeCases) + Container.Content(movies) + [Skin.Hassetting(usecases) | Skin.Hassetting(clearcases)] + !SubString(ListItem(0).Path,videodb://movies/sets)</visible>
+                                </control>
+                                <!--Cases End -->
+                                <control type="image">   <!-- movie watched badge bdcase/colorcase active -->
+                                	<left>117</left>
+                                	<top>19</top>
+                                	<width>60</width>
+                                	<height>60</height>
+                                	<include>WatchedOverlayShowCase</include>
+                                	<include>OverlayVisibility0</include>
+                                	<visible>[!Skin.HasSetting(clearcases) + Skin.HasSetting(usecases)] + Skin.Hassetting(WallLargeCases) +  [Container.Content(movies) | Container.Content(sets)]</visible>
+                                </control>
+                                <control type="image">  <!-- movie watched badge clearcase active -->
+                                	<left>109</left>
+                                	<top>26</top>
+                                	<width>60</width>
+                                	<height>60</height>
+                                	<include>WatchedOverlayShowCase</include>
+                                	<include>OverlayVisibility0</include>
+                                	<visible>Skin.HasSetting(clearcases) + Skin.Hassetting(WallLargeCases) + [Container.Content(movies) | Container.Content(sets)]</visible>
+                                </control>
+                                <control type="image">       <!-- ????? -->
+                                	<left>119</left>
+                                	<top>3</top>
+                                	<width>60</width>
+                                	<height>60</height>
+                                	<include>WatchedOverlayShowCase</include>
+                                	<include>OverlayVisibility0</include>
+                                	<visible>!Skin.Hassetting(WallLargeCases) + [Skin.Hassetting(usecases) | Skin.Hassetting(clearcases)] + [Container.Content(movies) | Container.Content(sets)]</visible>
+                                </control>
+                                <control type="image">       <!-- ????? -->
+                                	<left>133</left>
+                                	<top>12</top>
+                                	<width>40</width>
+                                	<height>40</height>
+                                	<include>WatchedOverlayShowCase</include>
+                                	<include>OverlayVisibility0</include>
+                                	<visible>!Skin.Hassetting(WallLargeCases) + !Skin.Hassetting(usecases) + !Skin.Hassetting(clearcases) + [Container.Content(movies) | Container.Content(sets)]</visible>
+                                </control>
+                                <control type="image">  <!-- active movie watched badge nocase -->
+                                	<left>113</left>
+                                	<top>27</top>
+                                	<width>60</width>
+                                	<height>60</height>
+                                	<include>WatchedOverlayShowCase</include>
+                                	<include>OverlayVisibility0</include>
+                                	<visible>Skin.Hassetting(WallLargeCases) + !Skin.Hassetting(usecases) + !Skin.Hassetting(clearcases) + [Container.Content(movies) | Container.Content(sets)]</visible>
+                                </control>
+                                <!--Resume flag start -->
+                                <control type="image">   <!-- active resume badge clearcase case -->
+                                	<left>115</left>
+                                	<top>23</top>
+                                	<width>60</width>
+                                	<height>60</height>
+                                	<texture>overlayprogress.png</texture>
+                                	<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag) + Skin.HasSetting(clearcases) + Skin.Hassetting(WallLargeCases) + [Container.Content(movies) | Container.Content(sets)]</visible>
+                                </control>
+                                <control type="image">  <!-- active resume badge bdcase case -->
+                                	<left>112</left>
+                                	<top>28</top>
+                                	<width>60</width>
+                                	<height>60</height>
+                                	<texture>overlayprogress.png</texture>
+                                	<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag) + [!Skin.HasSetting(clearcases) + Skin.HasSetting(usecases)] + Skin.Hassetting(WallLargeCases) + [Container.Content(movies) | Container.Content(sets)]</visible>
+                                </control>
+                                <control type="image">   <!-- active resume badge nocase case -->
+                                	<left>115</left>
+                                	<top>11</top>
+                                	<width>60</width>
+                                	<height>60</height>
+                                	<texture>overlayprogress.png</texture>
+                                	<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag) + [[!Skin.HasSetting(clearcases) + !Skin.HasSetting(usecases)] | !Skin.HasSetting(WallLargeCases)] + [Container.Content(movies) | Container.Content(sets)]</visible>
+                                </control>
+                                <!--Resume flag end -->
+                                <!--TV Flags Start -->
+                                <control type="image">   <!-- watched badge tv active -->
+                                	<left>115</left>
+                                	<top>11</top>
+                                	<width>60</width>
+                                	<height>60</height>
+                                	<include>WatchedOverlayShowCase</include>
+                                	<include>OverlayVisibility0</include>
+                                	<visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+                                </control>
+                                <control type="image">   <!-- resume badge tv active DOESNT WORK -->
+                                	<left>142</left>
+                                	<top>28</top>
+                                	<width>60</width>
+                                	<height>60</height>
+                                	<texture>overlayprogress.png</texture>
+                                	<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag) + Container.Content(tvshows)</visible>
+                                </control>
+                                <!--TV Flags End -->
                             </control>
-							<!--Cases End -->
-							<control type="image">   <!-- movie watched badge bdcase/colorcase active -->
-									<left>117</left>
-									<top>19</top>
-									<width>60</width>
-                                    <height>60</height>
-									<include>WatchedOverlayShowCase</include>
-									<include>OverlayVisibility0</include>
-									<visible>[!Skin.HasSetting(clearcases) + Skin.HasSetting(usecases)] + Skin.Hassetting(WallLargeCases) +  [Container.Content(movies) | Container.Content(sets)]</visible>
-							</control>
-							<control type="image">  <!-- movie watched badge clearcase active -->
-									<left>109</left>
-									<top>26</top>
-									<width>60</width>
-                                    <height>60</height>
-									<include>WatchedOverlayShowCase</include>
-									<include>OverlayVisibility0</include>
-									<visible>Skin.HasSetting(clearcases) + Skin.Hassetting(WallLargeCases) + [Container.Content(movies) | Container.Content(sets)]</visible>
-							</control>
-							<control type="image">       <!-- ????? -->
-									<left>119</left>
-									<top>3</top>
-									<width>60</width>
-                                    <height>60</height>
-									<include>WatchedOverlayShowCase</include>
-									<include>OverlayVisibility0</include>
-									<visible>!Skin.Hassetting(WallLargeCases) + [Skin.Hassetting(usecases) | Skin.Hassetting(clearcases)] + [Container.Content(movies) | Container.Content(sets)]</visible>
-							</control>
-							<control type="image">       <!-- ????? -->
-									<left>133</left>
-									<top>12</top>
-									<width>40</width>
-                                    <height>40</height>
-									<include>WatchedOverlayShowCase</include>
-									<include>OverlayVisibility0</include>
-									<visible>!Skin.Hassetting(WallLargeCases) + !Skin.Hassetting(usecases) + !Skin.Hassetting(clearcases) + [Container.Content(movies) | Container.Content(sets)]</visible>
-							</control>
-							<control type="image">  <!-- active movie watched badge nocase -->
-									<left>113</left>
-									<top>27</top>
-									<width>60</width>
-                                    <height>60</height>
-									<include>WatchedOverlayShowCase</include>
-									<include>OverlayVisibility0</include>
-									<visible>Skin.Hassetting(WallLargeCases) + !Skin.Hassetting(usecases) + !Skin.Hassetting(clearcases) + [Container.Content(movies) | Container.Content(sets)]</visible>
-							</control>
-							<!--Resume flag start -->
-							<control type="image">   <!-- active resume badge clearcase case -->
-                                <left>115</left>
-                                <top>23</top>
-                                <width>60</width>
-                                <height>60</height>
-								<texture>overlayprogress.png</texture>
-								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag) + Skin.HasSetting(clearcases) + Skin.Hassetting(WallLargeCases) + [Container.Content(movies) | Container.Content(sets)]</visible>
-							</control>
-							<control type="image">  <!-- active resume badge bdcase case -->
-                                <left>112</left>
-                                <top>28</top>
-                                <width>60</width>
-                                <height>60</height>
-								<texture>overlayprogress.png</texture>
-								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag) + [!Skin.HasSetting(clearcases) + Skin.HasSetting(usecases)] + Skin.Hassetting(WallLargeCases) + [Container.Content(movies) | Container.Content(sets)]</visible>
-							</control>
-							<control type="image">   <!-- active resume badge nocase case -->
-                                <left>115</left>
-                                <top>11</top>
-                                <width>60</width>
-                                <height>60</height>
-								<texture>overlayprogress.png</texture>
-								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag) + [[!Skin.HasSetting(clearcases) + !Skin.HasSetting(usecases)] | !Skin.HasSetting(WallLargeCases)] + [Container.Content(movies) | Container.Content(sets)]</visible>
-							</control>
-							<!--Resume flag end -->
-							<!--TV Flags Start -->
-							<control type="image">   <!-- watched badge tv active -->
-									<left>115</left>
-									<top>11</top>
-									<width>60</width>
-                                    <height>60</height>
-									<include>WatchedOverlayShowCase</include>
-									<include>OverlayVisibility0</include>
-									<visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
-							</control>
-							<control type="image">   <!-- resume badge tv active DOESNT WORK -->
-                                <left>142</left>
-                                <top>28</top>
-                                <width>60</width>
-                                <height>60</height>
-								<texture>overlayprogress.png</texture>
-								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag) + Container.Content(tvshows)</visible>
-							</control>
-							<!--TV Flags End -->
-					    </control>
-                    </focusedlayout>
-									
-					<!--MAD - New Small View -->
-					<itemlayout height="214" width="138.7" condition="Skin.Hassetting(WallLargeViewSmall)">
-                        <control type="image">                   <!-- transparent inactive poster -->    
-							<width>139</width>
-                            <height>207</height>
-                            <aspectratio>fit</aspectratio>
-                            <texture background="true">$VAR[ListPosterVar]</texture>
-                            <fadetime>400</fadetime>
-                            <bordertexture border="2">thumbs/panel_border3.png</bordertexture>
-                            <bordersize>3</bordersize>
-                            <colordiffuse>BAffffff</colordiffuse>
-							<visible>Skin.Hassetting(WallLargeTransparentPoster)</visible>
-                        </control>
-						<control type="image">   <!-- inactive covers -->                   
-							<width>139</width>
-                            <height>207</height>
-                            <aspectratio>fit</aspectratio>
-                            <texture background="true">$VAR[ListPosterVar]</texture>
-                            <fadetime>400</fadetime>
-                            <bordertexture border="3">thumbs/panel_border3.png</bordertexture>
-                            <bordersize>3</bordersize>
-                            <visible>!Skin.Hassetting(WallLargeTransparentPoster)</visible>
-                        </control>
-						<!--Flags Start -->
-                        <control type="image">  <!-- inactive watch badges -->
-							<left>86</left>
-							<top>2</top>
-							<width>50</width>
-                            <height>47</height>
-							<include>OverlayVisibility0</include>
-							<visible>![Skin.HasSetting(NoCaseForMovieset) + SubString(ListItem(0).Path,videodb://movies/sets)]</visible>
-						</control>						
-						<control type="image">  <!-- inactive watch badges movieset --> 
-							<left>86</left>
-							<top>2</top>
-							<width>50</width>
-                            <height>47</height>
-							<include>OverlayVisibility0</include>
-							<visible>[Skin.HasSetting(NoCaseForMovieset) + SubString(ListItem(0).Path,videodb://movies/sets)]</visible>
-						</control>
-						<control type="image">    <!-- inactive resume badges -->
-                            <left>86</left>
-							<top>2</top>
-                            <width>50</width>
-                            <height>47</height>
-							<texture>overlayprogress.png</texture>
-							<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-						</control>
-						<!--Flags End -->
-				    </itemlayout>
-                    <focusedlayout height="214" width="138.7" condition="Skin.Hassetting(WallLargeViewSmall)">
-                        <control type="group">
-                            <animation type="Focus">
-                                <effect type="zoom" start="50" end="140" time="200" tween="sine" easing="inout" center="auto" />
-                                <effect type="fade" start="50" end="140" time="200" tween="sine" easing="in" />
-                            </animation>
-							<control type="image">
-								<left>-3</left>
-								<top>32</top>
-								<width>135</width>
-								<height>135</height>
-								<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-								<texture background="true">$INFO[ListItem.Art(discart)]</texture>
-								<animation type="focus" condition="Skin.Hassetting(WallLargeCDart)" reversible="false">
-									<effect type="slide" start="10" end="62" center="auto" time="750" delay="5" reversible="false" tween="cubic" easing="inout"/>
-									<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" reversible="false" tween="cubic" easing="inout"/>
-								</animation>
-								<bordersize>7</bordersize>
-								<visible>Skin.Hassetting(WallLargeCDart) + !IsEmpty(ListItem.Art(discart))</visible>
-				            </control>
-							<control type="image">
-								<left>-3</left>
-								<top>32</top>
-								<width>135</width>
-								<height>135</height>
-								<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-								<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[ListItem.Art(poster)]</texture>
-								<animation type="focus" condition="Skin.Hassetting(WallLargeCDart)" reversible="false">
-									<effect type="slide" start="10" end="62" center="auto" time="750" delay="5" reversible="false" tween="cubic" easing="inout"/>
-									<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" reversible="false" tween="cubic" easing="inout"/>
-								</animation>
-								<bordersize>7</bordersize>
-								<visible>Skin.Hassetting(WallLargeCDart) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + [Container.Content(movies) | Container.Content(sets)] + Skin.Hassetting(Fakediscart)</visible>
-				            </control>
-							<control type="image">
-								<left>-3</left>
-								<top>32</top>
-								<width>135</width>
-								<height>135</height>
-								<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-								<texture background="true">$VAR[FakeDiscArtOverlay]</texture>
-								<animation type="focus" condition="Skin.Hassetting(WallLargeCDart)" reversible="false">
-									<effect type="slide" start="10" end="62" center="auto" time="750" delay="5" reversible="false" tween="cubic" easing="inout"/>
-									<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" reversible="false" tween="cubic" easing="inout"/>
-								</animation>
-								<bordersize>7</bordersize>
-								<visible>Skin.Hassetting(WallLargeCDart) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + [Container.Content(movies) | Container.Content(sets)] + Skin.Hassetting(Fakediscart)</visible>
-				            </control>
-							<control type="image">
-								<left>-5</left>
-								<top>32</top>
-								<width>135</width>
-								<height>135</height>
-								<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-								<texture background="true">$VAR[FakeDischand]</texture>
-								<animation type="focus" condition="Skin.Hassetting(WallLargeCDart)" reversible="false">
-									<effect type="slide" start="10" end="62" center="auto" time="750" delay="5" reversible="false" tween="cubic" easing="inout"/>
-									<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" reversible="false" tween="cubic" easing="inout"/>
-								</animation>
-								<bordersize>7</bordersize>
-								<visible>Skin.Hassetting(WallLargeCDart) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + [Container.Content(movies) | Container.Content(sets)] + Skin.Hassetting(Fakedischandwriting) + !SubString(ListItem(0).Path,videodb://movies/sets) + !Skin.Hassetting(Fakehanddisccolor)</visible>
-				            </control>
-							<control type="image">
-								<left>-3</left>
-								<top>32</top>
-								<width>135</width>
-								<height>135</height>
-								<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-								<texture background="true">$VAR[FakeDischandcolor]</texture>
-								<animation type="focus" condition="Skin.Hassetting(WallLargeCDart)" reversible="false">
-									<effect type="slide" start="10" end="62" center="auto" time="750" delay="5" reversible="false" tween="cubic" easing="inout"/>
-									<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" reversible="false" tween="cubic" easing="inout"/>
-								</animation>
-								<bordersize>7</bordersize>
-								<visible>Skin.Hassetting(WallLargeCDart) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + [Container.Content(movies) | Container.Content(sets)] + Skin.Hassetting(Fakedischandwriting) + !SubString(ListItem(0).Path,videodb://movies/sets) + Skin.Hassetting(fakehanddisccolor)</visible>
-				            </control>
-							<control type="textbox">
-								<animation type="focus" condition="Skin.Hassetting(WallLargeCDart) + Skin.Hassetting(Fakedischandwriting) + IsEmpty(Container.ListItem.Art(discart))" reversible="false">
-									<effect type="slide" start="20" end="85" center="auto" time="750" delay="5" reversible="false" tween="cubic" easing="inout"/>
-									<effect type="rotate" end="-360" center="43,99" time="6400" delay="1200" reversible="false" tween="cubic" easing="inout"/>
-								</animation>
-								<left>-4</left>
-								<top>42</top>
-								<width>88</width>
-								<height>130</height>
-								<font>Hand_10</font>
-								<align>center</align>
-								<aligny>top</aligny>
-								<visible>Skin.HasSetting(WallLargeCDart) + IsEmpty(ListItem.Art(discart)) + Container.Content(movies) + Skin.HasSetting(Fakedischandwriting) + !SubString(ListItem.Path,videodb://movies/sets) + IsEmpty(ListItem.Art(clearlogo))</visible>
-								<label>[CR][CR][CR][CR][CR][CR] $INFO[ListItem.Title]</label>
-								<scroll>false</scroll>
-								<wrapmultiline>true</wrapmultiline>
-								<textcolor>black</textcolor>
-								</control>
-							<control type="group">
-								<animation type="focus" condition="Skin.Hassetting(WallLargeCDart) + Skin.Hassetting(Fakedischandwriting) + IsEmpty(Container.ListItem.Art(discart))" reversible="false">
-									<effect type="slide" start="20" end="85" center="auto" time="750" delay="5" reversible="false" tween="cubic" easing="inout"/>
-									<effect type="rotate" end="-360" center="43,99" time="6400" delay="1200" reversible="false" tween="cubic" easing="inout"/>
-								</animation>
-								<left>3</left>
-								<top>52</top>
-								<width>70</width>
-								<height>30</height>
-								<align>center</align>
-								<aspectratio align="center" aligny="top">keep</aspectratio>
-								<visible>Skin.HasSetting(WallLargeCDart) + IsEmpty(ListItem.Art(discart)) + Container.Content(movies) + Skin.HasSetting(Fakedischandwriting) + !SubString(ListItem.Path,videodb://movies/sets) + !IsEmpty(ListItem.Art(clearlogo))</visible>
-								<control type="image">
-									<texture background="true" fallback="empty.png">$INFO[ListItem.Art(clearlogo)]</texture>
-								</control>
-							</control>							
-							<control type="image">
-									<posx>2</posx>
-									<posy>10</posy>
-                                    <width>134</width>
-                                    <height>192</height>
-                                    <aspectratio>stretch</aspectratio>
-                                    <texture background="true">$VAR[ListPosterVar]</texture>
-                                    <fadetime>400</fadetime>
-                                    <bordersize>8</bordersize>
-									<visible>Skin.Hassetting(WallLargeCases) + !Skin.HasSetting(clearcases) + [Container.Content(movies) | Container.Content(sets) | Container.Content(genres)]</visible>
-                            </control>
-							<control type="image">
-									<posx>-1</posx>
-									<posy>6</posy>
-                                    <width>140</width>
-                                    <height>199</height>
-                                    <aspectratio>stretch</aspectratio>
-                                    <texture background="true">$VAR[ListPosterVar]</texture>
-                                    <fadetime>400</fadetime>
-                                    <bordersize>9</bordersize>
-									<visible>Skin.Hassetting(WallLargeCases) + Skin.HasSetting(clearcases) + [Container.Content(movies) | Container.Content(sets) | Container.Content(genres)]</visible>
-                            </control>
-							<control type="image">
-									<posx>-2</posx>
-									<posy>15</posy>
-                                    <width>126</width>
-                                    <height>197.5</height>
-                                    <aspectratio>stretch</aspectratio>
-                                    <texture background="true">$VAR[ListPosterVar]</texture>
-                                    <fadetime>400</fadetime>
-                                    <bordertexture border="2">thumbs/thumbnail_focused.png</bordertexture>
-                                    <bordersize>9</bordersize>
-									<visible>Container.Content(genres)</visible>
-                            </control>
-							<!--MAD - Below is to replace thumbnail_focused above - but not 100% working -->
+                        </focusedlayout>
+
+                        <!--MAD - New Small View -->
+                        <itemlayout height="214" width="138.7" condition="Skin.Hassetting(WallLargeViewSmall)">
+                        	<control type="image">                   <!-- transparent inactive poster -->
+                        		<width>139</width>
+                        		<height>207</height>
+                        		<texture background="true">$VAR[ListPosterVar]</texture>
+                        		<fadetime>400</fadetime>
+                        		<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
+                        		<bordersize>3</bordersize>
+                        		<colordiffuse>BAffffff</colordiffuse>
+                        		<visible>Skin.Hassetting(WallLargeTransparentPoster)</visible>
+                        	</control>
+                        	<control type="image">   <!-- inactive covers -->
+                        		<width>139</width>
+                        		<height>207</height>
+                        		<texture background="true">$VAR[ListPosterVar]</texture>
+                        		<fadetime>400</fadetime>
+                        		<bordertexture border="3">thumbs/panel_border3.png</bordertexture>
+                        		<bordersize>3</bordersize>
+                        		<visible>!Skin.Hassetting(WallLargeTransparentPoster)</visible>
+                        	</control>
+                        	<!--Flags Start -->
+                        	<control type="image">  <!-- inactive watch badges -->
+                        		<left>86</left>
+                        		<top>2</top>
+                        		<width>50</width>
+                        		<height>47</height>
+                        		<include>OverlayVisibility0</include>
+                        		<visible>![Skin.HasSetting(NoCaseForMovieset) + SubString(ListItem(0).Path,videodb://movies/sets)]</visible>
+                        	</control>
+                        	<control type="image">  <!-- inactive watch badges movieset -->
+                        		<left>86</left>
+                        		<top>2</top>
+                        		<width>50</width>
+                        		<height>47</height>
+                        		<include>OverlayVisibility0</include>
+                        		<visible>[Skin.HasSetting(NoCaseForMovieset) + SubString(ListItem(0).Path,videodb://movies/sets)]</visible>
+                        	</control>
+                        	<control type="image">    <!-- inactive resume badges -->
+                        		<left>86</left>
+                        		<top>2</top>
+                        		<width>50</width>
+                        		<height>47</height>
+                        		<texture>overlayprogress.png</texture>
+                        		<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+                        	</control>
+                        	<!--Flags End -->
+                        </itemlayout>
+                        <focusedlayout height="214" width="138.7" condition="Skin.Hassetting(WallLargeViewSmall)">
+                        	<control type="group">
+                        		<animation type="Focus">
+                        			<effect type="zoom" start="50" end="140" time="200" tween="sine" easing="inout" center="auto" />
+                        			<effect type="fade" start="50" end="140" time="200" tween="sine" easing="in" />
+                        		</animation>
+                        		<control type="image">
+                        			<left>-3</left>
+                        			<top>32</top>
+                        			<width>135</width>
+                        			<height>135</height>
+                        			<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+                        			<texture background="true">$INFO[ListItem.Art(discart)]</texture>
+                        			<animation type="focus" condition="Skin.Hassetting(WallLargeCDart)" reversible="false">
+                        				<effect type="slide" start="10" end="62" center="auto" time="750" delay="5" tween="cubic" easing="inout"/>
+                        				<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" tween="cubic" easing="inout"/>
+                        			</animation>
+                        			<bordersize>7</bordersize>
+                        			<visible>Skin.Hassetting(WallLargeCDart) + !IsEmpty(ListItem.Art(discart))</visible>
+                        		</control>
+                        		<control type="image">
+                        			<left>-3</left>
+                        			<top>32</top>
+                        			<width>135</width>
+                        			<height>135</height>
+                        			<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+                        			<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[ListItem.Art(poster)]</texture>
+                        			<animation type="focus" condition="Skin.Hassetting(WallLargeCDart)" reversible="false">
+                        				<effect type="slide" start="10" end="62" center="auto" time="750" delay="5" tween="cubic" easing="inout"/>
+                        				<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" tween="cubic" easing="inout"/>
+                        			</animation>
+                        			<bordersize>7</bordersize>
+                        			<visible>Skin.Hassetting(WallLargeCDart) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + [Container.Content(movies) | Container.Content(sets)] + Skin.Hassetting(Fakediscart)</visible>
+                        		</control>
+                        		<control type="image">
+                        			<left>-3</left>
+                        			<top>32</top>
+                        			<width>135</width>
+                        			<height>135</height>
+                        			<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+                        			<texture background="true">$VAR[FakeDiscArtOverlay]</texture>
+                        			<animation type="focus" condition="Skin.Hassetting(WallLargeCDart)" reversible="false">
+                        				<effect type="slide" start="10" end="62" center="auto" time="750" delay="5" tween="cubic" easing="inout"/>
+                        				<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" tween="cubic" easing="inout"/>
+                        			</animation>
+                        			<bordersize>7</bordersize>
+                        			<visible>Skin.Hassetting(WallLargeCDart) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + [Container.Content(movies) | Container.Content(sets)] + Skin.Hassetting(Fakediscart)</visible>
+                        		</control>
+                        		<control type="image">
+                        			<left>-5</left>
+                        			<top>32</top>
+                        			<width>135</width>
+                        			<height>135</height>
+                        			<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+                        			<texture background="true">$VAR[FakeDischand]</texture>
+                        			<animation type="focus" condition="Skin.Hassetting(WallLargeCDart)" reversible="false">
+                        				<effect type="slide" start="10" end="62" center="auto" time="750" delay="5" tween="cubic" easing="inout"/>
+                        				<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" tween="cubic" easing="inout"/>
+                        			</animation>
+                        			<bordersize>7</bordersize>
+                        			<visible>Skin.Hassetting(WallLargeCDart) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + [Container.Content(movies) | Container.Content(sets)] + Skin.Hassetting(Fakedischandwriting) + !SubString(ListItem(0).Path,videodb://movies/sets) + !Skin.Hassetting(Fakehanddisccolor)</visible>
+                        		</control>
+                        		<control type="image">
+                        			<left>-3</left>
+                        			<top>32</top>
+                        			<width>135</width>
+                        			<height>135</height>
+                        			<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+                        			<texture background="true">$VAR[FakeDischandcolor]</texture>
+                        			<animation type="focus" condition="Skin.Hassetting(WallLargeCDart)" reversible="false">
+                        				<effect type="slide" start="10" end="62" center="auto" time="750" delay="5" tween="cubic" easing="inout"/>
+                        				<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" tween="cubic" easing="inout"/>
+                        			</animation>
+                        			<bordersize>7</bordersize>
+                        			<visible>Skin.Hassetting(WallLargeCDart) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + [Container.Content(movies) | Container.Content(sets)] + Skin.Hassetting(Fakedischandwriting) + !SubString(ListItem(0).Path,videodb://movies/sets) + Skin.Hassetting(fakehanddisccolor)</visible>
+                        		</control>
+                        		<control type="textbox">
+                        			<animation type="focus" condition="Skin.Hassetting(WallLargeCDart) + Skin.Hassetting(Fakedischandwriting) + IsEmpty(Container.ListItem.Art(discart))" reversible="false">
+                        				<effect type="slide" start="20" end="85" center="auto" time="750" delay="5" tween="cubic" easing="inout"/>
+                        				<effect type="rotate" end="-360" center="43,99" time="6400" delay="1200" tween="cubic" easing="inout"/>
+                        			</animation>
+                        			<left>-4</left>
+                        			<top>42</top>
+                        			<width>88</width>
+                        			<height>130</height>
+                        			<font>Hand_10</font>
+                        			<align>center</align>
+                        			<aligny>top</aligny>
+                        			<visible>Skin.HasSetting(WallLargeCDart) + IsEmpty(ListItem.Art(discart)) + Container.Content(movies) + Skin.HasSetting(Fakedischandwriting) + !SubString(ListItem.Path,videodb://movies/sets) + IsEmpty(ListItem.Art(clearlogo))</visible>
+                        			<label>[CR][CR][CR][CR][CR][CR] $INFO[ListItem.Title]</label>
+                        			<textcolor>black</textcolor>
+                        		</control>
+                        		<control type="group">
+                        			<animation type="focus" condition="Skin.Hassetting(WallLargeCDart) + Skin.Hassetting(Fakedischandwriting) + IsEmpty(Container.ListItem.Art(discart))" reversible="false">
+                        				<effect type="slide" start="20" end="85" center="auto" time="750" delay="5" tween="cubic" easing="inout"/>
+                        				<effect type="rotate" end="-360" center="43,99" time="6400" delay="1200" tween="cubic" easing="inout"/>
+                        			</animation>
+                        			<left>3</left>
+                        			<top>52</top>
+                        			<width>70</width>
+                        			<height>30</height>
+                        			<align>center</align>
+                        			<aspectratio align="center" aligny="top">keep</aspectratio>
+                        			<visible>Skin.HasSetting(WallLargeCDart) + IsEmpty(ListItem.Art(discart)) + Container.Content(movies) + Skin.HasSetting(Fakedischandwriting) + !SubString(ListItem.Path,videodb://movies/sets) + !IsEmpty(ListItem.Art(clearlogo))</visible>
+                        			<control type="image">
+                        				<texture background="true" fallback="empty.png">$INFO[ListItem.Art(clearlogo)]</texture>
+                        			</control>
+                        		</control>
+                        		<control type="image">
+                        			<posx>2</posx>
+                        			<posy>10</posy>
+                        			<width>134</width>
+                        			<height>192</height>
+                        			<aspectratio>stretch</aspectratio>
+                        			<texture background="true">$VAR[ListPosterVar]</texture>
+                        			<fadetime>400</fadetime>
+                        			<bordersize>8</bordersize>
+                        			<visible>Skin.Hassetting(WallLargeCases) + !Skin.HasSetting(clearcases) + [Container.Content(movies) | Container.Content(sets) | Container.Content(genres)]</visible>
+                        		</control>
+                        		<control type="image">
+                        			<posx>-1</posx>
+                        			<posy>6</posy>
+                        			<width>140</width>
+                        			<height>199</height>
+                        			<aspectratio>stretch</aspectratio>
+                        			<texture background="true">$VAR[ListPosterVar]</texture>
+                        			<fadetime>400</fadetime>
+                        			<bordersize>9</bordersize>
+                        			<visible>Skin.Hassetting(WallLargeCases) + Skin.HasSetting(clearcases) + [Container.Content(movies) | Container.Content(sets) | Container.Content(genres)]</visible>
+                        		</control>
+                        		<control type="image">
+                        			<posx>-2</posx>
+                        			<posy>15</posy>
+                        			<width>126</width>
+                        			<height>197.5</height>
+                        			<aspectratio>stretch</aspectratio>
+                        			<texture background="true">$VAR[ListPosterVar]</texture>
+                        			<fadetime>400</fadetime>
+                        			<bordertexture border="2">thumbs/thumbnail_focused.png</bordertexture>
+                        			<bordersize>9</bordersize>
+                        			<visible>Container.Content(genres)</visible>
+                        		</control>
+                        		<!--MAD - Below is to replace thumbnail_focused above - but not 100% working -->
 							<!--control type="image">
 								<posx>-2</posx>
 								<posy>15</posy>
@@ -1049,17 +1035,16 @@
 								<visible>Container.Content(genres)</visible>
 							</control-->
 							<control type="image">  <!-- TV Active cover -->
-									<posx>15</posx>
-									<posy>4</posy>
-                                    <width>126</width>
-                                    <height>188</height>
-                                    <aspectratio>fit</aspectratio>
-                            		<texture background="true">$VAR[PosterThumbVar]</texture>
-                                    <fadetime>200</fadetime>
-                                    <bordertexture border="2">thumbs/thumbnail_focused.png</bordertexture>
-                                    <bordersize>7</bordersize>
-									<visible>[!Skin.Hassetting(WallLargeCases) + Container.Content(movies)] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
-                            </control>
+								<posx>15</posx>
+								<posy>4</posy>
+								<width>126</width>
+								<height>188</height>
+								<texture background="true">$VAR[PosterThumbVar]</texture>
+								<fadetime>200</fadetime>
+								<bordertexture border="2">thumbs/thumbnail_focused.png</bordertexture>
+								<bordersize>7</bordersize>
+								<visible>[!Skin.Hassetting(WallLargeCases) + Container.Content(movies)] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
+							</control>
 							<!--MAD - Below is to replace thumbnail_focused above - but not 100% working -->
 							<!--control type="image">
 								<posx>-6</posx>
@@ -1069,138 +1054,138 @@
 								<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
 								<visible>[!Skin.Hassetting(WallLargeCases) + Container.Content(movies)] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
 							</control-->
-                    		<control type="image">   <!-- cases position -->
-                                    <posx>-16</posx>
-									<posy>-2</posy>
-                                    <width>157</width>
-                                    <height>208</height>
-                            		<texture background="true">thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
-                                    <!--aspectratio align="center" aligny="top">scale</aspectratio-->
-									<aspectratio>keep</aspectratio>
-                                    <bordersize>2</bordersize>
-									<visible>Skin.Hassetting(WallLargeCases) + Container.Content(movies) + [Skin.Hassetting(usecases) | Skin.Hassetting(clearcases)] + !SubString(ListItem(0).Path,videodb://movies/sets)</visible>
-                            </control>
+							<control type="image">   <!-- cases position -->
+								<posx>-16</posx>
+								<posy>-2</posy>
+								<width>157</width>
+								<height>208</height>
+								<texture background="true">thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+								<!--aspectratio align="center" aligny="top">scale</aspectratio-->
+								<aspectratio>keep</aspectratio>
+								<bordersize>2</bordersize>
+								<visible>Skin.Hassetting(WallLargeCases) + Container.Content(movies) + [Skin.Hassetting(usecases) | Skin.Hassetting(clearcases)] + !SubString(ListItem(0).Path,videodb://movies/sets)</visible>
+							</control>
 							<!--Cases End -->
 							<control type="image">     <!-- movie watched badge bdcase/colorcase active -->
-									<left>81</left>
-									<top>10</top>
-									<width>50</width>
-                                    <height>47</height>
-									<include>WatchedOverlayShowCase</include>
-									<include>OverlayVisibility0</include>
-									<visible>[!Skin.HasSetting(clearcases) + Skin.HasSetting(usecases)] + Skin.Hassetting(WallLargeCases) + [Container.Content(movies) | Container.Content(sets)]</visible>
+								<left>81</left>
+								<top>10</top>
+								<width>50</width>
+								<height>47</height>
+								<include>WatchedOverlayShowCase</include>
+								<include>OverlayVisibility0</include>
+								<visible>[!Skin.HasSetting(clearcases) + Skin.HasSetting(usecases)] + Skin.Hassetting(WallLargeCases) + [Container.Content(movies) | Container.Content(sets)]</visible>
 							</control>
 							<control type="image">  <!-- movie watched badge clearcase active -->
-									<left>74</left>
-									<top>18</top>
-									<width>50</width>
-                                    <height>47</height>
-									<include>WatchedOverlayShowCase</include>
-									<include>OverlayVisibility0</include>
-									<visible>Skin.HasSetting(clearcases) + Skin.Hassetting(WallLargeCases) + [Container.Content(movies) | Container.Content(sets)]</visible>
+								<left>74</left>
+								<top>18</top>
+								<width>50</width>
+								<height>47</height>
+								<include>WatchedOverlayShowCase</include>
+								<include>OverlayVisibility0</include>
+								<visible>Skin.HasSetting(clearcases) + Skin.Hassetting(WallLargeCases) + [Container.Content(movies) | Container.Content(sets)]</visible>
 							</control>
 							<control type="image">     <!-- ????? -->
-									<left>88</left>
-									<top>3</top>
-									<width>50</width>
-                                    <height>47</height>
-									<include>WatchedOverlayShowCase</include>
-									<include>OverlayVisibility0</include>
-									<visible>!Skin.Hassetting(WallLargeCases) + [Skin.Hassetting(usecases) | Skin.Hassetting(clearcases)] + [Container.Content(movies) | Container.Content(sets)]</visible>
+								<left>88</left>
+								<top>3</top>
+								<width>50</width>
+								<height>47</height>
+								<include>WatchedOverlayShowCase</include>
+								<include>OverlayVisibility0</include>
+								<visible>!Skin.Hassetting(WallLargeCases) + [Skin.Hassetting(usecases) | Skin.Hassetting(clearcases)] + [Container.Content(movies) | Container.Content(sets)]</visible>
 							</control>
 							<control type="image">   <!-- ????? -->
-									<left>78</left>
-									<top>12</top>
-									<width>40</width>
-                                    <height>40</height>
-									<include>WatchedOverlayShowCase</include>
-									<include>OverlayVisibility0</include>
-									<visible>!Skin.Hassetting(WallLargeCases) + !Skin.Hassetting(usecases) + !Skin.Hassetting(clearcases) + [Container.Content(movies) | Container.Content(sets)]</visible>
+								<left>78</left>
+								<top>12</top>
+								<width>40</width>
+								<height>40</height>
+								<include>WatchedOverlayShowCase</include>
+								<include>OverlayVisibility0</include>
+								<visible>!Skin.Hassetting(WallLargeCases) + !Skin.Hassetting(usecases) + !Skin.Hassetting(clearcases) + [Container.Content(movies) | Container.Content(sets)]</visible>
 							</control>
 							<control type="image">   <!-- active movie watched badge nocase -->
-                                  <left>78</left>
-                                  <top>18</top>
-                                  <width>50</width>
-                                  <height>47</height>
-									<include>WatchedOverlayShowCase</include>
-									<include>OverlayVisibility0</include>
-									<visible>Skin.Hassetting(WallLargeCases) + !Skin.Hassetting(usecases) + !Skin.Hassetting(clearcases) + [Container.Content(movies) | Container.Content(sets)]</visible>
+								<left>78</left>
+								<top>18</top>
+								<width>50</width>
+								<height>47</height>
+								<include>WatchedOverlayShowCase</include>
+								<include>OverlayVisibility0</include>
+								<visible>Skin.Hassetting(WallLargeCases) + !Skin.Hassetting(usecases) + !Skin.Hassetting(clearcases) + [Container.Content(movies) | Container.Content(sets)]</visible>
 							</control>
 							<!--Resume flag start -->
-								<control type="image">   <!-- active resume badge nocase case -->
-                                <left>78</left>
-                                <top>18</top>
-                                <width>50</width>
-                                <height>47</height>
+							<control type="image">   <!-- active resume badge nocase case -->
+								<left>78</left>
+								<top>18</top>
+								<width>50</width>
+								<height>47</height>
 								<texture>overlayprogress.png</texture>
 								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag) + !Skin.HasSetting(clearcases) + !Skin.HasSetting(usecases) + Skin.HasSetting(WallLargeCases) + [Container.Content(movies) | Container.Content(sets)]</visible>
 							</control>
 							<control type="image">   <!-- ????? -->
-                                <left>90</left>
-                                <top>23</top>
-                                <width>40</width>
-                                <height>40</height>
+								<left>90</left>
+								<top>23</top>
+								<width>40</width>
+								<height>40</height>
 								<texture>overlayprogress.png</texture>
 								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag) + Skin.HasSetting(clearcases) + Skin.Hassetting(WallLargeCases) + [Container.Content(tvshows) | Container.Content(sets)]</visible>
 							</control>
 							<control type="image">     <!-- ????? -->
-                                <left>68</left>
-                                <top>12</top>
-                                <width>50</width>
-                                <height>50</height>
+								<left>68</left>
+								<top>12</top>
+								<width>50</width>
+								<height>50</height>
 								<texture>overlayprogress.png</texture>
 								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag) + !Skin.Hassetting(WallLargeCases) + [Container.Content(movies) | Container.Content(sets)]</visible>
 							</control>
 							<control type="image">   <!-- active resume badge clearcase case -->
-                                <left>80</left>
-                                <top>14</top>
-                                <width>50</width>
-                                <height>47</height>
+								<left>80</left>
+								<top>14</top>
+								<width>50</width>
+								<height>47</height>
 								<texture>overlayprogress.png</texture>
 								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag) + Skin.Hassetting(WallLargeCases) + Skin.HasSetting(clearcases) + [Container.Content(movies) | Container.Content(sets)]</visible>
 							</control>
 							<control type="image">   <!-- active resume badge bdcase case -->
-                                <left>77</left>
-                                <top>18</top>
-                                <width>50</width>
-                                <height>47</height>
+								<left>77</left>
+								<top>18</top>
+								<width>50</width>
+								<height>47</height>
 								<texture>overlayprogress.png</texture>
 								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag) + Skin.Hassetting(WallLargeCases) + Skin.HasSetting(usecases)  + !Skin.HasSetting(clearcases) + [Container.Content(movies) | Container.Content(sets)]</visible>
 							</control>
-							
+
 							<!--Resume flag end -->
 							<!--TV Flags Start -->
 							<control type="image">
-									<left>84</left>
-									<top>11</top>
-									<width>50</width>
-                                    <height>47</height>
-									<include>WatchedOverlayShowCase</include>
-									<include>OverlayVisibility0</include>
-									<visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+								<left>84</left>
+								<top>11</top>
+								<width>50</width>
+								<height>47</height>
+								<include>WatchedOverlayShowCase</include>
+								<include>OverlayVisibility0</include>
+								<visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
 							</control>
 							<control type="image">
-                                <left>87</left>
-                                <top>28</top>
-                                <width>30</width>
-                                <height>30</height>
-								<animation effect="fade" end="90" time="0" condition="true">Conditional</animation>					
+								<left>87</left>
+								<top>28</top>
+								<width>30</width>
+								<height>30</height>
+								<animation effect="fade" end="90" time="0" condition="true">Conditional</animation>
 								<texture>overlayprogress.png</texture>
 								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag) + Container.Content(tvshows)</visible>
 							</control>
 							<!--TV Flags End -->
-					    </control>
-                    </focusedlayout>                              
-            	</control>
-				
+						</control>
+					</focusedlayout>
+				</control>
+
 				<!-- MAD - New mode - Show Movie Info -->
 				<control type="group">
 					<visible>Skin.HasSetting(WallLargeMovieInfo)</visible>
 					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
 					<visible>[System.IdleTime(5) + Control.HasFocus(499) + Skin.HasSetting(WallLargeMovieInfo) + !StringCompare(ListItem.Label,..) + Skin.HasSetting(WallLargeMovieInfoDelay_5)] | [System.IdleTime(10) + Control.HasFocus(499) + Skin.HasSetting(WallLargeMovieInfo) + !StringCompare(ListItem.Label,..) + Skin.HasSetting(WallLargeMovieInfoDelay_10) ] | [System.IdleTime(20) + Control.HasFocus(499) + Skin.HasSetting(WallLargeMovieInfo) + !StringCompare(ListItem.Label,..) + Skin.HasSetting(WallLargeMovieInfoDelay_20)] | [System.IdleTime(30) + Control.HasFocus(499) + Skin.HasSetting(WallLargeMovieInfo) + !StringCompare(ListItem.Label,..) + Skin.HasSetting(WallLargeMovieInfoDelay_30)]</visible>
-					<include>Movie_Info</include>	
+					<include>Movie_Info</include>
 				</control>
-					<control type="scrollbar" id="60">
+				<control type="scrollbar" id="60">
 					<left>1815</left>
 					<top>172</top>
 					<width>15</width>
@@ -1219,7 +1204,6 @@
 					<showonepage>false</showonepage>
 					<orientation>vertical</orientation>
 				</control>
-		    </control>
+			</control>
 		</include>
-    </includes>
-	
+	</includes>

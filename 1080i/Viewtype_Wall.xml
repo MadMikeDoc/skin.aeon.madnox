@@ -16,7 +16,7 @@
             <height>80</height>
 			<texture>overlayprogress.png</texture>
 			<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-		</control>				
+		</control>
 		<control type="image">
             <left>171</left>
             <top>38</top>
@@ -24,7 +24,7 @@
             <height>80</height>
 			<texture background="true" diffuse="thumbs/ExtraOverlayWatched.png">$VAR[VideoextrasOverlay]</texture>
 			<visible>System.HasAddon(script.videoextras)</visible>
-		</control>			
+		</control>
 		<control type="image">
 			<posx>10</posx>
 			<posy>14</posy>
@@ -72,7 +72,7 @@
             <height>50</height>
 			<texture>overlayprogress.png</texture>
 			<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-		</control>			
+		</control>
 		<control type="image">
             <left>148</left>
             <top>11</top>
@@ -80,7 +80,7 @@
             <height>50</height>
 			<texture background="true" diffuse="thumbs/ExtraOverlayWatched.png">$VAR[VideoextrasOverlay]</texture>
 			<visible>System.HasAddon(script.videoextras)</visible>
-		</control>			
+		</control>
     </include>
 	<include name="WallContent">
 		<itemlayout height="268" width="275" condition="[!Container.Content(studios) + !Container.Content(years)] + ![Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos) | [Window.IsActive(videolibrary) + Container.Content(genres)] | [Window.IsActive(pictures) + Substring(Container.FolderPath,\comics\)]] + [Skin.HasSetting(titlewall) | StringCompare(Container.FolderName,youtube)]">
@@ -117,8 +117,8 @@
 				</control>
 				<control type="group">
                     <visible>!Container.Content(artists)</visible>
-                				
-				<!-- disable rating -->		
+
+				<!-- disable rating -->
 				<control type="label">
                     <top>195</top>
                     <width>276</width>
@@ -139,8 +139,8 @@
                     <textcolor>grey2</textcolor>
 					<visible>!Container.Content(songs)</visible>
 					<visible>!Container.Content(episodes)</visible>
-                </control-->		
-          				
+                </control-->
+
                 <!--control type="image">
                     <left>120</left>
                     <top>200</top>
@@ -149,8 +149,8 @@
 					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
 					<texture fallback="flags/music/rating/rating0.png">flags/music/rating/$INFO[ListItem.StarRating]</texture>
 					<visible>Container.Content(songs)</visible>
-				</control-->	
-			  <!--  disable rating end -->	
+				</control-->
+			  <!--  disable rating end -->
 			    <control type="image">
                     <left>156</left>
                     <top>9</top>
@@ -165,7 +165,7 @@
                     <height>75</height>
 		            <texture>overlayprogress.png</texture>
 		            <visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-	            </control>			
+	            </control>
 		        <control type="label">
                     <top>158</top>
                     <left>15</left>
@@ -236,7 +236,7 @@
 					<animation effect="fade" start="100" end="80" time="40" condition="true">Conditional</animation>
 					<visible>Skin.HasSetting(iconlabel)</visible>
 				</control>
-				
+
 				<control type="group">
                 <visible>!Container.Content(artists)</visible>
 					<!-- disable rating -->
@@ -248,7 +248,7 @@
                     <font>Font_Reg22</font>
 					<visible>!Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs)</visible>
                 </control>
-					
+
                 <!--control type="label">
                     <left>276</left>
                     <top>195</top>
@@ -271,8 +271,8 @@
 			    	<visible>Container.Content(songs)</visible>
 				</control-->
 
-			
-			  <!--  disable rating end -->	
+
+			  <!--  disable rating end -->
 			        <control type="image">
                        <left>156</left>
                        <top>9</top>
@@ -287,7 +287,7 @@
                        <height>75</height>
 		               <texture>overlayprogress.png</texture>
 		               <visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-		            </control>			
+		            </control>
 		            <control type="label">
                       <top>158</top>
                       <left>15</left>
@@ -382,7 +382,7 @@
 					<texture border="15">views/addonwall_select.png</texture>
 					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
 				</control>
-			
+
 				<!--control type="image">
 					<left>-2</left>
 					<top>4</top>
@@ -406,7 +406,7 @@
 				</control-->
 			</control>
         </focusedlayout>
-		
+
 		<!--MAD - New Years Layout-->
 		<itemlayout height="120" width="120" condition="Container.Content(years)">
 			<control type="image">
@@ -474,8 +474,8 @@
 				<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
 			</control>
 		</focusedlayout>
-		
-		
+
+
 		<itemlayout height="197" width="831" condition="[Container.Content(movies) + Skin.HasSetting(MovieWallBanner)] | [Container.Content(tvshows) + Skin.HasSetting(TVWallBanner)]">
 			<control type="group">
 				<posx>4</posx>
@@ -522,7 +522,7 @@
 					<height>90</height>
 					<texture>overlayprogress.png</texture>
 					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-				</control>					
+				</control>
 				<control type="image">
                     <left>716</left>
                     <top>15</top>
@@ -539,7 +539,7 @@
 				<posx>4</posx>
 				<posy>18</posy>
 				<animation type="Focus" reversible="false">
-					<effect type="zoom" center="auto" start="100" end="100" time="400" tween="cubic" reversible="false" />
+					<effect type="zoom" center="auto" start="100" end="100" time="400" tween="cubic" />
 				</animation>
 				<control type="image">
 					<bordertexture border="12">thumbs/poster_shadow5.png</bordertexture>
@@ -584,7 +584,7 @@
                     <height>90</height>
 					<texture>overlayprogress.png</texture>
 					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-				</control>					
+				</control>
 				<control type="image">
                     <left>716</left>
                     <top>15</top>
@@ -592,7 +592,7 @@
                     <height>90</height>
 					<texture>$VAR[VideoextrasOverlay]</texture>
 					<visible>System.HasAddon(script.videoextras)</visible>
-				</control>	
+				</control>
 			</control>
 		</focusedlayout>
 		<itemlayout width="275" height="400" condition="[[Container.Content(movies) + !Skin.HasSetting(MovieWallBanner)] | [Container.Content(tvshows) + !Skin.HasSetting(TVWallBanner)] | Container.Content(seasons) | Container.Content(sets) | Container.Content(musicvideos) | [Window.IsActive(videolibrary) + Container.Content(genres)] | [Window.IsActive(pictures) + Substring(Container.FolderPath,\comics\)]]">
@@ -654,7 +654,7 @@
 				<height>260</height>
 				<include>Animation_VisibleChange200</include>
 				<animation effect="fade" start="100" end="25" time="0" condition="true">Conditional</animation>
-				
+
 			</control>
 			<include>UnwatchedIconThumb</include>
 			</itemlayout>
@@ -730,7 +730,7 @@
 			        <texture>overlayprogress.png</texture>
 			        <visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
 					<visible>Skin.HasSetting(squarethumbs)</visible>
-		        </control>				
+		        </control>
 	        	<control type="image">
                     <left>180</left>
                     <top>30</top>
@@ -739,7 +739,7 @@
 		        	<texture background="true" diffuse="thumbs/ExtraOverlayWatched.png">$VAR[VideoextrasOverlay]</texture>
 		        	<visible>System.HasAddon(script.videoextras)</visible>
 					<visible>Skin.HasSetting(squarethumbs)</visible>
-	        	</control>	
+	        	</control>
 				<control type="image">
                     <left>177</left>
                     <top>33</top>
@@ -756,7 +756,7 @@
 			        <texture>overlayprogress.png</texture>
 			        <visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
 					<visible>!Skin.HasSetting(squarethumbs)</visible>
-		        </control>				
+		        </control>
 	        	<control type="image">
                     <left>177</left>
                     <top>33</top>
@@ -766,7 +766,7 @@
 		        	<visible>System.HasAddon(script.videoextras)</visible>
 					<visible>!Skin.HasSetting(squarethumbs)</visible>
 	        	</control>
-			
+
 			</control>
 		</focusedlayout>
 		<itemlayout width="208" height="201" condition="![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(musicvideos) | [Window.IsActive(videolibrary) + Container.Content(genres)] | [Window.IsActive(pictures) + Substring(Container.FolderPath,\comics\)]] + ![Skin.HasSetting(titlewall) | StringCompare(Container.FolderName,youtube)]">
@@ -878,7 +878,7 @@
 					<colordiffuse>$VAR[TitleColorVar]</colordiffuse>
 					<animation effect="slide" start="0,-50" end="0" delay="640" time="320" tween="cubic">WindowOpen</animation>
 					<visible>Skin.HasSetting(WallVertical)</visible>
-				</control>	
+				</control>
 				<control type="image">
 					<left>570</left>
 					<top>935</top>
@@ -888,7 +888,7 @@
 					<colordiffuse>$VAR[TitleColorVar]</colordiffuse>
 					<animation effect="slide" start="0,50" end="0" delay="640" time="320" tween="cubic">WindowOpen</animation>
 					<visible>Skin.HasSetting(WallVertical)</visible>
-				</control>								
+				</control>
 			</control>
 			<include condition="!Skin.HasSetting(WallVertical)">WallHorizontal</include>
 			<include condition="Skin.HasSetting(WallVertical)">WallVertical</include>
