@@ -514,6 +514,28 @@
                 </control>
 			</control>
 			<control type="image">
+                <left>1380</left>
+                <top>994</top>
+                <texture>$VAR[ShiftStudioImageVar]</texture>
+                <width>135</width>
+                <height>90</height>
+                <aspectratio>keep</aspectratio>
+                <fadetime>IconCrossfadeTime2</fadetime>
+                 <colordiffuse>floor</colordiffuse>
+				<visible>Skin.HasSetting(smallshiftview) + Container.Content(tvshows)</visible>
+            </control>
+			<control type="image">
+                <left>1380</left>
+                <top>994</top>
+                <texture>$VAR[ShiftStudioImageVar]</texture>
+                <width>135</width>
+                <height>90</height>
+                <aspectratio>keep</aspectratio>
+                <fadetime>IconCrossfadeTime2</fadetime>
+                <colordiffuse>floor</colordiffuse>
+				<visible>!Skin.HasSetting(smallshiftview) + Container.Content(tvshows)</visible>
+			</control>
+			<control type="image">
                 <left>1060</left>
                 <top>994</top>
                 <texture>$VAR[ShiftStudioImageVar]</texture>
@@ -522,7 +544,7 @@
                 <aspectratio>keep</aspectratio>
                 <fadetime>IconCrossfadeTime2</fadetime>
                  <colordiffuse>floor</colordiffuse>
-				<visible>Skin.HasSetting(smallshiftview)</visible>
+				<visible>Skin.HasSetting(smallshiftview) + Container.Content(movies)</visible>	
             </control>
 			<control type="image">
                 <left>1060</left>
@@ -533,7 +555,7 @@
                 <aspectratio>keep</aspectratio>
                 <fadetime>IconCrossfadeTime2</fadetime>
                 <colordiffuse>floor</colordiffuse>
-				<visible>!Skin.HasSetting(smallshiftview)</visible>
+				<visible>!Skin.HasSetting(smallshiftview) + Container.Content(movies)</visible>
              </control>
         </control>
     </include>

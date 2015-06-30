@@ -259,7 +259,16 @@
 			<width>71</width>
 			<align>center</align>
 			<texture>stars/$INFO[ListItem.Rating,,.png]</texture>
-			<visible>!Substring(ListItem.Path,videodb://movies/sets/,left) + !Container.Content(episodes)</visible>
+			<visible>!Substring(ListItem.Path,videodb://movies/sets/,left) + !Container.Content(episodes)  + System.HasAddon(script.duration)</visible>
+		</control>
+		<control type="image">
+			<left>486</left>
+			<top>414</top>
+			<height>30</height>
+			<width>71</width>
+			<align>center</align>
+			<texture>stars/$INFO[ListItem.Rating,,.png]</texture>
+			<visible>!Substring(ListItem.Path,videodb://movies/sets/,left) + !Container.Content(episodes)  + !System.HasAddon(script.duration)</visible>
 		</control>
 		<control type="image">
 			<left>286</left>
@@ -276,7 +285,7 @@
 			<width>65</width>
 			<height>30</height>
 			<texture>imdb.png</texture>
-			<visible>!IsEmpty(ListItem.Top250)</visible>
+			<visible>!IsEmpty(ListItem.Top250) + System.HasAddon(script.duration)</visible>
 		</control>
 		<control type="Label">
 			<left>530</left>
@@ -288,8 +297,30 @@
 			<font>font14</font>
 			<shadowcolor>shadow</shadowcolor>
 			<textcolor>fffeec900</textcolor>
-			<visible>!IsEmpty(ListItem.Top250)</visible>
+			<visible>!IsEmpty(ListItem.Top250) + System.HasAddon(script.duration)</visible>
 		</control>
+		<control type="image">
+			<left>90</left>
+			<top>994</top>
+			<width>65</width>
+			<height>30</height>
+			<texture>imdb.png</texture>
+			<visible>!IsEmpty(ListItem.Top250) + !System.HasAddon(script.duration)</visible>
+		</control>
+		<control type="Label">
+			<left>160</left>
+			<top>989</top>
+			<width>125</width>
+			<height>45</height>
+			<align>left</align>
+			<label>[B]$INFO[ListItem.Top250,#][/B]</label>
+			<font>font14</font>
+			<shadowcolor>shadow</shadowcolor>
+			<textcolor>fffeec900</textcolor>
+			<visible>!IsEmpty(ListItem.Top250) + !System.HasAddon(script.duration)</visible>
+		</control>
+		
+		
 		<control type="group">
 			<left>40</left>
 			<top>344</top>
