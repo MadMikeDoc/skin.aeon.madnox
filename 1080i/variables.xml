@@ -2548,7 +2548,7 @@
 		<value condition="Container.Content(movies) + !ListItem.IsResumable + System.HasAddon(script.duration)">$VAR[MovieDuration]</value>
 		<value condition="Container.Content(movies) + System.HasAddon(script.duration)">$VAR[MovieDuration][COLOR grey]$INFO[ListItem.PercentPlayed, (,%)][/COLOR]</value>
 		<value condition="Container.Content(movies) + !ListItem.IsResumable + System.HasAddon(script.duration)">$INFO[ListItem.Duration,, $LOCALIZE[12391]]</value>
-		<value condition="Container.Content(movies) + !ListItem.IsResumable + System.HasAddon(script.duration)">$INFO[ListItem.Duration,, $LOCALIZE[12391]][COLOR grey]$INFO[ListItem.PercentPlayed, (,%)][/COLOR]</value>
+		<value condition="Container.Content(movies) + ListItem.IsResumable + System.HasAddon(script.duration)">$INFO[ListItem.Duration,, $LOCALIZE[12391]][COLOR grey]$INFO[ListItem.PercentPlayed, (,%)][/COLOR]</value>
 		<value condition="[Container.Content(episodes) | IsEmpty(ListItem.TvShowTitle)] + !ListItem.IsResumable">$INFO[ListItem.Duration,, $LOCALIZE[12391]]</value>
 		<value condition="[Container.Content(episodes) | IsEmpty(ListItem.TvShowTitle)]">$INFO[ListItem.Duration,, $LOCALIZE[12391]][COLOR grey]$INFO[ListItem.PercentPlayed, (,%)][/COLOR]</value>
 		<value condition="Container.Content(tvshows) | Container.Content(seasons)">$INFO[Window(Home).Property(NextAired.Runtime),, $LOCALIZE[12391]]</value>
