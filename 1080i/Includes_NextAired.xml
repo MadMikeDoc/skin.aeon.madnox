@@ -67,12 +67,12 @@
         <textcolor>white</textcolor>
         <disabledcolor>grey2</disabledcolor>
         <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-    </include>	
+    </include>
     <include name="NextAiredItemLayout">
         <control type="group">
             <animation type="Conditional" condition="!Skin.HasSetting(NextAiredLogo)">
                 <effect type="slide" end="0,-150" time="0" />
-            </animation>		
+            </animation>
             <control type="image">
                 <left>13</left>
                 <top>20</top>
@@ -80,7 +80,7 @@
                 <height>190</height>
                 <aspectratio aligny="top">keep</aspectratio>
                 <texture background="true">$INFO[ListItem.Property(Art(clearlogo))]</texture>
-				<visible>Skin.HasSetting(NextAiredLogo)</visible>
+                <visible>Skin.HasSetting(NextAiredLogo)</visible>
             </control>
             <control type="group">
                 <top>-30</top>
@@ -93,7 +93,7 @@
                     <texture background="true">$INFO[ListItem.Property(Art(fanart))]</texture>
                     <bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
                     <bordersize>7</bordersize>
-					<visible>!Skin.HasSetting(NextAiredclearart) + IsEmpty(Window(Home).property(TVGuide.PreviewThumbs))</visible>
+                    <visible>!Skin.HasSetting(NextAiredclearart) + IsEmpty(Window(Home).property(TVGuide.PreviewThumbs))</visible>
                 </control>
                 <control type="image">
                     <left>10</left>
@@ -103,8 +103,8 @@
                     <aspectratio align="center">keep</aspectratio>
                     <texture background="true">$INFO[ListItem.Property(Art(ClearArt))]</texture>
                     <bordersize>7</bordersize>
-					<visible>Skin.HasSetting(NextAiredclearart) + IsEmpty(Window(Home).property(TVGuide.PreviewThumbs))</visible>
-                </control>				
+                    <visible>Skin.HasSetting(NextAiredclearart) + IsEmpty(Window(Home).property(TVGuide.PreviewThumbs))</visible>
+                </control>
                 <control type="image">
                     <left>10</left>
                     <top>290</top>
@@ -123,34 +123,34 @@
                     <height>34</height>
                     <texture>common/bgcolor.png</texture>
                     <colordiffuse>99FFFFFF</colordiffuse>
-					<animation type="Conditional" condition="!IsEmpty(Window(Home).property(TVGuide.PreviewThumbs))  + !Skin.HasSetting(NextAiredLogo)">
-						<effect type="slide" end="0,25" time="0" />
-					</animation>					
-                </control>		
-			<control type="group">
-					<animation type="Conditional" condition="!Skin.HasSetting(NextAiredLogo)">
-						<effect type="slide" end="-125,-10" time="0" />
-					</animation>							
-				<control type="label">
-                    <left>114</left>
-                    <top>850</top>				
-					<width>155</width>
-					<height>38</height>
-					<align>center</align>
-					<label>$VAR[TvGuideVarTxtScript]</label>
-					<font>Font_Reg19_Caps</font>
-					<textcolor>floor</textcolor>
-				</control>					
-                <control type="image">
-                    <left>131</left>
-                    <top>864</top>
-                    <width>120</width>
-                    <height>62</height>
-                    <aspectratio>keep</aspectratio>
-                    <texture>$VAR[ColortvguideFlags]$INFO[ListItem.Property(StatusID)].png</texture>
-                    <colordiffuse>floor</colordiffuse>
+                    <animation type="Conditional" condition="!IsEmpty(Window(Home).property(TVGuide.PreviewThumbs))  + !Skin.HasSetting(NextAiredLogo)">
+                      <effect type="slide" end="0,25" time="0" />
+                  </animation>
+              </control>
+            <control type="group">
+                <animation type="Conditional" condition="!Skin.HasSetting(NextAiredLogo)">
+                  <effect type="slide" end="-125,-10" time="0" />
+                </animation>
+                <control type="label">
+                <left>114</left>
+                <top>850</top>
+                <width>155</width>
+                <height>38</height>
+                <align>center</align>
+                <label>$VAR[TvGuideVarTxtScript]</label>
+                <font>Font_Reg19_Caps</font>
+                <textcolor>floor</textcolor>
+              </control>
+              <control type="image">
+                <left>131</left>
+                <top>864</top>
+                <width>120</width>
+                <height>62</height>
+                <aspectratio>keep</aspectratio>
+                <texture>$VAR[ColortvguideFlags]$INFO[ListItem.Property(StatusID)].png</texture>
+                <colordiffuse>floor</colordiffuse>
                 </control>
-			</control>	
+            </control>
                 <control type="image">
                     <left>20</left>
                     <top>491</top>
@@ -160,7 +160,7 @@
                     <colordiffuse>floor</colordiffuse>
 					<animation type="Conditional" condition="!IsEmpty(Window(Home).property(TVGuide.PreviewThumbs))  + !Skin.HasSetting(NextAiredLogo)">
 						<effect type="slide" end="0,25" time="0" />
-					</animation>					
+					</animation>
                 </control>
                 <control type="label">
                     <left>41</left>
@@ -173,7 +173,7 @@
                     <textcolor>$VAR[TitleColorVar]</textcolor>
 					<animation type="Conditional" condition="!IsEmpty(Window(Home).property(TVGuide.PreviewThumbs)) + !Skin.HasSetting(NextAiredLogo)">
 						<effect type="slide" end="0,25" time="0" />
-					</animation>					
+					</animation>
                 </control>
             </control>
             <control type="label">
@@ -196,7 +196,6 @@
             <control type="label">
 				<top>490</top>
                 <left>22</left>
-                <top>538</top>
                 <width>415</width>
                 <height>130</height>
                 <label>$VAR[NextDateYesterday]</label>
@@ -206,20 +205,18 @@
 				<top>560</top>
                 <label>$VAR[NextDateYesterday2]</label>
                 <left>22</left>
-                <top>618</top>
                 <width>415</width>
                 <height>80</height>
                 <textcolor>$VAR[TitleColorVar]</textcolor>
-            </control>			
+            </control>
             <control type="label">
-				<top>610</top>			
+				<top>610</top>
                 <label>$LOCALIZE[515]:</label>
                 <left>22</left>
-                <top>618</top>
                 <width>415</width>
                 <height>80</height>
                 <textcolor>$VAR[TitleColorVar]</textcolor>
-            </control>			
+            </control>
             <control type="label">
                 <left>22</left>
                 <top>638</top>
@@ -246,7 +243,7 @@
                 <colordiffuse>floor</colordiffuse>
 					<animation type="Conditional" condition="!Skin.HasSetting(NextAiredLogo)">
 						<effect type="slide" end="0,90" time="0" />
-					</animation>					
+					</animation>
             </control>
             <control type="image">
                 <left>240</left>
@@ -259,11 +256,11 @@
                 <animation effect="fade" time="200">VisibleChange</animation>
 					<animation type="Conditional" condition="!Skin.HasSetting(NextAiredLogo)">
 						<effect type="slide" end="0,150" time="0" />
-					</animation>	
+					</animation>
 					<animation type="Conditional" condition="!Skin.HasSetting(NextAiredLogo)">
 						<effect type="slide" end="-120,-150" time="0" />
 						<effect type="zoom" end="170" time="0" />
-					</animation>										
+					</animation>
             </control>
             <control type="image">
                 <left>435</left>
@@ -536,7 +533,6 @@
                         <ondown>201</ondown>
                         <onleft>9000</onleft>
                         <onright>201</onright>
-                        <itemgap>5</itemgap>
                         <itemlayout height="162" width="172">
                             <control type="group">
                                 <left>6</left>
@@ -598,7 +594,6 @@
                         <ondown>202</ondown>
                         <onleft>200</onleft>
                         <onright>202</onright>
-                        <itemgap>5</itemgap>
                         <itemlayout height="162" width="172">
                             <control type="label">
                                 <include>NextAiredLabelVars</include>
@@ -649,7 +644,6 @@
                         <ondown>203</ondown>
                         <onleft>201</onleft>
                         <onright>203</onright>
-                        <itemgap>5</itemgap>
                         <itemlayout height="162" width="180">
                             <control type="label">
                                 <include>NextAiredLabelVars</include>
@@ -700,7 +694,6 @@
                         <ondown>204</ondown>
                         <onleft>202</onleft>
                         <onright>204</onright>
-                        <itemgap>5</itemgap>
                         <itemlayout height="162" width="180">
                             <control type="label">
                                 <include>NextAiredLabelVars</include>
@@ -751,7 +744,6 @@
                         <ondown>205</ondown>
                         <onleft>203</onleft>
                         <onright>205</onright>
-                        <itemgap>5</itemgap>
                         <itemlayout height="162" width="180">
                             <control type="label">
                                 <include>NextAiredLabelVars</include>
@@ -802,7 +794,6 @@
                         <ondown>206</ondown>
                         <onleft>204</onleft>
                         <onright>206</onright>
-                        <itemgap>5</itemgap>
                         <itemlayout height="162" width="180">
                             <control type="label">
                                 <include>NextAiredLabelVars</include>
@@ -853,7 +844,6 @@
                         <ondown>200</ondown>
                         <onleft>205</onleft>
                         <onright>200</onright>
-                        <itemgap>5</itemgap>
                         <itemlayout height="162" width="180">
                             <control type="label">
                                 <include>NextAiredLabelVars</include>
@@ -2537,7 +2527,7 @@
                         <focusedlayout height="162" width="435">
                             <include>NextAiredFocusedLayout</include>
                         </focusedlayout>
-                    </control>				
+                    </control>
 				     <control type="list" id="209">
                         <include>NextAiredListVars</include>
                         <onup>SetFocus(208,0)</onup>
@@ -2553,7 +2543,7 @@
                         <focusedlayout height="162" width="435">
                             <include>NextAiredFocusedLayout</include>
                         </focusedlayout>
-                    </control>	
+                    </control>
 				     <control type="list" id="210">
                         <include>NextAiredListVars</include>
                         <onup>SetFocus(209,0)</onup>
@@ -2585,7 +2575,7 @@
                         <focusedlayout height="162" width="435">
                             <include>NextAiredFocusedLayout</include>
                         </focusedlayout>
-                    </control>	
+                    </control>
 				     <control type="list" id="212">
                         <include>NextAiredListVars</include>
                         <onup>SetFocus(211,0)</onup>
@@ -2601,7 +2591,7 @@
                         <focusedlayout height="162" width="435">
                             <include>NextAiredFocusedLayout</include>
                         </focusedlayout>
-                    </control>		
+                    </control>
 				     <control type="list" id="213">
                         <include>NextAiredListVars</include>
                         <onup>SetFocus(212,0)</onup>
@@ -2617,7 +2607,7 @@
                         <focusedlayout height="162" width="435">
                             <include>NextAiredFocusedLayout</include>
                         </focusedlayout>
-                    </control>																							
+                    </control>
 				     <control type="list" id="214">
                         <include>NextAiredListVars</include>
                         <onup>SetFocus(213,0)</onup>
@@ -2649,13 +2639,13 @@
                         <focusedlayout height="162" width="435">
                             <include>NextAiredFocusedLayout</include>
                         </focusedlayout>
-                    </control>												
+                    </control>
                 </control>
                 <control type="grouplist">
                     <description>Weekday labels</description>
                     <left>62</left>
                     <top>190</top>
-					<height>800</height>				
+					<height>800</height>
                     <control type="button">
                         <label>$VAR[TVDayLabel1]</label>
                         <label2>[COLOR=99FFFFFF]$INFO[Window(Home).Property(NextAired.200.Date)][/COLOR]</label2>
@@ -2712,21 +2702,21 @@
                         <include>TVGuideWeekdayButtonbackground2</include>
                         <animation effect="fade" start="100" end="0" time="240" tween="sine" easing="inout" condition="![[ControlGroup(9001).HasFocus + ControlGroup(9001).HasFocus(207)] | [ControlGroup(2000).HasFocus + ControlGroup(2000).HasFocus(2008)]]">Conditional</animation>
                         <enable>IntegerGreaterThan(Container(207).NumItems,0)</enable>
-                    </control>					
+                    </control>
                     <control type="button">
                         <label>$VAR[TVDayLabel9]</label>
                         <label2>[COLOR=99FFFFFF]$INFO[Window(Home).Property(NextAired.208.Date)][/COLOR]</label2>
                         <include>TVGuideWeekdayButtonbackground2</include>
                         <animation effect="fade" start="100" end="0" time="240" tween="sine" easing="inout" condition="![[ControlGroup(9001).HasFocus + ControlGroup(9001).HasFocus(208)] | [ControlGroup(2000).HasFocus + ControlGroup(2000).HasFocus(2009)]]">Conditional</animation>
                         <enable>IntegerGreaterThan(Container(208).NumItems,0)</enable>
-                    </control>					
+                    </control>
                     <control type="button">
                         <label>$VAR[TVDayLabel10]</label>
                         <label2>[COLOR=99FFFFFF]$INFO[Window(Home).Property(NextAired.209.Date)][/COLOR]</label2>
                         <include>TVGuideWeekdayButtonbackground2</include>
-                        <animation effect="fade" start="100" end="0" time="240" tween="sine" easing="inout" condition="![[ControlGroup(9001).HasFocus + ControlGroup(9001).HasFocus(209)] | [ControlGroup(2000).HasFocus + ControlGroup(2000).HasFocus(20010)]]">Conditional</animation>
+                        <animation effect="fade" start="100" end="0" time="240" tween="sine" easing="inout" condition="![[ControlGroup(9001).HasFocus + ControlGroup(9001).HasFocus(209)] | [ControlGroup(2000).HasFocus + ControlGroup(2000).HasFocus(2001)]]">Conditional</animation>
                         <enable>IntegerGreaterThan(Container(209).NumItems,0)</enable>
-                    </control>					
+                    </control>
                     <control type="button">
                         <label>$VAR[TVDayLabel11]</label>
                         <label2>[COLOR=99FFFFFF]$INFO[Window(Home).Property(NextAired.210.Date)][/COLOR]</label2>
@@ -2734,48 +2724,48 @@
                         <animation effect="fade" start="100" end="0" time="240" tween="sine" easing="inout" condition="![[ControlGroup(9001).HasFocus + ControlGroup(9001).HasFocus(210)] | [ControlGroup(2000).HasFocus + ControlGroup(2000).HasFocus(2011)]]">Conditional</animation>
                         <animation effect="fade" start="100" end="65" time="0" condition="!StringCompare(System.Date(ddd),$LOCALIZE[47])">Conditional</animation>
                         <enable>IntegerGreaterThan(Container(210).NumItems,0)</enable>
-                    </control>	
+                    </control>
                     <control type="button">
                        <label>$VAR[TVDayLabel12]</label>
                         <label2>[COLOR=99FFFFFF]$INFO[Window(Home).Property(NextAired.211.Date)][/COLOR]</label2>
                         <include>TVGuideWeekdayButtonbackground2</include>
                         <animation effect="fade" start="100" end="0" time="240" tween="sine" easing="inout" condition="![[ControlGroup(9001).HasFocus + ControlGroup(9001).HasFocus(211)] | [ControlGroup(2000).HasFocus + ControlGroup(2000).HasFocus(2012)]]">Conditional</animation>
                         <enable>IntegerGreaterThan(Container(211).NumItems,0)</enable>
-                    </control>							
+                    </control>
                     <control type="button">
                         <label>$VAR[TVDayLabel13]</label>
                         <label2>[COLOR=99FFFFFF]$INFO[Window(Home).Property(NextAired.212.Date)][/COLOR]</label2>
                         <include>TVGuideWeekdayButtonbackground2</include>
                         <animation effect="fade" start="100" end="0" time="240" tween="sine" easing="inout" condition="![[ControlGroup(9001).HasFocus + ControlGroup(9001).HasFocus(212)] | [ControlGroup(2000).HasFocus + ControlGroup(2000).HasFocus(2013)]]">Conditional</animation>
                         <enable>IntegerGreaterThan(Container(212).NumItems,0)</enable>
-                    </control>							
+                    </control>
                     <control type="button">
                         <label>$VAR[TVDayLabel14]</label>
                         <label2>[COLOR=99FFFFFF]$INFO[Window(Home).Property(NextAired.213.Date)][/COLOR]</label2>
                         <include>TVGuideWeekdayButtonbackground2</include>
                         <animation effect="fade" start="100" end="0" time="240" tween="sine" easing="inout" condition="![[ControlGroup(9001).HasFocus + ControlGroup(9001).HasFocus(213)] | [ControlGroup(2000).HasFocus + ControlGroup(2000).HasFocus(2014)]]">Conditional</animation>
                         <enable>IntegerGreaterThan(Container(213).NumItems,0)</enable>
-                    </control>					
+                    </control>
                     <control type="button">
                         <label>$VAR[TVDayLabel15]</label>
                         <label2>[COLOR=99FFFFFF]$INFO[Window(Home).Property(NextAired.214.Date)][/COLOR]</label2>
                         <include>TVGuideWeekdayButtonbackground2</include>
                         <animation effect="fade" start="100" end="0" time="240" tween="sine" easing="inout" condition="![[ControlGroup(9001).HasFocus + ControlGroup(9001).HasFocus(214)] | [ControlGroup(2000).HasFocus + ControlGroup(2000).HasFocus(2015)]]">Conditional</animation>
                         <enable>IntegerGreaterThan(Container(214).NumItems,0)</enable>
-                    </control>					
+                    </control>
                     <control type="button">
                         <label>$VAR[TVDayLabel16]</label>
                         <label2>[COLOR=99FFFFFF]$INFO[Window(Home).Property(NextAired.215.Date)][/COLOR]</label2>
                         <include>TVGuideWeekdayButtonbackground2</include>
                         <animation effect="fade" start="100" end="0" time="240" tween="sine" easing="inout" condition="![[ControlGroup(9001).HasFocus + ControlGroup(9001).HasFocus(215)] | [ControlGroup(2000).HasFocus + ControlGroup(2000).HasFocus(2016)]]">Conditional</animation>
                         <enable>IntegerGreaterThan(Container(215).NumItems,0)</enable>
-                    </control>					
+                    </control>
                 </control>
                 <control type="grouplist" id="2000">
                     <description>Weekday labels</description>
                     <left>62</left>
                     <top>190</top>
-					<height>800</height>				
+					<height>800</height>
                     <control type="button" id="2001">
                         <label>$VAR[TVDayLabel1]</label>
                         <label2>[COLOR=99FFFFFF]$INFO[Window(Home).Property(NextAired.200.Date)][/COLOR]</label2>
@@ -2839,7 +2829,7 @@
                         <animation effect="fade" start="100" end="50" time="240" tween="sine" easing="inout" condition="!ControlGroup(9001).HasFocus(207)">Conditional</animation>
 						<animation effect="fade" start="100" end="65" time="0" condition="!ControlGroup(9001).HasFocus(207)">Conditional</animation>
                         <enable>IntegerGreaterThan(Container(207).NumItems,0)</enable>
-                    </control>	
+                    </control>
                     <control type="button" id="2009">
                         <label>$VAR[TVDayLabel9]</label>
                         <label2>[COLOR=99FFFFFF]$INFO[Window(Home).Property(NextAired.208.Date)][/COLOR]</label2>
@@ -2847,7 +2837,7 @@
                         <animation effect="fade" start="100" end="50" time="240" tween="sine" easing="inout" condition="!ControlGroup(9001).HasFocus(208)">Conditional</animation>
 						<animation effect="fade" start="100" end="65" time="0" condition="!ControlGroup(9001).HasFocus(208)">Conditional</animation>
                         <enable>IntegerGreaterThan(Container(208).NumItems,0)</enable>
-                    </control>	
+                    </control>
                     <control type="button" id="2010">
                         <label>$VAR[TVDayLabel10]</label>
                         <label2>[COLOR=99FFFFFF]$INFO[Window(Home).Property(NextAired.209.Date)][/COLOR]</label2>
@@ -2855,7 +2845,7 @@
                         <animation effect="fade" start="100" end="50" time="240" tween="sine" easing="inout" condition="!ControlGroup(9001).HasFocus(209)">Conditional</animation>
 						<animation effect="fade" start="100" end="65" time="0" condition="!ControlGroup(9001).HasFocus(209)">Conditional</animation>
                         <enable>IntegerGreaterThan(Container(209).NumItems,0)</enable>
-                    </control>	
+                    </control>
                     <control type="button" id="2011">
                         <label>$VAR[TVDayLabel11]</label>
                         <label2>[COLOR=99FFFFFF]$INFO[Window(Home).Property(NextAired.210.Date)][/COLOR]</label2>
@@ -2863,7 +2853,7 @@
                         <animation effect="fade" start="100" end="50" time="240" tween="sine" easing="inout" condition="!ControlGroup(9001).HasFocus(210)">Conditional</animation>
 						<animation effect="fade" start="100" end="65" time="0" condition="!ControlGroup(9001).HasFocus(210)">Conditional</animation>
                         <enable>IntegerGreaterThan(Container(210).NumItems,0)</enable>
-                    </control>	
+                    </control>
                     <control type="button" id="2012">
                         <label>$VAR[TVDayLabel12]</label>
                         <label2>[COLOR=99FFFFFF]$INFO[Window(Home).Property(NextAired.211.Date)][/COLOR]</label2>
@@ -2887,7 +2877,7 @@
                         <animation effect="fade" start="100" end="50" time="240" tween="sine" easing="inout" condition="!ControlGroup(9001).HasFocus(213)">Conditional</animation>
 						<animation effect="fade" start="100" end="65" time="0" condition="!ControlGroup(9001).HasFocus(213)">Conditional</animation>
                         <enable>IntegerGreaterThan(Container(213).NumItems,0)</enable>
-                    </control>	
+                    </control>
                     <control type="button" id="2015">
                         <label>$VAR[TVDayLabel15]</label>
                         <label2>[COLOR=99FFFFFF]$INFO[Window(Home).Property(NextAired.214.Date)][/COLOR]</label2>
@@ -2895,7 +2885,7 @@
                         <animation effect="fade" start="100" end="50" time="240" tween="sine" easing="inout" condition="!ControlGroup(9001).HasFocus(214)">Conditional</animation>
 						<animation effect="fade" start="100" end="65" time="0" condition="!ControlGroup(9001).HasFocus(214)">Conditional</animation>
                         <enable>IntegerGreaterThan(Container(214).NumItems,0)</enable>
-                    </control>	
+                    </control>
                     <control type="button" id="2016">
                         <label>$VAR[TVDayLabel16]</label>
                         <label2>[COLOR=99FFFFFF]$INFO[Window(Home).Property(NextAired.215.Date)][/COLOR]</label2>
@@ -2903,10 +2893,10 @@
                         <animation effect="fade" start="100" end="50" time="240" tween="sine" easing="inout" condition="!ControlGroup(9001).HasFocus(215)">Conditional</animation>
 						<animation effect="fade" start="100" end="65" time="0" condition="!ControlGroup(9001).HasFocus(215)">Conditional</animation>
                         <enable>IntegerGreaterThan(Container(215).NumItems,0)</enable>
-                    </control>																																													
+                    </control>
                 </control>
             </control>
-        </control>		 	
+        </control>
 	 </include>
 <include name="NextAired_Layout4">
 	 <control type="group">
@@ -2952,8 +2942,8 @@
                     <width>1695</width>
                     <height>1012</height>
                     <texture>wall/wall_bg_reflection.png</texture>
-                </control>			
-		</control>		
+                </control>
+		</control>
 		<control type="grouplist" id="2000">
 			<left>130</left>
 			<top>80</top>
@@ -2988,7 +2978,7 @@
                     <font>font13_title</font>
                     <label>$VAR[TVDayLabel2_1]</label>
 					<textcolor>gray</textcolor>
-                </control>					
+                </control>
 				<control type="panel" id="200">
 					<left>0</left>
 					<top>40</top>
@@ -3065,7 +3055,7 @@
                     <font>font13_title</font>
                     <label>$VAR[TVDayLabel2_2]</label>
 					<textcolor>white</textcolor>
-                </control>				
+                </control>
 				<control type="panel" id="201">
 					<left>0</left>
 					<top>40</top>
@@ -3143,7 +3133,7 @@
                     <font>font13_title</font>
                     <label>$VAR[TVDayLabel2_3]</label>
 					<textcolor>gray</textcolor>
-                </control>				
+                </control>
 				<control type="panel" id="202">
 					<left>0</left>
 					<top>40</top>
@@ -3220,7 +3210,7 @@
                     <font>font13_title</font>
                     <label>$VAR[TVDayLabel2_4]</label>
 					<textcolor>gray</textcolor>
-                </control>				
+                </control>
 				<control type="panel" id="203">
 					<left>0</left>
 					<top>40</top>
@@ -3286,7 +3276,7 @@
                     <font>font13_title</font>
                     <label>$VAR[TVDayLabel2_5]</label>
 					<textcolor>gray</textcolor>
-                </control>				
+                </control>
 				<control type="label">
 					<left>0</left>
 					<top>13</top>
@@ -3374,7 +3364,7 @@
                     <font>font13_title</font>
                     <label>$VAR[TVDayLabel2_6]</label>
 					<textcolor>gray</textcolor>
-                </control>				
+                </control>
 				<control type="panel" id="205">
 					<left>0</left>
 					<top>40</top>
@@ -3451,7 +3441,7 @@
                     <font>font13_title</font>
                     <label>$VAR[TVDayLabel2_7]</label>
 					<textcolor>gray</textcolor>
-                </control>	
+                </control>
 				<control type="panel" id="206">
 					<left>0</left>
 					<top>40</top>
@@ -5444,7 +5434,7 @@
                         <texture fallback="flags/studios/default-studio.png">flags/studios/$INFO[Container(206).ListItem.Property(Network),,.png]</texture>
                     </control>
                 </control>
- <control type="group">
+                <control type="group">
                     <visible>Control.HasFocus(207)</visible>
                     <control type="label">
                         <left>546</left>
@@ -5619,7 +5609,7 @@
                         <texture fallback="flags/studios/default-studio.png">flags/studios/$INFO[Container(207).ListItem.Property(Network),,.png]</texture>
                     </control>
                 </control>
- <control type="group">
+                <control type="group">
                     <visible>Control.HasFocus(208)</visible>
                     <control type="label">
                         <left>546</left>
@@ -5794,7 +5784,7 @@
                         <texture fallback="flags/studios/default-studio.png">flags/studios/$INFO[Container(208).ListItem.Property(Network),,.png]</texture>
                     </control>
                 </control>
- <control type="group">
+                <control type="group">
                     <visible>Control.HasFocus(209)</visible>
                     <control type="label">
                         <left>546</left>
@@ -5969,7 +5959,7 @@
                         <texture fallback="flags/studios/default-studio.png">flags/studios/$INFO[Container(209).ListItem.Property(Network),,.png]</texture>
                     </control>
                 </control>
- <control type="group">
+                <control type="group">
                     <visible>Control.HasFocus(210)</visible>
                     <control type="label">
                         <left>546</left>
@@ -6144,7 +6134,7 @@
                         <texture fallback="flags/studios/default-studio.png">flags/studios/$INFO[Container(210).ListItem.Property(Network),,.png]</texture>
                     </control>
                 </control>
- <control type="group">
+                <control type="group">
                     <visible>Control.HasFocus(211)</visible>
                     <control type="label">
                         <left>546</left>
@@ -6319,7 +6309,7 @@
                         <texture fallback="flags/studios/default-studio.png">flags/studios/$INFO[Container(211).ListItem.Property(Network),,.png]</texture>
                     </control>
                 </control>
- <control type="group">
+                <control type="group">
                     <visible>Control.HasFocus(212)</visible>
                     <control type="label">
                         <left>546</left>
@@ -6494,7 +6484,7 @@
                         <texture fallback="flags/studios/default-studio.png">flags/studios/$INFO[Container(212).ListItem.Property(Network),,.png]</texture>
                     </control>
                 </control>
- <control type="group">
+                <control type="group">
                     <visible>Control.HasFocus(213)</visible>
                     <control type="label">
                         <left>546</left>
@@ -6669,7 +6659,7 @@
                         <texture fallback="flags/studios/default-studio.png">flags/studios/$INFO[Container(213).ListItem.Property(Network),,.png]</texture>
                     </control>
                 </control>
- <control type="group">
+                 <control type="group">
                     <visible>Control.HasFocus(214)</visible>
                     <control type="label">
                         <left>546</left>
@@ -6844,7 +6834,7 @@
                         <texture fallback="flags/studios/default-studio.png">flags/studios/$INFO[Container(214).ListItem.Property(Network),,.png]</texture>
                     </control>
                 </control>
- <control type="group">
+                <control type="group">
                     <visible>Control.HasFocus(215)</visible>
                     <control type="label">
                         <left>546</left>
@@ -7018,9 +7008,9 @@
                         <animation effect="fade" time="250">VisibleChange</animation>
                         <texture fallback="flags/studios/default-studio.png">flags/studios/$INFO[Container(215).ListItem.Property(Network),,.png]</texture>
                     </control>
-                </control>																																				
-				
-			</control>	
-	</control>		
-</include>	 
+                </control>
+
+			</control>
+	</control>
+</include>
 </includes>

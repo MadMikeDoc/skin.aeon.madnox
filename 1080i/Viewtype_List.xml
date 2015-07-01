@@ -46,7 +46,7 @@
 					<wrapmultiline>true</wrapmultiline>
                 <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
             </control>
-			
+
 			<control type="image">
             	<width>495</width>
                 <height>495</height>
@@ -180,7 +180,6 @@
 					<visible>Skin.Hassetting(listcdart) + IsEmpty(ListItem.Art(discart)) + Container.Content(movies) + Skin.HasSetting(Fakedischandwriting) + !SubString(ListItem.Path,videodb://movies/sets) + IsEmpty(ListItem.Art(clearlogo))</visible>
                     <label> $INFO[ListItem.Label]</label>
                     <textcolor>black</textcolor>
-					<wrapmultiline>true</wrapmultiline>
 				</control>
 				<control type="group">
 					<animation effect="slide" end="0,0" start="210,0" time="240" tween="cubic" easing="inout">VisibleChange</animation>
@@ -251,7 +250,6 @@
                 <top>39</top>
                 <width>509</width>
                 <height>732</height>
-                <aspectratio scalediffuse="false">fit</aspectratio>
                 <texture diffuse="thumbs/movieposter_mask.png">common/bgcolor.png</texture>
                 <fadetime>IconCrossfadeTime2</fadetime>
             </control>
@@ -260,7 +258,6 @@
                 <top>20</top>
                 <width>849</width>
                 <height>770</height>
-                <aspectratio scalediffuse="false">fit</aspectratio>
                 <texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar1]</texture>
                 <fadetime>IconCrossfadeTime2</fadetime>
                 <bordertexture border="19.5">thumbs/poster_shadow.png</bordertexture>
@@ -273,7 +270,6 @@
                 <top>20</top>
                 <width>549</width>
                 <height>770</height>
-                <aspectratio scalediffuse="false">fit</aspectratio>
                 <texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
                 <fadetime>IconCrossfadeTime2</fadetime>
                 <bordertexture border="19.5">thumbs/poster_shadow.png</bordertexture>
@@ -287,12 +283,11 @@
 				<height>250</height>
 				<texture background="true" diffuse="thumbs/ExtraOverlayWatched.png">$VAR[VideoextrasOverlay]</texture>
 				<visible>System.HasAddon(script.videoextras)</visible>
-			</control>				
+			</control>
             <control type="image">
                 <top>772</top>
                 <width>510</width>
                 <height>765</height>
-                <aspectratio aligny="top" scalediffuse="false">fit</aspectratio>
                 <texture diffuse="thumbs/movieposter_mask_reflect.png" flipy="true" background="true" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar1]</texture>
                 <fadetime>IconCrossfadeTime2</fadetime>
                 <colordiffuse>d0FFFFFF</colordiffuse>
@@ -302,7 +297,6 @@
                 <top>772</top>
                 <width>510</width>
                 <height>765</height>
-                <aspectratio aligny="top" scalediffuse="false">fit</aspectratio>
                 <texture diffuse="thumbs/movieposter_mask_reflect.png" flipy="true" background="true" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
                 <fadetime>IconCrossfadeTime2</fadetime>
                 <colordiffuse>d0FFFFFF</colordiffuse>
@@ -312,7 +306,6 @@
 			     <top>40</top>
                 <width>510</width>
                 <height>734</height>
-                <aspectratio scalediffuse="false">fit</aspectratio>
                 <texture>thumbs/thumb_glass.png</texture>
             </control>
         </control>
@@ -532,7 +525,6 @@
 					<visible>Skin.Hassetting(listcdart) + IsEmpty(ListItem.Art(discart)) + Container.Content(movies) + Skin.HasSetting(Fakedischandwriting) + !SubString(ListItem.Path,videodb://movies/sets) + IsEmpty(ListItem.Art(clearlogo))</visible>
                     <label> $INFO[ListItem.Label]</label>
                     <textcolor>black</textcolor>
-					<wrapmultiline>true</wrapmultiline>
 				</control>
 				<control type="group">
 					<animation effect="slide" end="0,0" start="210,0" time="240" tween="cubic" easing="inout">VisibleChange</animation>
@@ -632,7 +624,7 @@
 					<texture>$VAR[VideoextrasOverlay]</texture>
 					<visible>System.HasAddon(script.videoextras)</visible>
 					<visible>Skin.HasSetting(listcdart) + Container.Content(movies)</visible>
-				</control>				
+				</control>
             </control>
             <control type="group">
                 <left>1296</left>
@@ -689,7 +681,7 @@
                     <bordersize>20</bordersize>
                 </control>
             </control>
-			
+
 			<control type="group">
                 <left>1296</left>
                 <top>165</top>
@@ -745,7 +737,7 @@
                     <bordersize>20</bordersize>
                 </control-->
             </control>
-			
+
         </control>
         <control type="group">
             <top>-20</top>

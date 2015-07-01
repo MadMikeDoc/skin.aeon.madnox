@@ -78,7 +78,7 @@
 		<animation effect="fade" time="300">Visible</animation>
 		<animation effect="fade" time="300">Hidden</animation>
 	</include>
-	
+
 	<!--MAD - Right List -->
 	<include name="RighListButtonsValues">
 		<height>90</height>
@@ -1831,7 +1831,7 @@
 							<texture background="true">thumbs/boxes/$VAR[ShowcaseCasePathVar]/hddvd.png</texture>
 							<visible>VideoPlayer.Content(movies) + [SubString(Player.Filename, HDDVD.) | SubString(Player.Filename, hddvd.)]</visible>
 						</control>
-					
+
 						<control type="image">
 							<left>-22</left>
 							<top>486</top>
@@ -2223,7 +2223,7 @@
 		<onload condition="Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)">Skin.SetString(diffuse_color,$INFO[Skin.String(diffuse_white_music)])</onload>
 		<onload condition="Window.IsActive(videos) | Window.IsActive(script-NextAired-TVGuide.xml)">Skin.SetString(diffuse_color,$INFO[Skin.String(diffuse_white_videolibrary)])</onload>
 		<onload condition="Window.IsActive(videos) | Window.IsActive(script-NextAired-TVGuide2.xml)">Skin.SetString(diffuse_color,$INFO[Skin.String(diffuse_white_videolibrary)])</onload>
-		<onload condition="Window.IsActive(videos) | Window.IsActivescript-videoextras-main.xml)">Skin.SetString(diffuse_color,$INFO[Skin.String(diffuse_white_videolibrary)])</onload>
+		<onload condition="Window.IsActive(videos) | Window.IsActive(script-videoextras-main.xml)">Skin.SetString(diffuse_color,$INFO[Skin.String(diffuse_white_videolibrary)])</onload>
 		<onload condition="Window.IsActive(PVR)">Skin.SetString(diffuse_color,$INFO[Skin.String(diffuse_white_PVR)])</onload>
 		<onload condition="Window.IsActive(pictures)">Skin.SetString(diffuse_color,$INFO[Skin.String(diffuse_white_pictures)])</onload>
 		<onload condition="Window.IsActive(1115)">Skin.SetString(diffuse_color,$INFO[Skin.String(diffuse_white_featured)])</onload>
@@ -2508,8 +2508,8 @@
 				<orientation>horizontal</orientation>
 				<onleft>70013</onleft>
 				<onright>70004</onright>
-				<onup>-</onup>
-				<ondown>-</ondown>
+				<onup>noop</onup>
+				<ondown>noop</ondown>
 				<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
 				<control type="button">
 					<width>100</width>
@@ -2535,8 +2535,8 @@
 				<orientation>horizontal</orientation>
 				<onleft>70002</onleft>
 				<onright>70011</onright>
-				<onup>-</onup>
-				<ondown>-</ondown>
+				<onup>noop</onup>
+				<ondown>noop</ondown>
 				<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
 				<control type="button">
 					<width>100</width>
@@ -2610,8 +2610,8 @@
 				<orientation>horizontal</orientation>
 				<onleft>70009</onleft>
 				<onright>70001</onright>
-				<onup>-</onup>
-				<ondown>-</ondown>
+				<onup>noop</onup>
+				<ondown>noop</ondown>
 				<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
 				<animation effect="slide" end="412" time="160" condition="Skin.HasSetting(RemoveVideoPlayerControls)">Conditional</animation>
 				<control type="button">
@@ -2642,8 +2642,8 @@
 					<itemgap>-18</itemgap>
 					<scrolltime tween="sine">200</scrolltime>
 					<orientation>horizontal</orientation>
-					<onup>-</onup>
-					<ondown>-</ondown>
+					<onup>noop</onup>
+					<ondown>noop</ondown>
 					<onleft>70029</onleft>
 					<onright>70018</onright>
 					<control type="button" id="70015">
@@ -2676,8 +2676,8 @@
 					<itemgap>-18</itemgap>
 					<scrolltime tween="sine">200</scrolltime>
 					<orientation>horizontal</orientation>
-					<onup>-</onup>
-					<ondown>-</ondown>
+					<onup>noop</onup>
+					<ondown>noop</ondown>
 					<onleft>70016</onleft>
 					<onright>70027</onright>
 					<control type="button" id="70018">
@@ -2784,8 +2784,8 @@
 					<itemgap>-18</itemgap>
 					<scrolltime tween="sine">200</scrolltime>
 					<orientation>horizontal</orientation>
-					<onup>-</onup>
-					<ondown>-</ondown>
+					<onup>noop</onup>
+					<ondown>noop</ondown>
 					<onleft>70025</onleft>
 					<onright>70015</onright>
 					<animation effect="slide" end="412" time="160" condition="Skin.HasSetting(RemoveVideoPlayerControls)">Conditional</animation>
@@ -2834,8 +2834,8 @@
 				<height>135</height>
 				<onleft>70045</onleft>
 				<onright>70034</onright>
-				<onup>-</onup>
-				<ondown>-</ondown>
+				<onup>noop</onup>
+				<ondown>noop</ondown>
 				<itemgap>-18</itemgap>
 				<scrolltime tween="sine">200</scrolltime>
 				<orientation>horizontal</orientation>
@@ -2863,8 +2863,8 @@
 				<itemgap>-18</itemgap>
 				<onleft>70032</onleft>
 				<onright>70043</onright>
-				<onup>-</onup>
-				<ondown>-</ondown>
+				<onup>noop</onup>
+				<ondown>noop</ondown>
 				<scrolltime tween="sine">200</scrolltime>
 				<orientation>horizontal</orientation>
 				<control type="button" id="70034">
@@ -2945,8 +2945,8 @@
 				<itemgap>-18</itemgap>
 				<onleft>70041</onleft>
 				<onright>70031</onright>
-				<onup>-</onup>
-				<ondown>-</ondown>
+				<onup>noop</onup>
+				<ondown>noop</ondown>
 				<scrolltime tween="sine">200</scrolltime>
 				<orientation>horizontal</orientation>
 				<animation effect="slide" end="412" time="160" condition="Skin.HasSetting(RemoveVideoPlayerControls)">Conditional</animation>
@@ -3451,64 +3451,64 @@
 	</include>
 	<include name="InvisibleIncludeLabels">
 		<control type="label" id="11111">
-			<label>$INFO[Skin.String(MusicVideosHomeItem.Widget)] $INFO[Skin.String(OscarsHomeItem.Widget)] $INFO[Skin.String(Top250HomeItem.Widget)] 
-$INFO[Skin.String(YoutubeHomeItem.Widget)] $INFO[Skin.String(MusicHomeItem.Widget)] $INFO[Skin.String(TVShowHomeItem.Widget)] 
-$INFO[Skin.String(MovieHomeItem.Widget)] $INFO[Skin.String(LiveTVHomeItem.Widget)] $INFO[Skin.String(PicturesHomeItem.Widget)] 
-$INFO[Skin.String(TVGuideHomeItem.Widget)] $INFO[Skin.String(FeaturedHomeItem.Widget)] $INFO[Skin.String(CustomHomeItem1.Widget)] 
-$INFO[Skin.String(CustomHomeItem2.Widget)] $INFO[Skin.String(CustomHomeItem3.Widget)] $INFO[Skin.String(CustomHomeItem4.Widget)] 
-$INFO[Skin.String(CustomHomeItem5.Widget)] $INFO[Skin.String(CustomHomeItem6.Widget)] $INFO[Skin.String(VideosHomeItem.Widget)] 
-$INFO[Skin.String(ProgramsHomeItem.Widget)] $INFO[Skin.String(SettingsHomeItem.Widget)] $INFO[Skin.String(SearchHomeItem.Widget)] 
+			<label>$INFO[Skin.String(MusicVideosHomeItem.Widget)] $INFO[Skin.String(OscarsHomeItem.Widget)] $INFO[Skin.String(Top250HomeItem.Widget)]
+$INFO[Skin.String(YoutubeHomeItem.Widget)] $INFO[Skin.String(MusicHomeItem.Widget)] $INFO[Skin.String(TVShowHomeItem.Widget)]
+$INFO[Skin.String(MovieHomeItem.Widget)] $INFO[Skin.String(LiveTVHomeItem.Widget)] $INFO[Skin.String(PicturesHomeItem.Widget)]
+$INFO[Skin.String(TVGuideHomeItem.Widget)] $INFO[Skin.String(FeaturedHomeItem.Widget)] $INFO[Skin.String(CustomHomeItem1.Widget)]
+$INFO[Skin.String(CustomHomeItem2.Widget)] $INFO[Skin.String(CustomHomeItem3.Widget)] $INFO[Skin.String(CustomHomeItem4.Widget)]
+$INFO[Skin.String(CustomHomeItem5.Widget)] $INFO[Skin.String(CustomHomeItem6.Widget)] $INFO[Skin.String(VideosHomeItem.Widget)]
+$INFO[Skin.String(ProgramsHomeItem.Widget)] $INFO[Skin.String(SettingsHomeItem.Widget)] $INFO[Skin.String(SearchHomeItem.Widget)]
 $INFO[Skin.String(ShutdownHomeItem.Widget)] $INFO[Skin.String(FavouritesHomeItem.Widget)] $INFO[Skin.String(WeatherHomeItem.Widget)]</label>
 			<textcolor>00FFFFFF</textcolor>
 		</control>
 		<control type="label" id="11112">
-			<label>$INFO[Skin.String(MusicVideosHomeItem.Widget2)] $INFO[Skin.String(OscarsHomeItem.Widget2)] 
-$INFO[Skin.String(Top250HomeItem.Widget2)] $INFO[Skin.String(YoutubeHomeItem.Widget2)] $INFO[Skin.String(MusicHomeItem.Widget2)] 
-$INFO[Skin.String(TVShowHomeItem.Widget2)] $INFO[Skin.String(MovieHomeItem.Widget2)] $INFO[Skin.String(LiveTVHomeItem.Widget2)] 
-$INFO[Skin.String(PicturesHomeItem.Widget2)] $INFO[Skin.String(TVGuideHomeItem.Widget2)] $INFO[Skin.String(FeaturedHomeItem.Widget2)] 
-$INFO[Skin.String(CustomHomeItem1.Widget2)] $INFO[Skin.String(CustomHomeItem2.Widget2)] $INFO[Skin.String(CustomHomeItem3.Widget2)] 
-$INFO[Skin.String(CustomHomeItem4.Widget2)] $INFO[Skin.String(CustomHomeItem5.Widget2)] $INFO[Skin.String(CustomHomeItem6.Widget2)] 
-$INFO[Skin.String(VideosHomeItem.Widget2)] $INFO[Skin.String(ProgramsHomeItem.Widget2)] $INFO[Skin.String(SettingsHomeItem.Widget2)] 
-$INFO[Skin.String(SearchHomeItem.Widget2)] $INFO[Skin.String(ShutdownHomeItem.Widget2)] $INFO[Skin.String(FavouritesHomeItem.Widget2)] 
+			<label>$INFO[Skin.String(MusicVideosHomeItem.Widget2)] $INFO[Skin.String(OscarsHomeItem.Widget2)]
+$INFO[Skin.String(Top250HomeItem.Widget2)] $INFO[Skin.String(YoutubeHomeItem.Widget2)] $INFO[Skin.String(MusicHomeItem.Widget2)]
+$INFO[Skin.String(TVShowHomeItem.Widget2)] $INFO[Skin.String(MovieHomeItem.Widget2)] $INFO[Skin.String(LiveTVHomeItem.Widget2)]
+$INFO[Skin.String(PicturesHomeItem.Widget2)] $INFO[Skin.String(TVGuideHomeItem.Widget2)] $INFO[Skin.String(FeaturedHomeItem.Widget2)]
+$INFO[Skin.String(CustomHomeItem1.Widget2)] $INFO[Skin.String(CustomHomeItem2.Widget2)] $INFO[Skin.String(CustomHomeItem3.Widget2)]
+$INFO[Skin.String(CustomHomeItem4.Widget2)] $INFO[Skin.String(CustomHomeItem5.Widget2)] $INFO[Skin.String(CustomHomeItem6.Widget2)]
+$INFO[Skin.String(VideosHomeItem.Widget2)] $INFO[Skin.String(ProgramsHomeItem.Widget2)] $INFO[Skin.String(SettingsHomeItem.Widget2)]
+$INFO[Skin.String(SearchHomeItem.Widget2)] $INFO[Skin.String(ShutdownHomeItem.Widget2)] $INFO[Skin.String(FavouritesHomeItem.Widget2)]
 $INFO[Skin.String(WeatherHomeItem.Widget2)]</label>
 			<textcolor>00FFFFFF</textcolor>
 		</control>
 		<control type="label" id="11113">
-			<label>$INFO[Skin.String(MusicVideosHomeItem.MultiFanart)] $INFO[Skin.String(MusicHomeItem.MultiFanart)] 
-$INFO[Skin.String(TVShowHomeItem.MultiFanart)] $INFO[Skin.String(MovieHomeItem.MultiFanart)] $INFO[Skin.String(LiveTVHomeItem.MultiFanart)] 
-$INFO[Skin.String(PicturesHomeItem.MultiFanart)] $INFO[Skin.String(TVGuideHomeItem.MultiFanart)] $INFO[Skin.String(FeaturedHomeItem.MultiFanart)] 
-$INFO[Skin.String(CustomHomeItem1.MultiFanart)] $INFO[Skin.String(CustomHomeItem2.MultiFanart)] $INFO[Skin.String(CustomHomeItem3.MultiFanart)] 
-$INFO[Skin.String(CustomHomeItem4.MultiFanart)] $INFO[Skin.String(CustomHomeItem5.MultiFanart)] $INFO[Skin.String(CustomHomeItem6.MultiFanart)] 
-$INFO[Skin.String(VideosHomeItem.MultiFanart)] $INFO[Skin.String(ProgramsHomeItem.MultiFanart)] $INFO[Skin.String(SettingsHomeItem.MultiFanart)] 
-$INFO[Skin.String(SearchHomeItem.MultiFanart)] $INFO[Skin.String(ShutdownHomeItem.MultiFanart)] $INFO[Skin.String(FavouritesHomeItem.MultiFanart)] 
-$INFO[Skin.String(WeatherHomeItem.MultiFanart)] $INFO[Skin.String(YoutubeHomeItem.MultiFanart)] $INFO[Skin.String(OscarsHomeItem.MultiFanart)] 
-$INFO[Skin.String(Top250HomeItem.MultiFanart)] $INFO[Skin.String(CustomSub1_1.MultiFanart)] $INFO[Skin.String(CustomSub1_2.MultiFanart)] 
-$INFO[Skin.String(CustomSub1_3.MultiFanart)] $INFO[Skin.String(CustomSub1_4.MultiFanart)] $INFO[Skin.String(CustomSub1_5.MultiFanart)] 
-$INFO[Skin.String(CustomSub2_1.MultiFanart)] $INFO[Skin.String(CustomSub2_2.MultiFanart)] $INFO[Skin.String(CustomSub2_3.MultiFanart)] 
-$INFO[Skin.String(CustomSub2_4.MultiFanart)] $INFO[Skin.String(CustomSub2_5.MultiFanart)] $INFO[Skin.String(CustomSub2_1.MultiFanart)] 
-$INFO[Skin.String(CustomSub2_2.MultiFanart)] $INFO[Skin.String(CustomSub2_3.MultiFanart)] $INFO[Skin.String(CustomSub2_4.MultiFanart)] 
-$INFO[Skin.String(CustomSub2_5.MultiFanart)] $INFO[Skin.String(CustomSub3_1.MultiFanart)] $INFO[Skin.String(CustomSub3_2.MultiFanart)] 
-$INFO[Skin.String(CustomSub3_3.MultiFanart)] $INFO[Skin.String(CustomSub3_4.MultiFanart)] $INFO[Skin.String(CustomSub3_5.MultiFanart)] 
-$INFO[Skin.String(CustomSub4_1.MultiFanart)] $INFO[Skin.String(CustomSub4_2.MultiFanart)] $INFO[Skin.String(CustomSub4_3.MultiFanart)] 
-$INFO[Skin.String(CustomSub4_4.MultiFanart)] $INFO[Skin.String(CustomSub4_5.MultiFanart)] $INFO[Skin.String(CustomSub5_1.MultiFanart)] 
-$INFO[Skin.String(CustomSub5_2.MultiFanart)] $INFO[Skin.String(CustomSub5_3.MultiFanart)] $INFO[Skin.String(CustomSub5_4.MultiFanart)] 
-$INFO[Skin.String(CustomSub5_5.MultiFanart)] $INFO[Skin.String(CustomSub6_1.MultiFanart)] $INFO[Skin.String(CustomSub6_2.MultiFanart)] 
-$INFO[Skin.String(CustomSub6_3.MultiFanart)] $INFO[Skin.String(CustomSub6_4.MultiFanart)] $INFO[Skin.String(CustomSub6_5.MultiFanart)] 
-$INFO[Skin.String(CustomSub7_1.MultiFanart)] $INFO[Skin.String(CustomSub7_2.MultiFanart)] $INFO[Skin.String(CustomSub7_3.MultiFanart)] 
-$INFO[Skin.String(CustomSub7_4.MultiFanart)] $INFO[Skin.String(CustomSub7_5.MultiFanart)] $INFO[Skin.String(CustomSub8_1.MultiFanart)] 
-$INFO[Skin.String(CustomSub8_2.MultiFanart)] $INFO[Skin.String(CustomSub8_3.MultiFanart)] $INFO[Skin.String(CustomSub8_4)] 
-$INFO[Skin.String(CustomSub8_5.MultiFanart)] $INFO[Skin.String(CustomSub9_1.MultiFanart)] $INFO[Skin.String(CustomSub9_2.MultiFanart)] 
+			<label>$INFO[Skin.String(MusicVideosHomeItem.MultiFanart)] $INFO[Skin.String(MusicHomeItem.MultiFanart)]
+$INFO[Skin.String(TVShowHomeItem.MultiFanart)] $INFO[Skin.String(MovieHomeItem.MultiFanart)] $INFO[Skin.String(LiveTVHomeItem.MultiFanart)]
+$INFO[Skin.String(PicturesHomeItem.MultiFanart)] $INFO[Skin.String(TVGuideHomeItem.MultiFanart)] $INFO[Skin.String(FeaturedHomeItem.MultiFanart)]
+$INFO[Skin.String(CustomHomeItem1.MultiFanart)] $INFO[Skin.String(CustomHomeItem2.MultiFanart)] $INFO[Skin.String(CustomHomeItem3.MultiFanart)]
+$INFO[Skin.String(CustomHomeItem4.MultiFanart)] $INFO[Skin.String(CustomHomeItem5.MultiFanart)] $INFO[Skin.String(CustomHomeItem6.MultiFanart)]
+$INFO[Skin.String(VideosHomeItem.MultiFanart)] $INFO[Skin.String(ProgramsHomeItem.MultiFanart)] $INFO[Skin.String(SettingsHomeItem.MultiFanart)]
+$INFO[Skin.String(SearchHomeItem.MultiFanart)] $INFO[Skin.String(ShutdownHomeItem.MultiFanart)] $INFO[Skin.String(FavouritesHomeItem.MultiFanart)]
+$INFO[Skin.String(WeatherHomeItem.MultiFanart)] $INFO[Skin.String(YoutubeHomeItem.MultiFanart)] $INFO[Skin.String(OscarsHomeItem.MultiFanart)]
+$INFO[Skin.String(Top250HomeItem.MultiFanart)] $INFO[Skin.String(CustomSub1_1.MultiFanart)] $INFO[Skin.String(CustomSub1_2.MultiFanart)]
+$INFO[Skin.String(CustomSub1_3.MultiFanart)] $INFO[Skin.String(CustomSub1_4.MultiFanart)] $INFO[Skin.String(CustomSub1_5.MultiFanart)]
+$INFO[Skin.String(CustomSub2_1.MultiFanart)] $INFO[Skin.String(CustomSub2_2.MultiFanart)] $INFO[Skin.String(CustomSub2_3.MultiFanart)]
+$INFO[Skin.String(CustomSub2_4.MultiFanart)] $INFO[Skin.String(CustomSub2_5.MultiFanart)] $INFO[Skin.String(CustomSub2_1.MultiFanart)]
+$INFO[Skin.String(CustomSub2_2.MultiFanart)] $INFO[Skin.String(CustomSub2_3.MultiFanart)] $INFO[Skin.String(CustomSub2_4.MultiFanart)]
+$INFO[Skin.String(CustomSub2_5.MultiFanart)] $INFO[Skin.String(CustomSub3_1.MultiFanart)] $INFO[Skin.String(CustomSub3_2.MultiFanart)]
+$INFO[Skin.String(CustomSub3_3.MultiFanart)] $INFO[Skin.String(CustomSub3_4.MultiFanart)] $INFO[Skin.String(CustomSub3_5.MultiFanart)]
+$INFO[Skin.String(CustomSub4_1.MultiFanart)] $INFO[Skin.String(CustomSub4_2.MultiFanart)] $INFO[Skin.String(CustomSub4_3.MultiFanart)]
+$INFO[Skin.String(CustomSub4_4.MultiFanart)] $INFO[Skin.String(CustomSub4_5.MultiFanart)] $INFO[Skin.String(CustomSub5_1.MultiFanart)]
+$INFO[Skin.String(CustomSub5_2.MultiFanart)] $INFO[Skin.String(CustomSub5_3.MultiFanart)] $INFO[Skin.String(CustomSub5_4.MultiFanart)]
+$INFO[Skin.String(CustomSub5_5.MultiFanart)] $INFO[Skin.String(CustomSub6_1.MultiFanart)] $INFO[Skin.String(CustomSub6_2.MultiFanart)]
+$INFO[Skin.String(CustomSub6_3.MultiFanart)] $INFO[Skin.String(CustomSub6_4.MultiFanart)] $INFO[Skin.String(CustomSub6_5.MultiFanart)]
+$INFO[Skin.String(CustomSub7_1.MultiFanart)] $INFO[Skin.String(CustomSub7_2.MultiFanart)] $INFO[Skin.String(CustomSub7_3.MultiFanart)]
+$INFO[Skin.String(CustomSub7_4.MultiFanart)] $INFO[Skin.String(CustomSub7_5.MultiFanart)] $INFO[Skin.String(CustomSub8_1.MultiFanart)]
+$INFO[Skin.String(CustomSub8_2.MultiFanart)] $INFO[Skin.String(CustomSub8_3.MultiFanart)] $INFO[Skin.String(CustomSub8_4)]
+$INFO[Skin.String(CustomSub8_5.MultiFanart)] $INFO[Skin.String(CustomSub9_1.MultiFanart)] $INFO[Skin.String(CustomSub9_2.MultiFanart)]
 $INFO[Skin.String(CustomSub9_3.MultiFanart)] $INFO[Skin.String(CustomSub9_4.MultiFanart)] $INFO[Skin.String(CustomSub9_5.MultiFanart)]</label>
 			<textcolor>00FFFFFF</textcolor>
 		</control>
 		<control type="label" id="11114">
-			<label>$INFO[Skin.String(MusicVideosHomeItem.Submenu)] $INFO[Skin.String(MusicHomeItem.Submenu)] $INFO[Skin.String(TVShowHomeItem.Submenu)] 
-$INFO[Skin.String(MovieHomeItem.Submenu)] $INFO[Skin.String(LiveTVHomeItem.Submenu)]$INFO[Skin.String(PicturesHomeItem.Submenu)] 
-$INFO[Skin.String(TVGuideHomeItem.Submenu)] $INFO[Skin.String(FeaturedHomeItem.Submenu)] $INFO[Skin.String(CustomHomeItem1.Submenu)] 
-$INFO[Skin.String(CustomHomeItem2.Submenu)] $INFO[Skin.String(CustomHomeItem3.Submenu)] $INFO[Skin.String(CustomHomeItem4.Submenu)] 
-$INFO[Skin.String(CustomHomeItem5.Submenu)] $INFO[Skin.String(CustomHomeItem6.Submenu)] $INFO[Skin.String(VideosHomeItem.Submenu)] 
-$INFO[Skin.String(ProgramsHomeItem.Submenu)] $INFO[Skin.String(SettingsHomeItem.Submenu)] $INFO[Skin.String(SearchHomeItem.Submenu)] 
-$INFO[Skin.String(ShutdownHomeItem.Submenu)] $INFO[Skin.String(FavouritesHomeItem.Submenu)] $INFO[Skin.String(WeatherHomeItem.Submenu)]$INFO[Skin.String(YoutubeHomeItem.Submenu)] 
+			<label>$INFO[Skin.String(MusicVideosHomeItem.Submenu)] $INFO[Skin.String(MusicHomeItem.Submenu)] $INFO[Skin.String(TVShowHomeItem.Submenu)]
+$INFO[Skin.String(MovieHomeItem.Submenu)] $INFO[Skin.String(LiveTVHomeItem.Submenu)]$INFO[Skin.String(PicturesHomeItem.Submenu)]
+$INFO[Skin.String(TVGuideHomeItem.Submenu)] $INFO[Skin.String(FeaturedHomeItem.Submenu)] $INFO[Skin.String(CustomHomeItem1.Submenu)]
+$INFO[Skin.String(CustomHomeItem2.Submenu)] $INFO[Skin.String(CustomHomeItem3.Submenu)] $INFO[Skin.String(CustomHomeItem4.Submenu)]
+$INFO[Skin.String(CustomHomeItem5.Submenu)] $INFO[Skin.String(CustomHomeItem6.Submenu)] $INFO[Skin.String(VideosHomeItem.Submenu)]
+$INFO[Skin.String(ProgramsHomeItem.Submenu)] $INFO[Skin.String(SettingsHomeItem.Submenu)] $INFO[Skin.String(SearchHomeItem.Submenu)]
+$INFO[Skin.String(ShutdownHomeItem.Submenu)] $INFO[Skin.String(FavouritesHomeItem.Submenu)] $INFO[Skin.String(WeatherHomeItem.Submenu)]$INFO[Skin.String(YoutubeHomeItem.Submenu)]
 $INFO[Skin.String(OscarsHomeItem.Submenu)] $INFO[Skin.String(Top250HomeItem.Submenu)]</label>
 			<textcolor>00FFFFFF</textcolor>
 		</control>
@@ -3603,7 +3603,7 @@ $INFO[Skin.String(OscarsHomeItem.Submenu)] $INFO[Skin.String(Top250HomeItem.Subm
 		<animation effect="fade" time="150" tween="sine" easing="out" reversible="false">WindowOpen</animation>
 		<animation effect="fade" time="150" tween="sine" easing="in" reversible="false">WindowClose</animation>
 		<animation effect="fade" time="50" tween="sine" easing="out" reversible="false">Visible</animation>
-		<animation effect="fade" time="50" tween="sine" easing="in" reversible="false">Hidden</animation>	
+		<animation effect="fade" time="50" tween="sine" easing="in" reversible="false">Hidden</animation>
 	</include>
 	<include name="BackgroundAnimation">
 		<!--global-->

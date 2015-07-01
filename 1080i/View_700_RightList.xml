@@ -7,11 +7,11 @@
 			<visible>Control.IsVisible(700) + !Window.IsActive(addoninformation)</visible>
 			<include>ViewAnimation</include>
 			<control type="image">
-                <texture>views/episodebgoverlay.png</texture>
-                <include>FullscreenDimensions</include>
-                <include>Animation_WindowFade200</include>
-                <visible>Skin.HasSetting(altoverlayinfowall)</visible>
-            </control>
+				<texture>views/episodebgoverlay.png</texture>
+				<include>FullscreenDimensions</include>
+				<include>Animation_WindowFade200</include>
+				<visible>Skin.HasSetting(altoverlayinfowall)</visible>
+			</control>
 			<control type="group">
 				<left>30</left>
 				<top>50</top>
@@ -36,11 +36,8 @@
 				<shadowcolor>black</shadowcolor>
 				<font>font_SimplerE3D_bold</font>
 				<label>[B]$VAR[FirstLabelVar][/B]</label>
-				<textoffsetx>15</textoffsetx>
 				<visible>IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(rightlistfakelogo)</visible>
 				<visible>SubString(ListItem.Title,a,Left) | SubString(ListItem.Title,b,Left) | SubString(ListItem.Title,c,Left) | SubString(ListItem.Title,d,Left)</visible>
-				<scroll>true</scroll>
-				<wrapmultiline>true</wrapmultiline>
 			</control>
 			<control type="textbox">
 				<posx>0</posx>
@@ -53,11 +50,8 @@
 				<shadowcolor>black</shadowcolor>
 				<font>font_armyofdarkness</font>
 				<label>[B]$VAR[FirstLabelVar][/B]</label>
-				<textoffsetx>15</textoffsetx>
 				<visible>IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(rightlistfakelogo)</visible>
 				<visible>SubString(ListItem.Title,e,Left) | SubString(ListItem.Title,f,Left) | SubString(ListItem.Title,g,Left) | SubString(ListItem.Title,h,Left)</visible>
-				<scroll>true</scroll>
-				<wrapmultiline>true</wrapmultiline>
 			</control>
 			<control type="textbox">
 				<posx>0</posx>
@@ -70,11 +64,8 @@
 				<shadowcolor>black</shadowcolor>
 				<font>font_babylon5</font>
 				<label>[B]$VAR[FirstLabelVar][/B]</label>
-				<textoffsetx>15</textoffsetx>
 				<visible>IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(rightlistfakelogo)</visible>
 				<visible>SubString(ListItem.Title,i,Left) | SubString(ListItem.Title,j,Left) | SubString(ListItem.Title,k,Left) | SubString(ListItem.Title,l,Left)</visible>
-				<scroll>true</scroll>
-				<wrapmultiline>true</wrapmultiline>
 			</control>
 			<control type="textbox">
 				<posx>0</posx>
@@ -87,11 +78,8 @@
 				<shadowcolor>black</shadowcolor>
 				<font>font_bachelorpad</font>
 				<label>[B]$VAR[FirstLabelVar][/B]</label>
-				<textoffsetx>15</textoffsetx>
 				<visible>IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(rightlistfakelogo)</visible>
 				<visible>SubString(ListItem.Title,m,Left) | SubString(ListItem.Title,n,Left) | SubString(ListItem.Title,o,Left) | SubString(ListItem.Title,p,Left)</visible>
-				<scroll>true</scroll>
-				<wrapmultiline>true</wrapmultiline>
 			</control>
 			<control type="textbox">
 				<posx>0</posx>
@@ -104,11 +92,8 @@
 				<shadowcolor>black</shadowcolor>
 				<font>font_bullpen3d</font>
 				<label>[B]$VAR[FirstLabelVar][/B]</label>
-				<textoffsetx>15</textoffsetx>
 				<visible>IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(rightlistfakelogo)</visible>
 				<visible>SubString(ListItem.Title,q,Left) | SubString(ListItem.Title,r,Left) | SubString(ListItem.Title,s,Left) | SubString(ListItem.Title,t,Left)</visible>
-				<scroll>true</scroll>
-				<wrapmultiline>true</wrapmultiline>
 			</control>
 			<control type="textbox">
 				<posx>0</posx>
@@ -121,11 +106,8 @@
 				<shadowcolor>black</shadowcolor>
 				<font>font_terminator</font>
 				<label>[B]$VAR[FirstLabelVar][/B]</label>
-				<textoffsetx>15</textoffsetx>
 				<visible>IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(rightlistfakelogo)</visible>
 				<visible>SubString(ListItem.Title,u,Left) | SubString(ListItem.Title,v,Left) | SubString(ListItem.Title,w,Left) | SubString(ListItem.Title,x,Left) | SubString(ListItem.Title,y,Left) | SubString(ListItem.Title,z,Left)</visible>
-				<scroll>true</scroll>
-				<wrapmultiline>true</wrapmultiline>
 			</control>
 			<!--MAD - End of Fake Logo -->
 			<control type="group">
@@ -142,10 +124,10 @@
 					<visible>Container.Content(movies)</visible>
 					<animation type="WindowOpen" reversible="false">
 						<effect type="slide" tween="cubic" easing="inout" time="1500" delay="100" start="-800" end="0" />
-						<effect type="rotate" end="-360" center="auto" time="2000" delay="0" loop="false" reversible="false" tween="cubic" easing="inout" />
+						<effect type="rotate" end="-360" center="auto" time="2000" delay="0" loop="false" tween="cubic" easing="inout" />
 					</animation>
 					<animation type="Conditional" reversible="false" condition="!Container.OnNext + !Container.OnPrevious">
-						<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" loop="false" reversible="false" tween="cubic" easing="inout" />
+						<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" loop="false" tween="cubic" easing="inout" />
 					</animation>
 					<visible>Skin.HasSetting(discrightlist)</visible>
 				</control>
@@ -158,10 +140,10 @@
 					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[ListItem.Art(poster)]</texture>
 					<animation type="WindowOpen" reversible="false">
 						<effect type="slide" tween="cubic" easing="inout" time="1500" delay="100" start="-800" end="0" />
-						<effect type="rotate" end="-360" center="auto" time="2000" delay="0" loop="false" reversible="false" tween="cubic" easing="inout" />
+						<effect type="rotate" end="-360" center="auto" time="2000" delay="0" loop="false" tween="cubic" easing="inout" />
 					</animation>
 					<animation type="Conditional" reversible="false" condition="!Container.OnNext + !Container.OnPrevious">
-						<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" loop="false" reversible="false" tween="cubic" easing="inout" />
+						<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" loop="false" tween="cubic" easing="inout" />
 					</animation>
 					<visible>Skin.Hassetting(discrightlist) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Container.Content(movies) + Skin.HasSetting(Fakediscart) + !SubString(ListItem.Path,videodb://movies/sets)</visible>
 				</control>
@@ -174,10 +156,10 @@
 					<texture background="true">$VAR[FakeDiscArtOverlay]</texture>
 					<animation type="WindowOpen" reversible="false">
 						<effect type="slide" tween="cubic" easing="inout" time="1500" delay="100" start="-800" end="0" />
-						<effect type="rotate" end="-360" center="auto" time="2000" delay="0" loop="false" reversible="false" tween="cubic" easing="inout" />
+						<effect type="rotate" end="-360" center="auto" time="2000" delay="0" loop="false" tween="cubic" easing="inout" />
 					</animation>
 					<animation type="Conditional" reversible="false" condition="!Container.OnNext + !Container.OnPrevious">
-						<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" loop="false" reversible="false" tween="cubic" easing="inout" />
+						<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" loop="false" tween="cubic" easing="inout" />
 					</animation>
 					<visible>Skin.Hassetting(discrightlist) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Container.Content(movies) + Skin.HasSetting(Fakediscart) + !SubString(ListItem.Path,videodb://movies/sets)</visible>
 				</control>
@@ -190,10 +172,10 @@
 					<texture background="true">$VAR[FakeDischand]</texture>
 					<animation type="WindowOpen" reversible="false">
 						<effect type="slide" tween="cubic" easing="inout" time="1500" delay="100" start="-800" end="0" />
-						<effect type="rotate" end="-360" center="auto" time="2000" delay="0" loop="false" reversible="false" tween="cubic" easing="inout" />
+						<effect type="rotate" end="-360" center="auto" time="2000" delay="0" loop="false" tween="cubic" easing="inout" />
 					</animation>
 					<animation type="Conditional" reversible="false" condition="!Container.OnNext + !Container.OnPrevious">
-						<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" loop="false" reversible="false" tween="cubic" easing="inout" />
+						<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" loop="false" tween="cubic" easing="inout" />
 					</animation>
 					<visible>Skin.Hassetting(discrightlist) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Container.Content(movies) + Skin.HasSetting(Fakedischandwriting) + !SubString(ListItem.Path,videodb://movies/sets) + !Skin.Hassetting(Fakehanddisccolor)</visible>
 				</control>
@@ -206,25 +188,24 @@
 					<texture background="true">$VAR[FakeDischandcolor]</texture>
 					<animation type="WindowOpen" reversible="false">
 						<effect type="slide" tween="cubic" easing="inout" time="1500" delay="100" start="-800" end="0" />
-						<effect type="rotate" end="-360" center="auto" time="2000" delay="0" loop="false" reversible="false" tween="cubic" easing="inout" />
+						<effect type="rotate" end="-360" center="auto" time="2000" delay="0" loop="false" tween="cubic" easing="inout" />
 					</animation>
 					<animation type="Conditional" reversible="false" condition="!Container.OnNext + !Container.OnPrevious">
-						<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" loop="false" reversible="false" tween="cubic" easing="inout" />
+						<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" loop="false" tween="cubic" easing="inout" />
 					</animation>
 					<visible>Skin.Hassetting(discrightlist) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Container.Content(movies) + Skin.HasSetting(Fakedischandwriting) + !SubString(ListItem.Path,videodb://movies/sets) + Skin.Hassetting(Fakehanddisccolor)</visible>
 				</control>
 				<control type="textbox">
-                    <animation effect="rotate" end="-360" center="216,-8" time="6400" delay="1200" loop="false" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
-                    <top>30</top>
+					<animation effect="rotate" end="-360" center="216,-8" time="6400" delay="1200" loop="false" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+					<top>30</top>
 					<left>92</left>
 					<width>270</width>
 					<height>170</height>
 					<align>center</align>
 					<font>Hand_28</font>
 					<visible>Skin.Hassetting(discrightlist) + IsEmpty(ListItem.Art(discart)) + Container.Content(movies) + Skin.HasSetting(Fakedischandwriting) + !SubString(ListItem.Path,videodb://movies/sets) + IsEmpty(ListItem.Art(clearlogo))</visible>
-                    <label> $INFO[ListItem.Label]</label>
-                    <textcolor>black</textcolor>
-					<wrapmultiline>true</wrapmultiline>
+					<label> $INFO[ListItem.Label]</label>
+					<textcolor>black</textcolor>
 				</control>
 				<control type="group">
 					<animation effect="rotate" end="-360" center="218,-8" time="6400" delay="1200" loop="false" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
@@ -279,11 +260,11 @@
 					<top>-25</top>
 					<width>495</width>
 					<height>680</height>
-                    <texture background="true">thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
-                    <aspectratio align="center" aligny="top">keep</aspectratio>
-                    <bordersize>2</bordersize>
+					<texture background="true">thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+					<bordersize>2</bordersize>
 					<visible>Container.Content(movies) + Skin.HasSetting(togglerightlistcovers) + [Skin.Hassetting(usecases) | Skin.Hassetting(clearcases)] + !SubString(ListItem.Path,videodb://movies/sets)</visible>
-			    </control>
+				</control>
 			</control>
 			<control type="group">
 				<left>434</left>
@@ -316,13 +297,13 @@
 						<width>650</width>
 						<include>RighListButtonsValues</include>
 						<visible>!IsEmpty(Window(home).Property(Set.Movies.Director)) + [Container.Content(movies) | Container.Content(sets)]</visible>
-						</control>
+					</control>
 					<control type="label">
 						<label>[COLOR $VAR[TitleColorVar]]$LOCALIZE[515]:[/COLOR][CR][COLOR white]$INFO[Window(home).Property(Set.Movies.Genre),, $LOCALIZE[12391][/COLOR]]</label>
 						<width>650</width>
 						<include>RighListButtonsValues</include>
 						<visible>!IsEmpty(Window(home).Property(Set.Movies.Genre)) + [Container.Content(movies) | Container.Content(sets)]</visible>
-						</control>
+					</control>
 				</control>
 				<control type="grouplist">
 					<visible>!Container.Content(episodes) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
@@ -332,13 +313,13 @@
 						<include>RighListButtonsValues</include>
 						<visible>!IsEmpty(Window(Home).Property(NextAired.NextDate)) + !Skin.HasSetting(Disable.NextAired)</visible>
 						<visible>!Container.Content(episodes) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
-						</control>
+					</control>
 					<control type="label">
 						<label>[COLOR $VAR[TitleColorVar]]$LOCALIZE[126]:[/COLOR][CR][COLOR white]$INFO[Window(Home).Property(NextAired.Status)][/COLOR]</label>
 						<width>650</width>
 						<include>RighListButtonsValues</include>
 						<visible>[Container.Content(tvshows) | Container.Content(seasons)] + [!IsEmpty(Window(Home).Property(NextAired.Status)) + IsEmpty(Window(Home).Property(NextAired.NextDate)) + !Skin.HasSetting(Disable.NextAired)]</visible>
-						</control>
+					</control>
 					<control type="label">
 						<label>[COLOR $VAR[TitleColorVar]]$LOCALIZE[515]:[/COLOR][CR][COLOR white]$INFO[ListItem.Genre][/COLOR]</label>
 						<width>650</width>
@@ -427,8 +408,8 @@
 				<control type="image">
 					<colordiffuse>floor</colordiffuse>
 					<texture>$VAR[ColorFlagsSource]source/$VAR[SourceFlagVar,,.png]</texture>
-                    <include>AudioFlagsVars</include>
-                    <include>VisibleFadeEffect</include>
+					<include>AudioFlagsVars</include>
+					<include>VisibleFadeEffect</include>
 				</control>
 				<control type="image">
 					<left>1000</left>
@@ -443,22 +424,22 @@
 					<left>1000</left>
 					<top>-13</top>
 					<colordiffuse>floor</colordiffuse>
-				    <texture>$VAR[ColorFlagsStudio]default-studio.png</texture>
-                    <include>AudioFlagsVars</include>
-                    <visible>IsEmpty(ListItem.Studio)</visible>
-                </control>
+					<texture>$VAR[ColorFlagsStudio]default-studio.png</texture>
+					<include>AudioFlagsVars</include>
+					<visible>IsEmpty(ListItem.Studio)</visible>
+				</control>
 				<control type="label">
-                	<left>1000</left>
+					<left>1000</left>
 					<top>-13</top>
-				    <width>155</width>
-                    <height>70</height>
-                    <align>center</align>
-                    <label>$INFO[ListItem.Studio]</label>
-                    <font>Font_Reg22_Caps</font>
-                    <textcolor>grey</textcolor>
-                    <wrapmultiline>true</wrapmultiline>
-                    <visible>IsEmpty(ListItem.Studio) + !Skin.HasSetting(DisableStudiosColorFlag)</visible>
-                </control>
+					<width>155</width>
+					<height>70</height>
+					<align>center</align>
+					<label>$INFO[ListItem.Studio]</label>
+					<font>Font_Reg22_Caps</font>
+					<textcolor>grey</textcolor>
+					<wrapmultiline>true</wrapmultiline>
+					<visible>IsEmpty(ListItem.Studio) + !Skin.HasSetting(DisableStudiosColorFlag)</visible>
+				</control>
 				<!--control type="image">
 					<top>12</top>
 					<left>200</left>
@@ -475,14 +456,14 @@
 					<width>200</width>
 					<colordiffuse>floor</colordiffuse>
 					<texture fallback="flags/mpaa/NR.png">$VAR[ColorFlagsRating]rating/$VAR[RatingFlagVar,,.png]</texture>
-                    <include>AudioFlagsVars</include>
+					<include>AudioFlagsVars</include>
 					<visible>!Container.Content(tvshows) + !Container.Content(seasons) + !IsEmpty(ListItem.Title)</visible>
 				</control>
 				<control type="image">
 					<left>430</left>
 					<colordiffuse>floor</colordiffuse>
 					<texture>$VAR[ColorFlagsResolution]resolution/$INFO[ListItem.VideoResolution,,.png]</texture>
-                    <include>AudioFlagsVars</include>
+					<include>AudioFlagsVars</include>
 					<visible>!IsEmpty(ListItem.VideoResolution)</visible>
 					<include>VisibleFadeEffect</include>
 				</control>
@@ -490,16 +471,16 @@
 					<left>600</left>
 					<colordiffuse>floor</colordiffuse>
 					<texture>$VAR[ColorFlagsAudio]audio/$VAR[AudioFlagVar,,.png]</texture>
-                    <include>AudioFlagsVars</include>
-                    <visible>!IsEmpty(ListItem.VideoCodec)</visible>
+					<include>AudioFlagsVars</include>
+					<visible>!IsEmpty(ListItem.VideoCodec)</visible>
 					<include>VisibleFadeEffect</include>
 				</control>
 				<control type="image">
 					<left>800</left>
 					<colordiffuse>floor</colordiffuse>
 					<texture>$VAR[ColorFlagsAspectRatio]aspectratio/$INFO[ListItem.VideoAspect,,.png]</texture>
-                    <include>AudioFlagsVars</include>
-                    <include>VisibleFadeEffect</include>
+					<include>AudioFlagsVars</include>
+					<include>VisibleFadeEffect</include>
 				</control>
 				<!--control type="image">
 					<left>1200</left>
@@ -662,7 +643,6 @@
 						<top>2</top>
 						<width>64</width>
 						<height>64</height>
-						<aspectratio>keep</aspectratio>
 						<font>font12_title</font>
 						<align>center</align>
 						<aligny>center</aligny>
@@ -794,264 +774,264 @@
 						<visible>Control.HasFocus(700)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
-					-->
-					<control type="label">
-						<top>-12</top>
-						<left>30</left>
-						<width>700</width>
-						<height>68</height>
-						<font>font16</font>
-						<align>right</align>
-						<textcolor>$VAR[TitleColorVar]</textcolor>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-						<visible>![SubString(ListItem.Path,videodb://movies/sets) + !Stringcompare(ListItem.Label,..)]</visible>
-					</control>
-					<control type="label">
-						<top>7</top>
-						<left>30</left>
-						<width>700</width>
-						<height>68</height>
-						<font>font16</font>
-						<align>right</align>
-						<textcolor>$VAR[TitleColorVar]</textcolor>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-						<visible>[SubString(ListItem.Path,videodb://movies/sets) + !Stringcompare(ListItem.Label,..)]</visible>
-					</control>
-					<control type="label">
-						<left>130</left>
-						<top>27</top>
-						<width>600</width>
-						<height>68</height>
-						<font>font13</font>
-						<align>right</align>
-						<selectedcolor>selected</selectedcolor>
-						<label>$VAR[FloorSubLabelVar]</label>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-						<visible>![SubString(ListItem.Path,videodb://movies/sets) + !Stringcompare(ListItem.Label,..)]</visible>
-					</control>
+				-->
+				<control type="label">
+					<top>-12</top>
+					<left>30</left>
+					<width>700</width>
+					<height>68</height>
+					<font>font16</font>
+					<align>right</align>
+					<textcolor>$VAR[TitleColorVar]</textcolor>
+					<selectedcolor>selected</selectedcolor>
+					<label>$INFO[ListItem.Label]</label>
+					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+					<visible>![SubString(ListItem.Path,videodb://movies/sets) + !Stringcompare(ListItem.Label,..)]</visible>
+				</control>
+				<control type="label">
+					<top>7</top>
+					<left>30</left>
+					<width>700</width>
+					<height>68</height>
+					<font>font16</font>
+					<align>right</align>
+					<textcolor>$VAR[TitleColorVar]</textcolor>
+					<selectedcolor>selected</selectedcolor>
+					<label>$INFO[ListItem.Label]</label>
+					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+					<visible>[SubString(ListItem.Path,videodb://movies/sets) + !Stringcompare(ListItem.Label,..)]</visible>
+				</control>
+				<control type="label">
+					<left>130</left>
+					<top>27</top>
+					<width>600</width>
+					<height>68</height>
+					<font>font13</font>
+					<align>right</align>
+					<selectedcolor>selected</selectedcolor>
+					<label>$VAR[FloorSubLabelVar]</label>
+					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+					<visible>![SubString(ListItem.Path,videodb://movies/sets) + !Stringcompare(ListItem.Label,..)]</visible>
+				</control>
+				<control type="image">
+					<left>742</left>
+					<top>12</top>
+					<width>64</width>
+					<height>64</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$VAR[ListItem.Overlay]</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				</control>
+				<control type="image">
+					<top>28</top>
+					<left>20</left>
+					<width>810</width>
+					<height>60</height>
+					<texture border="1">separator2.png</texture>
+				</control>
+			</focusedlayout>
+			<itemlayout height="69" width="806" condition="!Skin.HasSetting(rightlistalternatetv) + Container.Content(tvshows)">
+				<control type="image">
+					<left>20</left>
+					<top>8</top>
+					<width>810</width>
+					<height>60</height>
+					<texture border="1">separator2.png</texture>
+				</control>
+				<control type="label">
+					<left>30</left>
+					<width>600</width>
+					<height>68</height>
+					<font>font15</font>
+					<align>right</align>
+					<textcolor>grey</textcolor>
+					<selectedcolor>selected</selectedcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+				<control type="label">
+					<left>630</left>
+					<width>100</width>
+					<height>68</height>
+					<font>font15</font>
+					<align>right</align>
+					<textcolor>grey</textcolor>
+					<label>$INFO[ListItem.Year]</label>
+				</control>
+				<control type="image">
+					<left>742</left>
+					<top>1</top>
+					<width>68</width>
+					<height>68</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$VAR[ListItem.Overlay]</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				</control>
+				<control type="group">
+					<description>Unwatched episodes</description>
+					<left>736</left>
+					<top>-1</top>
 					<control type="image">
-						<left>742</left>
-						<top>12</top>
+						<left>0</left>
+						<top>3</top>
 						<width>64</width>
 						<height>64</height>
-						<aspectratio>keep</aspectratio>
-						<texture>$VAR[ListItem.Overlay]</texture>
+						<texture>overlays/list/OverlayUnWatched.png</texture>
 						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-					</control>
-					<control type="image">
-						<top>28</top>
-						<left>20</left>
-						<width>810</width>
-						<height>60</height>
-						<texture border="1">separator2.png</texture>
-					</control>
-				</focusedlayout>
-				<itemlayout height="69" width="806" condition="!Skin.HasSetting(rightlistalternatetv) + Container.Content(tvshows)">
-					<control type="image">
-						<left>20</left>
-						<top>8</top>
-						<width>810</width>
-						<height>60</height>
-						<texture border="1">separator2.png</texture>
+						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
 					</control>
 					<control type="label">
-						<left>30</left>
-						<width>600</width>
-						<height>68</height>
-						<font>font15</font>
-						<align>right</align>
-						<textcolor>grey</textcolor>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<left>630</left>
-						<width>100</width>
-						<height>68</height>
-						<font>font15</font>
-						<align>right</align>
-						<textcolor>grey</textcolor>
-						<label>$INFO[ListItem.Year]</label>
-					</control>
-					<control type="image">
-						<left>742</left>
-						<top>1</top>
-						<width>68</width>
-						<height>68</height>
-						<aspectratio>keep</aspectratio>
-						<texture>$VAR[ListItem.Overlay]</texture>
-						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-					</control>
-					<control type="group">
-						<description>Unwatched episodes</description>
-						<left>736</left>
-						<top>-1</top>
-						<control type="image">
-							<left>0</left>
-							<top>3</top>
-							<width>64</width>
-							<height>64</height>
-							<texture>overlays/list/OverlayUnWatched.png</texture>
-							<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
-						</control>
-						<control type="label">
-							<left>-18</left>
-							<top>0</top>
-							<width>116</width>
-							<height>68</height>
-							<font>font12_title</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<label>$VAR[ListOverlayEpisodesVar]</label>
-							<textcolor>grey3</textcolor>
-							<textoffsetx>18</textoffsetx>
-							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
-						</control>
-					</control>
-				</itemlayout>
-				<focusedlayout height="85" width="806" condition="!Skin.HasSetting(rightlistalternatetv) + Container.Content(tvshows)">
-					<control type="image">
+						<left>-18</left>
 						<top>0</top>
-						<left>20</left>
-						<width>825</width>
-						<height>85</height>
-						<texture border="4">listselect_fo_clear.png</texture>
-						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-						<visible>Control.HasFocus(700)</visible>
-						<include>VisibleFadeEffect</include>
-					</control>
-					<control type="label">
-						<top>-12</top>
-						<left>30</left>
-						<width>600</width>
+						<width>116</width>
 						<height>68</height>
-						<font>font16</font>
-						<align>right</align>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+						<font>font12_title</font>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$VAR[ListOverlayEpisodesVar]</label>
+						<textcolor>grey3</textcolor>
+						<textoffsetx>18</textoffsetx>
+						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
 					</control>
-					<control type="label">
-						<left>30</left>
-						<top>27</top>
-						<width>600</width>
-						<height>68</height>
-						<font>font13</font>
-						<align>right</align>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.RatingAndVotes]</label>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-					</control>
-					<control type="label">
-						<left>630</left>
-						<top>8</top>
-						<width>100</width>
-						<height>68</height>
-						<font>font15</font>
-						<align>right</align>
-						<textcolor>$VAR[TitleColorVar]</textcolor>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Year]</label>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-					</control>
+				</control>
+			</itemlayout>
+			<focusedlayout height="85" width="806" condition="!Skin.HasSetting(rightlistalternatetv) + Container.Content(tvshows)">
+				<control type="image">
+					<top>0</top>
+					<left>20</left>
+					<width>825</width>
+					<height>85</height>
+					<texture border="4">listselect_fo_clear.png</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+					<visible>Control.HasFocus(700)</visible>
+					<include>VisibleFadeEffect</include>
+				</control>
+				<control type="label">
+					<top>-12</top>
+					<left>30</left>
+					<width>600</width>
+					<height>68</height>
+					<font>font16</font>
+					<align>right</align>
+					<selectedcolor>selected</selectedcolor>
+					<label>$INFO[ListItem.Label]</label>
+					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+				</control>
+				<control type="label">
+					<left>30</left>
+					<top>27</top>
+					<width>600</width>
+					<height>68</height>
+					<font>font13</font>
+					<align>right</align>
+					<selectedcolor>selected</selectedcolor>
+					<label>$INFO[ListItem.RatingAndVotes]</label>
+					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+				</control>
+				<control type="label">
+					<left>630</left>
+					<top>8</top>
+					<width>100</width>
+					<height>68</height>
+					<font>font15</font>
+					<align>right</align>
+					<textcolor>$VAR[TitleColorVar]</textcolor>
+					<selectedcolor>selected</selectedcolor>
+					<label>$INFO[ListItem.Year]</label>
+					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+				</control>
+				<control type="image">
+					<left>741</left>
+					<top>10</top>
+					<width>72</width>
+					<height>72</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$VAR[ListItem.Overlay]</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				</control>
+				<control type="group">
+					<description>Unwatched episodes</description>
+					<left>736</left>
+					<top>10</top>
 					<control type="image">
-						<left>741</left>
-						<top>10</top>
-						<width>72</width>
-						<height>72</height>
-						<aspectratio>keep</aspectratio>
-						<texture>$VAR[ListItem.Overlay]</texture>
-						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-					</control>
-					<control type="group">
-						<description>Unwatched episodes</description>
-						<left>736</left>
-						<top>10</top>
-						<control type="image">
-							<left>0</left>
-							<top>3</top>
-							<width>64</width>
-							<height>64</height>
-							<texture>overlays/list/OverlayUnWatched.png</texture>
-							<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
-						</control>
-						<control type="label">
-							<left>-18</left>
-							<top>0</top>
-							<width>116</width>
-							<height>68</height>
-							<font>font12_title</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<label>$VAR[ListOverlayEpisodesVar]</label>
-							<textcolor>white</textcolor>
-							<textoffsetx>18</textoffsetx>
-							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
-						</control>
-					</control>
-					<control type="image">
-						<top>28</top>
-						<left>20</left>
-						<width>810</width>
-						<height>60</height>
-						<texture border="1">separator2.png</texture>
-					</control>
-				</focusedlayout>
-				<itemlayout height="68" width="806" condition="Skin.HasSetting(rightlistalternatetv) + Container.Content(tvshows)">
-					<control type="label">
-						<left>30</left>
-						<width>700</width>
-						<height>68</height>
-						<font>font15</font>
-						<align>right</align>
-						<textcolor>grey</textcolor>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="image">
-						<left>742</left>
-						<top>2</top>
+						<left>0</left>
+						<top>3</top>
 						<width>64</width>
 						<height>64</height>
-						<aspectratio>keep</aspectratio>
-						<texture>$VAR[ListItem.Overlay]</texture>
+						<texture>overlays/list/OverlayUnWatched.png</texture>
 						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
 					</control>
-					<control type="group">
-						<description>Unwatched episodes</description>
-						<left>742</left>
-						<top>-1</top>
-						<control type="image">
-							<left>0</left>
-							<top>3</top>
-							<width>64</width>
-							<height>64</height>
-							<texture>overlays/list/OverlayUnWatched.png</texture>
-							<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
-						</control>
-						<control type="label">
-							<left>-18</left>
-							<top>0</top>
-							<width>100</width>
-							<height>68</height>
-							<font>font12_title</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<label>$VAR[ListOverlayEpisodesVar]</label>
-							<textcolor>grey3</textcolor>
-							<textoffsetx>18</textoffsetx>
-							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
-						</control>
+					<control type="label">
+						<left>-18</left>
+						<top>0</top>
+						<width>116</width>
+						<height>68</height>
+						<font>font12_title</font>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$VAR[ListOverlayEpisodesVar]</label>
+						<textcolor>white</textcolor>
+						<textoffsetx>18</textoffsetx>
+						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
 					</control>
-				</itemlayout>
-				<focusedlayout height="85" width="806" condition="Skin.HasSetting(rightlistalternatetv) + Container.Content(tvshows)">
+				</control>
+				<control type="image">
+					<top>28</top>
+					<left>20</left>
+					<width>810</width>
+					<height>60</height>
+					<texture border="1">separator2.png</texture>
+				</control>
+			</focusedlayout>
+			<itemlayout height="68" width="806" condition="Skin.HasSetting(rightlistalternatetv) + Container.Content(tvshows)">
+				<control type="label">
+					<left>30</left>
+					<width>700</width>
+					<height>68</height>
+					<font>font15</font>
+					<align>right</align>
+					<textcolor>grey</textcolor>
+					<selectedcolor>selected</selectedcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+				<control type="image">
+					<left>742</left>
+					<top>2</top>
+					<width>64</width>
+					<height>64</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$VAR[ListItem.Overlay]</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				</control>
+				<control type="group">
+					<description>Unwatched episodes</description>
+					<left>742</left>
+					<top>-1</top>
+					<control type="image">
+						<left>0</left>
+						<top>3</top>
+						<width>64</width>
+						<height>64</height>
+						<texture>overlays/list/OverlayUnWatched.png</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
+					</control>
+					<control type="label">
+						<left>-18</left>
+						<top>0</top>
+						<width>100</width>
+						<height>68</height>
+						<font>font12_title</font>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$VAR[ListOverlayEpisodesVar]</label>
+						<textcolor>grey3</textcolor>
+						<textoffsetx>18</textoffsetx>
+						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
+					</control>
+				</control>
+			</itemlayout>
+			<focusedlayout height="85" width="806" condition="Skin.HasSetting(rightlistalternatetv) + Container.Content(tvshows)">
 					<!--
 					<control type="image">
 						<top>0</top>
@@ -1062,501 +1042,501 @@
 						<visible>Control.HasFocus(700)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
-					-->
-					<control type="label">
-						<top>-12</top>
-						<left>30</left>
-						<width>700</width>
-						<height>68</height>
-						<font>font16</font>
-						<align>right</align>
-						<textcolor>$VAR[TitleColorVar]</textcolor>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-					</control>
-					<control type="label">
-						<left>130</left>
-						<top>27</top>
-						<width>600</width>
-						<height>68</height>
-						<font>font13</font>
-						<align>right</align>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.RatingAndVotes]</label>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-					</control>
+				-->
+				<control type="label">
+					<top>-12</top>
+					<left>30</left>
+					<width>700</width>
+					<height>68</height>
+					<font>font16</font>
+					<align>right</align>
+					<textcolor>$VAR[TitleColorVar]</textcolor>
+					<selectedcolor>selected</selectedcolor>
+					<label>$INFO[ListItem.Label]</label>
+					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+				</control>
+				<control type="label">
+					<left>130</left>
+					<top>27</top>
+					<width>600</width>
+					<height>68</height>
+					<font>font13</font>
+					<align>right</align>
+					<selectedcolor>selected</selectedcolor>
+					<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.RatingAndVotes]</label>
+					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+				</control>
+				<control type="image">
+					<left>742</left>
+					<top>12</top>
+					<width>64</width>
+					<height>64</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$VAR[ListItem.Overlay]</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				</control>
+				<control type="group">
+					<description>Unwatched episodes</description>
+					<left>742</left>
+					<top>10</top>
 					<control type="image">
-						<left>742</left>
-						<top>12</top>
+						<left>0</left>
+						<top>3</top>
 						<width>64</width>
 						<height>64</height>
-						<aspectratio>keep</aspectratio>
-						<texture>$VAR[ListItem.Overlay]</texture>
+						<texture>overlays/list/OverlayUnWatched.png</texture>
 						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-					</control>
-					<control type="group">
-						<description>Unwatched episodes</description>
-						<left>742</left>
-						<top>10</top>
-						<control type="image">
-							<left>0</left>
-							<top>3</top>
-							<width>64</width>
-							<height>64</height>
-							<texture>overlays/list/OverlayUnWatched.png</texture>
-							<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
-						</control>
-						<control type="label">
-							<left>-18</left>
-							<top>0</top>
-							<width>100</width>
-							<height>68</height>
-							<font>font12_title</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<label>$VAR[ListOverlayEpisodesVar]</label>
-							<textcolor>white</textcolor>
-							<textoffsetx>18</textoffsetx>
-							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
-						</control>
-					</control>
-				</focusedlayout>
-				<itemlayout height="68" width="806" condition="Container.Content(seasons) + !Skin.HasSetting(rightlistalternateseasons)">
-					<control type="image">
-						<top>8</top>
-						<left>20</left>
-						<width>800</width>
-						<height>60</height>
-						<texture border="1">separator2.png</texture>
+						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
 					</control>
 					<control type="label">
-						<left>30</left>
-						<width>700</width>
+						<left>-18</left>
+						<top>0</top>
+						<width>100</width>
 						<height>68</height>
-						<font>font15</font>
-						<align>right</align>
-						<textcolor>grey</textcolor>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
+						<font>font12_title</font>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$VAR[ListOverlayEpisodesVar]</label>
+						<textcolor>white</textcolor>
+						<textoffsetx>18</textoffsetx>
+						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
 					</control>
+				</control>
+			</focusedlayout>
+			<itemlayout height="68" width="806" condition="Container.Content(seasons) + !Skin.HasSetting(rightlistalternateseasons)">
+				<control type="image">
+					<top>8</top>
+					<left>20</left>
+					<width>800</width>
+					<height>60</height>
+					<texture border="1">separator2.png</texture>
+				</control>
+				<control type="label">
+					<left>30</left>
+					<width>700</width>
+					<height>68</height>
+					<font>font15</font>
+					<align>right</align>
+					<textcolor>grey</textcolor>
+					<selectedcolor>selected</selectedcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+				<control type="image">
+					<left>742</left>
+					<top>2</top>
+					<width>72</width>
+					<height>72</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$VAR[ListItem.Overlay]</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				</control>
+				<control type="group">
+					<description>Unwatched episodes</description>
+					<left>742</left>
+					<top>-1</top>
 					<control type="image">
-						<left>742</left>
-						<top>2</top>
+						<left>0</left>
+						<top>1</top>
 						<width>72</width>
 						<height>72</height>
-						<aspectratio>keep</aspectratio>
-						<texture>$VAR[ListItem.Overlay]</texture>
+						<texture>overlays/list/OverlayUnWatched.png</texture>
 						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-					</control>
-					<control type="group">
-						<description>Unwatched episodes</description>
-						<left>742</left>
-						<top>-1</top>
-						<control type="image">
-							<left>0</left>
-							<top>1</top>
-							<width>72</width>
-							<height>72</height>
-							<texture>overlays/list/OverlayUnWatched.png</texture>
-							<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
-						</control>
-						<control type="label">
-							<left>-22</left>
-							<top>2</top>
-							<width>116</width>
-							<height>68</height>
-							<font>font12_title</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<label>$VAR[ListOverlayEpisodesVar]</label>
-							<textcolor>grey3</textcolor>
-							<textoffsetx>18</textoffsetx>
-							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
-						</control>
-					</control>
-				</itemlayout>
-				<focusedlayout height="68" width="806" condition="Container.Content(seasons) + !Skin.HasSetting(rightlistalternateseasons)">
-					<control type="image">
-						<top>10</top>
-						<left>20</left>
-						<width>800</width>
-						<height>60</height>
-						<texture border="1">separator2.png</texture>
-					</control>
-					<control type="image">
-						<top>0</top>
-						<left>20</left>
-						<width>825</width>
-						<height>68</height>
-						<texture border="4">listselect_fo_clear.png</texture>
-						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-						<visible>Control.HasFocus(700)</visible>
-						<include>VisibleFadeEffect</include>
+						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
 					</control>
 					<control type="label">
-						<left>30</left>
-						<width>700</width>
+						<left>-22</left>
+						<top>2</top>
+						<width>116</width>
 						<height>68</height>
-						<font>font15</font>
-						<align>right</align>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+						<font>font12_title</font>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$VAR[ListOverlayEpisodesVar]</label>
+						<textcolor>grey3</textcolor>
+						<textoffsetx>18</textoffsetx>
+						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
 					</control>
+				</control>
+			</itemlayout>
+			<focusedlayout height="68" width="806" condition="Container.Content(seasons) + !Skin.HasSetting(rightlistalternateseasons)">
+				<control type="image">
+					<top>10</top>
+					<left>20</left>
+					<width>800</width>
+					<height>60</height>
+					<texture border="1">separator2.png</texture>
+				</control>
+				<control type="image">
+					<top>0</top>
+					<left>20</left>
+					<width>825</width>
+					<height>68</height>
+					<texture border="4">listselect_fo_clear.png</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+					<visible>Control.HasFocus(700)</visible>
+					<include>VisibleFadeEffect</include>
+				</control>
+				<control type="label">
+					<left>30</left>
+					<width>700</width>
+					<height>68</height>
+					<font>font15</font>
+					<align>right</align>
+					<selectedcolor>selected</selectedcolor>
+					<label>$INFO[ListItem.Label]</label>
+					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+				</control>
+				<control type="image">
+					<left>742</left>
+					<top>-1</top>
+					<width>72</width>
+					<height>72</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$VAR[ListItem.Overlay]</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				</control>
+				<control type="group">
+					<description>Unwatched episodes</description>
+					<left>742</left>
+					<top>-1</top>
 					<control type="image">
-						<left>742</left>
+						<left>0</left>
 						<top>-1</top>
 						<width>72</width>
 						<height>72</height>
-						<aspectratio>keep</aspectratio>
-						<texture>$VAR[ListItem.Overlay]</texture>
+						<texture>overlays/list/OverlayUnWatched.png</texture>
 						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-					</control>
-					<control type="group">
-						<description>Unwatched episodes</description>
-						<left>742</left>
-						<top>-1</top>
-						<control type="image">
-							<left>0</left>
-							<top>-1</top>
-							<width>72</width>
-							<height>72</height>
-							<texture>overlays/list/OverlayUnWatched.png</texture>
-							<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
-						</control>
-						<control type="label">
-							<left>-22</left>
-							<top>2</top>
-							<width>116</width>
-							<height>68</height>
-							<font>font12_title</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<label>$VAR[ListOverlayEpisodesVar]</label>
-							<textcolor>white</textcolor>
-							<textoffsetx>18</textoffsetx>
-							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
-						</control>
-					</control>
-				</focusedlayout>
-				<itemlayout height="68" width="806" condition="Container.Content(seasons) + Skin.HasSetting(rightlistalternateseasons)">
-					<control type="label">
-						<left>30</left>
-						<width>700</width>
-						<height>68</height>
-						<font>font15</font>
-						<align>right</align>
-						<textcolor>grey</textcolor>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="image">
-						<left>742</left>
-						<top>2</top>
-						<width>64</width>
-						<height>64</height>
-						<aspectratio>keep</aspectratio>
-						<texture>$VAR[ListItem.Overlay]</texture>
-						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-					</control>
-					<control type="group">
-						<description>Unwatched episodes</description>
-						<left>742</left>
-						<top>-1</top>
-						<control type="image">
-							<left>0</left>
-							<top>3</top>
-							<width>64</width>
-							<height>64</height>
-							<texture>overlays/list/OverlayUnWatched.png</texture>
-							<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
-						</control>
-						<control type="label">
-							<left>-18</left>
-							<top>0</top>
-							<width>100</width>
-							<height>68</height>
-							<font>font12_title</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<label>$VAR[ListOverlayEpisodesVar]</label>
-							<textcolor>grey3</textcolor>
-							<textoffsetx>18</textoffsetx>
-							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
-						</control>
-					</control>
-				</itemlayout>
-				<focusedlayout height="68" width="806" condition="Container.Content(seasons) + Skin.HasSetting(rightlistalternateseasons)">
-					<control type="label">
-						<left>30</left>
-						<width>700</width>
-						<height>68</height>
-						<font>font15</font>
-						<align>right</align>
-						<textcolor>$VAR[TitleColorVar]</textcolor>
-						<label>$INFO[ListItem.Label]</label>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-					</control>
-					<control type="image">
-						<left>742</left>
-						<top>2</top>
-						<width>64</width>
-						<height>64</height>
-						<aspectratio>keep</aspectratio>
-						<texture>$VAR[ListItem.Overlay]</texture>
-						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-					</control>
-					<control type="group">
-						<description>Unwatched episodes</description>
-						<left>742</left>
-						<top>-1</top>
-						<control type="image">
-							<left>0</left>
-							<top>3</top>
-							<width>64</width>
-							<height>64</height>
-							<texture>overlays/list/OverlayUnWatched.png</texture>
-							<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
-						</control>
-						<control type="label">
-							<left>-18</left>
-							<top>0</top>
-							<width>100</width>
-							<height>68</height>
-							<font>font12_title</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<label>$VAR[ListOverlayEpisodesVar]</label>
-							<textcolor>white</textcolor>
-							<textoffsetx>18</textoffsetx>
-							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
-						</control>
-					</control>
-				</focusedlayout>
-				<itemlayout height="68" width="806" condition="Container.Content(episodes) + !Skin.HasSetting(rightlistalternateepisode)">
-					<control type="image">
-						<left>20</left>
-						<top>8</top>
-						<width>810</width>
-						<height>60</height>
-						<texture border="1">separator2.png</texture>
+						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
 					</control>
 					<control type="label">
-						<left>30</left>
-						<width>700</width>
+						<left>-22</left>
+						<top>2</top>
+						<width>116</width>
 						<height>68</height>
-						<font>font15</font>
-						<align>right</align>
-						<textcolor>grey</textcolor>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
+						<font>font12_title</font>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$VAR[ListOverlayEpisodesVar]</label>
+						<textcolor>white</textcolor>
+						<textoffsetx>18</textoffsetx>
+						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
 					</control>
+				</control>
+			</focusedlayout>
+			<itemlayout height="68" width="806" condition="Container.Content(seasons) + Skin.HasSetting(rightlistalternateseasons)">
+				<control type="label">
+					<left>30</left>
+					<width>700</width>
+					<height>68</height>
+					<font>font15</font>
+					<align>right</align>
+					<textcolor>grey</textcolor>
+					<selectedcolor>selected</selectedcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+				<control type="image">
+					<left>742</left>
+					<top>2</top>
+					<width>64</width>
+					<height>64</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$VAR[ListItem.Overlay]</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				</control>
+				<control type="group">
+					<description>Unwatched episodes</description>
+					<left>742</left>
+					<top>-1</top>
 					<control type="image">
-						<left>742</left>
-						<top>2</top>
-						<width>64</width>
-						<height>64</height>
-						<aspectratio>keep</aspectratio>
-						<texture>$VAR[ListItem.Overlay]</texture>
-						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-					</control>
-					<control type="image">
-						<left>742</left>
-						<top>2</top>
+						<left>0</left>
+						<top>3</top>
 						<width>64</width>
 						<height>64</height>
 						<texture>overlays/list/OverlayUnWatched.png</texture>
 						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
 						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
 					</control>
-				</itemlayout>
-				<focusedlayout height="85" width="806" condition="Container.Content(episodes) + !Skin.HasSetting(rightlistalternateepisode)">
-					<control type="image">
+					<control type="label">
+						<left>-18</left>
 						<top>0</top>
-						<left>20</left>
-						<width>825</width>
-						<height>85</height>
-						<texture border="4">listselect_fo_clear.png</texture>
-						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-						<visible>Control.HasFocus(700)</visible>
-						<include>VisibleFadeEffect</include>
-					</control>
-					<control type="label">
-						<top>-12</top>
-						<left>30</left>
-						<width>700</width>
+						<width>100</width>
 						<height>68</height>
-						<font>font16</font>
-						<align>right</align>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-						<visible>!IsEmpty(ListItem.RatingAndVotes)</visible>
+						<font>font12_title</font>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$VAR[ListOverlayEpisodesVar]</label>
+						<textcolor>grey3</textcolor>
+						<textoffsetx>18</textoffsetx>
+						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
 					</control>
-					<control type="label">
-						<top>8</top>
-						<left>30</left>
-						<width>700</width>
-						<height>68</height>
-						<font>font16</font>
-						<align>right</align>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-						<visible>IsEmpty(ListItem.RatingAndVotes)</visible>
-					</control>
-					<control type="label">
-						<left>30</left>
-						<top>27</top>
-						<width>700</width>
-						<height>68</height>
-						<font>font13</font>
-						<align>right</align>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.RatingAndVotes]</label>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-					</control>
+				</control>
+			</itemlayout>
+			<focusedlayout height="68" width="806" condition="Container.Content(seasons) + Skin.HasSetting(rightlistalternateseasons)">
+				<control type="label">
+					<left>30</left>
+					<width>700</width>
+					<height>68</height>
+					<font>font15</font>
+					<align>right</align>
+					<textcolor>$VAR[TitleColorVar]</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+				</control>
+				<control type="image">
+					<left>742</left>
+					<top>2</top>
+					<width>64</width>
+					<height>64</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$VAR[ListItem.Overlay]</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				</control>
+				<control type="group">
+					<description>Unwatched episodes</description>
+					<left>742</left>
+					<top>-1</top>
 					<control type="image">
-						<left>742</left>
-						<top>12</top>
-						<width>64</width>
-						<height>64</height>
-						<aspectratio>keep</aspectratio>
-						<texture>$VAR[ListItem.Overlay]</texture>
-						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-					</control>
-					<control type="image">
-						<left>742</left>
-						<top>13</top>
+						<left>0</left>
+						<top>3</top>
 						<width>64</width>
 						<height>64</height>
 						<texture>overlays/list/OverlayUnWatched.png</texture>
 						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
 						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
 					</control>
-					<control type="image">
-						<top>28</top>
-						<left>20</left>
-						<width>810</width>
-						<height>60</height>
-						<texture border="1">separator2.png</texture>
-					</control>
-				</focusedlayout>
-				<itemlayout height="68" width="806" condition="Container.Content(episodes) + Skin.HasSetting(rightlistalternateepisode)">
 					<control type="label">
-						<left>30</left>
-						<width>700</width>
+						<left>-18</left>
+						<top>0</top>
+						<width>100</width>
 						<height>68</height>
-						<font>font15</font>
-						<align>right</align>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
+						<font>font12_title</font>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$VAR[ListOverlayEpisodesVar]</label>
+						<textcolor>white</textcolor>
+						<textoffsetx>18</textoffsetx>
+						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
 					</control>
-					<control type="image">
-						<left>742</left>
-						<top>2</top>
-						<width>64</width>
-						<height>64</height>
-						<aspectratio>keep</aspectratio>
-						<texture>$VAR[ListItem.Overlay]</texture>
-						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-					</control>
-					<control type="image">
-						<left>742</left>
-						<top>2</top>
-						<width>64</width>
-						<height>64</height>
-						<texture>overlays/list/OverlayUnWatched.png</texture>
-						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
-					</control>
-				</itemlayout>
-				<focusedlayout height="85" width="806" condition="Container.Content(episodes) + Skin.HasSetting(rightlistalternateepisode)">
-					<control type="label">
-						<top>-12</top>
-						<left>30</left>
-						<width>700</width>
-						<height>68</height>
-						<font>font16</font>
-						<align>right</align>
-						<textcolor>$VAR[TitleColorVar]</textcolor>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-						<visible>!IsEmpty(ListItem.RatingAndVotes)</visible>
-					</control>
-					<control type="label">
-						<top>8</top>
-						<left>30</left>
-						<width>700</width>
-						<height>68</height>
-						<font>font16</font>
-						<align>right</align>
-						<textcolor>$VAR[TitleColorVar]</textcolor>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-						<visible>IsEmpty(ListItem.RatingAndVotes)</visible>
-					</control>
-					<control type="label">
-						<left>30</left>
-						<top>27</top>
-						<width>700</width>
-						<height>68</height>
-						<font>font13</font>
-						<align>right</align>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.RatingAndVotes]</label>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-					</control>
-					<control type="image">
-						<left>742</left>
-						<top>12</top>
-						<width>64</width>
-						<height>64</height>
-						<aspectratio>keep</aspectratio>
-						<texture>$VAR[ListItem.Overlay]</texture>
-						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-					</control>
-					<control type="image">
-						<left>742</left>
-						<top>13</top>
-						<width>64</width>
-						<height>64</height>
-						<texture>overlays/list/OverlayUnWatched.png</texture>
-						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
-					</control>
-				</focusedlayout>
-			</control>
-			<control type="scrollbar" id="60">
-				<left>1904</left>
-				<top>40</top>
-				<width>14</width>
-				<height>920</height>
-				<onup>60</onup>
-				<ondown>60</ondown>
-				<onleft>700</onleft>
-				<onright>SetProperty(MediaMenu,True,home)</onright>
-				<onright>SetFocus(9050)</onright>
-				<texturesliderbackground border="1">-</texturesliderbackground>
-				<texturesliderbar border="6,0,6,0">scrollbar/texturesliderbar_hor.png</texturesliderbar>
-				<texturesliderbarfocus border="6,0,6,0">scrollbar/texturesliderbarfocus_hor.png</texturesliderbarfocus>
-				<textureslidernib>-</textureslidernib>
-				<textureslidernibfocus>-</textureslidernibfocus>
-				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
-				<showonepage>false</showonepage>
-				<orientation>vertical</orientation>
-			</control>
+				</control>
+			</focusedlayout>
+			<itemlayout height="68" width="806" condition="Container.Content(episodes) + !Skin.HasSetting(rightlistalternateepisode)">
+				<control type="image">
+					<left>20</left>
+					<top>8</top>
+					<width>810</width>
+					<height>60</height>
+					<texture border="1">separator2.png</texture>
+				</control>
+				<control type="label">
+					<left>30</left>
+					<width>700</width>
+					<height>68</height>
+					<font>font15</font>
+					<align>right</align>
+					<textcolor>grey</textcolor>
+					<selectedcolor>selected</selectedcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+				<control type="image">
+					<left>742</left>
+					<top>2</top>
+					<width>64</width>
+					<height>64</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$VAR[ListItem.Overlay]</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				</control>
+				<control type="image">
+					<left>742</left>
+					<top>2</top>
+					<width>64</width>
+					<height>64</height>
+					<texture>overlays/list/OverlayUnWatched.png</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+					<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
+				</control>
+			</itemlayout>
+			<focusedlayout height="85" width="806" condition="Container.Content(episodes) + !Skin.HasSetting(rightlistalternateepisode)">
+				<control type="image">
+					<top>0</top>
+					<left>20</left>
+					<width>825</width>
+					<height>85</height>
+					<texture border="4">listselect_fo_clear.png</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+					<visible>Control.HasFocus(700)</visible>
+					<include>VisibleFadeEffect</include>
+				</control>
+				<control type="label">
+					<top>-12</top>
+					<left>30</left>
+					<width>700</width>
+					<height>68</height>
+					<font>font16</font>
+					<align>right</align>
+					<selectedcolor>selected</selectedcolor>
+					<label>$INFO[ListItem.Label]</label>
+					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+					<visible>!IsEmpty(ListItem.RatingAndVotes)</visible>
+				</control>
+				<control type="label">
+					<top>8</top>
+					<left>30</left>
+					<width>700</width>
+					<height>68</height>
+					<font>font16</font>
+					<align>right</align>
+					<selectedcolor>selected</selectedcolor>
+					<label>$INFO[ListItem.Label]</label>
+					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+					<visible>IsEmpty(ListItem.RatingAndVotes)</visible>
+				</control>
+				<control type="label">
+					<left>30</left>
+					<top>27</top>
+					<width>700</width>
+					<height>68</height>
+					<font>font13</font>
+					<align>right</align>
+					<selectedcolor>selected</selectedcolor>
+					<label>$INFO[ListItem.RatingAndVotes]</label>
+					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+				</control>
+				<control type="image">
+					<left>742</left>
+					<top>12</top>
+					<width>64</width>
+					<height>64</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$VAR[ListItem.Overlay]</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				</control>
+				<control type="image">
+					<left>742</left>
+					<top>13</top>
+					<width>64</width>
+					<height>64</height>
+					<texture>overlays/list/OverlayUnWatched.png</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+					<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
+				</control>
+				<control type="image">
+					<top>28</top>
+					<left>20</left>
+					<width>810</width>
+					<height>60</height>
+					<texture border="1">separator2.png</texture>
+				</control>
+			</focusedlayout>
+			<itemlayout height="68" width="806" condition="Container.Content(episodes) + Skin.HasSetting(rightlistalternateepisode)">
+				<control type="label">
+					<left>30</left>
+					<width>700</width>
+					<height>68</height>
+					<font>font15</font>
+					<align>right</align>
+					<selectedcolor>selected</selectedcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+				<control type="image">
+					<left>742</left>
+					<top>2</top>
+					<width>64</width>
+					<height>64</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$VAR[ListItem.Overlay]</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				</control>
+				<control type="image">
+					<left>742</left>
+					<top>2</top>
+					<width>64</width>
+					<height>64</height>
+					<texture>overlays/list/OverlayUnWatched.png</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+					<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
+				</control>
+			</itemlayout>
+			<focusedlayout height="85" width="806" condition="Container.Content(episodes) + Skin.HasSetting(rightlistalternateepisode)">
+				<control type="label">
+					<top>-12</top>
+					<left>30</left>
+					<width>700</width>
+					<height>68</height>
+					<font>font16</font>
+					<align>right</align>
+					<textcolor>$VAR[TitleColorVar]</textcolor>
+					<selectedcolor>selected</selectedcolor>
+					<label>$INFO[ListItem.Label]</label>
+					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+					<visible>!IsEmpty(ListItem.RatingAndVotes)</visible>
+				</control>
+				<control type="label">
+					<top>8</top>
+					<left>30</left>
+					<width>700</width>
+					<height>68</height>
+					<font>font16</font>
+					<align>right</align>
+					<textcolor>$VAR[TitleColorVar]</textcolor>
+					<selectedcolor>selected</selectedcolor>
+					<label>$INFO[ListItem.Label]</label>
+					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+					<visible>IsEmpty(ListItem.RatingAndVotes)</visible>
+				</control>
+				<control type="label">
+					<left>30</left>
+					<top>27</top>
+					<width>700</width>
+					<height>68</height>
+					<font>font13</font>
+					<align>right</align>
+					<selectedcolor>selected</selectedcolor>
+					<label>$INFO[ListItem.RatingAndVotes]</label>
+					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+				</control>
+				<control type="image">
+					<left>742</left>
+					<top>12</top>
+					<width>64</width>
+					<height>64</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$VAR[ListItem.Overlay]</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				</control>
+				<control type="image">
+					<left>742</left>
+					<top>13</top>
+					<width>64</width>
+					<height>64</height>
+					<texture>overlays/list/OverlayUnWatched.png</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+					<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
+				</control>
+			</focusedlayout>
 		</control>
-	</include>
-	<!-- Music RightList -->
+		<control type="scrollbar" id="60">
+			<left>1904</left>
+			<top>40</top>
+			<width>14</width>
+			<height>920</height>
+			<onup>60</onup>
+			<ondown>60</ondown>
+			<onleft>700</onleft>
+			<onright>SetProperty(MediaMenu,True,home)</onright>
+			<onright>SetFocus(9050)</onright>
+			<texturesliderbackground border="1">-</texturesliderbackground>
+			<texturesliderbar border="6,0,6,0">scrollbar/texturesliderbar_hor.png</texturesliderbar>
+			<texturesliderbarfocus border="6,0,6,0">scrollbar/texturesliderbarfocus_hor.png</texturesliderbarfocus>
+			<textureslidernib>-</textureslidernib>
+			<textureslidernibfocus>-</textureslidernibfocus>
+			<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
+			<showonepage>false</showonepage>
+			<orientation>vertical</orientation>
+		</control>
+	</control>
+</include>
+<!-- Music RightList -->
 	<!--include name="Music_RightList">
 		<control type="group">
 			<visible>Control.IsVisible(700) + !Window.IsActive(addoninformation) + [Container.Content(albums) | Container.Content(artists) | Container.Content(songs)]</visible>

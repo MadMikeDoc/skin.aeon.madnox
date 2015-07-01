@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
     <defaultcontrol always="true">1200</defaultcontrol>
-	<onload condition="System.HasAddon(script.duration)">RunScript(script.duration,duration=$INFO[ListItem.Duration])</onload>
+    <onload condition="System.HasAddon(script.duration)">RunScript(script.duration,duration=$INFO[ListItem.Duration])</onload>
     <onunload>ClearProperty(VideoInfo.ImageColor,home)</onunload>
     <onunload>ClearProperty(VideoInfo.ImageFilter,home)</onunload>
     <controls>
@@ -13,35 +13,35 @@
             <include>HiddenObject</include>
             <onfocus>Dialog.Close(movieinformation)</onfocus>
             <onfocus>RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.Title])</onfocus>
-            <onclick>-</onclick>
+            <onclick>noop</onclick>
             <visible>Container.Content(movies) + Control.IsVisible(5111)</visible>
         </control>
         <control type="button" id="1200">
             <include>HiddenObject</include>
             <onfocus>Dialog.Close(movieinformation)</onfocus>
             <onfocus>RunScript(script.extendedinfo,info=seasoninfo,tvshow=$INFO[ListItem.TvShowTitle],season=$INFO[Window(home).Property(SeasonNumber)],silent=True)</onfocus>
-            <onclick>-</onclick>
+            <onclick>noop</onclick>
             <visible>!Stringcompare(Container.FolderPath,videodb://tvshows/titles/) + Substring(Container.FolderPath,videodb://tvshows/titles/,left) + !Container.Content(episodes)</visible>
         </control>
         <control type="button" id="1200">
             <include>HiddenObject</include>
             <onfocus>Dialog.Close(movieinformation)</onfocus>
             <onfocus>RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID])</onfocus>
-            <onclick>-</onclick>
+            <onclick>noop</onclick>
             <visible>Container.Content(tvshows) + Control.IsVisible(5111)</visible>
         </control>
         <control type="button" id="1200">
             <include>HiddenObject</include>
             <onfocus>Dialog.Close(movieinformation)</onfocus>
             <onfocus>RunScript(script.toolbox,info=yesnodialog,header=$INFO[ListItem.Label],text=Do you want to re-scrape this movie?,yesaction=SendClick(6),noaction=Action(Close))</onfocus>
-            <onclick>-</onclick>
+            <onclick>noop</onclick>
             <visible>Container.Content(movies) + !Control.IsVisible(5111)</visible>
         </control>
         <control type="button" id="1200">
             <include>HiddenObject</include>
             <onfocus>RunScript(script.toolbox,info=blur,id='"$VAR[PosterVar]"',radius=20,prefix=VideoInfo)</onfocus>
             <onfocus>SetFocus(8)</onfocus>
-            <onclick>-</onclick>
+            <onclick>noop</onclick>
             <visible>!Container.Content(movies) + !Container.Content(tvshows)</visible>
         </control>
         <control type="group">
@@ -166,7 +166,7 @@
                                 <width>980</width>
                                 <height>210</height>
                                 <align>left</align>
-                                <label fallback="31003">[B]$INFO[ListItem.TagLine,,[CR]][/B]$VAR[PlotOutlineVar]</label>
+                                <label fallback="31003">[B]$INFO[ListItem.TagLine,,[CR]][/B]$VAR[GlobalPlotOutlineVar]</label>
                                 <font>Font_Reg28_2</font>
                                 <autoscroll delay="10000" time="AutoScrollTime" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
                             </control>
@@ -196,7 +196,7 @@
                                     <font>Font_Bold56</font>
                                     <animation effect="slide" start="0,0" end="0,30" time="0" condition="[Container.Content(musicvideos) + IsEmpty(ListItem.Artist)]">Conditional</animation>
                                     <scroll>true</scroll>
-                                    <visible>!Control.IsVisible(13000)</visible>
+                                    <visible>!Control.IsVisible(13000)</visible><!-- undefined control -->
                                 </control>
                                 <control type="label">
                                     <width>1018</width>

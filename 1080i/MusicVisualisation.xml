@@ -82,7 +82,7 @@
                     <visible>!IsEmpty(Skin.String(ArtistsLogosPath))</visible>
                 </control>
             </control>
-            <include>DailyBabeBG</include>
+            <include>DailyBabeBG</include><!-- undefined include -->
             <control type="image">
                 <fadetime>600</fadetime>
                 <include>FullscreenDimensions</include>
@@ -270,7 +270,7 @@
 					<posy>-243</posy>
 					<visible>!IsEmpty(Control.GetLabel(3333)) + Skin.HasSetting(cdartinvis) + !Skin.HasSetting(vinylart)</visible>
 					<texture background="true">$INFO[Player.FolderPath]cdart.png</texture>
-					<aspectratio align="bottom">keep</aspectratio>
+					<aspectratio>keep</aspectratio>
 				</control>
 				<control type="image" id="3334">
 					<animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
@@ -281,7 +281,7 @@
 					<posy>-243</posy>
 					<visible>IsEmpty(Control.GetLabel(3333)) + Skin.HasSetting(cdartinvis) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(MusicFakeDisc)</visible>
 					<texture background="true">$VAR[mviscdARTVar]</texture>
-					<aspectratio align="bottom">keep</aspectratio>
+					<aspectratio>keep</aspectratio>
 				</control>
 				<control type="label">
                     <animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
@@ -336,7 +336,7 @@
                     <posy>-243</posy>
                     <include>vinylart</include>
                     <visible>Skin.HasSetting(vinylart)</visible>
-                    <aspectratio align="bottom">keep</aspectratio>
+                    <aspectratio>keep</aspectratio>
 				</control>
 				<control type="image">
                     <animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
@@ -347,7 +347,7 @@
                     <posy>-243</posy>
                     <include>blurayart</include>
                     <visible>Skin.HasSetting(blurayart)</visible>
-                    <aspectratio align="bottom">keep</aspectratio>
+                    <aspectratio>keep</aspectratio>
 				</control>
 				<control type="image">
                         <posy>150</posy>
@@ -581,7 +581,6 @@
                         <posy>-156</posy>
                         <width>950</width>
                         <height>36</height>
-                        <aligny>-</aligny>
                         <font>Font_MainClassic2</font>
 						<label>[COLOR white]$INFO[MusicPlayer.Album][/COLOR]$INFO[MusicPlayer.Year, [,] ]</label>
                         <textcolor>$VAR[TitleColorVar]</textcolor>
@@ -596,7 +595,6 @@
                         <posy>-156</posy>
                         <width>1425</width>
                         <height>36</height>
-                        <aligny>-</aligny>
                         <font>Font_MainClassic2</font>
                         <label>[COLOR white]$INFO[MusicPlayer.Album][/COLOR]$INFO[MusicPlayer.Year, [,] ]</label>
                         <textcolor>$VAR[TitleColorVar]</textcolor>
@@ -611,7 +609,6 @@
                         <posy>-156</posy>
                         <width>790</width>
                         <height>36</height>
-                        <aligny>-</aligny>
                         <font>Font_MainClassic2</font>
 						<label>[COLOR white]$INFO[MusicPlayer.Album][/COLOR]$INFO[MusicPlayer.Year, [,] ]</label>
                         <textcolor>$VAR[TitleColorVar]</textcolor>
@@ -626,7 +623,6 @@
                         <posy>-156</posy>
                         <width>1230</width>
                         <height>36</height>
-                        <aligny>-</aligny>
                         <font>Font_MainClassic2</font>
                         <label>[COLOR white]$INFO[MusicPlayer.Album][/COLOR]$INFO[MusicPlayer.Year, [,] ]</label>
                         <textcolor>$VAR[TitleColorVar]</textcolor>
@@ -641,7 +637,6 @@
                         <posy>-60</posy>
                         <width>950</width>
                         <height>45</height>
-                        <aligny>-</aligny>
                         <font>Font_MainClassic3</font>
                         <textcolor>$VAR[TitleColorVar]</textcolor>
                         <shadowcolor>black</shadowcolor>
@@ -656,7 +651,6 @@
                         <posy>-60</posy>
                         <width>1410</width>
                         <height>45</height>
-                        <aligny>-</aligny>
                         <font>Font_MainClassic3</font>
                         <textcolor>$VAR[TitleColorVar]</textcolor>
                         <shadowcolor>black</shadowcolor>
@@ -671,7 +665,6 @@
                         <posy>-60</posy>
                         <width>800</width>
                         <height>45</height>
-                        <aligny>-</aligny>
                         <font>Font_MainClassic3</font>
                         <textcolor>$VAR[TitleColorVar]</textcolor>
                         <shadowcolor>black</shadowcolor>
@@ -686,7 +679,6 @@
                         <posy>-60</posy>
                         <width>1230</width>
                         <height>45</height>
-                        <aligny>-</aligny>
                         <font>Font_MainClassic3</font>
                         <textcolor>$VAR[TitleColorVar]</textcolor>
                         <shadowcolor>black</shadowcolor>
@@ -702,7 +694,6 @@
                         <posy>-270</posy>
                         <width>815</width>
                         <height>38</height>
-                        <aligny>-</aligny>
                         <scroll>true</scroll>
                         <font>Font_MainClassic</font>
                         <visible>[Substring(Control.GetLabel(8308),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath))] + Skin.HasSetting(widgetpola)</visible>
@@ -716,7 +707,6 @@
                         <posy>-270</posy>
                         <width>1275</width>
                         <height>38</height>
-                        <aligny>-</aligny>
                         <scroll>true</scroll>
                         <font>Font_MainClassic</font>
                         <visible>[Substring(Control.GetLabel(8308),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath))] + !Skin.HasSetting(widgetpola)</visible>
@@ -768,7 +758,7 @@
 							<width>150</width>
 							<height>89</height>
 							<aspectratio>keep</aspectratio>
-							<colordiffuse>white</colordiffuse>						
+							<colordiffuse>white</colordiffuse>
 							<texture>flags/music/rating/$INFO[Player.StarRating]</texture>
 						</control>
 						<control type="image">
@@ -815,7 +805,6 @@
                         <font>Font_MainClassic2</font>
                         <textcolor>$VAR[TitleColorVar]</textcolor>
 						<label>$INFO[MusicPlayer.Time,, / ]$INFO[MusicPlayer.Duration]</label>
-                        <textcolor>white</textcolor>
                         <shadowcolor>black</shadowcolor>
                         <align>right</align>
                         <aligny>bottom</aligny>
@@ -827,7 +816,6 @@
                         <font>Font_MainClassic2</font>
                         <textcolor>$VAR[TitleColorVar]</textcolor>
 						<label>$INFO[MusicPlayer.Time,, / ]∞</label>
-                        <textcolor>white</textcolor>
                         <shadowcolor>black</shadowcolor>
                         <align>right</align>
                         <aligny>bottom</aligny>
@@ -839,7 +827,6 @@
                         <posy>188</posy>
                         <width>700</width>
                         <height>36</height>
-                 		<aligny>-</aligny>
                         <font>Font_Reg19_Caps</font>
                         <label>$LOCALIZE[19031] : [COLOR white] 1. $INFO[MusicPlayer.offset(1).Artist,, - ] $INFO[MusicPlayer.offset(1).Title] [/COLOR]     2. $INFO[MusicPlayer.offset(2).Artist,, - ] $INFO[MusicPlayer.offset(2).Title]     [COLOR white]3. $INFO[MusicPlayer.offset(3).Artist,, - ] $INFO[MusicPlayer.offset(3).Title] [/COLOR]     4. $INFO[MusicPlayer.offset(4).Artist,, - ] $INFO[MusicPlayer.offset(4).Title]     [COLOR white]5. $INFO[MusicPlayer.offset(5).Artist,, - ] $INFO[MusicPlayer.offset(5).Title]  [/COLOR]</label>
                         <textcolor>$VAR[TitleColorVar]</textcolor>
@@ -856,7 +843,6 @@
                     <width>1350</width>
                     <height>36</height>
                     <align>right</align>
-                    <aligny>-</aligny>
                     <!--animation effect="fade" start="100" end="0" time="300" condition="Window.IsVisible(musicosd)">Conditional</animation-->
                     <font>Font_Reg19_Caps</font>
                     <label>$INFO[MusicPlayer.BitRate,,[COLOR white] kbps | [/COLOR]]$INFO[MusicPlayer.SampleRate,,[COLOR white] kHz |[/COLOR] ]$INFO[MusicPlayer.bitspersample,,[COLOR white] bit  | [/COLOR] ]$INFO[MusicPlayer.Channels,,[COLOR white] $LOCALIZE[31629] [/COLOR]]</label>
@@ -2474,7 +2460,7 @@
                     <include>Animation_VisibleChange400</include>
                 </control>
                 <control type="image">
-                    <posx>120</posx>	
+                    <posx>120</posx>
                     <posy>650</posy>
                     <width>1650</width>
                     <height>593</height>
@@ -2528,7 +2514,6 @@
                         <animation effect="zoom" start="100" end="85" time="800" easing="inout" tween="circle" center="960,500" condition="true">Conditional</animation>
                         <orientation>vertical</orientation>
                         <pagecontrol>60</pagecontrol>
-                        <focusposition>0</focusposition>
                         <scrolltime tween="cubic" easing="inout">1200</scrolltime>
                         <preloaditems>2</preloaditems>
                         <itemlayout width="614" height="30">
@@ -2614,7 +2599,6 @@
                     <orientation>vertical</orientation>
                     <pagecontrol>60</pagecontrol>
                     <animation effect="zoom" start="100" end="85" time="800" easing="inout" tween="circle" center="960,500" condition="true">Conditional</animation>
-                    <focusposition>0</focusposition>
                     <scrolltime tween="cubic" easing="inout">1200</scrolltime>
                     <preloaditems>2</preloaditems>
                     <itemlayout width="614" height="30">

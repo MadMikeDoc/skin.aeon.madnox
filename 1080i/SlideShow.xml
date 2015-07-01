@@ -21,7 +21,7 @@
            <colordiffuse>7fffffff</colordiffuse>
 		   <include>Animation_VisibleChange400</include>
 		   <visible>isEmpty(Slideshow.EXIFComment) + System.GetBool(pictures.usetags)</visible>
-        </control>		
+        </control>
         <control type="image">
             <left>0</left>
             <top>0</top>
@@ -31,7 +31,7 @@
            <colordiffuse>7fffffff</colordiffuse>
 		   <include>Animation_VisibleChange400</include>
 		   <visible>!isEmpty(Slideshow.LongEXIFTime) | !isEmpty(Slideshow.CameraModel) + System.GetBool(pictures.usetags)</visible>
-        </control>		
+        </control>
         <control type="label">
             <left>80</left>
             <top>10</top>
@@ -53,10 +53,10 @@
             <textcolor>white</textcolor>
             <label>$INFO[Slideshow.CameraModel]</label>
 			<visible>!isEmpty(Slideshow.CameraModel) + System.GetBool(pictures.usetags)</visible>
-        </control>	
+        </control>
 		<control type="group">
 			<left>1480</left>
-			<top>985</top>		
+			<top>985</top>
 			<control type="label">
 				<width>600</width>
 				<height>30</height>
@@ -64,9 +64,8 @@
 				<font>font24</font>
 				<textcolor>white</textcolor>
 				<label>$LOCALIZE[21800]: $INFO[Slideshow.FileName]</label>
-				<autoscroll delay="3000" time="1000" repeat="10000">true</autoscroll>
 				<visible>!isEmpty(Slideshow.FileName) + System.GetBool(pictures.usetags)</visible>
-			</control>	
+			</control>
 			<control type="label">
 				<top>30</top>
 				<width>600</width>
@@ -75,7 +74,6 @@
 				<font>font24</font>
 				<textcolor>white</textcolor>
 				<label>$LOCALIZE[21826]: $INFO[Slideshow.Aperture]</label>
-				<autoscroll delay="3000" time="1000" repeat="10000">true</autoscroll>
 				<visible>!isEmpty(Slideshow.Aperture) + System.GetBool(pictures.usetags)</visible>
 			</control>
 			<control type="label">
@@ -86,10 +84,9 @@
 				<font>font24</font>
 				<textcolor>white</textcolor>
 				<label>$LOCALIZE[21828]: $INFO[Slideshow.FlashUsed]</label>
-				<autoscroll delay="3000" time="1000" repeat="10000">true</autoscroll>
 				<visible>!isEmpty(Slideshow.FlashUsed) + System.GetBool(pictures.usetags)</visible>
-			</control>						
-		</control>	
+			</control>
+		</control>
 		<control type="group">
 			<visible>!isEmpty(Slideshow.EXIFComment) + System.GetBool(pictures.usetags)</visible>
 			<control type="label">
@@ -113,7 +110,7 @@
 				<textcolor>white</textcolor>
 				<label>$INFO[ Slideshow.EXIFComment]</label>
 				<autoscroll delay="4000" time="1000" repeat="10000">true</autoscroll>
-			</control>	
-		</control>						
+			</control>
+		</control>
     </controls>
 </window>

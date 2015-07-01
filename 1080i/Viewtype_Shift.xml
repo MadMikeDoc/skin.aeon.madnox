@@ -6,7 +6,6 @@
             <top>113</top>
             <width>375</width>
             <height>512</height>
-            <aspectratio scalediffuse="false">fit</aspectratio>
             <texture background="true">thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
 			<visible>Container.Content(movies) + [Skin.HasSetting(usecases) + !Skin.HasSetting(clearcases) + !Skin.HasSetting(colorcases)] + !SubString(ListItem(0).Path,videodb://movies/sets)</visible>
 		</control>
@@ -15,7 +14,6 @@
             <top>112</top>
             <width>372</width>
             <height>511</height>
-            <aspectratio scalediffuse="false">fit</aspectratio>
             <texture background="true">thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
 			<visible>Container.Content(movies) + [Skin.HasSetting(usecases) + Skin.HasSetting(clearcases) + !Skin.HasSetting(colorcases)] + !SubString(ListItem(0).Path,videodb://movies/sets)</visible>
 		</control>
@@ -24,12 +22,11 @@
             <top>104</top>
             <width>386</width>
             <height>526</height>
-            <aspectratio scalediffuse="false">fit</aspectratio>
             <texture background="true">thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
 			<visible>Container.Content(movies) + [Skin.HasSetting(usecases) + Skin.HasSetting(colorcases)] + !SubString(ListItem(0).Path,videodb://movies/sets)</visible>
 		</control>
 	</include>
-	
+
 	<include name="ShiftSquareThumbs">
         <control type="image">
             <left>8</left>
@@ -96,7 +93,6 @@
             <top>150</top>
             <width>300</width>
             <height>450</height>
-            <aspectratio scalediffuse="false">fit</aspectratio>
             <texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
 			<visible>Skin.HasSetting(genrethumbs)</visible>
         </control>
@@ -105,11 +101,10 @@
             <top>150</top>
             <width>300</width>
             <height>450</height>
-            <aspectratio scalediffuse="false">fit</aspectratio>
             <texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar1]</texture>
 			<visible>!Skin.HasSetting(genrethumbs)</visible>
         </control>
-		
+
         <control type="image">
             <left>-11.5</left>
             <top>130.5</top>
@@ -124,7 +119,6 @@
             <top>601</top>
             <width>300</width>
             <height>450</height>
-            <aspectratio aligny="top" scalediffuse="false">fit</aspectratio>
             <texture background="true" flipy="true" diffuse="thumbs/movieposter_mask_reflect.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
             <animation effect="fade" start="100" end="30" time="160">Focus</animation>
             <animation effect="fade" start="30" end="100" time="160">UnFocus</animation>
@@ -135,7 +129,6 @@
             <top>601</top>
             <width>300</width>
             <height>450</height>
-            <aspectratio aligny="top" scalediffuse="false">fit</aspectratio>
             <texture background="true" flipy="true" diffuse="thumbs/movieposter_mask_reflect.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar1]</texture>
             <animation effect="fade" start="100" end="30" time="160">Focus</animation>
             <animation effect="fade" start="30" end="100" time="160">UnFocus</animation>
@@ -155,7 +148,7 @@
             <height>90</height>
 			<texture>overlayprogress.png</texture>
 			<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-		</control>			
+		</control>
 		<control type="image">
             <left>218</left>
             <top>150</top>
@@ -163,7 +156,7 @@
             <height>90</height>
 			<texture background="true" diffuse="thumbs/ExtraOverlayWatched.png">$VAR[VideoextrasOverlay]</texture>
 			<visible>System.HasAddon(script.videoextras)</visible>
-		</control>			
+		</control>
         <control type="group">
             <left>-3</left>
             <top>139</top>
@@ -176,7 +169,6 @@
             <top>150</top>
             <width>150</width>
             <height>225</height>
-            <aspectratio scalediffuse="false">fit</aspectratio>
             <texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
 			<visible>Skin.HasSetting(genrethumbs)</visible>
         </control>
@@ -185,7 +177,6 @@
             <top>150</top>
             <width>150</width>
             <height>225</height>
-            <aspectratio scalediffuse="false">fit</aspectratio>
             <texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar1]</texture>
 			<visible>!Skin.HasSetting(genrethumbs)</visible>
         </control>
@@ -203,7 +194,6 @@
             <top>381</top>
             <width>150</width>
             <height>225</height>
-            <aspectratio aligny="top" scalediffuse="false">fit</aspectratio>
             <texture background="true" flipy="true" diffuse="thumbs/movieposter_mask_reflect.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
             <animation effect="fade" start="100" end="30" time="160">Focus</animation>
             <animation effect="fade" start="30" end="100" time="160">UnFocus</animation>
@@ -214,7 +204,6 @@
             <top>381</top>
             <width>150</width>
             <height>225</height>
-            <aspectratio aligny="top" scalediffuse="false">fit</aspectratio>
             <texture background="true" flipy="true" diffuse="thumbs/movieposter_mask_reflect.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar1]</texture>
             <animation effect="fade" start="100" end="30" time="160">Focus</animation>
             <animation effect="fade" start="30" end="100" time="160">UnFocus</animation>
@@ -234,7 +223,7 @@
             <height>55</height>
 			<texture>overlayprogress.png</texture>
 			<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-		</control>			
+		</control>
 		<control type="image">
             <left>103.5</left>
             <top>150</top>
@@ -242,7 +231,7 @@
             <height>55</height>
 			<texture background="true" diffuse="thumbs/ExtraOverlayWatched.png">$VAR[VideoextrasOverlay]</texture>
 			<visible>System.HasAddon(script.videoextras)</visible>
-		</control>			
+		</control>
         <control type="group">
             <left>-5</left>
             <top>136</top>
@@ -411,7 +400,6 @@
 						<visible>IsEmpty(ListItem.Art(discart)) + Container.Content(movies) + Skin.HasSetting(Fakedischandwriting) + !SubString(ListItem.Path,videodb://movies/sets) + IsEmpty(ListItem.Art(clearlogo))</visible>
 						<label> $INFO[ListItem.Label]</label>
 						<textcolor>black</textcolor>
-						<wrapmultiline>true</wrapmultiline>
 						<animation effect="slide" end="0,-40" time="320" easing="inout" tween="cubic" condition="Skin.HasSetting(usecases)">Conditional</animation>
 						<animation effect="slide" delay="1600" end="0,-260" time="320" tween="quadratic">Focus</animation>
 						<animation effect="slide" start="0,-260" end="0" time="160" tween="quadratic" easing="in">Unfocus</animation>

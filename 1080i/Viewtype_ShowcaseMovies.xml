@@ -2760,8 +2760,6 @@
 			<textcolor>black</textcolor>
 			<visible>Skin.Hassetting(noflow) + IsEmpty(ListItem.Art(discart)) + Skin.HasSetting(OpenCase) + Container.Content(movies) + Skin.HasSetting(Fakedischandwriting) + !SubString(ListItem.Path,videodb://movies/sets) + IsEmpty(ListItem.Art(clearlogo))</visible>
             <label>[CR][CR][CR][CR][CR] $INFO[ListItem.Title]</label>
-			<scroll>false</scroll>
-			<wrapmultiline>true</wrapmultiline>
         </control>
 		<control type="group">
 			<animation type="Conditional" condition="Skin.HasSetting(OpenCase)" reversible="true">
@@ -2786,7 +2784,7 @@
 			<top>70</top>
 			<width>240</width>
 			<height>240</height>
-			<aspectratio align="bottom">keep</aspectratio>
+			<aspectratio aligny="bottom">keep</aspectratio>
 			<texture background="true">$INFO[ListItem.Art(discart)]</texture>
 			<animation type="Conditional" condition="Control.IsVisible(1970)" reversible="false">
 				<effect type="slide" start="0,0" end="-1400,0" delay="0" time="2300" tween="cubic" easing="inout"/>
@@ -2865,7 +2863,6 @@
 			<visible>Skin.HasSetting(usecases) + Skin.HasSetting(OpenCase) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + !SubString(ListItem(0).Path,videodb://movies/sets) + Container.Content(movies) + Skin.Hassetting(Fakedischandwriting) + IsEmpty(ListItem.Art(clearlogo))</visible>
 			<label>[CR][CR][CR][CR][CR] $INFO[ListItem.Label]</label>
 			<textcolor>black</textcolor>
-			<wrapmultiline>true</wrapmultiline>
 		</control>
 		<control type="image">
 			<animation type="Conditional" condition="Control.IsVisible(1970)" reversible="false">
@@ -2881,13 +2878,13 @@
 			<aspectratio>keep</aspectratio>
 			<visible>Skin.HasSetting(usecases) + Skin.HasSetting(OpenCase) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + !SubString(ListItem(0).Path,videodb://movies/sets) + Container.Content(movies) + Skin.Hassetting(Fakedischandwriting) + !IsEmpty(ListItem.Art(clearlogo))</visible>
 			<texture background="true" fallback="empty.png">$INFO[ListItem.Art(clearlogo)]</texture>
-		</control>	
+		</control>
 		<control type="image">
 			<left>1426</left>
 			<top>70</top>
 			<width>240</width>
 			<height>240</height>
-			<aspectratio align="bottom">keep</aspectratio>
+			<aspectratio aligny="bottom">keep</aspectratio>
 			<texture background="true">$INFO[Window(home).Property(Set.Movie.1.Art(discart))]</texture>
 			<animation type="Conditional" condition="Control.IsVisible(1970) + !IsEmpty(Window(home).Property(Set.Movie.1.Art(discart)))" reversible="false">
 				<effect type="slide" start="0,0" end="-1400,0" delay="0" time="2300" tween="cubic" easing="inout"/>
@@ -2900,7 +2897,7 @@
 			<top>70</top>
 			<width>240</width>
 			<height>240</height>
-			<aspectratio align="bottom">keep</aspectratio>
+			<aspectratio aligny="bottom">keep</aspectratio>
 			<texture background="true">$INFO[Window(home).Property(Set.Movie.2.Art(discart))]</texture>
 			<animation type="Conditional" condition="Control.IsVisible(1970) + !IsEmpty(Window(home).Property(Set.Movie.2.Art(discart)))" reversible="false">
 				<effect type="slide" start="0,0" end="-1400,0" delay="500" time="2300" tween="cubic" easing="inout"/>
@@ -2913,7 +2910,7 @@
 			<top>70</top>
 			<width>240</width>
 			<height>240</height>
-			<aspectratio align="bottom">keep</aspectratio>
+			<aspectratio aligny="bottom">keep</aspectratio>
 			<texture background="true">$INFO[Window(home).Property(Set.Movie.3.Art(discart))]</texture>
 			<animation type="Conditional" condition="Control.IsVisible(1970) + !IsEmpty(Window(home).Property(Set.Movie.3.Art(discart)))" reversible="false">
 				<effect type="slide" start="0,0" end="-1400,0" delay="1000" time="2300" tween="cubic" easing="inout"/>
@@ -2926,7 +2923,7 @@
 			<top>70</top>
 			<width>240</width>
 			<height>240</height>
-			<aspectratio align="bottom">keep</aspectratio>
+			<aspectratio aligny="bottom">keep</aspectratio>
 			<texture background="true">$INFO[Window(home).Property(Set.Movie.4.Art(discart))]</texture>
 			<animation type="Conditional" condition="Control.IsVisible(1970) + !IsEmpty(Window(home).Property(Set.Movie.4.Art(discart)))" reversible="false">
 				<effect type="slide" start="0,0" end="-1400,0" delay="1500" time="2300" tween="cubic" easing="inout"/>
@@ -2939,7 +2936,7 @@
 			<top>70</top>
 			<width>240</width>
 			<height>240</height>
-			<aspectratio align="bottom">keep</aspectratio>
+			<aspectratio aligny="bottom">keep</aspectratio>
 			<texture background="true">$INFO[Window(home).Property(Set.Movie.5.Art(discart))]</texture>
 			<animation type="Conditional" condition="Control.IsVisible(1970) + !IsEmpty(Window(home).Property(Set.Movie.5.Art(discart)))" reversible="false">
 				<effect type="slide" start="0,0" end="-1400,0" delay="2000" time="2300" tween="cubic" easing="inout"/>
@@ -2952,7 +2949,7 @@
 			<top>70</top>
 			<width>240</width>
 			<height>240</height>
-			<aspectratio align="bottom">keep</aspectratio>
+			<aspectratio aligny="bottom">keep</aspectratio>
 			<texture background="true">$INFO[Window(home).Property(Set.Movie.6.Art(discart))]</texture>
 			<animation type="Conditional" condition="Control.IsVisible(1970) + !IsEmpty(Window(home).Property(Set.Movie.6.Art(discart)))" reversible="false">
 				<effect type="slide" start="0,0" end="-1400,0" delay="2500" time="2300" tween="cubic" easing="inout"/>
@@ -2965,7 +2962,7 @@
 			<top>70</top>
 			<width>240</width>
 			<height>240</height>
-			<aspectratio align="bottom">keep</aspectratio>
+			<aspectratio aligny="bottom">keep</aspectratio>
 			<texture background="true">$INFO[Window(home).Property(Set.Movie.7.Art(discart))]</texture>
 			<animation type="Conditional" condition="Control.IsVisible(1970) + !IsEmpty(Window(home).Property(Set.Movie.7.Art(discart)))" reversible="false">
 				<effect type="slide" start="0,0" end="-1400,0" delay="3000" time="2300" tween="cubic" easing="inout"/>
@@ -2978,7 +2975,7 @@
 			<top>70</top>
 			<width>240</width>
 			<height>240</height>
-			<aspectratio align="bottom">keep</aspectratio>
+			<aspectratio aligny="bottom">keep</aspectratio>
 			<texture background="true">$INFO[Window(home).Property(Set.Movie.8.Art(discart))]</texture>
 			<animation type="Conditional" condition="Control.IsVisible(1970) + !IsEmpty(Window(home).Property(Set.Movie.8.Art(discart)))" reversible="false">
 				<effect type="slide" start="0,0" end="-1400,0" delay="3500" time="2300" tween="cubic" easing="inout"/>
@@ -2991,7 +2988,7 @@
 			<top>70</top>
 			<width>240</width>
 			<height>240</height>
-			<aspectratio align="bottom">keep</aspectratio>
+			<aspectratio aligny="bottom">keep</aspectratio>
 			<texture background="true">$INFO[Window(home).Property(Set.Movie.9.Art(discart))]</texture>
 			<animation type="Conditional" condition="Control.IsVisible(1970) + !IsEmpty(Window(home).Property(Set.Movie.9.Art(discart)))" reversible="false">
 				<effect type="slide" start="0,0" end="-1400,0" delay="4000" time="2300" tween="cubic" easing="inout"/>
@@ -3004,7 +3001,7 @@
 			<top>70</top>
 			<width>240</width>
 			<height>240</height>
-			<aspectratio align="bottom">keep</aspectratio>
+			<aspectratio aligny="bottom">keep</aspectratio>
 			<texture background="true">$INFO[Window(home).Property(Set.Movie.10.Art(discart))]</texture>
 			<animation type="Conditional" condition="Control.IsVisible(1970) + !IsEmpty(Window(home).Property(Set.Movie.10.Art(discart)))" reversible="false">
 				<effect type="slide" start="0,0" end="-1400,0" delay="4500" time="2300" tween="cubic" easing="inout"/>

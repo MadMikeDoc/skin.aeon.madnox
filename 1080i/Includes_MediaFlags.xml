@@ -229,8 +229,8 @@
         <height>71</height>
        	<texture colordiffuse="$INFO[Window(home).Property(VideoInfo.ImageColor)]">views/tripanel/upright.png</texture>
     </include>
-	
-	
+
+
     <include name="AudioFlagsVars">
         <width>135</width>
         <height>64</height>
@@ -296,7 +296,7 @@
                         <texture>$VAR[ColorFlagsRating]rating/$VAR[RatingFlagVar,,.png]</texture>
                         <include>AudioFlagsVars</include>
                         <animation effect="slide" end="138" condition="Control.IsVisible(512) | Control.IsVisible(550)">Conditional</animation>
-                    </control>	
+                    </control>
                     <control type="image">
                         <left>285</left>
                         <texture>$VAR[ColorFlagsRating]rating/MPAA_NR_Certificate_US.png</texture>
@@ -386,17 +386,17 @@
                         <animation effect="fade" time="200">VisibleChange</animation>
                     </control>
 					<control type="image">
-                        <top>-8</top>					
+                        <top>-8</top>
                         <left>60</left>
                         <width>150</width>
                         <height>84</height>
                         <aspectratio>keep</aspectratio>
                         <fadetime>IconCrossfadeTime2</fadetime>
                         <colordiffuse>white2</colordiffuse>
-                        <animation effect="fade" time="200">VisibleChange</animation>					
+                        <animation effect="fade" time="200">VisibleChange</animation>
 						<texture>$VAR[ColorFlagsStudio]default-studio.png</texture>
 						<visible>IsEmpty(ListItem.Studio)</visible>
-					</control>					
+					</control>
                     <control type="group">
                         <top>-5</top>
                         <left>200</left>
@@ -517,7 +517,7 @@
 					<control type="group">
 					<animation effect="slide" end="150" condition="Container.Content(seasons)">Conditional</animation>
                     <control type="label">
-						<top>-10</top>					
+						<top>-10</top>
                         <left>1450</left>
                         <width>135</width>
                         <height>38</height>
@@ -525,7 +525,7 @@
                         <label>$VAR[TvGuideVarTxt]</label>
                         <font>Font_Reg19_Caps</font>
                         <textcolor>floor</textcolor>
-                    </control>					
+                    </control>
                     <control type="image">
                         <left>1450</left>
                         <include>AudioFlagsVars</include>
@@ -533,7 +533,7 @@
                         <colordiffuse>floor</colordiffuse>
                     </control>
 					</control>
-					
+
                     <control type="image" id="1115">
                         <left>1745</left>
                         <texture>$VAR[ColorFlagsRating]rating/$VAR[RatingFlagVar,,.png]</texture>
@@ -548,7 +548,7 @@
                         <animation effect="slide" time="560" start="0,300" end="0,0" tween="cubic">Visible</animation>
                         <animation effect="slide" time="250" end="0,400" tween="cubic" easing="in">Hidden</animation>
 						<visible>IsEmpty(Control.GetLabel(1115))</visible>
-                    </control>					
+                    </control>
                 </control>
             </control>
             <control type="group">
@@ -630,7 +630,7 @@
                 <visible>![Control.IsVisible(50) + !Skin.HasSetting(slimlist)]</visible>
                 <visible>Container.Content(tvshows) | [Container.Content(seasons) + ListItem.IsFolder]</visible>
 				<visible>IsEmpty(ListItem.Studio)</visible>
-            </control>			
+            </control>
             <control type="image">
                 <left>1400</left>
                 <texture>$VAR[ColorFlagsSource]source/$VAR[SourceFlagVar,,.png]</texture>
@@ -658,7 +658,7 @@
                 <visible>!ListItem.IsFolder</visible>
 				<animation effect="slide"  end="-20,0" time="100" delay="150" condition="Container.Content(movies)">Conditional</animation>
             </control>
-				
+
 			<control type="group">
 			<animation effect="slide"  end="-30,0" time="100" delay="150" condition="Container.Content(movies)">Conditional</animation>
 				<visible>[Container.Content(episodes) + !IsEmpty(ListItem.TVShowTitle)] | [Container.Content(movies) + !SubString(ListItem.Path,videodb://movies/sets)]</visible>
@@ -672,8 +672,8 @@
                     <texture>$VAR[ColorFlagsRating]rating/MPAA_NR_Certificate_US.png</texture>
                     <include>OSDFlagVars</include>
 					<visible>IsEmpty(Control.GetLabel(1126))</visible>
-                </control>			
-			</control>			
+                </control>
+			</control>
             <control type="group">
                 <visible>Container.Content(tvshows) | [Container.Content(seasons) + !IsEmpty(ListItem.TVShowTitle)]</visible>
                 <control type="image" id="1116">
@@ -686,24 +686,24 @@
                     <texture>$VAR[ColorFlagsRating]rating/MPAA_NR_Certificate_US.png</texture>
                     <include>OSDFlagVars</include>
 					<visible>IsEmpty(Control.GetLabel(1116))</visible>
-                </control>				
-			<control type="group">	
+                </control>
+			<control type="group">
 				<control type="label">
-					<top>-10</top>	
-					<left>1487</left>									
+					<top>-10</top>
+					<left>1487</left>
 					<width>135</width>
 					<height>38</height>
 					<align>center</align>
 					<label>$VAR[TvGuideVarTxt]</label>
 					<font>Font_Reg19_Caps</font>
 					<textcolor>floor</textcolor>
-				</control>	                
+				</control>
 				<control type="image">
                     <left>1480</left>
                     <include>OSDFlagVars</include>
                     <texture background="true">$VAR[ColortvguideFlags]$INFO[Window(Home).Property(NextAired.StatusID)].png</texture>
                 </control>
-			</control>	
+			</control>
                 <control type="group">
                     <left>300r</left>
                     <control type="label">
@@ -725,7 +725,7 @@
                 </control>
             </control>
         </control>
-        
+
     </include>
     <include name="MusicMediaFlags">
         <control type="group">
@@ -1051,7 +1051,7 @@
                     <include>AudioFlagsVars</include>
                     <visible>Container.Content(Songs)</visible>
 					<animation effect="slide" end="-1200,0" time="0" condition="Control.IsVisible(514)">Conditional</animation>
-                </control>					
+                </control>
             <control type="group">
 			<animation effect="slide" end="-1200,0" time="0" condition="Control.IsVisible(514)">Conditional</animation>
                 <!-- Genre -->
@@ -1115,7 +1115,7 @@
                     <font>Font_Reg30_2</font>
                     <textcolor>floor</textcolor>
                 </control>
-			</control>				
+			</control>
             <control type="group">
                 <visible>!ListItem.IsFolder</visible>
                 <animation effect="slide" time="560" start="0,300" end="0,0" tween="cubic">Visible</animation>
@@ -1133,8 +1133,8 @@
 						<texture>$VAR[ColorFlagsRating]rating/MPAA_NR_Certificate_US.png</texture>
 						<include>OSDFlagVars</include>
 						<visible>IsEmpty(Control.GetLabel(1285))</visible>
-					</control>			
-				</control>				
+					</control>
+				</control>
                 <control type="group">
                     <visible>!IsEmpty(ListItem.Rating)</visible>
                     <left>1400</left>
@@ -1152,7 +1152,7 @@
                         <font>Font_Bold37</font>
                         <textcolor>floor</textcolor>
                     </control>
-                </control>				
+                </control>
                 <control type="image">
                     <left>1535</left>
                     <texture>$VAR[ColorFlagsAudio]audio/$VAR[AudioFlagVar,,.png]</texture>
@@ -1178,21 +1178,21 @@
                 <include>Animation_FlagSlideDown</include>
 			<control type="group">
 				<control type="label">
-					<top>-10</top>	
-					<left>-146</left>								
+					<top>-10</top>
+					<left>-146</left>
 					<width>135</width>
 					<height>38</height>
 					<align>center</align>
 					<label>$VAR[TvGuideVarTxt]</label>
 					<font>Font_Reg19_Caps</font>
 					<textcolor>floor</textcolor>
-				</control>	  				
+				</control>
                 <control type="image">
 					<left>-146</left>
                     <include>AudioFlagsVars</include>
                     <texture>$VAR[ColortvguideFlags]$INFO[Window(Home).Property(NextAired.StatusID)].png</texture>
                 </control>
-			</control>				
+			</control>
                 <control type="group">
                     <width>120</width>
                     <left>-20</left>
@@ -1212,7 +1212,7 @@
                 </control>
 				<control type="group">
 					<width>135</width>
-					<height>38</height>				
+					<height>38</height>
 					<control type="image" id="1117">
 						<texture >$VAR[ColorFlagsRating]rating/$VAR[RatingFlagVar,,.png]</texture>
 						<include>AudioFlagsVars</include>
@@ -1221,7 +1221,7 @@
 						<texture >$VAR[ColorFlagsRating]rating/MPAA_NR_Certificate_US.png</texture>
 						<include>AudioFlagsVars</include>
 						<visible>IsEmpty(Control.GetLabel(1117))</visible>
-					</control>				
+					</control>
 				</control>
                 <control type="image">
                     <top>-10</top>
@@ -1247,7 +1247,7 @@
                     <visible>!Control.IsVisible(57)</visible>
                     <visible>Container.Content(tvshows) | SubString(Container.FolderPath,plugin.video.the.trailers)</visible>
 					<visible>IsEmpty(ListItem.Studio)</visible>
-                </control>				
+                </control>
             </control>
             <control type="label">
                 <left>1890</left>

@@ -14,7 +14,7 @@
 			<top>130</top>
 			<visible>Player.Paused + VideoPlayer.Content(movies) + Skin.HasSetting(Show_Info_Paused)</visible>
 			<control type="group">
-			<visible>!Skin.HasSetting(DarkOverlayinfoscreen)</visible>
+				<visible>!Skin.HasSetting(DarkOverlayinfoscreen)</visible>
 				<top>309</top>
 				<control type="image" id="1">
 					<width>1919</width>
@@ -55,17 +55,16 @@
 					<textcolor>FFE5E5E5</textcolor>
 					<align>justify</align>
 					<label fallback="31203">$INFO[VideoPlayer.Plot]</label>
-					<wrapmultiline>true</wrapmultiline>
 					<autoscroll delay="20000" time="4000" repeat="15000">true</autoscroll>
 				</control>
 				<!--  Weather Info  -->
 				<control type="image" id="19547">
 					<visible>Skin.HasSetting(WeatherInfoOnPause)</visible>
 					<description>media info background image</description>
-                    <posx>16</posx>
-                    <posy>16</posy>
-                    <width>622</width>
-                    <height>195</height>
+					<posx>16</posx>
+					<posy>16</posy>
+					<width>622</width>
+					<height>195</height>
 					<texture>views/weatherback.png</texture>
 				</control>
 				<!--  Today's Weather   -->
@@ -77,101 +76,101 @@
 					<height>160</height>
 					<aspectratio align="right" aligny="top">keep</aspectratio>
 					<texture>weather/small/colored/$INFO[Weather.FanartCode].png</texture>
-				</control>						
-                <control type="label" id="19547">
-                    <visible>Skin.HasSetting(WeatherInfoOnPause)</visible>
+				</control>
+				<control type="label" id="19547">
+					<visible>Skin.HasSetting(WeatherInfoOnPause)</visible>
 					<description>current temp Value</description>
-                    <posx>187</posx>
-                    <posy>23</posy>
-                    <width>180</width>
-                    <height>40</height>
+					<posx>187</posx>
+					<posy>23</posy>
+					<width>180</width>
+					<height>40</height>
 					<font>Font_ShowcaseMainLabel2_Caps</font>
-                    <align>left</align>
+					<align>left</align>
 					<aligny>top</aligny>
-                    <label>$INFO[Window(2600).Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
-                    <textcolor>ffffae00</textcolor>
-                    <shadowcolor>black</shadowcolor>
-                </control>
-                <control type="label" id="19547">
-                    <visible>Skin.HasSetting(WeatherInfoOnPause)</visible>
+					<label>$INFO[Window(2600).Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
+					<textcolor>ffffae00</textcolor>
+					<shadowcolor>black</shadowcolor>
+				</control>
+				<control type="label" id="19547">
+					<visible>Skin.HasSetting(WeatherInfoOnPause)</visible>
 					<description>predicted high label</description>
-                    <posx>187</posx>
-                    <posy>31</posy>
-                    <width>460</width>
-                    <height>160</height>
-                    <label>High: [COLOR white]$INFO[Window(2600).Property(Day0.HighTemp)]$INFO[System.TemperatureUnits][/COLOR]  Low: [COLOR white]$INFO[Window(2600).Property(Day0.LowTemp)]$INFO[System.TemperatureUnits][/COLOR] • $INFO[Window(2600).Property(Day0.Outlook)]</label>
-                    <font>Font_Reg26_Caps</font>
-                    <align>left</align>
-                    <scroll>true</scroll>
-                    <aligny>center</aligny>
-                    <textcolor>gray</textcolor>
-                    <shadowcolor>black</shadowcolor>
-                </control>
+					<posx>187</posx>
+					<posy>31</posy>
+					<width>460</width>
+					<height>160</height>
+					<label>High: [COLOR white]$INFO[Window(2600).Property(Day0.HighTemp)]$INFO[System.TemperatureUnits][/COLOR]  Low: [COLOR white]$INFO[Window(2600).Property(Day0.LowTemp)]$INFO[System.TemperatureUnits][/COLOR] • $INFO[Window(2600).Property(Day0.Outlook)]</label>
+					<font>Font_Reg26_Caps</font>
+					<align>left</align>
+					<scroll>true</scroll>
+					<aligny>center</aligny>
+					<textcolor>gray</textcolor>
+					<shadowcolor>black</shadowcolor>
+				</control>
 				<!--  Next 2 Days   -->
 				<control type="label" id="19547">
-                    <visible>Skin.HasSetting(WeatherInfoOnPause)</visible>
+					<visible>Skin.HasSetting(WeatherInfoOnPause)</visible>
 					<description>low label</description>
-                    <posx>35</posx>
-                    <posy>78</posy>
-                    <width>135</width>
-                    <height>160</height>
-                    <label>[COLOR white]$INFO[Window(2600).Property(Day1.Title)][/COLOR]</label>
-                    <font>Font_Reg26_Caps</font>
-                    <align>left</align>
-                    <scroll>true</scroll>
-                    <aligny>center</aligny>
-                    <textcolor>gray</textcolor>
-                    <shadowcolor>black</shadowcolor>
-                </control>
+					<posx>35</posx>
+					<posy>78</posy>
+					<width>135</width>
+					<height>160</height>
+					<label>[COLOR white]$INFO[Window(2600).Property(Day1.Title)][/COLOR]</label>
+					<font>Font_Reg26_Caps</font>
+					<align>left</align>
+					<scroll>true</scroll>
+					<aligny>center</aligny>
+					<textcolor>gray</textcolor>
+					<shadowcolor>black</shadowcolor>
+				</control>
 				<control type="label" id="19547">
-                    <visible>Skin.HasSetting(WeatherInfoOnPause)</visible>
+					<visible>Skin.HasSetting(WeatherInfoOnPause)</visible>
 					<description>low label</description>
-                    <posx>180</posx>
-                    <posy>78</posy>
-                    <width>730</width>
-                    <height>160</height>
-                    <label> High: [COLOR ffffae00]$INFO[Window(2600).Property(Day1.HighTemp)]$INFO[System.TemperatureUnits][/COLOR]  Low: [COLOR ffffae00]$INFO[Window(2600).Property(Day1.LowTemp)]$INFO[System.TemperatureUnits][/COLOR] • $INFO[Window(2600).Property(Day1.Outlook)]</label>
-                    <font>Font_Reg26_Caps</font>
-                    <align>left</align>
-                    <scroll>true</scroll>
-                    <aligny>center</aligny>
-                    <textcolor>gray</textcolor>
-                    <shadowcolor>black</shadowcolor>
-                </control>
+					<posx>180</posx>
+					<posy>78</posy>
+					<width>730</width>
+					<height>160</height>
+					<label> High: [COLOR ffffae00]$INFO[Window(2600).Property(Day1.HighTemp)]$INFO[System.TemperatureUnits][/COLOR]  Low: [COLOR ffffae00]$INFO[Window(2600).Property(Day1.LowTemp)]$INFO[System.TemperatureUnits][/COLOR] • $INFO[Window(2600).Property(Day1.Outlook)]</label>
+					<font>Font_Reg26_Caps</font>
+					<align>left</align>
+					<scroll>true</scroll>
+					<aligny>center</aligny>
+					<textcolor>gray</textcolor>
+					<shadowcolor>black</shadowcolor>
+				</control>
 				<control type="label" id="19547">
-                    <visible>Skin.HasSetting(WeatherInfoOnPause)</visible>
+					<visible>Skin.HasSetting(WeatherInfoOnPause)</visible>
 					<description>tomorrow high label</description>
-                    <posx>35</posx>
-                    <posy>104</posy>
-                    <width>135</width>
-                    <height>160</height>
-                    <label>[COLOR white]$INFO[Window(2600).Property(Day2.Title)][/COLOR]</label>
-                    <font>Font_Reg26_Caps</font>
-                    <align>left</align>
-                    <scroll>true</scroll>
-                    <aligny>center</aligny>
-                    <textcolor>gray</textcolor>
-                    <shadowcolor>black</shadowcolor>
-                </control>
+					<posx>35</posx>
+					<posy>104</posy>
+					<width>135</width>
+					<height>160</height>
+					<label>[COLOR white]$INFO[Window(2600).Property(Day2.Title)][/COLOR]</label>
+					<font>Font_Reg26_Caps</font>
+					<align>left</align>
+					<scroll>true</scroll>
+					<aligny>center</aligny>
+					<textcolor>gray</textcolor>
+					<shadowcolor>black</shadowcolor>
+				</control>
 				<control type="label" id="19547">
-                    <visible>Skin.HasSetting(WeatherInfoOnPause)</visible>
+					<visible>Skin.HasSetting(WeatherInfoOnPause)</visible>
 					<description>tomorrow high label</description>
-                    <posx>180</posx>
-                    <posy>104</posy>
-                    <width>730</width>
-                    <height>160</height>
-                    <label> High: [COLOR ffffae00]$INFO[Window(2600).Property(Day2.HighTemp)]$INFO[System.TemperatureUnits][/COLOR]  Low: [COLOR ffffae00]$INFO[Window(2600).Property(Day2.LowTemp)]$INFO[System.TemperatureUnits][/COLOR] • $INFO[Window(2600).Property(Day2.Outlook)]</label>
-                    <font>Font_Reg26_Caps</font>
-                    <align>left</align>
-                    <scroll>true</scroll>
-                    <aligny>center</aligny>
-                    <textcolor>gray</textcolor>
-                    <shadowcolor>black</shadowcolor>
-                </control>
+					<posx>180</posx>
+					<posy>104</posy>
+					<width>730</width>
+					<height>160</height>
+					<label> High: [COLOR ffffae00]$INFO[Window(2600).Property(Day2.HighTemp)]$INFO[System.TemperatureUnits][/COLOR]  Low: [COLOR ffffae00]$INFO[Window(2600).Property(Day2.LowTemp)]$INFO[System.TemperatureUnits][/COLOR] • $INFO[Window(2600).Property(Day2.Outlook)]</label>
+					<font>Font_Reg26_Caps</font>
+					<align>left</align>
+					<scroll>true</scroll>
+					<aligny>center</aligny>
+					<textcolor>gray</textcolor>
+					<shadowcolor>black</shadowcolor>
+				</control>
 				<!-- Weather Info End -->
-					
-			<control type="label">
-				<visible>!Skin.HasSetting(DisableVideoThumb) + !Skin.HasSetting(Discinfoscreen)</visible>
+
+				<control type="label">
+					<visible>!Skin.HasSetting(DisableVideoThumb) + !Skin.HasSetting(Discinfoscreen)</visible>
 					<left>380</left>
 					<top>320</top>
 					<width>300</width>
@@ -181,9 +180,9 @@
 					<textcolor>FF017196</textcolor>
 					<label>PLOT</label>
 				</control>
-				 
+
 				<control type="textbox">
-				<visible>!Skin.HasSetting(DisableVideoThumb) + !Skin.HasSetting(Discinfoscreen)</visible>
+					<visible>!Skin.HasSetting(DisableVideoThumb) + !Skin.HasSetting(Discinfoscreen)</visible>
 					<description>Plot</description>
 					<left>380</left>
 					<top>370</top>
@@ -193,12 +192,11 @@
 					<textcolor>FFE5E5E5</textcolor>
 					<align>justify</align>
 					<label fallback="31203">$INFO[VideoPlayer.Plot]</label>
-					<wrapmultiline>true</wrapmultiline>
 					<autoscroll delay="20000" time="4000" repeat="15000">true</autoscroll>
 				</control>
-				
+
 				<control type="label">
-				<visible>Skin.HasSetting(DisableVideoThumb)</visible>
+					<visible>Skin.HasSetting(DisableVideoThumb)</visible>
 					<left>130</left>
 					<top>320</top>
 					<width>300</width>
@@ -219,7 +217,6 @@
 					<textcolor>FFE5E5E5</textcolor>
 					<align>justify</align>
 					<label fallback="31203">$INFO[VideoPlayer.Plot]</label>
-					<wrapmultiline>true</wrapmultiline>
 					<autoscroll delay="20000" time="4000" repeat="15000">true</autoscroll>
 				</control>
 				<control type="label">
@@ -242,18 +239,17 @@
 					<textcolor>FFE5E5E5</textcolor>
 					<align>left</align>
 					<label fallback="31203">$INFO[VideoPlayer.CastandRole]</label>
-					<wrapmultiline>true</wrapmultiline>
 					<autoscroll delay="20000" time="4000" repeat="15000">true</autoscroll>
 				</control>
 			</control>
 		</control>
-			<control type="group" id="10125">
+		<control type="group" id="10125">
 			<left>0</left>
 			<top>130</top>
 			<visible>Skin.HasSetting(Plotinfoscreen)</visible>
 			<visible>Player.Paused + VideoPlayer.Content(episodes) + Skin.HasSetting(Show_Info_Paused)</visible>
 			<control type="group">
-			<visible>!Skin.HasSetting(DarkOverlayinfoscreen)</visible>
+				<visible>!Skin.HasSetting(DarkOverlayinfoscreen)</visible>
 				<top>309</top>
 				<control type="image" id="1">
 					<width>1919</width>
@@ -292,7 +288,6 @@
 					<textcolor>FFE5E5E5</textcolor>
 					<align>justify</align>
 					<label fallback="31203">$INFO[VideoPlayer.Plot]</label>
-					<wrapmultiline>true</wrapmultiline>
 					<autoscroll delay="20000" time="4000" repeat="15000">true</autoscroll>
 				</control>
 				<control type="label">
@@ -315,7 +310,6 @@
 					<textcolor>FFE5E5E5</textcolor>
 					<align>left</align>
 					<label fallback="31203">$INFO[VideoPlayer.CastandRole]</label>
-					<wrapmultiline>true</wrapmultiline>
 					<autoscroll delay="20000" time="4000" repeat="15000">true</autoscroll>
 				</control>
 			</control>
@@ -326,7 +320,7 @@
 			<visible>Skin.HasSetting(Plotinfoscreen)</visible>
 			<visible>Player.Paused + VideoPlayer.Content(files) + Skin.HasSetting(Show_Info_Paused)</visible>
 			<control type="group">
-			<visible>!Skin.HasSetting(DarkOverlayinfoscreen)</visible>
+				<visible>!Skin.HasSetting(DarkOverlayinfoscreen)</visible>
 				<top>309</top>
 				<control type="image" id="1">
 					<width>1919</width>
@@ -365,7 +359,6 @@
 					<textcolor>FFE5E5E5</textcolor>
 					<align>justify</align>
 					<label fallback="31203">$INFO[VideoPlayer.Plot]</label>
-					<wrapmultiline>true</wrapmultiline>
 					<autoscroll delay="20000" time="4000" repeat="15000">true</autoscroll>
 				</control>
 				<control type="label">
@@ -388,7 +381,6 @@
 					<textcolor>FFE5E5E5</textcolor>
 					<align>left</align>
 					<label fallback="31203">$INFO[VideoPlayer.CastandRole]</label>
-					<wrapmultiline>true</wrapmultiline>
 					<autoscroll delay="20000" time="4000" repeat="15000">true</autoscroll>
 				</control>
 			</control>
@@ -744,7 +736,7 @@
 				</control>
 			</control>
 			<control type="group" id="4003">
-				<visible>!Window.IsVisible(107)</visible>
+				<visible>!Window.IsVisible(infodialog)</visible>
 				<visible>Player.Paused|[Player.Paused+Player.Seeking] | [Player.Paused+Player.DisplayAfterSeek]</visible>
 				<visible>!Control.IsVisible(4001) + !Control.IsVisible(4002)</visible>
 				<animation type="Visible">
@@ -793,18 +785,18 @@
 					<top>84</top>
 					<include>Neon_Topbar</include>
 				</control>
-				  <control type="label">
-                    <left>510</left>
-                    <top>18</top>
-                    <width>900</width>
-                    <height>68</height>
-                    <align>center</align>
-                    <aligny>bottom</aligny>
-                    <font>Font_ShowcaseMainLabel2_Caps</font>
-                    <label>$INFO[VideoPlayer.Title]</label>
-                    <scroll>true</scroll>
-                    <animation effect="slide" start="0,15" end="0,15" time="0" condition="[IsEmpty(Player.ChapterName) | SubString(Player.ChapterName,0,left)] + [[IsEmpty(VideoPlayer.Tagline) + VideoPlayer.Content(movies)] | [IsEmpty(VideoPlayer.Artist) + VideoPlayer.Content(musicvideos)]] | VideoPlayer.Content(files)">Conditional</animation>
-                </control>
+				<control type="label">
+					<left>510</left>
+					<top>18</top>
+					<width>900</width>
+					<height>68</height>
+					<align>center</align>
+					<aligny>bottom</aligny>
+					<font>Font_ShowcaseMainLabel2_Caps</font>
+					<label>$INFO[VideoPlayer.Title]</label>
+					<scroll>true</scroll>
+					<animation effect="slide" start="0,15" end="0,15" time="0" condition="[IsEmpty(Player.ChapterName) | SubString(Player.ChapterName,0,left)] + [[IsEmpty(VideoPlayer.Tagline) + VideoPlayer.Content(movies)] | [IsEmpty(VideoPlayer.Artist) + VideoPlayer.Content(musicvideos)]] | VideoPlayer.Content(files)">Conditional</animation>
+				</control>
 				<control type="label">
 					<left>510</left>
 					<top>78</top>

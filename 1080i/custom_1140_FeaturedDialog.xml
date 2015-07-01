@@ -5,12 +5,12 @@
     <include>Animation_DialogPopup</include>
     <onunload>ClearProperty(SetPanelItem,home)</onunload>
     <controls>
-        <!--         <control type="button" id="9004">
+        <!--<control type="button" id="9004">
             <include>HiddenObject</include>
             <onfocus>$VAR[FeaturedDialogStartupFocus]</onfocus>
             <onfocus>SetFocus(8001)</onfocus>
             <onclick>SetFocus(8001)</onclick>
-        </control> -->
+        </control>-->
         <control type="label" id="4321">
             <label>$INFO[Window(home).Property(Featured)]</label>
             <include>HiddenObject</include>
@@ -63,7 +63,6 @@
             <top>45</top>
             <width>1650</width>
             <height>620</height>
-            <aligny>center</aligny>
             <scrolltime>0</scrolltime>
             <onup>8993</onup>
             <ondown>8993</ondown>
@@ -237,7 +236,7 @@
                     <height>240</height>
                     <aspectratio>scale</aspectratio>
                     <texture background="true" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
-                   
+
                 </control>
                 <control type="image">
                     <left>5</left>
@@ -369,8 +368,8 @@
                 <include condition="Stringcompare(Window(home).Property(Featured),recenttv)">LatestEpisodesItemsHome</include>
                 <include condition="Stringcompare(Window(home).Property(Featured),randomtv)">RandomEpisodesItems</include>
                 <include condition="Stringcompare(Window(home).Property(Featured),randomtv)">RandomEpisodesItemsHome</include>
-                <include condition="Stringcompare(Window(home).Property(Featured),rssnews)">NewsWidgetContent1124</include>
-                <include condition="Stringcompare(Window(home).Property(Featured),rssnews)">NewsWidgetContent</include>
+                <include condition="Stringcompare(Window(home).Property(Featured),rssnews)">NewsWidgetContent1124</include><!-- undefined include -->
+                <include condition="Stringcompare(Window(home).Property(Featured),rssnews)">NewsWidgetContent</include><!-- undefined include -->
             </content>
         </control>
         <control type="button" id="5014">
@@ -441,7 +440,7 @@
                     <height>340</height>
                     <aspectratio>scale</aspectratio>
                     <texture background="true" fallback="DefaultVideoBigPoster.png">$INFO[Container(8001).ListItem.Property(Poster)]</texture>
-					<visible>!Skin.HasSetting(clearcases)</visible>
+                    <visible>!Skin.HasSetting(clearcases)</visible>
                 </control>
                 <control type="image">
                     <left>5</left>
@@ -450,16 +449,16 @@
                     <height>340</height>
                     <aspectratio>scale</aspectratio>
                     <texture background="true" fallback="DefaultVideoBigPoster.png" diffuse="thumbs/movieposter_mask.png">$INFO[Container(8001).ListItem.Property(Poster)]</texture>
-					<visible>Skin.HasSetting(clearcases)</visible>
-                </control>				
+                    <visible>Skin.HasSetting(clearcases)</visible>
+                </control>
                 <control type="image">
                     <left>-32</left>
                     <top>-25</top>
                     <width>270</width>
                     <height>385</height>
                     <texture background="true">thumbs/boxes/$VAR[ShowcaseCasePathVar]/$INFO[Container(8001).ListItem.Property(VideoResolution)]p.png</texture>
-					<visible>Skin.HasSetting(CasesonWidgets)</visible>
-                </control>								
+                    <visible>Skin.HasSetting(CasesonWidgets)</visible>
+                </control>
                 <control type="label">
                     <left>223</left>
                     <top>0</top>
@@ -483,7 +482,7 @@
                 <control type="grouplist">
                     <left>250</left>
                     <top>90</top>
-                    <orientation>horizontal</orientation>				
+                    <orientation>horizontal</orientation>
                     <control type="image">
                         <left>0</left>
                         <top>0</top>
@@ -502,7 +501,7 @@
                         <texture>$VAR[ColorFlagsResolution]resolution/$INFO[Container(8001).ListItem.Property(VideoResolution)].png</texture>
                         <include>AudioFlagsVars</include>
                     </control>
-				</control>				
+                </control>
                 <control type="grouplist">
                     <left>653</left>
                     <top>88</top>

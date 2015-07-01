@@ -10,7 +10,7 @@
     <include>Animation_DialogZoom</include>
     <onunload condition="Substring(Skin.String(widgetlist),favourite) | Substring(Skin.String(widget2list),favourite)">AlarmClock(FavouriteUpdate,RunScript(script.favourites),00:01,silent)</onunload>
     <controls>
-	  
+
         <control type="image" id="999">
              	<posx>0</posx>
 	            <posy>0</posy>
@@ -19,7 +19,7 @@
 			    <texture fallback="dialogs/context_middle_alt.png">$VAR[ContextMiddleVar]</texture>
                 <colordiffuse>$VAR[SpotColorVar2]</colordiffuse>
         </control>
-	
+
         <control type="grouplist" id="996">
             <width>462</width>
 		    <height max="1080">auto</height>
@@ -42,7 +42,7 @@
                 <visible>System.HasAddon(script.extendedinfo)</visible>
                 <visible>Container.Content(Actors) | Container.Content(Directors) | Container.Content(Artists)</visible>
             </control>
-					
+
             <control type="button" id="2066">
                 <width>462</width>
                 <height>58</height>
@@ -73,9 +73,8 @@
                 <colordiffuse>$VAR[SpotColorVar2]</colordiffuse>
                 <onclick>RunScript(script.tv.show.next.aired,updateshow=$INFO[ListItem.Label])</onclick>
 				<visible>System.HasAddon(script.tv.show.next.aired) + Container.Content(tvshows)</visible>
-				<autoscroll>true</autoscroll>
-            </control>			
-           
+            </control>
+
             <control type="button" id="2007">
                 <width>462</width>
                 <height>58</height>
@@ -159,7 +158,7 @@
                 <focusedcolor>white2</focusedcolor>
                 <colordiffuse>$VAR[SpotColorVar2]</colordiffuse>
                 <visible>Container.Content(movies) | [!IsEmpty(Window.Property(SongToMusicVideo.Path)) + Window.IsActive(musiclibrary)]</visible>
-                <onclick condition="Container.Content(movies) + !IsEmpty(ListItem.Trailer)">Dialog.Close(106)</onclick>
+                <onclick condition="Container.Content(movies) + !IsEmpty(ListItem.Trailer)">Dialog.Close(contextmenu)</onclick>
                 <onclick condition="Container.Content(movies) + !IsEmpty(ListItem.Trailer)">SetFocus(7566)</onclick>
                 <onclick condition="Container.Content(movies) + IsEmpty(ListItem.Trailer)">ActivateWindow(videos,plugin://plugin.video.youtube/kodion/search/query/?q=$ESCINFO[ListItem.Label] Trailer,return)</onclick>
                 <onclick condition="!IsEmpty(Window.Property(SongToMusicVideo.Path)) + Window.IsActive(musiclibrary)">PlayMedia($ESCINFO[Window.Property(SongToMusicVideo.Path)])</onclick>
@@ -196,7 +195,7 @@
                 <onclick>SendClick(2003,10)</onclick>
 				<visible>System.HasAddon(script.artwork.downloader) + [Container.Content(tvshows) | Container.Content(movies) | Container.Content(musicvideos)]</visible>
 			</control>
-			
+
 			<control type="button" id="2020">
                 <width>462</width>
                 <height>58</height>
@@ -214,9 +213,9 @@
 				<onclick condition="Container.Content(musicvideos)">XBMC.RunScript(script.artwork.downloader, mediatype=musicvideos, dbid=$INFO[ListItem.DBID])</onclick>
 				<onclick>SetFocus(51)</onclick>
 				<visible>System.HasAddon(script.artwork.downloader) + [Container.Content(tvshows) | Container.Content(movies) | Container.Content(musicvideos)]</visible>
-			</control>			
+			</control>
         </control>
-        
+
 		<control type="image" id="997">
 		    <posx>-1</posx>
             <top>-39</top>
@@ -225,7 +224,7 @@
             <texture>$VAR[ContextTopVar]</texture>
             <colordiffuse>$VAR[SpotColorVar2]</colordiffuse>
         </control>
-   		
+
         <control type="button" id="1000">
             <width>462</width>
             <height>59</height>
@@ -239,6 +238,6 @@
             <focusedcolor>white2</focusedcolor>
             <colordiffuse>$VAR[SpotColorVar2]</colordiffuse>
         </control>
-		
+
     </controls>
 </window>

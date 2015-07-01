@@ -2,8 +2,7 @@
 <window id="1137" type="dialog">
     <defaultcontrol>5400</defaultcontrol>
     <onload>Dialog.Close(1133)</onload>
-    <!--     <onunload>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title)</onunload>
- -->
+    <!--<onunload>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title)</onunload>-->
     <zorder>4</zorder>
     <coordinates>
         <left>0</left>
@@ -74,7 +73,7 @@
                         <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                         <onfocus condition="Substring(Window(1124).Property(CustomYesNoDialog),babe) | Substring(Window(1124).Property(CustomYesNoDialog),actors) | Substring(Window(1124).Property(CustomYesNoDialog),Icon) | Substring(Window(1124).Property(CustomYesNoDialog),addons) | Substring(Window(1124).Property(CustomYesNoDialog),albums) | Substring(Window(1124).Property(CustomYesNoDialog),artists)">SetProperty(WidgetType,panelcoversquare,1124)</onfocus>
                         <onfocus condition="Substring(Window(1124).Property(CustomYesNoDialog),tv) | Substring(Window(1124).Property(CustomYesNoDialog),images) | Substring(Window(1124).Property(CustomYesNoDialog),rss) | Substring(Window(1124).Property(CustomYesNoDialog),movie) | Substring(Window(1124).Property(CustomYesNoDialog),musicvideo)">SetProperty(WidgetType,panelcoverepisode,1124)</onfocus>
-                       <onfocus condition="Substring(Window(1124).Property(CustomYesNoDialog),roms)">SetProperty(WidgetType,panel,1124)</onfocus>  <!--     <!--edit roms widgets-->
+                       <onfocus condition="Substring(Window(1124).Property(CustomYesNoDialog),roms)">SetProperty(WidgetType,panel,1124)</onfocus>  <!--edit roms widgets-->
                         <onfocus>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)],$INFO[Control.GetLabel(12112)])</onfocus>
                         <onclick>Dialog.Close(1137)</onclick>
                         <onclick>ActivateWindow(1146)</onclick>

@@ -246,10 +246,10 @@
 					<onclick>Skin.ToggleSetting(unwatchedicon)</onclick>
 					<selected>Skin.HasSetting(unwatchedicon)</selected>
 					<visible>![Stringcompare(Window(home).Property(actualViewtype),Landscape) + [Skin.HasSetting(landscapelogo) | Skin.HasSetting(landscapeonelogo)] + [Container.Content(tvshows) | Container.Content(movies)]]</visible>
-					<visible>[[Stringcompare(Window(home).Property(actualViewtype),Landscape) | Stringcompare(Window(home).Property(actualViewtype),Shift) 
-| Stringcompare(Window(home).Property(actualViewtype),Wall) | Stringcompare(Window(home).Property(actualViewtype),AddonWall) 
-| Stringcompare(Window(home).Property(actualViewtype),Episode) | Stringcompare(Window(home).Property(actualViewtype),Banners) 
-| [Stringcompare(Window(home).Property(actualViewtype),Panel) + Skin.HasSetting(panellogo)]] + [Container.Content(tvshows) 
+					<visible>[[Stringcompare(Window(home).Property(actualViewtype),Landscape) | Stringcompare(Window(home).Property(actualViewtype),Shift)
+| Stringcompare(Window(home).Property(actualViewtype),Wall) | Stringcompare(Window(home).Property(actualViewtype),AddonWall)
+| Stringcompare(Window(home).Property(actualViewtype),Episode) | Stringcompare(Window(home).Property(actualViewtype),Banners)
+| [Stringcompare(Window(home).Property(actualViewtype),Panel) + Skin.HasSetting(panellogo)]] + [Container.Content(tvshows)
 | Container.Content(seasons)] | [Container.Content(tvshows) + Skin.HasSetting(tripanelbannertv) + Stringcompare(Window(home).Property(actualViewtype),TriPanel)]]</visible>
 				</control>
 				<control type="radiobutton" id="1643">
@@ -454,7 +454,7 @@
 					<onclick condition="Skin.HasSetting(WallLargeMovieInfoDelay_30)">Skin.Reset(WallLargeMovieInfoDelay_30)</onclick>
 					<visible>Window.IsActive(videolibrary) + Stringcompare(Window(home).Property(actualViewtype),Wall_Large) + Container.Content(movies) + Skin.HasSetting(WallLargeMovieInfo)</visible>
 				</control>
-				
+
 				<!--MAD - Below for reference while I get above button working-->
 				<!--control type="button" id="1707">
 					<label>$LOCALIZE[31959]:</label>
@@ -468,8 +468,8 @@
 					<onclick condition="!Skin.HasSetting(bigfanclearart) + !Skin.HasSetting(bigfanlogo) + Skin.HasSetting(bigfanlandscape)">Skin.Reset(bigfanlandscape)</onclick>
 					<visible>Window.IsActive(videolibrary) + Stringcompare(Window(home).Property(actualViewtype),BigFan) + !Container.Content(genres)   + !Container.Content(seasons)</visible>
 				</control-->
-				
-				
+
+
 				<!--MAD - End of Wall Large options -->
 				<!--MAD - Start of Right List options -->
 				<control type="radiobutton" id="17006">
@@ -584,7 +584,7 @@
 					<onclick>Skin.ToggleSetting(KodiFlixLandscapeView)</onclick>
 					<selected>Skin.HasSetting(KodiFlixLandscapeView)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + [Container.Content(movies) | Container.Content(sets)]</visible>
-				</control>				
+				</control>
 				<!--MAD - KodiFlix Options End -->
 				<!--MAD - Movie Sets View -->
 				<control type="radiobutton" id="17047">
@@ -594,7 +594,7 @@
 					<onclick>Skin.ToggleSetting(MovieSetsExtraFanart)</onclick>
 					<selected>Skin.HasSetting(MovieSetsExtraFanart)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),ViewSets) + [Container.Content(movies) | Container.Content(sets)]</visible>
-				</control>				
+				</control>
 				<control type="radiobutton" id="17048">
 					<description>Movie Set No Plot Scroll</description>
 					<include>Objects_MediaMenuButtonAlt2</include>
@@ -610,7 +610,7 @@
 					<onclick>Skin.ToggleSetting(MovieSetsNoDiscArt)</onclick>
 					<selected>Skin.HasSetting(MovieSetsNoDiscArt)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),ViewSets) + [Container.Content(movies) | Container.Content(sets)]</visible>
-				</control>				
+				</control>
 				<!--MAD - Movie Sets View End -->
 				<!-- BannerPlex options-->
 				<control type="radiobutton" id="1708">
@@ -625,7 +625,7 @@
 					<label>$LOCALIZE[31060]:</label>
 					<include>Objects_MediaMenuButtonAlt2</include>
 					<onclick>Skin.ToggleSetting(disableepisodeposter)</onclick>
-					<onclick>Skin.Reset(EpisodeDiscArt)</onclick>					
+					<onclick>Skin.Reset(EpisodeDiscArt)</onclick>
 					<selected>!Skin.HasSetting(disableepisodeposter)</selected>
 					<visible>[Container.Content(seasons) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(movies)] + Stringcompare(Window(home).Property(actualViewtype),Episode)</visible>
 				</control>
@@ -636,7 +636,7 @@
 					<selected>Skin.HasSetting(EpisodeDiscArt)</selected>
 					<visible>!Skin.HasSetting(disableepisodeposter) + [Container.Content(seasons) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(movies)] + Stringcompare(Window(home).Property(actualViewtype),Episode)</visible>
 				</control>
-				
+
 				<control type="button" id="1661">
 					<label>$LOCALIZE[535]:</label>
 					<label2>[COLOR $VAR[FontColorVar]]$VAR[EpisodeTVShowVar][/COLOR]</label2>
@@ -807,7 +807,7 @@
 					<visible>Stringcompare(Window(home).Property(actualViewtype),InfoPanel)</visible>
 				</control>
 				<!-- MAD - Split infopanel CDART switch for movies & albums -->
-				
+
                <control type="radiobutton" id="16583">
 					<label>31812</label>
 					<include>Objects_MediaMenuButtonAlt2</include>
@@ -816,7 +816,7 @@
 					<visible>Container.Content(movies)</visible>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),InfoPanel)</visible>
 				</control>
-				
+
 				<!-- MAD - Can't get cdart so no point in button -->
                  <!--control type="radiobutton" id="16584">
 					<label>31812</label>
@@ -854,7 +854,7 @@
 					<onclick>Skin.ToggleSetting(PostersDiscArt)</onclick>
 					<onclick>Skin.HasSetting(PostersDiscArtTop)</onclick>
 					<onclick>Skin.Reset(PostersDiscArtRight)</onclick>
-					<selected>Skin.HasSetting(PostersDiscArt)</selected>				
+					<selected>Skin.HasSetting(PostersDiscArt)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),posters)</visible>
 				</control>
 				<!--control type="radiobutton" id="17052">
@@ -1066,12 +1066,12 @@
 					<onclick condition="Skin.HasSetting(watchedoverlay) + Skin.HasSetting(newstatus)">Skin.Reset(watchedoverlay)</onclick>
 					<onclick condition="Skin.HasSetting(watchedoverlay) + Skin.HasSetting(newstatus)">Skin.Reset(newstatus)</onclick>
 					<onclick condition="!Skin.HasSetting(watchedoverlay) + !Skin.HasSetting(newstatus)">Skin.SetBool(watchedoverlay)</onclick>
-					<visible>[Stringcompare(Window(home).Property(actualViewtype),TriPanel) | Stringcompare(Window(home).Property(actualViewtype),Panel) 
-| Stringcompare(Window(home).Property(actualViewtype),InfoPanel) | Stringcompare(Window(home).Property(actualViewtype),Episode) 
-| Stringcompare(Window(home).Property(actualViewtype),Banners) | Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies) 
-| Stringcompare(Window(home).Property(actualViewtype),posters) | Stringcompare(Window(home).Property(actualViewtype),Landscape) 
-| Substring(Window(home).Property(actualViewtype),Wall) | Stringcompare(Window(home).Property(actualViewtype),BigFan) 
-| Stringcompare(Window(home).Property(actualViewtype),Shift) | Stringcompare(Window(home).Property(actualViewtype),Video_RightList) | Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)] + [Container.Content(movies) | Container.Content(tvshows) 
+					<visible>[Stringcompare(Window(home).Property(actualViewtype),TriPanel) | Stringcompare(Window(home).Property(actualViewtype),Panel)
+| Stringcompare(Window(home).Property(actualViewtype),InfoPanel) | Stringcompare(Window(home).Property(actualViewtype),Episode)
+| Stringcompare(Window(home).Property(actualViewtype),Banners) | Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies)
+| Stringcompare(Window(home).Property(actualViewtype),posters) | Stringcompare(Window(home).Property(actualViewtype),Landscape)
+| Substring(Window(home).Property(actualViewtype),Wall) | Stringcompare(Window(home).Property(actualViewtype),BigFan)
+| Stringcompare(Window(home).Property(actualViewtype),Shift) | Stringcompare(Window(home).Property(actualViewtype),Video_RightList) | Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)] + [Container.Content(movies) | Container.Content(tvshows)
 | Container.Content(seasons) | Container.Content(episodes)]</visible>
 				</control>
 				<control type="radiobutton" id="1678">
@@ -1079,11 +1079,11 @@
 					<include>Objects_MediaMenuButtonAlt2</include>
 					<onclick>Skin.ToggleSetting(InProgressFlag)</onclick>
 					<selected>Skin.HasSetting(InProgressFlag)</selected>
-					<visible>[Stringcompare(Window(home).Property(actualViewtype),TriPanel) | Stringcompare(Window(home).Property(actualViewtype),Panel) 
-| Stringcompare(Window(home).Property(actualViewtype),InfoPanel) | Stringcompare(Window(home).Property(actualViewtype),Banners) 
-| Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies) | Stringcompare(Window(home).Property(actualViewtype),posters) 
-| Stringcompare(Window(home).Property(actualViewtype),Landscape) | Stringcompare(Window(home).Property(actualViewtype),Banners) 
-| Substring(Window(home).Property(actualViewtype),Wall) | Stringcompare(Window(home).Property(actualViewtype),BigFan) 
+					<visible>[Stringcompare(Window(home).Property(actualViewtype),TriPanel) | Stringcompare(Window(home).Property(actualViewtype),Panel)
+| Stringcompare(Window(home).Property(actualViewtype),InfoPanel) | Stringcompare(Window(home).Property(actualViewtype),Banners)
+| Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies) | Stringcompare(Window(home).Property(actualViewtype),posters)
+| Stringcompare(Window(home).Property(actualViewtype),Landscape) | Stringcompare(Window(home).Property(actualViewtype),Banners)
+| Substring(Window(home).Property(actualViewtype),Wall) | Stringcompare(Window(home).Property(actualViewtype),BigFan)
 | Stringcompare(Window(home).Property(actualViewtype),Shift) | Stringcompare(Window(home).Property(actualViewtype),Video_RightList) | Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)] + [Container.Content(movies) | Container.Content(episodes)]</visible>
 				</control>
 				<control type="radiobutton" id="1677">
@@ -1091,12 +1091,12 @@
 					<include>Objects_MediaMenuButtonAlt2</include>
 					<onclick>Skin.ToggleSetting(VideoExtrasFlag)</onclick>
 					<selected>Skin.HasSetting(VideoExtrasFlag)</selected>
-					<visible>[Stringcompare(Window(home).Property(actualViewtype),TriPanel) | Stringcompare(Window(home).Property(actualViewtype),Panel) 
-| Stringcompare(Window(home).Property(actualViewtype),InfoPanel) | Stringcompare(Window(home).Property(actualViewtype),Episode) 
-| Stringcompare(Window(home).Property(actualViewtype),Banners) | Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies) 
-| Stringcompare(Window(home).Property(actualViewtype),posters) | Stringcompare(Window(home).Property(actualViewtype),Landscape) 
-| Substring(Window(home).Property(actualViewtype),Wall) | Stringcompare(Window(home).Property(actualViewtype),BigFan) 
-| Stringcompare(Window(home).Property(actualViewtype),Shift)] + [Container.Content(movies) | Container.Content(tvshows) 
+					<visible>[Stringcompare(Window(home).Property(actualViewtype),TriPanel) | Stringcompare(Window(home).Property(actualViewtype),Panel)
+| Stringcompare(Window(home).Property(actualViewtype),InfoPanel) | Stringcompare(Window(home).Property(actualViewtype),Episode)
+| Stringcompare(Window(home).Property(actualViewtype),Banners) | Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies)
+| Stringcompare(Window(home).Property(actualViewtype),posters) | Stringcompare(Window(home).Property(actualViewtype),Landscape)
+| Substring(Window(home).Property(actualViewtype),Wall) | Stringcompare(Window(home).Property(actualViewtype),BigFan)
+| Stringcompare(Window(home).Property(actualViewtype),Shift)] + [Container.Content(movies) | Container.Content(tvshows)
 | Container.Content(seasons) | Container.Content(episodes)] + !Stringcompare(Window(home).Property(actualViewtype),Wall_Large)</visible>
 				</control>
 				<control type="button" id="266">

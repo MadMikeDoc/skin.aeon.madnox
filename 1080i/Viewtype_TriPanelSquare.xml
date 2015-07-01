@@ -15,7 +15,7 @@
                     <top>33</top>
 					<width>650</width>
                     <height>717</height>
-					
+
                     <texture border="0,100,0,200">views/tripanel/info_panel_alt_glow.png</texture>
                     <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                     <visible>!Skin.HasSetting(DisableGlowbar)</visible>
@@ -624,19 +624,19 @@
                     <ondown>70</ondown>
                     <onright>9000</onright>
                     <onleft>53</onleft>
-                </control>			
+                </control>
             </control>
-				<control type="group">	
+				<control type="group">
 				<animation type="WindowClose">
                     <effect type="fade" start="100" end="0" time="320" />
                     <effect type="zoom" end="180,100" time="320" tween="cubic" />
-                </animation>	
+                </animation>
 				<animation type="WindowOpen">
                     <effect type="fade" start="0" end="100" time="320" delay="500" />
-                </animation>								
-					<control type="image"> 
+                </animation>
+					<control type="image">
 						<left>1420</left>
-						<top>170</top>             
+						<top>170</top>
 						<width>400</width>
 						<height>250</height>
 						<aspectratio>keep</aspectratio>
@@ -647,8 +647,8 @@
 						<visible>!Container.Content(Artists)</visible>
 						<animation effect="slide" end="0,0" time="300" condition=" Stringcompare(Skin.String(TriPanelSquarePosition),1)">Conditional</animation>
 						<animation effect="slide" end="-450,-50" time="300" condition=" Stringcompare(Skin.String(TriPanelSquarePosition),2)">Conditional</animation>
-					</control>		
-				</control>			
+					</control>
+				</control>
         </control>
     </include>
 </includes>

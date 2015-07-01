@@ -107,7 +107,7 @@
 			<altlabel>13353</altlabel>
 			<usealttexture>library.isscanningvideo</usealttexture>
 			<onclick>UpdateLibrary(music)</onclick>
-		</control>			
+		</control>
         <control type="radiobutton" id="100">
             <label>$LOCALIZE[29800]</label>
             <include>Objects_MediaMenuButtonIcons</include>
@@ -142,12 +142,12 @@
 			<usealttexture>library.isscanningvideo</usealttexture>
 			<onclick>UpdateLibrary(video)</onclick>
 			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos)</visible>
-		</control>			
+		</control>
         <control type="button" id="10">
             <label>-</label>
             <include>Objects_MediaMenuButtonIcons</include>
             <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos)</visible>
-        </control>			
+        </control>
         <control type="radiobutton" id="7">
             <label>$LOCALIZE[14000]</label>
             <include>Objects_MediaMenuButtonIcons</include>
@@ -189,7 +189,7 @@
 			<altlabel>13353</altlabel>
 			<usealttexture>library.isscanningvideo</usealttexture>
 			<onclick>UpdateLibrary(music)</onclick>
-		</control>			
+		</control>
         <control type="radiobutton" id="102">
             <label>$LOCALIZE[29800]</label>
             <include>Objects_MediaMenuButtonIcons</include>
@@ -418,7 +418,7 @@
                     <onclick condition="Container.Content(musicvideos)">RunScript(script.artwork.downloader,mode=custom,mediatype=musicvideo,silent=true,poster,clearlogo,fanart,extrafanart)</onclick>
                     <onclick condition="Container.Content(movies)">RunScript(script.artwork.downloader,mode=custom,mediatype=movie,silent=true,extrafanart,poster,fanart,banner,clearlogo,clearart,landscape,discart,extrathumbs)</onclick>
                 </control>
-                <include condition="!Skin.HasSetting(hideoptions)">ViewtypeSettingsButton</include>			
+                <include condition="!Skin.HasSetting(hideoptions)">ViewtypeSettingsButton</include>
             </control>
             <control type="grouplist">
                 <left>2</left>
@@ -510,7 +510,7 @@
                     <animation effect="fade" start="100" end="55" time="0" condition="![Control.HasFocus(10102)]">Conditional</animation>
                     <include>MediaMenuIcons</include>
                     <visible>Control.IsVisible(10102)</visible>
-                </control>			
+                </control>
                 <control type="image">
                     <texture>special://skin/extras/BigIcons/book2.png</texture>
                     <animation effect="fade" start="100" end="55" time="0" condition="![Control.HasFocus(100) | Control.HasFocus(102)]">Conditional</animation>
@@ -571,13 +571,13 @@
                     <animation effect="fade" start="100" end="55" time="0" condition="!Control.HasFocus(2665)">Conditional</animation>
                     <include>MediaMenuIcons</include>
                     <visible>Control.IsVisible(10) + Window.IsActive(videos)</visible>
-                </control>													
+                </control>
                 <control type="image">
                     <texture>special://skin/extras/BigIcons/ButtonCheck.png</texture>
                     <animation effect="fade" start="100" end="55" time="0" condition="!Control.HasFocus(10)">Conditional</animation>
                     <include>MediaMenuIcons</include>
                     <visible>Control.IsVisible(10) + Window.IsActive(videos) + StringCompare(Control.GetLabel(10),$LOCALIZE[16102])</visible>
-                </control>		
+                </control>
                 <control type="image">
                     <texture>special://skin/extras/BigIcons/ButtonRemove.png</texture>
                     <animation effect="fade" start="100" end="55" time="0" condition="!Control.HasFocus(10)">Conditional</animation>
@@ -651,7 +651,7 @@
                     <animation effect="fade" start="100" end="55" time="0" condition="!Control.HasFocus(1665)">Conditional</animation>
                     <include>MediaMenuIcons</include>
                     <visible>Control.IsVisible(1665)</visible>
-                </control>			
+                </control>
             </control>
             <include>QuickNavLabel</include>
         </control>
@@ -667,7 +667,7 @@
             <onfocus condition="Skin.HasSetting(fstrailer)">PlayMedia($ESCINFO[ListItem.Trailer])</onfocus>
             <onfocus>SetFocus(50)</onfocus>
         </control>
-       
+
         <control type="button">
              <include>HiddenObject</include>
              <visible>!Skin.HasSetting(kioskmode)</visible>
@@ -717,7 +717,6 @@
             <enable>false</enable>
             <radiowidth>30</radiowidth>
             <radioheight>30</radioheight>
-            <radioleft>18</radioleft>
             <colordiffuse>$VAR[FontColorVar]</colordiffuse>
             <textureradioon>$VAR[Colortdefaulticons]DefaultFolderBack.png</textureradioon>
             <textureradiooff>$VAR[Colortdefaulticons]DefaultFolderBack.png</textureradiooff>

@@ -13,8 +13,8 @@
 				<include>FullscreenDimensions</include>
 				<aspectratio>scale</aspectratio>
 				<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
-				<visible>!Player.HasVideo + !Skin.HasSetting(HideBackGroundFanart) + !IsEmpty(ListItem.Property(Fanart_Image))</visible>	
-			</control>	
+				<visible>!Player.HasVideo + !Skin.HasSetting(HideBackGroundFanart) + !IsEmpty(ListItem.Property(Fanart_Image))</visible>
+			</control>
 			 <control type="multiimage" id="4001">
 				<imagepath background="true">$INFO[ListItem.Path,,extrafanart/]</imagepath>
 				<fadetime>350</fadetime>
@@ -22,7 +22,7 @@
 				<randomize>true</randomize>
 				<include>Animation_VisibleChange400</include>
 				<visible>!Player.HasVideo + Skin.HasSetting(VideoExtraFanArt)</visible>
-			</control>							
+			</control>
         </control>
         <control type="group">
             <include>Animation_OpenClose_Furniture</include>
@@ -104,7 +104,7 @@
                         <onclick>Skin.ToggleSetting(VideoExtraFanArt)</onclick>
                         <selected>Skin.HasSetting(VideoExtraFanArt)</selected>
                         <visible>!Skin.HasSetting(hideoptions)</visible>
-                    </control>						
+                    </control>
                    <control type="button" id="1601">
                         <label>$LOCALIZE[31383]</label>
                         <font>Font_Bold26_Caps</font>
@@ -119,14 +119,14 @@
                         <onclick>Skin.ToggleSetting(darkinfopaneve)</onclick>
                         <selected>Skin.HasSetting(darkinfopaneve)</selected>
                         <visible>!Skin.HasSetting(hideoptions) + Skin.HasSetting(DisableGlowbar)</visible>
-                    </control>						
+                    </control>
                     <control type="button" id="1637">
                         <label>$LOCALIZE[31272]:</label>
                         <label2>[COLOR $VAR[FontColorVar]]$VAR[VideoExtraLayoutVar][/COLOR]</label2>
                         <include>Objects_MediaMenuButtonAlt</include>
                         <onclick>Skin.ToggleSetting(wrap)</onclick>
 						<onclick>dialog.close</onclick>
-                    </control>													
+                    </control>
                     <control type="button" id="1664">
                         <label>31298</label>
                         <include>Objects_MediaMenuButtonAlt</include>

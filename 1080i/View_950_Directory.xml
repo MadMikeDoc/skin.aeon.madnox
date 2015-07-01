@@ -9,9 +9,9 @@
             <include>Animation_WindowFade200</include>
             <visible>Control.IsVisible(950)</visible>
         </control>
-		
+
 		<control type="image">
-			<posx>75</posx>	
+			<posx>75</posx>
 			<posy>-720</posy>
 			<width>120</width>
 			<height>2200</height>
@@ -46,7 +46,7 @@
 					<posy>800</posy>
 					<width>100</width>
 					<height>100</height>
-					<info>$VAR[DirectoryListVar]</info>
+					<info>$VAR[DirectoryListVar]</info><!-- undefined variable -->
 				</control>
 			</itemlayout>
 			<focusedlayout height="100" width="100">
@@ -62,7 +62,7 @@
 					<posy>800</posy>
 					<width>100</width>
 					<height>100</height>
-					<info>$VAR[DirectoryVar] - ListItem.Label</info>
+					<info>$VAR[DirectoryVar] - ListItem.Label</info><!-- undefined variable -->
 				</control>
 				<control type="image">
 					<width>100</width>
@@ -81,6 +81,7 @@
 				</item>
 				<item>
 					<onclick>ActivateWindow(Videos,special://skin/extras/playlists/video/directory/movies/one.xsp,return)</onclick>
+					<!-- not valid for onright and the other content taget tags below as well -->
 					<onright><content target="video">special://skin/extras/playlists/video/directory/movies/$VAR[DirectoryVar].xsp</content></onright>
 					<label>one</label>
 					<icon>special://skin/extras/Directory/images/1.png</icon>
@@ -363,7 +364,7 @@
 					<texture>special://skin/extras/Alticons/color flags/flags/source/$VAR[SourceFlagVar,,.png]</texture>
 					<include>AudioFlagsVars</include>
                     <include>VisibleFadeEffect</include>
-					<visible>Skin.HasSetting(SourceColorFlag) + !Skin.HasSetting(DisableSourceColorFlag)</visible>					
+					<visible>Skin.HasSetting(SourceColorFlag) + !Skin.HasSetting(DisableSourceColorFlag)</visible>
 				</control>
 				<control type="image">
 					<posx>35</posx>
@@ -371,7 +372,7 @@
 					<texture>special://skin/media/flags/source/$VAR[SourceFlagVar,,.png]</texture>
 					<include>AudioFlagsVars</include>
                     <include>VisibleFadeEffect</include>
-					<visible>!Skin.HasSetting(SourceColorFlag) | Skin.HasSetting(DisableSourceColorFlag)</visible>					
+					<visible>!Skin.HasSetting(SourceColorFlag) | Skin.HasSetting(DisableSourceColorFlag)</visible>
 				</control>
 				<control type="image">
 					<posx>235</posx>
@@ -463,7 +464,7 @@
 					<include>MediaFlagVars</include>
 					<visible>Skin.HasSetting(RatingColorFlag) + !Skin.HasSetting(DisableRatingColorFlag)</visible>
 				</control>
-				
+
 			</control>
 		</focusedlayout>
 		<content target="video">special://skin/extras/playlists/video/directory/movies/$INFO[Container(950).ListItem.Label].xsp</content>

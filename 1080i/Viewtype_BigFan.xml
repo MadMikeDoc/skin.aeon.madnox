@@ -61,7 +61,7 @@
 						<visible>!Skin.HasSetting(bigfanextrafanart)</visible>
                     </control>
                 </focusedlayout>
-            </control>	
+            </control>
 			         <control type="multiimage" id="4002">
                         <imagepath background="true">$VAR[VideoExtraFanartVar]</imagepath>
                         <fadetime>350</fadetime>
@@ -69,7 +69,7 @@
                         <randomize>true</randomize>
                         <include>Animation_VisibleChange400</include>
                         <visible>Skin.HasSetting(bigfanextrafanart)</visible>
-                    </control>								
+                    </control>
 			         <control type="multiimage" id="4001">
                         <imagepath background="true">$VAR[MovieFanartVar]</imagepath>
                         <fadetime>350</fadetime>
@@ -77,8 +77,8 @@
                         <randomize>true</randomize>
                         <include>Animation_VisibleChange400</include>
                         <visible>Skin.HasSetting(bigfanextrafanart) + StringCompare(Control.GetLabel(4002),)</visible>
-                    </control>						
-        </control>	
+                    </control>
+        </control>
     </include>
     <include name="BigFanFurniture">
 	                 <control type="image">
@@ -141,7 +141,6 @@
                     <top>166</top>
                     <width>215</width>
                     <height>315</height>
-                    <aspectratio scalediffuse="false">fit</aspectratio>
                     <texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
                     <fadetime>275</fadetime>
 					<visible>Skin.HasSetting(genrethumbs)</visible>
@@ -151,7 +150,6 @@
                     <top>166</top>
                     <width>215</width>
                     <height>315</height>
-                    <aspectratio scalediffuse="false">fit</aspectratio>
                     <texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar1]</texture>
                     <fadetime>275</fadetime>
 					<visible>!Skin.HasSetting(genrethumbs)</visible>
@@ -161,14 +159,13 @@
                     <top>146</top>
                     <width>252</width>
                     <height>353</height>
-                    <aspectratio scalediffuse="false">fit</aspectratio>
                     <texture diffuse="thumbs/movieposter_mask.png">thumbs/thumb_glass_noreflect.png</texture>
                     <bordertexture border="19.5">thumbs/poster_shadow.png</bordertexture>
                     <bordersize>19</bordersize>
-                </control>				
+                </control>
             </control>
             <control type="group">
-              <visible>[Skin.HasSetting(bigfanclearart) | Skin.HasSetting(bigfanlandscape) | Skin.HasSetting(bigfanlogo)] + !Container.Content(genres)</visible>			
+              <visible>[Skin.HasSetting(bigfanclearart) | Skin.HasSetting(bigfanlandscape) | Skin.HasSetting(bigfanlogo)] + !Container.Content(genres)</visible>
                 <control type="image">
                     <left>75</left>
                     <top>915</top>
@@ -188,11 +185,10 @@
                     <top>754</top>
                     <width>204</width>
                     <height>303</height>
-                    <aspectratio scalediffuse="false">fit</aspectratio>
                     <texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="DefaultVideoBigPoster.png">$INFO[ListItem.Art(poster)]</texture>
                     <fadetime>275</fadetime>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),BigFan) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(genres) | Container.Content(sets)] | Container.Content(seasons)</visible>
-                </control>				
+                </control>
             </control>
             <control type="image">
                 <left>200r</left>
@@ -210,8 +206,8 @@
                 <width>200</width>
                 <height>200</height>
 				<texture>overlayprogress.png</texture>
-				<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>			
-			</control>						
+				<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+			</control>
 			<control type="image">
                 <left>200r</left>
                 <top>0</top>
@@ -219,7 +215,7 @@
                 <height>200</height>
 				<texture>$VAR[VideoextrasOverlay]</texture>
 				<visible>System.HasAddon(script.videoextras)</visible>
-			</control>					
+			</control>
             <control type="grouplist">
                 <left>352</left>
                 <top>159r</top>
