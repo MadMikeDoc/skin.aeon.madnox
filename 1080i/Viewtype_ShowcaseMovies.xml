@@ -3034,7 +3034,7 @@
 	<!-- MikeBZH44 End -->
 	<include name="Boxset_warlion">
 		<control type="group">
-			<visible>Skin.HasSetting(OpenBoxSet)</visible>
+			<visible>Skin.HasSetting(OpenBoxSet) + Control.IsVisible(501)</visible>
 			<control type="group">
 				<animation effect="zoom" start="100" end="90" center="145,217" time="500" delay="300" reversible="false" tween="cubic" condition="Control.IsVisible(1970) + !Skin.HasSetting(noflow)">Conditional</animation>
 				<animation effect="zoom" start="110" end="110" center="145,217" time="10" reversible="false" tween="cubic" condition="Control.IsVisible(1970) + Skin.HasSetting(noflow)">Conditional</animation>
