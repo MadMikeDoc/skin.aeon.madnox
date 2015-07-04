@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
-    <onload condition="system.hasaddon(script.artistslideshow) + IsEmpty(Window(Home).Property(ArtistSlideShowLoaded))">RunScript(script.artistslideshow, daemon=True)</onload>
+    <onload condition="IsEmpty(Window(home).Property(fullscreenstarted)) + Skin.Hassetting(MusicAuto)">Action(fullscreen)</onload>
+	<onload condition="!IsEmpty(Window(home).Property(fullscreenstarted)) + Skin.Hassetting(MusicAuto)">ClearProperty(fullscreenstarted,home)</onload>
+	<onload condition="IsEmpty(Window(home).Property(fullscreenstarted)) + Skin.Hassetting(MusicAuto)">SetProperty(fullscreenstarted,true,home)</onload>
+	<onload condition="system.hasaddon(script.artistslideshow) + IsEmpty(Window(Home).Property(ArtistSlideShowLoaded))">RunScript(script.artistslideshow, daemon=True)</onload>
     <onload>Skin.Reset(rotationtimer)</onload>
     <onload>AlarmClock(similarartistsmove,Control.Move(5222,1),00:04,silent,loop)</onload>
     <onload>AlarmClock(NowPlaying,Skin.ToggleSetting(rotationtimer),00:15,silent,loop)</onload>

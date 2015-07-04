@@ -3917,7 +3917,7 @@
 		<value condition="!IsEmpty(ListItem.Top250)">$INFO[ListItem.Top250,Top 250 #]</value>
 		<value>$INFO[ListItem.RatingAndVotes]</value>
 	</variable>
-	<variable name="KodiFlixLandscapeThumb">
+	<!--variable name="KodiFlixLandscapeThumb">
 		<value condition="StringCompare(ListItem.Label,..)">thumbs/DefaultFolderBack.png/folderback_fanart_tp.png</value>
 		<value condition="Container.Content(TVShows) + !IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
 		<value condition="Container.Content(TVShows) + !IsEmpty(ListItem.Art(tvshow.landscape))">$INFO[ListItem.Art(tvshow.landscape)]</value>
@@ -3930,6 +3930,17 @@
 		<value condition="Container.Content(Sets) + !IsEmpty(ListItem.Art(extrafanart1))">$INFO[ListItem.Art(extrafanart1)]</value>
 		<value condition="!IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
 		<value>$INFO[ListItem.Icon]</value>
+	</variable-->
+	<variable name="KodiFlixLandscapeThumb">
+		<value condition="Stringcompare(ListItem.label,..)">DefaultFolderBack.png</value>
+		<value condition="Container.Content(seasons) + Skin.HasSetting(KodiFlixSeasonLandscape)">$VAR[KodiFlixSeasonLandscapeThumbVar]</value>
+		<value condition="Container.Content(Seasons) + !IsEmpty(ListItem.Art(tvshow.landscape))">$INFO[ListItem.Art(tvshow.landscape)]</value>
+		<value condition="[Container.Content(tvshows) | Container.Content(movies)] + !IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
+		<value condition="Container.Content(Movies) + !IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
+		<value condition="Container.Content(Movies) + SubString(ListItem.Path,videodb://movies/sets/,left) + !IsEmpty(ListItem.Art(extrafanart1))">$INFO[ListItem.Art(extrafanart1)]</value>
+		<value condition="Container.Content(Sets) + !IsEmpty(ListItem.Art(extrafanart1))">$INFO[ListItem.Art(extrafanart1)]</value>
+		<value condition="Container.Content(episodes)">$INFO[ListItem.Icon]</value>
+		<value>$INFO[ListItem.Art(fanart)]</value>
 	</variable>
 	<!-- TV Show Discs by Burgess -->
     <variable name="SeasonDiscVar1">
@@ -4265,7 +4276,25 @@
     </variable>
 	<variable name="KodiFlix.Label">
 		<value condition="ListItem.IsPlaying">[COLOR=$VAR[FocusTextureColorVar]]$INFO[ListItem.Label][/COLOR]</value>
-	<value>$INFO[ListItem.Label]</value>
-</variable>
-
+		<value>$INFO[ListItem.Label]</value>
+	</variable>
+	<variable name="KodiFlixSeasonLandscapeSettingsVar">
+		<value condition="Skin.HasSetting(KodiFlixSeasonLandscape)">Landscape.jpg</value>
+		<value>$LOCALIZE[21371]</value>
+	</variable>
+	<variable name="KodiFlixSeasonLandscape">
+		<value condition="IntegerGreaterThan(ListItem.Season,9)">$INFO[ListItem.Path]season$INFO[ListItem.Season]-landscape.jpg</value>
+		<value condition="IntegerGreaterThan(ListItem.Season,0)">$INFO[ListItem.Path]season0$INFO[ListItem.Season]-landscape.jpg</value>
+		<value condition="!SubString(ListItem.Episode,S)">$INFO[ListItem.Path]season-all-landscape.jpg</value>
+		<value condition="SubString(ListItem.Episode,S)">$INFO[ListItem.Path]season00-landscape.jpg</value>
+		<value>$INFO[ListItem.Path]season-all-landscape.jpg</value>
+	</variable>
+	<variable name="KodiFlixSeasonLandscapeThumbVar">
+		<value condition="IntegerGreaterThan(ListItem.Season,9)">$INFO[ListItem.Path]season$INFO[ListItem.Season]-landscape.jpg</value>
+		<value condition="IntegerGreaterThan(ListItem.Season,0)">$INFO[ListItem.Path]season0$INFO[ListItem.Season]-landscape.jpg</value>
+		<value condition="SubString(ListItem.Label,*,left)">$INFO[ListItem.Path]landscape.jpg</value>
+		<value condition="SubString(ListItem.Label,S,left)">$INFO[ListItem.Path]season00-landscape.jpg</value>
+		<value condition="Container.Content(Seasons)">$INFO[ListItem.Art(fanart)]</value>
+		<value>$INFO[ListItem.Path]landscape.jpg</value>
+	</variable>
 </includes>

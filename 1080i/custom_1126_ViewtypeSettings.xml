@@ -106,7 +106,7 @@
 					<label>$LOCALIZE[31248]</label>
 					<include>Objects_MediaMenuButtonAlt2</include>
 					<onclick>ActivateWindow(1166)</onclick>
-					<visible>[container.content(movies) | Container.Content(sets) | Container.Content(musicvideos) + [Container.Content(Actors) | Container.Content(Directors) | Container.Content(Artists)]] + [Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies) | Stringcompare(Window(home).Property(actualViewtype),Wall_Large) | Stringcompare(Window(home).Property(actualViewtype),Video_RightList)  | Stringcompare(Window(home).Property(actualViewtype),ViewSets) | Stringcompare(Window(home).Property(actualViewtype),Shift)]</visible>
+					<visible>[container.content(movies) | Container.Content(sets) | Container.Content(musicvideos) + [Container.Content(Actors) | Container.Content(Directors) | Container.Content(Artists)]] + [Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies) | Stringcompare(Window(home).Property(actualViewtype),Wall_Large) | Stringcompare(Window(home).Property(actualViewtype),Video_RightList)  | Stringcompare(Window(home).Property(actualViewtype),ViewSets) | Stringcompare(Window(home).Property(actualViewtype),Shift) | Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)]</visible>
 				</control>
 				<control type="radiobutton" id="1741">
 					<label>$LOCALIZE[31282]</label>
@@ -584,6 +584,37 @@
 					<onclick>Skin.ToggleSetting(KodiFlixLandscapeView)</onclick>
 					<selected>Skin.HasSetting(KodiFlixLandscapeView)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + [Container.Content(movies) | Container.Content(sets)]</visible>
+				</control>
+				<control type="radiobutton" id="17062">
+					<description>Kodi Cases</description>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>Cases</label>
+					<onclick>Skin.ToggleSetting(KodiFlixCases)</onclick>
+					<selected>Skin.HasSetting(KodiFlixCases)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + [Container.Content(movies) | Container.Content(sets)]</visible>
+				</control>
+				<control type="radiobutton" id="17063">
+					<description>Kodi TV Posters</description>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>Posters</label>
+					<onclick>Skin.ToggleSetting(KodiFlixTVPosters)</onclick>
+					<selected>Skin.HasSetting(KodiFlixTVPosters)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
+				</control>
+				<control type="radiobutton" id="17064">
+					<description>Kodi TV Thumbnail Counter</description>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>Thumbnail Info</label>
+					<onclick>Skin.ToggleSetting(KodiFlixThumbnailInfo)</onclick>
+					<selected>Skin.HasSetting(KodiFlixThumbnailInfo)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + [Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(KodiFlixTVPosters)</visible>
+				</control>
+				<control type="button" id="17065">
+					<label>$LOCALIZE[31959]:</label>
+					<label2>[COLOR $VAR[FontColorVar]]$VAR[KodiFlixSeasonLandscapeSettingsVar][/COLOR]</label2>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(KodiFlixSeasonLandscape)</onclick>
+					<visible>Container.Content(seasons) + Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + !Skin.HasSetting(KodiFlixTVPosters)</visible>
 				</control>
 				<!--MAD - KodiFlix Options End -->
 				<!--MAD - Movie Sets View -->
@@ -1113,7 +1144,7 @@
 					<onclick>Skin.ToggleSetting(languageflag)</onclick>
 					<visible>Container.Content(episodes) | Container.Content(movies)</visible>
 					<onclick>RunScript(script.videolanguage,backend=true)</onclick>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies) | Stringcompare(Window(home).Property(actualViewtype),Wall) | Stringcompare(Window(home).Property(actualViewtype),BigFan) | Stringcompare(Window(home).Property(actualViewtype),Panel) | Stringcompare(Window(home).Property(actualViewtype),Banners) | [Stringcompare(Window(home).Property(actualViewtype),Landscape) + !Skin.HasSetting(landscapeonelogo)] | Stringcompare(Window(home).Property(actualViewtype),AddonWall)</visible>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies) | Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) | Stringcompare(Window(home).Property(actualViewtype),Wall) | Stringcompare(Window(home).Property(actualViewtype),BigFan) | Stringcompare(Window(home).Property(actualViewtype),Panel) | Stringcompare(Window(home).Property(actualViewtype),Banners) | [Stringcompare(Window(home).Property(actualViewtype),Landscape) + !Skin.HasSetting(landscapeonelogo)] | Stringcompare(Window(home).Property(actualViewtype),AddonWall)</visible>
 				</control>
 				<control type="radiobutton" id="287">
 					<label>31034</label>

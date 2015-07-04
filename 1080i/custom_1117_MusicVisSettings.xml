@@ -141,7 +141,13 @@
                     <onclick>Skin.ToggleSetting(ClassicOSD)</onclick>
                     <selected>Skin.HasSetting(ClassicOSD)</selected>
                 </control>
-                <control type="button" id="461">
+                <control type="radiobutton" id="433">
+                    <label>Music Viz Auto</label>
+                    <include>Objects_CommonSettingsButton</include>
+                    <onclick>Skin.ToggleSetting(MusicAuto)</onclick>
+                    <selected>Skin.HasSetting(MusicAuto)</selected>
+				</control>
+				<control type="button" id="461">
                     <label>$LOCALIZE[31127]</label>
                     <label2>[COLOR $VAR[FontColorVar]]$INFO[system.addontitle(Skin.String(LyricScript_Path))][/COLOR]</label2>
                     <include>Objects_CommonSettingsButton</include>
@@ -167,7 +173,7 @@
                     <selected>Skin.HasSetting(WeatherConditionVis)</selected>
 					<enable>!Skin.HasSetting(WeatherBreadcrumVis)</enable>
                 </control>
-            </control>
+			</control>
             <control type="scrollbar" id="60">
                 <include>Objects_CommonSettingsScrollbar</include>
                 <onleft>450</onleft>

@@ -104,7 +104,7 @@
                         <thumb>views/clearcases_focus.png</thumb>
 						<onclick>Skin.SetBool(clearcases)</onclick>
 						<onclick>Skin.SetBool(usecases)</onclick>
-						<visible>[Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies) | Stringcompare(Window(home).Property(actualViewtype),Wall_Large) | Stringcompare(Window(home).Property(actualViewtype),Video_RightList) | Stringcompare(Window(home).Property(actualViewtype),Shift) | Stringcompare(Window(home).Property(actualViewtype),AddonWall)] + Container.Content(movies) | Container.Content(sets)</visible>
+						<visible>[Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies) | Stringcompare(Window(home).Property(actualViewtype),Wall_Large) | Stringcompare(Window(home).Property(actualViewtype),Video_RightList) | Stringcompare(Window(home).Property(actualViewtype),Shift) | Stringcompare(Window(home).Property(actualViewtype),AddonWall) | Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)] + Container.Content(movies) | Container.Content(sets)</visible>
                     </item>
                     <item id="2">
                         <label>$LOCALIZE[31248]</label>
@@ -113,7 +113,7 @@
                         <onclick>Skin.SetBool(usecases)</onclick>
 						<onclick>Skin.Reset(clearcases)</onclick>
 						<onclick>Skin.Reset(Colorcases)</onclick>
-						<visible>[Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies) | Stringcompare(Window(home).Property(actualViewtype),Wall_Large) | Stringcompare(Window(home).Property(actualViewtype),Video_RightList) | Stringcompare(Window(home).Property(actualViewtype),Shift) | Stringcompare(Window(home).Property(actualViewtype),AddonWall)] + Container.Content(movies) | Container.Content(sets)</visible>
+						<visible>[Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies) | Stringcompare(Window(home).Property(actualViewtype),Wall_Large) | Stringcompare(Window(home).Property(actualViewtype),Video_RightList) | Stringcompare(Window(home).Property(actualViewtype),Shift) | Stringcompare(Window(home).Property(actualViewtype),AddonWall) | Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)] + Container.Content(movies) | Container.Content(sets)</visible>
                     </item>
                     <item id="3">
                         <label>$LOCALIZE[31182]</label>
@@ -122,7 +122,7 @@
                         <onclick>Skin.SetBool(usecases)</onclick>
 						<onclick>Skin.Reset(clearcases)</onclick>
 						<onclick>Skin.SetBool(Colorcases)</onclick>
-						<visible>[Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies) | Stringcompare(Window(home).Property(actualViewtype),Wall_Large) | Stringcompare(Window(home).Property(actualViewtype),Video_RightList) | Stringcompare(Window(home).Property(actualViewtype),Shift) | Stringcompare(Window(home).Property(actualViewtype),AddonWall)] + Container.Content(movies) | Container.Content(sets)</visible>
+						<visible>[Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies) | Stringcompare(Window(home).Property(actualViewtype),Wall_Large) | Stringcompare(Window(home).Property(actualViewtype),Video_RightList) | Stringcompare(Window(home).Property(actualViewtype),Shift) | Stringcompare(Window(home).Property(actualViewtype),AddonWall) | Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)] + Container.Content(movies) | Container.Content(sets)</visible>
                     </item>
                     <item id="4">
                         <label>$LOCALIZE[106]</label>
@@ -130,7 +130,7 @@
                         <thumb>views/nonecases_focus.png</thumb>
                         <onclick>Skin.Reset(clearcases)</onclick>
 						<onclick>Skin.Reset(usecases)</onclick>
-						<visible>[Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies) | Stringcompare(Window(home).Property(actualViewtype),Wall_Large) | Stringcompare(Window(home).Property(actualViewtype),Video_RightList) | Stringcompare(Window(home).Property(actualViewtype),Shift) | Stringcompare(Window(home).Property(actualViewtype),AddonWall)] + Container.Content(movies) | Container.Content(sets)</visible>
+						<visible>[Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies) | Stringcompare(Window(home).Property(actualViewtype),Wall_Large) | Stringcompare(Window(home).Property(actualViewtype),Video_RightList) | Stringcompare(Window(home).Property(actualViewtype),Shift) | Stringcompare(Window(home).Property(actualViewtype),AddonWall) | Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)] + Container.Content(movies) | Container.Content(sets)</visible>
                     </item>
 					<!-- MAD - Original case selection for Infowall - updated above to get correct cases -->
                     <!--item id="5">
@@ -300,7 +300,7 @@
 					<onclick>Skin.Reset(Fakehandbottom)</onclick>
 					<onclick>Skin.Reset(Fakedischandcolor)</onclick>
 					<selected>Skin.HasSetting(Fakediscart)</selected>
-					<visible>[Container.Content(movies) | Container.Content(sets)] + !Stringcompare(Window(home).Property(actualViewtype),AddonWall)</visible>
+					<visible>[Container.Content(movies) | Container.Content(sets)] + !Stringcompare(Window(home).Property(actualViewtype),AddonWall)+ !Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)</visible>
 				</control>
 				<control type="radiobutton" id="17016">
 					<description>Fake CD/DiscArt Handwriting</description>
@@ -309,7 +309,7 @@
 					<onclick>Skin.ToggleSetting(Fakedischandwriting)</onclick>
 					<onclick>Skin.Reset(Fakediscart)</onclick>
 					<selected>Skin.HasSetting(Fakedischandwriting)</selected>
-					<visible>[Container.Content(movies) | Container.Content(sets)] + !Stringcompare(Window(home).Property(actualViewtype),AddonWall)</visible>
+					<visible>[Container.Content(movies) | Container.Content(sets)] + !Stringcompare(Window(home).Property(actualViewtype),AddonWall)+ !Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)</visible>
 				</control>
 				<control type="radiobutton" id="17029">
 					<description>Fake CD/DiscArt Handwriting Disc Type - Color</description>
@@ -317,7 +317,7 @@
 					<label>         Colored Disc</label>
 					<onclick>Skin.ToggleSetting(Fakehanddisccolor)</onclick>
 					<selected>Skin.HasSetting(Fakehanddisccolor)</selected>
-					<visible>[Container.Content(movies) | Container.Content(sets)] + !Stringcompare(Window(home).Property(actualViewtype),AddonWall) + Skin.HasSetting(Fakedischandwriting)</visible>
+					<visible>[Container.Content(movies) | Container.Content(sets)] + !Stringcompare(Window(home).Property(actualViewtype),AddonWall) + Skin.HasSetting(Fakedischandwriting)+ !Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)</visible>
 				</control>
 				<control type="radiobutton" id="17025">
 					<description>Fake CD/DiscArt Handwriting position - Top</description>
