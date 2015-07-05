@@ -232,32 +232,32 @@
                     <bordersize>7</bordersize>
                 </control>
             </control>
-            <control type="image">
-                <left>-41</left>
-                <top>-17</top>
-                <width>597</width>
-                <height>848</height>
-                <align>center</align>
+            <control type="image">  		<!-- Glow round edge -->
+                <left>-46</left> 
+                <top>-81</top>
+                <width>605</width>
+                <height>907</height>
                 <texture background="true">thumbs/thumb_glass_shadow.png</texture>
-                <bordersize>18</bordersize>
+                <bordersize>19</bordersize>
                 <include>PanelGlowFade</include>
                 <include>Animation_VisibleChange400</include>
                 <visible>!Skin.HasSetting(DisableGlowbar)</visible>
                 <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
             </control>
-            <control type="image">
-                <left>1</left>
-                <top>39</top>
-                <width>509</width>
-                <height>732</height>
+            <control type="image">  		<!-- Mask Backround -->
+                <left>-19</left>
+                <top>-40</top>
+                <width>550</width>
+                <height>825</height>
                 <texture diffuse="thumbs/movieposter_mask.png">common/bgcolor.png</texture>
+				<bordersize>19</bordersize>
                 <fadetime>IconCrossfadeTime2</fadetime>
             </control>
-            <control type="image">
-                <left>-19</left>
-                <top>20</top>
-                <width>849</width>
-                <height>770</height>
+            <control type="image">  
+                <left>-119</left>
+                <top>-40</top>
+                <width>550</width>
+                <height>825</height>
                 <texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar1]</texture>
                 <fadetime>IconCrossfadeTime2</fadetime>
                 <bordertexture border="19.5">thumbs/poster_shadow.png</bordertexture>
@@ -265,27 +265,19 @@
 				<visible>!Skin.HasSetting(genrethumbs)</visible>
             </control>
 			<!-- Cover -->
-			  <control type="image">
+			  <control type="image">   		<!-- Poster round edges -->
                 <left>-19</left>
-                <top>20</top>
-                <width>549</width>
-                <height>770</height>
+                <top>-40</top>
+                <width>550</width>
+                <height>825</height>
                 <texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
                 <fadetime>IconCrossfadeTime2</fadetime>
                 <bordertexture border="19.5">thumbs/poster_shadow.png</bordertexture>
                 <bordersize>19</bordersize>
 				<visible>Skin.HasSetting(genrethumbs)</visible>
             </control>
-			<control type="image">
-				<left>265</left>
-				<top>38</top>
-				<width>250</width>
-				<height>250</height>
-				<texture background="true" diffuse="thumbs/ExtraOverlayWatched.png">$VAR[VideoextrasOverlay]</texture>
-				<visible>System.HasAddon(script.videoextras)</visible>
-			</control>
             <control type="image">
-                <top>772</top>
+                <top>770</top>
                 <width>510</width>
                 <height>765</height>
                 <texture diffuse="thumbs/movieposter_mask_reflect.png" flipy="true" background="true" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar1]</texture>
@@ -293,8 +285,8 @@
                 <colordiffuse>d0FFFFFF</colordiffuse>
 				<visible>!Skin.HasSetting(genrethumbs)</visible>
             </control>
-			 <control type="image">
-                <top>772</top>
+			 <control type="image">     	<!-- Cover Ground Reflect -->
+                <top>770</top>
                 <width>510</width>
                 <height>765</height>
                 <texture diffuse="thumbs/movieposter_mask_reflect.png" flipy="true" background="true" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
@@ -302,13 +294,21 @@
                 <colordiffuse>d0FFFFFF</colordiffuse>
 				<visible>Skin.HasSetting(genrethumbs)</visible>
             </control>
-            <control type="image">
-			     <top>40</top>
-                <width>510</width>
-                <height>734</height>
+            <control type="image">  	  	<!-- Cover Overlay Reflection -->
+			     <top>-20</top>
+                <width>512</width>
+                <height>788</height>
                 <texture>thumbs/thumb_glass.png</texture>
             </control>
-        </control>
+			<control type="image">   	 	<!-- Extras Corner badge -->
+				<left>266</left>
+				<top>-22</top>
+				<width>250</width>
+				<height>250</height>
+				<texture background="true" diffuse="thumbs/ExtraOverlayWatched.png">$VAR[VideoextrasOverlay]</texture>
+				<visible>System.HasAddon(script.videoextras)</visible>
+			</control>
+		</control>
         <control type="button" id="5001">
             <include>HiddenObject</include>
             <onup>50</onup>
@@ -542,83 +542,86 @@
 					</control>
 				</control>
 				<!--MAD Fake Disc End -->
-				<control type="image">
-                    <left>-7</left>
-                    <top>-7</top>
-                    <width>525</width>
-                    <height>780</height>
-                    <aspectratio aligny="bottom">keep</aspectratio>
+				<!-- Cover Hard Corners -->
+				<control type="image">   		<!-- Poster Mask backround -->
+                    <left>-19</left>
+                    <top>-40</top>
+                    <width>550</width>
+                    <height>826</height>
+                    <aspectratio aligny="bottom">stretch</aspectratio>
                     <texture background="true">$VAR[ListPosterVar]</texture>
                     <fadetime>0</fadetime>
                     <colordiffuse>FF000000</colordiffuse>
-                    <bordersize>7</bordersize>
+                    <bordersize>17</bordersize>
 					<visible>[!Skin.HasSetting(listcdart) + Container.Content(movies)] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
                 </control>
-                <control type="image">
-                    <left>-7</left>
-                    <top>-7</top>
-                    <width>525</width>
-                    <height>780</height>
-                    <aspectratio aligny="bottom">keep</aspectratio>
+                <control type="image">    	 	<!-- Poster hard corners -->
+                    <left>-19</left>
+                    <top>-40</top>
+                    <width>550</width>
+                    <height>825</height>
+                    <aspectratio aligny="bottom">stretch</aspectratio>
                     <texture background="true">$VAR[ListPosterVar]</texture>
-                    <bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
-                    <bordersize>7</bordersize>
+                    <bordertexture border="19,5">thumbs/thumbshadow.png</bordertexture>
+                    <bordersize>19</bordersize>
 					<visible>[!Skin.HasSetting(listcdart) + Container.Content(movies)] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
                 </control>
-                <control type="image">
-                    <top>766</top>
-                    <width>510</width>
+                <control type="image">			<!-- Poster hard corners ground reflect -->
+                    <top>772</top>
+                    <width>512</width>
                     <height>765</height>
-                    <aspectratio aligny="top">keep</aspectratio>
-                    <texture diffuse="thumbs/diffuse_mirror3.png" flipy="true" background="true">$VAR[ListPosterVar]</texture>
+                    <aspectratio aligny="bottom">stretch</aspectratio>
+                    <texture diffuse="thumbs/diffuse_mirror3.png"  flipy="true" background="true" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
+					<colordiffuse>d0FFFFFF</colordiffuse>
                     <fadetime>IconCrossfadeTime2</fadetime>
 					<visible>[!Skin.HasSetting(listcdart) + Container.Content(movies)] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
                 </control>
-				<control type="image">
-                    <left>82</left>
-                    <top>-7</top>
-                    <width>525</width>
-                    <height>780</height>
-                    <aspectratio aligny="bottom">keep</aspectratio>
+				<control type="image">			<!-- Poster Mask backround with disc -->
+                    <left>70</left>
+                    <top>-40</top>
+                    <width>550</width>
+                    <height>826</height>
+                    <aspectratio aligny="bottom">stretch</aspectratio>
                     <texture background="true">$VAR[ListPosterVar]</texture>
                     <fadetime>0</fadetime>
                     <colordiffuse>FF000000</colordiffuse>
-                    <bordersize>7</bordersize>
+                    <bordersize>17</bordersize>
 					<visible>Skin.HasSetting(listcdart) + Container.Content(movies)</visible>
                 </control>
-                <control type="image">
-                    <left>82</left>
-                    <top>-7</top>
-                    <width>525</width>
-                    <height>780</height>
-                    <aspectratio aligny="bottom">keep</aspectratio>
+                <control type="image">     		<!-- Poster hard corner with disc -->
+                    <left>70</left>
+                    <top>-40</top>
+                    <width>550</width>
+                    <height>825</height>
+                    <aspectratio aligny="bottom">stretch</aspectratio>
                     <texture background="true">$VAR[ListPosterVar]</texture>
-                    <bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
-                    <bordersize>7</bordersize>
+                    <bordertexture border="19,5">thumbs/thumbshadow.png</bordertexture>
+                    <bordersize>19</bordersize>
 					<visible>Skin.HasSetting(listcdart) + Container.Content(movies)</visible>
                 </control>
-                <control type="image">
-                    <left>88</left>
-					<top>766</top>
-                    <width>510</width>
+                <control type="image">			<!-- Poster hard corners ground reflect with disc -->
+					<left>89</left>
+					<top>772</top>
+                    <width>512</width>
                     <height>765</height>
-                    <aspectratio aligny="top">keep</aspectratio>
-                    <texture diffuse="thumbs/diffuse_mirror3.png" flipy="true" background="true">$VAR[ListPosterVar]</texture>
+                    <aspectratio aligny="bottom">stretch</aspectratio>
+                    <texture diffuse="thumbs/diffuse_mirror3.png"  flipy="true" background="true" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
+					<colordiffuse>d0FFFFFF</colordiffuse>
                     <fadetime>IconCrossfadeTime2</fadetime>
 					<visible>Skin.HasSetting(listcdart) + Container.Content(movies)</visible>
                 </control>
-				<control type="image">
-					<left>293</left>
-					<top>0</top>
+				<control type="image">			<!-- EXTRA Poster hard corner -->
+					<left>295</left>
+					<top>-23</top>
 					<width>220</width>
 					<height>220</height>
 					<texture>$VAR[VideoextrasOverlay]</texture>
 					<visible>System.HasAddon(script.videoextras)</visible>
 					<visible>!Skin.HasSetting(listcdart) + Container.Content(movies)</visible>
 				</control>
-				<control type="image">
-					<left>382</left>
-					<top>0</top>
+				<control type="image">			<!-- EXTRA Poster hard corner with disc -->
+					<left>385</left>
+					<top>-23</top>
 					<width>220</width>
 					<height>220</height>
 					<texture>$VAR[VideoextrasOverlay]</texture>
