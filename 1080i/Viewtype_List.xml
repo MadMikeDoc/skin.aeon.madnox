@@ -75,6 +75,43 @@
             </control>
 		</control>
     </include>
+    <include name="ListDiscartMovieSet">
+        <control type="group">
+            <left>1390</left>
+            <top>185</top>
+            <visible>Skin.HasSetting(listcdart) + !Control.HasFocus(5001)</visible>
+            <control type="image">
+                <left>-211</left>
+                <top>15</top>
+                <width>500</width>
+                <height>500</height>
+                <aspectratio align="right">keep</aspectratio>
+                <texture background="true">$INFO[Window(home).Property(Set.Movie.1.Art(Discart))]</texture>
+                <animation effect="rotate" end="-360" center="auto" time="6400" delay="1200" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+                <bordersize>7</bordersize>
+            </control>
+            <control type="image">
+                <left>-211</left>
+                <top>135</top>
+                <width>500</width>
+                <height>500</height>
+                <aspectratio align="right">keep</aspectratio>
+                <texture background="true">$INFO[Window(home).Property(Set.Movie.2.Art(Discart))]</texture>
+                <animation effect="rotate" end="-360" center="auto" time="6400" delay="1600" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+                <bordersize>7</bordersize>
+            </control>
+            <control type="image">
+                <left>-211</left>
+                <top>255</top>
+                <width>500</width>
+                <height>500</height>
+                <aspectratio align="right">keep</aspectratio>
+                <texture background="true">$INFO[Window(home).Property(Set.Movie.3.Art(Discart))]</texture>
+                <animation effect="rotate" end="-360" center="auto" time="6400" delay="2000" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+                <bordersize>7</bordersize>
+            </control>
+        </control>
+    </include>
     <include name="ListIconPoster">
         <control type="group" id="40002">
             <left>1296</left>
@@ -197,43 +234,8 @@
 					</control>
 				</control>
 				<!--MAD Fake Disc End -->
-            <control type="group">
-                <visible>skin.hassetting(backendmode)</visible>
-                    <visible>Skin.HasSetting(listcdart) + [Container.Content(sets) | SubString(ListItem.Path,videodb://movies/sets/)] + !Control.HasFocus(5001)</visible>
-                    <animation effect="slide" end="0,0" start="210,0" time="240" tween="cubic" easing="inout">VisibleChange</animation>
-                <control type="image">
-                    <left>-211</left>
-                    <top>15</top>
-                    <width>500</width>
-                    <height>500</height>
-                    <aspectratio align="right">keep</aspectratio>
-                    <texture background="true">$INFO[Window(home).Property(Set.Movie.1.Art(Discart))]</texture>
-                    <animation effect="rotate" end="-360" center="auto" time="6400" delay="1200" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
-                    <bordersize>7</bordersize>
-                </control>
-                <control type="image">
-                    <left>-211</left>
-                    <top>135</top>
-                    <width>500</width>
-                    <height>500</height>
-                    <aspectratio align="right">keep</aspectratio>
-                    <texture background="true">$INFO[Window(home).Property(Set.Movie.2.Art(Discart))]</texture>
-                    <animation effect="rotate" end="-360" center="auto" time="6400" delay="1600" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
-                    <bordersize>7</bordersize>
-                </control>
-                <control type="image">
-                    <left>-211</left>
-                    <top>255</top>
-                    <width>500</width>
-                    <height>500</height>
-                    <aspectratio align="right">keep</aspectratio>
-                    <texture background="true">$INFO[Window(home).Property(Set.Movie.3.Art(Discart))]</texture>
-                    <animation effect="rotate" end="-360" center="auto" time="6400" delay="2000" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
-                    <bordersize>7</bordersize>
-                </control>
-            </control>
-            <control type="image">  		<!-- Glow round edge -->
-                <left>-46</left> 
+            <control type="image">
+                <left>-46</left>
                 <top>-81</top>
                 <width>605</width>
                 <height>907</height>
@@ -253,8 +255,8 @@
 				<bordersize>19</bordersize>
                 <fadetime>IconCrossfadeTime2</fadetime>
             </control>
-            <control type="image">  
-                <left>-119</left>
+            <control type="image">
+                <left>-19</left>
                 <top>-40</top>
                 <width>550</width>
                 <height>825</height>
@@ -433,6 +435,7 @@
             <visible>Control.IsVisible(50)</visible>
             <include>Animation_ListSlideRight</include>
             <include condition="Window.IsActive(musiclibrary) | Window.IsActive(musicplaylist)">CDArtFlip</include>
+            <include>ListDiscartMovieSet</include>
             <include condition="Window.IsActive(videolibrary) | Window.IsActive(programs)">ListIconPoster</include>
             <control type="group" id="40003">
                 <left>1296</left>
