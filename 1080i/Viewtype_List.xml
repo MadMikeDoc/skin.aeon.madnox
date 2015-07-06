@@ -116,7 +116,7 @@
         <control type="group" id="40002">
             <left>1296</left>
             <top>165</top>
-            <animation effect="slide" end="90,0" time="240" tween="cubic" easing="inout" condition="Skin.HasSetting(listcdart) + Container.Content(movies)">Conditional</animation>
+            <animation effect="slide" end="90,0" time="240" tween="cubic" easing="inout" condition="Skin.HasSetting(listcdart) + [Container.Content(movies) | Container.Content(sets)]">Conditional</animation>
             <animation type="Conditional" condition="Control.HasFocus(5001)" reversible="false">
                 <effect type="rotatey" center="1530" end="-90" time="360" tween="cubic" easing="in" />
                 <effect type="rotatey" center="1530" start="-90" end="90" time="0" delay="360" />
@@ -747,7 +747,7 @@
         </control>
         <control type="group">
             <top>-20</top>
-            <animation effect="slide" end="-40,0" time="240" tween="cubic" easing="inout" condition="Skin.HasSetting(listcdart) + Container.Content(movies)">Conditional</animation>
+            <animation effect="slide" end="-40,0" time="240" tween="cubic" easing="inout" condition="Skin.HasSetting(listcdart) + [Container.Content(movies) | Container.Content(sets)]">Conditional</animation>
             <visible>Control.IsVisible(50)</visible>
             <include>Animation_ListSlideLeft</include>
             <include>ListPanel</include>
