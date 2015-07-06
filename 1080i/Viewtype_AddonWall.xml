@@ -7,8 +7,8 @@
             <control type="group">
                 <top>-30</top>
                 <control type="panel" id="512">
-                    <left>60</left>
-                    <top>160</top>
+                    <left>70</left>
+                    <top>155</top>
 <!--ShadowTek Mod: Repace next two lines-->
                     <width>955</width>
                     <height>807</height>
@@ -202,10 +202,10 @@
                         </control>
 					</control>
                     </focusedlayout>
-                    <itemlayout height="268" width="189" condition="[Container.Content(tvshows) + ![Skin.HasSetting(TVInfoWallLandscape) | Skin.HasSetting(TVInfoWallBanner) | Skin.HasSetting(TVInfoWallLogo)]] | [[Window.IsActive(programs) + !Container.Content(addons)] + !Skin.HasSetting(InfoWallSquare)] | Container.Content(sets) | Container.Content(seasons)">
-                        <control type="group">
+                    <itemlayout height="268" width="189" condition="[Container.Content(tvshows) + ![Skin.HasSetting(TVInfoWallLandscape) | Skin.HasSetting(TVInfoWallBanner) | Skin.HasSetting(TVInfoWallLogo)]] | [[Window.IsActive(programs) + !Container.Content(addons)] + !Skin.HasSetting(InfoWallSquare)] | Container.Content(sets) | Container.Content(seasons)">    <!--  TV CASES -->
+                        <control type="group">   				<!-- tv Video + Clearcases inactive -->
                             <visible>Skin.HasSetting(useclearcasesinfowall)</visible>
-                            <control type="image">
+                            <control type="image">   			<!-- Poster -->
                                 <left>4</left>
                                 <top>10</top>
                                 <width>165</width>
@@ -213,14 +213,13 @@
                                 <aspectratio scalediffuse="false">stretch</aspectratio>
                                 <texture background="true" diffuse="wall/wall_movie_mask.png">$VAR[ListPosterVar]</texture>
 						    </control>
-                            <control type="image">
+                            <control type="image">   			<!-- Clear cases -->
                                 <left>-3</left>
                                 <top>4</top>
                                 <width>180</width>
                                 <height>262</height>
                                 <aspectratio scalediffuse="false">stretch</aspectratio>
                                 <texture>wall/boxes/wall_movie_overlay.png</texture>
-
                             </control>
                             <control type="image">
                                 <left>110</left>
@@ -257,36 +256,33 @@
 								<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
 							</control>
                         </control>
-                        <control type="group">
+                        <control type="group">   				<!-- Video  inactive -->
                             <visible>!Skin.HasSetting(useclearcasesinfowall)</visible>
                             <control type="image">
-                                <width>189</width>
-                                <height>268</height>
-                                <aspectratio scalediffuse="false">scale</aspectratio>
+                                <width>180</width>
+                                <height>270</height>
+                                <aspectratio scalediffuse="false">stretch</aspectratio>
                                 <texture background="true">$VAR[ListPosterVar]</texture>
                                 <bordertexture border="5">thumbs/bordershadow4.png</bordertexture>
                                 <bordersize>5</bordersize>
-
                             </control>
                             <control type="image">
-                                <left>125</left>
+                                <left>115</left>
                                 <top>5</top>
                                 <width>60</width>
                                 <height>60</height>
                                 <include>OverlayVisibility0</include>
-
                             </control>
 							<control type="image">
-                                <left>125</left>
+                                <left>115</left>
                                 <top>5</top>
                                 <width>60</width>
                                 <height>60</height>
 								<texture>overlayprogress.png</texture>
 								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-
 							</control>
 							<control type="image">
-                                <left>125</left>
+                                <left>115</left>
                                 <top>5</top>
                                 <width>60</width>
                                 <height>60</height>
@@ -295,16 +291,16 @@
 								<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
 							</control>
                         </control>
-                        <control type="group">
-                            <top>5</top>
-                            <animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
+                        <control type="group">					<!-- unwatched icon -->
+                            <top>-5</top>
+                            <animation effect="fade" end="80" time="0" condition="true">Conditional</animation>
                             <include>UnwatchedIcon</include>
                         </control>
                     </itemlayout>
- 					<itemlayout height="268" width="189" condition="[Container.Content(movies) + !Skin.HasSetting(usecases)]">
-                        <control type="group">
+ 					<itemlayout height="268" width="189" condition="[Container.Content(movies) + !Skin.HasSetting(usecases)]"><!-- MOVIES NO CASE TRANSPARENT -->
+                        <control type="group">   				<!-- MOVIES NO CASE TRANSPARENT -->
                             <visible>Skin.HasSetting(useclearcasesinfowall2)</visible>
-                            <control type="image">
+                            <control type="image">    			<!-- movie No Case Transparent Case inactive >>> OK-->
                                 <left>4</left>
                                 <top>10</top>
                                 <width>165</width>
@@ -312,7 +308,7 @@
                                 <aspectratio scalediffuse="false">stretch</aspectratio>
                                 <texture background="true" diffuse="wall/wall_movie_mask.png">$VAR[ListPosterVar]</texture>
 					        </control>
-                            <control type="image">
+                            <control type="image">    			<!-- movie No Case Transparent Case inactive overlay >>> OK-->
                                 <left>-3</left>
                                 <top>4</top>
                                 <width>180</width>
@@ -347,7 +343,7 @@
 								<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
 							</control>
                         </control>
-                        <control type="group">
+                        <control type="group">					<!-- ????? -->
                             <visible>!Skin.HasSetting(useclearcasesinfowall2)</visible>
                             <control type="image">
                                 <width>189</width>
@@ -384,15 +380,15 @@
                         </control>
                         <control type="group">
                             <top>5</top>
-                            <animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
+                            <animation effect="fade" end="80" time="0" condition="true">Conditional</animation>
                             <include>UnwatchedIcon</include>
                         </control>
                     </itemlayout>
-                    <focusedlayout height="268" width="189" condition="[Container.Content(tvshows) + ![Skin.HasSetting(TVInfoWallLandscape) | Skin.HasSetting(TVInfoWallBanner) | Skin.HasSetting(TVInfoWallLogo)]] | [[Window.IsActive(programs) + !Container.Content(addons)] + !Skin.HasSetting(InfoWallSquare)] | Container.Content(sets) | Container.Content(seasons)">
-                        <control type="group">
+                    <focusedlayout height="268" width="189" condition="[Container.Content(tvshows) + ![Skin.HasSetting(TVInfoWallLandscape) | Skin.HasSetting(TVInfoWallBanner) | Skin.HasSetting(TVInfoWallLogo)]] | [[Window.IsActive(programs) + !Container.Content(addons)] + !Skin.HasSetting(InfoWallSquare)] | Container.Content(sets) | Container.Content(seasons)">   <!--  TV CASES ACTIVE ZOOM -->
+                        <control type="group"> 					<!-- Video + clearcase active zoom -->
                             <visible>Skin.HasSetting(useclearcasesinfowall)</visible>
                             <animation effect="zoom" center="87,133" start="100" end="140" time="160" tween="quadratic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
-                            <control type="image">
+                            <control type="image">				<!-- Video + Clearcases active -->
                                 <left>4</left>
                                 <top>10</top>
                                 <width>165</width>
@@ -400,11 +396,19 @@
                                 <aspectratio scalediffuse="false">stretch</aspectratio>
                                 <texture background="true" diffuse="wall/wall_movie_mask.png">$VAR[ListPosterVar]</texture>
                             </control>
+							<control type="image">   			<!-- Clear cases active -->
+                                <left>-3</left>
+                                <top>4</top>
+                                <width>180</width>
+                                <height>262</height>
+                                <aspectratio scalediffuse="false">stretch</aspectratio>
+                                <texture>wall/boxes/wall_movie_overlay.png</texture>
+                            </control>
                             <control type="image">
                                 <left>-3</left>
                                 <top>4</top>
-                                <width>178</width>
-                                <height>258</height>
+                                <width>180</width>
+                                <height>262</height>
                                 <aspectratio align="center" aligny="center">stretch</aspectratio>
 								<texture border="15">views/addonwall_select.png</texture>
 								<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
@@ -434,15 +438,15 @@
 								<visible>System.HasAddon(script.videoextras)</visible>
 							</control>
                             <control type="group">
-                                <top>5</top>
+                                <top>-5</top>
                                 <include>UnwatchedIcon</include>
                             </control>
                         </control>
-                        <control type="group">
+                        <control type="group"> 					<!-- Video active zoom -->
                             <visible>!Skin.HasSetting(useclearcasesinfowall)</visible>
 							<animation effect="zoom" center="87,133" start="100" end="140" time="160" tween="quadratic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
                             <control type="image">
-                                <width>189</width>
+                                <width>179</width>
                                 <height>268</height>
                                 <aspectratio align="center" aligny="center">stretch</aspectratio>
 								<texture border="15">views/addonwall_select.png</texture>
@@ -450,21 +454,21 @@
 								<visible>!Skin.HasSetting(InfoWallZoom)</visible>
 			                </control>
                             <control type="image">
-                                <width>189</width>
+                                <width>179</width>
                                 <height>268</height>
-                                <aspectratio scalediffuse="false">scale</aspectratio>
+                                <aspectratio scalediffuse="false">stretch</aspectratio>
                                 <texture background="true">$VAR[ListPosterVar]</texture>
                                 <bordersize>5</bordersize>
                             </control>
                             <control type="image">
-                                <left>125</left>
+                                <left>115</left>
                                 <top>5</top>
                                 <width>60</width>
                                 <height>60</height>
                                 <include>OverlayVisibility0</include>
                             </control>
 							<control type="image">
-                                <left>125</left>
+                                <left>115</left>
                                 <top>5</top>
                                 <width>60</width>
                                 <height>60</height>
@@ -472,7 +476,7 @@
 								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
 							</control>
 							<control type="image">
-                                <left>125</left>
+                                <left>115</left>
                                 <top>5</top>
                                 <width>60</width>
                                 <height>60</height>
@@ -480,23 +484,31 @@
 								<visible>System.HasAddon(script.videoextras)</visible>
 							</control>
                             <control type="group">
-                                <top>5</top>
+                                <top>-5</top>
                                 <include>UnwatchedIcon</include>
                             </control>
                         </control>
                     </focusedlayout>
-					<focusedlayout height="268" width="189" condition="[Container.Content(movies) + !Skin.HasSetting(usecases)]">
-                        <control type="group">
+					<focusedlayout height="268" width="189" condition="[Container.Content(movies) + !Skin.HasSetting(usecases)]"><!-- ACTIVE MOVIES NO CASE TRANSPARENT -->
+                        <control type="group">					<!-- ACTIVE MOVIES NO CASE TRANSPARENT -->
                             <visible>Skin.HasSetting(useclearcasesinfowall2)</visible>
                             <animation effect="zoom" center="87,133" start="100" end="140" time="160" tween="quadratic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
-                            <control type="image">
-                                <left>4</left>
-                                <top>10</top>
+                            <control type="image">      <!-- movie active no case -->
+                                <left>3</left>
+                                <top>8</top>
                                 <width>165</width>
                                 <height>246</height>
                                 <aspectratio scalediffuse="false">stretch</aspectratio>
                                 <texture background="true" diffuse="wall/wall_movie_mask.png">$VAR[ListPosterVar]</texture>
                             </control>
+							 <control type="image">      <!-- movie active no case overlay -->
+                                <left>-3</left>
+                                <top>4</top>
+                                <width>180</width>
+                                <height>262</height>
+                                <aspectratio scalediffuse="false">stretch</aspectratio>
+                                <texture>wall/boxes/wall_movie_overlay.png</texture>
+					        </control>
                             <control type="image">
                                 <left>-3</left>
                                 <top>4</top>
@@ -535,7 +547,7 @@
                                 <include>UnwatchedIcon</include>
                             </control>
                         </control>
-                        <control type="group">
+                        <control type="group">					<!-- ????? -->
                             <visible>!Skin.HasSetting(useclearcasesinfowall2)</visible>
 							<animation effect="zoom" center="87,133" start="100" end="140" time="160" tween="quadratic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
                             <control type="image">
@@ -591,79 +603,168 @@
                             </control>
                         </control>
                     </focusedlayout>
-                    <itemlayout height="268" width="189" condition="Container.Content(movies) + Skin.HasSetting(usecases)">
-                        <control type="image">
-                            <left>9</left>
-                            <top>30</top>
-                            <width>150</width>
-                            <height>225</height>
+                    <itemlayout height="268" width="189" condition="Container.Content(movies) + Skin.HasSetting(usecases)">      <!-- movies with cases inactive -->
+					<control type="group"><!-- MOVIES CLEARCASES INACTIVE -->
+					<visible>[!Skin.HasSetting(Colorcases) + Skin.HasSetting(clearcases)]</visible>
+						<control type="image">    		<!-- movies inactive clearcase --> 
+                            <left>4</left>
+                            <top>12</top>
+                            <width>165</width>
+                            <height>246</height>
                             <aspectratio scalediffuse="false">stretch</aspectratio>
-                            <texture background="true" diffuse="thumbs/boxes/case_mask.png">$VAR[ListPosterVar]</texture>
-							<visible>!Skin.HasSetting(Colorcases)</visible>
+                            <texture background="true" diffuse="wall/wall_movie_mask.png">$VAR[ListPosterVar]</texture>
+<!-- 							<visible>[!Skin.HasSetting(Colorcases) + Skin.HasSetting(clearcases)]</visible> -->
+					    </control>
+						<control type="image">			<!-- movies inactive clearcase watched badge -->
+                            <left>114</left>
+                            <top>12</top>
+                            <width>55</width>
+                            <height>55</height>
+                            <include>OverlayVisibility0</include>
+							<!-- <visible>[!Skin.HasSetting(Colorcases) + Skin.HasSetting(clearcases)]</visible> -->
 					    </control>
 						<control type="image">
-                            <left>9</left>
-                            <top>30</top>
+                            <left>114</left>
+                            <top>12</top>
+                            <width>55</width>
+                            <height>55</height>
+							<texture>overlayprogress.png</texture>
+							<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+						</control>
+						<control type="image">
+                            <left>114</left>
+                            <top>12</top>
+                            <width>55</width>
+                            <height>55</height>
+							<texture>$VAR[VideoextrasOverlay]</texture>
+							<visible>System.HasAddon(script.videoextras)</visible>
+							<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
+						</control>
+						<control type="image">			<!-- movies inactive clearcase - case overlay -->
+                            <left>-24</left>
+                            <top>-8</top>
+                            <width>203</width>
+                            <height>280</height>
+                            <aspectratio scalediffuse="false">stretch</aspectratio>
+                            <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+							<!-- <visible>[!Skin.HasSetting(Colorcases) + Skin.HasSetting(clearcases)]</visible> -->
+						</control>
+					</control>	
+					<control type="group"><!-- MOVIES BD CASES INACTIVE -->
+					<visible>[!Skin.HasSetting(Colorcases) + !Skin.HasSetting(clearcases)]</visible>
+                        <control type="image">    		<!-- movies inactive BD Cases  -->
+                            <left>8</left>
+                            <top>27</top>
                             <width>150</width>
                             <height>223</height>
                             <aspectratio scalediffuse="false">stretch</aspectratio>
                             <texture background="true" diffuse="thumbs/boxes/case_mask.png">$VAR[ListPosterVar]</texture>
-							<visible>[!Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)]</visible>
+							<!-- <visible>[!Skin.HasSetting(Colorcases) + !Skin.HasSetting(clearcases)]</visible> -->
 					    </control>
-                        <control type="image">
-                            <left>-20</left>
-                            <top>7</top>
-                            <width>189</width>
-                            <height>257</height>
-                            <aspectratio scalediffuse="false">stretch</aspectratio>
-                            <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
-						</control>
-                        <control type="image">
+						<control type="image">			<!-- movies inactive BD Cases watched badge -->
                             <left>106</left>
-                            <top>31</top>
+                            <top>29</top>
                             <width>52</width>
                             <height>52</height>
                             <include>OverlayVisibility0</include>
-					    </control>
+							<!-- <visible>[!Skin.HasSetting(Colorcases) + !Skin.HasSetting(clearcases)]</visible> -->
+					    </control>	
 						<control type="image">
                             <left>106</left>
-                            <top>31</top>
+                            <top>29</top>
                             <width>52</width>
                             <height>52</height>
 							<texture>overlayprogress.png</texture>
 							<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
 						</control>
-							<control type="image">
+						<control type="image">
                             <left>106</left>
-                            <top>31</top>
+                            <top>29</top>
                             <width>52</width>
                             <height>52</height>
-								<texture>$VAR[VideoextrasOverlay]</texture>
-								<visible>System.HasAddon(script.videoextras)</visible>
-								<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
-							</control>
-                    </itemlayout>
-                    <focusedlayout height="268" width="189" condition="Container.Content(movies) + Skin.HasSetting(usecases)">
+							<texture>$VAR[VideoextrasOverlay]</texture>
+							<visible>System.HasAddon(script.videoextras)</visible>
+							<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
+						</control>		
+						<control type="image">			<!-- movies inactive BD Cases - case overlay -->
+                            <left>-19</left>
+                            <top>6</top>
+                            <width>189</width>
+                            <height>257</height>
+                            <aspectratio scalediffuse="false">stretch</aspectratio>
+                            <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+							<!-- <visible>[!Skin.HasSetting(Colorcases) + !Skin.HasSetting(clearcases)]</visible> -->
+						</control>						
+					</control>	
+					<control type="group"><!-- MOVIES COLORCASES INACTIVE -->
+					<visible>[!Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)]</visible>
+						<control type="image">			<!-- movies inactive Colorcases -->
+                            <left>8</left>
+                            <top>27</top>
+                            <width>150</width>
+                            <height>223</height>
+                            <aspectratio scalediffuse="false">stretch</aspectratio>
+                            <texture background="true" diffuse="thumbs/boxes/case_mask.png">$VAR[ListPosterVar]</texture>
+							<!-- <visible>[!Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)]</visible> -->
+					    </control>
+						<control type="image">			<!-- movies inactive Colorcases watched badge -->
+                            <left>106</left>
+                            <top>29</top>
+                            <width>52</width>
+                            <height>52</height>
+                            <include>OverlayVisibility0</include>
+							<!-- <visible>[!Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)]</visible> -->
+					    </control>
+						<control type="image">
+                            <left>106</left>
+                            <top>29</top>
+                            <width>52</width>
+                            <height>52</height>
+							<texture>overlayprogress.png</texture>
+							<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+						</control>
+						<control type="image">
+                            <left>106</left>
+                            <top>29</top>
+                            <width>52</width>
+                            <height>52</height>
+							<texture>$VAR[VideoextrasOverlay]</texture>
+							<visible>System.HasAddon(script.videoextras)</visible>
+							<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
+						</control>	
+						<control type="image">			<!-- movies inactive Colorcases - case overlay -->
+                            <left>-19</left>
+                            <top>6</top>
+                            <width>189</width>
+                            <height>257</height>
+                            <aspectratio scalediffuse="false">stretch</aspectratio>
+                            <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+							<!-- <visible>[!Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)]</visible> -->
+						</control>						
+					</control>							
+					</itemlayout>
+                    <focusedlayout height="268" width="189" condition="Container.Content(movies) + Skin.HasSetting(usecases)">    <!-- Movie active zoom -->
                         <control type="group">
                             <animation effect="zoom" center="90,134" start="100" end="140" time="160" tween="cubic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
-                            <control type="image">
-                            <left>9</left>
-                            <top>30</top>
-                            <width>150</width>
+                        <control type="image">   <!-- Movie Active Zoom Clearcase and BD CASE-->
+                            <left>7</left>
+                            <top>27</top>
+                            <width>151</width>
                             <height>225</height>
                             <aspectratio scalediffuse="false">stretch</aspectratio>
                             <texture background="true" diffuse="thumbs/boxes/case_mask.png">$VAR[ListPosterVar]</texture>
 							<visible>!Skin.HasSetting(Colorcases)</visible>
 					    </control>
-						<control type="image">
-                            <left>9</left>
-                            <top>30</top>
-                            <width>150</width>
-                            <height>223</height>
+						<control type="image">			<!-- Movie Active Zoom Colorcase-->
+                            <left>7</left>
+                            <top>27</top>
+                            <width>151</width>
+                            <height>225</height>
                             <aspectratio scalediffuse="false">stretch</aspectratio>
                             <texture background="true" diffuse="thumbs/boxes/case_mask.png">$VAR[ListPosterVar]</texture>
 							<visible>[!Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)]</visible>
-					    </control><control type="image">
+					    </control>
+							<control type="image">    <!-- BD CASE Overlay ACTIVE ZOOM-->
                                 <left>-20</left>
                                 <top>7</top>
                                 <width>189</width>
@@ -692,23 +793,23 @@
 								<visible>!Skin.HasSetting(InfoWallZoom) + Skin.HasSetting(Clearcases)</visible>
                             </control>
 							<control type="image">
-                                <left>106</left>
-                                <top>31</top>
+                                <left>105</left>
+                                <top>29</top>
                                 <width>52</width>
                                 <height>52</height>
                                 <include>OverlayVisibility0</include>
                             </control>
 							<control type="image">
-                                <left>106</left>
-                                <top>31</top>
+                                <left>104</left>
+                                <top>29</top>
                                 <width>52</width>
                                 <height>52</height>
 								<texture>overlayprogress.png</texture>
 								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
 							</control>
 							<control type="image">
-                                <left>106</left>
-                                <top>31</top>
+                                <left>104</left>
+                                <top>29</top>
                                 <width>52</width>
                                 <height>52</height>
 								<texture>$VAR[VideoextrasOverlay]</texture>
@@ -772,7 +873,6 @@
                                 <top>5</top>
                                 <width>75</width>
                                 <height>75</height>
-
 								<texture>overlayprogress.png</texture>
 								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
 							</control>
@@ -1066,7 +1166,7 @@
                 </control>
 <!--ShadowTek Mod: Repace from here down-->
                 <control type="scrollbar" id="60">
-                    <posx>1000</posx>
+                    <posx>1010</posx>
                     <include>Animation_VerticalScrollBar</include>
                     <posy>164</posy>
                     <width>46</width>
@@ -1112,7 +1212,7 @@
                         <visible>[Skin.HasSetting(artistslogosfloor) + Container.Content(artists)]</visible>
                     </control>
                     <control type="image" id="8827">
-                        <left>1290</left>
+                        <left>1220</left>
                         <top>153</top>
                         <width>494</width>
                         <height>95</height>
@@ -1147,47 +1247,47 @@
                             <texture border="1">osd/osd_settings_buttonnf.png</texture>
                         </control>
                     </control>
-                    <control type="group">
+                    <control type="group">    				<!-- right side text -->
                         <control type="textbox">
                             <posx>1090</posx>
-                            <posy>260</posy>
+                            <posy>255</posy>
                             <width>775</width>
-                            <height>227</height>
+                            <height>243</height>
                             <font>Font_Reg19</font>
                             <label>$VAR[InfoWallTextboxVar]</label>
                             <textcolor>white6</textcolor>
                             <autoscroll delay="8000" time="AutoScrollTime" repeat="8000">Skin.HasSetting(AutoScroll)</autoscroll>
                         </control>
                     </control>
-                    <control type="group">
+                    <control type="group">					<!-- right side fanart -->
                         <posx>1090</posx>
-                        <posy>510</posy>
-                        <control type="image">
+                        <posy>505</posy>
+                        <control type="image">     			<!-- fanart glow -->
                             <posx>-15</posx>
                             <posy>-15</posy>
-                            <width>832</width>
-                            <height>481</height>
+                            <width>820</width>
+                            <height>474</height>
                             <texture>common/black.png</texture>
                             <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                             <bordertexture border="15">home/nowplaying/OverlayDialogBackground.png</bordertexture>
                             <bordersize>15</bordersize>
                         </control>
-                        <control type="image">
-                            <width>802</width>
-                            <height>451</height>
+                        <control type="image">				<!-- right side fanart -->
+                            <width>790</width>
+                            <height>444</height>
                             <fadetime>300</fadetime>
                             <include condition="Window.IsActive(pictures)">Aspectratio_Keep</include>
-                            <include condition="!Window.IsActive(pictures)">Aspectratio_Scale</include>
+                            <include condition="!Window.IsActive(pictures)">Aspectratio_stretch</include>
                             <texture background="true" fallback="special://skin/backgrounds/curtains.jpg">$VAR[InfoWallPreviewTextureVar]</texture>
                             <visible>!Player.Hasvideo</visible>
                             <include>Animation_VisibleChange200</include>
                         </control>
-						<control type="image">
-                            <left>-5</left>
-							<top>-4</top>
-							<width>813</width>
-                            <height>459</height>
-							<aspectratio>scale</aspectratio>
+						<control type="image">        		<!--  fanart extrafanart1 movieset -->
+                            <left>-7</left>
+							<top>-7</top>
+							<width>804</width>
+                            <height>458</height>
+							<aspectratio>stretch</aspectratio>
                             <texture background="true">$INFO[ListItem.Art(extrafanart1)]</texture>
                             <fadetime>400</fadetime>
                             <bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
@@ -1195,12 +1295,12 @@
 							<visible>SubString(ListItem.Path,videodb://movies/sets/)</visible>
                         </control>
                         <control type="multiimage">
-                            <width>802</width>
-                            <height>451</height>
+                            <width>790</width>
+                            <height>444</height>
 							<aspectratio>stretch</aspectratio>
                             <fadetime>FanartCrossfadeTime</fadetime>
                             <include condition="Window.IsActive(pictures)">Aspectratio_Keep</include>
-                            <include condition="!Window.IsActive(pictures)">Aspectratio_Scale</include>
+                            <include condition="!Window.IsActive(pictures)">Aspectratio_stretch</include>
 							<timeperimage>3000</timeperimage>
                             <!-- invalid tag -->
                             <!--<texture background="true" fallback="special://skin/backgrounds/curtains.jpg">$VAR[InfoWallPreviewTextureVar]</texture>-->
@@ -1210,8 +1310,8 @@
                             <include>Animation_VisibleChange200</include>
                         </control>
                         <control type="image">
-                            <width>802</width>
-                            <height>451</height>
+                            <width>790</width>
+                            <height>444</height>
 							<aspectratio>stretch</aspectratio>
                             <include condition="Window.IsActive(pictures)">Aspectratio_Keep</include>
                             <include condition="!Window.IsActive(pictures)">Aspectratio_Scale</include>
@@ -1223,8 +1323,8 @@
 
 						<control type="label">
 							<top>-200</top>
-							<width>802</width>
-                            <height>451</height>
+							<width>790</width>
+                            <height>444</height>
 							<aspectratio>stretch</aspectratio>
                             <label>$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Label]\fanart.jpg</label>
 							<animation effect="fade" delay="240" time="240" reversible="false">Hidden</animation>
@@ -1232,8 +1332,8 @@
 							<visible>Container.Content(artists)</visible>
 						</control>
 						<control type="image">
-							<width>802</width>
-                            <height>451</height>
+							<width>790</width>
+                            <height>444</height>
 							<aspectratio>stretch</aspectratio>
                             <texture background="true" fallback="empty.png">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Label]\fanart.jpg</texture>
 							<animation effect="fade" delay="240" time="240" reversible="false">Hidden</animation>
@@ -1241,8 +1341,8 @@
 							<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs)</visible>
 						</control>
 						<control type="multiimage">
-							<width>802</width>
-                            <height>451</height>
+							<width>790</width>
+                            <height>444</height>
 							<imagepath background="true">$VAR[MusicExtraFanartVar]</imagepath>
 							<fadetime>FanartCrossfadeTime</fadetime>
 							<animation effect="zoom" start="110" end="130" center="auto" time="12000" pulse="true">Conditional</animation>
@@ -1265,8 +1365,8 @@
                         </control-->
 
                         <control type="videowindow" id="40001">
-                            <width>802</width>
-                            <height>451</height>
+                            <width>790</width>
+                            <height>444</height>
                             <visible>Player.Hasvideo + !VideoPlayer.IsFullscreen</visible>
                         </control>
                     </control>
