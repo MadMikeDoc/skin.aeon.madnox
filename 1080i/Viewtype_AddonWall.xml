@@ -9,7 +9,6 @@
                 <control type="panel" id="512">
                     <left>70</left>
                     <top>155</top>
-<!--ShadowTek Mod: Repace next two lines-->
                     <width>955</width>
                     <height>807</height>
                     <visible>![!IsEmpty(Skin.String(DisableInfoWallVL)) + Window.IsActive(videos)] + !IsEmpty(Container.FolderPath) + !Container.Content(years)</visible>
@@ -20,38 +19,41 @@
                     <preloaditems>2</preloaditems>
                     <scrolltime tween="cubic">200</scrolltime>
                     <viewtype label="$LOCALIZE[31283]">icon</viewtype>
-                    <pagecontrol>60</pagecontrol>
-					<itemlayout height="268" width="285" condition="Container.Content(artists)">
-                        <control type="image">
+                    <pagecontrol>60</pagecontrol>					
+					<itemlayout height="268" width="290" condition="Container.Content(artists)">
+                    <control type="group">
+					<left>45</left>
+					<top>5</top>
+						<control type="image">
                             <width>261</width>
                             <height>261</height>
                             <aspectratio>keep</aspectratio>
                             <texture background="true" fallback="DefaultAddonMusic.png">$VAR[ThumbnailVar]</texture>
                             <bordertexture border="5">thumbs/bordershadow4.png</bordertexture>
                             <bordersize>5</bordersize>
-
                         </control>
                         <control type="image">
-							<left>-6</left>
 							<top>211</top>
-                            <width>274</width>
+                            <width>261</width>
                             <height>40</height>
                             <texture background="true">dialogs/shutdown_nofocus2.png</texture>
-							<colordiffuse>99ffffff</colordiffuse>
+							<colordiffuse>ffffffff</colordiffuse>
                         </control>
                         <control type="label">
-                            <left>15</left>
-                            <top>213</top>
-                            <width>230</width>
+                            <top>211</top>
+                            <width>250</width>
                             <height>40</height>
-                            <aligny>top</aligny>
+                            <align>center</align>
                             <label>$INFO[ListItem.Label]</label>
                             <textcolor>white3</textcolor>
 							<font>Font_Reg22_Caps</font>
                         </control>
-                    </itemlayout>
-                    <focusedlayout height="268" width="285" condition="Container.Content(artists)">
-						<control type="group">
+					</control>
+					</itemlayout>                   
+					<focusedlayout height="268" width="290" condition="Container.Content(artists)">
+					<control type="group">
+					<left>45</left>
+					<top>5</top>
 							<control type="image">
 								<left>-10</left>
 								<top>-10</top>
@@ -59,34 +61,25 @@
 								<height>281</height>
 								<aspectratio>keep</aspectratio>
 								<texture background="true" fallback="DefaultAddonMusic.png">$VAR[ThumbnailVar]</texture>
-								<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-								<bordertexture border="15">home/nowplaying/OverlayDialogBackground.png</bordertexture>
+								<bordertexture border="15" colordiffuse="$VAR[ColorDiffuseVar]">home/nowplaying/OverlayDialogBackground.png</bordertexture>
 								<bordersize>15</bordersize>
 							</control>
 							<control type="image">
-								<width>261</width>
-								<height>261</height>
-								<aspectratio>keep</aspectratio>
-								<texture background="true" fallback="DefaultAddonMusic.png">$VAR[ThumbnailVar]</texture>
-								<bordersize>5</bordersize>
-							</control>
-							<control type="image">
-								<left>-6</left>
 								<top>211</top>
-								<width>274</width>
+								<width>261</width>
 								<height>40</height>
 								<texture background="true">dialogs/shutdown_nofocus2.png</texture>
+								<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse> -->
 							</control>
 							<control type="label">
-								<left>15</left>
-								<top>213</top>
-								<width>230</width>
+								<top>211</top>
+								<width>250</width>
 								<height>40</height>
-								<aligny>top</aligny>
+								<align>center</align>
 								<label>$INFO[ListItem.Label]</label>
 								<textcolor>white3</textcolor>
 								<font>Font_Reg22_Caps</font>
-							</control>
+							</control>			
 						</control>
                     </focusedlayout>
                     <itemlayout height="268" width="285" condition="Container.Content(Addons) | ![Container.Content(artists) | Container.Content(Albums) | Container.Content(songs) | Container.Content(sets) | Container.Content(seasons) | Container.Content(Movies) | Container.Content(tvshows) | Container.Content(episodes)]">
@@ -120,19 +113,20 @@
                     </focusedlayout>
 					<itemlayout height="268" width="285" condition="Container.Content(Albums) | Container.Content(songs)">
                         <control type="image">
-							<left>10</left>
-                            <width>257</width>
-                            <height>257</height>
-                            <aspectratio>keep</aspectratio>
+							<top>11</top>
+							<left>19</left>
+                            <width>249</width>
+                            <height>249</height>
+                            <aspectratio>stretch</aspectratio>
                             <texture background="true" fallback="DefaultAddonMusic.png" diffuse="thumbs/boxes/cdcover_mask_aa.png">$VAR[ThumbnailVar]</texture>
                             <animation effect="fade" end="90" time="0" condition="true">Conditional</animation>
 					    </control>
                         <control type="image">
 							<left>0</left>
-							<top>-14</top>
+							<top>-4</top>
                             <width>285</width>
                             <height>285</height>
-                            <aspectratio>keep</aspectratio>
+                            <aspectratio>stretch</aspectratio>
                             <texture background="true">wall/boxes/wall_overlay.png</texture>
 							<colordiffuse>77ffffff</colordiffuse>
 							<visible>[Container.Content(Albums) + Skin.HasSetting(addonwallmusicCase)] | [Container.Content(songs) + Skin.HasSetting(addonwallmusicCase2)]</visible>
@@ -202,10 +196,11 @@
                         </control>
 					</control>
                     </focusedlayout>
-                    <itemlayout height="268" width="189" condition="[Container.Content(tvshows) + ![Skin.HasSetting(TVInfoWallLandscape) | Skin.HasSetting(TVInfoWallBanner) | Skin.HasSetting(TVInfoWallLogo)]] | [[Window.IsActive(programs) + !Container.Content(addons)] + !Skin.HasSetting(InfoWallSquare)] | Container.Content(sets) | Container.Content(seasons)">    <!--  TV CASES -->
-                        <control type="group">   				<!-- tv Video + Clearcases inactive -->
+					<!-- VIDEO --> 					
+                    <itemlayout height="268" width="189" condition="[Container.Content(tvshows) + ![Skin.HasSetting(TVInfoWallLandscape) | Skin.HasSetting(TVInfoWallBanner) | Skin.HasSetting(TVInfoWallLogo)]] | [[Window.IsActive(programs) + !Container.Content(addons)] + !Skin.HasSetting(InfoWallSquare)] | Container.Content(sets) | Container.Content(seasons)">    <!--  TV CASES INACTIVE-->
+                        <control type="group"> 
                             <visible>Skin.HasSetting(useclearcasesinfowall)</visible>
-                            <control type="image">   			<!-- Poster -->
+                            <control type="image">  
                                 <left>4</left>
                                 <top>10</top>
                                 <width>165</width>
@@ -213,7 +208,7 @@
                                 <aspectratio scalediffuse="false">stretch</aspectratio>
                                 <texture background="true" diffuse="wall/wall_movie_mask.png">$VAR[ListPosterVar]</texture>
 						    </control>
-                            <control type="image">   			<!-- Clear cases -->
+                            <control type="image"> 
                                 <left>-3</left>
                                 <top>4</top>
                                 <width>180</width>
@@ -246,61 +241,52 @@
 								<texture>overlayprogress.png</texture>
 								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
 							</control>
-							<control type="image">
-                                <left>110</left>
-                                <top>10</top>
-                                <width>60</width>
-                                <height>60</height>
-								<texture>$VAR[VideoextrasOverlay]</texture>
-								<visible>System.HasAddon(script.videoextras)</visible>
-								<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
+							<control type="group">
+                            <top>-5</top>
+							<left>-10</left>
+                            <animation effect="fade" end="80" time="0" condition="true">Conditional</animation>
+                            <include>UnwatchedIcon</include>
 							</control>
                         </control>
-                        <control type="group">   				<!-- Video  inactive -->
-                            <visible>!Skin.HasSetting(useclearcasesinfowall)</visible>
+                        <control type="group">
+                            <top>11</top>
+							<left>-3</left>
+							<visible>!Skin.HasSetting(useclearcasesinfowall)</visible>
                             <control type="image">
-                                <width>180</width>
-                                <height>270</height>
+                                <width>165</width>
+                                <height>246</height>
                                 <aspectratio scalediffuse="false">stretch</aspectratio>
                                 <texture background="true">$VAR[ListPosterVar]</texture>
                                 <bordertexture border="5">thumbs/bordershadow4.png</bordertexture>
                                 <bordersize>5</bordersize>
                             </control>
                             <control type="image">
-                                <left>115</left>
+                                <left>101</left>
                                 <top>5</top>
                                 <width>60</width>
                                 <height>60</height>
                                 <include>OverlayVisibility0</include>
                             </control>
 							<control type="image">
-                                <left>115</left>
+                                <left>101</left>
                                 <top>5</top>
                                 <width>60</width>
                                 <height>60</height>
 								<texture>overlayprogress.png</texture>
 								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
 							</control>
-							<control type="image">
-                                <left>115</left>
-                                <top>5</top>
-                                <width>60</width>
-                                <height>60</height>
-								<texture>$VAR[VideoextrasOverlay]</texture>
-								<visible>System.HasAddon(script.videoextras)</visible>
-								<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
+							<control type="group">
+								<top>-9</top>
+								<left>-10</left>
+								<animation effect="fade" end="80" time="0" condition="true">Conditional</animation>
+								<include>UnwatchedIcon</include>
 							</control>
-                        </control>
-                        <control type="group">					<!-- unwatched icon -->
-                            <top>-5</top>
-                            <animation effect="fade" end="80" time="0" condition="true">Conditional</animation>
-                            <include>UnwatchedIcon</include>
-                        </control>
+					  </control>
                     </itemlayout>
- 					<itemlayout height="268" width="189" condition="[Container.Content(movies) + !Skin.HasSetting(usecases)]"><!-- MOVIES NO CASE TRANSPARENT -->
-                        <control type="group">   				<!-- MOVIES NO CASE TRANSPARENT -->
+ 					<itemlayout height="268" width="189" condition="[Container.Content(movies) + !Skin.HasSetting(usecases)]"><!-- MOVIES INACTIVE NO CASE TRANSPARENT -->
+                        <control type="group"> 
                             <visible>Skin.HasSetting(useclearcasesinfowall2)</visible>
-                            <control type="image">    			<!-- movie No Case Transparent Case inactive >>> OK-->
+                            <control type="image">
                                 <left>4</left>
                                 <top>10</top>
                                 <width>165</width>
@@ -308,7 +294,7 @@
                                 <aspectratio scalediffuse="false">stretch</aspectratio>
                                 <texture background="true" diffuse="wall/wall_movie_mask.png">$VAR[ListPosterVar]</texture>
 					        </control>
-                            <control type="image">    			<!-- movie No Case Transparent Case inactive overlay >>> OK-->
+                            <control type="image">
                                 <left>-3</left>
                                 <top>4</top>
                                 <width>180</width>
@@ -343,7 +329,7 @@
 								<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
 							</control>
                         </control>
-                        <control type="group">					<!-- ????? -->
+                        <control type="group">
                             <visible>!Skin.HasSetting(useclearcasesinfowall2)</visible>
                             <control type="image">
                                 <width>189</width>
@@ -384,11 +370,11 @@
                             <include>UnwatchedIcon</include>
                         </control>
                     </itemlayout>
-                    <focusedlayout height="268" width="189" condition="[Container.Content(tvshows) + ![Skin.HasSetting(TVInfoWallLandscape) | Skin.HasSetting(TVInfoWallBanner) | Skin.HasSetting(TVInfoWallLogo)]] | [[Window.IsActive(programs) + !Container.Content(addons)] + !Skin.HasSetting(InfoWallSquare)] | Container.Content(sets) | Container.Content(seasons)">   <!--  TV CASES ACTIVE ZOOM -->
-                        <control type="group"> 					<!-- Video + clearcase active zoom -->
-                            <visible>Skin.HasSetting(useclearcasesinfowall)</visible>
-                            <animation effect="zoom" center="87,133" start="100" end="140" time="160" tween="quadratic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
-                            <control type="image">				<!-- Video + Clearcases active -->
+                    <focusedlayout height="268" width="189" condition="[Container.Content(tvshows) + ![Skin.HasSetting(TVInfoWallLandscape) | Skin.HasSetting(TVInfoWallBanner) | Skin.HasSetting(TVInfoWallLogo)]] | [[Window.IsActive(programs) + !Container.Content(addons)] + !Skin.HasSetting(InfoWallSquare)] | Container.Content(sets) | Container.Content(seasons)">   <!--  TV CASES ACTIVE -->
+						<control type="group">
+                           	<visible>Skin.HasSetting(useclearcasesinfowall)</visible>
+                            <animation effect="zoom" center="87,133" start="100" end="125" time="160" tween="quadratic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
+                            <control type="image">
                                 <left>4</left>
                                 <top>10</top>
                                 <width>165</width>
@@ -396,7 +382,7 @@
                                 <aspectratio scalediffuse="false">stretch</aspectratio>
                                 <texture background="true" diffuse="wall/wall_movie_mask.png">$VAR[ListPosterVar]</texture>
                             </control>
-							<control type="image">   			<!-- Clear cases active -->
+							<control type="image">
                                 <left>-3</left>
                                 <top>4</top>
                                 <width>180</width>
@@ -406,7 +392,7 @@
                             </control>
                             <control type="image">
                                 <left>-3</left>
-                                <top>4</top>
+                                <top>1</top>
                                 <width>180</width>
                                 <height>262</height>
                                 <aspectratio align="center" aligny="center">stretch</aspectratio>
@@ -429,71 +415,63 @@
 								<texture>overlayprogress.png</texture>
 								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
 							</control>
-							<control type="image">
-                                <left>110</left>
-                                <top>10</top>
-                                <width>60</width>
-                                <height>60</height>
-								<texture>$VAR[VideoextrasOverlay]</texture>
-								<visible>System.HasAddon(script.videoextras)</visible>
-							</control>
                             <control type="group">
                                 <top>-5</top>
-                                <include>UnwatchedIcon</include>
+                                <left>-10</left>
+								<include>UnwatchedIcon</include>
                             </control>
-                        </control>
-                        <control type="group"> 					<!-- Video active zoom -->
-                            <visible>!Skin.HasSetting(useclearcasesinfowall)</visible>
-							<animation effect="zoom" center="87,133" start="100" end="140" time="160" tween="quadratic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
+						</control>												
+						<control type="group">
+                            <top>1</top>
+							<left>-7</left>
+							<visible>!Skin.HasSetting(useclearcasesinfowall)</visible>
+                            <animation effect="zoom" center="87,133" start="100" end="125" time="160" tween="quadratic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
                             <control type="image">
-                                <width>179</width>
-                                <height>268</height>
+                                <left>4</left>
+                                <top>10</top>
+                                <width>165</width>
+                                <height>246</height>
+                                <texture background="true">$VAR[ListPosterVar]</texture>
+								<bordertexture border="5">thumbs/bordershadow4.png</bordertexture>
+                                <bordersize>5</bordersize>
+                            </control>
+                            <control type="image">
+                                <left>5</left>
+                                <top>9</top>
+                                <width>165</width>
+                                <height>248</height>
                                 <aspectratio align="center" aligny="center">stretch</aspectratio>
 								<texture border="15">views/addonwall_select.png</texture>
 								<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
 								<visible>!Skin.HasSetting(InfoWallZoom)</visible>
-			                </control>
-                            <control type="image">
-                                <width>179</width>
-                                <height>268</height>
-                                <aspectratio scalediffuse="false">stretch</aspectratio>
-                                <texture background="true">$VAR[ListPosterVar]</texture>
-                                <bordersize>5</bordersize>
                             </control>
                             <control type="image">
-                                <left>115</left>
-                                <top>5</top>
+                                <left>104</left>
+                                <top>15</top>
                                 <width>60</width>
                                 <height>60</height>
                                 <include>OverlayVisibility0</include>
                             </control>
 							<control type="image">
-                                <left>115</left>
-                                <top>5</top>
+                                <left>104</left>
+                                <top>15</top>
                                 <width>60</width>
                                 <height>60</height>
 								<texture>overlayprogress.png</texture>
 								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
 							</control>
-							<control type="image">
-                                <left>115</left>
-                                <top>5</top>
-                                <width>60</width>
-                                <height>60</height>
-								<texture>$VAR[VideoextrasOverlay]</texture>
-								<visible>System.HasAddon(script.videoextras)</visible>
-							</control>
                             <control type="group">
-                                <top>-5</top>
-                                <include>UnwatchedIcon</include>
+                                <top>1</top>
+                                <left>-5</left>
+								<include>UnwatchedIcon</include>
                             </control>
-                        </control>
-                    </focusedlayout>
-					<focusedlayout height="268" width="189" condition="[Container.Content(movies) + !Skin.HasSetting(usecases)]"><!-- ACTIVE MOVIES NO CASE TRANSPARENT -->
-                        <control type="group">					<!-- ACTIVE MOVIES NO CASE TRANSPARENT -->
+						</control>
+					</focusedlayout>
+					<focusedlayout height="268" width="189" condition="[Container.Content(movies) + !Skin.HasSetting(usecases)]">				<!-- ACTIVE MOVIES NO CASE TRANSPARENT -->
+                        <control type="group">
                             <visible>Skin.HasSetting(useclearcasesinfowall2)</visible>
                             <animation effect="zoom" center="87,133" start="100" end="140" time="160" tween="quadratic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
-                            <control type="image">      <!-- movie active no case -->
+                            <control type="image">
                                 <left>3</left>
                                 <top>8</top>
                                 <width>165</width>
@@ -501,7 +479,7 @@
                                 <aspectratio scalediffuse="false">stretch</aspectratio>
                                 <texture background="true" diffuse="wall/wall_movie_mask.png">$VAR[ListPosterVar]</texture>
                             </control>
-							 <control type="image">      <!-- movie active no case overlay -->
+							 <control type="image"> 
                                 <left>-3</left>
                                 <top>4</top>
                                 <width>180</width>
@@ -547,7 +525,7 @@
                                 <include>UnwatchedIcon</include>
                             </control>
                         </control>
-                        <control type="group">					<!-- ????? -->
+                        <control type="group">
                             <visible>!Skin.HasSetting(useclearcasesinfowall2)</visible>
 							<animation effect="zoom" center="87,133" start="100" end="140" time="160" tween="quadratic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
                             <control type="image">
@@ -603,25 +581,23 @@
                             </control>
                         </control>
                     </focusedlayout>
-                    <itemlayout height="268" width="189" condition="Container.Content(movies) + Skin.HasSetting(usecases)">      <!-- movies with cases inactive -->
-					<control type="group"><!-- MOVIES CLEARCASES INACTIVE -->
+                    <itemlayout height="268" width="189" condition="Container.Content(movies) + Skin.HasSetting(usecases)">      			<!-- MOVIES INACTIVE WITH CASES -->
+					<control type="group">
 					<visible>[!Skin.HasSetting(Colorcases) + Skin.HasSetting(clearcases)]</visible>
-						<control type="image">    		<!-- movies inactive clearcase --> 
+						<control type="image">
                             <left>4</left>
                             <top>12</top>
                             <width>165</width>
                             <height>246</height>
                             <aspectratio scalediffuse="false">stretch</aspectratio>
                             <texture background="true" diffuse="wall/wall_movie_mask.png">$VAR[ListPosterVar]</texture>
-<!-- 							<visible>[!Skin.HasSetting(Colorcases) + Skin.HasSetting(clearcases)]</visible> -->
 					    </control>
-						<control type="image">			<!-- movies inactive clearcase watched badge -->
+						<control type="image">
                             <left>114</left>
                             <top>12</top>
                             <width>55</width>
                             <height>55</height>
                             <include>OverlayVisibility0</include>
-							<!-- <visible>[!Skin.HasSetting(Colorcases) + Skin.HasSetting(clearcases)]</visible> -->
 					    </control>
 						<control type="image">
                             <left>114</left>
@@ -640,34 +616,31 @@
 							<visible>System.HasAddon(script.videoextras)</visible>
 							<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
 						</control>
-						<control type="image">			<!-- movies inactive clearcase - case overlay -->
+						<control type="image">
                             <left>-24</left>
                             <top>-8</top>
                             <width>203</width>
                             <height>280</height>
                             <aspectratio scalediffuse="false">stretch</aspectratio>
                             <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
-							<!-- <visible>[!Skin.HasSetting(Colorcases) + Skin.HasSetting(clearcases)]</visible> -->
 						</control>
 					</control>	
-					<control type="group"><!-- MOVIES BD CASES INACTIVE -->
+					<control type="group">
 					<visible>[!Skin.HasSetting(Colorcases) + !Skin.HasSetting(clearcases)]</visible>
-                        <control type="image">    		<!-- movies inactive BD Cases  -->
+                        <control type="image">
                             <left>8</left>
                             <top>27</top>
                             <width>150</width>
                             <height>223</height>
                             <aspectratio scalediffuse="false">stretch</aspectratio>
                             <texture background="true" diffuse="thumbs/boxes/case_mask.png">$VAR[ListPosterVar]</texture>
-							<!-- <visible>[!Skin.HasSetting(Colorcases) + !Skin.HasSetting(clearcases)]</visible> -->
 					    </control>
-						<control type="image">			<!-- movies inactive BD Cases watched badge -->
+						<control type="image">
                             <left>106</left>
                             <top>29</top>
                             <width>52</width>
                             <height>52</height>
                             <include>OverlayVisibility0</include>
-							<!-- <visible>[!Skin.HasSetting(Colorcases) + !Skin.HasSetting(clearcases)]</visible> -->
 					    </control>	
 						<control type="image">
                             <left>106</left>
@@ -686,34 +659,31 @@
 							<visible>System.HasAddon(script.videoextras)</visible>
 							<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
 						</control>		
-						<control type="image">			<!-- movies inactive BD Cases - case overlay -->
+						<control type="image">
                             <left>-19</left>
                             <top>6</top>
                             <width>189</width>
                             <height>257</height>
                             <aspectratio scalediffuse="false">stretch</aspectratio>
                             <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
-							<!-- <visible>[!Skin.HasSetting(Colorcases) + !Skin.HasSetting(clearcases)]</visible> -->
 						</control>						
 					</control>	
-					<control type="group"><!-- MOVIES COLORCASES INACTIVE -->
+					<control type="group">
 					<visible>[!Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)]</visible>
-						<control type="image">			<!-- movies inactive Colorcases -->
+						<control type="image">
                             <left>8</left>
                             <top>27</top>
                             <width>150</width>
                             <height>223</height>
                             <aspectratio scalediffuse="false">stretch</aspectratio>
                             <texture background="true" diffuse="thumbs/boxes/case_mask.png">$VAR[ListPosterVar]</texture>
-							<!-- <visible>[!Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)]</visible> -->
 					    </control>
-						<control type="image">			<!-- movies inactive Colorcases watched badge -->
+						<control type="image">
                             <left>106</left>
                             <top>29</top>
                             <width>52</width>
                             <height>52</height>
                             <include>OverlayVisibility0</include>
-							<!-- <visible>[!Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)]</visible> -->
 					    </control>
 						<control type="image">
                             <left>106</left>
@@ -732,47 +702,200 @@
 							<visible>System.HasAddon(script.videoextras)</visible>
 							<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
 						</control>	
-						<control type="image">			<!-- movies inactive Colorcases - case overlay -->
+						<control type="image">
                             <left>-19</left>
                             <top>6</top>
                             <width>189</width>
                             <height>257</height>
                             <aspectratio scalediffuse="false">stretch</aspectratio>
                             <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
-							<!-- <visible>[!Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)]</visible> -->
 						</control>						
 					</control>							
 					</itemlayout>
-                    <focusedlayout height="268" width="189" condition="Container.Content(movies) + Skin.HasSetting(usecases)">    <!-- Movie active zoom -->
-                        <control type="group">
-                            <animation effect="zoom" center="90,134" start="100" end="140" time="160" tween="cubic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
-                        <control type="image">   <!-- Movie Active Zoom Clearcase and BD CASE-->
-                            <left>7</left>
-                            <top>27</top>
-                            <width>151</width>
-                            <height>225</height>
-                            <aspectratio scalediffuse="false">stretch</aspectratio>
-                            <texture background="true" diffuse="thumbs/boxes/case_mask.png">$VAR[ListPosterVar]</texture>
-							<visible>!Skin.HasSetting(Colorcases)</visible>
-					    </control>
-						<control type="image">			<!-- Movie Active Zoom Colorcase-->
-                            <left>7</left>
-                            <top>27</top>
-                            <width>151</width>
-                            <height>225</height>
-                            <aspectratio scalediffuse="false">stretch</aspectratio>
-                            <texture background="true" diffuse="thumbs/boxes/case_mask.png">$VAR[ListPosterVar]</texture>
-							<visible>[!Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)]</visible>
-					    </control>
-							<control type="image">    <!-- BD CASE Overlay ACTIVE ZOOM-->
+                    <focusedlayout height="268" width="189" condition="Container.Content(movies) + Skin.HasSetting(usecases)">    			<!-- MOVIES ACTIVE WITH CASES -->    
+                    <control type="group">
+                    <animation effect="zoom" center="90,134" start="100" end="140" time="160" tween="cubic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
+						<control type="group">				
+						<visible>[!Skin.HasSetting(Colorcases) + Skin.HasSetting(clearcases)] + Skin.HasSetting(InfoWallZoom)</visible>
+							<control type="image">
+								<left>7</left>
+								<top>27</top>
+								<width>151</width>
+								<height>225</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture background="true" diffuse="wall/wall_movie_mask.png">$VAR[ListPosterVar]</texture>
+							</control>
+							<control type="image">
+                                <left>110</left>
+                                <top>23</top>
+                                <width>53</width>
+                                <height>52</height>
+								<texture>$VAR[VideoextrasOverlay]</texture>
+								<visible>System.HasAddon(script.videoextras)</visible>
+							</control>
+							<control type="image">
+                                <left>110</left>
+                                <top>23</top>
+                                <width>52</width>
+                                <height>52</height>
+                                <include>OverlayVisibility0</include>
+                            </control>
+							<control type="image">
+                                <left>110</left>
+                                <top>23</top>
+                                <width>52</width>
+                                <height>52</height>
+								<texture>overlayprogress.png</texture>
+								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+							</control>
+							<control type="image">
                                 <left>-20</left>
                                 <top>7</top>
                                 <width>189</width>
                                 <height>257</height>
                                 <aspectratio scalediffuse="false">stretch</aspectratio>
                                 <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
-                            </control>
+                            </control>						
+						</control>
+						<control type="group">					
+						<visible>[!Skin.HasSetting(Colorcases) + Skin.HasSetting(clearcases)] + !Skin.HasSetting(InfoWallZoom)</visible>
 							<control type="image">
+                            <left>4</left>
+                            <top>12</top>
+                            <width>165</width>
+                            <height>246</height>
+                            <aspectratio scalediffuse="false">stretch</aspectratio>
+                            <texture background="true" diffuse="wall/wall_movie_mask.png">$VAR[ListPosterVar]</texture>
+					    </control>
+						<control type="image">
+                            <left>114</left>
+                            <top>12</top>
+                            <width>55</width>
+                            <height>55</height>
+                            <include>OverlayVisibility0</include>
+					    </control>
+						<control type="image">
+                            <left>114</left>
+                            <top>12</top>
+                            <width>55</width>
+                            <height>55</height>
+							<texture>overlayprogress.png</texture>
+							<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+						</control>
+						<control type="image">
+                            <left>-2</left>
+                            <top>5</top>
+                            <width>178</width>
+                            <height>262</height>
+                            <aspectratio scalediffuse="false">stretch</aspectratio>
+                            <texture border="15">views/addonwall_select.png</texture>
+							<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+							<visible>!Skin.HasSetting(InfoWallZoom) + Skin.HasSetting(Clearcases)</visible>
+                        </control>
+						<control type="image">
+                            <left>114</left>
+                            <top>12</top>
+                            <width>55</width>
+                            <height>55</height>
+							<texture>$VAR[VideoextrasOverlay]</texture>
+							<visible>System.HasAddon(script.videoextras)</visible>
+							<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
+						</control>
+						<control type="image">
+                            <left>-24</left>
+                            <top>-8</top>
+                            <width>203</width>
+                            <height>280</height>
+                            <aspectratio scalediffuse="false">stretch</aspectratio>
+                            <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+						</control>
+				
+						</control>						
+						<control type="group">
+					<visible>!Skin.HasSetting(Colorcases) + !Skin.HasSetting(clearcases)</visible>					
+						<control type="image">
+                            <left>7</left>
+                            <top>27</top>
+                            <width>151</width>
+                            <height>225</height>
+                            <aspectratio scalediffuse="false">stretch</aspectratio>
+                            <texture background="true" diffuse="thumbs/boxes/case_mask.png">$VAR[ListPosterVar]</texture>
+					    </control>		
+						<control type="image">
+                            <left>106</left>
+                            <top>29</top>
+                            <width>52</width>
+                            <height>52</height>
+							<texture>$VAR[VideoextrasOverlay]</texture>
+							<visible>System.HasAddon(script.videoextras)</visible>
+						</control>
+						<control type="image">
+                            <left>106</left>
+                            <top>29</top>
+                            <width>52</width>
+                            <height>52</height>
+                            <include>OverlayVisibility0</include>
+                        </control>	
+						<control type="image">
+                            <left>106</left>
+                            <top>29</top>
+                            <width>52</width>
+                            <height>52</height>
+							<texture>overlayprogress.png</texture>
+							<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+						</control>
+						<control type="image">
+                            <left>-20</left>
+                            <top>7</top>
+                            <width>189</width>
+                            <height>257</height>
+                            <aspectratio scalediffuse="false">stretch</aspectratio>
+                            <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+                         </control>
+					 </control>	
+						<control type="group">
+					<visible>!Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)</visible>					
+						<control type="image">
+                            <left>7</left>
+                            <top>27</top>
+                            <width>151</width>
+                            <height>225</height>
+                            <aspectratio scalediffuse="false">stretch</aspectratio>
+                            <texture background="true" diffuse="thumbs/boxes/case_mask.png">$VAR[ListPosterVar]</texture>
+					    </control>		
+						<control type="image">
+                            <left>106</left>
+                            <top>29</top>
+                            <width>52</width>
+                            <height>52</height>
+							<texture>$VAR[VideoextrasOverlay]</texture>
+							<visible>System.HasAddon(script.videoextras)</visible>
+						</control>
+						<control type="image">
+                            <left>106</left>
+                            <top>29</top>
+                            <width>52</width>
+                            <height>52</height>
+                            <include>OverlayVisibility0</include>
+                        </control>	
+						<control type="image">
+                            <left>106</left>
+                            <top>29</top>
+                            <width>52</width>
+                            <height>52</height>
+							<texture>overlayprogress.png</texture>
+							<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+						</control>
+						<control type="image">
+                            <left>-20</left>
+                            <top>7</top>
+                            <width>189</width>
+                            <height>257</height>
+                            <aspectratio scalediffuse="false">stretch</aspectratio>
+                            <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+                         </control>
+					 </control>											 
+						<control type="image">
                                 <left>0</left>
                                 <top>3</top>
                                 <width>169</width>
@@ -781,45 +904,13 @@
                                 <texture border="15">views/addonwall_select.png</texture>
 								<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
 								<visible>!Skin.HasSetting(InfoWallZoom) + !Skin.HasSetting(Clearcases)</visible>
-                            </control>
-							<control type="image">
-                                <left>0</left>
-                                <top>19</top>
-                                <width>169</width>
-                                <height>243</height>
-                                <aspectratio scalediffuse="false">stretch</aspectratio>
-                                <texture border="15">views/addonwall_select.png</texture>
-								<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-								<visible>!Skin.HasSetting(InfoWallZoom) + Skin.HasSetting(Clearcases)</visible>
-                            </control>
-							<control type="image">
-                                <left>105</left>
-                                <top>29</top>
-                                <width>52</width>
-                                <height>52</height>
-                                <include>OverlayVisibility0</include>
-                            </control>
-							<control type="image">
-                                <left>104</left>
-                                <top>29</top>
-                                <width>52</width>
-                                <height>52</height>
-								<texture>overlayprogress.png</texture>
-								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-							</control>
-							<control type="image">
-                                <left>104</left>
-                                <top>29</top>
-                                <width>52</width>
-                                <height>52</height>
-								<texture>$VAR[VideoextrasOverlay]</texture>
-								<visible>System.HasAddon(script.videoextras)</visible>
-							</control>
-                        </control>
+                        </control>							
+                    </control>
                     </focusedlayout>
-                    <itemlayout height="161" width="285" condition="Container.Content(episodes) | [Container.Content(tvshows) + Skin.HasSetting(TVInfoWallLandscape)]">
+                    <itemlayout height="161" width="300" condition="Container.Content(episodes) | [Container.Content(tvshows) + Skin.HasSetting(TVInfoWallLandscape)]"> <!-- TV LANDSCAPE INACTIVE-->
                         <control type="group">
                             <top>1</top>
+							<left>20</left>
                             <control type="group">
                                 <visible>Container.Content(episodes)</visible>
                                 <control type="image">
@@ -866,7 +957,6 @@
                                 <width>75</width>
                                 <height>75</height>
                                 <include>OverlayVisibility0</include>
-
                             </control>
 							<control type="image">
                                 <left>205</left>
@@ -876,20 +966,17 @@
 								<texture>overlayprogress.png</texture>
 								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
 							</control>
-							<control type="image">
-                                <left>205</left>
-                                <top>5</top>
-                                <width>75</width>
-                                <height>75</height>
-								<texture>$VAR[VideoextrasOverlay]</texture>
-								<visible>System.HasAddon(script.videoextras)</visible>
-								<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
+							<control type="group">
+                            <top>-5</top>
+							<left>-5</left>
+                            <include>UnwatchedIcon</include>
 							</control>
                         </control>
                     </itemlayout>
-                    <focusedlayout height="161" width="285" condition="Container.Content(episodes) | [Container.Content(tvshows) + Skin.HasSetting(TVInfoWallLandscape)]">
+                    <focusedlayout height="161" width="300" condition="Container.Content(episodes) | [Container.Content(tvshows) + Skin.HasSetting(TVInfoWallLandscape)]"><!-- TV LANDSCAPE ACTIVE-->
                         <control type="group">
                             <top>1</top>
+							<left>20</left>
 							<animation effect="zoom" center="150,80" start="100" end="130" time="160" tween="cubic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
                             <control type="group">
                                 <visible>Container.Content(episodes)</visible>
@@ -930,9 +1017,12 @@
                             <control type="image">
                                 <width>285</width>
                                 <height>161</height>
+                                <aspectratio scalediffuse="false">stretch</aspectratio>
                                 <texture background="true" fallback="common/black.png">$VAR[LandscapeThumbVar]</texture>
+                                <bordertexture border="5">thumbs/bordershadow4.png</bordertexture>
                                 <bordersize>5</bordersize>
                                 <visible>Container.Content(tvshows)</visible>
+                                <animation effect="fade" end="90" time="0" condition="true">Conditional</animation>
                             </control>
                             <control type="image">
                                 <width>285</width>
@@ -958,19 +1048,16 @@
 								<texture>overlayprogress.png</texture>
 								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
 							</control>
-							<control type="image">
-                                <left>205</left>
-                                <top>5</top>
-                                <width>75</width>
-                                <height>75</height>
-								<texture>$VAR[VideoextrasOverlay]</texture>
-								<visible>System.HasAddon(script.videoextras)</visible>
+							<control type="group">
+                            <top>-5</top>
+							<left>-5</left>
+                            <include>UnwatchedIcon</include>
 							</control>
                         </control>
                     </focusedlayout>
-                    <itemlayout height="161" width="870" condition="Container.Content(tvshows) + Skin.HasSetting(TVInfoWallBanner)">
+                    <itemlayout height="161" width="870" condition="Container.Content(tvshows) + Skin.HasSetting(TVInfoWallBanner)">   <!-- TV BANNER INACTIVE-->
                         <control type="image">
-                            <left>11</left>
+                            <left>51</left>
                             <top>4</top>
                             <width>849</width>
                             <height>158</height>
@@ -980,69 +1067,55 @@
                             <bordersize>5</bordersize>
 				        </control>
                         <control type="label">
-                            <left>585</left>
-                            <top>10</top>
+                            <left>220</left>
+                            <top>30</top>
                             <width>540</width>
                             <height>99</height>
                             <align>center</align>
                             <label>$INFO[ListItem.Label]</label>
                             <font>Font_Bold40</font>
                             <shadowcolor>black</shadowcolor>
-                            <textcolor>grey2</textcolor>
                             <visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner)) + IsEmpty(ListItem.Art(clearlogo))</visible>
                         </control>
                         <control type="image">
-                            <left>765</left>
-                            <top>8</top>
+                            <left>805</left>
+                            <top>9</top>
                             <width>90</width>
                             <height>90</height>
                             <include>OverlayVisibility0</include>
-
                         </control>
 						<control type="image">
-                            <left>765</left>
-                            <top>8</top>
+                            <left>805</left>
+                            <top>9</top>
                             <width>90</width>
                             <height>90</height>
-
 							<texture>overlayprogress.png</texture>
 							<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
 						</control>
-							<control type="image">
-                            <left>765</left>
-                            <top>8</top>
-                            <width>90</width>
-                            <height>90</height>
-								<texture>$VAR[VideoextrasOverlay]</texture>
-								<visible>System.HasAddon(script.videoextras)</visible>
-								<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
-							</control>
+						<control type="group">
+                            <top>3</top>
+							<left>48</left>
+                            <include>UnwatchedIcon</include>
+                        </control>
                     </itemlayout>
-                    <focusedlayout height="161" width="870" condition="Container.Content(tvshows) + Skin.HasSetting(TVInfoWallBanner)">
-                        <control type="group">
-						<animation effect="zoom" center="290,70" start="100" end="110" time="160" tween="cubic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
-                            <control type="image">
-                                <left>11</left>
-                                <top>4</top>
-                                <width>849</width>
-								<height>158</height>
-								<aspectratio align="center" aligny="center">stretch</aspectratio>
-								<texture border="15">views/addonwall_select.png</texture>
-								<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-								<visible>!Skin.HasSetting(InfoWallZoom)</visible>
-                            </control>
-                            <control type="image">
-                                <left>11</left>
-                                <top>4</top>
+                    <focusedlayout height="161" width="870" condition="Container.Content(tvshows) + Skin.HasSetting(TVInfoWallBanner)">   <!-- TV BANNER ACTIVE  -->
+						<control type="group">
+						<animation effect="zoom" center="290,70" start="100" end="110" time="160" tween="cubic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>						
+                            <control type="group">
+							<visible>Skin.HasSetting(InfoWallZoom)</visible>
+							<control type="image"> 
+                                <left>35</left>
+                                <top>3</top>
                                 <width>849</width>
 								<height>158</height>
 								<aspectratio align="center">scale</aspectratio>
                                 <texture background="true">$VAR[BannerVar]</texture>
+								<bordertexture border="5">thumbs/bordershadow4.png</bordertexture>
                                 <bordersize>5</bordersize>
                             </control>
                             <control type="label">
-                                <left>585</left>
-                                <top>10</top>
+                                <left>200</left>
+                                <top>30</top>
                                 <width>540</width>
                                 <height>99</height>
                                 <align>center</align>
@@ -1052,121 +1125,178 @@
                                 <visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner)) + IsEmpty(ListItem.Art(clearlogo))</visible>
                             </control>
                             <control type="image">
-                                <left>765</left>
+                                <left>789</left>
                                 <top>8</top>
                                 <width>90</width>
                                 <height>90</height>
                                 <include>OverlayVisibility0</include>
                             </control>
 							<control type="image">
-                                <left>765</left>
+                                <left>789</left>
                                 <top>8</top>
                                 <width>90</width>
                                 <height>90</height>
 								<texture>overlayprogress.png</texture>
 								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+							</control>					
+							 <control type="group">
+                                <top>3</top>
+								<left>28</left>
+                                <include>UnwatchedIcon</include>
+                            </control>
+						</control>							
+							<control type="group"> 		<!-- Active Banner No Zoom with Frame  -->
+							<visible>!Skin.HasSetting(InfoWallZoom)</visible>							
+							<control type="image">
+                                <left>51</left>
+                                <top>4</top>
+                                <width>849</width>
+								<height>158</height>
+								<aspectratio align="center" aligny="center">stretch</aspectratio>
+								<texture border="15">views/addonwall_select.png</texture>
+								<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+                            </control>							
+							 <control type="image">
+                                <left>51</left>
+                                <top>4</top>
+                                <width>849</width>
+								<height>158</height>
+								<aspectratio align="center">scale</aspectratio>
+                                <texture background="true">$VAR[BannerVar]</texture>
+								<bordertexture border="5">thumbs/bordershadow4.png</bordertexture>
+                                <bordersize>5</bordersize>
+                            </control>							
+							 <control type="label">
+                                <left>220</left>
+                                <top>30</top>
+                                <width>540</width>
+                                <height>99</height>
+                                <align>center</align>
+                                <label>$INFO[ListItem.Label]</label>
+                                <font>Font_Bold40</font>
+                                <shadowcolor>black</shadowcolor>
+                                <visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner)) + IsEmpty(ListItem.Art(clearlogo))</visible>
+                            </control>
+							<control type="image">
+								<left>805</left>
+								<top>9</top>
+								<width>90</width>
+								<height>90</height>
+								<include>OverlayVisibility0</include>
 							</control>
 							<control type="image">
-                                <left>765</left>
-                                <top>8</top>
-                                <width>90</width>
-                                <height>90</height>
-								<texture>$VAR[VideoextrasOverlay]</texture>
-								<visible>System.HasAddon(script.videoextras)</visible>
+								<left>805</left>
+								<top>9</top>
+								<width>90</width>
+								<height>90</height>
+								<texture>overlayprogress.png</texture>
+								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
 							</control>
-                            <include>UnwatchedIcon</include>
+							<control type="group">
+								<top>3</top>
+								<left>48</left>
+								<include>UnwatchedIcon</include>
+							</control>
+							</control>	
                         </control>
                     </focusedlayout>
-                    <itemlayout height="204" width="285" condition="Container.Content(tvshows) + Skin.HasSetting(TVInfoWallLogo)">
-                            <control type="image">
-                                <left>180</left>
-                                <top>8</top>
+                    <itemlayout height="201" width="300" condition="Container.Content(tvshows) + Skin.HasSetting(TVInfoWallLogo)">		<!-- TV LOGO INACTIVE-->
+                         	<control type="image">
+                            <left>30</left>
+                            <top>7</top>
+                            <width>275</width>
+                            <height>190</height>
+                            <aspectratio align="center">stretch</aspectratio>
+                            <texture>frames/strip_box.png</texture>					
+							<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+							<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
+                             </control>							
+							<control type="image">
+                            <left>47</left>
+                            <top>56</top>
+                            <width>240</width>
+                            <height>93</height>
+                            <aspectratio align="center">stretch</aspectratio>
+                            <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+							<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
+							</control>
+							<control type="image">
+                                <left>215</left>
+                                <top>7</top>
                                 <width>90</width>
                                 <height>90</height>
                                 <include>OverlayVisibility0</include>
-								<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
+								<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
                             </control>
 							<control type="image">
                                 <left>180</left>
                                 <top>8</top>
                                 <width>90</width>
                                 <height>90</height>
-								<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
+								<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
 								<texture>overlayprogress.png</texture>
 								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
 							</control>
-                        <control type="image">
-                            <left>22</left>
-                            <top>56</top>
-                            <width>240</width>
-                            <height>93</height>
-                            <aspectratio align="center">keep</aspectratio>
-                            <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-
-                        </control>
-							<control type="image">
-                                <left>180</left>
-                                <top>8</top>
-                                <width>90</width>
-                                <height>90</height>
-								<texture>$VAR[VideoextrasOverlay]</texture>
-								<visible>System.HasAddon(script.videoextras)</visible>
-								<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
+							<control type="group">
+                            <top>-5</top>
+							<left>20</left>
+                            <include>UnwatchedIcon</include>
+							<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
 							</control>
-							<include>UnwatchedIcon</include>
                     </itemlayout>
-                    <focusedlayout height="204" width="285" condition="Container.Content(tvshows) + Skin.HasSetting(TVInfoWallLogo)">
+                    <focusedlayout height="201" width="300" condition="Container.Content(tvshows) + Skin.HasSetting(TVInfoWallLogo)">		<!-- TV LOGO ACTIVE-->
                             <control type="image">
-                                <left>180</left>
-                                <top>8</top>
+                            <left>30</left>
+                            <top>7</top>
+                            <width>275</width>
+                            <height>190</height>
+                            <aspectratio align="center">stretch</aspectratio>
+                            <texture>frames/strip_box.png</texture>					
+							<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+                            </control>							
+							<control type="image">
+                                <left>215</left>
+                                <top>7</top>
                                 <width>90</width>
                                 <height>90</height>
                                 <include>OverlayVisibility0</include>
-								<animation effect="zoom" center="auto" start="100" end="110" time="160" tween="quadratic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
                             </control>
 							<control type="image">
-                                <left>180</left>
-                                <top>8</top>
+                                <left>215</left>
+                                <top>7</top>
                                 <width>90</width>
                                 <height>90</height>
-								<animation effect="zoom" center="auto" start="100" end="110" time="160" tween="quadratic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
 								<texture>overlayprogress.png</texture>
 								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
 							</control>
-                        <control type="image">
-                            <left>22</left>
-                            <top>56</top>
-                            <width>240</width>
-                            <height>93</height>
-                            <aspectratio align="center">keep</aspectratio>
-                            <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-                            <animation effect="zoom" center="auto" start="100" end="140" time="160" tween="quadratic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
-                        </control>
 						<control type="image">
-                            <left>10</left>
+                            <left>30</left>
                             <top>4</top>
-                            <width>264</width>
-                            <height>149</height>
+                            <width>275</width>
+                            <height>195</height>
                             <aspectratio align="center" aligny="center">stretch</aspectratio>
 							<texture border="15">views/addonwall_select.png</texture>
 							<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
 							<visible>!Skin.HasSetting(InfoWallZoom)</visible>
                         </control>
-							<control type="image">
-                                <left>180</left>
-                                <top>8</top>
-                                <width>90</width>
-                                <height>90</height>
-								<texture>$VAR[VideoextrasOverlay]</texture>
-								<visible>System.HasAddon(script.videoextras)</visible>
-                               <animation effect="zoom" center="auto" start="100" end="140" time="160" tween="quadratic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
+							<control type="group">
+                            <top>-5</top>
+							<left>20</left>
+                            <include>UnwatchedIcon</include>
 							</control>
-                        <include>UnwatchedIcon</include>
-                    </focusedlayout>
+						<control type="image">
+                            <left>47</left>
+                            <top>56</top>
+                            <width>240</width>
+                            <height>93</height>
+                            <aspectratio align="center">keep</aspectratio>
+                            <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+                            <animation effect="zoom" center="auto" start="100" end="130" time="160" tween="quadratic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
+                        </control>                    					
+					</focusedlayout>
                 </control>
-<!--ShadowTek Mod: Repace from here down-->
                 <control type="scrollbar" id="60">
-                    <posx>1010</posx>
+                    <posx>1015</posx>
                     <include>Animation_VerticalScrollBar</include>
                     <posy>164</posy>
                     <width>46</width>
@@ -1174,26 +1304,14 @@
                     <texturesliderbackground>views/scrollbarbacklist.png</texturesliderbackground>
                     <onleft>512</onleft>
                     <onright>9000</onright>
-                    <visible>[Skin.HasSetting(movielogosfloor) + Container.Content(movies)]</visible>
-                </control>
-                <control type="scrollbar" id="60">
-                    <posx>1010</posx>
-                    <include>Animation_VerticalScrollBar</include>
-                    <posy>164</posy>
-                    <width>46</width>
-                    <height>787</height>
-                    <texturesliderbackground>views/scrollbarbacklist.png</texturesliderbackground>
-                    <onleft>512</onleft>
-                    <onright>9000</onright>
-                    <visible>Container.Content(episodes) | [Skin.HasSetting(tvshowlogosfloor) + Container.Content(tvshows)] | Window.IsActive(pictures)</visible>
                 </control>
                 <control type="group">
                     <left>-22</left>
                     <control type="image" id="8827">
-                        <posx>1230</posx>
-                        <posy>90</posy>
-                        <width>510</width>
-                        <height>170</height>
+                        <posx>1300</posx>
+                        <posy>115</posy>
+                        <width>335</width>
+                        <height>130</height>
                         <aspectratio>keep</aspectratio>
                         <texture background="true" fallback="empty.png">$INFO[ListItem.Art(clearlogo)]</texture>
                         <animation effect="fade" delay="240" time="240" reversible="false">Hidden</animation>
@@ -1213,7 +1331,7 @@
                     </control>
                     <control type="image" id="8827">
                         <left>1220</left>
-                        <top>153</top>
+                        <top>140</top>
                         <width>494</width>
                         <height>95</height>
                         <aspectratio scalediffuse="false">stretch</aspectratio>
@@ -1226,43 +1344,43 @@
                     <control type="group">
                         <visible>[Control.IsVisible(8827) + !Container.OnNext + !Container.OnPrevious + Stringcompare(Control.GetLabel(8827),empty.png)] | !Control.IsVisible(8827)</visible>
                         <control type="label">
-                            <posx>1090</posx>
-                            <posy>154</posy>
-                            <width>800</width>
+                            <posx>1100</posx>
+                            <posy>170</posy>
+                            <width>760</width>
                             <height>30</height>
                             <align>center</align>
                             <aligny>top</aligny>
                             <label>$INFO[ListItem.Label]</label>
                             <font>Font_Bold42_Caps</font>
-                            <textcolor>orange</textcolor>
+                            <textcolor>$VAR[FocusTextureColorVar]</textcolor>
                             <scroll>true</scroll>
                             <animation effect="fade" end="100" time="80" delay="80" reversible="false">Visible</animation>
                             <animation effect="fade" start="100" end="0" time="0" reversible="false">Hidden</animation>
                         </control>
                         <control type="image">
                             <posx>1090</posx>
-                            <posy>190</posy>
+                            <posy>178</posy>
                             <height>60</height>
                             <width>775</width>
                             <texture border="1">osd/osd_settings_buttonnf.png</texture>
                         </control>
                     </control>
-                    <control type="group">    				<!-- right side text -->
+                    <control type="group">
                         <control type="textbox">
                             <posx>1090</posx>
-                            <posy>255</posy>
+                            <posy>245</posy>
                             <width>775</width>
-                            <height>243</height>
+                            <height>248</height>
                             <font>Font_Reg19</font>
                             <label>$VAR[InfoWallTextboxVar]</label>
                             <textcolor>white6</textcolor>
                             <autoscroll delay="8000" time="AutoScrollTime" repeat="8000">Skin.HasSetting(AutoScroll)</autoscroll>
                         </control>
                     </control>
-                    <control type="group">					<!-- right side fanart -->
+                    <control type="group">
                         <posx>1090</posx>
                         <posy>505</posy>
-                        <control type="image">     			<!-- fanart glow -->
+                        <control type="image">
                             <posx>-15</posx>
                             <posy>-15</posy>
                             <width>820</width>
@@ -1272,7 +1390,8 @@
                             <bordertexture border="15">home/nowplaying/OverlayDialogBackground.png</bordertexture>
                             <bordersize>15</bordersize>
                         </control>
-                        <control type="image">				<!-- right side fanart -->
+						
+                        <control type="image">
                             <width>790</width>
                             <height>444</height>
                             <fadetime>300</fadetime>
@@ -1282,7 +1401,8 @@
                             <visible>!Player.Hasvideo</visible>
                             <include>Animation_VisibleChange200</include>
                         </control>
-						<control type="image">        		<!--  fanart extrafanart1 movieset -->
+						
+						<control type="image">
                             <left>-7</left>
 							<top>-7</top>
 							<width>804</width>
@@ -1294,6 +1414,7 @@
                             <bordersize>7</bordersize>
 							<visible>SubString(ListItem.Path,videodb://movies/sets/)</visible>
                         </control>
+						
                         <control type="multiimage">
                             <width>790</width>
                             <height>444</height>
@@ -1302,13 +1423,12 @@
                             <include condition="Window.IsActive(pictures)">Aspectratio_Keep</include>
                             <include condition="!Window.IsActive(pictures)">Aspectratio_stretch</include>
 							<timeperimage>3000</timeperimage>
-                            <!-- invalid tag -->
-                            <!--<texture background="true" fallback="special://skin/backgrounds/curtains.jpg">$VAR[InfoWallPreviewTextureVar]</texture>-->
 							<imagepath background="true">$VAR[VideoExtraFanartVar]</imagepath>
 							<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
                             <visible>!SubString(ListItem.Label,*,left) + [Substring(Container.FolderPath,videodb://,left) | Substring(Container.FolderPath,special://profile/playlist,left)] + Skin.HasSetting(InfoWallEpisodeThumb)</visible>
                             <include>Animation_VisibleChange200</include>
                         </control>
+						
                         <control type="image">
                             <width>790</width>
                             <height>444</height>
@@ -1331,6 +1451,7 @@
 							<animation effect="fade" delay="80" end="100" time="240" condition="!Stringcompare(Control.GetLabel(8827),empty.png)">Conditional</animation>
 							<visible>Container.Content(artists)</visible>
 						</control>
+						
 						<control type="image">
 							<width>790</width>
                             <height>444</height>
@@ -1340,6 +1461,7 @@
 							<animation effect="fade" delay="80" end="100" time="240">Conditional</animation>
 							<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs)</visible>
 						</control>
+						
 						<control type="multiimage">
 							<width>790</width>
                             <height>444</height>
@@ -1350,24 +1472,11 @@
 							<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs)</visible>
 							<include>Animation_VisibleChange200</include>
 						</control>
-
-						<!--control type="multiimage">
-                            <width>802</width>
-                            <height>451</height>
-							<aspectratio>stretch</aspectratio>
-                            <fadetime>FanartCrossfadeTime</fadetime>
-                            <include condition="Window.IsActive(pictures)">Aspectratio_Keep</include>
-                            <include condition="!Window.IsActive(pictures)">Aspectratio_Scale</include>
-							<timeperimage>3000</timeperimage>
-                            <imagepath background="true">$VAR[MusicExtraFanartVar]</imagepath>
-							<visible>Container.Content(artists)</visible>
-							<include>Animation_VisibleChange200</include>
-                        </control-->
-
+						
                         <control type="videowindow" id="40001">
-                            <width>790</width>
-                            <height>444</height>
-                            <visible>Player.Hasvideo + !VideoPlayer.IsFullscreen</visible>
+							<width>790</width>
+                            <height>442</height>
+							<visible>Player.Hasvideo + !VideoPlayer.IsFullscreen</visible>
                         </control>
                     </control>
                 </control>
