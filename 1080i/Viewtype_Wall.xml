@@ -86,7 +86,7 @@
     </include>
 
 	<include name="WallContent">
-		<itemlayout height="268" width="275" condition="[!Container.Content(studios) + !Container.Content(years)] + ![Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos) | [Window.IsActive(videolibrary) + Container.Content(genres)] | [Window.IsActive(pictures) + Substring(Container.FolderPath,\comics\)]] + [Skin.HasSetting(titlewall) | StringCompare(Container.FolderName,youtube)]">
+		<itemlayout height="268" width="275" condition="[!Container.Content(studios) + !Container.Content(years)] + ![Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos) | [Window.IsActive(videolibrary) + Container.Content(genres)] | [Window.IsActive(pictures) + Substring(Container.FolderPath,\comics\)]] + [Skin.HasSetting(titlewall) | StringCompare(Container.FolderName,youtube)] + !Container.Content(episodes)">
 		<control type="group">
 				<posx>20</posx>
 				<posy>23</posy>
@@ -171,7 +171,7 @@
 		    </control>
         </itemlayout>
 
-		<focusedlayout height="268" width="275" condition="[!Container.Content(studios) + !Container.Content(years)] + ![Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos) | [Window.IsActive(videolibrary) + Container.Content(genres)] | [Window.IsActive(pictures) + Substring(Container.FolderPath,\comics\)]] + [Skin.HasSetting(titlewall) | StringCompare(Container.FolderName,youtube)]">
+		<focusedlayout height="268" width="275" condition="[!Container.Content(studios) + !Container.Content(years)] + ![Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos) | [Window.IsActive(videolibrary) + Container.Content(genres)] | [Window.IsActive(pictures) + Substring(Container.FolderPath,\comics\)]] + [Skin.HasSetting(titlewall) | StringCompare(Container.FolderName,youtube)] + !Container.Content(episodes)">
 			<control type="group">
 				<posx>20</posx>
 				<posy>23</posy>
@@ -692,7 +692,123 @@
 			</control>
 		</focusedlayout>
 
-
+		<!-- TV EPISODES -->
+        <itemlayout height="200" width="331" condition="Container.Content(episodes)"> <!-- TV EPISODES LANDSCAPE INACTIVE-->
+                        <control type="group">
+                            <top>13</top>
+							<left>10</left>
+                            <control type="group">
+                                <visible>Container.Content(episodes)</visible>
+                                <control type="image">
+                                    <width>320</width>
+                                    <height>180</height>
+                                    <aspectratio scalediffuse="false">scale</aspectratio>
+                                    <texture background="true">$INFO[ListItem.Icon]</texture>
+                                    <bordertexture border="5">thumbs/bordershadow4.png</bordertexture>
+									<bordersize>5</bordersize>
+                                </control>
+                                <control type="image">
+                                    <top>130</top>
+                                    <width>320</width>
+                                    <height>45</height>
+                                    <texture>common/bgcolor.png</texture>
+                                    <animation effect="fade" start="100" end="70" time="40" condition="true">Conditional</animation>
+                                    <bordersize>5</bordersize>
+                                </control>
+                                <control type="label">
+                                    <left>0</left>
+                                    <top>125</top>
+                                    <width>310</width>
+                                    <height>51</height>
+                                    <textoffsetx>5</textoffsetx>
+                                    <align>center</align>
+									<scroll>true</scroll>
+                                    <label fallback="..">$INFO[ListItem.Season,$LOCALIZE[20359] ]$INFO[ListItem.Episode,.]</label>
+                                    <font>Font_Info</font>
+                                    <textcolor>grey2</textcolor>
+                                </control>
+                            </control>
+                            <control type="image">
+                                <left>240</left>
+                                <top>5</top>
+                                <width>75</width>
+                                <height>75</height>
+                                <include>OverlayVisibility0</include>
+                            </control>
+							<control type="image">
+                                <left>240</left>
+                                <top>5</top>
+                                <width>75</width>
+                                <height>75</height>
+								<texture>overlayprogress.png</texture>
+								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+							</control>
+                        </control>
+                    </itemlayout>
+		<focusedlayout height="200" width="331" condition="Container.Content(episodes)"><!-- TV EPISODES LANDSCAPE ACTIVE-->                      
+                      <control type="group">
+                            <top>13</top>
+							<left>10</left>
+							<animation type="Focus" reversible="false">
+								<effect type="zoom" center="auto" start="100" end="108" time="400" tween="cubic" />
+							</animation>
+                            <control type="group">
+                                <visible>Container.Content(episodes)</visible>
+                                <control type="image">
+                                    <width>320</width>
+                                    <height>180</height>
+                                    <aspectratio scalediffuse="false">scale</aspectratio>
+                                    <texture background="true">$INFO[ListItem.Icon]</texture>
+                                    <bordertexture border="5">thumbs/bordershadow4.png</bordertexture>
+									<bordersize>5</bordersize>
+                                </control>
+                                <control type="image">
+                                    <top>130</top>
+                                    <width>320</width>
+                                    <height>45</height>
+                                    <texture>common/bgcolor.png</texture>
+                                    <animation effect="fade" start="100" end="90" time="40" condition="true">Conditional</animation>
+                                    <bordersize>5</bordersize>
+                                </control>
+                                <control type="label">
+                                    <left>0</left>
+                                    <top>125</top>
+                                    <width>310</width>
+                                    <height>51</height>
+                                    <textoffsetx>5</textoffsetx>
+                                    <align>center</align>
+									<scroll>true</scroll>
+                                    <label fallback="..">$INFO[ListItem.Season,$LOCALIZE[20359] ]$INFO[ListItem.Episode,.]</label>
+                                    <font>Font_Info</font>
+                                    <textcolor>$VAR[FontColorVar]</textcolor>
+                                </control>
+                            </control>
+                            <control type="image">
+                                <left>240</left>
+                                <top>5</top>
+                                <width>75</width>
+                                <height>75</height>
+                                <include>OverlayVisibility0</include>
+                            </control>
+							<control type="image">
+                                <left>240</left>
+                                <top>5</top>
+                                <width>75</width>
+                                <height>75</height>
+								<texture>overlayprogress.png</texture>
+								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+							</control>
+							<control type="image">
+                                <width>320</width>
+                                <height>180</height>
+                                <aspectratio align="center" aligny="center">stretch</aspectratio>
+								<texture border="15">views/addonwall_select.png</texture>
+								<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+								<visible>!Skin.HasSetting(InfoWallZoom)</visible>
+			                </control>
+                        </control>
+                    </focusedlayout>	
+		
 		<itemlayout width="208" height="201" condition="![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(musicvideos) | [Window.IsActive(videolibrary) + Container.Content(genres)] | [Window.IsActive(pictures) + Substring(Container.FolderPath,\comics\)]] + ![Skin.HasSetting(titlewall) | StringCompare(Container.FolderName,youtube)]">
 			<include>WallIcons</include>
 		</itemlayout>
@@ -734,16 +850,30 @@
 
 	<include name="WallVertical">
 		<control type="scrollbar" id="72">
-			<left>1888</left>
-			<top>132</top>
+			<left>1775</left>
+			<top>80</top>
 			<width>46</width>
-			<height>502</height>
+			<height>910</height>
 			<animation effect="zoom" start="70" end="100" center="auto" tween="back" time="320" condition="Control.HasFocus(72)">Conditional</animation>
 			<animation effect="fade" start="100" end="0" time="240" condition="!Control.HasFocus(72)">Conditional</animation>
 			<include>Animation_VerticalScrollBar</include>
 			<orientation>vertical</orientation>
 			<onleft>500</onleft>
 			<onright>9000</onright>
+			<visible>!Skin.HasSetting(wallfullscreen)</visible>
+		</control>
+		<control type="scrollbar" id="72">
+			<left>1880</left>
+			<top>40</top>
+			<width>46</width>
+			<height>980</height>
+			<animation effect="zoom" start="70" end="100" center="auto" tween="back" time="320" condition="Control.HasFocus(72)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="240" condition="!Control.HasFocus(72)">Conditional</animation>
+			<include>Animation_VerticalScrollBar</include>
+			<orientation>vertical</orientation>
+			<onleft>500</onleft>
+			<onright>9000</onright>
+			<visible>Skin.HasSetting(wallfullscreen)</visible>
 		</control>
 		<control type="panel" id="500">
 			<left>129</left>
