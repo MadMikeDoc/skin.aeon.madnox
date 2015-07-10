@@ -163,6 +163,7 @@
 		<include>Furniture_Glow</include>
 		<include>ShowcaseInfoPaneMoviesNew</include>
 		<include>ShowcaseInfoPaneMovies</include>
+		<include>ShowcaseInfoPaneTextOnly</include>
 		<include>Furniture_Showcase</include>
 		<include condition="!Skin.HasSetting(DisableInfoWallVL) | !Skin.HasSetting(DisableWallVL)">WallPanel</include>
 		<control type="group">
@@ -536,8 +537,8 @@
 					<fadetime>200</fadetime>
 					<animation effect="fade" delay="240" time="240" reversible="false">Hidden</animation>
 					<visible>[Skin.HasSetting(tvshowbannersfloor) + Container.Content(tvshows)]</visible>
-					<visible>Control.IsVisible(57) | Control.IsVisible(508) | [Control.IsVisible(500) + !StringCompare(Container.FolderName,youtube)] | Control.IsVisible(501)</visible>
-					<visible>[Container.Content(tvshows) + !Skin.HasSetting(NoFloorLabelTVshows)]</visible>
+					<visible>Control.IsVisible(57) | Control.IsVisible(508) | [Control.IsVisible(500) + !StringCompare(Container.FolderName,youtube) + Skin.HasSetting(tvshowbannersfloor)] | Control.IsVisible(501)</visible>
+					<visible>[Container.Content(tvshows) + !Skin.HasSetting(NoFloorLabelTVshows) + Skin.HasSetting(tvshowbannersfloor)]</visible>
 				</control>
 				<control type="image" id="8822">
 					<left>817.5</left>
@@ -548,9 +549,9 @@
 					<texture background="true" fallback="empty.png">$INFO[ListItem.Art(clearlogo)]</texture>
 					<fadetime>200</fadetime>
 					<animation effect="fade" delay="240" time="240" reversible="false">Hidden</animation>
-					<visible>Control.IsVisible(57) | [Control.IsVisible(508) + Skin.HasSetting(tvshowlogosfloor)] | [Control.IsVisible(500) + !StringCompare(Container.FolderName,youtube)] | Control.IsVisible(501) | [Control.IsVisible(499) + Skin.HasSetting(WallLargeLogo)]</visible>
+					<visible>Control.IsVisible(57) | [Control.IsVisible(508) + Skin.HasSetting(tvshowlogosfloor)] | [Control.IsVisible(500) + !StringCompare(Container.FolderName,youtube) + Skin.HasSetting(tvshowlogosfloor)] | Control.IsVisible(501) | [Control.IsVisible(499) + Skin.HasSetting(WallLargeLogo)]</visible>
 				    <visible>[Skin.HasSetting(movielogosfloor) + Container.Content(movies)] | [Skin.HasSetting(WallLargeLogo) + [Container.Content(movies) | Container.Content(tvshows)]] | [Skin.HasSetting(tvshowlogosfloor) + Container.Content(tvshows)] | [Skin.HasSetting(movielogosfloor) + Container.Content(sets)]</visible>
-					<visible>[!Skin.HasSetting(NoFloorLabelMovies) + Skin.HasSetting(movielogosfloor) + Container.Content(movies)] | [Container.Content(tvshows) + !Skin.HasSetting(NoFloorLabelTVshows)] | [Container.Content(sets) + !Skin.HasSetting(NoFloorLabelMovies)]</visible>
+					<visible>[!Skin.HasSetting(NoFloorLabelMovies) + Skin.HasSetting(movielogosfloor) + Container.Content(movies)] | [Container.Content(tvshows) + !Skin.HasSetting(NoFloorLabelTVshows) + Skin.HasSetting(tvshowlogosfloor)] | [Container.Content(sets) + !Skin.HasSetting(NoFloorLabelMovies)]</visible>
 				</control>
 			</control>
 			<include>Furniture_DarkGradient</include>

@@ -21,6 +21,7 @@
 		<value>special://skin/extras/BigIcons/mainmenu.png</value>
 	</variable>
 	<variable name="GlobalCaseVar">
+		<value condition="[Container.Content(tvshows) | Container.Content(seasons)]">tvseries.png</value>
 		<value condition="SubString(ListItem.Filename,.3D.) | SubString(ListItem.Filename,.3d.)">3d.png</value>
 		<value condition="SubString(ListItem.Filename, 3D.) | SubString(ListItem.Filename, 3d.)">3d.png</value>
 		<value condition="SubString(ListItem.Filename,.3DBD.) | SubString(ListItem.Filename,.3dbd.)">3d.png</value>
@@ -2191,11 +2192,11 @@
 		<!--value condition="SubString(ListItem.Filename,hdtv)">hdtv.png</value-->
 		<value>$INFO[Container(501).ListItem(7).VideoResolution]p.png</value>
 	</variable>
-	<variable name="GlobalCaseVar">
+	<!--variable name="GlobalCaseVar">
 		<value condition="SubString(ListItem.Filename,.3D.)">3d.png</value>
 		<value condition="SubString(ListItem.Filename,hdtv)">hdtv.png</value>
 		<value>$INFO[ListItem.VideoResolution]p.png</value>
-	</variable>
+	</variable-->
 	<variable name="MusicShowcaseItem-6Var">
 		<value condition="Container.Content(genres)">$INFO[ListItem(-6).Label,special://skin/extras/genre/music/icons/,.jpg]</value>
 		<value condition="Container.Content(years)">$INFO[ListItem(-6).Label,special://skin/extras/year/music/icons/,.jpg]</value>
@@ -4189,6 +4190,7 @@
 		<value condition="substring(Container(5801).Listitem.mpaa,Rated X)">MPAA_X_Certificate_US</value>
 	</variable>
 	<variable name="FakeDiscArtOverlay">
+		<value condition="[Container.Content(tvshows) | Container.Content(seasons)]">common/discart/tvepisodes.png</value>
 		<value condition="SubString(ListItem.Filename,.3D.) | SubString(ListItem.Filename,.3d.)">common/discart/3d.png</value>
 		<value condition="SubString(ListItem.Filename, 3D.) | SubString(ListItem.Filename, 3d.)">common/discart/3d.png</value>
 		<value condition="SubString(ListItem.Filename,.3DBD.) | SubString(ListItem.Filename,.3dbd.)">common/discart/3d.png</value>
@@ -4296,5 +4298,43 @@
 		<value condition="SubString(ListItem.Label,S,left)">$INFO[ListItem.Path]season00-landscape.jpg</value>
 		<value condition="Container.Content(Seasons)">$INFO[ListItem.Art(fanart)]</value>
 		<value>$INFO[ListItem.Path]landscape.jpg</value>
+	</variable>
+	<variable name="VideoExtraThumbVar">
+		<value condition="Container.Content(movies) | Container.Content(tvshows)">$INFO[ListItem.Path,,extrathumbs/]</value>
+		<value condition="Container.Content(episodes)">$INFO[ListItem.Path,,../extrathumbs/]</value>
+		<value condition="Container.Content(seasons)">$INFO[ListItem.Path,,./extrathumbs/]</value>
+	</variable>
+	<variable name="InfoPanelLayoutTextVar">
+		<value>views/fanart_layout.png</value>
+	</variable>	
+	<!--Extendend Info-->
+	<variable name="ExtendedInfo.FavLabelVar">
+		<value condition="!IsEmpty(Window.Property(movie.favorite))"></value>
+		<value></value>
+	</variable>
+	<variable name="ExtendedInfo.RatingLabelVar">
+		<value condition="!IsEmpty(Window.Property(movie.rated))"></value>
+		<value></value>
+	</variable>
+	<variable name="ExtendedInfo.DetailsLabelVar">
+		<value condition="ControlGroup(9001).HasFocus(1000) | Control.HasFocus(5)">[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[206][/COLOR] $INFO[Container(1000).NumItems,(,)]</value>
+		<value condition="ControlGroup(9001).HasFocus(150)">[COLOR $VAR[FocusTextureColorVar]]$ADDON[script.extendedinfo 32116][/COLOR] $INFO[Container(150).NumItems,(,)]</value>
+		<value condition="ControlGroup(9001).HasFocus(750)">[COLOR $VAR[FocusTextureColorVar]]$ADDON[script.extendedinfo 32115][/COLOR] $INFO[Container(750).NumItems,(,)]</value>
+		<value condition="ControlGroup(9001).HasFocus(250) + IsEmpty(Window.Property(movie.set.label))">[COLOR $VAR[FocusTextureColorVar]][/COLOR] $LOCALIZE[33054]$INFO[Container(250).NumItems,(,)]</value>
+		<value condition="ControlGroup(9001).HasFocus(250)">[COLOR $VAR[FocusTextureColorVar]]$INFO[Window.Property(movie.set.label)][/COLOR] $INFO[Container(250).NumItems,(,)]</value>
+		<value condition="ControlGroup(9001).HasFocus(1150)">[COLOR $VAR[FocusTextureColorVar]]$ADDON[script.extendedinfo 32117][/COLOR] $INFO[Container(1150).NumItems,(,)]</value>
+		<value condition="ControlGroup(9001).HasFocus(350)">[COLOR $VAR[FocusTextureColorVar]]$ADDON[script.extendedinfo 32118][/COLOR] $INFO[Container(350).NumItems,(,)]</value>
+		<value condition="ControlGroup(9001).HasFocus(1250)">[COLOR $VAR[FocusTextureColorVar]]$ADDON[script.extendedinfo 32119][/COLOR] $INFO[Container(1250).NumItems,(,)]</value>
+		<value condition="ControlGroup(9001).HasFocus(1350)">[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[20445][/COLOR] $INFO[Container(1350).NumItems,(,)]</value>
+	</variable>
+	<variable name="ExtendedInfo.ActorDetailsLabelVar">
+		<value condition="ControlGroup(9001).HasFocus(132)">[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[21887][/COLOR]</value>
+		<value condition="ControlGroup(9001).HasFocus(150)">[COLOR $VAR[FocusTextureColorVar]]$ADDON[script.extendedinfo 32120][/COLOR] $INFO[Container(150).NumItems,(,)]</value>
+		<value condition="ControlGroup(9001).HasFocus(250)">[COLOR $VAR[FocusTextureColorVar]]$ADDON[script.extendedinfo 32121][/COLOR] $INFO[Container(250).NumItems,(,)]</value>
+		<value condition="ControlGroup(9001).HasFocus(350)">[COLOR $VAR[FocusTextureColorVar]]$ADDON[script.extendedinfo 32118][/COLOR] $INFO[Container(350).NumItems,(,)]</value>
+		<value condition="ControlGroup(9001).HasFocus(450)">[COLOR $VAR[FocusTextureColorVar]]$ADDON[script.extendedinfo 32119][/COLOR] $INFO[Container(450).NumItems,(,)]</value>
+		<value condition="ControlGroup(9001).HasFocus(550)">[COLOR $VAR[FocusTextureColorVar]]$ADDON[script.extendedinfo 32122][/COLOR] $INFO[Container(550).NumItems,(,)]</value>
+		<value condition="ControlGroup(9001).HasFocus(650)">[COLOR $VAR[FocusTextureColorVar]]$ADDON[script.extendedinfo 32123][/COLOR] $INFO[Container(650).NumItems,(,)]</value>
+		<value condition="ControlGroup(9001).HasFocus(750)">[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[20445][/COLOR] $INFO[Container(750).NumItems,(,)]</value>
 	</variable>
 </includes>

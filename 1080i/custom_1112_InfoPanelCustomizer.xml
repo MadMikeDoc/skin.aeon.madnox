@@ -19,12 +19,12 @@
             <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | [Container.Content(sets) + skin.hassetting(backendmode)]</visible>
         </control>
         <control type="group">
-            <top>50</top>
+            <top>-20</top>
             <control type="image">
                 <left>285</left>
                 <top>580</top>
                 <width>1350</width>
-                <height>415</height>
+                <height>515</height>
                 <texture border="50">osd/osd_settings_back_glow.png</texture>
                 <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                 <visible>!Skin.HasSetting(DisableGlowbar)</visible>
@@ -35,7 +35,7 @@
                 <left>285</left>
                 <top>580</top>
                 <width>1350</width>
-                <height>415</height>
+                <height>515</height>
                 <texture border="50">osd/osd_settings_back.png</texture>
                 <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
             </control>
@@ -106,6 +106,13 @@
                     <include>Objects_MediaMenuButtonAround</include>
                     <onclick>Skin.ToggleSetting(infopanel_extrafanart)</onclick>
                     <selected>Skin.HasSetting(infopanel_extrafanart)</selected>
+                    <visible>![Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]</visible>
+                </control>
+                <control type="radiobutton" id="17067">
+                    <label>Info/Text Only</label>
+                    <include>Objects_MediaMenuButtonAround</include>
+                    <onclick>Skin.ToggleSetting(infopanel_textonly)</onclick>
+                    <selected>Skin.HasSetting(infopanel_textonly)</selected>
                     <visible>![Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]</visible>
                 </control>
                 <control type="radiobutton" id="1826">

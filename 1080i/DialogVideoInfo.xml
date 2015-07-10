@@ -52,7 +52,7 @@
 					<top>284</top>
 					<width>854</width>
 					<height>42</height>
-					<texturefocus border="8" colordiffuse="$INFO[Window(home).Property(VideoInfo.ImageColor)]">views/tripanel/listselect_fo.png</texturefocus>
+					<texturefocus border="8" colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texturefocus>
 					<texturenofocus>-</texturenofocus>
 					<label>-</label>
 					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
@@ -72,7 +72,7 @@
 						<top>208</top>
 						<width>960</width>
 						<height>42</height>
-						<texturefocus border="8" colordiffuse="$INFO[Window(home).Property(VideoInfo.ImageColor)]">views/tripanel/listselect_fo.png</texturefocus>
+						<texturefocus border="8" colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texturefocus>
 						<texturenofocus>-</texturenofocus>
 						<label>-</label>
 						<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Director])</onclick>
@@ -88,7 +88,7 @@
 						<top>249</top>
 						<width>960</width>
 						<height>42</height>
-						<texturefocus border="8" colordiffuse="$INFO[Window(home).Property(VideoInfo.ImageColor)]">views/tripanel/listselect_fo.png</texturefocus>
+						<texturefocus border="8" colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texturefocus>
 						<texturenofocus>-</texturenofocus>
 						<label>-</label>
 						<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Writer])</onclick>
@@ -374,7 +374,7 @@
 									<align>center</align>
 									<label>$VAR[TvGuideVarTxt]</label>
 									<font>Font_Reg19_Caps</font>
-									<textcolor>floor</textcolor>
+									<textcolor>$VAR[FontColorVar]</textcolor>
 								</control>
 								<control type="image">
 									<top>5</top>
@@ -395,7 +395,7 @@
 									<align>center</align>
 									<label>$LOCALIZE[2050]</label>
 									<font>Font_Reg19_Caps</font>
-									<textcolor>floor</textcolor>
+									<textcolor>$VAR[FontColorVar]</textcolor>
 								</control>
 								<control type="label">
 									<left>0</left>
@@ -424,7 +424,7 @@
 									<align>center</align>
 									<label>$LOCALIZE[345]</label>
 									<font>Font_Reg19_Caps</font>
-									<textcolor>floor</textcolor>
+									<textcolor>$VAR[FontColorVar]</textcolor>
 								</control>
 								<control type="label">
 									<top>18</top>
@@ -1664,7 +1664,7 @@
 							<control type="image">
 								<width>555</width>
 								<height>37</height>
-								<texture border="8" colordiffuse="$INFO[Window(home).Property(VideoInfo.ImageColor)]">views/tripanel/listselect_fo.png</texture>
+								<texture border="8" colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texture>
 								<visible>Control.HasFocus(601)</visible>
 							</control>
 							<control type="label">
@@ -1728,6 +1728,20 @@
 						<label>$LOCALIZE[13404] $INFO[ListItem.PercentPlayed,(,%)]</label>
 						<include>DialogVideoInfoButton</include>
 						<visible>Control.IsEnabled(9)</visible>
+					</control>
+					<control type="button" id="551">
+						<description>ExtendedInfo Movies</description>
+						<include>DialogVideoInfoButton</include>
+						<onclick>RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.Title])</onclick>
+						<label>Extended Info</label>
+						<visible>Container.Content(movies) + System.HasAddon(script.extendedinfo)</visible>
+					</control>
+					<control type="button" id="552">
+						<description>ExtendedInfo TV Shows</description>
+						<include>DialogVideoInfoButton</include>
+						<onclick>RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID])</onclick>
+						<label>Extended Info</label>
+						<visible>Container.Content(tvshows) + System.HasAddon(script.extendedinfo)</visible>
 					</control>
 					<control type="button" id="11">
 						<label>$LOCALIZE[20410]</label>

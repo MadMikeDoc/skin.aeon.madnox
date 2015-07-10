@@ -753,7 +753,7 @@
 			<top>-33</top>
 			<width>1920</width>
 			<height>750</height>
-			<visible>Skin.HasSetting(infopane_panel2)</visible>
+			<visible>Skin.HasSetting(infopane_panel2) + !Skin.HasSetting(infopanel_textonly)</visible>
 			<visible>Window.IsActive(1112) | Control.IsVisible(197) | Control.HasFocus(7000) | Stringcompare(Control.GetLabel(4421),infopanelon)</visible>
 			<visible>Control.IsVisible(9900)</visible>
 			<visible>Control.IsVisible(508) | Control.IsVisible(503) | Control.IsVisible(509) | Control.IsVisible(501) | [Control.IsVisible(57) + Skin.HasSetting(smallshiftview)]</visible>
@@ -844,7 +844,7 @@
 					<effect type="fade" end="100" delay="320" time="160"/>
 				</animation>
 			</control>
-			<!-- BEGIN Extra Fanart by ShadowTek - Replaces above single image if swtich on(MAD)-->
+			<!-- BEGIN Extra Fanart by ShadowTek - Replaces above single image if switch on(MAD)-->
             <control type="multiimage">   <!-- fanart center -->
                 <left>588</left>
                 <top>127</top>
@@ -1025,6 +1025,22 @@
 					<animation effect="zoom" end="100" center="1800,270" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(no_infopane_panel) + Control.IsVisible(503)">Conditional</animation>
 					<visible>StringCompare(Control.GetLabel(4420),poster) | StringCompare(Control.GetLabel(4420),extrathumbs)</visible>
 				</control>
+				<!-- BEGIN Extra Fanart by ShadowTek -->
+				<control type="multiimage">
+					<left>580</left>
+					<top>121</top>
+					<width>744</width>
+					<height>423</height>
+					<aspectratio>stretch</aspectratio>
+					<fadetime>FanartCrossfadeTime</fadetime>
+					<include condition="Window.IsActive(pictures)">Aspectratio_Keep</include>
+					<include condition="!Window.IsActive(pictures)">Aspectratio_Scale</include>
+					<timeperimage>3000</timeperimage>
+					<imagepath background="true">$VAR[VideoExtraFanartVar]</imagepath>
+					<visible>StringCompare(Control.GetLabel(4420),poster) | StringCompare(Control.GetLabel(4420),extrathumbs)</visible>
+					<include>Animation_VisibleChange200</include>
+				</control>
+				<!-- END Extra Fanart by ShadowTek -->
 				<control type="image">   <!--  Posters Poster right -->
 					<left>1591</left>
 					<top>78</top>
@@ -1115,6 +1131,21 @@
 						<texture background="true">$VAR[ExtraThumb1Var]</texture>
 						<fadetime>400</fadetime>
 					</control>
+					
+					<!-- MAD - multi image control for thumbs top right WIP-->      <!-- 4thumbs top right -->
+					<!--control type="multiimage">
+						<left>-50</left>
+						<top>56</top>
+						<width>391</width>
+						<height>200</height>
+						<aspectratio>keep</aspectratio>
+						<bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
+						<bordersize>7</bordersize>
+						<timeperimage>20000</timeperimage>
+						<imagepath background="true">$VAR[VideoExtraThumbVar]</imagepath>
+						<fadetime>400</fadetime>
+					</control-->
+					
 					<control type="image">    <!-- 4thumbs bottom right -->
 						<left>-50</left>
 						<top>265</top>
@@ -1333,7 +1364,7 @@
 			<top>39</top>
 			<width>1920</width>
 			<height>750</height>
-			<visible>!Skin.HasSetting(infopane_panel2)</visible>
+			<visible>!Skin.HasSetting(infopane_panel2) + !Skin.HasSetting(infopanel_textonly)</visible>
 			<visible>Window.IsActive(1112) | Control.IsVisible(197) | Control.HasFocus(7000) | Stringcompare(Control.GetLabel(4421),infopanelon)</visible>
 			<visible>Control.IsVisible(9900)</visible>
 			<visible>Control.IsVisible(508) | Control.IsVisible(503) | Control.IsVisible(509) | Control.IsVisible(501) | [Control.IsVisible(57) + Skin.HasSetting(smallshiftview)]</visible>
@@ -1945,6 +1976,276 @@
 		</control>
 		<!-- END Next Aired -->
 	</include>
+	
+	<!--MAD - New Info / Text only Infopanel - Start -->
+	<include name="ShowcaseInfoPaneTextOnly">
+		<control type="group" id="7550">
+			<top>329</top>
+			<width>1920</width>
+			<height>350</height>
+			<visible>Skin.HasSetting(infopanel_textonly)</visible>
+			<visible>Window.IsActive(1112) | Control.IsVisible(197) | Control.HasFocus(7000) | Stringcompare(Control.GetLabel(4421),infopanelon)</visible>
+			<visible>Control.IsVisible(9900)</visible>
+			<visible>Control.IsVisible(508) | Control.IsVisible(503) | Control.IsVisible(509) | Control.IsVisible(501) | [Control.IsVisible(57) + Skin.HasSetting(smallshiftview)]</visible>
+			<animation effect="slide" start="0,-1200" end="0,0" time="600" tween="cubic">VisibleChange</animation>
+			<animation effect="slide" end="0,45" time="320" easing="inout" tween="cubic" condition="Control.IsVisible(503) | Control.IsVisible(508)">Conditional</animation>
+			<animation effect="fade" time="200">WindowOpen</animation>
+			<animation effect="slide" end="0,-1000" time="240" easing="in" tween="cubic">WindowClose</animation>
+			<animation effect="slide" end="0,35" time="400" easing="in" tween="cubic" condition="!Skin.HasSetting(no_infopane_panel) + Control.IsVisible(503)">Conditional</animation>
+			<animation effect="slide" end="0,60" time="400" easing="in" tween="cubic" condition="[Control.IsVisible(57) + Skin.HasSetting(smallshiftview)]">Conditional</animation>
+			<animation effect="slide" end="0,65" time="400" easing="in" tween="cubic" condition="!Skin.HasSetting(no_infopane_panel) + Control.IsVisible(503) + [Skin.HasSetting(landscapelogo) | Skin.HasSetting(landscapeonelogo)] + [Container.Content(tvshows) | Container.Content(movies)]">Conditional</animation>
+			<animation effect="slide" start="0," end="0,-55" time="600" tween="cubic" condition="Skin.HasSetting(infopanel_textonly)">Conditional</animation>
+			<animation effect="zoom" end="113" center="960,500" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(no_infopane_panel)">Conditional</animation>
+			<control type="group">
+				<visible>!Skin.HasSetting(no_infopane_panel)</visible>
+				<include>Animation_VisibleChange400</include>
+				<control type="image">
+					<left>112</left>
+					<width>1695</width>
+					<height>760</height>
+					<texture>wall/wall_bg_glow.png</texture>
+					<visible>!Skin.HasSetting(DisableGlowbar)</visible>
+					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+					<include>PanelGlowFade</include>
+				</control>
+				<control type="image">
+					<left>112</left>
+					<width>1695</width>
+					<height>760</height>
+					<texture>wall/wall_bg.png</texture>
+					<colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+				</control>
+			</control>
+			<control type="image">
+				<left>112</left>
+				<top>-6</top>
+				<width>1695</width>
+				<height>750</height>
+				<texture>$VAR[InfoPanelLayoutTextVar]</texture>
+				<fadetime>400</fadetime>
+				<visible>!Skin.HasSetting(no_infopane_panel)</visible>
+			</control>
+			<control type="group">
+				<visible>!Skin.HasSetting(no_infopane_panel) + Skin.HasSetting(enable_Watchedicontop)</visible>
+				<include>Animation_VisibleChange400</include>
+				<control type="image">
+					<left>1747</left>
+					<top>15</top>
+					<width>45</width>
+					<height>45</height>
+					<texture>$VAR[WatchedIconVar]</texture>
+					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+				</control>
+				<control type="label">
+					<left>1745</left>
+					<top>8</top>
+					<width>50</width>
+					<height>50</height>
+					<label>$INFO[ListItem.Top250]</label>
+					<textcolor>white6</textcolor>
+					<align>center</align>
+					<font>Font_Bold15_Caps</font>
+					<visible>IntegerGreaterThan(ListItem.Top250,3)</visible>
+				</control>
+			</control>
+			<control type="image">
+				<left>136</left>
+				<top>10</top>
+				<width>32</width>
+				<height>32</height>
+				<texture background="true">$VAR[CountryFlagVar]</texture>
+				<visible>!Skin.HasSetting(no_infopane_panel)</visible>
+				<include>Animation_VisibleChange400</include>
+			</control>
+			<control type="group">
+				<visible>Container.Content(movies) | [Container.Content(tvshows) + Control.isVisible(8858)]</visible>
+				<visible>!Skin.HasSetting(no_infopane_panel)</visible>
+				<include>Animation_VisibleChange400</include>
+				<control type="label">
+					<left>170</left>
+					<top>1</top>
+					<width>1580</width>
+					<height>42</height>
+					<align>center</align>
+					<label>$VAR[LandscapeLogoPanelLabelVar]</label>
+					<textcolor>grey2</textcolor>
+					<scroll>true</scroll>
+				</control>
+			</control>
+			<control type="group">
+				<left>158</left>
+				<top>74</top>
+				<animation effect="slide" end="472,0" time="0" easing="inout" tween="cubic" condition="StringCompare(Control.GetLabel(4420),fourthumbs)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="880" condition="Player.HasVideo + StringCompare(Control.GetLabel(4420),fourthumbs)">Conditional</animation>
+				<animation type="VisibleChange">
+					<effect type="fade" end="100" delay="320" time="160"/>
+				</animation>
+				<control type="grouplist">
+					<orientation>vertical</orientation>
+					<top>-18</top>
+					<control type="label">
+						<width>420</width>
+						<height>22</height>
+						<label>$VAR[FanartPanelDetail1Var]</label>
+						<textcolor>$VAR[SubTitleColorVar]</textcolor>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<height>47</height>
+						<label fallback="31006">$VAR[FanartPanelValue1Var]</label>
+						<scroll>true</scroll>
+					</control>
+					<control type="label">
+						<width>420</width>
+						<height>22</height>
+						<label>$VAR[FanartPanelDetail3Var]</label>
+						<textcolor>$VAR[SubTitleColorVar]</textcolor>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<height>47</height>
+						<label fallback="31006">$VAR[FanartPanelValue3Var]</label>
+						<scroll>true</scroll>
+					</control>
+					<control type="label">
+						<width>420</width>
+						<height>22</height>
+						<label>$VAR[FanartPanelDetail5Var]</label>
+						<textcolor>$VAR[SubTitleColorVar]</textcolor>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<height>47</height>
+						<label fallback="31006">$VAR[FanartPanelValue5Var]</label>
+						<scroll>true</scroll>
+					</control>
+				</control>
+				<control type="grouplist">
+					<orientation>vertical</orientation>
+					<top>-18</top>
+					<left>352</left>
+					<control type="label">
+						<width>420</width>
+						<height>22</height>
+						<label>$VAR[FanartPanelDetail2Var]</label>
+						<textcolor>$VAR[SubTitleColorVar]</textcolor>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<height>47</height>
+						<label fallback="31006">$VAR[FanartPanelValue2Var]</label>
+						<scroll>true</scroll>
+					</control>
+					<control type="label">
+						<width>420</width>
+						<height>22</height>
+						<label>$VAR[FanartPanelDetail4Var]</label>
+						<textcolor>$VAR[SubTitleColorVar]</textcolor>
+					</control>
+					<control type="fadelabel">
+						<width>300</width>
+						<height>47</height>
+						<label>$LOCALIZE[13409] #$INFO[ListItem.Top250]</label>
+						<label>$INFO[ListItem.RatingAndVotes]</label>
+						<scrollspeed>200</scrollspeed>
+						<pauseatend>3000</pauseatend>
+						<visible>!IsEmpty(ListItem.Top250)</visible>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<height>47</height>
+						<label fallback="31006">$VAR[FanartPanelValue4Var]</label>
+						<scroll>true</scroll>
+						<visible>IsEmpty(ListItem.Top250)</visible>
+					</control>
+					<control type="label">
+						<width>420</width>
+						<height>22</height>
+						<label>$VAR[FanartPanelDetail6Var]</label>
+						<textcolor>$VAR[SubTitleColorVar]</textcolor>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<height>47</height>
+						<label fallback="31006">$VAR[FanartPanelValue6Var]</label>
+						<scroll>true</scroll>
+					</control>
+				</control>
+				<control type="textbox">
+					<left>709</left>
+					<top>-18</top>
+					<width>882</width>
+					<height>177</height>
+					<label>$VAR[FanartPanelPlotVar]</label>
+					<textcolor>white6</textcolor>
+					<autoscroll delay="8000" time="AutoScrollTime" repeat="8000">Skin.HasSetting(AutoScroll)</autoscroll>
+					<visible>StringCompare(Control.GetLabel(4420),fanart)</visible>
+				</control>
+			</control>
+			<control type="group">
+				<left>915</left>
+				<top>75</top>
+				<animation effect="slide" end="-348,-22" reversible="false" condition="StringCompare(Control.GetLabel(4420),poster) | StringCompare(Control.GetLabel(4420),extrathumbs)">Conditional</animation>
+				<animation effect="zoom" center="auto" start="100" end="92" time="480" tween="back" reversible="false" condition="StringCompare(Control.GetLabel(4420),poster) | StringCompare(Control.GetLabel(4420),extrathumbs)">Conditional</animation>
+				<animation effect="slide" end="-358,-38" reversible="false" condition="StringCompare(Control.GetLabel(4420),fourthumbs)">Conditional</animation>
+				<animation effect="zoom" center="auto" start="100" end="88" time="480" tween="back" reversible="false" condition="StringCompare(Control.GetLabel(4420),fourthumbs)">Conditional</animation>
+				<visible>Player.HasVideo</visible>
+				<animation effect="fade" end="100" time="0" delay="880">Visible</animation>
+				<control type="image">
+					<width>786</width>
+					<height>442</height>
+					<texture>common/black.png</texture>
+				</control>
+				<control type="videowindow" id="2">
+					<width>786</width>
+					<height>442</height>
+				</control>
+			</control>
+		</control>
+		<!-- BEGIN Next Aired -->
+		<control type="group">
+			<visible>[!Stringcompare(Control.GetLabel(4421),infopanelon) + [Container.Content(tvshows) | Container.Content(seasons)]] + Skin.HasSetting(hidenextdayaired)</visible>
+			<animation effect="slide" end="0,-145" time="320" easing="inout" tween="cubic" condition="Control.IsVisible(7550)">Conditional</animation>
+			<animation effect="slide" end="0,-145" time="320" easing="inout" tween="cubic" condition="Control.HasFocus(61)">Conditional</animation>
+			<animation effect="slide" end="0,-145" time="320" easing="inout" tween="cubic" condition="IsEmpty(Window(Home).Property(NextAired.NextDate))">Conditional</animation>
+			<animation effect="slide" end="0,-145" time="240" easing="in" tween="cubic">WindowClose</animation>
+			<animation effect="slide" end="0,40" time="320" easing="inout" tween="cubic" condition="Skin.HasSetting(FadedTopBar) | !Skin.HasSetting(ClassicTopBar)">Conditional</animation>
+			<control type="image">
+				<left>580</left>
+				<top>-80</top>
+				<width>750</width>
+				<height>210</height>
+				<aspectratio scalediffuse="false">stretch</aspectratio>
+				<texture>home/overlaynextaired.png</texture>
+				<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+			</control>
+			<control type="label">
+				<left>550</left>
+				<top>5</top>
+				<width>800</width>
+				<height>20</height>
+				<aligny>center</aligny>
+				<align>center</align>
+				<label>$INFO[Window(Home).Property(NextAired.NextTitle)]</label>
+				<font>Font_Bold19</font>
+				<shadowcolor>black</shadowcolor>
+			</control>
+			<control type="label">
+				<left>550</left>
+				<top>45</top>
+				<width>800</width>
+				<height>20</height>
+				<aligny>center</aligny>
+				<align>center</align>
+				<label>$INFO[Window(Home).Property(NextAired.NextDay)]$INFO[Window(Home).Property(NextAired.NextSeasonNumber), - S]$INFO[Window(Home).Property(NextAired.NextEpisodeNumber),E]</label>
+				<font>Font_Bold19</font>
+				<shadowcolor>black</shadowcolor>
+			</control>
+		</control>
+		<!-- END Next Aired -->
+	</include>
+	<!--End-->
+	
 	<include name="FloorSetDiscArt">
 		<control type="group">
 			<animation type="WindowClose" reversible="false">

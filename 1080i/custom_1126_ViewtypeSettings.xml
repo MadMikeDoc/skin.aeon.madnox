@@ -177,6 +177,20 @@
 					<selected>Skin.HasSetting(lowlistbanner)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),LowList) + Container.Content(tvshows)</visible>
 				</control>
+				<control type="radiobutton" id="17066">
+					<label>Cases</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(TVshowCases)</onclick>
+					<selected>Skin.HasSetting(TVshowCases)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),LowList) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
+				</control>
+				<control type="radiobutton" id="17067">
+					<label>Fake Discs</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(TVshowFakeDiscs)</onclick>
+					<selected>Skin.HasSetting(TVshowFakeDiscs)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),LowList) + Container.Content(seasons)</visible>
+				</control>
 				<!--BigFan Options-->
 				<control type="radiobutton" id="1689">
 					<label>31710</label>
@@ -593,6 +607,23 @@
 					<selected>Skin.HasSetting(KodiFlixCases)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + [Container.Content(movies) | Container.Content(sets)]</visible>
 				</control>
+				<control type="radiobutton" id="17068">
+					<description>Kodi Open Cases</description>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>Open Cases</label>
+					<onclick>Skin.ToggleSetting(KodiFlixOpenCase)</onclick>
+					<selected>Skin.HasSetting(KodiFlixOpenCase)</selected>
+					<visible>Skin.HasSetting(KodiFlixCases) + Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + [Container.Content(movies) | Container.Content(sets)]</visible>
+				</control>
+				<control type="radiobutton" id="17069">
+					<description>Kodi Short List</description>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>Short List</label>
+					<onclick>Skin.ToggleSetting(KodiFlixShortList)</onclick>
+					<selected>Skin.HasSetting(KodiFlixShortList)</selected>
+					<include condition="!Window.IsActive(script-Rom_Collection_Browser-main.xml)">ReloadWindowOnClick</include>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + [Container.Content(movies) | Container.Content(sets)]</visible>
+				</control>
 				<control type="radiobutton" id="17063">
 					<description>Kodi TV Posters</description>
 					<include>Objects_MediaMenuButtonAlt2</include>
@@ -607,7 +638,7 @@
 					<label>Thumbnail Info</label>
 					<onclick>Skin.ToggleSetting(KodiFlixThumbnailInfo)</onclick>
 					<selected>Skin.HasSetting(KodiFlixThumbnailInfo)</selected>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + [Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(KodiFlixTVPosters)</visible>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + !Skin.HasSetting(KodiFlixTVPosters)</visible>
 				</control>
 				<control type="button" id="17065">
 					<label>$LOCALIZE[31959]:</label>
