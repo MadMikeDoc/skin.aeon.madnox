@@ -647,6 +647,15 @@
 					<onclick>Skin.ToggleSetting(KodiFlixSeasonLandscape)</onclick>
 					<visible>Container.Content(seasons) + Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + !Skin.HasSetting(KodiFlixTVPosters)</visible>
 				</control>
+				<control type="radiobutton" id="17068">
+					<description>Kodi Season Title</description>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>Season Title</label>
+					<onclick>Skin.ToggleSetting(KodiFlixSeasonTitle)</onclick>
+					<selected>Skin.HasSetting(KodiFlixSeasonTitle)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + Container.Content(seasons) + Skin.HasSetting(KodiFlixTVPosters)</visible>
+				</control>
+				
 				<!--MAD - KodiFlix Options End -->
 				<!--MAD - Movie Sets View -->
 				<control type="radiobutton" id="17047">
