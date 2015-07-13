@@ -87,6 +87,42 @@
                         <info>ListItem.Thumb</info>
                         <aspectratio>keep</aspectratio>
                     </control>
+					<control type="image">
+                        <width>250</width>
+                        <height>122</height>
+                        <texture border="1">views/clearcases_focus_frame.png</texture>
+						<bordersize>-3</bordersize>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<aspectratio>keep</aspectratio>
+						<visible>Stringcompare(ListItem.Property(casetype),clearcases)</visible>
+                    </control>
+					<control type="image">
+                        <width>250</width>
+                        <height>122</height>
+                        <texture border="1">views/casecolor_focus_frame.png</texture>
+						<bordersize>-3</bordersize>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<aspectratio>keep</aspectratio>
+						<visible>Stringcompare(ListItem.Property(casetype),colorcases)</visible>
+                    </control>
+					<control type="image">
+                        <width>250</width>
+                        <height>122</height>
+                        <texture border="1">views/db_dvd_focus_frame.png</texture>
+						<bordersize>-3</bordersize>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<aspectratio>keep</aspectratio>
+						<visible>Stringcompare(ListItem.Property(casetype),dbdvd)</visible>
+                    </control>
+					<control type="image">
+                        <width>250</width>
+                        <height>122</height>
+                        <texture border="1">views/nonecases_focus_frame.png</texture>
+						<bordersize>-3</bordersize>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<aspectratio>keep</aspectratio>
+						<visible>Stringcompare(ListItem.Property(casetype),none)</visible>
+                    </control>
                     <control type="label">
                         <left></left>
                         <top>115</top>
@@ -104,6 +140,7 @@
                         <thumb>views/clearcases_focus.png</thumb>
 						<onclick>Skin.SetBool(clearcases)</onclick>
 						<onclick>Skin.SetBool(usecases)</onclick>
+						<property name="casetype">clearcases</property>
 						<visible>[Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies) | Stringcompare(Window(home).Property(actualViewtype),Wall_Large) | Stringcompare(Window(home).Property(actualViewtype),Video_RightList) | Stringcompare(Window(home).Property(actualViewtype),Shift) | Stringcompare(Window(home).Property(actualViewtype),AddonWall) | Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)] + Container.Content(movies) | Container.Content(sets)</visible>
                     </item>
                     <item id="2">
@@ -113,6 +150,7 @@
                         <onclick>Skin.SetBool(usecases)</onclick>
 						<onclick>Skin.Reset(clearcases)</onclick>
 						<onclick>Skin.Reset(Colorcases)</onclick>
+						<property name="casetype">dbdvd</property>
 						<visible>[Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies) | Stringcompare(Window(home).Property(actualViewtype),Wall_Large) | Stringcompare(Window(home).Property(actualViewtype),Video_RightList) | Stringcompare(Window(home).Property(actualViewtype),Shift) | Stringcompare(Window(home).Property(actualViewtype),AddonWall) | Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)] + Container.Content(movies) | Container.Content(sets)</visible>
                     </item>
                     <item id="3">
@@ -122,6 +160,7 @@
                         <onclick>Skin.SetBool(usecases)</onclick>
 						<onclick>Skin.Reset(clearcases)</onclick>
 						<onclick>Skin.SetBool(Colorcases)</onclick>
+						<property name="casetype">colorcases</property>
 						<visible>[Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies) | Stringcompare(Window(home).Property(actualViewtype),Wall_Large) | Stringcompare(Window(home).Property(actualViewtype),Video_RightList) | Stringcompare(Window(home).Property(actualViewtype),Shift) | Stringcompare(Window(home).Property(actualViewtype),AddonWall) | Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)] + Container.Content(movies) | Container.Content(sets)</visible>
                     </item>
                     <item id="4">
@@ -130,6 +169,7 @@
                         <thumb>views/nonecases_focus.png</thumb>
                         <onclick>Skin.Reset(clearcases)</onclick>
 						<onclick>Skin.Reset(usecases)</onclick>
+						<property name="casetype">none</property>
 						<visible>[Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies) | Stringcompare(Window(home).Property(actualViewtype),Wall_Large) | Stringcompare(Window(home).Property(actualViewtype),Video_RightList) | Stringcompare(Window(home).Property(actualViewtype),Shift) | Stringcompare(Window(home).Property(actualViewtype),AddonWall) | Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)] + Container.Content(movies) | Container.Content(sets)</visible>
                     </item>
 					<!-- MAD - Original case selection for Infowall - updated above to get correct cases -->
