@@ -36,7 +36,24 @@
 			<visible>Skin.HasSetting(NetFiixShowLogoAsTtile) + !IsEmpty(ListItem.Art(clearlogo))</visible>
 		</control>
 		<!-- MAD - Fake Logos -->
+			<!-- MAD - Single solution -->
 			<control type="textbox">
+				<left>50</left>
+				<top>25</top>
+				<width>510</width>
+				<height>220</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textcolor>$VAR[TitleColorVar]</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<font>font_SimplerE3D_bold</font>
+				<!--font>unique</font-->
+				<label>[B]$VAR[FirstLabelVar][/B]</label>
+				<visible>[Container.Content(movies) | Container.Content(sets) + IsEmpty(ListItem.Art(clearlogo))] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) + [IsEmpty(ListItem.Art(tvshow.clearlogo)) + IsEmpty(ListItem.Art(clearlogo))]]</visible>
+				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + Skin.HasSetting(NetFiixShowLogoAsTtile)</visible>
+			</control>
+			<!--MAD - Multiple Solution-->
+			<!--control type="textbox">
 				<left>50</left>
 				<top>25</top>
 				<width>510</width>
@@ -101,7 +118,7 @@
 				<aligny>center</aligny>
 				<textcolor>$VAR[TitleColorVar]</textcolor>
 				<shadowcolor>black</shadowcolor>
-				<font>font_bullpen3d</font>
+				<font>font_SimplerE3D_bold</font>
 				<label>[B]$VAR[FirstLabelVar][/B]</label>
 				<visible>[Container.Content(movies) | Container.Content(sets) + IsEmpty(ListItem.Art(clearlogo))] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) + [IsEmpty(ListItem.Art(tvshow.clearlogo)) + IsEmpty(ListItem.Art(clearlogo))]] + Skin.HasSetting(NetFiixShowLogoAsTtile)</visible>
 				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + Skin.HasSetting(NetFiixShowLogoAsTtile) + [SubString(ListItem.Title,q,Left) | SubString(ListItem.Title,r,Left) | SubString(ListItem.Title,s,Left) | SubString(ListItem.Title,t,Left)]</visible>
@@ -119,7 +136,7 @@
 				<label>[B]$VAR[FirstLabelVar][/B]</label>
 				<visible>[Container.Content(movies) | Container.Content(sets) + IsEmpty(ListItem.Art(clearlogo))] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + Skin.HasSetting(NetFiixShowLogoAsTtile)</visible>
 				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + Skin.HasSetting(NetFiixShowLogoAsTtile) + [SubString(ListItem.Title,u,Left) | SubString(ListItem.Title,v,Left) | SubString(ListItem.Title,w,Left) | SubString(ListItem.Title,x,Left) | SubString(ListItem.Title,y,Left) | SubString(ListItem.Title,z,Left)]</visible>
-			</control>
+			</control-->
 			<!--MAD - End of Fake Logo -->
 		<control type="image">
 			<left>50</left>
@@ -473,14 +490,28 @@
 		<!--Plot Info-->
 		<control type="image">
 			<description>KodiFlix Fanart</description>
-			<left>600</left>
-			<top>0</top>
-			<width>1320</width>
-			<height>770</height>
+			<left>200</left>
+			<top>-45</top>
+			<width>1720</width>
+			<height>1070</height>
 			<aspectratio>scale</aspectratio>
 			<texture background="true" diffuse="views/KodiFlix/fanart_diffuse.png">$INFO[ListItem.Art(fanart)]</texture>
 			<include>FanartFade</include>
-			<visible>Control.IsVisible(800) + !SubString(ListItem.Path,videodb://movies/sets) + !Skin.HasSetting(NetFiixExtraFanart)</visible>
+			<visible>Control.IsVisible(800) + !SubString(ListItem.Path,videodb://movies/sets) + !Skin.HasSetting(NetFiixExtraFanart) + !Skin.HasSetting(KodiFlixShortList)</visible>
+			<fadetime>250</fadetime>
+			<include>BackgroundAnimation</include>
+			<!--<animation effect="fade" start="100" end="40" time="300" condition="Window.IsActive(PlayerControls)">Conditional</animation>-->
+		</control>
+		<control type="image">
+			<description>KodiFlix Fanart</description>
+			<left>200</left>
+			<top>-45</top>
+			<width>1720</width>
+			<height>1070</height>
+			<aspectratio>scale</aspectratio>
+			<texture background="true" diffuse="views/KodiFlix/fanart_diffuse3.png">$INFO[ListItem.Art(fanart)]</texture>
+			<include>FanartFade</include>
+			<visible>Control.IsVisible(800) + !SubString(ListItem.Path,videodb://movies/sets) + !Skin.HasSetting(NetFiixExtraFanart) + Skin.HasSetting(KodiFlixShortList)</visible>
 			<fadetime>250</fadetime>
 			<include>BackgroundAnimation</include>
 			<!--<animation effect="fade" start="100" end="40" time="300" condition="Window.IsActive(PlayerControls)">Conditional</animation>-->
@@ -488,10 +519,10 @@
 		
 		<control type="image" id="5901">
 			<description>KodiFlix Fanart</description>
-			<left>600</left>
-			<top>0</top>
-			<width>1320</width>
-			<height>770</height>
+			<left>200</left>
+			<top>-45</top>
+			<width>1720</width>
+			<height>1070</height>
 			<aspectratio>scale</aspectratio>
 			<texture background="true" diffuse="views/KodiFlix/fanart_diffuse.png">$INFO[ListItem.Art(extrafanart1)]</texture>
 			<include>FanartFade</include>
