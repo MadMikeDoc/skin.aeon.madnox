@@ -575,14 +575,6 @@
 					<selected>Skin.HasSetting(NetFiixShowLogoAsTtile)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)</visible>
 				</control>
-				<!--control type="radiobutton" id="17041">
-					<description>NetFilx Semi Trans Toggle</description>
-					<include>Objects_MediaMenuButtonAlt2</include>
-					<label>$LOCALIZE[32024]</label>
-					<onclick>Skin.ToggleSetting(NetFilxSemiTrans)</onclick>
-					<selected>Skin.HasSetting(NetFilxSemiTrans)</selected>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)</visible>
-				</control-->
 				<control type="radiobutton" id="17044">
 					<description>Show Extra Fanart</description>
 					<include>Objects_MediaMenuButtonAlt2</include>
@@ -655,7 +647,14 @@
 					<selected>Skin.HasSetting(KodiFlixSeasonTitle)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + Container.Content(seasons) + Skin.HasSetting(KodiFlixTVPosters)</visible>
 				</control>
-				
+				<control type="radiobutton" id="17074">
+					<description>Kodi IMDB Selector</description>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>IMDB Icon</label>
+					<onclick>Skin.ToggleSetting(KodiFlixIMDBIcon)</onclick>
+					<selected>Skin.HasSetting(KodiFlixIMDBIcon)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + Container.Content(movies)</visible>
+				</control>
 				<!--MAD - KodiFlix Options End -->
 				<!--MAD - Movie Sets View -->
 				<control type="radiobutton" id="17047">
