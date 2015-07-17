@@ -235,7 +235,7 @@
                     <include>Objects_MediaMenuButtonAround</include>
                     <onclick>Skin.ToggleSetting(ColorImdb250)</onclick>
                     <selected>Skin.HasSetting(ColorImdb250)</selected>
-					<visible>Container.Content(Movies) + System.HasAddon(script.ratingupdate)</visible>
+					<visible>Container.Content(Movies) + [System.HasAddon(script.ratingupdate) | System.HasAddon(script.imdbupdate)]</visible>
                 </control>
 				<control type="button" id="1204">
 					<label>$LOCALIZE[32997]</label>

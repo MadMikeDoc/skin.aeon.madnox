@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
 	<defaultcontrol always="true">8</defaultcontrol>
-	<onload>ClearProperty(ActorFade)</onload>
-	<onload>AlarmClock(ActorFade,SetProperty(ActorFade,true),00:02,silent)</onload>
-	<onload condition="Skin.HasSetting(TVTunes.Enabled) + System.HasAddon(script.tvtunes)">XBMC.RunScript(script.tvtunes,backend=True)</onload>
-	<onload condition="System.HasAddon(script.videolanguage) + [Container.Content(movies) | Container.Content(episodes)]">XBMC.RunScript(script.videolanguage,movieid=$INFO[ListItem.DBID])</onload>
-	<onload condition="System.HasAddon(script.videoextras) + !Skin.HasSetting(Enable.videoextras)">XBMC.RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
-	<onload condition="System.HasAddon(script.duration)">RunScript(script.duration,duration=$INFO[ListItem.Duration])</onload>
+	<onload condition="Skin.HasSetting(UseExtendedInfo) + [Container.Content(movies) | Stringcompare(Container.FolderPath,videodb://tvshows/titles/) + Substring(Container.FolderPath,videodb://tvshows/titles/,left) + !Container.Content(episodes) + !Container.Content(seasons)]">Action(close)</onload>
+	<onload condition="Skin.HasSetting(UseExtendedInfo) + [Container.Content(movies) | Stringcompare(Container.FolderPath,videodb://tvshows/titles/) + Substring(Container.FolderPath,videodb://tvshows/titles/,left) + !Container.Content(episodes) + !Container.Content(seasons)]">RunScript(script.extendedinfo,info=openinfodialog)</onload>
+	<onload condition="Skin.HasSetting(!UseExtendedInfo)">ClearProperty(ActorFade)</onload>
+	<onload condition="Skin.HasSetting(!UseExtendedInfo)">AlarmClock(ActorFade,SetProperty(ActorFade,true),00:02,silent)</onload>
+	<onload condition="Skin.HasSetting(!UseExtendedInfo) + Skin.HasSetting(TVTunes.Enabled) + System.HasAddon(script.tvtunes)">XBMC.RunScript(script.tvtunes,backend=True)</onload>
+	<onload condition="Skin.HasSetting(!UseExtendedInfo) + System.HasAddon(script.videolanguage) + [Container.Content(movies) | Container.Content(episodes)]">XBMC.RunScript(script.videolanguage,movieid=$INFO[ListItem.DBID])</onload>
+	<onload condition="Skin.HasSetting(!UseExtendedInfo) + System.HasAddon(script.videoextras) + !Skin.HasSetting(Enable.videoextras)">XBMC.RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
+	<onload condition="Skin.HasSetting(!UseExtendedInfo) + System.HasAddon(script.duration)">RunScript(script.duration,duration=$INFO[ListItem.Duration])</onload>
 	<onunload>ClearProperty(FanartZoom,movieinformation)</onunload>
 	<onload>ClearProperty(SeasonDescription,home)</onload>
-	<onload>RunScript(script.toolbox,info=blur,id='"$VAR[PosterVar]"',radius=20,prefix=VideoInfo)</onload>
-	<onload condition="System.HasAddon(script.videoextras)">XBMC.RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
+	<onload condition="Skin.HasSetting(!UseExtendedInfo)">RunScript(script.toolbox,info=blur,id='"$VAR[PosterVar]"',radius=20,prefix=VideoInfo)</onload>
+	<onload condition="Skin.HasSetting(!UseExtendedInfo) + System.HasAddon(script.videoextras)">XBMC.RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
 	<onunload>ClearProperty(ImageColor,home)</onunload>
 	<onunload>ClearProperty(ImageFilter,home)</onunload>
 	<allowoverlay>no</allowoverlay>
 	<controls>
 		<control type="group">
+			<visible>!Skin.HasSetting(UseExtendedInfo) | [!Stringcompare(Container.FolderPath,videodb://tvshows/titles/) + Substring(Container.FolderPath,videodb://tvshows/titles/,left)]</visible>
+		<control type="group">
+			<visible>!Skin.HasSetting(UseExtendedInfo) | [!Stringcompare(Container.FolderPath,videodb://tvshows/titles/) + Substring(Container.FolderPath,videodb://tvshows/titles/,left)]</visible>
 			<animation effect="slide" start="2242,0" end="0,0" time="320" tween="quadratic">WindowOpen</animation>
 			<animation effect="slide" end="2242,0" time="320" tween="quadratic">WindowClose</animation>
 			<animation effect="slide" start="1242,0" end="0,0" time="320" tween="quadratic" condition="!Window.IsVisible(script-Actors-DialogVideoInfo.xml)|!Window.IsVisible(script-Actors-DialogInfo.xml)">Conditional</animation>
@@ -189,17 +194,18 @@
 									<scroll>true</scroll>
 									<visible>Container.Content(tvshows)</visible>
 								</control>
-								<control type="label">
-									<width>995</width>
-									<height>40</height>
-									<label>$INFO[ListItem.genre]</label>
-									<font>Font_Reg28_2</font>
-									<textcolor>$VAR[FontColorVar]</textcolor>
-									<scroll>true</scroll>
-									<visible>Container.Content(movies)</visible>
-									<visible>Container.Content(movies) + [IsEmpty(ListItem.OriginalTitle) | Stringcompare(ListItem.OriginalTitle,ListItem.Title)]</visible>
-								</control>
 								<control type="fadelabel">
+                                    <width>995</width>
+                                    <height>40</height>
+                                    <label>$INFO[ListItem.Genre]</label>
+                                    <font>Font_Reg32</font>
+                                    <textcolor>$VAR[FontColorVar]</textcolor>
+                                    <scrollspeed>20</scrollspeed>
+                                    <pauseatend>5000</pauseatend>
+                                    <scrollout>false</scrollout>
+                                    <visible>Container.Content(movies) + [IsEmpty(ListItem.OriginalTitle) | Stringcompare(ListItem.OriginalTitle,ListItem.Title)]</visible>
+                                </control>
+                                <control type="fadelabel">
 									<width>995</width>
 									<height>40</height>
 									<label>$INFO[ListItem.genre]</label>
@@ -576,14 +582,14 @@
 							<height>330</height>
 							<itemgap>3</itemgap>
 							<control type="label">
-								<label>[B]$INFO[ListItem.tagline][/B]</label>
+								<label fallback="Plot Description:">[B]$INFO[ListItem.tagline][/B]</label>
 								<height>30</height>
 								<width>1016</width>
 								<font>Font_Reg28_2</font>
+								<textcolor>$VAR[FontColorVar]</textcolor>
 								<visible>!IsEmpty(ListItem.tagline)</visible>
-								<visible>IsEmpty(ListItem.Art(discart)) + IsEmpty(ListItem.Art(characterart)) + IsEmpty(ListItem.Art(tvshow.characterart))</visible>
+								<visible>[IsEmpty(ListItem.Art(discart)) + [!Skin.HasSetting(Fakediscart) | !Container.Content(movies)]] + IsEmpty(ListItem.Art(characterart)) + IsEmpty(ListItem.Art(tvshow.characterart))</visible>
 							</control>
-
 							<control type="label">
 								<label>[B]$INFO[ListItem.tagline][/B]</label>
 								<height>30</height>
@@ -591,28 +597,56 @@
 								<font>Font_Reg28_2</font>
 								<scroll>true</scroll>
 								<visible>!IsEmpty(ListItem.tagline)</visible>
-								<visible>!IsEmpty(ListItem.Art(discart)) | !IsEmpty(ListItem.Art(characterart)) | !IsEmpty(ListItem.Art(tvshow.characterart))</visible>
+								<textcolor>$VAR[FontColorVar]</textcolor>
+								<visible>[!IsEmpty(ListItem.Art(discart)) | [Skin.HasSetting(Fakediscart) + Container.Content(movies)]] | !IsEmpty(ListItem.Art(characterart)) | !IsEmpty(ListItem.Art(tvshow.characterart))</visible>
 							</control>
-
+							<control type="group">
+							<control type="image">
+								<top>-8</top>
+								<left>-15</left>
+								<align>right</align>
+								<width>1046</width>
+								<height>300</height>
+								<texture border="40" colordiffuse="$INFO[Window(home).Property(VideoInfo.ImageColor)]" background="true">buttons/roundedbutton-nofocus.png</texture>
+								<visible>[IsEmpty(ListItem.Art(discart)) + [!Skin.HasSetting(Fakediscart) | !Container.Content(movies)]] + IsEmpty(ListItem.Art(characterart)) + IsEmpty(ListItem.Art(tvshow.characterart))</visible>
+							</control>
 							<control type="textbox">
-								<width>1016</width>
-								<height>276</height>
-								<align>justify</align>
-								<label fallback="31006">$INFO[ListItem.Plot]</label>
+								<width>994</width>
+                                <height>243</height>
+								<left>12</left>
+								<top>12</top>
+                                <align>left</align>
+                                <label fallback="31006">$INFO[ListItem.Plot]</label>
 								<font>Font_Reg28_2</font>
 								<pagecontrol>60</pagecontrol>
 								<autoscroll delay="20000" time="AutoScrollTime" repeat="15000">Skin.HasSetting(AutoScroll) + !Control.HasFocus(60)</autoscroll>
-								<visible>IsEmpty(ListItem.Art(discart)) + IsEmpty(ListItem.Art(characterart)) + IsEmpty(ListItem.Art(tvshow.characterart))</visible>
+								<visible>[IsEmpty(ListItem.Art(discart)) + [!Skin.HasSetting(Fakediscart) | !Container.Content(movies)]] + IsEmpty(ListItem.Art(characterart)) + IsEmpty(ListItem.Art(tvshow.characterart))</visible>
+							</control>
+							</control>
+							<control type="group">
+							<control type="image">
+								<top>-8</top>
+								<left>-15</left>
+                                <align>right</align>
+								<width>790</width>
+								<height>300</height>
+								<texture border="40" colordiffuse="$INFO[Window(home).Property(VideoInfo.ImageColor)]" background="true">buttons/roundedbutton-nofocus.png</texture>
+								<visible>[!IsEmpty(ListItem.Art(discart)) | [Skin.HasSetting(Fakediscart) + Container.Content(movies)]] | !IsEmpty(ListItem.Art(characterart)) | !IsEmpty(ListItem.Art(tvshow.characterart))</visible>
 							</control>
 							<control type="textbox">
-								<width>746</width>
-								<height>276</height>
-								<label fallback="31006">$INFO[ListItem.Plot]</label>
+								<width>725</width>
+                                <height>243</height>
+								<left>12</left>
+								<top>12</top>
+                                <align>left</align>
+                                <label fallback="31006">$INFO[ListItem.Plot]</label>
 								<font>Font_Reg28_2</font>
 								<pagecontrol>60</pagecontrol>
 								<autoscroll delay="20000" time="AutoScrollTime" repeat="15000">Skin.HasSetting(AutoScroll) + !Control.HasFocus(60)</autoscroll>
-								<visible>!IsEmpty(ListItem.Art(discart)) | !IsEmpty(ListItem.Art(characterart)) | !IsEmpty(ListItem.Art(tvshow.characterart))</visible>
+								<visible>[!IsEmpty(ListItem.Art(discart)) | [Skin.HasSetting(Fakediscart) + Container.Content(movies)]] | !IsEmpty(ListItem.Art(characterart)) | !IsEmpty(ListItem.Art(tvshow.characterart))</visible>
 							</control>
+							</control>
+							
 						</control>
 						<control type="image">
 							<left>780</left>
@@ -900,7 +934,7 @@
 				</control>
 				<control type="spincontrol" id="60">
 					<left>1820</left>
-					<animation effect="slide" start="0,0" end="-260,0" time="0" condition="!IsEmpty(ListItem.Art(discart)) | !IsEmpty(ListItem.Art(characterart)) | !IsEmpty(ListItem.Art(tvshow.characterart))">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-260,0" time="0" condition="[!IsEmpty(ListItem.Art(discart)) | [Skin.HasSetting(Fakediscart) + Container.Content(movies)]] | !IsEmpty(ListItem.Art(characterart)) | !IsEmpty(ListItem.Art(tvshow.characterart))">Conditional</animation>
 					<animation effect="slide" start="0,0" end="0,30" time="0" condition="!IsEmpty(ListItem.Tagline)">Conditional</animation>
 					<top>630</top>
 					<width>50</width>
@@ -929,6 +963,44 @@
 						<effect type="rotate" start="0" center="1760,810" end="-720" time="700" tween="quadratic" easing="out"/>
 					</animation>
 				</control>
+				<!-- MAD - Fake Discs -->
+				<control type="image">
+					<left>1610</left>
+					<top>660</top>
+					<width>300</width>
+					<height>300</height>
+					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[ListItem.Art(poster)]</texture>
+					<include>Animation_VisibleChange200</include>
+					<animation type="WindowOpen" reversible="false">
+						<effect type="slide" start="-1610,0" end="0" delay="800" time="1120" tween="quadratic" easing="out"/>
+						<effect type="rotate" start="0" center="1760,810" end="-720" delay="800" time="1120" tween="quadratic" easing="out"/>
+						<effect type="zoom" start="104" center="1760,810" end="100" delay="2120" time="140" tween="quadratic" easing="out"/>
+					</animation>
+					<animation type="WindowClose" reversible="false">
+						<effect type="slide" start="0,0" end="4600" time="700" tween="quadratic" easing="out"/>
+						<effect type="rotate" start="0" center="1760,810" end="-720" time="700" tween="quadratic" easing="out"/>
+					</animation>
+					<visible>IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Container.Content(movies) + !SubString(ListItem.Path,videodb://movies/sets/) + Skin.HasSetting(Fakediscart)</visible>
+				</control>
+				<control type="image">
+					<left>1610</left>
+					<top>660</top>
+					<width>300</width>
+					<height>300</height>
+					<texture background="true">$VAR[FakeDiscArtOverlay]</texture>
+					<include>Animation_VisibleChange200</include>
+					<animation type="WindowOpen" reversible="false">
+						<effect type="slide" start="-1610,0" end="0" delay="800" time="1120" tween="quadratic" easing="out"/>
+						<effect type="rotate" start="0" center="1760,810" end="-720" delay="800" time="1120" tween="quadratic" easing="out"/>
+						<effect type="zoom" start="104" center="1760,810" end="100" delay="2120" time="140" tween="quadratic" easing="out"/>
+					</animation>
+					<animation type="WindowClose" reversible="false">
+						<effect type="slide" start="0,0" end="4600" time="700" tween="quadratic" easing="out"/>
+						<effect type="rotate" start="0" center="1760,810" end="-720" time="700" tween="quadratic" easing="out"/>
+					</animation>
+					<visible>IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Container.Content(movies) + !SubString(ListItem.Path,videodb://movies/sets/) + Skin.HasSetting(Fakediscart)</visible>
+				</control>
+				<!-- Fake Disc End -->
 				<control type="list" id="50">
 					<left>804</left>
 					<top>276</top>
@@ -1109,8 +1181,6 @@
 								<label2>$INFO[Container(50).ListItem(1).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(1).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(1).Label)</visible>
-								<!--onclick>SetProperty(Position,1)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(1).Label])</onclick>
 							</item>
 							<item>
@@ -1118,8 +1188,6 @@
 								<label2>$INFO[Container(50).ListItem(2).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(2).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(2).Label)</visible>
-								<!--onclick>SetProperty(Position,2)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(2).Label])</onclick>
 							</item>
 							<item>
@@ -1127,8 +1195,6 @@
 								<label2>$INFO[Container(50).ListItem(3).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(3).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(3).Label)</visible>
-								<!--onclick>SetProperty(Position,3)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(3).Label])</onclick>
 							</item>
 							<item>
@@ -1136,8 +1202,6 @@
 								<label2>$INFO[Container(50).ListItem(4).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(4).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(4).Label)</visible>
-								<!--onclick>SetProperty(Position,4)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(4).Label])</onclick>
 							</item>
 							<item>
@@ -1145,8 +1209,6 @@
 								<label2>$INFO[Container(50).ListItem(5).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(5).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(5).Label)</visible>
-								<!--onclick>SetProperty(Position,5)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(5).Label])</onclick>
 							</item>
 							<item>
@@ -1154,8 +1216,6 @@
 								<label2>$INFO[Container(50).ListItem(6).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(6).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(6).Label)</visible>
-								<!--onclick>SetProperty(Position,6)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(6).Label])</onclick>
 							</item>
 							<item>
@@ -1163,8 +1223,6 @@
 								<label2>$INFO[Container(50).ListItem(7).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(7).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(7).Label)</visible>
-								<!--onclick>SetProperty(Position,7)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(7).Label])</onclick>
 							</item>
 							<item>
@@ -1172,8 +1230,6 @@
 								<label2>$INFO[Container(50).ListItem(8).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(8).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(8).Label)</visible>
-								<!--onclick>SetProperty(Position,8)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(8).Label])</onclick>
 							</item>
 							<item>
@@ -1181,8 +1237,6 @@
 								<label2>$INFO[Container(50).ListItem(9).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(9).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(9).Label)</visible>
-								<!--onclick>SetProperty(Position,9)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(9).Label])</onclick>
 							</item>
 							<item>
@@ -1190,8 +1244,6 @@
 								<label2>$INFO[Container(50).ListItem(10).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(10).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(10).Label)</visible>
-								<!--onclick>SetProperty(Position,10)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(10).Label])</onclick>
 							</item>
 							<item>
@@ -1199,8 +1251,6 @@
 								<label2>$INFO[Container(50).ListItem(11).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(11).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(11).Label)</visible>
-								<!--onclick>SetProperty(Position,11)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(11).Label])</onclick>
 							</item>
 							<item>
@@ -1208,8 +1258,6 @@
 								<label2>$INFO[Container(50).ListItem(12).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(12).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(12).Label)</visible>
-								<!--onclick>SetProperty(Position,12)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(12).Label])</onclick>
 							</item>
 							<item>
@@ -1217,8 +1265,6 @@
 								<label2>$INFO[Container(50).ListItem(13).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(13).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(13).Label)</visible>
-								<!--onclick>SetProperty(Position,13)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(13).Label])</onclick>
 							</item>
 							<item>
@@ -1226,8 +1272,6 @@
 								<label2>$INFO[Container(50).ListItem(14).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(14).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(14).Label)</visible>
-								<!--onclick>SetProperty(Position,14)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(14).Label])</onclick>
 							</item>
 							<item>
@@ -1235,8 +1279,6 @@
 								<label2>$INFO[Container(50).ListItem(15).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(15).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(15).Label)</visible>
-								<!--onclick>SetProperty(Position,15)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(15).Label])</onclick>
 							</item>
 							<item>
@@ -1244,8 +1286,6 @@
 								<label2>$INFO[Container(50).ListItem(16).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(16).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(16).Label)</visible>
-								<!--onclick>SetProperty(Position,16)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(16).Label])</onclick>
 							</item>
 							<item>
@@ -1253,8 +1293,6 @@
 								<label2>$INFO[Container(50).ListItem(17).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(17).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(17).Label)</visible>
-								<!--onclick>SetProperty(Position,17)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(17).Label])</onclick>
 							</item>
 							<item>
@@ -1262,8 +1300,6 @@
 								<label2>$INFO[Container(50).ListItem(18).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(18).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(18).Label)</visible>
-								<!--onclick>SetProperty(Position,18)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(18).Label])</onclick>
 							</item>
 							<item>
@@ -1271,8 +1307,6 @@
 								<label2>$INFO[Container(50).ListItem(19).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(19).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(19).Label)</visible>
-								<!--onclick>SetProperty(Position,19)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(19).Label])</onclick>
 							</item>
 							<item>
@@ -1280,8 +1314,6 @@
 								<label2>$INFO[Container(50).ListItem(20).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(20).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(20).Label)</visible>
-								<!--onclick>SetProperty(Position,20)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(20).Label])</onclick>
 							</item>
 							<item>
@@ -1289,8 +1321,6 @@
 								<label2>$INFO[Container(50).ListItem(21).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(21).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(21).Label)</visible>
-								<!--onclick>SetProperty(Position,21)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(21).Label])</onclick>
 							</item>
 							<item>
@@ -1298,8 +1328,6 @@
 								<label2>$INFO[Container(50).ListItem(22).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(22).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(22).Label)</visible>
-								<!--onclick>SetProperty(Position,22)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(22).Label])</onclick>
 							</item>
 							<item>
@@ -1307,8 +1335,6 @@
 								<label2>$INFO[Container(50).ListItem(23).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(23).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(23).Label)</visible>
-								<!--onclick>SetProperty(Position,23)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(23).Label])</onclick>
 							</item>
 							<item>
@@ -1316,8 +1342,6 @@
 								<label2>$INFO[Container(50).ListItem(24).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(24).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(24).Label)</visible>
-								<!--onclick>SetProperty(Position,24)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(24).Label])</onclick>
 							</item>
 							<item>
@@ -1325,8 +1349,6 @@
 								<label2>$INFO[Container(50).ListItem(25).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(25).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(25).Label)</visible>
-								<!--onclick>SetProperty(Position,25)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(25).Label])</onclick>
 							</item>
 							<item>
@@ -1334,8 +1356,6 @@
 								<label2>$INFO[Container(50).ListItem(26).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(26).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(26).Label)</visible>
-								<!--onclick>SetProperty(Position,26)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(26).Label])</onclick>
 							</item>
 							<item>
@@ -1343,8 +1363,6 @@
 								<label2>$INFO[Container(50).ListItem(27).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(27).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(27).Label)</visible>
-								<!--onclick>SetProperty(Position,27)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(27).Label])</onclick>
 							</item>
 							<item>
@@ -1352,8 +1370,6 @@
 								<label2>$INFO[Container(50).ListItem(28).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(28).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(28).Label)</visible>
-								<!--onclick>SetProperty(Position,28)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(28).Label])</onclick>
 							</item>
 							<item>
@@ -1361,8 +1377,6 @@
 								<label2>$INFO[Container(50).ListItem(29).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(29).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(29).Label)</visible>
-								<!--onclick>SetProperty(Position,29)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(29).Label])</onclick>
 							</item>
 							<item>
@@ -1370,8 +1384,6 @@
 								<label2>$INFO[Container(50).ListItem(30).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(30).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(30).Label)</visible>
-								<!--onclick>SetProperty(Position,30)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(30).Label])</onclick>
 							</item>
 							<item>
@@ -1379,8 +1391,6 @@
 								<label2>$INFO[Container(50).ListItem(31).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(31).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(31).Label)</visible>
-								<!--onclick>SetProperty(Position,31)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(31).Label])</onclick>
 							</item>
 							<item>
@@ -1388,8 +1398,6 @@
 								<label2>$INFO[Container(50).ListItem(32).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(32).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(32).Label)</visible>
-								<!--onclick>SetProperty(Position,32)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(32).Label])</onclick>
 							</item>
 							<item>
@@ -1397,8 +1405,6 @@
 								<label2>$INFO[Container(50).ListItem(33).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(33).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(33).Label)</visible>
-								<!--onclick>SetProperty(Position,33)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(33).Label])</onclick>
 							</item>
 							<item>
@@ -1406,8 +1412,6 @@
 								<label2>$INFO[Container(50).ListItem(34).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(34).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(34).Label)</visible>
-								<!--onclick>SetProperty(Position,34)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(34).Label])</onclick>
 							</item>
 							<item>
@@ -1415,8 +1419,6 @@
 								<label2>$INFO[Container(50).ListItem(35).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(35).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(35).Label)</visible>
-								<!--onclick>SetProperty(Position,35)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(35).Label])</onclick>
 							</item>
 							<item>
@@ -1424,8 +1426,6 @@
 								<label2>$INFO[Container(50).ListItem(36).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(36).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(36).Label)</visible>
-								<!--onclick>SetProperty(Position,36)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(36).Label])</onclick>
 							</item>
 							<item>
@@ -1433,8 +1433,6 @@
 								<label2>$INFO[Container(50).ListItem(37).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(37).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(37).Label)</visible>
-								<!--onclick>SetProperty(Position,37)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(37).Label])</onclick>
 							</item>
 							<item>
@@ -1442,8 +1440,6 @@
 								<label2>$INFO[Container(50).ListItem(38).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(38).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(38).Label)</visible>
-								<!--onclick>SetProperty(Position,38)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(38).Label])</onclick>
 							</item>
 							<item>
@@ -1451,8 +1447,6 @@
 								<label2>$INFO[Container(50).ListItem(39).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(39).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(39).Label)</visible>
-								<!--onclick>SetProperty(Position,39)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(39).Label])</onclick>
 							</item>
 							<item>
@@ -1460,8 +1454,6 @@
 								<label2>$INFO[Container(50).ListItem(40).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(40).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(40).Label)</visible>
-								<!--onclick>SetProperty(Position,40)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(40).Label])</onclick>
 							</item>
 							<item>
@@ -1469,8 +1461,6 @@
 								<label2>$INFO[Container(50).ListItem(41).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(41).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(41).Label)</visible>
-								<!--onclick>SetProperty(Position,41)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(41).Label])</onclick>
 							</item>
 							<item>
@@ -1478,8 +1468,6 @@
 								<label2>$INFO[Container(50).ListItem(42).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(42).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(42).Label)</visible>
-								<!--onclick>SetProperty(Position,42)</onclick-->
-								<!--onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(42).Label])</onclick>
 							</item>
 							<item>
@@ -1487,8 +1475,6 @@
 								<label2>$INFO[Container(50).ListItem(43).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(43).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(43).Label)</visible>
-								<!--onclick>SetProperty(Position,43)</onclick>
-								<onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(43).Label])</onclick>
 							</item>
 							<item>
@@ -1496,8 +1482,6 @@
 								<label2>$INFO[Container(50).ListItem(44).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(44).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(44).Label)</visible>
-								<!--onclick>SetProperty(Position,44)</onclick>
-								<onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(44).Label])</onclick>
 							</item>
 							<item>
@@ -1505,8 +1489,6 @@
 								<label2>$INFO[Container(50).ListItem(45).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(45).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(45).Label)</visible>
-								<!--onclick>SetProperty(Position,45)</onclick>
-								<onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(45).Label])</onclick>
 							</item>
 							<item>
@@ -1514,8 +1496,6 @@
 								<label2>$INFO[Container(50).ListItem(46).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(46).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(46).Label)</visible>
-								<!--onclick>SetProperty(Position,46)</onclick>
-								<onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(46).Label])</onclick>
 							</item>
 							<item>
@@ -1523,8 +1503,6 @@
 								<label2>$INFO[Container(50).ListItem(47).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(47).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(47).Label)</visible>
-								<!--onclick>SetProperty(Position,47)</onclick>
-								<onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(47).Label])</onclick>
 							</item>
 							<item>
@@ -1532,8 +1510,6 @@
 								<label2>$INFO[Container(50).ListItem(48).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(48).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(48).Label)</visible>
-								<!--onclick>SetProperty(Position,48)</onclick>
-								<onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(48).Label])</onclick>
 							</item>
 							<item>
@@ -1541,8 +1517,6 @@
 								<label2>$INFO[Container(50).ListItem(49).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(49).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(49).Label)</visible>
-								<!--onclick>SetProperty(Position,49)</onclick>
-								<onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(49).Label])</onclick>
 							</item>
 							<item>
@@ -1550,8 +1524,6 @@
 								<label2>$INFO[Container(50).ListItem(50).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(50).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(50).Label)</visible>
-								<!--onclick>SetProperty(Position,50)</onclick>
-								<onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(50).Label])</onclick>
 							</item>
 							<item>
@@ -1559,8 +1531,6 @@
 								<label2>$INFO[Container(50).ListItem(51).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(51).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(51).Label)</visible>
-								<!--onclick>SetProperty(Position,51)</onclick>
-								<onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(51).Label])</onclick>
 							</item>
 							<item>
@@ -1568,8 +1538,6 @@
 								<label2>$INFO[Container(50).ListItem(52).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(52).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(52).Label)</visible>
-								<!--onclick>SetProperty(Position,52)</onclick>
-								<onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(52).Label])</onclick>
 							</item>
 							<item>
@@ -1577,8 +1545,6 @@
 								<label2>$INFO[Container(50).ListItem(53).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(53).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(53).Label)</visible>
-								<!--onclick>SetProperty(Position,53)</onclick>
-								<onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(53).Label])</onclick>
 							</item>
 							<item>
@@ -1586,8 +1552,6 @@
 								<label2>$INFO[Container(50).ListItem(54).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(54).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(54).Label)</visible>
-								<!--onclick>SetProperty(Position,54)</onclick>
-								<onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(54).Label])</onclick>
 							</item>
 							<item>
@@ -1595,8 +1559,6 @@
 								<label2>$INFO[Container(50).ListItem(55).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(55).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(55).Label)</visible>
-								<!--onclick>SetProperty(Position,55)</onclick>
-								<onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(55).Label])</onclick>
 							</item>
 							<item>
@@ -1604,8 +1566,6 @@
 								<label2>$INFO[Container(50).ListItem(56).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(56).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(56).Label)</visible>
-								<!--onclick>SetProperty(Position,56)</onclick>
-								<onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(56).Label])</onclick>
 							</item>
 							<item>
@@ -1613,8 +1573,6 @@
 								<label2>$INFO[Container(50).ListItem(57).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(57).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(57).Label)</visible>
-								<!--onclick>SetProperty(Position,57)</onclick>
-								<onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(57).Label])</onclick>
 							</item>
 							<item>
@@ -1622,8 +1580,6 @@
 								<label2>$INFO[Container(50).ListItem(58).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(58).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(58).Label)</visible>
-								<!--onclick>SetProperty(Position,58)</onclick>
-								<onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(58).Label])</onclick>
 							</item>
 							<item>
@@ -1631,9 +1587,644 @@
 								<label2>$INFO[Container(50).ListItem(59).Label2]</label2>
 								<thumb>$INFO[Container(50).ListItem(59).Thumb]</thumb>
 								<visible>!IsEmpty(Container(50).ListItemNoWrap(59).Label)</visible>
-								<!--onclick>SetProperty(Position,59)</onclick>
-								<onclick>SetFocus(599)</onclick-->
 								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(59).Listitem(0).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(60).Label]</label>
+								<label2>$INFO[Container(50).ListItem(60).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(60).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(60).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(60).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(61).Label]</label>
+								<label2>$INFO[Container(50).ListItem(61).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(61).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(61).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(61).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(62).Label]</label>
+								<label2>$INFO[Container(50).ListItem(62).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(62).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(62).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(62).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(63).Label]</label>
+								<label2>$INFO[Container(50).ListItem(63).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(63).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(63).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(63).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(64).Label]</label>
+								<label2>$INFO[Container(50).ListItem(64).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(64).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(64).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(64).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(65).Label]</label>
+								<label2>$INFO[Container(50).ListItem(65).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(65).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(65).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(65).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(66).Label]</label>
+								<label2>$INFO[Container(50).ListItem(66).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(66).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(66).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(66).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(67).Label]</label>
+								<label2>$INFO[Container(50).ListItem(67).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(67).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(67).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(67).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(68).Label]</label>
+								<label2>$INFO[Container(50).ListItem(68).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(68).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(68).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(68).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(69).Label]</label>
+								<label2>$INFO[Container(50).ListItem(69).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(69).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(69).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(69).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(70).Label]</label>
+								<label2>$INFO[Container(50).ListItem(70).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(70).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(70).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(70).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(71).Label]</label>
+								<label2>$INFO[Container(50).ListItem(71).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(71).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(71).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(71).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(72).Label]</label>
+								<label2>$INFO[Container(50).ListItem(72).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(72).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(72).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(72).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(73).Label]</label>
+								<label2>$INFO[Container(50).ListItem(73).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(73).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(73).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(73).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(74).Label]</label>
+								<label2>$INFO[Container(50).ListItem(74).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(74).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(74).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(74).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(75).Label]</label>
+								<label2>$INFO[Container(50).ListItem(75).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(75).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(75).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(75).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(76).Label]</label>
+								<label2>$INFO[Container(50).ListItem(76).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(76).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(76).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(76).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(77).Label]</label>
+								<label2>$INFO[Container(50).ListItem(77).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(77).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(77).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(77).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(78).Label]</label>
+								<label2>$INFO[Container(50).ListItem(78).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(78).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(78).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(78).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(79).Label]</label>
+								<label2>$INFO[Container(50).ListItem(79).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(79).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(79).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(79).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(80).Label]</label>
+								<label2>$INFO[Container(50).ListItem(80).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(80).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(80).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(80).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(81).Label]</label>
+								<label2>$INFO[Container(50).ListItem(81).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(81).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(81).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(81).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(82).Label]</label>
+								<label2>$INFO[Container(50).ListItem(82).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(82).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(82).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(82).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(83).Label]</label>
+								<label2>$INFO[Container(50).ListItem(83).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(83).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(83).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(83).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(84).Label]</label>
+								<label2>$INFO[Container(50).ListItem(84).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(84).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(84).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(84).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(85).Label]</label>
+								<label2>$INFO[Container(50).ListItem(85).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(85).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(85).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(85).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(86).Label]</label>
+								<label2>$INFO[Container(50).ListItem(86).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(86).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(86).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(86).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(87).Label]</label>
+								<label2>$INFO[Container(50).ListItem(87).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(87).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(87).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(87).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(88).Label]</label>
+								<label2>$INFO[Container(50).ListItem(88).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(88).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(88).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(88).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(89).Label]</label>
+								<label2>$INFO[Container(50).ListItem(89).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(89).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(89).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(89).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(90).Label]</label>
+								<label2>$INFO[Container(50).ListItem(90).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(90).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(90).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(90).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(91).Label]</label>
+								<label2>$INFO[Container(50).ListItem(91).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(91).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(91).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(91).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(92).Label]</label>
+								<label2>$INFO[Container(50).ListItem(92).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(92).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(92).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(92).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(93).Label]</label>
+								<label2>$INFO[Container(50).ListItem(93).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(93).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(93).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(93).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(94).Label]</label>
+								<label2>$INFO[Container(50).ListItem(94).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(94).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(94).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(94).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(95).Label]</label>
+								<label2>$INFO[Container(50).ListItem(95).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(95).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(95).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(95).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(96).Label]</label>
+								<label2>$INFO[Container(50).ListItem(96).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(96).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(96).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(96).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(97).Label]</label>
+								<label2>$INFO[Container(50).ListItem(97).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(97).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(97).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(97).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(98).Label]</label>
+								<label2>$INFO[Container(50).ListItem(98).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(98).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(98).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(98).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).ListItem(99).Label]</label>
+								<label2>$INFO[Container(50).ListItem(99).Label2]</label2>
+								<thumb>$INFO[Container(50).ListItem(99).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(99).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(99).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(100).Label]</label>
+								<label2>$INFO[Container(50).Listitem(100).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(100).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(100).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(100).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(101).Label]</label>
+								<label2>$INFO[Container(50).Listitem(101).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(101).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(101).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(101).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(102).Label]</label>
+								<label2>$INFO[Container(50).Listitem(102).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(102).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(102).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(102).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(103).Label]</label>
+								<label2>$INFO[Container(50).Listitem(103).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(103).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(103).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(103).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(104).Label]</label>
+								<label2>$INFO[Container(50).Listitem(104).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(104).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(104).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(104).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(105).Label]</label>
+								<label2>$INFO[Container(50).Listitem(105).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(105).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(105).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(105).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(106).Label]</label>
+								<label2>$INFO[Container(50).Listitem(106).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(106).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(106).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(106).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(107).Label]</label>
+								<label2>$INFO[Container(50).Listitem(107).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(107).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(107).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(107).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(108).Label]</label>
+								<label2>$INFO[Container(50).Listitem(108).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(108).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(108).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(108).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(109).Label]</label>
+								<label2>$INFO[Container(50).Listitem(109).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(109).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(109).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(109).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(110).Label]</label>
+								<label2>$INFO[Container(50).Listitem(110).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(110).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(110).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(110).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(111).Label]</label>
+								<label2>$INFO[Container(50).Listitem(111).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(111).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(111).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(111).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(112).Label]</label>
+								<label2>$INFO[Container(50).Listitem(112).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(112).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(112).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(112).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(113).Label]</label>
+								<label2>$INFO[Container(50).Listitem(113).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(113).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(113).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(113).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(114).Label]</label>
+								<label2>$INFO[Container(50).Listitem(114).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(114).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(114).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(114).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(115).Label]</label>
+								<label2>$INFO[Container(50).Listitem(115).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(115).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(115).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(115).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(116).Label]</label>
+								<label2>$INFO[Container(50).Listitem(116).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(116).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(116).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(116).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(117).Label]</label>
+								<label2>$INFO[Container(50).Listitem(117).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(117).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(117).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(117).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(118).Label]</label>
+								<label2>$INFO[Container(50).Listitem(118).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(118).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(118).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(118).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(119).Label]</label>
+								<label2>$INFO[Container(50).Listitem(119).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(119).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(119).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(119).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(120).Label]</label>
+								<label2>$INFO[Container(50).Listitem(120).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(120).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(120).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(120).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(121).Label]</label>
+								<label2>$INFO[Container(50).Listitem(121).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(121).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(121).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(121).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(122).Label]</label>
+								<label2>$INFO[Container(50).Listitem(122).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(122).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(122).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(122).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(123).Label]</label>
+								<label2>$INFO[Container(50).Listitem(123).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(123).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(123).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(123).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(124).Label]</label>
+								<label2>$INFO[Container(50).Listitem(124).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(124).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(124).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(124).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(125).Label]</label>
+								<label2>$INFO[Container(50).Listitem(125).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(125).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(125).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(125).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(126).Label]</label>
+								<label2>$INFO[Container(50).Listitem(126).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(126).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(126).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(126).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(127).Label]</label>
+								<label2>$INFO[Container(50).Listitem(127).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(127).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(127).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(127).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(128).Label]</label>
+								<label2>$INFO[Container(50).Listitem(128).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(128).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(128).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(128).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(129).Label]</label>
+								<label2>$INFO[Container(50).Listitem(129).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(129).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(129).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(129).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(130).Label]</label>
+								<label2>$INFO[Container(50).Listitem(130).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(130).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(130).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(130).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(131).Label]</label>
+								<label2>$INFO[Container(50).Listitem(131).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(131).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(131).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(131).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(132).Label]</label>
+								<label2>$INFO[Container(50).Listitem(132).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(132).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(132).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(132).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(133).Label]</label>
+								<label2>$INFO[Container(50).Listitem(133).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(133).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(133).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(133).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(134).Label]</label>
+								<label2>$INFO[Container(50).Listitem(134).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(134).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(134).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(134).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(135).Label]</label>
+								<label2>$INFO[Container(50).Listitem(135).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(135).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(135).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(135).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(136).Label]</label>
+								<label2>$INFO[Container(50).Listitem(136).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(136).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(136).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(136).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(137).Label]</label>
+								<label2>$INFO[Container(50).Listitem(137).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(137).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(137).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(137).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(138).Label]</label>
+								<label2>$INFO[Container(50).Listitem(138).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(138).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(138).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(138).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(139).Label]</label>
+								<label2>$INFO[Container(50).Listitem(139).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(139).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(139).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(139).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(140).Label]</label>
+								<label2>$INFO[Container(50).Listitem(140).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(140).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(140).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(140).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(141).Label]</label>
+								<label2>$INFO[Container(50).Listitem(141).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(141).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(141).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(141).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(142).Label]</label>
+								<label2>$INFO[Container(50).Listitem(142).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(142).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(142).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(142).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(143).Label]</label>
+								<label2>$INFO[Container(50).Listitem(143).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(143).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(143).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(143).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(144).Label]</label>
+								<label2>$INFO[Container(50).Listitem(144).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(144).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(144).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(144).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(145).Label]</label>
+								<label2>$INFO[Container(50).Listitem(145).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(145).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(145).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(145).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(146).Label]</label>
+								<label2>$INFO[Container(50).Listitem(146).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(146).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(146).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(146).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(147).Label]</label>
+								<label2>$INFO[Container(50).Listitem(147).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(147).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(147).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(147).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(148).Label]</label>
+								<label2>$INFO[Container(50).Listitem(148).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(148).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(148).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(148).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(149).Label]</label>
+								<label2>$INFO[Container(50).Listitem(149).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(149).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(149).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(149).Label])</onclick>
+							</item>
+							<item>
+								<label>$INFO[Container(50).Listitem(150).Label]</label>
+								<label2>$INFO[Container(50).Listitem(150).Label2]</label2>
+								<thumb>$INFO[Container(50).Listitem(150).Thumb]</thumb>
+								<visible>!IsEmpty(Container(50).ListItemNoWrap(150).Label)</visible>
+								<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).Listitem(150).Label])</onclick>
 							</item>
 						</content>
 					</control>
@@ -1810,6 +2401,7 @@
 			</control>
 		</control>
 		<control type="group">
+			<visible>!Skin.HasSetting(UseExtendedInfo) | [!Stringcompare(Container.FolderPath,videodb://tvshows/titles/) + Substring(Container.FolderPath,videodb://tvshows/titles/,left)]</visible>
 			<animation effect="slide" start="-1429,0" end="0,0" time="320" tween="quadratic">WindowOpen</animation>
 			<animation effect="slide" end="-2729,0" time="320" tween="quadratic">WindowClose</animation>
 			<animation effect="slide" start="-729,0" end="0,0" time="320" tween="quadratic" condition="!Window.IsVisible(script-Actors-DialogVideoInfo.xml)|!Window.IsVisible(script-Actors-DialogInfo.xml)">Conditional</animation>
@@ -1884,6 +2476,7 @@
 			</control>
 		</control>
 		<control type="group">
+			<visible>!Skin.HasSetting(UseExtendedInfo) | [!Stringcompare(Container.FolderPath,videodb://tvshows/titles/) + Substring(Container.FolderPath,videodb://tvshows/titles/,left)]</visible>
 			<animation effect="slide" start="729,0" end="0,0" time="320" tween="quadratic">WindowOpen</animation>
 			<animation effect="slide" end="0,1100" time="320" tween="quadratic">WindowClose</animation>
 			<animation effect="slide" start="0,0" end="-729,0" time="320" tween="quadratic" condition="Skin.HasSetting(VideoInfoInverse)">Conditional</animation>
@@ -1899,6 +2492,7 @@
 				<onclick>ActivateWindow(1165)</onclick>
 				<include>Animation_VisibleChange200</include>
 			</control>
+		</control>
 		</control>
 	</controls>
 </window>

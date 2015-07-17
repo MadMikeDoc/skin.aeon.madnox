@@ -301,9 +301,17 @@
 			<left>460</left>
 			<top>414</top>
 			<width>65</width>
+			<height>60</height>
+			<texture>$VAR[Imdb_250]</texture>
+			<visible>!IsEmpty(ListItem.Top250) + System.HasAddon(script.duration) + !Skin.Hassetting(KodiFlixCases) + Skin.HasSetting(KodiFlixIMDBIcon)</visible>
+		</control>
+		<control type="image">
+			<left>460</left>
+			<top>414</top>
+			<width>65</width>
 			<height>30</height>
 			<texture>imdb.png</texture>
-			<visible>!IsEmpty(ListItem.Top250) + System.HasAddon(script.duration) + !Skin.Hassetting(KodiFlixCases)</visible>
+			<visible>!IsEmpty(ListItem.Top250) + System.HasAddon(script.duration) + !Skin.Hassetting(KodiFlixCases) + !Skin.HasSetting(KodiFlixIMDBIcon)</visible>
 		</control>
 		<control type="Label">
 			<left>530</left>
@@ -321,9 +329,17 @@
 			<left>90</left>
 			<top>994</top>
 			<width>65</width>
+			<height>60</height>
+			<texture>$VAR[Imdb_250]</texture>
+			<visible>!IsEmpty(ListItem.Top250) + !System.HasAddon(script.duration) + !Skin.Hassetting(KodiFlixCases) + Skin.HasSetting(KodiFlixIMDBIcon)</visible>
+		</control>
+		<control type="image">
+			<left>90</left>
+			<top>994</top>
+			<width>65</width>
 			<height>30</height>
 			<texture>imdb.png</texture>
-			<visible>!IsEmpty(ListItem.Top250) + !System.HasAddon(script.duration) + !Skin.Hassetting(KodiFlixCases)</visible>
+			<visible>!IsEmpty(ListItem.Top250) + !System.HasAddon(script.duration) + !Skin.Hassetting(KodiFlixCases) + !Skin.HasSetting(KodiFlixIMDBIcon)</visible>
 		</control>
 		<control type="Label">
 			<left>160</left>
@@ -337,14 +353,21 @@
 			<textcolor>fffeec900</textcolor>
 			<visible>!IsEmpty(ListItem.Top250) + !System.HasAddon(script.duration) + !Skin.Hassetting(KodiFlixCases)</visible>
 		</control>
-		
+		<control type="image">
+			<left>460</left>
+			<top>364</top>
+			<width>65</width>
+			<height>60</height>
+			<texture>$VAR[Imdb_250]</texture>
+			<visible>!IsEmpty(ListItem.Top250) + System.HasAddon(script.duration) + Skin.Hassetting(KodiFlixCases) + Skin.HasSetting(KodiFlixIMDBIcon)</visible>
+		</control>
 		<control type="image">
 			<left>460</left>
 			<top>374</top>
 			<width>65</width>
 			<height>30</height>
 			<texture>imdb.png</texture>
-			<visible>!IsEmpty(ListItem.Top250) + System.HasAddon(script.duration) + Skin.Hassetting(KodiFlixCases)</visible>
+			<visible>!IsEmpty(ListItem.Top250) + System.HasAddon(script.duration) + Skin.Hassetting(KodiFlixCases) + !Skin.HasSetting(KodiFlixIMDBIcon)</visible>
 		</control>
 		<control type="Label">
 			<left>530</left>
@@ -687,7 +710,7 @@
 				<aligny>center</aligny>
 				<!--label>$VAR[KodiFlix.Duration]</label-->
 				<label> • $INFO[Window(home).Property(Set.Movies.Runtime)] $LOCALIZE[12391]</label>
-				<visible>Container.Content(Movies) + SubString(ListItem.Path,videodb://movies/sets/,left)</visible>
+				<visible>[Container.Content(Movies) | Container.Content(sets)] + SubString(ListItem.Path,videodb://movies/sets/,left)</visible>
 			</control>
 		</control>
 		<control type="grouplist">
@@ -759,7 +782,7 @@
 				<aligny>center</aligny>
 				<!--label>$VAR[KodiFlix.Duration]</label-->
 				<label> • $INFO[Window(home).Property(Set.Movies.Runtime)] $LOCALIZE[12391]</label>
-				<visible>Container.Content(Movies) + SubString(ListItem.Path,videodb://movies/sets/,left)</visible>
+				<visible>[Container.Content(Movies) | Container.Content(sets)] + SubString(ListItem.Path,videodb://movies/sets/,left)</visible>
 			</control>
 		</control>
 		<!--content container-->
