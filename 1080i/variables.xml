@@ -3812,6 +3812,14 @@
 		<value condition="Skin.HasSetting(DisableRatingColorFlag)">-</value>
 		<value>flags/rating/</value>
 	</variable>
+	<variable name="ColorFlagsTVRatingextended">
+		<value condition="[Skin.HasSetting(RatingColorFlag) + Skin.HasSetting(ExtendedTVRatingVideoinfo)] + !Skin.HasSetting(DisableRatingColorFlag)">$INFO[Skin.String(ColorFlagsPath)]rating/info/</value>
+		<value condition="[Skin.HasSetting(RatingColorFlagreloaded) + Skin.HasSetting(ExtendedRatingVideoinfo)] + !Skin.HasSetting(DisableRatingColorFlag)">$INFO[Skin.String(ReloadedFlagsPath)]rating/info/</value>
+		<value condition="Skin.HasSetting(RatingColorFlag) + !Skin.HasSetting(DisableRatingColorFlag)">$INFO[Skin.String(ColorFlagsPath)]rating/</value>
+		<value condition="Skin.HasSetting(RatingColorFlagreloaded) + !Skin.HasSetting(DisableRatingColorFlag)">$INFO[Skin.String(ReloadedFlagsPath)]rating/</value>
+		<value condition="Skin.HasSetting(DisableRatingColorFlag)">-</value>
+		<value>flags/rating/</value>
+	</variable>
 	<variable name="ColorFlagsResolution">
 		<value condition="Skin.HasSetting(ResolutionColorFlag) + !Skin.HasSetting(DisableResolutionColorFlag)">$INFO[Skin.String(ColorFlagsPath)]</value>
 		<value condition="Skin.HasSetting(ResolutionColorFlagreloaded) + !Skin.HasSetting(DisableResolutionColorFlag)">$INFO[Skin.String(ReloadedFlagsPath)]</value>
@@ -4279,6 +4287,7 @@
     </variable>
 	<variable name="KodiFlix.Label">
 		<value condition="ListItem.IsPlaying">[COLOR=$VAR[FocusTextureColorVar]]$INFO[ListItem.Label][/COLOR]</value>
+		<value condition="Container.Content(episodes)">$INFO[ListItem.Title]</value>
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
 	<variable name="KodiFlixSeasonLandscapeSettingsVar">
