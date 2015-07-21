@@ -70,6 +70,14 @@
                         <visible>IsEmpty(ListItem.Art(fanart))</visible>
                         <fadetime>600</fadetime>
                     </control>
+					<control type="image">
+                        <left>1142</left>
+                        <top>1</top>
+                        <width>120</width>
+                        <height>120</height>
+						<texture>$VAR[VideoextrasOverlay]</texture>
+						<visible>System.HasAddon(script.videoextras)</visible>
+					</control>
                     <control type="image">
                         <left>1141</left>
                         <top>1</top>
@@ -89,14 +97,6 @@
 						<texture>overlayprogress.png</texture>
 						<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
 					</control>
-					<control type="image">
-                        <left>1141</left>
-                        <top>1</top>
-                        <width>120</width>
-                        <height>120</height>
-						<texture>$VAR[VideoextrasOverlay]</texture>
-						<visible>System.HasAddon(script.videoextras)</visible>
-					</control>
                 </control>
                 <control type="videowindow">
                     <top>84</top>
@@ -106,9 +106,9 @@
                 </control>
                 <control type="textbox">
                     <left>30</left>
-                    <top>686</top>
+                    <top>683</top>
                     <width>1200</width>
-                    <height>164</height>
+                    <height>191</height>
                     <label>$VAR[GlobalPlotOutlineVar]</label>
                     <font>Font_Reg32</font>
                     <autoscroll delay="8000" time="AutoScrollTime" repeat="8000">Skin.HasSetting(AutoScroll)</autoscroll>
@@ -406,27 +406,44 @@
                     <bordertexture border="19.5">thumbs/poster_shadow.png</bordertexture>
                 	<bordersize>19</bordersize>
                 </control>
-				<control type="image">
-					<left>1599</left>
-					<top>98</top>
-					<width>150</width>
-					<height>150</height>
-					<texture background="true" diffuse="thumbs/ExtraOverlayWatched.png">$VAR[VideoextrasOverlay]</texture>
-					<visible>System.HasAddon(script.videoextras)</visible>
-				</control>
                 <control type="textbox">
                     <left>540</left>
-                    <top>700</top>
+                    <top>695</top>
                     <width>1200</width>
-                    <height>228</height>
+                    <height>260</height>
                     <label>$VAR[GlobalPlotVar]</label>
                     <font>Font_Reg32</font>
                     <autoscroll delay="8000" time="AutoScrollTime" repeat="8000">Skin.HasSetting(AutoScroll)</autoscroll>
                 </control>
+					<control type="image">
+                        <left>1654</left>
+                        <top>99</top>
+                        <width>96</width>
+                        <height>95</height>
+						<texture>$VAR[VideoextrasOverlay]</texture>
+						<visible>System.HasAddon(script.videoextras)</visible>
+					</control>
+                    <control type="image">
+                        <left>1653</left>
+                        <top>98</top>
+                        <width>95</width>
+                        <height>95</height>
+                        <fadetime>IconCrossfadeTime2</fadetime>
+                        <include>OverlayVisibility0</include>
+                        <include>Animation_VisibleChange200</include>
+                    </control>
+					<control type="image">
+                        <left>1653</left>
+                        <top>98</top>
+                        <width>95</width>
+                        <height>95</height>
+						<fadetime>IconCrossfadeTime2</fadetime>
+						<include>Animation_VisibleChange200</include>
+						<texture>overlayprogress.png</texture>
+						<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+					</control>				
             </control>
             <control type="list" id="550">
-                <!-- invalid tag -->
-				<!--<onfocus>XBMC.RunScript(script.duration,duration=$INFO[ListItem.Duration])</onfocus>-->
                 <left>63</left>
                 <top>82</top>
                 <width>570</width>
@@ -456,8 +473,8 @@
                         <font>Font_Reg22</font>
                     </control>
 					<control type="image">
-                        <left>380</left>
-                        <top>18</top>
+                        <left>382</left>
+                        <top>1</top>
                         <width>52</width>
                         <height>52</height>
 						<texture>$VAR[VideoextrasOverlay]</texture>
@@ -497,8 +514,8 @@
                         <font>Font_Reg22</font>
                     </control>
 					<control type="image">
-                        <left>380</left>
-                        <top>18</top>
+                        <left>382</left>
+                        <top>1</top>
                         <width>52</width>
                         <height>52</height>
 						<texture>$VAR[VideoextrasOverlay]</texture>

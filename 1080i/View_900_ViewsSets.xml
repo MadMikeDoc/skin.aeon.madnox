@@ -331,7 +331,7 @@
 			<left>40</left>
 			<top>635</top>
 			<width>906</width>
-			<height>196</height>
+			<height>206</height>
 			<align>justify</align>
 			<font>Font18a</font>
 			<label>$INFO[Window(0).Property(Set.Movies.ExtendedPlot)]</label>
@@ -343,7 +343,7 @@
 			<left>40</left>
 			<top>635</top>
 			<width>906</width>
-			<height>196</height>
+			<height>206</height>
 			<align>justify</align>
 			<font>Font18a</font>
 			<label>$INFO[Container(5801).ListItem.Plot]</label>
@@ -401,9 +401,9 @@
 				<include>Animation_CommonFade</include>
 				<control type="image">
 					<left>500</left>
-					<top>216</top>
+					<top>222</top>
 					<width>230</width>
-					<height>359</height>
+					<height>345</height>
 					<fadetime>FanartCrossFadeTime</fadetime>
 					<aspectratio align="right" aligny="bottom">stretch</aspectratio>
 					<texture fallback="DefaultVideoPoster.png" background="true">$VAR[ListPosterVar]</texture>
@@ -520,34 +520,95 @@
 			<orientation>horizontal</orientation>
 			<scrolltime>350</scrolltime>
 			<preloaditems>2</preloaditems>
-			<itemlayout condition="Skin.HasSetting(MovieSetsNoDiscArt)" height="460" width="282">
-				<!--control type="image">
-					<left>0</left>
-					<top>186</top>
-					<width>125</width>
-					<height>180</height>
-					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<texture flipy="true" diffuse="thumb_reflect.png" background="true">$INFO[ListItem.Icon]</texture>
-					<bordertexture flipy="true" diffuse="thumb_reflect.png" border="-2">black.png</bordertexture>
-				</control-->
-				<control type="image">
-					<left>2</left>
-					<top>35</top>
-					<width>222</width>
-					<height>316</height>
-					<texture fallback="DefaultVideoPoster.png" background="true">$VAR[ListPosterVar]</texture>
-					<bordertexture border="-2">black.png</bordertexture>
+		<itemlayout condition="Skin.HasSetting(MovieSetsNoDiscArt)" height="460" width="282">
+			<control type="group">   <!-- clearcase no disc -->
+			<visible>Skin.HasSetting(clearcases)</visible>
+			<control type="image">
+					<left>6</left>
+					<top>31</top>
+					<width>220</width>
+					<height>330</height>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<texture background="true" diffuse="thumbs/movieposter_mask.png">$VAR[ListPosterVar]</texture>
 				</control>
 				<control type="image">
-					<left>-40</left>
+					<left>-35</left>
 					<top>0</top>
-					<width>280</width>
-					<height>366</height>
-                    <texture background="true">thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[MovieSetsGlobalCaseVar]</texture>
+					<width>278</width>
+					<height>382</height>
+                    <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
                     <bordersize>2</bordersize>
 			    </control>
-			</itemlayout>
-			<itemlayout condition="!Skin.HasSetting(MovieSetsNoDiscArt)" height="460" width="352">
+				<control type="image"> 
+					<left>167</left>
+					<top>24</top>
+					<width>52</width>
+					<height>52</height>
+					<texture>$VAR[VideoextrasOverlay]</texture>
+					<visible>System.HasAddon(script.videoextras)</visible>
+				</control>
+				<control type="image">
+					<left>167</left>
+                    <top>24</top>
+                    <width>65</width>
+                    <height>65</height>
+                    <include>OverlayVisibility0</include>
+				</control>	
+				<control type="image">
+                    <left>167</left>
+                    <top>24</top>
+                    <width>65</width>
+                    <height>65</height>
+					<texture>overlayprogress.png</texture>
+					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+				</control>						
+			</control>	
+			<control type="group">   <!-- nocase + bd + color cases no disc -->
+			<visible>!Skin.HasSetting(clearcases) + !Skin.HasSetting(Colorcases) | !Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)</visible>
+				<control type="image">
+					<left>6</left>
+					<top>31</top>
+					<width>220</width>
+					<height>330</height>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<texture>$VAR[ListPosterVar]</texture>
+				</control>
+				<control type="image">
+					<left>-35</left>
+					<top>-5</top>
+					<width>282</width>
+					<height>386</height>
+                    <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+                    <bordersize>2</bordersize>
+					<visible>Skin.Hassetting(usecases)</visible>
+			    </control>
+				<control type="image"> 
+					<left>161</left>
+					<top>31</top>
+					<width>52</width>
+					<height>52</height>
+					<texture>$VAR[VideoextrasOverlay]</texture>
+					<visible>System.HasAddon(script.videoextras)</visible>
+				</control>
+				<control type="image">
+					<left>161</left>
+                    <top>31</top>
+                    <width>65</width>
+                    <height>65</height>
+                    <include>OverlayVisibility0</include>
+				</control>	
+				<control type="image">
+                    <left>161</left>
+                    <top>31</top>
+                    <width>65</width>
+                    <height>65</height>
+					<texture>overlayprogress.png</texture>
+					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+				</control>				
+			</control>				
+		</itemlayout>
+
+		<itemlayout condition="!Skin.HasSetting(MovieSetsNoDiscArt)" height="460" width="352">
 				<control type="image">
 					<left>87</left>
 					<top>40</top>
@@ -633,67 +694,185 @@
 					</control>
 				</control>
 				<!--MAD - Fale Disc Art - End -->
-				<!--control type="image">
-					<left>0</left>
-					<top>186</top>
-					<width>230</width>
-					<height>346</height>
-					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<texture flipy="true" diffuse="thumb_reflect.png" background="true">$INFO[ListItem.Icon]</texture>
-					<bordertexture flipy="true" diffuse="thumb_reflect.png" border="-2">black.png</bordertexture>
-				</control-->
-				<control type="image">
-					<left>2</left>
-					<top>35</top>
-					<width>222</width>
-					<height>316</height>
-					<texture fallback="DefaultVideoPoster.png" background="true">$VAR[ListPosterVar]</texture>
-				</control>
-				<control type="image">
-					<left>-40</left>
-					<top>0</top>
-					<width>280</width>
-					<height>366</height>
-                    <texture background="true">thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[MovieSetsGlobalCaseVar]</texture>
-                    <bordersize>2</bordersize>
-				</control>
-			</itemlayout>
-			<focusedlayout condition="Skin.HasSetting(MovieSetsNoDiscArt)" height="320" width="282"><!-- Sem disco -->
-				<!-- invalid placement of onfucus -->
-				<!--<onfocus>XBMC.RunScript(script.duration,duration=$INFO[Container(5801).ListItem.Duration])</onfocus>-->
-				<!--control type="image">
-					<left>2</left>
-					<top>35</top>
-					<width>222</width>
-					<height>316</height>
-					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<texture flipy="true" diffuse="thumb_reflect.png" background="true">$INFO[ListItem.Icon]</texture>
-					<bordertexture flipy="true" diffuse="thumb_reflect.png" border="-2">grey.png</bordertexture>
-					<animation effect="zoom" start="100" end="115" center="125,180" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-				</control-->
+			<control type="group">   <!-- clearcase  with disc -->
+			<visible>Skin.HasSetting(clearcases)</visible>
 				<control type="image">
 					<left>6</left>
-					<top>32</top>
-					<width>214</width>
-					<height>316</height>
-					<texture fallback="DefaultVideoPoster.png" background="true">$VAR[ListPosterVar]</texture>
-					<bordertexture border="-2">grey.png</bordertexture>
-					<animation effect="zoom" start="100" end="115" center="125,180" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
+					<top>31</top>
+					<width>220</width>
+					<height>330</height>
+					<texture background="true" diffuse="thumbs/movieposter_mask.png">$VAR[ListPosterVar]</texture>
 				</control>
 				<control type="image">
-					<left>-40</left>
+					<left>-35</left>
 					<top>0</top>
-					<width>280</width>
-					<height>366</height>
-                    <texture background="true">thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[MovieSetsGlobalCaseVar]</texture>
-					<bordersize>2</bordersize>
-					<animation effect="zoom" start="100" end="115" center="125,180" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
+					<width>279</width>
+					<height>382</height>
+                    <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+                    <bordersize>2</bordersize>
 			    </control>
-			</focusedlayout>
-			<focusedlayout condition="!Skin.HasSetting(MovieSetsNoDiscArt)" height="320" width="352"><!-- Com disco -->
-				<!-- invalid placement of onfucus -->
-				<!--<onfocus>XBMC.RunScript(script.duration,duration=$INFO[Container(5801).ListItem.Duration])</onfocus>-->
-				<control type="group">
+				<control type="image"> 
+					<left>167</left>
+					<top>24</top>
+					<width>52</width>
+					<height>52</height>
+					<texture>$VAR[VideoextrasOverlay]</texture>
+					<visible>System.HasAddon(script.videoextras)</visible>
+				</control>
+				<control type="image">
+					<left>167</left>
+                    <top>24</top>
+                    <width>65</width>
+                    <height>65</height>
+                    <include>OverlayVisibility0</include>
+				</control>	
+				<control type="image">
+                    <left>167</left>
+                    <top>24</top>
+                    <width>65</width>
+                    <height>65</height>
+					<texture>overlayprogress.png</texture>
+					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+				</control>	
+			</control>					
+			<control type="group">   <!-- nocase + bd + color cases with disc -->
+			<visible>!Skin.HasSetting(clearcases) + !Skin.HasSetting(Colorcases) | !Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)</visible>
+				<control type="image">
+					<left>6</left>
+					<top>31</top>
+					<width>220</width>
+					<height>330</height>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<texture>$VAR[ListPosterVar]</texture>
+				</control>
+				<control type="image">
+					<left>-36</left>
+					<top>-5</top>
+					<width>282</width>
+					<height>386</height>
+                    <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+                    <bordersize>2</bordersize>
+					<visible>Skin.Hassetting(usecases)</visible>
+			    </control>
+				<control type="image"> 
+					<left>161</left>
+					<top>31</top>
+					<width>52</width>
+					<height>52</height>
+					<texture>$VAR[VideoextrasOverlay]</texture>
+					<visible>System.HasAddon(script.videoextras)</visible>
+				</control>
+				<control type="image">
+					<left>161</left>
+                    <top>31</top>
+                    <width>65</width>
+                    <height>65</height>
+                    <include>OverlayVisibility0</include>
+				</control>	
+				<control type="image">
+                    <left>161</left>
+                    <top>31</top>
+                    <width>65</width>
+                    <height>65</height>
+					<texture>overlayprogress.png</texture>
+					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+				</control>				
+			</control>
+		</itemlayout>
+
+		<focusedlayout condition="Skin.HasSetting(MovieSetsNoDiscArt)" height="320" width="282"><!-- Sem disco -->
+		<control type="group"> <!-- FOCUS ZOOM NO DISC-->
+					<animation effect="zoom" start="100" end="115" center="125,180" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
+			<control type="group">   <!-- focus clearcase no disc -->
+				<visible>Skin.HasSetting(clearcases)</visible>
+				<control type="image">
+					<left>6</left>
+					<top>31</top>
+					<width>220</width>
+					<height>330</height>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<texture background="true" diffuse="thumbs/movieposter_mask.png">$VAR[ListPosterVar]</texture>
+				</control>
+				<control type="image">
+					<left>-35</left>
+					<top>0</top>
+					<width>278</width>
+					<height>382</height>
+                    <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+                    <bordersize>2</bordersize>
+			    </control>
+				<control type="image"> 
+					<left>167</left>
+					<top>24</top>
+					<width>52</width>
+					<height>52</height>
+					<texture>$VAR[VideoextrasOverlay]</texture>
+					<visible>System.HasAddon(script.videoextras)</visible>
+				</control>
+				<control type="image">
+					<left>167</left>
+                    <top>24</top>
+                    <width>65</width>
+                    <height>65</height>
+                    <include>OverlayVisibility0</include>
+				</control>	
+				<control type="image">
+                    <left>167</left>
+                    <top>24</top>
+                    <width>65</width>
+                    <height>65</height>
+					<texture>overlayprogress.png</texture>
+					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+				</control>						
+			</control>		
+			<control type="group">   <!-- nocase + bd + color cases no disc -->
+			<visible>!Skin.HasSetting(clearcases) + !Skin.HasSetting(Colorcases) | !Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)</visible>
+				<control type="image">
+					<left>6</left>
+					<top>31</top>
+					<width>220</width>
+					<height>330</height>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<texture>$VAR[ListPosterVar]</texture>
+				</control>
+				<control type="image">
+					<left>-35</left>
+					<top>-5</top>
+					<width>282</width>
+					<height>386</height>
+                    <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+                    <bordersize>2</bordersize>
+					<visible>Skin.Hassetting(usecases)</visible>
+			    </control>
+				<control type="image"> 
+					<left>161</left>
+					<top>31</top>
+					<width>52</width>
+					<height>52</height>
+					<texture>$VAR[VideoextrasOverlay]</texture>
+					<visible>System.HasAddon(script.videoextras)</visible>
+				</control>
+				<control type="image">
+					<left>161</left>
+                    <top>31</top>
+                    <width>65</width>
+                    <height>65</height>
+                    <include>OverlayVisibility0</include>
+				</control>	
+				<control type="image">
+                    <left>161</left>
+                    <top>31</top>
+                    <width>65</width>
+                    <height>65</height>
+					<texture>overlayprogress.png</texture>
+					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+				</control>				
+				</control>	
+		</control>
+		</focusedlayout>
+
+		<focusedlayout condition="!Skin.HasSetting(MovieSetsNoDiscArt)" height="320" width="352"><!-- Com disco -->
+			<control type="group">
 					<animation effect="zoom" start="100" end="115" center="125,180" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
 					<control type="image"><!-- Disc Poster 1 -->
 						<left>87</left>
@@ -780,26 +959,98 @@
 					</control>
 				</control>
 				<!--MAD - Fale Disc Art - End -->
-					<control type="image">
-						<left>6</left>
-					<top>32</top>
-					<width>214</width>
-					<height>316</height>
-					<texture fallback="DefaultVideoPoster.png" background="true">$VAR[ListPosterVar]</texture>
-					</control>
-					<control type="image">
-						<left>-40</left>
-						<top>0</top>
-						<width>280</width>
-						<height>366</height>
-						<texture background="true">thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[MovieSetsGlobalCaseVar]</texture>
-						<bordersize>2</bordersize>
-					</control>
+				<control type="group">   <!-- clearcase  with disc -->
+				<visible>Skin.HasSetting(clearcases)</visible>
+				<control type="image">
+					<left>6</left>
+					<top>31</top>
+					<width>220</width>
+					<height>330</height>
+					<texture background="true" diffuse="thumbs/movieposter_mask.png">$VAR[ListPosterVar]</texture>
 				</control>
-			</focusedlayout>
+				<control type="image">
+					<left>-35</left>
+					<top>0</top>
+					<width>279</width>
+					<height>382</height>
+                    <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+                    <bordersize>2</bordersize>
+			    </control>
+				<control type="image"> 
+					<left>167</left>
+					<top>24</top>
+					<width>52</width>
+					<height>52</height>
+					<texture>$VAR[VideoextrasOverlay]</texture>
+					<visible>System.HasAddon(script.videoextras)</visible>
+				</control>
+				<control type="image">
+					<left>167</left>
+                    <top>24</top>
+                    <width>65</width>
+                    <height>65</height>
+                    <include>OverlayVisibility0</include>
+				</control>	
+				<control type="image">
+                    <left>167</left>
+                    <top>24</top>
+                    <width>65</width>
+                    <height>65</height>
+					<texture>overlayprogress.png</texture>
+					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+				</control>	
+				</control>	
+
+				<control type="group">   <!-- nocase + bd + color cases with disc -->
+			<visible>!Skin.HasSetting(clearcases) + !Skin.HasSetting(Colorcases) | !Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)</visible>
+				<control type="image">
+					<left>6</left>
+					<top>31</top>
+					<width>220</width>
+					<height>330</height>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<texture>$VAR[ListPosterVar]</texture>
+				</control>
+				<control type="image">
+					<left>-36</left>
+					<top>-5</top>
+					<width>282</width>
+					<height>386</height>
+                    <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+                    <bordersize>2</bordersize>
+					<visible>Skin.Hassetting(usecases)</visible>
+			    </control>
+				<control type="image"> 
+					<left>161</left>
+					<top>31</top>
+					<width>52</width>
+					<height>52</height>
+					<texture>$VAR[VideoextrasOverlay]</texture>
+					<visible>System.HasAddon(script.videoextras)</visible>
+				</control>
+				<control type="image">
+					<left>161</left>
+                    <top>31</top>
+                    <width>65</width>
+                    <height>65</height>
+                    <include>OverlayVisibility0</include>
+				</control>	
+				<control type="image">
+                    <left>161</left>
+                    <top>31</top>
+                    <width>65</width>
+                    <height>65</height>
+					<texture>overlayprogress.png</texture>
+					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+				</control>				
+				</control>
+			</control>			
+		</focusedlayout>
+
 			<content target="video">videodb://movies/sets/$INFO[ListItem.DBID]/</content>
 		</control>
 	</control>
+
 	<!-- Fullscreen Poster Art -->
 	<control type="group">
 		<left>-1280</left>

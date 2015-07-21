@@ -27,14 +27,6 @@
                     <animation effect="slide" end="0,-165" time="120" condition="!Skin.HasSetting(nohighlist)">Conditional</animation>
                     <control type="group">
                         <visible>Container.Content(movies) + [Skin.HasSetting(lowlisttagline) | Control.HasFocus(7002)] + !IsEmpty(ListItem.Tagline)</visible>
-                        <!--                         <animation type="Visible">
-                            <effect type="slide" start="0,50" end="0,0" time="400" easing="in" tween="cubic" />
-                            <effect type="fade" end="100" time="300" />
-                        </animation>
-                        <animation type="Hidden">
-                            <effect type="slide" end="0,50" time="400" tween="cubic" />
-                            <effect type="fade" start="100" end="0" time="200" />
-                        </animation> -->
                         <animation type="Visible">
                             <effect type="zoom" end="100,100" start="100,0" time="320" easing="in" tween="cubic" center="960,755" />
                         </animation>
@@ -932,6 +924,13 @@
                         <font>Font_Bold28</font>
                         <textcolor>$VAR[SubTitleColorVar]</textcolor>
                     </control>
+						<control type="image">
+                        <left>763</left>
+                        <width>52</width>
+                        <height>52</height>
+							<texture>$VAR[VideoextrasOverlay]</texture>
+							<visible>System.HasAddon(script.videoextras)</visible>
+						</control>
                     <control type="image">
                         <left>750</left>
                         <top>8</top>
@@ -940,14 +939,6 @@
                         <texture>$VAR[WatchedIconVar]</texture>
                         <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                     </control>
-						<control type="image">
-                        <left>750</left>
-                        <top>8</top>
-                        <width>52</width>
-                        <height>52</height>
-							<texture>$VAR[VideoextrasOverlay]</texture>
-							<visible>System.HasAddon(script.videoextras)</visible>
-						</control>
                 </itemlayout>
                 <focusedlayout height="66" width="825" condition="![Skin.HasSetting(lowlistbanner) + Container.Content(tvshows)]">
                     <control type="image">
@@ -1006,8 +997,7 @@
                         <colordiffuse>white</colordiffuse>
                     </control>
 						<control type="image">
-                        <left>750</left>
-                        <top>8</top>
+                        <left>763</left>
                         <width>52</width>
                         <height>52</height>
 							<texture>$VAR[VideoextrasOverlay]</texture>
@@ -1042,7 +1032,7 @@
                         </control>
                         <control type="image">
                             <left>703</left>
-                            <top>6</top>
+                            <top>5</top>
                             <width>90</width>
                             <height>90</height>
                             <include>OverlayVisibility0</include>
