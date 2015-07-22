@@ -587,7 +587,7 @@
                     </focusedlayout>
                     <itemlayout height="268" width="189" condition="Container.Content(movies) + Skin.HasSetting(usecases)">      			<!-- MOVIES INACTIVE WITH CASES -->
 					<control type="group">
-					<visible>[!Skin.HasSetting(Colorcases) + Skin.HasSetting(clearcases)]</visible>
+					<visible>Skin.HasSetting(clearcases)</visible>
 						<control type="image">
                             <left>4</left>
                             <top>12</top>
@@ -720,7 +720,7 @@
                     <control type="group">
                     <animation effect="zoom" center="90,134" start="100" end="140" time="160" tween="cubic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
 						<control type="group">				
-						<visible>[!Skin.HasSetting(Colorcases) + Skin.HasSetting(clearcases)] + Skin.HasSetting(InfoWallZoom)</visible>
+						<visible>Skin.HasSetting(clearcases) + Skin.HasSetting(InfoWallZoom)</visible>
 							<control type="image">
 								<left>7</left>
 								<top>27</top>
@@ -762,7 +762,7 @@
                             </control>						
 						</control>
 						<control type="group">					
-						<visible>[!Skin.HasSetting(Colorcases) + Skin.HasSetting(clearcases)] + !Skin.HasSetting(InfoWallZoom)</visible>
+						<visible>Skin.HasSetting(clearcases) + !Skin.HasSetting(InfoWallZoom)</visible>
 							<control type="image">
                             <left>4</left>
                             <top>12</top>
