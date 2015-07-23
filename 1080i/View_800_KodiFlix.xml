@@ -6,25 +6,251 @@
 		<effect type="fade" start="100" end="0" time="300" delay="0" tween="sine" easing="inout" />
 		<effect type="zoom" start="100" end="90" time="300" delay="0" center="640,360" tween="sine" easing="inout" />
 		<include>CommonSlideAnimations</include>
-		<!-- MAD - Originally 'watched' from right of logo, left of poster -->
-		<!--control type="image">
-			<left>431</left>
+		<control type="image">
+			<description>KodiFlix Fanart</description>
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>1080</height>
+			<aspectratio>scale</aspectratio>
+			<texture background="true" diffuse="views/KodiFlix/fanart_diffuse.png">$INFO[ListItem.Art(fanart)]</texture>
+			<include>FanartFade</include>
+			<visible>Control.IsVisible(800) + !SubString(ListItem.Path,videodb://movies/sets) + !Skin.HasSetting(NetFiixExtraFanart) + !Skin.HasSetting(KodiFlixShortList)</visible>
+			<fadetime>250</fadetime>
+			<include>BackgroundAnimation</include>
+		</control>
+		<control type="image">
+			<description>KodiFlix Fanart</description>
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>1080</height>
+			<aspectratio>scale</aspectratio>
+			<texture background="true" diffuse="views/KodiFlix/fanart_diffuse3.png">$INFO[ListItem.Art(fanart)]</texture>
+			<include>FanartFade</include>
+			<visible>Control.IsVisible(800) + !SubString(ListItem.Path,videodb://movies/sets) + [!Skin.HasSetting(NetFiixExtraFanart) | IsEmpty(Control.GetLabel(5900))] + Skin.HasSetting(KodiFlixShortList)  + !Skin.HasSetting(KodiFlixCenterList)</visible>
+			<fadetime>250</fadetime>
+			<include>BackgroundAnimation</include>
+		</control>
+		<control type="image">
+			<description>KodiFlix Fanart</description>
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>1080</height>
+			<aspectratio>scale</aspectratio>
+			<texture background="true" diffuse="views/KodiFlix/fanart_diffuse4.png">$INFO[ListItem.Art(fanart)]</texture>
+			<include>FanartFade</include>
+			<visible>Control.IsVisible(800) + !SubString(ListItem.Path,videodb://movies/sets) + [!Skin.HasSetting(NetFiixExtraFanart) | IsEmpty(Control.GetLabel(5900))] + Skin.HasSetting(KodiFlixShortList)  + Skin.HasSetting(KodiFlixCenterList) + !Skin.HasSetting(NetFiixHideFilmInfo)</visible>
+			<fadetime>250</fadetime>
+			<include>BackgroundAnimation</include>
+		</control>
+		<control type="image">
+			<description>KodiFlix Fanart</description>
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>1080</height>
+			<aspectratio>scale</aspectratio>
+			<texture background="true" diffuse="views/KodiFlix/fanart_diffuse5.png">$INFO[ListItem.Art(fanart)]</texture>
+			<include>FanartFade</include>
+			<visible>Control.IsVisible(800) + !SubString(ListItem.Path,videodb://movies/sets) + [!Skin.HasSetting(NetFiixExtraFanart) | IsEmpty(Control.GetLabel(5900))] + Skin.HasSetting(KodiFlixShortList)  + Skin.HasSetting(KodiFlixCenterList) + Skin.HasSetting(NetFiixHideFilmInfo)</visible>
+			<fadetime>250</fadetime>
+			<include>BackgroundAnimation</include>
+		</control>
+		<control type="image" id="5901">
+			<description>KodiFlix Fanart</description>
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>1080</height>
+			<aspectratio>scale</aspectratio>
+			<texture background="true" diffuse="views/KodiFlix/fanart_diffuse.png">$INFO[ListItem.Art(extrafanart1)]</texture>
+			<include>FanartFade</include>
+			<visible>Control.IsVisible(800) + SubString(ListItem.Path,videodb://movies/sets) + !Skin.HasSetting(KodiFlixShortList) + !Skin.HasSetting(NetFiixHideFilmInfo)</visible>
+			<fadetime>250</fadetime>
+			<include>BackgroundAnimation</include>
+		</control>
+		<control type="image" id="5901">
+			<description>KodiFlix Fanart</description>
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>1080</height>
+			<aspectratio>keep</aspectratio>
+			<texture background="true" diffuse="views/KodiFlix/fanart_diffuse3.png">$INFO[ListItem.Art(extrafanart1)]</texture>
+			<include>FanartFade</include>
+			<visible>Control.IsVisible(800) + SubString(ListItem.Path,videodb://movies/sets) + Skin.HasSetting(KodiFlixShortList) + !Skin.HasSetting(KodiFlixCenterList)</visible>
+			<fadetime>250</fadetime>
+			<include>BackgroundAnimation</include>
+		</control>
+		<control type="image" id="5901">
+			<description>KodiFlix Fanart</description>
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>1080</height>
+			<aspectratio>keep</aspectratio>
+			<texture background="true" diffuse="views/KodiFlix/fanart_diffuse4.png">$INFO[ListItem.Art(extrafanart1)]</texture>
+			<include>FanartFade</include>
+			<visible>Control.IsVisible(800) + SubString(ListItem.Path,videodb://movies/sets) + Skin.HasSetting(KodiFlixShortList) + Skin.HasSetting(KodiFlixCenterList)</visible>
+			<fadetime>250</fadetime>
+			<include>BackgroundAnimation</include>
+		</control>
+		<control type="image">
+			<description>KodiFlix Fanart</description>
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>1080</height>
+			<aspectratio>scale</aspectratio>
+			<texture background="true" diffuse="views/KodiFlix/fanart_diffuse.png">$INFO[ListItem.Art(fanart)]</texture>
+			<include>FanartFade</include>
+			<visible>Control.IsVisible(800) + SubString(ListItem.Path,videodb://movies/sets) + !Skin.HasSetting(KodiFlixShortList) + IsEmpty(Control.GetLabel(5901))</visible>
+			<fadetime>250</fadetime>
+			<include>BackgroundAnimation</include>
+		</control>
+		<control type="image">
+			<description>KodiFlix Fanart</description>
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>1080</height>
+			<aspectratio>keep</aspectratio>
+			<texture background="true" diffuse="views/KodiFlix/fanart_diffuse3.png">$INFO[ListItem.Art(fanart)]</texture>
+			<include>FanartFade</include>
+			<visible>Control.IsVisible(800) + SubString(ListItem.Path,videodb://movies/sets) + Skin.HasSetting(KodiFlixShortList) + IsEmpty(Control.GetLabel(5901))</visible>
+			<fadetime>250</fadetime>
+			<include>BackgroundAnimation</include>
+		</control>
+		<control type="multiimage" id="5900">
+			<description>KodiFlix Fanart extrafanart</description>
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>1080</height>
+			<aspectratio>keep</aspectratio>
+			<randomize>true</randomize>
+			<fadetime>500</fadetime>
+			<timeperimage>3000</timeperimage>
+			<imagepath background="true" diffuse="views/KodiFlix/fanart_diffuse2.png">$VAR[VideoExtraFanartVar]</imagepath>
+			<visible>Control.IsVisible(800) + Skin.HasSetting(NetFiixExtraFanart) + !SubString(ListItem.Path,videodb://movies/sets) + !Skin.HasSetting(KodiFlixShortList) + !Skin.HasSetting(NetFiixHideFilmInfo) + !Skin.HasSetting(KodiFlixCenterList)</visible>
+			<include>Animation_VisibleChange200</include>
+		</control>
+		<control type="multiimage" id="5900">
+			<description>KodiFlix Fanart extrafanart</description>
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>1080</height>
+			<aspectratio>keep</aspectratio>
+			<randomize>true</randomize>
+			<fadetime>500</fadetime>
+			<timeperimage>3000</timeperimage>
+			<imagepath background="true" diffuse="views/KodiFlix/fanart_diffuse4.png">$VAR[VideoExtraFanartVar]</imagepath>
+			<visible>Control.IsVisible(800) + Skin.HasSetting(NetFiixExtraFanart) + !SubString(ListItem.Path,videodb://movies/sets) + !Skin.HasSetting(KodiFlixShortList) + !Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList)</visible>
+			<include>Animation_VisibleChange200</include>
+		</control>
+		<control type="multiimage" id="5900">
+			<description>KodiFlix Fanart extrafanart</description>
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>1080</height>
+			<aspectratio>keep</aspectratio>
+			<randomize>true</randomize>
+			<fadetime>500</fadetime>
+			<timeperimage>3000</timeperimage>
+			<imagepath background="true" diffuse="views/KodiFlix/fanart_diffuse4.png">$VAR[VideoExtraFanartVar]</imagepath>
+			<visible>Control.IsVisible(800) + Skin.HasSetting(NetFiixExtraFanart) + !SubString(ListItem.Path,videodb://movies/sets) + !Skin.HasSetting(KodiFlixShortList) + Skin.HasSetting(NetFiixHideFilmInfo) + !Skin.HasSetting(KodiFlixCenterList)</visible>
+			<include>Animation_VisibleChange200</include>
+		</control>
+		<control type="multiimage" id="5900">
+			<description>KodiFlix Fanart extrafanart</description>
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>1080</height>
+			<aspectratio>keep</aspectratio>
+			<randomize>true</randomize>
+			<fadetime>500</fadetime>
+			<timeperimage>3000</timeperimage>
+			<imagepath background="true" diffuse="views/KodiFlix/fanart_diffuse5.png">$VAR[VideoExtraFanartVar]</imagepath>
+			<visible>Control.IsVisible(800) + Skin.HasSetting(NetFiixExtraFanart) + !SubString(ListItem.Path,videodb://movies/sets) + !Skin.HasSetting(KodiFlixShortList) + Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList)</visible>
+			<include>Animation_VisibleChange200</include>
+		</control>
+		
+		<control type="multiimage" id="5900">
+			<description>KodiFlix Fanart extrafanart</description>
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>1080</height>
+			<aspectratio>keep</aspectratio>
+			<randomize>true</randomize>
+			<fadetime>500</fadetime>
+			<timeperimage>3000</timeperimage>
+			<imagepath background="true" diffuse="views/KodiFlix/fanart_diffuse3.png">$VAR[VideoExtraFanartVar]</imagepath>
+			<visible>Control.IsVisible(800) + Skin.HasSetting(NetFiixExtraFanart) + !SubString(ListItem.Path,videodb://movies/sets) + Skin.HasSetting(KodiFlixShortList) + !Skin.HasSetting(NetFiixHideFilmInfo) + !Skin.HasSetting(KodiFlixCenterList)</visible>
+			<include>Animation_VisibleChange200</include>
+		</control>
+		<control type="multiimage" id="5900">
+			<description>KodiFlix Fanart extrafanart</description>
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>1080</height>
+			<randomize>true</randomize>
+			<fadetime>500</fadetime>
+			<timeperimage>3000</timeperimage>
+			<imagepath background="true" diffuse="views/KodiFlix/fanart_diffuse4.png">$VAR[VideoExtraFanartVar]</imagepath>
+			<visible>Control.IsVisible(800) + Skin.HasSetting(NetFiixExtraFanart) + !SubString(ListItem.Path,videodb://movies/sets) + Skin.HasSetting(KodiFlixShortList) + Skin.HasSetting(NetFiixHideFilmInfo) + !Skin.HasSetting(KodiFlixCenterList)</visible>
+			<include>Animation_VisibleChange200</include>
+		</control>
+		<control type="multiimage" id="5900">
+			<description>KodiFlix Fanart extrafanart</description>
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>1080</height>
+			<randomize>true</randomize>
+			<fadetime>500</fadetime>
+			<timeperimage>3000</timeperimage>
+			<imagepath background="true" diffuse="views/KodiFlix/fanart_diffuse5.png">$VAR[VideoExtraFanartVar]</imagepath>
+			<visible>Control.IsVisible(800) + Skin.HasSetting(NetFiixExtraFanart) + !SubString(ListItem.Path,videodb://movies/sets) + Skin.HasSetting(KodiFlixShortList) + Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList)</visible>
+			<include>Animation_VisibleChange200</include>
+		</control>
+		<control type="multiimage" id="5900">
+			<description>KodiFlix Fanart extrafanart</description>
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>1080</height>
+			<randomize>true</randomize>
+			<fadetime>500</fadetime>
+			<timeperimage>3000</timeperimage>
+			<imagepath background="true" diffuse="views/KodiFlix/fanart_diffuse4.png">$VAR[VideoExtraFanartVar]</imagepath>
+			<visible>Control.IsVisible(800) + Skin.HasSetting(NetFiixExtraFanart) + !SubString(ListItem.Path,videodb://movies/sets) + Skin.HasSetting(KodiFlixShortList) + !Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList)</visible>
+			<include>Animation_VisibleChange200</include>
+		</control>
+		
+		<control type="image">
+			<left>1751</left>
 			<top>2</top>
 			<width>168</width>
             <height>165</height>
-			<texture>$VAR[WatchedIconVar]</texture>
 			<include>OverlayVisibility0</include>
 			<visible>!SubString(ListItem(0).Path,videodb://movies/sets)</visible>
-		</control-->
-		<!--control type="image">
+		</control>
+		<control type="image">
             <left>1751</left>
 			<top>2</top>
 			<width>168</width>
             <height>165</height>
-			<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
 			<texture>overlayprogress.png</texture>
 			<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-		</control-->
+		</control>
+		
 		<control type="image">
 			<left>50</left>
 			<top>25</top>
@@ -34,9 +260,17 @@
 			<aspectratio align="left" aligny="bottom">keep</aspectratio>
 			<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
 			<visible>Skin.HasSetting(NetFiixShowLogoAsTtile) + !IsEmpty(ListItem.Art(clearlogo))</visible>
-			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo)">
+			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo) + !Skin.HasSetting(KodiFlixCenterList)">
 				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
 				<effect type="slide" start="0,0" end="0,320" time="350" tween="cubic" easing="out" />
+			</animation>
+			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,570" time="350" tween="cubic" easing="out" />
+			</animation>
+			<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,240" delay="1000" time="350" tween="cubic" easing="out" />
 			</animation>
 		</control>
 		<!-- MAD - Fake Logos -->
@@ -46,6 +280,10 @@
 			<top>25</top>
 			<width>510</width>
 			<height>220</height>
+			<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,240" delay="1000" time="350" tween="cubic" easing="out" />
+			</animation>
 			<align>center</align>
 			<aligny>center</aligny>
 			<textcolor>$VAR[TitleColorVar]</textcolor>
@@ -54,11 +292,16 @@
 			<!--font>unique</font-->
 			<label>[B]$VAR[FirstLabelVar][/B]</label>
 			<visible>!Skin.HasSetting(NetFiixHideFilmInfo) + [Container.Content(movies) | Container.Content(sets) + IsEmpty(ListItem.Art(clearlogo))] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) + [IsEmpty(ListItem.Art(tvshow.clearlogo)) + IsEmpty(ListItem.Art(clearlogo))]]</visible>
-			<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + Skin.HasSetting(NetFiixShowLogoAsTtile)</visible>
-			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo)">
+			<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + Skin.HasSetting(NetFiixShowLogoAsTtile) + !Stringcompare(ListItem.Label,..)</visible>
+			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo) + !Skin.HasSetting(KodiFlixCenterList)">
 				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
 				<effect type="slide" start="0,0" end="0,340" time="350" tween="cubic" easing="out" />
 			</animation>
+			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,600" delay="1000" time="350" tween="cubic" easing="out" />
+			</animation>
+			
 		</control>
 		<control type="textbox">
 			<left>50</left>
@@ -73,10 +316,18 @@
 			<!--font>unique</font-->
 			<label>[B]$VAR[FirstLabelVar][/B]</label>
 			<visible>Skin.HasSetting(NetFiixHideFilmInfo) + [Container.Content(movies) | Container.Content(sets) + IsEmpty(ListItem.Art(clearlogo))] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) + [IsEmpty(ListItem.Art(tvshow.clearlogo)) + IsEmpty(ListItem.Art(clearlogo))]]</visible>
-			<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + Skin.HasSetting(NetFiixShowLogoAsTtile)</visible>
-			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo)">
+			<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + Skin.HasSetting(NetFiixShowLogoAsTtile) + !Stringcompare(ListItem.Label,..)</visible>
+			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo) + !Skin.HasSetting(KodiFlixCenterList)">
 				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
 				<effect type="slide" start="0,0" end="0,340" time="350" tween="cubic" easing="out" />
+			</animation>
+			<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,240" delay="1000" time="350" tween="cubic" easing="out" />
+			</animation>
+			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,600" delay="1000" time="350" tween="cubic" easing="out" />
 			</animation>
 		</control>
 		<!--MAD - Multiple Solution-->
@@ -182,12 +433,16 @@
 				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
 				<effect type="slide" start="0,0" end="0,420" time="350" tween="cubic" easing="out" />
 			</animation>
+			<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,240" delay="1000" time="350" tween="cubic" easing="out" />
+			</animation>
 		</control>
 		<control type="textbox">
 			<description>Standard Title</description>
 			<left>54</left>
 			<top>75</top>
-			<height>180</height>
+			<height>160</height>
 			<width>530</width>
 			<textcolor>white</textcolor>
 			<shadowcolor>77000000</shadowcolor>
@@ -195,14 +450,23 @@
 			<align>left</align>
 			<label>$VAR[KodiFlix.Label]</label>
 			<visible>!Skin.HasSetting(NetFiixShowLogoAsTtile) | [Container.Content(episodes) + Skin.HasSetting(NetFiixHideFilmInfo)]</visible>
-			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo) + !Container.Content(episodes)">
+			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo) + !Container.Content(episodes) + !Skin.HasSetting(KodiFlixCenterList)">
 				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
 				<effect type="slide" start="0,0" end="0,330" time="350" tween="cubic" easing="out" />
+			</animation>
+			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo) + !Container.Content(episodes) + Skin.HasSetting(KodiFlixCenterList)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,570" time="350" tween="cubic" easing="out" />
 			</animation>
 			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo) + Container.Content(episodes)">
 				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
 				<effect type="slide" start="0,0" end="0,420" time="350" tween="cubic" easing="out" />
 			</animation>
+			<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,240" delay="1000" time="350" tween="cubic" easing="out" />
+			</animation>
+			<autoscroll time="3000" delay="4000" repeat="5000"></autoscroll>
 		</control>
 		<!-- New Plot Info -->
 		<control type="group">
@@ -214,7 +478,12 @@
 			<textcolor>$VAR[TitleColorVar]</textcolor>
 			<visible>!Skin.HasSetting(NetFiixHideFilmInfo)</visible>
 			<control type="grouplist">
-				<visible>Container.Content(movies) + ![SubString(ListItem.Path,videodb://movies/sets) + !Stringcompare(ListItem.Label,..)]</visible>
+				<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,240" delay="1000" time="350" tween="cubic" easing="out" />
+			</animation>
+			<itemgap>-20</itemgap>
+			<visible>Container.Content(movies) + ![SubString(ListItem.Path,videodb://movies/sets) + !Stringcompare(ListItem.Label,..)]</visible>
 				<control type="label">
 					<label>[COLOR $VAR[TitleColorVar]]Directed by: [/COLOR]$INFO[ListItem.Director]</label>
 					<width>580</width>
@@ -230,6 +499,11 @@
 				</control>
 			</control>
 			<control type="grouplist">
+				<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList)">
+					<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+					<effect type="slide" start="0,0" end="0,240" delay="1000" time="350" tween="cubic" easing="out" />
+				</animation>
+				<itemgap>-20</itemgap>
 				<visible>[SubString(ListItem.Path,videodb://movies/sets) + !Stringcompare(ListItem.Label,..)]</visible>
 				<control type="label">
 					<label>[COLOR $VAR[TitleColorVar]]$LOCALIZE[31156]: [/COLOR][COLOR white]$INFO[Window(home).Property(Set.Movies.Director)][/COLOR]</label>
@@ -245,6 +519,11 @@
 				</control>
 			</control>
 			<control type="grouplist">
+				<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList)">
+					<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+					<effect type="slide" start="0,0" end="0,240" delay="1000" time="350" tween="cubic" easing="out" />
+				</animation>
+				<itemgap>-20</itemgap>
 				<visible>!Container.Content(episodes) + [Container.Content(tvshows) | Container.Content(seasons)] + !Stringcompare(ListItem.Label,..)</visible>
 				<control type="label">
 					<label>[COLOR $VAR[TitleColorVar]]$LOCALIZE[31190]: [/COLOR][COLOR white]$INFO[Window(Home).Property(NextAired.NextTitle)][/COLOR]</label>
@@ -274,12 +553,17 @@
 				</control>
 			</control>
 			<control type="grouplist">
+				<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList)">
+					<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+					<effect type="slide" start="0,0" end="0,240" delay="1000" time="350" tween="cubic" easing="out" />
+				</animation>
+				<itemgap>-20</itemgap>
 				<visible>Container.Content(episodes) + !Stringcompare(ListItem.Label,..)</visible>
 				<control type="label">
 					<label>[COLOR $VAR[TitleColorVar]]$LOCALIZE[32031]: [/COLOR][COLOR white]$INFO[ListItem.Title][/COLOR]</label>
 					<width>650</width>
 					<include>KodiFlixButtonsValues</include>
-					<visible>!IsEmpty(ListItem.Premiered)</visible>
+					<visible>!IsEmpty(ListItem.Premiered) + Skin.HasSetting(NetFiixShowLogoAsTtile)</visible>
 				</control>
 				<control type="label">
 					<label>[COLOR $VAR[TitleColorVar]]$LOCALIZE[20416]: [/COLOR][COLOR white]$INFO[ListItem.Premiered][/COLOR]</label>
@@ -296,9 +580,25 @@
 			</control>
 		</control>
 		<control type="group">
-			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo)">
+			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo) + !Skin.HasSetting(KodiFlixCenterList)">
 				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
 				<effect type="slide" start="0,0" end="0,160" time="350" tween="cubic" easing="out" />
+			</animation>
+			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,420" time="350" tween="cubic" easing="out" />
+			</animation>
+			<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList) + !Skin.HasSetting(KodiFlixCases)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,210" delay="1000" time="350" tween="cubic" easing="out" />
+			</animation>
+			<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList) + Skin.HasSetting(KodiFlixCases) + [Container.Content(movies) | Container.Content(sets)]">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,250" delay="1000" time="350" tween="cubic" easing="out" />
+			</animation>
+			<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList) + Skin.HasSetting(KodiFlixCases) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,210" delay="1000" time="350" tween="cubic" easing="out" />
 			</animation>
 			<control type="image">
 				<left>386</left>
@@ -358,13 +658,25 @@
 			</control>
 		</control>
 		<control type="group">
-			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo)">
+			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo) + !Skin.HasSetting(KodiFlixCenterList)">
 				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
 				<effect type="slide" start="0,0" end="0,160" time="350" tween="cubic" easing="out" />
 			</animation>
+			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,420" time="350" tween="cubic" easing="out" />
+			</animation>
+			<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList) + !Skin.HasSetting(KodiFlixCases)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,210" delay="1000" time="350" tween="cubic" easing="out" />
+			</animation>
+			<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList) + Skin.HasSetting(KodiFlixCases)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,250" delay="1000" time="350" tween="cubic" easing="out" />
+			</animation>
 			<control type="image">
 				<left>460</left>
-				<top>414</top>
+				<top>410</top>
 				<width>65</width>
 				<height>60</height>
 				<texture>$VAR[Imdb_250]</texture>
@@ -420,9 +732,21 @@
 			</control>
 		</control>
 		<control type="group">
-			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo)">
+			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo) + !Skin.HasSetting(KodiFlixCenterList)">
 				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
 				<effect type="slide" start="0,0" end="0,180" time="350" tween="cubic" easing="out" />
+			</animation>
+			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,440" time="350" tween="cubic" easing="out" />
+			</animation>
+			<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList) + !Skin.HasSetting(KodiFlixCases)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,210" delay="1000" time="350" tween="cubic" easing="out" />
+			</animation>
+			<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList) + Skin.HasSetting(KodiFlixCases)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,250" delay="1000" time="350" tween="cubic" easing="out" />
 			</animation>
 			<control type="image">
 				<left>460</left>
@@ -456,7 +780,7 @@
 		<control type="group">
 			<left>40</left>
 			<top>344</top>
-			<visible>[[Container.Content(movies) | Container.Content(sets)]  + Skin.HasSetting(KodiFlixLandscapeView)] | [[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + !Skin.HasSetting(KodiFlixTVPosters)]</visible>
+			<visible>[[[Container.Content(movies) | Container.Content(sets)]  + Skin.HasSetting(KodiFlixLandscapeView)] | [[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + !Skin.HasSetting(KodiFlixTVPosters)]] + !Skin.HasSetting(KodiFlixCenterList)</visible>
 			<visible>!Skin.HasSetting(NetFiixHideFilmInfo)</visible>
 			<include>VisibleFadeEffect</include>
 			<control type="textbox" id="70">
@@ -471,29 +795,34 @@
 				<include>ShowCaseInfoPanelButtonsValues</include>
 				<autoscroll time="3000" delay="4000" repeat="5000"></autoscroll>
 			</control>
-			<!--control type="scrollbar" id="63">
-				<left>640</left>
-				<top>120</top>
-				<width>12</width>
-				<height>198</height>
-				<onup>PageUp(70)</onup>
-				<ondown>PageUp(70)</ondown>
-				<onleft>9000</onleft>
-				<onright>700</onright>
-				<texturesliderbackground>scrollbar/texturesliderbackground2.png</texturesliderbackground>
-				<texturesliderbar>scrollbar/texturesliderbar2.png</texturesliderbar>
-				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
-				<showonepage>false</showonepage>
-				<orientation>vertical</orientation>
-				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(63) + !Container.Scrolling">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(63) + !Container.Scrolling">Conditional</animation>
-			</control-->
 		</control>
-
+		<control type="group">
+			<left>40</left>
+			<top>344</top>
+			<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,210" delay="1000" time="350" tween="cubic" easing="out" />
+			</animation>
+			<visible>[[[Container.Content(movies) | Container.Content(sets)] + Skin.HasSetting(KodiFlixLandscapeView)] | [[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + !Skin.HasSetting(KodiFlixTVPosters)]] + Skin.HasSetting(KodiFlixCenterList)</visible>
+			<visible>!Skin.HasSetting(NetFiixHideFilmInfo)</visible>
+			<include>VisibleFadeEffect</include>
+			<control type="textbox" id="70">
+				<label>$VAR[VideoPlotVar3]</label>
+				<left>15</left>
+				<top>110</top>
+				<width>530</width>
+				<height>258</height>
+				<textcolor>white</textcolor>
+				<font>font14_textbox</font>
+				<pagecontrol>63</pagecontrol>
+				<autoscroll time="3000" delay="4000" repeat="5000"></autoscroll>
+			</control>
+		</control>
+		
 		<control type="group">
 			<left>40</left>
 			<top>334</top>
-			<visible>[[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + Skin.HasSetting(KodiFlixTVPosters)]</visible>
+			<visible>[[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + Skin.HasSetting(KodiFlixTVPosters)] + !Skin.HasSetting(KodiFlixCenterList)</visible>
 			<visible>!Skin.HasSetting(NetFiixHideFilmInfo)</visible>
 			<include>VisibleFadeEffect</include>
 			<control type="textbox" id="70">
@@ -505,14 +834,36 @@
 				<textcolor>white</textcolor>
 				<font>font14_textbox</font>
 				<pagecontrol>63</pagecontrol>
-				<include>ShowCaseInfoPanelButtonsValues</include>
 				<autoscroll time="3000" delay="4000" repeat="5000"></autoscroll>
 			</control>
 		</control>
 		<control type="group">
 			<left>40</left>
+			<top>334</top>
+			<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,210" delay="1000" time="350" tween="cubic" easing="out" />
+			</animation>
+			<visible>[[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + Skin.HasSetting(KodiFlixTVPosters)] + Skin.HasSetting(KodiFlixCenterList)</visible>
+			<visible>!Skin.HasSetting(NetFiixHideFilmInfo)</visible>
+			<include>VisibleFadeEffect</include>
+			<control type="textbox" id="70">
+				<label>$VAR[VideoPlotVar3]</label>
+				<left>15</left>
+				<top>110</top>
+				<width>530</width>
+				<height>258</height>
+				<textcolor>white</textcolor>
+				<font>font14_textbox</font>
+				<pagecontrol>63</pagecontrol>
+				<autoscroll time="3000" delay="4000" repeat="5000"></autoscroll>
+			</control>
+		</control>
+		
+		<control type="group">
+			<left>40</left>
 			<top>344</top>
-			<visible>[Container.Content(movies) | Container.Content(sets)] + !Skin.HasSetting(KodiFlixLandscapeView) + !Skin.Hassetting(KodiFlixCases)</visible>
+			<visible>[Container.Content(movies) | Container.Content(sets)] + !Skin.HasSetting(KodiFlixLandscapeView) + !Skin.Hassetting(KodiFlixCases) + !Skin.HasSetting(KodiFlixCenterList)</visible>
 			<visible>!Skin.HasSetting(NetFiixHideFilmInfo)</visible>
 			<include>VisibleFadeEffect</include>
 			<control type="textbox" id="70">
@@ -524,32 +875,36 @@
 				<textcolor>white</textcolor>
 				<font>font14_textbox</font>
 				<pagecontrol>63</pagecontrol>
-				<include>ShowCaseInfoPanelButtonsValues</include>
 				<autoscroll time="3000" delay="4000" repeat="5000"></autoscroll>
 			</control>
-			<!--control type="scrollbar" id="63">
-				<left>640</left>
-				<top>120</top>
-				<width>12</width>
-				<height>198</height>
-				<onup>PageUp(70)</onup>
-				<ondown>PageUp(70)</ondown>
-				<onleft>9000</onleft>
-				<onright>700</onright>
-				<texturesliderbackground>scrollbar/texturesliderbackground2.png</texturesliderbackground>
-				<texturesliderbar>scrollbar/texturesliderbar2.png</texturesliderbar>
-				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
-				<showonepage>false</showonepage>
-				<orientation>vertical</orientation>
-				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(63) + !Container.Scrolling">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(63) + !Container.Scrolling">Conditional</animation>
-			</control-->
+		</control>
+		<control type="group">
+			<left>40</left>
+			<top>344</top>
+			<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,220" delay="1000" time="350" tween="cubic" easing="out" />
+			</animation>
+			<visible>[Container.Content(movies) | Container.Content(sets)] + !Skin.HasSetting(KodiFlixLandscapeView) + !Skin.Hassetting(KodiFlixCases) + Skin.HasSetting(KodiFlixCenterList)</visible>
+			<visible>!Skin.HasSetting(NetFiixHideFilmInfo)</visible>
+			<include>VisibleFadeEffect</include>
+			<control type="textbox" id="70">
+				<label>$VAR[VideoPlotVar3]</label>
+				<left>15</left>
+				<top>110</top>
+				<width>530</width>
+				<height>258</height>
+				<textcolor>white</textcolor>
+				<font>font14_textbox</font>
+				<pagecontrol>63</pagecontrol>
+				<autoscroll time="3000" delay="4000" repeat="5000"></autoscroll>
+			</control>
 		</control>
 		
 		<control type="group">
 			<left>40</left>
 			<top>304</top>
-			<visible>[Container.Content(movies) | Container.Content(sets)] + !Skin.HasSetting(KodiFlixLandscapeView) + Skin.Hassetting(KodiFlixCases)</visible>
+			<visible>[Container.Content(movies) | Container.Content(sets)] + !Skin.HasSetting(KodiFlixLandscapeView) + Skin.Hassetting(KodiFlixCases) + !Skin.HasSetting(KodiFlixCenterList)</visible>
 			<visible>!Skin.HasSetting(NetFiixHideFilmInfo)</visible>
 			<include>VisibleFadeEffect</include>
 			<control type="textbox" id="70">
@@ -561,171 +916,33 @@
 				<textcolor>white</textcolor>
 				<font>font14_textbox</font>
 				<pagecontrol>63</pagecontrol>
-				<include>ShowCaseInfoPanelButtonsValues</include>
 				<autoscroll time="3000" delay="4000" repeat="5000"></autoscroll>
 			</control>
-			<!--control type="scrollbar" id="63">
-				<left>640</left>
-				<top>120</top>
-				<width>12</width>
-				<height>198</height>
-				<onup>PageUp(70)</onup>
-				<ondown>PageUp(70)</ondown>
-				<onleft>9000</onleft>
-				<onright>700</onright>
-				<texturesliderbackground>scrollbar/texturesliderbackground2.png</texturesliderbackground>
-				<texturesliderbar>scrollbar/texturesliderbar2.png</texturesliderbar>
-				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
-				<showonepage>false</showonepage>
-				<orientation>vertical</orientation>
-				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(63) + !Container.Scrolling">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(63) + !Container.Scrolling">Conditional</animation>
-			</control-->
 		</control>
-
+		<control type="group">
+			<left>40</left>
+			<top>304</top>
+			<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,260" delay="1000" time="350" tween="cubic" easing="out" />
+			</animation>
+			<visible>[Container.Content(movies) | Container.Content(sets)] + !Skin.HasSetting(KodiFlixLandscapeView) + Skin.Hassetting(KodiFlixCases) + Skin.HasSetting(KodiFlixCenterList)</visible>
+			<visible>!Skin.HasSetting(NetFiixHideFilmInfo)</visible>
+			<include>VisibleFadeEffect</include>
+			<control type="textbox" id="70">
+				<label>$VAR[VideoPlotVar3]</label>
+				<left>15</left>
+				<top>110</top>
+				<width>530</width>
+				<height>258</height>
+				<textcolor>white</textcolor>
+				<font>font14_textbox</font>
+				<pagecontrol>63</pagecontrol>
+				<autoscroll time="3000" delay="4000" repeat="5000"></autoscroll>
+			</control>
+		</control>
 		<!--Plot Info-->
-		<control type="image">
-			<description>KodiFlix Fanart</description>
-			<left>200</left>
-			<top>-45</top>
-			<width>1720</width>
-			<height>1070</height>
-			<aspectratio>scale</aspectratio>
-			<texture background="true" diffuse="views/KodiFlix/fanart_diffuse.png">$INFO[ListItem.Art(fanart)]</texture>
-			<include>FanartFade</include>
-			<visible>Control.IsVisible(800) + !SubString(ListItem.Path,videodb://movies/sets) + !Skin.HasSetting(NetFiixExtraFanart) + !Skin.HasSetting(KodiFlixShortList)</visible>
-			<fadetime>250</fadetime>
-			<include>BackgroundAnimation</include>
-			<!--<animation effect="fade" start="100" end="40" time="300" condition="Window.IsActive(PlayerControls)">Conditional</animation>-->
-		</control>
-		<control type="image">
-			<description>KodiFlix Fanart</description>
-			<left>200</left>
-			<top>-45</top>
-			<width>1720</width>
-			<height>1070</height>
-			<aspectratio>scale</aspectratio>
-			<texture background="true" diffuse="views/KodiFlix/fanart_diffuse3.png">$INFO[ListItem.Art(fanart)]</texture>
-			<include>FanartFade</include>
-			<visible>Control.IsVisible(800) + !SubString(ListItem.Path,videodb://movies/sets) + [!Skin.HasSetting(NetFiixExtraFanart) | IsEmpty(Control.GetLabel(5900))] + Skin.HasSetting(KodiFlixShortList)</visible>
-			<fadetime>250</fadetime>
-			<include>BackgroundAnimation</include>
-			<!--<animation effect="fade" start="100" end="40" time="300" condition="Window.IsActive(PlayerControls)">Conditional</animation>-->
-		</control>
 		
-		<control type="image" id="5901">
-			<description>KodiFlix Fanart</description>
-			<left>200</left>
-			<top>-45</top>
-			<width>1720</width>
-			<height>1070</height>
-			<aspectratio>scale</aspectratio>
-			<texture background="true" diffuse="views/KodiFlix/fanart_diffuse.png">$INFO[ListItem.Art(extrafanart1)]</texture>
-			<include>FanartFade</include>
-			<visible>Control.IsVisible(800) + SubString(ListItem.Path,videodb://movies/sets) + !Skin.HasSetting(KodiFlixShortList)</visible>
-			<fadetime>250</fadetime>
-			<include>BackgroundAnimation</include>
-			<!--<animation effect="fade" start="100" end="40" time="300" condition="Window.IsActive(PlayerControls)">Conditional</animation>-->
-		</control>
-		<control type="image" id="5901">
-			<description>KodiFlix Fanart</description>
-			<left>200</left>
-			<top>-45</top>
-			<width>1720</width>
-			<height>1070</height>
-			<aspectratio>keep</aspectratio>
-			<texture background="true" diffuse="views/KodiFlix/fanart_diffuse3.png">$INFO[ListItem.Art(extrafanart1)]</texture>
-			<include>FanartFade</include>
-			<visible>Control.IsVisible(800) + SubString(ListItem.Path,videodb://movies/sets) + Skin.HasSetting(KodiFlixShortList)</visible>
-			<fadetime>250</fadetime>
-			<include>BackgroundAnimation</include>
-			<!--<animation effect="fade" start="100" end="40" time="300" condition="Window.IsActive(PlayerControls)">Conditional</animation>-->
-		</control>
-		<control type="image">
-			<description>KodiFlix Fanart</description>
-			<left>200</left>
-			<top>-45</top>
-			<width>1320</width>
-			<height>770</height>
-			<aspectratio>scale</aspectratio>
-			<texture background="true" diffuse="views/KodiFlix/fanart_diffuse.png">$INFO[ListItem.Art(fanart)]</texture>
-			<include>FanartFade</include>
-			<visible>Control.IsVisible(800) + SubString(ListItem.Path,videodb://movies/sets) + !Skin.HasSetting(KodiFlixShortList) + IsEmpty(Control.GetLabel(5901))</visible>
-			<fadetime>250</fadetime>
-			<include>BackgroundAnimation</include>
-			<!--<animation effect="fade" start="100" end="40" time="300" condition="Window.IsActive(PlayerControls)">Conditional</animation>-->
-		</control>
-		<control type="image">
-			<description>KodiFlix Fanart</description>
-			<left>200</left>
-			<top>-45</top>
-			<width>1720</width>
-			<height>1070</height>
-			<aspectratio>keep</aspectratio>
-			<texture background="true" diffuse="views/KodiFlix/fanart_diffuse3.png">$INFO[ListItem.Art(fanart)]</texture>
-			<include>FanartFade</include>
-			<visible>Control.IsVisible(800) + SubString(ListItem.Path,videodb://movies/sets) + Skin.HasSetting(KodiFlixShortList) + IsEmpty(Control.GetLabel(5901))</visible>
-			<fadetime>250</fadetime>
-			<include>BackgroundAnimation</include>
-			<!--<animation effect="fade" start="100" end="40" time="300" condition="Window.IsActive(PlayerControls)">Conditional</animation>-->
-		</control>
-		<control type="multiimage" id="5900">
-			<description>KodiFlix Fanart extrafanart</description>
-			<left>50</left>
-			<top>0</top>
-			<width>2380</width>
-			<height>770</height>
-			<aspectratio>keep</aspectratio>
-			<randomize>true</randomize>
-			<fadetime>500</fadetime>
-			<timeperimage>3000</timeperimage>
-			<imagepath background="true" diffuse="views/KodiFlix/fanart_diffuse.png">$VAR[VideoExtraFanartVar]</imagepath>
-			<visible>Control.IsVisible(800) + Skin.HasSetting(NetFiixExtraFanart) + !SubString(ListItem.Path,videodb://movies/sets) + !Skin.HasSetting(KodiFlixShortList)</visible>
-			<include>Animation_VisibleChange200</include>
-		</control>
-		<control type="multiimage" id="5900">
-			<description>KodiFlix Fanart extrafanart</description>
-			<left>200</left>
-			<top>-45</top>
-			<width>1720</width>
-			<height>1070</height>
-			<aspectratio>keep</aspectratio>
-			<randomize>true</randomize>
-			<fadetime>500</fadetime>
-			<timeperimage>3000</timeperimage>
-			<imagepath background="true" diffuse="views/KodiFlix/fanart_diffuse3.png">$VAR[VideoExtraFanartVar]</imagepath>
-			<visible>Control.IsVisible(800) + Skin.HasSetting(NetFiixExtraFanart) + !SubString(ListItem.Path,videodb://movies/sets) + Skin.HasSetting(KodiFlixShortList) + !Skin.HasSetting(NetFiixHideFilmInfo)</visible>
-			<include>Animation_VisibleChange200</include>
-		</control>
-		<control type="multiimage" id="5900">
-			<description>KodiFlix Fanart extrafanart</description>
-			<left>0</left>
-			<top>0</top>
-			<width>1920</width>
-			<height>1080</height>
-			<randomize>true</randomize>
-			<fadetime>500</fadetime>
-			<timeperimage>3000</timeperimage>
-			<imagepath background="true" diffuse="views/KodiFlix/fanart_diffuse4.png">$VAR[VideoExtraFanartVar]</imagepath>
-			<visible>Control.IsVisible(800) + Skin.HasSetting(NetFiixExtraFanart) + !SubString(ListItem.Path,videodb://movies/sets) + Skin.HasSetting(KodiFlixShortList) + Skin.HasSetting(NetFiixHideFilmInfo)</visible>
-			<include>Animation_VisibleChange200</include>
-		</control>
-		<control type="image">
-			<left>1751</left>
-			<top>2</top>
-			<width>168</width>
-            <height>165</height>
-			<include>OverlayVisibility0</include>
-			<visible>!SubString(ListItem(0).Path,videodb://movies/sets)</visible>
-		</control>
-		<control type="image">
-            <left>1751</left>
-			<top>2</top>
-			<width>168</width>
-            <height>165</height>
-			<texture>overlayprogress.png</texture>
-			<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-		</control>
 		<!--label subinfo logo-->
 		<control type="grouplist">
 			<left>52</left>
@@ -734,12 +951,20 @@
 			<height>30</height>
 			<itemgap>10</itemgap>
 			<orientation>horizontal</orientation>
-			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo)">
+			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo) + !Skin.HasSetting(KodiFlixCenterList)">
 				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
 				<effect type="slide" start="0,0" end="0,180" time="350" tween="cubic" easing="out" />
 			</animation>
-				<visible>[Container.Content(movies) | Container.Content(sets)] + Skin.Hassetting(KodiFlixCases)</visible>
-				<control type="group">
+			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,440" time="350" tween="cubic" easing="out" />
+			</animation>
+			<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,250" delay="1000" time="350" tween="cubic" easing="out" />
+			</animation>
+			<visible>[Container.Content(movies) | Container.Content(sets)] + Skin.Hassetting(KodiFlixCases)</visible>
+			<control type="group">
 				<width>115</width>
 				<control type="image">
 					<left>0</left>
@@ -748,7 +973,7 @@
 					<height>24</height>
 					<aspectratio align="left" aligny="center">keep</aspectratio>
 					<texture background="true">$INFO[ListItem.StarRating]</texture>
-				</control>
+			</control>
 			</control>
 			<control type="image">
 				<left>0</left>
@@ -772,6 +997,7 @@
 				<align>left</align>
 				<aligny>center</aligny>
 				<label>$VAR[KodiFlixSubLabelInfo]</label>
+				<visible>!Stringcompare(ListItem.Label,..)</visible>
 			</control>
 			<control type="label">
 				<left>0</left>
@@ -810,13 +1036,21 @@
 			<height>30</height>
 			<itemgap>10</itemgap>
 			<orientation>horizontal</orientation>
-			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo) + !Container.Content(episodes)">
+			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo) + !Container.Content(episodes) + !Skin.HasSetting(KodiFlixCenterList)">
 				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
 				<effect type="slide" start="0,0" end="0,160" time="350" tween="cubic" easing="out" />
 			</animation>
+			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo) + !Container.Content(epsiodes) + Skin.HasSetting(KodiFlixCenterList)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,420" time="350" tween="cubic" easing="out" />
+			</animation>
+			<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(NetFiixHideFilmInfo) + Skin.HasSetting(KodiFlixCenterList)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+				<effect type="slide" start="0,0" end="0,210" delay="1000" time="350" tween="cubic" easing="out" />
+			</animation>
 			<animation type="Conditional" reversible="false" condition="Skin.HasSetting(NetFiixHideFilmInfo) + Container.Content(episodes)">
 				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
-				<effect type="slide" start="0,0" end="0,240" time="350" tween="cubic" easing="out" />
+				<effect type="slide" start="0,0" end="0,240" delay="1000" time="350" tween="cubic" easing="out" />
 			</animation>
 			<visible>[[Container.Content(movies) | Container.Content(sets)] + !Skin.Hassetting(KodiFlixCases)] | [Container.content(tvshows) | Container.content(seasons) | Container.content(episodes)]</visible>
 			<control type="group">
@@ -852,6 +1086,7 @@
 				<align>left</align>
 				<aligny>center</aligny>
 				<label>$VAR[KodiFlixSubLabelInfo]</label>
+				<visible>!Stringcompare(ListItem.Label,..)</visible>
 			</control>
 			<control type="label">
 				<left>0</left>
@@ -878,7 +1113,6 @@
 				<scroll>false</scroll>
 				<align>left</align>
 				<aligny>center</aligny>
-				<!--label>$VAR[KodiFlix.Duration]</label-->
 				<label> • $INFO[Window(home).Property(Set.Movies.Runtime)] $LOCALIZE[12391]</label>
 				<visible>[Container.Content(Movies) | Container.Content(sets)] + SubString(ListItem.Path,videodb://movies/sets/,left)</visible>
 			</control>
@@ -893,7 +1127,7 @@
 			<inclide condition="!Skin.HasSetting(KodiFlixShortList)">KodiFlixNormalListWidth</inclide>
 			<height>900</height>
 			<onleft>800</onleft>
-			<animation effect="slide" start="0,0" end="800,0" delay="0" time="800" tween="cubic" easing="inout" condition="Skin.Hassetting(KodiFlixCenterList)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="620,0" delay="0" time="800" tween="cubic" easing="inout" condition="Skin.Hassetting(KodiFlixCenterList)">Conditional</animation>
 			<onup condition="Control.IsVisible(63)">9000</onup>
 			<onup condition="!Control.IsVisible(63) + Control.IsVisible(800)">9000</onup>
 			<onright>800</onright>
@@ -914,6 +1148,9 @@
 					<height>303</height>
 					<aspectratio align="center" aligny="center">stretch</aspectratio>
 					<texture border="30">views/other/panel.png</texture>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 				<control type="image">
 					<top>320</top>
@@ -921,6 +1158,9 @@
 					<height>203</height>
 					<aspectratio align="center" aligny="center">stretch</aspectratio>
 					<texture border="30" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/other/panel2.png</texture>
+							<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 				<control type="image">
 					<left>1</left>
@@ -930,6 +1170,9 @@
 					<aspectratio align="center" aligny="center">stretch</aspectratio>
 					<texture background="true" fallback="thumbs/fallback_episode_tp.png">$VAR[ListPosterVar]</texture>
 					<bordertexture border="15">thumbs/thumb_border.png</bordertexture>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 					<bordersize>6</bordersize>
 				</control>
 				<control type="image">
@@ -951,6 +1194,9 @@
 					<height>328</height>
 					<texture background="true">thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
 					<visible>Container.Content(movies) + [Skin.HasSetting(usecases) + !Skin.HasSetting(clearcases) + !Skin.HasSetting(colorcases)] + !SubString(ListItem(0).Path,videodb://movies/sets) + Skin.Hassetting(KodiFlixCases)</visible>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 				<control type="image">
 					<left>-30</left>
@@ -959,6 +1205,9 @@
 					<height>328</height>
 					<texture background="true">thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
 					<visible>Container.Content(movies) + [Skin.HasSetting(usecases) + Skin.HasSetting(clearcases) + !Skin.HasSetting(colorcases)] + !SubString(ListItem(0).Path,videodb://movies/sets) + Skin.Hassetting(KodiFlixCases)</visible>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 				<control type="image">
 					<left>-30</left>
@@ -967,6 +1216,9 @@
 					<height>334</height>
 					<texture background="true">thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
 					<visible>Container.Content(movies) + [Skin.HasSetting(usecases) + Skin.HasSetting(colorcases)] + !SubString(ListItem(0).Path,videodb://movies/sets) + Skin.Hassetting(KodiFlixCases)</visible>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 				
 				<control type="image">
@@ -976,6 +1228,9 @@
 					<height>328</height>
 					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
 					<visible>Container.Content(movies) + [Skin.HasSetting(usecases) + !Skin.HasSetting(clearcases) + !Skin.HasSetting(colorcases)] + !SubString(ListItem(0).Path,videodb://movies/sets) + Skin.Hassetting(KodiFlixCases)</visible>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 				<control type="image">
 					<left>-30</left>
@@ -984,6 +1239,9 @@
 					<height>328</height>
 					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
 					<visible>Container.Content(movies) + [Skin.HasSetting(usecases) + Skin.HasSetting(clearcases) + !Skin.HasSetting(colorcases)] + !SubString(ListItem(0).Path,videodb://movies/sets) + Skin.Hassetting(KodiFlixCases)</visible>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 				<control type="image">
 					<left>-30</left>
@@ -992,6 +1250,9 @@
 					<height>328</height>
 					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
 					<visible>Container.Content(movies) + [Skin.HasSetting(usecases) + Skin.HasSetting(colorcases)] + !SubString(ListItem(0).Path,videodb://movies/sets) + Skin.Hassetting(KodiFlixCases)</visible>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 				<!-- MAD Cases - End -->
 			</itemlayout>
@@ -1106,7 +1367,6 @@
 				
 				<control type="image">
 					<left>-30</left>
-					<!--top>420</top-->
 					<top>315</top>
 					<width>237</width>
 					<height>328</height>
@@ -1115,7 +1375,6 @@
 				</control>
 				<control type="image">
 					<left>-30</left>
-					<!--top>420</top-->
 					<top>315</top>
 					<width>237</width>
 					<height>328</height>
@@ -1124,7 +1383,6 @@
 				</control>
 				<control type="image">
 					<left>-30</left>
-					<!--top>420</top-->
 					<top>315</top>
 					<width>237</width>
 					<height>328</height>
@@ -1137,11 +1395,14 @@
 			<itemlayout condition="[[Container.Content(Movies) | Container.Content(sets)] + Skin.HasSetting(KodiFlixLandscapeView)]" width="313.5" height="376">
 				<control type="image">
 					<left>-2</left>
-					<top>92</top>
+					<top>95</top>
 					<width>291</width>
-					<height>205</height>
+					<height>203</height>
 					<aspectratio align="center" aligny="center">stretch</aspectratio>
 					<texture border="30">views/other/panel.png</texture>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 				<control type="image">
 					<left>-2</left>
@@ -1150,6 +1411,9 @@
 					<height>205</height>
 					<aspectratio align="center" aligny="center">stretch</aspectratio>
 					<texture border="30" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/other/panel2.png</texture>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -1160,6 +1424,9 @@
 					<texture background="true" fallback="thumbs/fallback_episode_tp.png">$VAR[KodiFlixLandscapeThumb]</texture>
 					<bordertexture border="15">thumbs/thumb_border.png</bordertexture>
 					<bordersize>6</bordersize>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -1170,6 +1437,9 @@
 					<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
 					<visible>!Container.Content(Episodes) + IsEmpty(ListItem.Art(landscape)) + !IsEmpty(ListItem.Art(clearlogo)) + [!SubString(ListItem.Path,videodb://movies/sets) | !Container.Content(sets)]</visible>
 					<bordersize>40</bordersize>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -1180,6 +1450,9 @@
 					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_episode_tp.png">$VAR[KodiFlixLandscapeThumb]</texture>
 					<bordertexture border="15">thumbs/thumb_border_fade.png</bordertexture>
 					<bordersize>6</bordersize>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -1194,6 +1467,9 @@
 					<animation type="Conditional" reversible="false" condition="true">
 						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
 					</animation>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -1204,14 +1480,17 @@
 					<texture>overlays/unwatched/banners/$VAR[WatchedStateOverlay]_banner.png</texture>
 					<visible>StringCompare(Skin.String(WatchedFlag),unwatched) | StringCompare(Skin.String(WatchedFlag),watched)</visible>
 					<bordersize>6</bordersize>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 			</itemlayout>
 			<focusedlayout condition="[[Container.Content(Movies) | Container.Content(sets)] + Skin.HasSetting(KodiFlixLandscapeView)]" width="313.5" height="376">
 				<control type="image">
 					<left>-2</left>
-					<top>92</top>
+					<top>95</top>
 					<width>291</width>
-					<height>205</height>
+					<height>203</height>
 					<aspectratio align="center" aligny="center">stretch</aspectratio>
 					<texture border="30">views/other/panel.png</texture>
 				</control>
@@ -1278,6 +1557,9 @@
 					<height>205</height>
 					<aspectratio align="center" aligny="center">stretch</aspectratio>
 					<texture border="30">views/other/panel.png</texture>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 				<control type="image">
 					<left>-2</left>
@@ -1286,6 +1568,9 @@
 					<height>205</height>
 					<aspectratio align="center" aligny="center">stretch</aspectratio>
 					<texture border="30" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/other/panel2.png</texture>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -1296,6 +1581,9 @@
 					<texture background="true" fallback="thumbs/fallback_episode_tp.png">$VAR[KodiFlixLandscapeThumb]</texture>
 					<bordertexture border="15">thumbs/thumb_border.png</bordertexture>
 					<bordersize>6</bordersize>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -1306,6 +1594,9 @@
 					<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
 					<visible>!Container.Content(Episodes) + IsEmpty(ListItem.Art(landscape)) + IsEmpty(ListItem.Art(tvshow.landscape)) + !IsEmpty(ListItem.Art(clearlogo))</visible>
 					<bordersize>40</bordersize>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -1316,6 +1607,9 @@
 					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_episode_tp.png">$VAR[KodiFlixLandscapeThumb]</texture>
 					<bordertexture border="15">thumbs/thumb_border_fade.png</bordertexture>
 					<bordersize>6</bordersize>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -1330,6 +1624,9 @@
 					<animation type="Conditional" reversible="false" condition="true">
 						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
 					</animation>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -1340,6 +1637,9 @@
 					<texture>overlays/unwatched/banners/$VAR[WatchedStateOverlay]_Episodes.png</texture>
 					<visible>StringCompare(Skin.String(WatchedFlag),unwatched) | StringCompare(Skin.String(WatchedFlag),watched)</visible>
 					<bordersize>6</bordersize>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 				<control type="image">
 					<left>213</left>
@@ -1349,6 +1649,9 @@
 					<aspectratio align="center" aligny="center">stretch</aspectratio>
 					<texture border="1">views/other/episode_number.png</texture>
 					<visible>[Container.Content(Seasons) | Container.Content(Episodes) | IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)] + !stringcompare(ListItem.Label,..) + [[Skin.HasSetting(KodiFlixThumbnailInfo) + !Skin.HasSetting(KodiFlixSeasonLandscape)] | [Skin.HasSetting(KodiFlixSeasonLandscape) + !Container.Content(seasons) + Skin.HasSetting(KodiFlixThumbnailInfo)]]</visible>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 				<control type="label">
 					<left>213</left>
@@ -1362,6 +1665,9 @@
 					<aligny>center</aligny>
 					<label>$VAR[ThumbnailsOnThumbLabel]</label>
 					<visible>[Skin.HasSetting(KodiFlixThumbnailInfo) + !Skin.HasSetting(KodiFlixSeasonLandscape)] | [Skin.HasSetting(KodiFlixSeasonLandscape) + !Container.Content(seasons) + Skin.HasSetting(KodiFlixThumbnailInfo)]</visible>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 			</itemlayout>
 			<focusedlayout condition="[[Container.Content(TVShows) | Container.Content(Seasons)] + !Skin.HasSetting(KodiFlixTVPosters)] | Container.Content(Episodes)" width="313.5" height="376">
@@ -1457,6 +1763,9 @@
 					<height>303</height>
 					<aspectratio align="center" aligny="center">stretch</aspectratio>
 					<texture border="30">views/other/panel.png</texture>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 				<control type="image">
 					<top>320</top>
@@ -1464,6 +1773,9 @@
 					<height>203</height>
 					<aspectratio align="center" aligny="center">stretch</aspectratio>
 					<texture border="30" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/other/panel2.png</texture>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 				<control type="image">
 					<left>1</left>
@@ -1474,6 +1786,9 @@
 					<texture background="true" fallback="thumbs/fallback_episode_tp.png">$VAR[ListPosterVar]</texture>
 					<bordertexture border="15">thumbs/thumb_border.png</bordertexture>
 					<bordersize>6</bordersize>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 				<control type="image">
 					<left>1</left>
@@ -1484,6 +1799,9 @@
 					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_episode_tp.png">$VAR[ListPosterVar]</texture>
 					<bordertexture border="15">thumbs/thumb_border_fade.png</bordertexture>
 					<bordersize>6</bordersize>
+					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
+						<effect type="fade" start="100" end="30" time="0" tween="sine" easing="out" />
+					</animation>
 				</control>
 			</itemlayout>
 			<focusedlayout condition="[Container.Content(TVShows) | Container.Content(Seasons)] + Skin.HasSetting(KodiFlixTVPosters)" width="209.5" height="356">
@@ -1540,7 +1858,7 @@
 			<aspectratio align="center" aligny="center">stretch</aspectratio>
 			<texture border="15">views/addonwall_select.png</texture>
             <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-			<animation effect="slide" start="0,0" end="800,0" delay="0" time="800" tween="cubic" easing="inout" condition="Skin.Hassetting(KodiFlixCenterList)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="620,0" delay="0" time="800" tween="cubic" easing="inout" condition="Skin.Hassetting(KodiFlixCenterList)">Conditional</animation>
 			<visible>[[Container.Content(Movies) | Container.Content(Sets)] + !Skin.HasSetting(KodiFlixLandscapeView)] + [!Skin.Hassetting(KodiFlixCases) | SubString(ListItem(0).Path,videodb://movies/sets) | !Skin.HasSetting(usecases)]</visible>
 			<animation type="Focus" reversible="false" condition="Container(800).OnNext">
 				<effect type="slide" start="26,0" end="0,0" time="150" tween="Cubic" easing="out" />
@@ -1561,7 +1879,7 @@
 			<texture border="15">views/addonwall_select.png</texture>
             <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
 			<visible>[[Container.Content(Movies) | Container.Content(Sets)] + !Skin.HasSetting(KodiFlixLandscapeView)] + [[Skin.Hassetting(KodiFlixCases) + !SubString(ListItem(0).Path,videodb://movies/sets)] + [Skin.HasSetting(usecases) + !Skin.HasSetting(clearcases) + !Skin.HasSetting(colorcases)]]</visible>
-			<animation effect="slide" start="0,0" end="800,0" delay="0" time="800" tween="cubic" easing="inout" condition="Skin.Hassetting(KodiFlixCenterList)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="620,0" delay="0" time="800" tween="cubic" easing="inout" condition="Skin.Hassetting(KodiFlixCenterList)">Conditional</animation>
 			<animation type="Focus" reversible="false" condition="Container(800).OnNext">
 				<effect type="slide" start="26,0" end="0,0" time="150" tween="Cubic" easing="out" />
 				<effect type="fade" start="20" end="100" time="750" delay="0" tween="sine" easing="out" />
@@ -1581,6 +1899,7 @@
 			<texture border="15">views/addonwall_select.png</texture>
             <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
 			<visible>[[Container.Content(Movies) | Container.Content(Sets)] + !Skin.HasSetting(KodiFlixLandscapeView)] + [[Skin.Hassetting(KodiFlixCases) + !SubString(ListItem(0).Path,videodb://movies/sets)] + [Skin.HasSetting(usecases) + Skin.HasSetting(colorcases) + !Skin.HasSetting(clearcases)]]</visible>
+			<animation effect="slide" start="0,0" end="620,0" delay="0" time="800" tween="cubic" easing="inout" condition="Skin.Hassetting(KodiFlixCenterList)">Conditional</animation>
 			<animation type="Focus" reversible="false" condition="Container(800).OnNext">
 				<effect type="slide" start="26,0" end="0,0" time="150" tween="Cubic" easing="out" />
 				<effect type="fade" start="20" end="100" time="750" delay="0" tween="sine" easing="out" />
@@ -1601,6 +1920,7 @@
 			<texture border="15">views/addonwall_select.png</texture>
             <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
 			<visible>[[Container.Content(Movies) | Container.Content(Sets)] + !Skin.HasSetting(KodiFlixLandscapeView)] + [Skin.Hassetting(KodiFlixCases) + !SubString(ListItem(0).Path,videodb://movies/sets) + Skin.HasSetting(usecases) + Skin.HasSetting(clearcases)]</visible>
+			<animation effect="slide" start="0,0" end="620,0" delay="0" time="800" tween="cubic" easing="inout" condition="Skin.Hassetting(KodiFlixCenterList)">Conditional</animation>
 			<animation type="Focus" reversible="false" condition="Container(800).OnNext">
 				<effect type="slide" start="26,0" end="0,0" time="150" tween="Cubic" easing="out" />
 				<effect type="fade" start="20" end="100" time="750" delay="0" tween="sine" easing="out" />
@@ -1618,6 +1938,7 @@
 			<height>203</height>
 			<aspectratio align="center" aligny="center">stretch</aspectratio>
 			<texture border="15" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/addonwall_select.png</texture>
+			<animation effect="slide" start="0,0" end="620,0" delay="0" time="800" tween="cubic" easing="inout" condition="Skin.Hassetting(KodiFlixCenterList)">Conditional</animation>
 			<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
 			<visible>[[Container.Content(Movies) | Container.Content(Sets)] + !Skin.HasSetting(KodiFlixLandscapeView) + !Skin.Hassetting(KodiFlixCases)] | [[Container.Content(tvshows) | Container.Content(seasons)] + Skin.HasSetting(KodiFlixTVPosters)]</visible>
 		</control>
@@ -1631,6 +1952,7 @@
 			<aspectratio align="center" aligny="center">stretch</aspectratio>
 			<texture border="15" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/addonwall_select.png</texture>
 			<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+			<animation effect="slide" start="0,0" end="620,0" delay="0" time="800" tween="cubic" easing="inout" condition="Skin.Hassetting(KodiFlixCenterList)">Conditional</animation>
 			<visible>[[Container.Content(Movies) | Container.Content(Sets)] + !Skin.HasSetting(KodiFlixLandscapeView)] + Skin.Hassetting(KodiFlixCases)</visible>
 		</control>
 		
@@ -1642,6 +1964,7 @@
 			<aspectratio align="center" aligny="center">stretch</aspectratio>
 			<texture border="15">views/addonwall_select.png</texture>
 			<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+			<animation effect="slide" start="0,0" end="620,0" delay="0" time="800" tween="cubic" easing="inout" condition="Skin.Hassetting(KodiFlixCenterList)">Conditional</animation>
 			<visible>[[Container.Content(Movies) | Container.Content(Sets)] + Skin.HasSetting(KodiFlixLandscapeView)] | [[Container.Content(TVShows) | Container.Content(Seasons)] + !Skin.HasSetting(KodiFlixTVPosters)] | Container.Content(episodes)</visible>
 		</control>
 		<control type="image">
@@ -1652,6 +1975,7 @@
 			<aspectratio align="center" aligny="center">stretch</aspectratio>
 			<texture border="15" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/addonwall_select.png</texture>
 			<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+			<animation effect="slide" start="0,0" end="620,0" delay="0" time="800" tween="cubic" easing="inout" condition="Skin.Hassetting(KodiFlixCenterList)">Conditional</animation>
 			<visible>[[Container.Content(Movies) | Container.Content(Sets)] + Skin.HasSetting(KodiFlixLandscapeView)] | [[Container.Content(TVShows) | Container.Content(Seasons)] + !Skin.HasSetting(KodiFlixTVPosters)] | Container.Content(episodes)</visible>
 		</control>
 		
@@ -1664,6 +1988,7 @@
 			<texture border="15">views/addonwall_select.png</texture>
             <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
 			<visible>[Container.Content(tvshows) | Container.Content(seasons)] + Skin.HasSetting(KodiFlixTVPosters)</visible>
+			<animation effect="slide" start="0,0" end="620,0" delay="0" time="800" tween="cubic" easing="inout" condition="Skin.Hassetting(KodiFlixCenterList)">Conditional</animation>
 			<animation type="Focus" reversible="false" condition="Container(800).OnNext">
 				<effect type="slide" start="26,0" end="0,0" time="150" tween="Cubic" easing="out" />
 				<effect type="fade" start="20" end="100" time="750" delay="0" tween="sine" easing="out" />
@@ -1951,15 +2276,43 @@
 	</control>
 </include>
 <include name="KodiFlixOpenCase">
-	<animation type="focus" reversible="true" condition="Control.IsVisible(800) + Skin.HasSetting(usecases) + Skin.HasSetting(OpenCase) + [!IsEmpty(Container.ListItem.Art(discart)) | !IsEmpty(Window(home).Property(Set.Movie.1.Art(discart))) | Skin.HasSetting(Fakedischandwriting)| Skin.Hassetting(fakediscart)] + !Skin.HasSetting(clearcases) + Container.Content(movies)">
+	<animation type="focus" reversible="true" condition="Control.IsVisible(800) + Skin.HasSetting(usecases) + Skin.HasSetting(OpenCase) + [!IsEmpty(Container.ListItem.Art(discart)) | !IsEmpty(Window(home).Property(Set.Movie.1.Art(discart))) | Skin.HasSetting(Fakedischandwriting)| Skin.Hassetting(fakediscart)] + !Skin.HasSetting(clearcases) + Container.Content(movies) + !Skin.HasSetting(KodiFlixCenterList)">
 		<effect type="rotatey" delay="1000" center="-4" start="0" end="50" time="1000" tween="quadratic" easing="out"/>
 		<effect type="rotatey" delay="6800" center="-4" start="0" end="-50" time="1000" tween="quadratic" easing="out"/>
 	</animation>
-	<animation type="focus" reversible="true" condition="Control.IsVisible(800) + Skin.HasSetting(usecases) + Skin.HasSetting(OpenCase) + [!IsEmpty(Container.ListItem.Art(discart)) | !IsEmpty(Window(home).Property(Set.Movie.1.Art(discart))) | !IsEmpty(Container.ListItem.Art(poster))] + Skin.HasSetting(clearcases) + Container.Content(movies)">
+	<animation type="focus" reversible="true" condition="Control.IsVisible(800) + Skin.HasSetting(usecases) + Skin.HasSetting(OpenCase) + [!IsEmpty(Container.ListItem.Art(discart)) | !IsEmpty(Window(home).Property(Set.Movie.1.Art(discart))) | !IsEmpty(Container.ListItem.Art(poster))] + Skin.HasSetting(clearcases) + Container.Content(movies) + !Skin.HasSetting(KodiFlixCenterList)">
 		<effect type="rotatey" delay="1000" center="-4" start="0" end="50" time="1000" tween="quadratic" easing="out"/>
 		<effect type="rotatey" delay="6800" center="-4" start="0" end="-50" time="1000" tween="quadratic" easing="out"/>
+	</animation>
+	<animation type="focus" reversible="true" condition="Control.IsVisible(800) + Skin.HasSetting(usecases) + Skin.HasSetting(OpenCase) + [!IsEmpty(Container.ListItem.Art(discart)) | !IsEmpty(Window(home).Property(Set.Movie.1.Art(discart))) | Skin.HasSetting(Fakedischandwriting)| Skin.Hassetting(fakediscart)] + !Skin.HasSetting(clearcases) + Container.Content(movies) + Skin.HasSetting(KodiFlixCenterList)">
+		<effect type="rotatey" delay="1000" center="-4" start="0" end="75" time="1000" tween="quadratic" easing="out"/>
+		<effect type="rotatey" delay="6800" center="-4" start="0" end="-75" time="1000" tween="quadratic" easing="out"/>
+	</animation>
+	<animation type="focus" reversible="true" condition="Control.IsVisible(800) + Skin.HasSetting(usecases) + Skin.HasSetting(OpenCase) + [!IsEmpty(Container.ListItem.Art(discart)) | !IsEmpty(Window(home).Property(Set.Movie.1.Art(discart))) | !IsEmpty(Container.ListItem.Art(poster))] + Skin.HasSetting(clearcases) + Container.Content(movies) + Skin.HasSetting(KodiFlixCenterList)">
+		<effect type="rotatey" delay="1000" center="-4" start="0" end="75" time="1000" tween="quadratic" easing="out"/>
+		<effect type="rotatey" delay="6800" center="-4" start="0" end="-75" time="1000" tween="quadratic" easing="out"/>
 	</animation>
 </include>
+
+<include name="KodiFlixOpenBoxset">
+	<animation type="focus" reversible="true" condition="Control.IsVisible(800) + Skin.HasSetting(usecases) + Skin.HasSetting(OpenCase) + [!IsEmpty(Container.ListItem.Art(discart)) | !IsEmpty(Window(home).Property(Set.Movie.1.Art(discart))) | Skin.HasSetting(Fakedischandwriting)| Skin.Hassetting(fakediscart)] + !Skin.HasSetting(clearcases) + Container.Content(movies) + !Skin.HasSetting(KodiFlixCenterList)">
+		<effect type="rotatey" delay="1000" center="-4" start="0" end="50" time="1000" tween="quadratic" easing="out"/>
+		<!--effect type="rotatey" delay="6800" center="-4" start="0" end="-50" time="1000" tween="quadratic" easing="out"/-->
+	</animation>
+	<animation type="focus" reversible="true" condition="Control.IsVisible(800) + Skin.HasSetting(usecases) + Skin.HasSetting(OpenCase) + [!IsEmpty(Container.ListItem.Art(discart)) | !IsEmpty(Window(home).Property(Set.Movie.1.Art(discart))) | !IsEmpty(Container.ListItem.Art(poster))] + Skin.HasSetting(clearcases) + Container.Content(movies) + !Skin.HasSetting(KodiFlixCenterList)">
+		<effect type="rotatey" delay="1000" center="-4" start="0" end="50" time="1000" tween="quadratic" easing="out"/>
+		<!--effect type="rotatey" delay="6800" center="-4" start="0" end="-50" time="1000" tween="quadratic" easing="out"/-->
+	</animation>
+	<animation type="focus" reversible="true" condition="Control.IsVisible(800) + Skin.HasSetting(usecases) + Skin.HasSetting(OpenCase) + [!IsEmpty(Container.ListItem.Art(discart)) | !IsEmpty(Window(home).Property(Set.Movie.1.Art(discart))) | Skin.HasSetting(Fakedischandwriting)| Skin.Hassetting(fakediscart)] + !Skin.HasSetting(clearcases) + Container.Content(movies) + Skin.HasSetting(KodiFlixCenterList)">
+		<effect type="rotatey" delay="1000" center="-4" start="0" end="75" time="1000" tween="quadratic" easing="out"/>
+		<!--effect type="rotatey" delay="6800" center="-4" start="0" end="-75" time="1000" tween="quadratic" easing="out"/-->
+	</animation>
+	<animation type="focus" reversible="true" condition="Control.IsVisible(800) + Skin.HasSetting(usecases) + Skin.HasSetting(OpenCase) + [!IsEmpty(Container.ListItem.Art(discart)) | !IsEmpty(Window(home).Property(Set.Movie.1.Art(discart))) | !IsEmpty(Container.ListItem.Art(poster))] + Skin.HasSetting(clearcases) + Container.Content(movies) + Skin.HasSetting(KodiFlixCenterList)">
+		<effect type="rotatey" delay="1000" center="-4" start="0" end="75" time="1000" tween="quadratic" easing="out"/>
+		<!--effect type="rotatey" delay="6800" center="-4" start="0" end="-75" time="1000" tween="quadratic" easing="out"/-->
+	</animation>
+</include>
+
 <include name="KodiFlixMovieThumb">
 	<left>0</left>
 	<top>22</top>

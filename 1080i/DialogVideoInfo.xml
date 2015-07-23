@@ -3,16 +3,16 @@
 	<defaultcontrol always="true">8</defaultcontrol>
 	<onload condition="Skin.HasSetting(UseExtendedInfo) + [Container.Content(movies) | Stringcompare(Container.FolderPath,videodb://tvshows/titles/) + Substring(Container.FolderPath,videodb://tvshows/titles/,left) + !Container.Content(episodes) + !Container.Content(seasons)]">Action(close)</onload>
 	<onload condition="Skin.HasSetting(UseExtendedInfo) + [Container.Content(movies) | Stringcompare(Container.FolderPath,videodb://tvshows/titles/) + Substring(Container.FolderPath,videodb://tvshows/titles/,left) + !Container.Content(episodes) + !Container.Content(seasons)]">RunScript(script.extendedinfo,info=openinfodialog)</onload>
-	<onload condition="Skin.HasSetting(!UseExtendedInfo)">ClearProperty(ActorFade)</onload>
-	<onload condition="Skin.HasSetting(!UseExtendedInfo)">AlarmClock(ActorFade,SetProperty(ActorFade,true),00:02,silent)</onload>
-	<onload condition="Skin.HasSetting(!UseExtendedInfo) + Skin.HasSetting(TVTunes.Enabled) + System.HasAddon(script.tvtunes)">XBMC.RunScript(script.tvtunes,backend=True)</onload>
-	<onload condition="Skin.HasSetting(!UseExtendedInfo) + System.HasAddon(script.videolanguage) + [Container.Content(movies) | Container.Content(episodes)]">XBMC.RunScript(script.videolanguage,movieid=$INFO[ListItem.DBID])</onload>
-	<onload condition="Skin.HasSetting(!UseExtendedInfo) + System.HasAddon(script.videoextras) + !Skin.HasSetting(Enable.videoextras)">XBMC.RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
-	<onload condition="Skin.HasSetting(!UseExtendedInfo) + System.HasAddon(script.duration)">RunScript(script.duration,duration=$INFO[ListItem.Duration])</onload>
+	<onload condition="!Skin.HasSetting(UseExtendedInfo)">ClearProperty(ActorFade)</onload>
+	<onload condition="!Skin.HasSetting(UseExtendedInfo)">AlarmClock(ActorFade,SetProperty(ActorFade,true),00:02,silent)</onload>
+	<onload condition="!Skin.HasSetting(UseExtendedInfo) + Skin.HasSetting(TVTunes.Enabled) + System.HasAddon(script.tvtunes)">XBMC.RunScript(script.tvtunes,backend=True)</onload>
+	<onload condition="!Skin.HasSetting(UseExtendedInfo) + System.HasAddon(script.videolanguage) + [Container.Content(movies) | Container.Content(episodes)]">XBMC.RunScript(script.videolanguage,movieid=$INFO[ListItem.DBID])</onload>
+	<onload condition="!Skin.HasSetting(UseExtendedInfo) + System.HasAddon(script.videoextras) + !Skin.HasSetting(Enable.videoextras)">XBMC.RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
+	<onload condition="!Skin.HasSetting(UseExtendedInfo) + System.HasAddon(script.duration)">RunScript(script.duration,duration=$INFO[ListItem.Duration])</onload>
 	<onunload>ClearProperty(FanartZoom,movieinformation)</onunload>
 	<onload>ClearProperty(SeasonDescription,home)</onload>
-	<onload condition="Skin.HasSetting(!UseExtendedInfo)">RunScript(script.toolbox,info=blur,id='"$VAR[PosterVar]"',radius=20,prefix=VideoInfo)</onload>
-	<onload condition="Skin.HasSetting(!UseExtendedInfo) + System.HasAddon(script.videoextras)">XBMC.RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
+	<onload condition="!Skin.HasSetting(UseExtendedInfo)">RunScript(script.toolbox,info=blur,id='"$VAR[PosterVar]"',radius=20,prefix=VideoInfo)</onload>
+	<onload condition="!Skin.HasSetting(UseExtendedInfo) + System.HasAddon(script.videoextras)">XBMC.RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
 	<onunload>ClearProperty(ImageColor,home)</onunload>
 	<onunload>ClearProperty(ImageFilter,home)</onunload>
 	<allowoverlay>no</allowoverlay>
