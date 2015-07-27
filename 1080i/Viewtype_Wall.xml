@@ -65,6 +65,14 @@
             <top>11</top>
             <width>50</width>
             <height>50</height>
+			<texture background="true" diffuse="thumbs/ExtraOverlayWatched.png">$VAR[VideoextrasOverlay]</texture>
+			<visible>System.HasAddon(script.videoextras)</visible>
+		</control>
+		<control type="image">
+            <left>148</left>
+            <top>11</top>
+            <width>50</width>
+            <height>50</height>
             <include>OverlayVisibility0</include>
         </control>
 		<control type="image">
@@ -75,14 +83,7 @@
 			<texture>overlayprogress.png</texture>
 			<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
 		</control>
-		<control type="image">
-            <left>148</left>
-            <top>11</top>
-            <width>50</width>
-            <height>50</height>
-			<texture background="true" diffuse="thumbs/ExtraOverlayWatched.png">$VAR[VideoextrasOverlay]</texture>
-			<visible>System.HasAddon(script.videoextras)</visible>
-		</control>
+
     </include>
 
 	<include name="WallContent">
@@ -482,6 +483,14 @@
 					<animation effect="fade" end="70" time="0" condition="true">Conditional</animation>
 					<include>UnwatchedIcon</include>
 				</control>
+				<control type="image">
+                    <left>717</left>
+                    <top>15</top>
+                    <width>90</width>
+                    <height>90</height>
+					<texture>$VAR[VideoextrasOverlay]</texture>
+					<visible>System.HasAddon(script.videoextras)</visible>
+				</control>
 			    <control type="image">
                     <left>716</left>
                     <top>15</top>
@@ -497,14 +506,7 @@
 					<texture>overlayprogress.png</texture>
 					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
 				</control>
-				<control type="image">
-                    <left>716</left>
-                    <top>15</top>
-                    <width>90</width>
-                    <height>90</height>
-					<texture>$VAR[VideoextrasOverlay]</texture>
-					<visible>System.HasAddon(script.videoextras)</visible>
-				</control>
+
 			</control>
 		</focusedlayout>
 
