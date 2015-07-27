@@ -255,29 +255,42 @@
 				<bordersize>19</bordersize>
                 <fadetime>IconCrossfadeTime2</fadetime>
             </control>
-            <control type="image">
+            <control type="image" id="3822">
                 <left>-19</left>
                 <top>-40</top>
                 <width>550</width>
                 <height>825</height>
-                <texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar1]</texture>
+                <texture background="true" diffuse="thumbs/movieposter_mask.png">$VAR[ListPosterVar1]</texture>
                 <fadetime>IconCrossfadeTime2</fadetime>
                 <bordertexture border="19.5">thumbs/poster_shadow.png</bordertexture>
                 <bordersize>19</bordersize>
 				<visible>!Skin.HasSetting(genrethumbs)</visible>
             </control>
 			<!-- Cover -->
-			  <control type="image">   		<!-- Poster round edges -->
+			  <control type="image" id="3822">   		<!-- Poster round edges -->
                 <left>-19</left>
                 <top>-40</top>
                 <width>550</width>
                 <height>825</height>
-                <texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
+                <texture background="true" diffuse="thumbs/movieposter_mask.png">$VAR[ListPosterVar]</texture>
                 <fadetime>IconCrossfadeTime2</fadetime>
                 <bordertexture border="19.5">thumbs/poster_shadow.png</bordertexture>
                 <bordersize>19</bordersize>
 				<visible>Skin.HasSetting(genrethumbs)</visible>
             </control>
+			<control type="image">
+                <left>-19</left>
+                <top>-40</top>
+                <width>550</width>
+                <height>825</height>
+                <aspectratio scalediffuse="false">stretch</aspectratio>
+                <texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterBackupVar]</texture>
+                <fadetime>IconCrossfadeTime2</fadetime>
+                <bordertexture border="19.5">thumbs/poster_shadow.png</bordertexture>
+                <bordersize>19</bordersize>
+				<visible>IsEmpty(Control.GetLabel(3822))</visible>
+            </control>
+					
             <control type="image">
                 <top>770</top>
                 <width>510</width>
@@ -287,7 +300,7 @@
                 <colordiffuse>d0FFFFFF</colordiffuse>
 				<visible>!Skin.HasSetting(genrethumbs)</visible>
             </control>
-			 <control type="image">     	<!-- Cover Ground Reflect -->
+			<control type="image">     	<!-- Cover Ground Reflect -->
                 <top>770</top>
                 <width>510</width>
                 <height>765</height>
@@ -296,6 +309,17 @@
                 <colordiffuse>d0FFFFFF</colordiffuse>
 				<visible>Skin.HasSetting(genrethumbs)</visible>
             </control>
+			<control type="image">
+                <top>770</top>
+                <width>510</width>
+                <height>765</height>
+                <aspectratio scalediffuse="false">stretch</aspectratio>
+                <texture diffuse="thumbs/movieposter_mask_reflect.png" flipy="true" background="true" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterBackupVar]</texture>
+                <fadetime>IconCrossfadeTime2</fadetime>
+                <colordiffuse>d0FFFFFF</colordiffuse>
+				<visible>IsEmpty(Control.GetLabel(3822))</visible>
+            </control>
+			
             <control type="image">  	  	<!-- Cover Overlay Reflection -->
 			     <top>-20</top>
                 <width>512</width>

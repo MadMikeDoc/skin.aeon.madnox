@@ -219,7 +219,7 @@
 						<texture background="true" fallback="empty.png">$INFO[ListItem.Art(clearlogo)]</texture>
 					</control>
 				</control>
-				<control type="image">
+				<control type="image" id="3822">
 					<left>10</left>
 					<top>18</top>
 					<width>422</width>
@@ -231,7 +231,7 @@
 					<bordersize>20</bordersize>
 					<visible>Skin.Hassetting(usecases)</visible>
 				</control>
-				<control type="image">
+				<control type="image" id="3822">
 					<left>-1</left>
 					<top>6</top>
 					<width>438</width>
@@ -253,8 +253,21 @@
 					<fadetime>IconCrossfadeTime</fadetime>
 					<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
 					<bordersize>20</bordersize>
-					<visible>!Skin.Hassetting(usecases)| SubString(ListItem.Path,videodb://movies/sets)</visible>
+					<visible>!Skin.Hassetting(usecases) | SubString(ListItem.Path,videodb://movies/sets)</visible>
 				</control>
+				<control type="image">
+					<left>-1</left>
+					<top>6</top>
+					<width>438</width>
+					<height>637</height>
+					<aspectratio aligny="bottom">stretch</aspectratio>
+					<texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterBackupVar]</texture>
+					<fadetime>IconCrossfadeTime2</fadetime>
+					<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
+					<bordersize>20</bordersize>
+					<visible>IsEmpty(Control.GetLabel(3822))</visible>
+				</control>
+				
 				<control type="image">
 					<left>-50</left>
 					<top>-25</top>
@@ -1545,8 +1558,7 @@
 				<texture>views/episodebgoverlay.png</texture>
 				<include>FullscreenDimensions</include>
 				<include>Animation_WindowFade200</include>
-				<visible>Skin.HasSetting(altoverlayinfowall)</visible>
-			</control>
+				</control>
 			<control type="image">
 				<left>310</left>
 				<top>580</top>
@@ -1555,6 +1567,7 @@
 				<aspectratio>keep</aspectratio>
 				<texture flipx="true">views/episodebgoverlay.png</texture>
 				<animation effect="fade" end="65" condition="true">Conditional</animation>
+				<visible>Skin.HasSetting(RightListShowInfo)</visible>
 			</control>
 			<control type="group">
 				<left>0</left>
@@ -1562,42 +1575,150 @@
 				<width>590</width>
 				<height>264</height>
 				<aspectratio>keep</aspectratio>
+				<include>Animation_ListSlideRight</include>
 				<visible>Skin.HasSetting(rightlistlogoartist)</visible>
 				<control type="image">
 				<texture background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist,,/logo.png]</texture>
 				</control>
 			</control>
-			
 			<control type="image">
-				<top>400</top>
-				<left>32</left>
+                <top>380</top>
+                <left>65</left>
+                <width>380</width>
+                <height>380</height>
+                <include>Animation_ListSlideLeft</include>
+                <aspectratio align="right">keep</aspectratio>
+                <texture background="true">$VAR[cdARTVar]</texture>
+                <fadetime>IconCrossfadeTime</fadetime>
+                <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
+                <visible>Skin.HasSetting(rightlistCD) + Skin.HasSetting(RightListSlideLeft) + !Stringcompare(ListItem.Label,..) + [Container.Content(albums) | Container.Content(songs)]</visible>
+            </control>
+			<control type="image">
+				<top>390</top>
+				<left>67</left>
 				<width>380</width>
 				<height>380</height>
 				<aspectratio align="right">keep</aspectratio>
 				<texture background="true">$VAR[cdARTVar]</texture>
 				<fadetime>IconCrossfadeTime</fadetime>
 				<animation effect="slide" start="0,200" end="0,0" delay="1000" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
-				<visible>Skin.HasSetting(rightlistCD) + !Stringcompare(ListItem.Label,..) + [Container.Content(albums) | Container.Content(songs)]</visible>
+				<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
+				<visible>Skin.HasSetting(rightlistCD) + !Skin.HasSetting(RightListSlideLeft) + !Stringcompare(ListItem.Label,..) + [Container.Content(albums) | Container.Content(songs)]</visible>
 			</control>
-					
 			<control type="group">
-				<left>2</left>
-				<top>360</top>
-				<control type="image">
-					<width>450</width>
-					<height>650</height>
-					<aspectratio aligny="bottom">keep</aspectratio>
-					<texture background="true">$INFO[ListItem.Icon]</texture>
-					<fadetime>IconCrossfadeTime</fadetime>
-					<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
-					<bordersize>20</bordersize>
-				</control>
-			</control>
+                <left>50</left>
+                <top>300</top>
+                <include>Animation_ListSlideLeft</include>
+                <visible>Skin.HasSetting(RightListroundedcovers)</visible>
+                <control type="image">
+                    <left>-36</left>
+                    <top>225</top>
+                    <width>350</width>
+                    <height>550</height>
+                    <align>center</align>
+                    <texture background="true">thumbs/cd_shadow_light_shadow.png</texture>
+                    <bordersize>18</bordersize>
+                    <include>PanelGlowFade</include>
+                    <include>Animation_VisibleChange400</include>
+                    <visible>!Skin.HasSetting(DisableGlowbar)</visible>
+                    <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+                </control>
+                <control type="image">
+                    <top>255</top>
+                    <width>410</width>
+                    <height>410</height>
+                    <aspectratio scalediffuse="false">scale</aspectratio>
+                    <texture background="true" diffuse="thumbs/cdcover_mask.png">common/bgcolor.png</texture>
+                    <fadetime>0</fadetime>
+                </control>
+                <control type="image">
+                    <top>255</top>
+                    <width>410</width>
+                    <height>410</height>
+                    <aspectratio scalediffuse="false">scale</aspectratio>
+                    <texture background="true" diffuse="thumbs/cdcover_mask.png" fallback="DefaultAlbumCover.png">$VAR[ListAlbumVar]</texture>
+                    <fadetime>IconCrossfadeTime2</fadetime>
+                </control>
+                <control type="image">
+                    <top>686</top>
+                    <width>410</width>
+                    <height>410</height>>
+                    <aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+                    <texture diffuse="thumbs/cdcover_mask_reflect.png" flipy="true" background="true" fallback="DefaultAlbumCover.png">$VAR[ListAlbumVar]</texture>
+                    <fadetime>IconCrossfadeTime2</fadetime>
+                    <colordiffuse>d0FFFFFF</colordiffuse>
+                </control>
+                <control type="image">
+                    <left>-20</left>
+                    <top>235</top>
+                    <width>450</width>
+                    <height>450</height>
+                    <aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+                    <texture diffuse="thumbs/cdcover_mask.png">thumbs/cdcover_glass_aa.png</texture>
+                    <bordertexture border="20">thumbs/cd_shadow.png</bordertexture>
+                    <bordersize>20</bordersize>
+                </control>
+            </control>		
+			<control type="group">
+                <left>50</left>
+                <top>300</top>
+                <include>Animation_ListSlideLeft</include>
+                <visible>!Skin.HasSetting(RightListroundedcovers)</visible>
+                <!--control type="image">
+                    <left>-36</left>
+                    <top>225</top>
+                    <width>350</width>
+                    <height>550</height>
+                    <align>center</align>
+                    <texture background="true">thumbs/cd_shadow_light_shadow.png</texture>
+                    <bordersize>18</bordersize>
+                    <include>PanelGlowFade</include>
+                    <include>Animation_VisibleChange400</include>
+                    <visible>!Skin.HasSetting(DisableGlowbar)</visible>
+                    <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+                </control-->
+                <control type="image">
+                    <top>255</top>
+                    <width>410</width>
+                    <height>410</height>
+                    <aspectratio scalediffuse="false">scale</aspectratio>
+                    <texture background="true">common/bgcolor.png</texture>
+                    <fadetime>0</fadetime>
+                </control>
+                <control type="image">
+                    <top>255</top>
+                    <width>410</width>
+                    <height>410</height>
+                    <aspectratio scalediffuse="false">scale</aspectratio>
+                    <texture background="true" fallback="DefaultAlbumCover.png">$VAR[ListAlbumVar]</texture>
+                    <fadetime>IconCrossfadeTime2</fadetime>
+                </control>
+                <control type="image">
+                    <top>686</top>
+                    <width>410</width>
+                    <height>410</height>>
+                    <aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+                    <texture flipy="true" background="true" fallback="DefaultAlbumCover.png">$VAR[ListAlbumVar]</texture>
+                    <fadetime>IconCrossfadeTime2</fadetime>
+                    <colordiffuse>d0FFFFFF</colordiffuse>
+                </control>
+                <!--control type="image">
+                    <left>-20</left>
+                    <top>235</top>
+                    <width>450</width>
+                    <height>450</height>
+                    <aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+                    <texture diffuse="thumbs/cdcover_mask.png">thumbs/cdcover_glass_aa.png</texture>
+                    <bordertexture border="20">thumbs/cd_shadow.png</bordertexture>
+                    <bordersize>20</bordersize>
+                </control-->
+            </control>
 			<control type="grouplist">
-				<left>434</left>
+				<left>454</left>
 				<top>570</top>
 				<width>650</width>
 				<height>270</height>
+				<visible>Skin.HasSetting(RightListShowInfo)</visible>
 				<usecontrolcoords>true</usecontrolcoords>
 				<control type="label">
 					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[557]:[/COLOR][CR][COLOR white]$INFO[ListItem.Artist][/COLOR]</label>
@@ -1649,7 +1770,7 @@
 				</control>
 			</control>
 			<control type="group">
-				<left>435</left>
+				<left>454</left>
 				<top>740</top>
 				<control type="textbox" id="70">
 					<label>$VAR[MusicPlotVar]</label>
@@ -1712,7 +1833,7 @@
 						<textcolor>grey</textcolor>
 						<selectedcolor>selected</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
-						<visible>[!Container.Content(songs) + !Stringcompare(ListItem.Label,..)]</visible>
+						<visible>[!Container.Content(songs) | Stringcompare(ListItem.Label,..)]</visible>
 					</control>
 					<control type="label">
 						<left>30</left>
@@ -1752,7 +1873,7 @@
 						<selectedcolor>selected</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(501)">Conditional</animation>
-						<visible>[!Container.Content(songs) + !Stringcompare(ListItem.Label,..)]</visible>
+						<visible>[!Container.Content(songs) | Stringcompare(ListItem.Label,..)]</visible>
 					</control>
 					<control type="label">
 						<left>30</left>

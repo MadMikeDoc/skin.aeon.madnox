@@ -17,7 +17,7 @@
 			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos)</visible>
 		</control>
 		<control type="group">
-			<animation type="Conditional" condition="Window.IsActive(1128) | Window.IsActive(1127) | Window.IsActive(1112) | Window.IsActive(1166)">
+			<animation type="Conditional" condition="Window.IsActive(1128) | Window.IsActive(1127) | Window.IsActive(1112) | Window.IsActive(1166)  | Window.IsActive(1174)">
 				<effect type="slide" end="-600" time="320" easing="in" tween="cubic"/>
 			</animation>
 			<control type="grouplist" id="450">
@@ -565,6 +565,22 @@
 					<selected>Skin.HasSetting(rightlistfakelogo)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + Container.Content(movies)</visible>
 				</control>
+				<control type="radiobutton" id="17089">
+					<description>Rounded covers</description>
+					<label>$LOCALIZE[31362]</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(RightListroundedcovers)</onclick>
+					<selected>Skin.HasSetting(RightListroundedcovers)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + [Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]</visible>
+				</control>
+				<control type="radiobutton" id="17090">
+					<description>Show Info</description>
+					<label>Show Info</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(RightListShowInfo)</onclick>
+					<selected>Skin.HasSetting(RightListShowInfo)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + [Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]</visible>
+				</control>
 				<control type="radiobutton" id="17080">
 					<description>Music Logo</description>
 					<include>Objects_MediaMenuButtonAlt2</include>
@@ -581,123 +597,25 @@
 					<selected>Skin.HasSetting(rightlistCD)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + [Container.Content(Artists) | Container.Content(Albums) | Container.Content(songs)]</visible>
 				</control>
+				<control type="radiobutton" id="17091">
+					<description>Slide Left</description>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>Slide Left CD</label>
+					<onclick>Skin.ToggleSetting(RightListSlideLeft)</onclick>
+					<selected>Skin.HasSetting(RightListSlideLeft)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + [Container.Content(Artists) | Container.Content(Albums) | Container.Content(songs)] + Skin.HasSetting(rightlistCD)</visible>
+				</control>
 				
 				<!--MAD - End of Right List options -->
 				<!--MAD - KodiFlix Options -->
-				<control type="radiobutton" id="17040">
-					<description>Show Logo As Ttile</description>
+				<control type="button" id="17085">
+					<description>KodiFlix Options</description>
 					<include>Objects_MediaMenuButtonAlt2</include>
-					<label>$LOCALIZE[32030]</label>
-					<onclick>Skin.ToggleSetting(NetFiixShowLogoAsTtile)</onclick>
-					<selected>Skin.HasSetting(NetFiixShowLogoAsTtile)</selected>
+					<label>View Options</label>
+					<onclick>ActivateWindow(1174)</onclick>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)</visible>
-				</control>
-				<control type="radiobutton" id="17075">
-					<description>Show Plot</description>
-					<include>Objects_MediaMenuButtonAlt2</include>
-					<label>Hide Info</label>
-					<onclick>Skin.ToggleSetting(NetFiixHideFilmInfo)</onclick>
-					<selected>Skin.HasSetting(NetFiixHideFilmInfo)</selected>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)</visible>
-				</control>
-				<control type="radiobutton" id="17044">
-					<description>Show Extra Fanart</description>
-					<include>Objects_MediaMenuButtonAlt2</include>
-					<label>Show Extra Fanart</label>
-					<onclick>Skin.ToggleSetting(NetFiixExtraFanart)</onclick>
-					<selected>Skin.HasSetting(NetFiixExtraFanart)</selected>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
-				</control>
-				<control type="radiobutton" id="17046">
-					<description>Landscape View</description>
-					<include>Objects_MediaMenuButtonAlt2</include>
-					<label>$LOCALIZE[32032]</label>
-					<onclick>Skin.ToggleSetting(KodiFlixLandscapeView)</onclick>
-					<selected>Skin.HasSetting(KodiFlixLandscapeView)</selected>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + [Container.Content(movies) | Container.Content(sets)]</visible>
-				</control>
-				<control type="radiobutton" id="17062">
-					<description>Kodi Cases</description>
-					<include>Objects_MediaMenuButtonAlt2</include>
-					<label>Cases</label>
-					<onclick>Skin.ToggleSetting(KodiFlixCases)</onclick>
-					<selected>Skin.HasSetting(KodiFlixCases)</selected>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + [Container.Content(movies) | Container.Content(sets)] + !Skin.HasSetting(KodiFlixLandscapeView)</visible>
-				</control>
-				<control type="radiobutton" id="17068">
-					<description>Kodi Open Cases</description>
-					<include>Objects_MediaMenuButtonAlt2</include>
-					<label>Open Cases</label>
-					<onclick>Skin.ToggleSetting(KodiFlixOpenCase)</onclick>
-					<selected>Skin.HasSetting(KodiFlixOpenCase)</selected>
-					<visible>!Skin.HasSetting(KodiFlixLandscapeView) + Skin.HasSetting(KodiFlixCases) + Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + [Container.Content(movies) | Container.Content(sets)]</visible>
-				</control>
-				<control type="radiobutton" id="17069">
-					<description>Kodi Short List</description>
-					<include>Objects_MediaMenuButtonAlt2</include>
-					<label>Short List</label>
-					<onclick>Skin.ToggleSetting(KodiFlixShortList)</onclick>
-					<selected>Skin.HasSetting(KodiFlixShortList)</selected>
-					<include condition="!Window.IsActive(script-Rom_Collection_Browser-main.xml)">ReloadWindowOnClick</include>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)</visible>
-				</control>
-				<control type="radiobutton" id="17078">
-					<description>Center List</description>
-					<include>Objects_MediaMenuButtonAlt2</include>
-					<label>Center List</label>
-					<onclick>Skin.ToggleSetting(KodiFlixCenterList)</onclick>
-					<onclick>Skin.Reset(KodiFlixDimItems)</onclick>
-					<selected>Skin.HasSetting(KodiFlixCenterList)</selected>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)</visible>
-				</control>
-				<control type="radiobutton" id="17082">
-					<description>Center List</description>
-					<include>Objects_MediaMenuButtonAlt2</include>
-					<label>Dim List</label>
-					<onclick>Skin.ToggleSetting(KodiFlixDimItems)</onclick>
-					<selected>Skin.HasSetting(KodiFlixDimItems)</selected>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + Skin.HasSetting(KodiFlixCenterList)</visible>
 				</control>
 				
-				<control type="radiobutton" id="17063">
-					<description>Kodi TV Posters</description>
-					<include>Objects_MediaMenuButtonAlt2</include>
-					<label>Posters</label>
-					<onclick>Skin.ToggleSetting(KodiFlixTVPosters)</onclick>
-					<selected>Skin.HasSetting(KodiFlixTVPosters)</selected>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
-				</control>
-				<control type="radiobutton" id="17064">
-					<description>Kodi TV Thumbnail Counter</description>
-					<include>Objects_MediaMenuButtonAlt2</include>
-					<label>Thumbnail Info</label>
-					<onclick>Skin.ToggleSetting(KodiFlixThumbnailInfo)</onclick>
-					<selected>Skin.HasSetting(KodiFlixThumbnailInfo)</selected>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + !Skin.HasSetting(KodiFlixTVPosters)</visible>
-				</control>
-				<control type="button" id="17065">
-					<label>$LOCALIZE[31959]:</label>
-					<label2>[COLOR $VAR[FontColorVar]]$VAR[KodiFlixSeasonLandscapeSettingsVar][/COLOR]</label2>
-					<include>Objects_MediaMenuButtonAlt2</include>
-					<onclick>Skin.ToggleSetting(KodiFlixSeasonLandscape)</onclick>
-					<visible>Container.Content(seasons) + Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + !Skin.HasSetting(KodiFlixTVPosters)</visible>
-				</control>
-				<control type="radiobutton" id="17071">
-					<description>Kodi Season Title</description>
-					<include>Objects_MediaMenuButtonAlt2</include>
-					<label>Season Title</label>
-					<onclick>Skin.ToggleSetting(KodiFlixSeasonTitle)</onclick>
-					<selected>Skin.HasSetting(KodiFlixSeasonTitle)</selected>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + Container.Content(seasons) + Skin.HasSetting(KodiFlixTVPosters)</visible>
-				</control>
-				<control type="radiobutton" id="17074">
-					<description>Kodi IMDB Selector</description>
-					<include>Objects_MediaMenuButtonAlt2</include>
-					<label>IMDB Icon</label>
-					<onclick>Skin.ToggleSetting(KodiFlixIMDBIcon)</onclick>
-					<selected>Skin.HasSetting(KodiFlixIMDBIcon)</selected>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + Container.Content(movies)</visible>
-				</control>
 				<!--MAD - KodiFlix Options End -->
 				<!--MAD - Movie Sets View -->
 				<control type="radiobutton" id="17047">
@@ -723,6 +641,14 @@
 					<onclick>Skin.ToggleSetting(MovieSetsNoDiscArt)</onclick>
 					<selected>Skin.HasSetting(MovieSetsNoDiscArt)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),ViewSets) + [Container.Content(movies) | Container.Content(sets)]</visible>
+				</control>
+				<control type="radiobutton" id="17096">
+					<description>Movie Set Discs Only</description>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>Discs Only</label>
+					<onclick>Skin.ToggleSetting(MovieSetsDiscsOnly)</onclick>
+					<selected>Skin.HasSetting(MovieSetsDiscsOnly)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),ViewSets) + [Container.Content(movies) | Container.Content(sets)] + !Skin.HasSetting(MovieSetsNoDiscArt)</visible>
 				</control>
 				<!--MAD - Movie Sets View End -->
 				<!-- BannerPlex options-->

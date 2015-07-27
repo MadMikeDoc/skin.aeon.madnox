@@ -350,7 +350,7 @@
                             <top>67</top>
                             <width>500</width>
                             <height>375</height>
-                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <aspectratio scalediffuse="false">keep</aspectratio>
                             <texture background="true" diffuse="thumbs/multiplex_tvmask.png" fallback="DefaultTVShows.png">$INFO[ListItem.Icon]</texture>
                             <bordersize>9</bordersize>
                         </control>
@@ -359,18 +359,8 @@
                             <top>426</top>
                             <width>500</width>
                             <height>375</height>
-                            <aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
+                            <aspectratio aligny="top" scalediffuse="false">keep</aspectratio>
                             <texture flipy="true" background="true" diffuse="thumbs/multiplex_tvmaskreflect.png" fallback="DefaultTVShows.png">$INFO[ListItem.Icon]</texture>
-                            <bordersize>9</bordersize>
-                        </control>
-                        <control type="image">
-                            <left>-3</left>
-                            <top>67</top>
-                            <width>500</width>
-                            <height>375</height>
-                            <aspectratio scalediffuse="false">stretch</aspectratio>
-                            <texture diffuse="thumbs/multiplex_tvmask.png">thumbs/multiplex_tv_glass_reflect.png</texture>
-                            <bordertexture border="9">thumbs/multiplex_tvborder.png</bordertexture>
                             <bordersize>9</bordersize>
                         </control>
                     </itemlayout>
@@ -387,7 +377,7 @@
                                 <top>67</top>
                                 <width>500</width>
                                 <height>375</height>
-                                <aspectratio scalediffuse="false">scale</aspectratio>
+                                <aspectratio scalediffuse="false">keep</aspectratio>
                                 <texture background="true" diffuse="thumbs/multiplex_tvmask.png" fallback="DefaultTVShows.png">$INFO[ListItem.Icon]</texture>
                                 <bordersize>9</bordersize>
                             </control>
@@ -396,23 +386,25 @@
                                 <top>426</top>
                                 <width>500</width>
                                 <height>375</height>
-                                <aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
+                                <aspectratio aligny="top" scalediffuse="false">keep</aspectratio>
                                 <texture flipy="true" background="true" diffuse="thumbs/multiplex_tvmaskreflect.png" fallback="DefaultTVShows.png">$INFO[ListItem.Icon]</texture>
                                 <bordersize>9</bordersize>
                                 <animation effect="fade" start="100" end="40" time="160">Focus</animation>
                                 <animation effect="fade" start="40" end="100" time="160">UnFocus</animation>
                             </control>
-                            <control type="image">
-                                <left>-3</left>
-                                <top>67</top>
-                                <width>500</width>
-                                <height>375</height>
-                                <aspectratio scalediffuse="false">stretch</aspectratio>
-                                <texture diffuse="thumbs/multiplex_tvmask.png">thumbs/multiplex_tv_glass_reflect.png</texture>
-                                <bordertexture border="9">thumbs/multiplex_tvborder.png</bordertexture>
-                                <bordersize>9</bordersize>
-                            </control>
                         </control>
+<control type="button">
+							<description>Autoplay video</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>0</width>
+							<height>0</height>
+							<texturefocus></texturefocus>
+							<texturenofocus></texturenofocus>
+							<visible>!IsEmpty(ListItem.Property(autoplayvideomain)) + !IsEmpty(ListItem.Property(gameplaymain))</visible>
+							<animation delay="300" effect="fade" start="100" end="100">Focus</animation>
+							<onfocus>XBMC.PlayMedia($ESCINFO[ListItem.Property(gameplaymain)],1)</onfocus>
+						</control>
                     </focusedlayout>
                 </control>
             </control>
@@ -1134,6 +1126,18 @@
                                 <include>MusicShowcaseThumbReflectionMain</include>
                             </control>
                         </control>
+<control type="button">
+							<description>Autoplay video</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>0</width>
+							<height>0</height>
+							<texturefocus></texturefocus>
+							<texturenofocus></texturenofocus>
+							<visible>!IsEmpty(ListItem.Property(autoplayvideomain)) + !IsEmpty(ListItem.Property(gameplaymain))</visible>
+							<animation delay="300" effect="fade" start="100" end="100">Focus</animation>
+							<onfocus>XBMC.PlayMedia($ESCINFO[ListItem.Property(gameplaymain)],1)</onfocus>
+						</control>
                     </focusedlayout>
                 </control>
             </control>
@@ -1180,6 +1184,18 @@
                             <texture background="true">$INFO[ListItem.Icon]</texture>
                             <bordersize>5</bordersize>
                         </control>
+<control type="button">
+							<description>Autoplay video</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>0</width>
+							<height>0</height>
+							<texturefocus></texturefocus>
+							<texturenofocus></texturenofocus>
+							<visible>!IsEmpty(ListItem.Property(autoplayvideomain)) + !IsEmpty(ListItem.Property(gameplaymain))</visible>
+							<animation delay="300" effect="fade" start="100" end="100">Focus</animation>
+							<onfocus>XBMC.PlayMedia($ESCINFO[ListItem.Property(gameplaymain)],1)</onfocus>
+						</control>
                     </focusedlayout>
                 </control>
                 <control type="scrollbar" id="60">
@@ -2034,6 +2050,18 @@
                                 <include>MovieShowcaseThumbReflectionMain</include>
                             </control>
                         </control>
+<control type="button">
+							<description>Autoplay video</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>0</width>
+							<height>0</height>
+							<texturefocus></texturefocus>
+							<texturenofocus></texturenofocus>
+							<visible>!IsEmpty(ListItem.Property(autoplayvideomain)) + !IsEmpty(ListItem.Property(gameplaymain))</visible>
+							<animation delay="300" effect="fade" start="100" end="100">Focus</animation>
+							<onfocus>XBMC.PlayMedia($ESCINFO[ListItem.Property(gameplaymain)],1)</onfocus>
+						</control>
                     </focusedlayout>
                 </control>
             </control>
@@ -2116,6 +2144,18 @@
                                 <animation effect="fade" start="30" end="100" time="160">UnFocus</animation>
                             </control>
                         </control>
+<control type="button">
+							<description>Autoplay video</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>0</width>
+							<height>0</height>
+							<texturefocus></texturefocus>
+							<texturenofocus></texturenofocus>
+							<visible>!IsEmpty(ListItem.Property(autoplayvideomain)) + !IsEmpty(ListItem.Property(gameplaymain))</visible>
+							<animation delay="300" effect="fade" start="100" end="100">Focus</animation>
+							<onfocus>XBMC.PlayMedia($ESCINFO[ListItem.Property(gameplaymain)],1)</onfocus>
+						</control>
                     </focusedlayout>
                 </control>
                 <control type="group">
@@ -2280,6 +2320,18 @@
                                 <texture fallback="stars/0.0.png">$INFO[ListItem.Property(rating),stars/,.png]</texture>
                                 <colordiffuse>dcffffff</colordiffuse>
                             </control>
+<control type="button">
+							<description>Autoplay video</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>0</width>
+							<height>0</height>
+							<texturefocus></texturefocus>
+							<texturenofocus></texturenofocus>
+							<visible>!IsEmpty(ListItem.Property(autoplayvideomain)) + !IsEmpty(ListItem.Property(gameplaymain))</visible>
+							<animation delay="300" effect="fade" start="100" end="100">Focus</animation>
+							<onfocus>XBMC.PlayMedia($ESCINFO[ListItem.Property(gameplaymain)],1)</onfocus>
+						</control>
                         </focusedlayout>
                         <itemlayout height="60" condition="Skin.HasSetting(slimlist)">
                             <control type="image">
@@ -2349,6 +2401,18 @@
                                 <height>45</height>
                                 <info>ListItem.Overlay</info>
                             </control>
+<control type="button">
+							<description>Autoplay video</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>0</width>
+							<height>0</height>
+							<texturefocus></texturefocus>
+							<texturenofocus></texturenofocus>
+							<visible>!IsEmpty(ListItem.Property(autoplayvideomain)) + !IsEmpty(ListItem.Property(gameplaymain))</visible>
+							<animation delay="300" effect="fade" start="100" end="100">Focus</animation>
+							<onfocus>XBMC.PlayMedia($ESCINFO[ListItem.Property(gameplaymain)],1)</onfocus>
+						</control>
                         </focusedlayout>
                     </control>
                     <control type="scrollbar" id="2201">
@@ -2677,6 +2741,18 @@
                                     <selectedcolor>$VAR[ColorDiffuseVar]</selectedcolor>
                                     <info>ListItem.Label</info>
                                 </control>
+<control type="button">
+							<description>Autoplay video</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>0</width>
+							<height>0</height>
+							<texturefocus></texturefocus>
+							<texturenofocus></texturenofocus>
+							<visible>!IsEmpty(ListItem.Property(autoplayvideomain)) + !IsEmpty(ListItem.Property(gameplaymain))</visible>
+							<animation delay="300" effect="fade" start="100" end="100">Focus</animation>
+							<onfocus>XBMC.PlayMedia($ESCINFO[ListItem.Property(gameplaymain)],1)</onfocus>
+						</control>
                             </focusedlayout>
                         </control>
                         <!-- Genre filter -->
@@ -2754,6 +2830,18 @@
                                     <selectedcolor>$VAR[ColorDiffuseVar]</selectedcolor>
                                     <info>ListItem.Label</info>
                                 </control>
+<control type="button">
+							<description>Autoplay video</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>0</width>
+							<height>0</height>
+							<texturefocus></texturefocus>
+							<texturenofocus></texturenofocus>
+							<visible>!IsEmpty(ListItem.Property(autoplayvideomain)) + !IsEmpty(ListItem.Property(gameplaymain))</visible>
+							<animation delay="300" effect="fade" start="100" end="100">Focus</animation>
+							<onfocus>XBMC.PlayMedia($ESCINFO[ListItem.Property(gameplaymain)],1)</onfocus>
+						</control>
                             </focusedlayout>
                         </control>
                         <!-- Year filter -->
@@ -2831,6 +2919,18 @@
                                     <selectedcolor>$VAR[ColorDiffuseVar]</selectedcolor>
                                     <info>ListItem.Label</info>
                                 </control>
+<control type="button">
+							<description>Autoplay video</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>0</width>
+							<height>0</height>
+							<texturefocus></texturefocus>
+							<texturenofocus></texturenofocus>
+							<visible>!IsEmpty(ListItem.Property(autoplayvideomain)) + !IsEmpty(ListItem.Property(gameplaymain))</visible>
+							<animation delay="300" effect="fade" start="100" end="100">Focus</animation>
+							<onfocus>XBMC.PlayMedia($ESCINFO[ListItem.Property(gameplaymain)],1)</onfocus>
+						</control>
                             </focusedlayout>
                         </control>
                         <!-- Publisher filter -->
@@ -2909,6 +3009,18 @@
                                     <info>ListItem.Label</info>
                                 </control>
                             </focusedlayout>
+<control type="button">
+							<description>Autoplay video</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>0</width>
+							<height>0</height>
+							<texturefocus></texturefocus>
+							<texturenofocus></texturenofocus>
+							<visible>!IsEmpty(ListItem.Property(autoplayvideomain)) + !IsEmpty(ListItem.Property(gameplaymain))</visible>
+							<animation delay="300" effect="fade" start="100" end="100">Focus</animation>
+							<onfocus>XBMC.PlayMedia($ESCINFO[ListItem.Property(gameplaymain)],1)</onfocus>
+						</control>
                         </control>
                         <!-- Character filter -->
                         <control type="label">
@@ -2985,6 +3097,18 @@
                                     <selectedcolor>$VAR[ColorDiffuseVar]</selectedcolor>
                                     <info>ListItem.Label</info>
                                 </control>
+<control type="button">
+							<description>Autoplay video</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>0</width>
+							<height>0</height>
+							<texturefocus></texturefocus>
+							<texturenofocus></texturenofocus>
+							<visible>!IsEmpty(ListItem.Property(autoplayvideomain)) + !IsEmpty(ListItem.Property(gameplaymain))</visible>
+							<animation delay="300" effect="fade" start="100" end="100">Focus</animation>
+							<onfocus>XBMC.PlayMedia($ESCINFO[ListItem.Property(gameplaymain)],1)</onfocus>
+						</control>
                             </focusedlayout>
                         </control>
                     </control>

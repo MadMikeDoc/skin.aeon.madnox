@@ -218,42 +218,51 @@
 				<visible>!StringCompare(ListItem.Label,..)</visible>
 				<visible>Control.IsVisible(52)</visible>
 				<visible>[Stringcompare(Skin.String(TriPanelPosition),1) | IsEmpty(Skin.String(TriPanelPosition))] + !Container.Content(years) + !Container.Content(countries)</visible>
-				<control type="image">
+				<control type="image" id="3822">
 					<left>67</left>
 					<top>840</top>
 					<width>530</width>
 					<height>795</height>
-					<texture background="true" flipy="true" diffuse="views/tripanel/poster_diffuse_ref.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
+					<texture background="true" flipy="true" diffuse="views/tripanel/poster_diffuse_ref.png">$VAR[ListPosterVar]</texture>
 					<fadetime>400</fadetime>
 					<visible>Skin.HasSetting(genrethumbs)</visible>
 				</control>
-				<control type="image">
+				<control type="image" id="3822">
 					<left>55</left>
 					<top>827</top>
 					<width>530</width>
 					<height>795</height>
-					<texture background="true" flipy="true" diffuse="views/tripanel/poster_diffuse_ref.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar1]</texture>
+					<texture background="true" flipy="true" diffuse="views/tripanel/poster_diffuse_ref.png">$VAR[ListPosterVar1]</texture>
 					<fadetime>400</fadetime>
 					<visible>!Skin.HasSetting(genrethumbs)</visible>
 				</control>
-				<control type="image">
+				<control type="image" id="3822">
 					<left>67</left>
 					<top>31</top>
 					<width>530</width>
 					<height>795</height>
-					<texture background="true" diffuse="views/tripanel/poster_diffuse.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
+					<texture background="true" diffuse="views/tripanel/poster_diffuse.png">$VAR[ListPosterVar]</texture>
 					<fadetime>400</fadetime>
 					<visible>Skin.HasSetting(genrethumbs)</visible>
 				</control>
-				<control type="image">
+				<control type="image" id="3822">
 					<left>67</left>
 					<top>31</top>
 					<width>530</width>
 					<height>795</height>
-					<texture background="true" diffuse="views/tripanel/poster_diffuse.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar1]</texture>
+					<texture background="true" diffuse="views/tripanel/poster_diffuse.png">$VAR[ListPosterVar1]</texture>
 					<fadetime>400</fadetime>
 					<visible>!Skin.HasSetting(genrethumbs)</visible>
 				</control>
+				<control type="image">
+                    <left>67</left>
+					<top>31</top>
+					<width>530</width>
+					<height>795</height>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+                    <texture background="true" diffuse="views/tripanel/poster_diffuse.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterBackupVar]</texture>
+                    <visible>IsEmpty(Control.GetLabel(3822))</visible>
+                </control>
 				<control type="image">
 					<left>399</left>
 					<top>30</top>
@@ -300,7 +309,7 @@
 					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
 					<visible>!Skin.HasSetting(DisableGlowbar)</visible>
 				</control>
-				<control type="image">
+				<control type="image" id="3822">
 					<left>62</left>
 					<top>770</top>
 					<width>487</width>
@@ -309,7 +318,7 @@
 					<fadetime>400</fadetime>
 					<visible>Skin.HasSetting(genrethumbs)</visible>
 				</control>
-				<control type="image">
+				<control type="image" id="3822">
 					<left>62</left>
 					<top>762</top>
 					<width>487</width>
@@ -318,7 +327,7 @@
 					<fadetime>400</fadetime>
 					<visible>!Skin.HasSetting(genrethumbs)</visible>
 				</control>
-				<control type="image">
+				<control type="image" id="3822">
 					<left>62</left>
 					<top>29</top>
 					<width>487</width>
@@ -327,7 +336,7 @@
 					<fadetime>400</fadetime>
 					<visible>Skin.HasSetting(genrethumbs)</visible>
 				</control>
-				<control type="image">
+				<control type="image" id="3822">
 					<left>62</left>
 					<top>29</top>
 					<width>487</width>
@@ -336,6 +345,16 @@
 					<fadetime>400</fadetime>
 					<visible>!Skin.HasSetting(genrethumbs)</visible>
 				</control>
+				<control type="image">
+                    <left>67</left>
+					<top>31</top>
+					<width>530</width>
+					<height>795</height>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+                    <texture background="true" diffuse="views/tripanel/poster_diffuse.png">$VAR[ListPosterBackupVar]</texture>
+                    <visible>IsEmpty(Control.GetLabel(3822))</visible>
+                </control>
+				
 				<control type="image">
 					<left>350</left>
 					<top>28</top>

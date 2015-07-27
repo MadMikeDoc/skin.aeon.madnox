@@ -695,7 +695,7 @@
 				</control>
 				<!--MAD - Fale Disc Art - End -->
 			<control type="group">   <!-- clearcase  with disc -->
-			<visible>Skin.HasSetting(clearcases)</visible>
+			<visible>Skin.HasSetting(clearcases) + !Skin.HasSetting(MovieSetsDiscsOnly)</visible>
 				<control type="image">
 					<left>6</left>
 					<top>31</top>
@@ -736,7 +736,7 @@
 				</control>	
 			</control>					
 			<control type="group">   <!-- nocase + bd + color cases with disc -->
-			<visible>!Skin.HasSetting(clearcases) + !Skin.HasSetting(Colorcases) | !Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)</visible>
+			<visible>[[!Skin.HasSetting(clearcases) + !Skin.HasSetting(Colorcases)] | [!Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)]] + !Skin.HasSetting(MovieSetsDiscsOnly)</visible>
 				<control type="image">
 					<left>6</left>
 					<top>31</top>
@@ -779,7 +779,6 @@
 				</control>				
 			</control>
 		</itemlayout>
-
 		<focusedlayout condition="Skin.HasSetting(MovieSetsNoDiscArt)" height="320" width="282"><!-- Sem disco -->
 		<control type="group"> <!-- FOCUS ZOOM NO DISC-->
 					<animation effect="zoom" start="100" end="115" center="125,180" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
@@ -960,7 +959,7 @@
 				</control>
 				<!--MAD - Fale Disc Art - End -->
 				<control type="group">   <!-- clearcase  with disc -->
-				<visible>Skin.HasSetting(clearcases)</visible>
+				<visible>Skin.HasSetting(clearcases) + !Skin.HasSetting(MovieSetsDiscsOnly)</visible>
 				<control type="image">
 					<left>6</left>
 					<top>31</top>
@@ -1001,8 +1000,8 @@
 				</control>	
 				</control>	
 
-				<control type="group">   <!-- nocase + bd + color cases with disc -->
-			<visible>!Skin.HasSetting(clearcases) + !Skin.HasSetting(Colorcases) | !Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)</visible>
+			<control type="group">   <!-- nocase + bd + color cases with disc -->
+			<visible>[[!Skin.HasSetting(clearcases) + !Skin.HasSetting(Colorcases)] | [!Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)]] + !Skin.HasSetting(MovieSetsDiscsOnly)</visible>
 				<control type="image">
 					<left>6</left>
 					<top>31</top>
