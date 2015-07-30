@@ -13,12 +13,13 @@
     <onunload>CancelAlarm(Vis4,true)</onunload>
     <onunload>CancelAlarm(BGMoveViz,true)</onunload>
     <onunload>Skin.Reset(vispanelrotate)</onunload>
+    <onload>RunScript(script.cu.lrclyrics)</onload>
 	<controls>
         <control type="label" id="4322">
             <label>$INFO[Skin.String(MusicViz.MultiFanart)]</label>
             <include>HiddenObject</include>
         </control>
-        <control type="list" id="4324">
+        <!--control type="list" id="4324">
             <posx>323</posx>
             <posy>-85</posy>
             <width>340</width>
@@ -46,7 +47,7 @@
                 <include condition="System.HasAddon(script.games.rom.collection.browser)">MostPlayedRomsBackgrounds</include>
                 <include>DailyBabeBackgrounds</include>
             </content>
-        </control>
+        </control-->
         <control type="visualisation" id="2">
             <include>FullscreenDimensions</include>
             <visible>Skin.HasSetting(FadeVizBG)</visible>
@@ -81,7 +82,8 @@
                     <visible>!IsEmpty(Skin.String(ArtistsLogosPath))</visible>
                 </control>
             </control>
-            <include>DailyBabeBG</include>
+			<include>DailyBabeBackgrounds</include>
+            <!--include>DailyBabeBG</include--><!-- undefined include -->
             <control type="image">
                 <fadetime>600</fadetime>
                 <include>FullscreenDimensions</include>
@@ -220,7 +222,7 @@
                 <visible>Player.Paused</visible>
                 <font>Font_Reg18_Caps</font>
             </control>
-			<control type="image">
+            <control type="image">
                 <posy>-400</posy>
                 <width>1923</width>
                 <height>780</height>
@@ -234,11 +236,9 @@
                 <colordiffuse>black</colordiffuse>
                 <texture>home/nowplaying_shadow.png</texture>
             </control>
-		</control>
-<!-- cover switch -->		
-			<control type="group">
-                <posx>-20</posx>
-                <posy>900</posy>
+            <control type="group">
+                <posx>8</posx>
+                <posy>30</posy>
                 <visible>!Window.IsActive(1112)</visible>
                 <animation effect="slide" start="-975" end="0" time="700" tween="cubic" delay="400">WindowOpen</animation>
                 <animation effect="slide" end="-975" time="400" tween="cubic" easing="in" delay="400" condition="Skin.HasSetting(CDArtinVis)">WindowClose</animation>
@@ -254,120 +254,51 @@
                     <visible>!Skin.HasSetting(DisableGlowbar) + Skin.HasSetting(vinylart)</visible>
                 </control>
                 <control type="image">
-                    <visible>Skin.HasSetting(cdartinvis)</visible>
-                    <animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="750">Visible</animation>
-                    <animation effect="slide" end="-180" time="400" tween="cubic">Hidden</animation>
-                    <animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="400">WindowOpen</animation>
-                    <animation type="WindowClose">
-                        <effect type="slide" end="-180" time="400" tween="cubic" easing="in" delay="0" />
-                        <effect type="fade" start="100" end="0" time="0" delay="400" />
-                        <condition type="!Player.Playing" />
-                    </animation>
-                    <animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
-                    <aspectratio>keep</aspectratio>
-                    <width>387</width>
-                    <height>381</height>
-                    <posx>262</posx>
-                    <posy>-243</posy>
-                    <fadetime>300</fadetime>
-                    <visible>!Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart)</visible>
-                    <include>cdart</include>
-                    <aspectratio align="bottom">keep</aspectratio>
-                </control>
-                <control type="image">
-                    <visible>Skin.HasSetting(cdartinvis)</visible>
-                    <animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="750">Visible</animation>
-                    <animation effect="slide" end="-180" time="400" tween="cubic">Hidden</animation>
-                    <animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="400">WindowOpen</animation>
-                    <animation type="WindowClose">
-                        <effect type="slide" end="-180" time="400" tween="cubic" easing="in" delay="0" />
-                        <effect type="fade" start="100" end="0" time="0" delay="400" />
-                        <condition type="!Player.Playing" />
-                    </animation>
-                    <animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
-                    <aspectratio>keep</aspectratio>
-                    <width>387</width>
-                    <height>381</height>
-                    <posx>262</posx>
-                    <posy>-243</posy>
-                    <fadetime>300</fadetime>
-                    <include>vinylart</include>
-                    <visible>Skin.HasSetting(vinylart)</visible>
-                    <aspectratio align="bottom">keep</aspectratio>
-                </control>
-                <control type="image">
-                    <visible>Skin.HasSetting(cdartinvis)</visible>
-                    <animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="750">Visible</animation>
-                    <animation effect="slide" end="-180" time="400" tween="cubic">Hidden</animation>
-                    <animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="400">WindowOpen</animation>
-                    <animation type="WindowClose">
-                        <effect type="slide" end="-180" time="400" tween="cubic" easing="in" delay="0" />
-                        <effect type="fade" start="100" end="0" time="0" delay="400" />
-                        <condition type="!Player.Playing" />
-                    </animation>
-                    <animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
-                    <aspectratio>keep</aspectratio>
-                    <width>387</width>
-                    <height>381</height>
-                    <posx>262</posx>
-                    <posy>-243</posy>
-                    <fadetime>300</fadetime>
-                    <include>blurayart</include>
-                    <visible>Skin.HasSetting(blurayart)</visible>
-                    <aspectratio align="bottom">keep</aspectratio>
-                </control>
-                <control type="image" id="3333">
-					<visible>Skin.HasSetting(cdartinvis)</visible>
-					<animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="750">Visible</animation>
-					<animation effect="slide" end="-180" time="400" tween="cubic">Hidden</animation>
-					<animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="400">WindowOpen</animation>
-					<animation type="WindowClose">
-						<effect type="slide" end="-180" time="400" tween="cubic" easing="in" delay="0"/>
-						<effect type="fade" start="100" end="0" time="0" delay="400"/>
-						<condition type="!Player.Playing"/>
-					</animation>
+					<animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+					<width>387</width>
+					<height>381</height>
+					<posx>262</posx>
+					<posy>-243</posy>
+					<visible>Skin.HasSetting(cdartinvis) + !Skin.HasSetting(vinylart) + Skin.HasSetting(MusicFakeDisc)</visible>
+					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[MusicPlayer.Cover]</texture>
+				</control>
+				<control type="image" id="3333">
 					<animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
 					<aspectratio>keep</aspectratio>
 					<width>387</width>
 					<height>381</height>
 					<posx>262</posx>
 					<posy>-243</posy>
-					<fadetime>300</fadetime>
-					<visible>!Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart)</visible>
-					<texture background="true" fallback="common/cdart/blank.png">$INFO[Player.FolderPath]cdart.png</texture>
-					<aspectratio align="bottom">keep</aspectratio>
+					<visible>!IsEmpty(Control.GetLabel(3333)) + Skin.HasSetting(cdartinvis) + !Skin.HasSetting(vinylart)</visible>
+					<texture background="true">$INFO[Player.FolderPath]cdart.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image" id="3334">
+					<animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+					<aspectratio>keep</aspectratio>
+					<width>387</width>
+					<height>381</height>
+					<posx>262</posx>
+					<posy>-243</posy>
+					<visible>IsEmpty(Control.GetLabel(3333)) + Skin.HasSetting(cdartinvis) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(MusicFakeDisc)</visible>
+					<texture background="true">$VAR[mviscdARTVar]</texture>
+					<aspectratio>keep</aspectratio>
 				</control>
 				<control type="label">
-                    <animation effect="slide" start="0" end="0" time="0" tween="cubic" delay="750">Visible</animation>
-                    <animation effect="slide" end="-180" time="400" tween="cubic">Hidden</animation>
-                    <animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="400">WindowOpen</animation>
-                    <animation type="WindowClose">
-                        <effect type="slide" end="-180" time="400" tween="cubic" easing="in" delay="0" />
-                        <effect type="fade" start="100" end="0" time="0" delay="400" />
-                        <condition type="!Player.Playing" />
-                    </animation>
-					<animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+                    <animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
                     <width>230</width>
                     <height>70</height>
                     <posx>335</posx>
-                    <posy>-210</posy>
+                    <posy>-205</posy>
                     <align>center</align>
 					<aligny>center</aligny>
 					<font>Hand_34</font>
-                    <visible>StringCompare(Control.GetLabel(3333),common/cdart/blank.png)</visible>
-					<label> $INFO[MusicPlayer.Artist]</label>
+                    <visible>IsEmpty(Control.GetLabel(3333)) + Skin.HasSetting(cdartinvis) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(MusicFakeDisc)</visible>
+					<label> $INFO[MusicPlayer.AlbumArtist]</label>
                     <textcolor>black</textcolor>
 					<wrapmultiline>true</wrapmultiline>
 				</control>
 				<control type="label">
-                    <animation effect="slide" start="0" end="0" time="0" tween="cubic" delay="750">Visible</animation>
-                    <animation effect="slide" end="-180" time="400" tween="cubic">Hidden</animation>
-                    <animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="400">WindowOpen</animation>
-                    <animation type="WindowClose">
-                        <effect type="slide" end="-180" time="400" tween="cubic" easing="in" delay="0" />
-                        <effect type="fade" start="100" end="0" time="0" delay="400" />
-                        <condition type="!Player.Playing" />
-                    </animation>
                     <animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
                     <width>230</width>
                     <height>75</height>
@@ -375,22 +306,188 @@
                     <posy>20</posy>
                     <align>center</align>
 					<font>Hand_34</font>
-                    <visible>StringCompare(Control.GetLabel(3333),common/cdart/blank.png)</visible>
+                    <visible>IsEmpty(Control.GetLabel(3333)) + Skin.HasSetting(cdartinvis) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(MusicFakeDisc)</visible>
 					<aligny>center</aligny>
 					<label> $INFO[MusicPlayer.Album]</label>
                     <textcolor>black</textcolor>
 					<wrapmultiline>true</wrapmultiline>
 				</control>
+				<!--MAD - Disc number start-->
+				<control type="label">
+                    <animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+                    <width>230</width>
+                    <height>75</height>
+                    <posx>455</posx>
+                    <posy>-91</posy>
+                    <align>center</align>
+					<font>Hand_34</font>
+                    <visible>IsEmpty(Control.GetLabel(3333)) + Skin.HasSetting(cdartinvis) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(MusicFakeDisc)</visible>
+					<aligny>center</aligny>
+					<label>Disc $INFO[MusicPlayer.Discnumber]</label>
+                    <textcolor>black</textcolor>
+					<wrapmultiline>true</wrapmultiline>
+				</control>
+				<!--MAD - Disc number end -->
+				<control type="image">
+                    <animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+                    <aspectratio>keep</aspectratio>
+                    <width>387</width>
+                    <height>381</height>
+                    <posx>262</posx>
+                    <posy>-243</posy>
+                    <include>vinylart</include>
+                    <visible>Skin.HasSetting(vinylart)</visible>
+                    <aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+                    <animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+                    <aspectratio>keep</aspectratio>
+                    <width>387</width>
+                    <height>381</height>
+                    <posx>262</posx>
+                    <posy>-243</posy>
+                    <include>blurayart</include>
+                    <visible>Skin.HasSetting(blurayart)</visible>
+                    <aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+                        <posy>150</posy>
+                        <width>490</width>
+                        <height>450</height>
+                        <texture>thumbs/boxes/cd_glass_reflect.png</texture>
+                    </control>
+                    <control type="image">
+                        <posy>150</posy>
+                        <width>490</width>
+                        <height>450</height>
+                        <texture>thumbs/boxes/cd_shadow_reflect.png</texture>
+                    </control>
+					<control type="image">
+                        <posy>-270</posy>
+                        <width>490</width>
+                        <height>450</height>
+                        <texture>thumbs/boxes/cd_glass.png</texture>
+                    </control>
+					<control type="image">
+                        <posy>-270</posy>
+                        <width>490</width>
+                        <height>450</height>
+                        <texture>thumbs/boxes/cd_shadow_light.png</texture>
+                    </control>
+					<control type="group">
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,30) + !IntegerGreaterThan(MusicPlayer.Time,95) + Skin.HasSetting(widgetpola)]</visible>
+					<control type="image">
+                        <posy>-246</posy>
+                        <posx>70</posx>
+                        <width>394</width>
+                        <height>394</height>
+                        <aspectratio>scale</aspectratio>
+                        <texture>thumbs/white.png</texture>
+                    </control>
+					<control type="multiimage">
+						<posx>73</posx>
+						<posy>-243</posy>
+						<width>388</width>
+						<height>388</height>
+						<imagepath background="true" flipx="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
+						<aspectratio>scale</aspectratio>
+						<timeperimage>40000</timeperimage>
+						<fadetime>5</fadetime>
+						<randomize>false</randomize>
+						<colordiffuse>D2FFFFFF</colordiffuse>
+					</control>
+					<control type="image">
+                        <posy>-248</posy>
+                        <posx>68</posx>
+                        <width>398</width>
+                        <height>398</height>
+                        <aspectratio>scale</aspectratio>
+                        <texture>thumbs/lyr.png</texture>
+                    </control>
+					</control>
+					<control type="group">
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,71) + !IntegerGreaterThan(MusicPlayer.Time,95) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="750">VisibleChange</animation>
+						<animation type="Conditional" condition="[IntegerGreaterThan(MusicPlayer.Time,72) + !IntegerGreaterThan(MusicPlayer.Time,95) + Skin.HasSetting(widgetpola) + !SubString(Window(Visualisation).Property(ArtistSlideshow),black)]" reversible="false">
+							<effect type="rotatey" delay="18000" center="0" start="0" end="45" time="1000" tween="quadratic" easing="out"/>
+							<effect type="rotatey" delay="22000" center="0" start="0" end="-45" time="1000" tween="quadratic" easing="out"/>
+						</animation>
+					<control type="image">
+                        <posy>-246</posy>
+                        <posx>70</posx>
+                        <width>394</width>
+                        <height>394</height>
+                        <aspectratio>scale</aspectratio>
+                        <texture>thumbs/white.png</texture>
+                    </control>
+					<control type="image">
+						<posx>73</posx>
+						<posy>-243</posy>
+						<width>388</width>
+						<height>388</height>
+						<colordiffuse>D2FFFFFF</colordiffuse>
+						<texture flipx="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/folder.jpg]</texture>
+						<aspectratio>scale</aspectratio>
+					</control>
+					<control type="image">
+                        <posy>-248</posy>
+                        <posx>68</posx>
+                        <width>398</width>
+                        <height>398</height>
+                        <aspectratio>scale</aspectratio>
+                        <texture>thumbs/lyr2.png</texture>
+                    </control>
+					</control>
+					<control type="group">
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,81) + !IntegerGreaterThan(MusicPlayer.Time,95) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="750">VisibleChange</animation>
+						<animation type="Conditional" condition="[IntegerGreaterThan(MusicPlayer.Time,82) + !IntegerGreaterThan(MusicPlayer.Time,95) + Skin.HasSetting(widgetpola) + !SubString(Window(Visualisation).Property(ArtistSlideshow),black)]" reversible="false">
+							<effect type="rotatey" delay="4000" center="0" start="0" end="45" time="1000" tween="quadratic" easing="out"/>
+							<effect type="rotatey" delay="12000" center="0" start="0" end="-45" time="1000" tween="quadratic" easing="out"/>
+						</animation>
+					<control type="image">
+                        <posy>-246</posy>
+                        <posx>70</posx>
+                        <width>394</width>
+                        <height>394</height>
+                        <aspectratio>scale</aspectratio>
+                        <texture>thumbs/white.png</texture>
+                    </control>
+					<control type="multiimage">
+						<posx>73</posx>
+						<posy>-243</posy>
+						<width>388</width>
+						<height>388</height>
+						<imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
+						<aspectratio>scale</aspectratio>
+						<timeperimage>1800000</timeperimage>
+						<fadetime>500</fadetime>
+						<randomize>false</randomize>
+						<colordiffuse>D2FFFFFF</colordiffuse>
+					</control>
+					<control type="image">
+                        <posy>-248</posy>
+                        <posx>68</posx>
+                        <width>398</width>
+                        <height>398</height>
+                        <aspectratio>scale</aspectratio>
+                        <texture>thumbs/lyr3.png</texture>
+                    </control>
+					</control>
 				<control type="group">
                     <animation effect="fade" time="750">VisibleChange</animation>
-                    <visible>!Skin.HasSetting(vinylart)</visible>
+                    <animation type="Conditional" condition="[IntegerGreaterThan(MusicPlayer.Time,82) + !IntegerGreaterThan(MusicPlayer.Time,95) + Skin.HasSetting(widgetpola) + !SubString(Window(Visualisation).Property(ArtistSlideshow),black)]" reversible="false">
+							<effect type="rotatey" delay="0" center="0" start="0" end="45" time="1000" tween="quadratic" easing="out"/>
+							<effect type="rotatey" delay="12000" center="0" start="0" end="-45" time="1000" tween="quadratic" easing="out"/>
+						</animation>
+					<visible>!Skin.HasSetting(vinylart)</visible>
                     <control type="image">
                         <posy>-248</posy>
                         <posx>68</posx>
                         <width>398</width>
                         <height>398</height>
                         <aspectratio>scale</aspectratio>
-                        <texture diffuse="thumbs/boxes/cdcover_mask.png">$INFO[MusicPlayer.Cover]</texture>
+						<texture diffuse="thumbs/boxes/cdcover_mask.png">$INFO[MusicPlayer.Cover]</texture>
                     </control>
                     <control type="image">
                         <posy>180</posy>
@@ -425,7 +522,7 @@
                         <height>450</height>
                         <texture>thumbs/boxes/cd_shadow_reflect.png</texture>
                     </control>
-                </control>
+				</control>
                 <control type="group">
                     <animation effect="fade" time="750">VisibleChange</animation>
                     <visible>Skin.HasSetting(vinylart)</visible>
@@ -458,59 +555,172 @@
                     </control>
                 </control>
             </control>
-<!-- info switch -->			
 			<control type="group">
                 <posx>30</posx>
-				<posy>850</posy>
                 <visible>!Window.IsActive(1112)</visible>
                 <include>Animation_OpenCloseZoom</include>
                 <control type="group">
                     <posy>70</posy>
                     <control type="image">
                         <animation effect="slide" start="1950" end="0" time="700" tween="cubic" delay="1100">WindowOpen</animation>
-                        <posx>925</posx>
-                        <posy>-155</posy>
-                        <width>1000</width>
+                        <posx>525</posx>
+                        <posy>-148</posy>
+                        <width>900</width>
                         <height>4</height>
                         <texture>views/list_divider.png</texture>
                     </control>
                     <control type="image">
                         <animation effect="slide" start="1950" end="0" time="700" tween="cubic" delay="1100">WindowOpen</animation>
-                        <posx>925</posx>
-                        <posy>-95</posy>
-                        <width>1000</width>
+                        <posx>525</posx>
+                        <posy>-63</posy>
+                        <width>900</width>
                         <height>4</height>
                         <texture>views/list_divider.png</texture>
                     </control>
-					<control type="image">
-                        <animation effect="slide" start="1950" end="0" time="700" tween="cubic" delay="1100">WindowOpen</animation>
-                        <posx>925</posx>
-                        <posy>-50</posy>
-                        <width>1000</width>
-                        <height>4</height>
-                        <texture>views/list_divider.png</texture>
+                    <control type="label">
+                        <posx>650</posx>
+                        <posy>-156</posy>
+                        <width>950</width>
+                        <height>36</height>
+                        <font>Font_MainClassic2</font>
+						<label>[COLOR white]$INFO[MusicPlayer.Album][/COLOR]$INFO[MusicPlayer.Year, [,] ]</label>
+                        <textcolor>$VAR[TitleColorVar]</textcolor>
+                        <shadowcolor>black</shadowcolor>
+                        <scroll>true</scroll>
+                        <include>Animation_VisibleChange400</include>
+                        <visible>[!Skin.HasSetting(CDArtinVis) + Skin.HasSetting(widgetpola)] </visible>
+                        <animation effect="slide" end="-162" time="500" tween="cubic" easing="in" condition="!Skin.HasSetting(CDArtinVis)">Conditional</animation>
                     </control>
 					<control type="label">
+                        <posx>650</posx>
+                        <posy>-156</posy>
+                        <width>1425</width>
+                        <height>36</height>
+                        <font>Font_MainClassic2</font>
+                        <label>[COLOR white]$INFO[MusicPlayer.Album][/COLOR]$INFO[MusicPlayer.Year, [,] ]</label>
+                        <textcolor>$VAR[TitleColorVar]</textcolor>
+                        <shadowcolor>black</shadowcolor>
+                        <scroll>true</scroll>
+                        <include>Animation_VisibleChange400</include>
+                        <visible>[!Skin.HasSetting(CDArtinVis) + !Skin.HasSetting(widgetpola)] </visible>
+                        <animation effect="slide" end="-162" time="500" tween="cubic" easing="in" condition="!Skin.HasSetting(CDArtinVis)">Conditional</animation>
+                    </control>
+                    <control type="label">
+                        <posx>650</posx>
+                        <posy>-156</posy>
+                        <width>790</width>
+                        <height>36</height>
+                        <font>Font_MainClassic2</font>
+						<label>[COLOR white]$INFO[MusicPlayer.Album][/COLOR]$INFO[MusicPlayer.Year, [,] ]</label>
+                        <textcolor>$VAR[TitleColorVar]</textcolor>
+                        <shadowcolor>black</shadowcolor>
+                        <scroll>true</scroll>
+                        <include>Animation_VisibleChange400</include>
+                        <visible>[Skin.HasSetting(CDArtinVis) + Skin.HasSetting(widgetpola)]</visible>
+                        <animation effect="slide" end="-162" time="500" tween="cubic" easing="in" condition="!Skin.HasSetting(CDArtinVis)">Conditional</animation>
+                    </control>
+					<control type="label">
+                        <posx>650</posx>
+                        <posy>-156</posy>
+                        <width>1230</width>
+                        <height>36</height>
+                        <font>Font_MainClassic2</font>
+                        <label>[COLOR white]$INFO[MusicPlayer.Album][/COLOR]$INFO[MusicPlayer.Year, [,] ]</label>
+                        <textcolor>$VAR[TitleColorVar]</textcolor>
+                        <shadowcolor>black</shadowcolor>
+                        <scroll>true</scroll>
+                        <include>Animation_VisibleChange400</include>
+                        <visible>[Skin.HasSetting(CDArtinVis) + !Skin.HasSetting(widgetpola)]</visible>
+                        <animation effect="slide" end="-162" time="500" tween="cubic" easing="in" condition="!Skin.HasSetting(CDArtinVis)">Conditional</animation>
+                    </control>
+                    <control type="label">
+                        <posx>645</posx>
+                        <posy>-60</posy>
+                        <width>950</width>
+                        <height>45</height>
+                        <font>Font_MainClassic3</font>
+                        <textcolor>$VAR[TitleColorVar]</textcolor>
+                        <shadowcolor>black</shadowcolor>
+                        <scroll>true</scroll>
+                        <include>Animation_VisibleChange400</include>
+                        <visible>[!Skin.HasSetting(CDArtinVis) + Skin.HasSetting(widgetpola)]</visible>
+                        <label>$INFO[MusicPlayer.TrackNumber,,: ][COLOR=white]$INFO[MusicPlayer.Title][/COLOR]</label>
+                        <animation effect="slide" end="-158" time="500" tween="cubic" easing="in" condition="!Skin.HasSetting(CDArtinVis)">Conditional</animation>
+                    </control>
+					<control type="label">
+                        <posx>645</posx>
+                        <posy>-60</posy>
+                        <width>1410</width>
+                        <height>45</height>
+                        <font>Font_MainClassic3</font>
+                        <textcolor>$VAR[TitleColorVar]</textcolor>
+                        <shadowcolor>black</shadowcolor>
+                        <scroll>true</scroll>
+                        <include>Animation_VisibleChange400</include>
+                        <visible>[!Skin.HasSetting(CDArtinVis) + !Skin.HasSetting(widgetpola)]</visible>
+                        <label>$INFO[MusicPlayer.TrackNumber,,: ][COLOR=white]$INFO[MusicPlayer.Title][/COLOR]</label>
+                        <animation effect="slide" end="-158" time="500" tween="cubic" easing="in" condition="!Skin.HasSetting(CDArtinVis)">Conditional</animation>
+                    </control>
+                    <control type="label">
+                        <posx>645</posx>
+                        <posy>-60</posy>
+                        <width>800</width>
+                        <height>45</height>
+                        <font>Font_MainClassic3</font>
+                        <textcolor>$VAR[TitleColorVar]</textcolor>
+                        <shadowcolor>black</shadowcolor>
+                        <scroll>true</scroll>
+                        <include>Animation_VisibleChange400</include>
+                        <visible>[Skin.HasSetting(CDArtinVis) + Skin.HasSetting(widgetpola)]</visible>
+                        <label>$INFO[MusicPlayer.TrackNumber,,: ][COLOR=white]$INFO[MusicPlayer.Title][/COLOR]</label>
+                        <animation effect="slide" end="-158" time="500" tween="cubic" easing="in" condition="!Skin.HasSetting(CDArtinVis)">Conditional</animation>
+                    </control>
+					<control type="label">
+                        <posx>645</posx>
+                        <posy>-60</posy>
+                        <width>1230</width>
+                        <height>45</height>
+                        <font>Font_MainClassic3</font>
+                        <textcolor>$VAR[TitleColorVar]</textcolor>
+                        <shadowcolor>black</shadowcolor>
+                        <scroll>true</scroll>
+                        <include>Animation_VisibleChange400</include>
+                        <visible>[Skin.HasSetting(CDArtinVis) + !Skin.HasSetting(widgetpola)]</visible>
+                        <label>$INFO[MusicPlayer.TrackNumber,,: ][COLOR=white]$INFO[MusicPlayer.Title][/COLOR]</label>
+                        <animation effect="slide" end="-158" time="500" tween="cubic" easing="in" condition="!Skin.HasSetting(CDArtinVis)">Conditional</animation>
+                    </control>
+                    <control type="label">
                         <animation effect="slide" end="-140" time="500" tween="cubic" easing="in" condition="!Skin.HasSetting(CDArtinVis)">Conditional</animation>
-                        <posx>1828</posx>
+                        <posx>628</posx>
                         <posy>-270</posy>
-                        <width>1180</width>
+                        <width>815</width>
                         <height>38</height>
-                        <aligny>-</aligny>
-						<align>right</align>
                         <scroll>true</scroll>
                         <font>Font_MainClassic</font>
-                        <visible>Substring(Control.GetLabel(8308),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath))</visible>
-                        <label>$INFO[MusicPlayer.Artist]</label>
+                        <visible>[Substring(Control.GetLabel(8308),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath))] + Skin.HasSetting(widgetpola)</visible>
+                        <label>$INFO[MusicPlayer.AlbumArtist]</label>
                         <textcolor>white</textcolor>
                         <shadowcolor>black</shadowcolor>
                     </control>
-                </control>
+					<control type="label">
+                        <animation effect="slide" end="-140" time="500" tween="cubic" easing="in" condition="!Skin.HasSetting(CDArtinVis)">Conditional</animation>
+                        <posx>628</posx>
+                        <posy>-270</posy>
+                        <width>1275</width>
+                        <height>38</height>
+                        <scroll>true</scroll>
+                        <font>Font_MainClassic</font>
+                        <visible>[Substring(Control.GetLabel(8308),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath))] + !Skin.HasSetting(widgetpola)</visible>
+                        <label>$INFO[MusicPlayer.AlbumArtist]</label>
+                        <textcolor>white</textcolor>
+                        <shadowcolor>black</shadowcolor>
+                    </control>
+				</control>
 				<control type="group">
                     <posy>20</posy>
                     <animation effect="slide" end="-120" time="500" tween="cubic" easing="in" condition="!Skin.HasSetting(CDArtinVis)">Conditional</animation>
                     <control type="image" id="8308">
-                        <posx>1330</posx>
+                        <posx>630</posx>
                         <posy>-300</posy>
                         <width>500</width>
                         <height>193</height>
@@ -519,153 +729,1517 @@
                         <texture background="true" fallback="empty.png">$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/logo.png]</texture>
                         <visible>!IsEmpty(Skin.String(ArtistsLogosPath))</visible>
                         <animation effect="slide" time="400" tween="cubic" easing="inout" end="-35" condition="!Skin.HasSetting(CDArtinVis)">Conditional</animation>
-					</control>
-                </control>
-				<control type="label">
-                        <posx>1828</posx>
-                        <posy>-85</posy>
-                        <width>1280</width>
-                        <height>45</height>
-                        <aligny>-</aligny>
-						<align>right</align>
-                        <font>Font_MainClassic2.1</font>
-                        <textcolor>$VAR[TitleColorVar]</textcolor>
-                        <shadowcolor>black</shadowcolor>
-                        <scroll>true</scroll>
-                        <include>Animation_VisibleChange400</include>
-                        <label>$INFO[MusicPlayer.TrackNumber,,: ][COLOR=white]$INFO[MusicPlayer.Title][/COLOR]</label>
-                        <animation effect="slide" end="-158" time="500" tween="cubic" easing="in" condition="!Skin.HasSetting(CDArtinVis)">Conditional</animation>
-				</control>
-				<control type="label">
-                        <posx>1828</posx>
-                        <posy>-20</posy>
-                        <width>1280</width>
-                        <height>36</height>
-                        <aligny>-</aligny>
-						<align>right</align>
-                        <font>Font_MainClassic22</font>
-                        <label>[COLOR white]$INFO[MusicPlayer.Album][/COLOR]$INFO[MusicPlayer.Year, [,] ]</label>
-                        <textcolor>$VAR[TitleColorVar]</textcolor>
-                        <shadowcolor>black</shadowcolor>
-                        <scroll>true</scroll>
-                        <include>Animation_VisibleChange400</include>
-                        <visible>Skin.HasSetting(CDArtinVis)</visible>
-                        <animation effect="slide" end="-162" time="500" tween="cubic" easing="in" condition="!Skin.HasSetting(CDArtinVis)">Conditional</animation>
                     </control>
-					<control type="label">
-                        <posx>1658</posx>
-                        <posy>50</posy>
-                        <width>800</width>
-                        <height>36</height>
-                 		<aligny>-</aligny>
-						<align>right</align>
-                        <font>Font_Reg19_Caps</font>
-                        <label>Next:</label>
-                        <textcolor>$VAR[TitleColorVar]</textcolor>
-                        <shadowcolor>black</shadowcolor>
-                        <scroll>true</scroll>
-                        <include>Animation_VisibleChange400</include>
-                        <visible>Skin.HasSetting(CDArtinVis)</visible>
-                        <animation effect="slide" end="-162" time="500" tween="cubic" easing="in" condition="!Skin.HasSetting(CDArtinVis)">Conditional</animation>
-                </control>
-				<control type="label">
-                        <posx>1658</posx>
+                    <control type="image" id="8309">
+                        <posx>651</posx>
                         <posy>80</posy>
-                        <width>800</width>
-                        <height>36</height>
-                 		<aligny>-</aligny>
-						<align>right</align>
-                        <font>Font_Reg19_Caps</font>
-                        <label>$INFO[MusicPlayer.offset(1).TrackNumber,,: ][COLOR=white]$INFO[MusicPlayer.offset(1).Title][/COLOR]</label>
-                        <textcolor>$VAR[TitleColorVar]</textcolor>
-                        <shadowcolor>black</shadowcolor>
-                        <scroll>true</scroll>
-                        <include>Animation_VisibleChange400</include>
-                        <visible>Skin.HasSetting(CDArtinVis)</visible>
-                        <animation effect="slide" end="-162" time="500" tween="cubic" easing="in" condition="!Skin.HasSetting(CDArtinVis)">Conditional</animation>
-                </control>
-				<control type="label">
-                        <posx>1658</posx>
-                        <posy>110</posy>
-                        <width>800</width>
-                        <height>36</height>
-                 		<aligny>-</aligny>
-						<align>right</align>
-                        <font>Font_Reg19_Caps</font>
-                        <label>[COLOR white] $INFO[MusicPlayer.offset(1).Artist][/COLOR]</label>
-                        <textcolor>$VAR[TitleColorVar]</textcolor>
-                        <shadowcolor>black</shadowcolor>
-                        <scroll>true</scroll>
-                        <include>Animation_VisibleChange400</include>
-                        <visible>Skin.HasSetting(CDArtinVis)</visible>
-                        <animation effect="slide" end="-162" time="500" tween="cubic" easing="in" condition="!Skin.HasSetting(CDArtinVis)">Conditional</animation>
-                </control>
-				<!--control type="label">
-                        <posx>1658</posx>
-                        <posy>125</posy>
-                        <width>200</width>
-                        <height>36</height>
-                 		<aligny>-</aligny>
-						<align>right</align>
-                        <font>Font_Reg19_Caps</font>
-                        <label> $INFO[MusicPlayer.offset(1).Album]</label>
-                        <textcolor>$VAR[TitleColorVar]</textcolor>
-                        <shadowcolor>black</shadowcolor>
-                        <scroll>true</scroll>
-                        <include>Animation_VisibleChange400</include>
-                        <visible>Skin.HasSetting(CDArtinVis)</visible>
-                        <animation effect="slide" end="-162" time="500" tween="cubic" easing="in" condition="!Skin.HasSetting(CDArtinVis)">Conditional</animation>
-                </control-->
-				<control type="image">
-                        <posx>1678</posx>
-                        <posy>50</posy>
-                        <height>150</height>
-                        <width>150</width>
-                        <texture fallback="DefaultAlbumCover.png">$INFO[MusicPlayer.offset(1).Cover]</texture>
+                        <width>100</width>
+                        <height>65</height>
+                        <colordiffuse>white</colordiffuse>
+                        <texture fallback="empty.png">$INFO[MusicPlayer.Codec,flags/audio/,.png]</texture>
                     </control>
-					<control type="image">
-                        <left>1550</left>
-                        <top>150</top>
-                        <width>55</width>
-                        <height>55</height>
-                        <texture>$VAR[MusicOSDRepeatButtonVar]</texture>
-                        <colordiffuse>white3</colordiffuse>
-                        <aspectratio>keep</aspectratio>
-                </control>
-				<control type="togglebutton">
-						<left>1610</left>
-                        <top>150</top>
-                        <width>55</width>
-                        <height>55</height>
-						<texturenofocus>special://skin/extras/BigIcons/ArrowRight.png</texturenofocus>
-						<alttexturenofocus>special://skin/extras/BigIcons/ButtonShuffle.png</alttexturenofocus>
-						<usealttexture>Playlist.IsRandom</usealttexture>
-						<colordiffuse>white3</colordiffuse>
-                        <aspectratio>keep</aspectratio>
-				</control>
-				<!--control type="image">
-                            <posx>1628</posx>
-                            <posy>-26</posy>
-                            <width>75</width>
-                            <height>50</height>
+                    <control type="label">
+                        <posx>588</posx>
+                        <posy>69</posy>
+                        <width>210</width>
+                        <height>86</height>
+                        <align>center</align>
+                        <scroll>false</scroll>
+                        <font>Font_MainClassic4</font>
+                        <shadowcolor>black</shadowcolor>
+                        <wrapmultiline>true</wrapmultiline>
+                        <visible>StringCompare(Control.GetLabel(8309),empty.png)</visible>
+                        <label>[COLOR=white]$INFO[MusicPlayer.Codec][/COLOR]</label>
+                    </control>
+					<control type="group">
+                        <animation effect="slide" end="-180" time="500" tween="cubic" easing="in" condition="StringCompare(Control.GetLabel(8669),empty.png)">Conditional</animation>
+                        <control type="image">
+							<posx>925</posx>
+							<posy>67</posy>
+							<width>150</width>
+							<height>89</height>
+							<aspectratio>keep</aspectratio>
+							<colordiffuse>white</colordiffuse>
+							<texture>flags/music/rating/$INFO[Player.StarRating]</texture>
+						</control>
+						<control type="image">
+                            <posx>1060</posx>
+                            <posy>63</posy>
+                            <width>150</width>
+                            <height>99</height>
                             <colordiffuse>$VAR[TitleColorVar]</colordiffuse>
                             <visible>!IsEmpty(MusicPlayer.Genre)</visible>
                             <texture>flags/music/genre/genre.png</texture>
                         </control>
                         <control type="label">
-                            <posx>1828</posx>
-                            <posy>-26</posy>
+                            <posx>1125</posx>
+                            <posy>69</posy>
                             <width>210</width>
-                            <height>50</height>
-							<align>right</align>
+                            <height>86</height>
                             <scroll>false</scroll>
                             <font>Font_Reg19</font>
                             <shadowcolor>black</shadowcolor>
                             <wrapmultiline>true</wrapmultiline>
                             <label>[COLOR=white]$INFO[MusicPlayer.Genre][/COLOR]</label>
-                        </control-->
+                        </control>
+						<control type="image" id="8669">
+							<posx>800</posx>
+							<posy>66</posy>
+							<width>130</width>
+							<height>89</height>
+							<colordiffuse>white</colordiffuse>
+							<texture fallback="empty.png">$INFO[MusicPlayer.Property(Album_Label),flags/music/recordlabel/,.png]</texture>
+						</control>
+					</control>
+                </control>
+                <control type="group">
+                    <posx>522</posx>
+                    <posy>86</posy>
+                    <width>920</width>
+                    <!--animation effect="fade" start="100" end="0" time="300" condition="Window.IsVisible(musicosd)">Conditional</animation-->
+                    <height>150</height>
+                    <itemgap>10</itemgap>
+                    <orientation>horizontal</orientation>
+                    <control type="label">
+                        <width min="10" max="1250">auto</width>
+                        <height>70</height>
+                        <font>Font_MainClassic2</font>
+                        <textcolor>$VAR[TitleColorVar]</textcolor>
+						<label>$INFO[MusicPlayer.Time,, / ]$INFO[MusicPlayer.Duration]</label>
+                        <shadowcolor>black</shadowcolor>
+                        <align>right</align>
+                        <aligny>bottom</aligny>
+                        <visible>Player.HasDuration</visible>
+                    </control>
+                    <control type="label">
+                        <width min="10" max="1250">auto</width>
+                        <height>70</height>
+                        <font>Font_MainClassic2</font>
+                        <textcolor>$VAR[TitleColorVar]</textcolor>
+						<label>$INFO[MusicPlayer.Time,, / ]∞</label>
+                        <shadowcolor>black</shadowcolor>
+                        <align>right</align>
+                        <aligny>bottom</aligny>
+                        <visible>!Player.HasDuration</visible>
+                    </control>
+                </control>
+                <control type="label">
+                        <posx>650</posx>
+                        <posy>188</posy>
+                        <width>700</width>
+                        <height>36</height>
+                        <font>Font_Reg19_Caps</font>
+                        <label>$LOCALIZE[19031] : [COLOR white] 1. $INFO[MusicPlayer.offset(1).Artist,, - ] $INFO[MusicPlayer.offset(1).Title] [/COLOR]     2. $INFO[MusicPlayer.offset(2).Artist,, - ] $INFO[MusicPlayer.offset(2).Title]     [COLOR white]3. $INFO[MusicPlayer.offset(3).Artist,, - ] $INFO[MusicPlayer.offset(3).Title] [/COLOR]     4. $INFO[MusicPlayer.offset(4).Artist,, - ] $INFO[MusicPlayer.offset(4).Title]     [COLOR white]5. $INFO[MusicPlayer.offset(5).Artist,, - ] $INFO[MusicPlayer.offset(5).Title]  [/COLOR]</label>
+                        <textcolor>$VAR[TitleColorVar]</textcolor>
+                        <shadowcolor>black</shadowcolor>
+                        <scroll>true</scroll>
+                        <include>Animation_VisibleChange400</include>
+						<visible>!Skin.HasSetting(widgetpola)</visible>
+                        <!--visible>Skin.HasSetting(CDArtinVis)</visible-->
+                        <animation effect="slide" end="-162" time="500" tween="cubic" easing="in" condition="!Skin.HasSetting(CDArtinVis)">Conditional</animation>
+                </control>
+				<control type="label">
+                    <posx>1790</posx>
+                    <posy>188</posy>
+                    <width>1350</width>
+                    <height>36</height>
+                    <align>right</align>
+                    <!--animation effect="fade" start="100" end="0" time="300" condition="Window.IsVisible(musicosd)">Conditional</animation-->
+                    <font>Font_Reg19_Caps</font>
+                    <label>$INFO[MusicPlayer.BitRate,,[COLOR white] kbps | [/COLOR]]$INFO[MusicPlayer.SampleRate,,[COLOR white] kHz |[/COLOR] ]$INFO[MusicPlayer.bitspersample,,[COLOR white] bit  | [/COLOR] ]$INFO[MusicPlayer.Channels,,[COLOR white] $LOCALIZE[31629] [/COLOR]]</label>
+                    <textcolor>$VAR[TitleColorVar]</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                </control>
+            </control>
+		</control>
+		<control type="group">
+				<posx>1480</posx>
+                <posy>510</posy>
+				<visible>[IntegerGreaterThan(MusicPlayer.Time,47) + !IntegerGreaterThan(MusicPlayer.Time,53) + Skin.HasSetting(widgetpola)] | [IntegerGreaterThan(MusicPlayer.Time,141) + !IntegerGreaterThan(MusicPlayer.Time,147) + Skin.HasSetting(widgetpola)] | [IntegerGreaterThan(MusicPlayer.Time,174) + !IntegerGreaterThan(MusicPlayer.Time,180) + Skin.HasSetting(widgetpola)] | [IntegerGreaterThan(MusicPlayer.Time,206) + !IntegerGreaterThan(MusicPlayer.Time,212) + Skin.HasSetting(widgetpola)]</visible>
+				<animation type="Visible">
+				<effect type="fade" start="0" end="100" time="1000"/>
+				</animation>
+				<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+				<control type="image">
+					<posy>-4</posy>
+					<posx>-7</posx>
+					<width>340</width>
+					<height>436</height>
+					<texture background="true">thumbs/5next.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+                        <posx>22</posx>
+                        <posy>11</posy>
+                        <width>180</width>
+                        <height>36</height>
+						<angle>8</angle>
+						<font>Flyer_22</font>
+						<label>$INFO[System.Date(dd)].$INFO[System.Date(mm)]</label>
+						<textcolor>fffaedce</textcolor>
+                        <shadowcolor>black</shadowcolor>
+                </control>
+				<control type="label">
+                        <posx>25</posx>
+                        <posy>28</posy>
+                        <width>180</width>
+                        <height>36</height>
+						<angle>8</angle>
+						<font>Flyer_22</font>
+						<label>$INFO[System.Date(yyyy)]</label>
+						<textcolor>fffaedce</textcolor>
+                        <shadowcolor>black</shadowcolor>
+                </control>
+				<control type="label">
+                        <posx>90</posx>
+                        <posy>8</posy>
+                        <width>180</width>
+                        <height>36</height>
+						<angle>8</angle>
+						<font>Flyer_20</font>
+						<label>$LOCALIZE[19031]...</label>
+                        <textcolor>ffffe29c</textcolor>
+                        <shadowcolor>black</shadowcolor>
+				</control>
+				<control type="label">
+                        <posx>226</posx>
+                        <posy>48</posy>
+                        <width>200</width>
+                        <height>30</height>
+						<align>right</align>
+						<aligny>top</aligny>
+						<angle>8</angle>
+						<wrapmultiline>true</wrapmultiline>
+						<font>Flyer_16</font>
+						<label>$INFO[MusicPlayer.offset(1).Title]</label>
+                        <textcolor>fffaedce</textcolor>
+						<shadowcolor>black</shadowcolor>
+                </control>
+				<control type="label">
+                        <posx>226</posx>
+                        <posy>26</posy>
+                        <width>200</width>
+                        <height>50</height>
+						<align>right</align>
+						<aligny>top</aligny>
+						<angle>8</angle>
+						<wrapmultiline>true</wrapmultiline>
+						<font>Flyer_25</font>
+						<label>$INFO[MusicPlayer.offset(1).Artist]</label>
+                        <textcolor>ffffe29c</textcolor>
+						<shadowcolor>black</shadowcolor>
+                </control>
+				<control type="label">
+                        <posx>108</posx>
+                        <posy>129</posy>
+                        <width>205</width>
+                        <height>30</height>
+						<align>left</align>
+						<aligny>top</aligny>
+						<angle>8</angle>
+						<wrapmultiline>true</wrapmultiline>
+						<font>Flyer_16</font>
+						<label>$INFO[MusicPlayer.offset(2).Title]</label>
+                        <textcolor>fffaedce</textcolor>
+						<shadowcolor>black</shadowcolor>
+                </control>
+				<control type="label">
+                        <posx>104</posx>
+                        <posy>106</posy>
+                        <width>205</width>
+                        <height>50</height>
+						<align>left</align>
+						<aligny>top</aligny>
+						<angle>8</angle>
+						<wrapmultiline>true</wrapmultiline>
+						<font>Flyer_25</font>
+						<label>$INFO[MusicPlayer.offset(2).Artist]</label>
+                        <textcolor>ffffe29c</textcolor>
+						<shadowcolor>black</shadowcolor>
+                </control>
+				<control type="label">
+                        <posx>220</posx>
+                        <posy>193</posy>
+                        <width>195</width>
+                        <height>30</height>
+						<align>right</align>
+						<aligny>top</aligny>
+						<angle>8</angle>
+						<wrapmultiline>true</wrapmultiline>
+						<font>Flyer_16</font>
+						<label>$INFO[MusicPlayer.offset(3).Title]</label>
+                        <textcolor>fffaedce</textcolor>
+						<shadowcolor>black</shadowcolor>
+                </control>
+				<control type="label">
+                        <posx>216</posx>
+                        <posy>172</posy>
+                        <width>195</width>
+                        <height>50</height>
+						<align>right</align>
+						<aligny>top</aligny>
+						<angle>8</angle>
+						<wrapmultiline>true</wrapmultiline>
+						<font>Flyer_25</font>
+						<label>$INFO[MusicPlayer.offset(3).Artist]</label>
+                        <textcolor>ffffe29c</textcolor>
+						<shadowcolor>black</shadowcolor>
+                </control>
+				<control type="label">
+                        <posx>113</posx>
+                        <posy>290</posy>
+                        <width>205</width>
+                        <height>30</height>
+						<align>left</align>
+						<aligny>top</aligny>
+						<angle>8</angle>
+						<wrapmultiline>true</wrapmultiline>
+						<font>Flyer_16</font>
+						<label>$INFO[MusicPlayer.offset(4).Title]</label>
+                        <textcolor>fffaedce</textcolor>
+						<shadowcolor>black</shadowcolor>
+                </control>
+				<control type="label">
+                        <posx>109</posx>
+                        <posy>267</posy>
+                        <width>205</width>
+                        <height>50</height>
+						<align>left</align>
+						<aligny>top</aligny>
+						<angle>8</angle>
+						<wrapmultiline>true</wrapmultiline>
+						<font>Flyer_25</font>
+						<label>$INFO[MusicPlayer.offset(4).Artist]</label>
+                        <textcolor>ffffe29c</textcolor>
+						<shadowcolor>black</shadowcolor>
+                </control>
+				<control type="label">
+                        <posx>217</posx>
+                        <posy>363</posy>
+                        <width>195</width>
+                        <height>30</height>
+						<align>right</align>
+						<aligny>top</aligny>
+						<angle>8</angle>
+						<wrapmultiline>true</wrapmultiline>
+						<font>Flyer_16</font>
+						<label>$INFO[MusicPlayer.offset(5).Title]</label>
+                        <textcolor>fffaedce</textcolor>
+						<shadowcolor>black</shadowcolor>
+                </control>
+				<control type="label">
+                        <posx>213</posx>
+                        <posy>341</posy>
+                        <width>195</width>
+                        <height>50</height>
+						<align>right</align>
+						<aligny>top</aligny>
+						<angle>8</angle>
+						<wrapmultiline>true</wrapmultiline>
+						<font>Flyer_25</font>
+						<label>$INFO[MusicPlayer.offset(5).Artist]</label>
+                        <textcolor>ffffe29c</textcolor>
+						<shadowcolor>black</shadowcolor>
+                </control>
+				<control type="image">
+					<posy>27</posy>
+					<posx>235</posx>
+					<width>54</width>
+					<height>54</height>
+					<animation effect="rotate" start= "8" end="8" center="auto" condition="true">Conditional</animation>
+					<texture background="true">$INFO[MusicPlayer.offset(1).Cover]</texture>
+					<colordiffuse>ffffd591</colordiffuse>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<posy>115</posy>
+					<posx>30</posx>
+					<width>70</width>
+					<height>70</height>
+					<animation effect="rotate" start= "8" end="8" center="auto" condition="true">Conditional</animation>
+					<texture background="true">$INFO[MusicPlayer.offset(2).Cover]</texture>
+					<colordiffuse>ffffd591</colordiffuse>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<posy>165</posy>
+					<posx>227</posx>
+					<width>75</width>
+					<height>75</height>
+					<animation effect="rotate" start= "8" end="8" center="auto" condition="true">Conditional</animation>
+					<texture background="true">$INFO[MusicPlayer.offset(3).Cover]</texture>
+					<colordiffuse>ffffd591</colordiffuse>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<posy>277</posy>
+					<posx>30</posx>
+					<width>75</width>
+					<height>75</height>
+					<animation effect="rotate" start= "8" end="8" center="auto" condition="true">Conditional</animation>
+					<texture background="true">$INFO[MusicPlayer.offset(4).Cover]</texture>
+					<colordiffuse>ffffd591</colordiffuse>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<posy>335</posy>
+					<posx>225</posx>
+					<width>73</width>
+					<height>73</height>
+					<animation effect="rotate" start= "8" end="8" center="auto" condition="true">Conditional</animation>
+					<texture background="true">$INFO[MusicPlayer.offset(5).Cover]</texture>
+					<colordiffuse>ffffd591</colordiffuse>
+					<aspectratio>keep</aspectratio>
+				</control>
+				</control>
+			<control type="group">
+				<posx>1480</posx>
+                <posy>520</posy>
+				<control type="image">
+					<posy>-3</posy>
+					<posx>-2</posx>
+					<width>336</width>
+					<height>433</height>
+					<animation type="Visible">
+					<effect type="fade" start="0" end="100" time="1000"/>
+					</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,3) + !IntegerGreaterThan(MusicPlayer.Time,24) + Skin.HasSetting(widgetpola)] | [IntegerGreaterThan(MusicPlayer.Time,150) + !IntegerGreaterThan(MusicPlayer.Time,171) + Skin.HasSetting(widgetpola)]</visible>
+					<texture background="true">thumbs/whitepage.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<posx>110</posx>
+					<posy>155</posy>
+					<width>190</width>
+					<height>250</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,7) + !IntegerGreaterThan(MusicPlayer.Time,24) + Skin.HasSetting(widgetpola)] | [IntegerGreaterThan(MusicPlayer.Time,154) + !IntegerGreaterThan(MusicPlayer.Time,171) + Skin.HasSetting(widgetpola)]</visible>
+					<texture background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/folder.jpg]</texture>
+					<colordiffuse>52FFFFFF</colordiffuse>
+					<aspectratio aligny="top">scale</aspectratio>
+				</control>
+				<control type="image" id="7782">
+					<width>295</width>
+					<posx>15</posx>
+					<posy>-490</posy>
+					<colordiffuse>E1FFFFFF</colordiffuse>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,7) + !IntegerGreaterThan(MusicPlayer.Time,24) + Skin.HasSetting(widgetpola)] | [IntegerGreaterThan(MusicPlayer.Time,154) + !IntegerGreaterThan(MusicPlayer.Time,171) + Skin.HasSetting(widgetpola)]</visible>
+					<texture background="true" fallback="xyz.png">$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/banner.jpg]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image" id="7783">
+					<width>170</width>
+					<posx>75</posx>
+					<posy>-480</posy>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,7) + !IntegerGreaterThan(MusicPlayer.Time,24) + Skin.HasSetting(widgetpola) + Substring(Control.GetLabel(7782),xy,Left)] | [IntegerGreaterThan(MusicPlayer.Time,154) + !IntegerGreaterThan(MusicPlayer.Time,171) + Skin.HasSetting(widgetpola) + Substring(Control.GetLabel(7782),xy,Left)]</visible>
+					<texture background="true" fallback="qaz.png">$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/logo.png]</texture>
+					<colordiffuse>D1FFFFFF</colordiffuse>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<width>295</width>
+					<posx>16</posx>
+					<posy>-490</posy>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,7) + !IntegerGreaterThan(MusicPlayer.Time,24) + Substring(Control.GetLabel(7782),xy,Left) + Substring(Control.GetLabel(7783),qa,Left) + Skin.HasSetting(widgetpola)] | [IntegerGreaterThan(MusicPlayer.Time,154) + !IntegerGreaterThan(MusicPlayer.Time,171) + Substring(Control.GetLabel(7782),xy,Left) + Substring(Control.GetLabel(7783),qa,Left) + Skin.HasSetting(widgetpola)]</visible>
+					<colordiffuse>EEFFFFFF</colordiffuse>
+					<texture background="true">thumbs/headline.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+					<width>310</width>
+                    <height>80</height>
+                    <posx>7</posx>
+                    <posy>20</posy>
+                    <aligny>top</aligny>
+					<align>center</align>
+					<font>Flyer_25</font>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,7) + !IntegerGreaterThan(MusicPlayer.Time,24) + Substring(Control.GetLabel(7782),xy,Left) + Substring(Control.GetLabel(7783),qa,Left) + Skin.HasSetting(widgetpola)] | [IntegerGreaterThan(MusicPlayer.Time,154) + !IntegerGreaterThan(MusicPlayer.Time,171) + Substring(Control.GetLabel(7782),xy,Left) + Substring(Control.GetLabel(7783),qa,Left) + Skin.HasSetting(widgetpola)]</visible>
+					<label>$INFO[MusicPlayer.Artist]</label>
+                    <textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+				</control>
+				<control type="textbox">
+                    <width>275</width>
+                    <height>330</height>
+                    <posx>30</posx>
+                    <posy>75</posy>
+                    <aligny>top</aligny>
+					<align>left</align>
+					<font>Magaz_17</font>
+					<autoscroll delay="4500" time="1500"></autoscroll>
+                    <visible>[IntegerGreaterThan(MusicPlayer.Time,7) + !IntegerGreaterThan(MusicPlayer.Time,24) + Skin.HasSetting(widgetpola)] | [IntegerGreaterThan(MusicPlayer.Time,154) + !IntegerGreaterThan(MusicPlayer.Time,171) + Skin.HasSetting(widgetpola)]</visible>
+					<label>$INFO[Window(Visualisation).Property(ArtistSlideshow.ArtistBiography)]</label>
+                    <textcolor>black</textcolor>
+				</control>
+				<control type="image">
+					<width>320</width>
+					<height>425</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,3) + !IntegerGreaterThan(MusicPlayer.Time,24) + Skin.HasSetting(widgetpola)]</visible>
+					<animation type="Visible">
+					<effect type="fade" start="0" end="100" time="1000"/>
+					</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<animation type="Conditional" condition="[!IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtistBiography)) + IntegerGreaterThan(MusicPlayer.Time,9) + Skin.HasSetting(widgetpola)]" reversible="false">
+							<effect type="rotatey" delay="0" center="0" start="0" end="115" time="1000" tween="quadratic" easing="out"/>
+							<effect type="rotatey" delay="13000" center="0" start="0" end="-115" time="1000" tween="quadratic" easing="out"/>
+					</animation>
+					<texture background="true">thumbs/contwhite.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<width>320</width>
+					<height>425</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,150) + !IntegerGreaterThan(MusicPlayer.Time,171) + Skin.HasSetting(widgetpola)]</visible>
+					<animation type="Visible">
+					<effect type="fade" start="0" end="100" time="1000"/>
+					</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<animation type="Conditional" condition="[!IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtistBiography)) + IntegerGreaterThan(MusicPlayer.Time,156) + Skin.HasSetting(widgetpola)]" reversible="false">
+							<effect type="rotatey" delay="0" center="0" start="0" end="115" time="1000" tween="quadratic" easing="out"/>
+							<effect type="rotatey" delay="13000" center="0" start="0" end="-115" time="1000" tween="quadratic" easing="out"/>
+					</animation>
+					<texture background="true">thumbs/contwhite.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<width>320</width>
+					<height>425</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,3) + !IntegerGreaterThan(MusicPlayer.Time,24) + Skin.HasSetting(widgetpola)]</visible>
+					<animation type="Visible">
+					<effect type="fade" start="0" end="100" time="1000"/>
+					</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<animation type="Conditional" condition="[!IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtistBiography)) + IntegerGreaterThan(MusicPlayer.Time,9) + Skin.HasSetting(widgetpola)]" reversible="false">
+							<effect type="rotatey" delay="0" center="0" start="0" end="115" time="1000" tween="quadratic" easing="out"/>
+							<effect type="rotatey" delay="13000" center="0" start="0" end="-115" time="1000" tween="quadratic" easing="out"/>
+					</animation>
+					<texture background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/folder.jpg]</texture>
+					<colordiffuse>F5FFFFFF</colordiffuse>
+					<aspectratio aligny="center">scale</aspectratio>
+				</control>
+				<control type="image">
+					<width>320</width>
+					<height>425</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,150) + !IntegerGreaterThan(MusicPlayer.Time,171) + Skin.HasSetting(widgetpola)]</visible>
+					<animation type="Visible">
+					<effect type="fade" start="0" end="100" time="1000"/>
+					</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<animation type="Conditional" condition="[!IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtistBiography)) + IntegerGreaterThan(MusicPlayer.Time,156) + Skin.HasSetting(widgetpola)]" reversible="false">
+							<effect type="rotatey" delay="0" center="0" start="0" end="115" time="1000" tween="quadratic" easing="out"/>
+							<effect type="rotatey" delay="13000" center="0" start="0" end="-115" time="1000" tween="quadratic" easing="out"/>
+					</animation>
+					<texture background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/folder.jpg]</texture>
+					<colordiffuse>F5FFFFFF</colordiffuse>
+					<aspectratio aligny="center">scale</aspectratio>
+				</control>
+				<control type="image">
+					<width>320</width>
+					<height>425</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,3) + !IntegerGreaterThan(MusicPlayer.Time,24) + Skin.HasSetting(widgetpola)]</visible>
+					<animation type="Visible">
+					<effect type="fade" start="0" end="100" time="1000"/>
+					</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<animation type="Conditional" condition="[!IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtistBiography)) + IntegerGreaterThan(MusicPlayer.Time,9) + Skin.HasSetting(widgetpola)]" reversible="false">
+							<effect type="rotatey" delay="0" center="0" start="0" end="115" time="1000" tween="quadratic" easing="out"/>
+							<effect type="rotatey" delay="13000" center="0" start="0" end="-115" time="1000" tween="quadratic" easing="out"/>
+					</animation>
+					<texture background="true">thumbs/musicland.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<width>320</width>
+					<height>425</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,150) + !IntegerGreaterThan(MusicPlayer.Time,171) + Skin.HasSetting(widgetpola)]</visible>
+					<animation type="Visible">
+					<effect type="fade" start="0" end="100" time="1000"/>
+					</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<animation type="Conditional" condition="[!IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtistBiography)) + IntegerGreaterThan(MusicPlayer.Time,156) + Skin.HasSetting(widgetpola)]" reversible="false">
+							<effect type="rotatey" delay="0" center="0" start="0" end="115" time="1000" tween="quadratic" easing="out"/>
+							<effect type="rotatey" delay="13000" center="0" start="0" end="-115" time="1000" tween="quadratic" easing="out"/>
+					</animation>
+					<texture background="true">thumbs/musicland.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
 			</control>
-<!-- end switch -->		
+			<control type="label">
+                    <posx>1460</posx>
+                    <posy>540</posy>
+                    <width>375</width>
+                    <height>34</height>
+                    <align>center</align>\
+					<font>Font_Bold22_Caps</font>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,25) + !IntegerGreaterThan(MusicPlayer.Time,45) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.1.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<label>$LOCALIZE[31635]</label>
+            </control>
+			<control type="group">
+					<posx>1520</posx>
+					<posy>610</posy>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>330</width>
+					<height>330</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,25) + !IntegerGreaterThan(MusicPlayer.Time,45) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.1.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/polaro_ne.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<width>250</width>
+					<height>250</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,25) + !IntegerGreaterThan(MusicPlayer.Time,45) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="2500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow.1.SimilarThumb)]</texture>
+					<aspectratio aligny="top">scale</aspectratio>
+				</control>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>330</width>
+					<height>330</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,25) + !IntegerGreaterThan(MusicPlayer.Time,45) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.1.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/polaro.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+                    <posy>260</posy>
+                    <posx>5</posx>
+					<width>250</width>
+                    <height>30</height>
+                    <align>center</align>
+					<font>Font_Reg19_Caps</font>
+                    <textcolor>black</textcolor>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,25) + !IntegerGreaterThan(MusicPlayer.Time,45) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.1.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="2500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+                    <label>$INFO[Window(Visualisation).Property(ArtistSlideshow.1.SimilarName)]</label>
+                </control>
+			</control>
+			<control type="group">
+					<posx>1520</posx>
+					<posy>610</posy>
+					<animation effect="rotate" start= "-6" end="-6" center="auto" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>330</width>
+					<height>330</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,32) + !IntegerGreaterThan(MusicPlayer.Time,45) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.2.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/polaro2_ne.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<width>250</width>
+					<height>250</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,32) + !IntegerGreaterThan(MusicPlayer.Time,45) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="2500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow.2.SimilarThumb)]</texture>
+					<aspectratio aligny="top">scale</aspectratio>
+				</control>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>330</width>
+					<height>330</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,32) + !IntegerGreaterThan(MusicPlayer.Time,45) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.2.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/polaro2.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+                    <posy>260</posy>
+                    <posx>5</posx>
+					<width>250</width>
+                    <height>30</height>
+                    <align>center</align>
+					<font>Font_Reg19_Caps</font>
+                    <textcolor>black</textcolor>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,32) + !IntegerGreaterThan(MusicPlayer.Time,45) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.2.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="2500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+                    <label>$INFO[Window(Visualisation).Property(ArtistSlideshow.2.SimilarName)]</label>
+                </control>
+			</control>
+			<control type="group">
+					<posx>1520</posx>
+					<posy>610</posy>
+					<animation effect="rotate" start= "6" end="6" center="auto" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>330</width>
+					<height>330</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,39) + !IntegerGreaterThan(MusicPlayer.Time,45) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.3.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/polaro_ne.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<width>250</width>
+					<height>250</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,39) + !IntegerGreaterThan(MusicPlayer.Time,45) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="2500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow.3.SimilarThumb)]</texture>
+					<aspectratio aligny="top">scale</aspectratio>
+				</control>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>330</width>
+					<height>330</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,39) + !IntegerGreaterThan(MusicPlayer.Time,45) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.3.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/polaro.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+                    <posy>260</posy>
+                    <posx>5</posx>
+					<width>250</width>
+                    <height>30</height>
+                    <align>center</align>
+					<font>Font_Reg19_Caps</font>
+                    <textcolor>black</textcolor>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,39) + !IntegerGreaterThan(MusicPlayer.Time,45) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.3.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="2500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+                    <label>$INFO[Window(Visualisation).Property(ArtistSlideshow.3.SimilarName)]</label>
+                </control>
+			</control>
+			<control type="group">
+					<posx>1590</posx>
+					<posy>530</posy>
+					<animation effect="rotatey" start= "6" end="6" center="auto" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>430</width>
+					<height>430</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,55) + !IntegerGreaterThan(MusicPlayer.Time,78) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.1.AlbumName)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/1mp3_ne.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="group">
+					<width>173</width>
+					<height>173</height>
+					<posx>70</posx>
+					<posy>69</posy>
+					<control type="image">
+					<animation effect="fade" time="250" delay="2000">Visible</animation>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,55) + !IntegerGreaterThan(MusicPlayer.Time,78) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.1.AlbumName)) + IsEmpty(Window(Visualisation).Property(ArtistSlideshow.1.AlbumThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<texture>$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/folder.jpg]</texture>
+					<aspectratio aligny="top">scale</aspectratio>
+					</control>
+					<control type="image">
+					<animation effect="fade" time="250" delay="2000">Visible</animation>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,55) + !IntegerGreaterThan(MusicPlayer.Time,78) + Skin.HasSetting(widgetpola)]</visible>
+					<texture background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow.1.AlbumThumb)]</texture>
+					<aspectratio aligny="top">scale</aspectratio>
+					</control>
+				</control>
+					<control type="group">
+					<width>173</width>
+					<height>173</height>
+					<posx>70</posx>
+					<posy>69</posy>
+					<control type="image">
+					<animation effect="fade" time="500" delay="2000">Visible</animation>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,62) + !IntegerGreaterThan(MusicPlayer.Time,78) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.2.AlbumName)) + IsEmpty(Window(Visualisation).Property(ArtistSlideshow.2.AlbumThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<texture>$INFO[MusicPlayer.Cover]</texture>
+					<aspectratio aligny="top">scale</aspectratio>
+					</control>
+					<control type="image">
+					<animation effect="fade" time="500" delay="2000">Visible</animation>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,62) + !IntegerGreaterThan(MusicPlayer.Time,78) + Skin.HasSetting(widgetpola)]</visible>
+					<texture background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow.2.AlbumThumb)]</texture>
+					<aspectratio aligny="top">scale</aspectratio>
+					</control>
+				</control>
+				<control type="group">
+					<width>173</width>
+					<height>173</height>
+					<posx>70</posx>
+					<posy>69</posy>
+					<control type="image">
+					<animation effect="fade" time="500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,69) + !IntegerGreaterThan(MusicPlayer.Time,78) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.3.AlbumName)) + IsEmpty(Window(Visualisation).Property(ArtistSlideshow.3.AlbumThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<texture>$INFO[MusicPlayer.Property(Fanart_Image)]</texture>
+					<aspectratio aligny="top">scale</aspectratio>
+					</control>
+					<control type="image">
+					<animation effect="fade" time="500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,69) + !IntegerGreaterThan(MusicPlayer.Time,78) + Skin.HasSetting(widgetpola)]</visible>
+					<texture background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow.3.AlbumThumb)]</texture>
+					<aspectratio aligny="top">scale</aspectratio>
+					</control>
+				</control>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>430</width>
+					<height>430</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,55) + !IntegerGreaterThan(MusicPlayer.Time,78) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.1.AlbumName)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/1mp3_glass.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>430</width>
+					<height>430</height>
+					<animation effect="fade" time="50" delay="2000">Visible</animation>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,55) + !IntegerGreaterThan(MusicPlayer.Time,78) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.1.AlbumName)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/1mp3.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+                    <posy>245</posy>
+                    <posx>69</posx>
+					<width>175</width>
+                    <height>30</height>
+                    <align>center</align>
+					<scroll>true</scroll>
+					<font>Font_Reg19_Caps</font>
+                    <textcolor>black</textcolor>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,57) + !IntegerGreaterThan(MusicPlayer.Time,78) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.1.AlbumName)) + Skin.HasSetting(widgetpola)]</visible>
+					<label> $INFO[Window(Visualisation).Property(ArtistSlideshow.1.AlbumName)] </label>
+                </control>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>430</width>
+					<height>430</height>
+					<animation effect="fade" time="500" delay="1000">Visible</animation>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,63) + !IntegerGreaterThan(MusicPlayer.Time,78) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.2.AlbumName)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/1mp3.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+                    <posy>245</posy>
+                    <posx>69</posx>
+					<width>175</width>
+                    <height>30</height>
+                    <align>center</align>
+					<scroll>true</scroll>
+					<font>Font_Reg19_Caps</font>
+                    <textcolor>black</textcolor>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,63) + !IntegerGreaterThan(MusicPlayer.Time,78) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.2.AlbumName)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="500" delay="1500">Visible</animation>
+					<label> $INFO[Window(Visualisation).Property(ArtistSlideshow.2.AlbumName)] </label>
+                </control>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>430</width>
+					<height>430</height>
+					<animation effect="fade" time="500" delay="1000">Visible</animation>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,70) + !IntegerGreaterThan(MusicPlayer.Time,78) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.3.AlbumName)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/1mp3.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+                    <posy>245</posy>
+                    <posx>69</posx>
+					<width>175</width>
+                    <height>30</height>
+                    <align>center</align>
+					<scroll>true</scroll>
+					<font>Font_Reg19_Caps</font>
+                    <textcolor>black</textcolor>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,70) + !IntegerGreaterThan(MusicPlayer.Time,78) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.3.AlbumName)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="500" delay="1500">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+                    <label> $INFO[Window(Visualisation).Property(ArtistSlideshow.3.AlbumName)] </label>
+                </control>
+				<control type="label">
+                    <posy>5</posy>
+                    <posx>65</posx>
+					<width>190</width>
+                    <height>30</height>
+                    <align>center</align>
+					<font>Font_Reg19_Caps</font>
+                    <textcolor>black</textcolor>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,55) + !IntegerGreaterThan(MusicPlayer.Time,78) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.1.AlbumName)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<label> $LOCALIZE[21888] </label>
+				</control>
+			</control>
+			<control type="label">
+                    <posx>1460</posx>
+                    <posy>540</posy>
+                    <width>375</width>
+                    <height>34</height>
+                    <align>center</align>
+					<font>Font_Bold22_Caps</font>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,94) + !IntegerGreaterThan(MusicPlayer.Time,114) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.4.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<label>$LOCALIZE[31635]</label>
+            </control>
+			<control type="group">
+					<posx>1520</posx>
+					<posy>610</posy>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>330</width>
+					<height>330</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,94) + !IntegerGreaterThan(MusicPlayer.Time,114) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.4.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/polaro_ne.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<width>250</width>
+					<height>250</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,94) + !IntegerGreaterThan(MusicPlayer.Time,114) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="2500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow.4.SimilarThumb)]</texture>
+					<aspectratio aligny="top">scale</aspectratio>
+				</control>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>330</width>
+					<height>330</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,94) + !IntegerGreaterThan(MusicPlayer.Time,114) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.4.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/polaro.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+                    <posy>260</posy>
+                    <posx>5</posx>
+					<width>250</width>
+                    <height>30</height>
+                    <align>center</align>
+					<font>Font_Reg19_Caps</font>
+                    <textcolor>black</textcolor>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,94) + !IntegerGreaterThan(MusicPlayer.Time,114) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.4.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="2500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+                    <label>$INFO[Window(Visualisation).Property(ArtistSlideshow.4.SimilarName)]</label>
+                </control>
+			</control>
+			<control type="group">
+					<posx>1520</posx>
+					<posy>610</posy>
+					<animation effect="rotate" start= "-6" end="-6" center="auto" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>330</width>
+					<height>330</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,101) + !IntegerGreaterThan(MusicPlayer.Time,114) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.5.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/polaro2_ne.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<width>250</width>
+					<height>250</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,101) + !IntegerGreaterThan(MusicPlayer.Time,114) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="2500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow.5.SimilarThumb)]</texture>
+					<aspectratio aligny="top">scale</aspectratio>
+				</control>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>330</width>
+					<height>330</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,101) + !IntegerGreaterThan(MusicPlayer.Time,114) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.5.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/polaro2.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+                    <posy>260</posy>
+                    <posx>5</posx>
+					<width>250</width>
+                    <height>30</height>
+                    <align>center</align>
+					<font>Font_Reg19_Caps</font>
+                    <textcolor>black</textcolor>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,101) + !IntegerGreaterThan(MusicPlayer.Time,114) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.5.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="2500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+                    <label>$INFO[Window(Visualisation).Property(ArtistSlideshow.5.SimilarName)]</label>
+                </control>
+			</control>
+			<control type="group">
+					<posx>1520</posx>
+					<posy>610</posy>
+					<animation effect="rotate" start= "6" end="6" center="auto" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>330</width>
+					<height>330</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,108) + !IntegerGreaterThan(MusicPlayer.Time,114) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.6.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/polaro_ne.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<width>250</width>
+					<height>250</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,108) + !IntegerGreaterThan(MusicPlayer.Time,114) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="2500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow.6.SimilarThumb)]</texture>
+					<aspectratio aligny="top">scale</aspectratio>
+				</control>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>330</width>
+					<height>330</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,108) + !IntegerGreaterThan(MusicPlayer.Time,114) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.6.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/polaro.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+                    <posy>260</posy>
+                    <posx>5</posx>
+					<width>250</width>
+                    <height>30</height>
+                    <align>center</align>
+					<font>Font_Reg19_Caps</font>
+                    <textcolor>black</textcolor>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,108) + !IntegerGreaterThan(MusicPlayer.Time,114) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.6.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="2500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+                    <label>$INFO[Window(Visualisation).Property(ArtistSlideshow.6.SimilarName)]</label>
+                </control>
+			</control>
+			<control type="group">
+					<posx>1565</posx>
+					<posy>520</posy>
+					<animation effect="rotatey" start= "6" end="6" center="auto" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>-51</posx>
+					<posy>-15</posy>
+					<width>453</width>
+					<height>453</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,116) + !IntegerGreaterThan(MusicPlayer.Time,139) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.4.AlbumName)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/mp3_ne.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="group">
+					<width>195</width>
+					<height>195</height>
+					<posx>59</posx>
+					<posy>62</posy>
+					<control type="image">
+					<animation effect="fade" time="250" delay="2000">Visible</animation>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,116) + !IntegerGreaterThan(MusicPlayer.Time,139) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.4.AlbumName)) + IsEmpty(Window(Visualisation).Property(ArtistSlideshow.4.AlbumThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<texture>$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/folder.jpg]</texture>
+					<aspectratio aligny="top">scale</aspectratio>
+					</control>
+					<control type="image">
+					<animation effect="fade" time="250" delay="2000">Visible</animation>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,116) + !IntegerGreaterThan(MusicPlayer.Time,139) + Skin.HasSetting(widgetpola)]</visible>
+					<texture background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow.4.AlbumThumb)]</texture>
+					<aspectratio aligny="top">scale</aspectratio>
+					</control>
+				</control>
+					<control type="group">
+					<width>195</width>
+					<height>195</height>
+					<posx>59</posx>
+					<posy>62</posy>
+					<control type="image">
+					<animation effect="fade" time="500" delay="2000">Visible</animation>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,123) + !IntegerGreaterThan(MusicPlayer.Time,139) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.5.AlbumName)) + IsEmpty(Window(Visualisation).Property(ArtistSlideshow.5.AlbumThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<texture>$INFO[MusicPlayer.Cover]</texture>
+					<aspectratio aligny="top">scale</aspectratio>
+					</control>
+					<control type="image">
+					<animation effect="fade" time="500" delay="2000">Visible</animation>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,123) + !IntegerGreaterThan(MusicPlayer.Time,139) + Skin.HasSetting(widgetpola)]</visible>
+					<texture background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow.5.AlbumThumb)]</texture>
+					<aspectratio aligny="top">scale</aspectratio>
+					</control>
+				</control>
+				<control type="group">
+					<width>195</width>
+					<height>195</height>
+					<posx>59</posx>
+					<posy>62</posy>
+					<control type="image">
+					<animation effect="fade" time="500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,130) + !IntegerGreaterThan(MusicPlayer.Time,139) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.6.AlbumName)) + IsEmpty(Window(Visualisation).Property(ArtistSlideshow.6.AlbumThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<texture>$INFO[MusicPlayer.Property(Fanart_Image)]</texture>
+					<aspectratio aligny="top">scale</aspectratio>
+					</control>
+					<control type="image">
+					<animation effect="fade" time="500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,130) + !IntegerGreaterThan(MusicPlayer.Time,139) + Skin.HasSetting(widgetpola)]</visible>
+					<texture background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow.6.AlbumThumb)]</texture>
+					<aspectratio aligny="top">scale</aspectratio>
+					</control>
+				</control>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>430</width>
+					<height>430</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,116) + !IntegerGreaterThan(MusicPlayer.Time,139) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.4.AlbumName)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/mp3_glass.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>430</width>
+					<height>430</height>
+					<animation effect="fade" time="50" delay="2000">Visible</animation>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,116) + !IntegerGreaterThan(MusicPlayer.Time,139) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.4.AlbumName)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/mp3.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+                    <posy>252</posy>
+                    <posx>69</posx>
+					<width>180</width>
+                    <height>30</height>
+                    <align>center</align>
+					<scroll>true</scroll>
+					<font>Font_Reg19_Caps</font>
+                    <textcolor>white</textcolor>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,118) + !IntegerGreaterThan(MusicPlayer.Time,139) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.4.AlbumName)) + Skin.HasSetting(widgetpola)]</visible>
+					<label> $INFO[Window(Visualisation).Property(ArtistSlideshow.4.AlbumName)] </label>
+                </control>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>430</width>
+					<height>430</height>
+					<animation effect="fade" time="500" delay="1000">Visible</animation>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,124) + !IntegerGreaterThan(MusicPlayer.Time,139) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.5.AlbumName)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/mp3.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+                    <posy>252</posy>
+                    <posx>69</posx>
+					<width>180</width>
+                    <height>30</height>
+                    <align>center</align>
+					<scroll>true</scroll>
+					<font>Font_Reg19_Caps</font>
+                    <textcolor>white</textcolor>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,124) + !IntegerGreaterThan(MusicPlayer.Time,139) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.5.AlbumName)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="500" delay="1500">Visible</animation>
+					<label> $INFO[Window(Visualisation).Property(ArtistSlideshow.5.AlbumName)] </label>
+                </control>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>430</width>
+					<height>430</height>
+					<animation effect="fade" time="500" delay="1000">Visible</animation>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,131) + !IntegerGreaterThan(MusicPlayer.Time,139) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.6.AlbumName)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/mp3.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+                    <posy>252</posy>
+                    <posx>69</posx>
+					<width>180</width>
+                    <height>30</height>
+                    <align>center</align>
+					<scroll>true</scroll>
+					<font>Font_Reg19_Caps</font>
+                    <textcolor>white</textcolor>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,131) + !IntegerGreaterThan(MusicPlayer.Time,139) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.6.AlbumName)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="500" delay="1500">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+                    <label> $INFO[Window(Visualisation).Property(ArtistSlideshow.6.AlbumName)] </label>
+                </control>
+				<control type="label">
+                    <posy>-3</posy>
+                    <posx>65</posx>
+					<width>190</width>
+                    <height>30</height>
+                    <align>center</align>
+					<font>Font_Reg19_Caps</font>
+                    <textcolor>white</textcolor>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,116) + !IntegerGreaterThan(MusicPlayer.Time,139) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.4.AlbumName)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<label> $LOCALIZE[21888] </label>
+				</control>
+			</control>
+			<control type="label">
+                    <posx>1460</posx>
+                    <posy>540</posy>
+                    <width>375</width>
+                    <height>34</height>
+                    <align>center</align>
+					<font>Font_Bold22_Caps</font>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,182) + !IntegerGreaterThan(MusicPlayer.Time,202) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.7.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<label>$LOCALIZE[31635]</label>
+            </control>
+			<control type="group">
+					<posx>1520</posx>
+					<posy>610</posy>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>330</width>
+					<height>330</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,182) + !IntegerGreaterThan(MusicPlayer.Time,202) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.7.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/polaro_ne.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<width>250</width>
+					<height>250</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,182) + !IntegerGreaterThan(MusicPlayer.Time,202) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="2500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow.7.SimilarThumb)]</texture>
+					<aspectratio aligny="top">scale</aspectratio>
+				</control>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>330</width>
+					<height>330</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,182) + !IntegerGreaterThan(MusicPlayer.Time,202) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.7.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/polaro.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+                    <posy>260</posy>
+                    <posx>5</posx>
+					<width>250</width>
+                    <height>30</height>
+                    <align>center</align>
+					<font>Font_Reg19_Caps</font>
+                    <textcolor>black</textcolor>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,182) + !IntegerGreaterThan(MusicPlayer.Time,202) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.7.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="2500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+                    <label>$INFO[Window(Visualisation).Property(ArtistSlideshow.7.SimilarName)]</label>
+                </control>
+			</control>
+			<control type="group">
+					<posx>1520</posx>
+					<posy>610</posy>
+					<animation effect="rotate" start= "-6" end="-6" center="auto" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>330</width>
+					<height>330</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,189) + !IntegerGreaterThan(MusicPlayer.Time,202) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.8.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/polaro2_ne.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<width>250</width>
+					<height>250</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,189) + !IntegerGreaterThan(MusicPlayer.Time,202) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="2500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow.8.SimilarThumb)]</texture>
+					<aspectratio aligny="top">scale</aspectratio>
+				</control>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>330</width>
+					<height>330</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,189) + !IntegerGreaterThan(MusicPlayer.Time,202) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.8.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/polaro2.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+                    <posy>260</posy>
+                    <posx>5</posx>
+					<width>250</width>
+                    <height>30</height>
+                    <align>center</align>
+					<font>Font_Reg19_Caps</font>
+                    <textcolor>black</textcolor>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,189) + !IntegerGreaterThan(MusicPlayer.Time,202) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.8.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="2500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+                    <label>$INFO[Window(Visualisation).Property(ArtistSlideshow.8.SimilarName)]</label>
+                </control>
+			</control>
+			<control type="group">
+					<posx>1520</posx>
+					<posy>610</posy>
+					<animation effect="rotate" start= "6" end="6" center="auto" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>330</width>
+					<height>330</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,196) + !IntegerGreaterThan(MusicPlayer.Time,202) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.9.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/polaro_ne.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<width>250</width>
+					<height>250</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,196) + !IntegerGreaterThan(MusicPlayer.Time,202) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="2500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow.9.SimilarThumb)]</texture>
+					<aspectratio aligny="top">scale</aspectratio>
+				</control>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>330</width>
+					<height>330</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,196) + !IntegerGreaterThan(MusicPlayer.Time,202) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.9.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/polaro.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+                    <posy>260</posy>
+                    <posx>5</posx>
+					<width>250</width>
+                    <height>30</height>
+                    <align>center</align>
+					<font>Font_Reg19_Caps</font>
+                    <textcolor>black</textcolor>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,196) + !IntegerGreaterThan(MusicPlayer.Time,202) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.9.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="2500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+                    <label>$INFO[Window(Visualisation).Property(ArtistSlideshow.9.SimilarName)]</label>
+                </control>
+			</control>
+			<control type="label">
+                    <posx>1460</posx>
+                    <posy>540</posy>
+                    <width>375</width>
+                    <height>34</height>
+                    <align>center</align>
+					<font>Font_Bold22_Caps</font>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,217) + !IntegerGreaterThan(MusicPlayer.Time,237) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.10.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<label>$LOCALIZE[31635]</label>
+            </control>
+			<control type="group">
+					<posx>1520</posx>
+					<posy>610</posy>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>330</width>
+					<height>330</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,217) + !IntegerGreaterThan(MusicPlayer.Time,237) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.10.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/polaro_ne.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<width>250</width>
+					<height>250</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,217) + !IntegerGreaterThan(MusicPlayer.Time,237) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="2500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow.10.SimilarThumb)]</texture>
+					<aspectratio aligny="top">scale</aspectratio>
+				</control>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>330</width>
+					<height>330</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,217) + !IntegerGreaterThan(MusicPlayer.Time,237) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.10.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/polaro.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+                    <posy>260</posy>
+                    <posx>5</posx>
+					<width>250</width>
+                    <height>30</height>
+                    <align>center</align>
+					<font>Font_Reg19_Caps</font>
+                    <textcolor>black</textcolor>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,217) + !IntegerGreaterThan(MusicPlayer.Time,237) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.10.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="2500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+                    <label>$INFO[Window(Visualisation).Property(ArtistSlideshow.10.SimilarName)]</label>
+                </control>
+			</control>
+			<control type="group">
+					<posx>1520</posx>
+					<posy>610</posy>
+					<animation effect="rotate" start= "-6" end="-6" center="auto" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>330</width>
+					<height>330</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,224) + !IntegerGreaterThan(MusicPlayer.Time,237) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.11.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/polaro2_ne.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<width>250</width>
+					<height>250</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,224) + !IntegerGreaterThan(MusicPlayer.Time,237) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="2500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow.11.SimilarThumb)]</texture>
+					<aspectratio aligny="top">scale</aspectratio>
+				</control>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>330</width>
+					<height>330</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,224) + !IntegerGreaterThan(MusicPlayer.Time,237) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.11.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/polaro2.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+                    <posy>260</posy>
+                    <posx>5</posx>
+					<width>250</width>
+                    <height>30</height>
+                    <align>center</align>
+					<font>Font_Reg19_Caps</font>
+                    <textcolor>black</textcolor>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,224) + !IntegerGreaterThan(MusicPlayer.Time,237) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.11.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="2500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+                    <label>$INFO[Window(Visualisation).Property(ArtistSlideshow.11.SimilarName)]</label>
+                </control>
+			</control>
+			<control type="group">
+					<posx>1520</posx>
+					<posy>610</posy>
+					<animation effect="rotate" start= "6" end="6" center="auto" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>330</width>
+					<height>330</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,231) + !IntegerGreaterThan(MusicPlayer.Time,237) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.12.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/polaro_ne.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<width>250</width>
+					<height>250</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,231) + !IntegerGreaterThan(MusicPlayer.Time,237) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="2500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow.12.SimilarThumb)]</texture>
+					<aspectratio aligny="top">scale</aspectratio>
+				</control>
+				<control type="image">
+					<posx>-40</posx>
+					<posy>-15</posy>
+					<width>330</width>
+					<height>330</height>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,231) + !IntegerGreaterThan(MusicPlayer.Time,237) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.12.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="slide" start="735,0" end="0,0" delay="1000" time="500" tween="cubic">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+					<texture background="true">thumbs/polaro.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+                    <posy>260</posy>
+                    <posx>5</posx>
+					<width>250</width>
+                    <height>30</height>
+                    <align>center</align>
+					<font>Font_Reg19_Caps</font>
+                    <textcolor>black</textcolor>
+					<visible>[IntegerGreaterThan(MusicPlayer.Time,231) + !IntegerGreaterThan(MusicPlayer.Time,237) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.12.SimilarThumb)) + Skin.HasSetting(widgetpola)]</visible>
+					<animation effect="fade" time="2500" delay="2000">Visible</animation>
+					<animation effect="slide" end="735,0" delay="0" time="500" tween="cubic">Hidden</animation>
+                    <label>$INFO[Window(Visualisation).Property(ArtistSlideshow.12.SimilarName)]</label>
+                </control>
+			</control>
 		<control type="group" id="0">
             <visible>Player.ShowCodec + ![Window.IsVisible(script-cu-lrclyrics-main.xml) | Window.IsVisible(VisualisationSettings) | Window.IsVisible(VisualisationPresetList)]</visible>
             <animation effect="slide" start="0,-255" end="0,0" time="500" tween="cubic">VisibleChange</animation>
@@ -683,8 +2257,7 @@
 				<height>300</height>
 				<align>center</align>
 				<aligny>center</aligny>
-			 
-				<control type="label">
+			 	<control type="label">
 					<description>row 1 label</description>
 					<width>1770</width>
 					<height>90</height>
@@ -857,7 +2430,7 @@
                     </control>
                 </control>
             </control>
-            <control type="group">
+			<control type="group">
                 <posx>22</posx>
                 <posy>-597</posy>
                 <visible>Skin.HasSetting(vispanelrotate) + Skin.HasSetting(activatepanelrotation) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.1.SimilarName))</visible>
@@ -895,7 +2468,7 @@
                     <animation effect="fade" start="100" end="73" time="0" condition="true">Conditional</animation>
                     <texture>wall/wall_bg.png</texture>
                 </control>
-                <control type="group">
+				<control type="group">
                     <posx>150</posx>
                     <posy>732</posy>
                     <control type="label">
@@ -942,7 +2515,6 @@
                         <animation effect="zoom" start="100" end="85" time="800" easing="inout" tween="circle" center="960,500" condition="true">Conditional</animation>
                         <orientation>vertical</orientation>
                         <pagecontrol>60</pagecontrol>
-                        <focusposition>0</focusposition>
                         <scrolltime tween="cubic" easing="inout">1200</scrolltime>
                         <preloaditems>2</preloaditems>
                         <itemlayout width="614" height="30">
@@ -1028,12 +2600,11 @@
                     <orientation>vertical</orientation>
                     <pagecontrol>60</pagecontrol>
                     <animation effect="zoom" start="100" end="85" time="800" easing="inout" tween="circle" center="960,500" condition="true">Conditional</animation>
-                    <focusposition>0</focusposition>
                     <scrolltime tween="cubic" easing="inout">1200</scrolltime>
                     <preloaditems>2</preloaditems>
                     <itemlayout width="614" height="30">
                         <control type="label">
-                            <posx>425</posx>
+                            <posx>125</posx>
                             <width>300</width>
                             <height>34</height>
                             <font>Font_Info_Caps</font>
@@ -1044,7 +2615,7 @@
                     </itemlayout>
                     <focusedlayout width="614" height="30">
                         <control type="label">
-                            <posx>425</posx>
+                            <posx>125</posx>
                             <width>300</width>
                             <height>34</height>
                             <font>Font_Info_Caps</font>
@@ -1056,8 +2627,8 @@
                     <content>
                         <include>DiscographyItems</include>
                     </content>
-                </control>
-            </control>
-        </control>
+				</control>
+			</control>
+		</control>
     </controls>
 </window>
