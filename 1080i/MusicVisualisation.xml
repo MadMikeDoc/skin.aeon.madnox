@@ -13,7 +13,7 @@
     <onunload>CancelAlarm(Vis4,true)</onunload>
     <onunload>CancelAlarm(BGMoveViz,true)</onunload>
     <onunload>Skin.Reset(vispanelrotate)</onunload>
-    <onload>RunScript(script.cu.lrclyrics)</onload>
+    <!--onload>RunScript(script.cu.lrclyrics)</onload-->
 	<controls>
         <control type="label" id="4322">
             <label>$INFO[Skin.String(MusicViz.MultiFanart)]</label>
@@ -1049,7 +1049,7 @@
                     <control type="image">
                         <animation effect="slide" start="1950" end="0" time="700" tween="cubic" delay="1100">WindowOpen</animation>
                         <posx>925</posx>
-                        <posy>-95</posy>
+                        <posy>-85</posy>
                         <width>1000</width>
                         <height>4</height>
                         <texture>views/list_divider.png</texture>
@@ -1057,7 +1057,7 @@
 					<control type="image">
                         <animation effect="slide" start="1950" end="0" time="700" tween="cubic" delay="1100">WindowOpen</animation>
                         <posx>925</posx>
-                        <posy>-50</posy>
+                        <posy>-</posy>
                         <width>1000</width>
                         <height>4</height>
                         <texture>views/list_divider.png</texture>
@@ -1077,8 +1077,6 @@
                         <shadowcolor>black</shadowcolor>
                     </control>
                 </control>
-				<control type="group">
-                    <posy>20</posy>
                     <control type="image" id="8308">
                         <posx>1330</posx>
                         <posy>-300</posy>
@@ -1089,15 +1087,14 @@
                         <texture background="true" fallback="empty.png">$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/logo.png]</texture>
                         <visible>!IsEmpty(Skin.String(ArtistsLogosPath))</visible>
 					</control>
-                </control>
 				<control type="label">
                         <posx>1828</posx>
-                        <posy>-85</posy>
+                        <posy>-90</posy>
                         <width>1280</width>
                         <height>45</height>
                         <aligny>-</aligny>
 						<align>right</align>
-                        <font>Font_MainClassic2.1</font>
+                        <font>Font_MainClassic3</font>
                         <textcolor>$VAR[TitleColorVar]</textcolor>
                         <shadowcolor>black</shadowcolor>
                         <scroll>true</scroll>
@@ -1106,7 +1103,7 @@
 				</control>
 				<control type="label">
                         <posx>1828</posx>
-                        <posy>-20</posy>
+                        <posy>-10</posy>
                         <width>1280</width>
                         <height>36</height>
                         <aligny>-</aligny>
@@ -1184,6 +1181,14 @@
                         <texture fallback="DefaultAlbumCover.png">$INFO[MusicPlayer.offset(1).Cover]</texture>
                     </control>
 					<control type="image">
+                        <animation effect="slide" start="1950" end="0" time="700" tween="cubic" delay="1100">WindowOpen</animation>
+                        <posx>1325</posx>
+                        <posy>140</posy>
+                        <width>350</width>
+                        <height>4</height>
+                        <texture>views/list_divider.png</texture>
+                    </control>
+					<control type="image">
                         <left>1550</left>
                         <top>150</top>
                         <width>55</width>
@@ -1211,8 +1216,8 @@
                             <colordiffuse>$VAR[TitleColorVar]</colordiffuse>
                             <visible>!IsEmpty(MusicPlayer.Genre)</visible>
                             <texture>flags/music/genre/genre.png</texture>
-                        </control>
-                        <control type="label">
+                </control>
+                <control type="label">
                             <posx>1828</posx>
                             <posy>-26</posy>
                             <width>210</width>
@@ -1223,7 +1228,46 @@
                             <shadowcolor>black</shadowcolor>
                             <wrapmultiline>true</wrapmultiline>
                             <label>[COLOR=white]$INFO[MusicPlayer.Genre][/COLOR]</label>
-                        </control-->
+                </control-->
+				 <control type="group">
+                    <left>970</left>
+                    <top>165</top>
+                    <width>520</width>
+                    <height>150</height>
+                    <itemgap>10</itemgap>
+                    <orientation>horizontal</orientation>
+                    <control type="label">
+                        <width min="10" max="550">auto</width>
+                        <height>70</height>
+                        <font>Font_MainClassic22</font>
+                        <textcolor>$VAR[TitleColorVar]</textcolor>
+						<label>$INFO[MusicPlayer.Time,, / ]$INFO[MusicPlayer.Duration]</label>
+                        <textcolor>white</textcolor>
+                        <shadowcolor>black</shadowcolor>
+                        <align>right</align>
+                        <aligny>bottom</aligny>
+                        <visible>Player.HasDuration</visible>
+                    </control>
+                    <control type="label">
+                        <width min="10" max="1250">auto</width>
+                        <height>75</height>
+                        <font>Font_MainClassic22</font>
+                        <label>$INFO[MusicPlayer.Time,, / ]∞</label>
+                        <textcolor>$VAR[TitleColorVar]</textcolor>
+                        <shadowcolor>black</shadowcolor>
+                        <align>right</align>
+                        <aligny>bottom</aligny>
+                        <visible>!Player.HasDuration</visible>
+                    </control>
+                </control>
+				<control type="progress">
+					<left>1370</left>
+					<top>205</top>
+					<width>470</width>
+					<height>10</height>
+					<info>Player.Progress</info>
+					<animation effect="fade" end="80" condition="true">Conditional</animation>
+				</control>
 			</control>
 <!-- new layout end -->	
 
