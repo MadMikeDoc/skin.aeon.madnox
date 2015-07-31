@@ -13,7 +13,7 @@
     <onunload>CancelAlarm(Vis4,true)</onunload>
     <onunload>CancelAlarm(BGMoveViz,true)</onunload>
     <onunload>Skin.Reset(vispanelrotate)</onunload>
-    <!--onload>RunScript(script.cu.lrclyrics)</onload-->
+    <onload condition="!Skin.HasSetting(AltMusicVizLayout)">RunScript(script.cu.lrclyrics)</onload>
 	<controls>
         <control type="label" id="4322">
             <label>$INFO[Skin.String(MusicViz.MultiFanart)]</label>
@@ -564,7 +564,7 @@
                     <control type="image">
                         <animation effect="slide" start="1950" end="0" time="700" tween="cubic" delay="1100">WindowOpen</animation>
                         <posx>525</posx>
-                        <posy>-148</posy>
+                        <posy>-188</posy>
                         <width>900</width>
                         <height>4</height>
                         <texture>views/list_divider.png</texture>
@@ -572,7 +572,7 @@
                     <control type="image">
                         <animation effect="slide" start="1950" end="0" time="700" tween="cubic" delay="1100">WindowOpen</animation>
                         <posx>525</posx>
-                        <posy>-63</posy>
+                        <posy>-83</posy>
                         <width>900</width>
                         <height>4</height>
                         <texture>views/list_divider.png</texture>
@@ -1030,7 +1030,7 @@
                     </control>
                 </control>
             </control>
-<!-- new layout info -->
+			<!-- new layout info -->
 			<control type="group">
                 <posx>30</posx>
 				<posy>850</posy>
