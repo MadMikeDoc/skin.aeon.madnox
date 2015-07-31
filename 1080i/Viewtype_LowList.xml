@@ -7,7 +7,7 @@
 	    <visible>Control.IsVisible(511)</visible>
 		<visible>Skin.HasSetting(BlueOverlay)</visible>
     </control>
-        <control type="group">
+    <control type="group">
             <visible>Control.IsVisible(511)</visible>
             <animation effect="slide" tween="cubic" easing="out" time="480" start="0,806" end="0,0">VisibleChange</animation>
             <control type="image">
@@ -58,8 +58,8 @@
                             <height>651</height>
                             <aspectratio scalediffuse="false">stretch</aspectratio>
                             <texture>views/lowlist_panelback.png</texture>
-                            <animation effect="fade" start="100" end="80" time="40" condition="!Skin.HasSetting(listpanelthin)">Conditional</animation>
-                            <animation effect="fade" start="100" end="35" time="40" condition="Skin.HasSetting(listpanelthin)">Conditional</animation>
+                            <animation effect="fade" start="100" end="100" time="40" condition="!Skin.HasSetting(listpanelthin)">Conditional</animation>
+                            <animation effect="fade" start="100" end="50" time="40" condition="Skin.HasSetting(listpanelthin)">Conditional</animation>
                         </control>
                         <control type="image">
                             <left>1420</left>
@@ -85,47 +85,6 @@
                             <include>Animation_VisibleChange400</include>
                             <visible>!Skin.HasSetting(lowlistclearart) + [Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(movies) | Container.Content(sets)]</visible>
                         </control>
-
-						<!--control type="textbox">
-							<left>1490</left>
-                            <top>530</top>
-                            <width>400</width>
-							<height>220</height>
-							<align>center</align>
-							<aligny>top</aligny>
-							<textcolor>themecolor_transparent</textcolor>
-							<shadowcolor>black</shadowcolor>
-							<font>font_terminator</font>
-							<label>[B]$VAR[FirstLabelVar][/B]</label>
-							<textoffsetx>15</textoffsetx>
-							<include>Animation_VisibleChange400</include>
-                            <visible>IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(rightlistfakelogo)</visible>
-							<visible>!Skin.HasSetting(lowlistclearart) + [Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(movies) | Container.Content(sets)]</visible>
-							<visible>SubString(ListItem.Title,a,Left) | SubString(ListItem.Title,b,Left) | SubString(ListItem.Title,c,Left) | SubString(ListItem.Title,d,Left)</visible>
-							<scroll>true</scroll>
-							<wrapmultiline>true</wrapmultiline>
-						</control>
-
-						<control type="textbox">
-							<left>1490</left>
-                            <top>600</top>
-                            <width>400</width>
-							<height>220</height>
-							<align>center</align>
-							<aligny>center</aligny>
-							<textcolor>themecolor_transparent</textcolor>
-							<shadowcolor>black</shadowcolor>
-							<font>font_terminator</font>
-							<label>[B]$VAR[FirstLabelVar][/B]</label>
-							<textoffsetx>15</textoffsetx>
-							<include>Animation_VisibleChange400</include>
-                            <visible>IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(rightlistfakelogo)</visible>
-							<visible>!Skin.HasSetting(lowlistclearart) + [Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(movies) | Container.Content(sets)]</visible>
-							<visible>SubString(ListItem.Title,u,Left) | SubString(ListItem.Title,v,Left) | SubString(ListItem.Title,w,Left) | SubString(ListItem.Title,x,Left) | SubString(ListItem.Title,y,Left) | SubString(ListItem.Title,z,Left)</visible>
-							<scroll>true</scroll>
-							<wrapmultiline>true</wrapmultiline>
-						</control-->
-
                     </control>
                     <control type="image">
                         <left>1128</left>
@@ -420,7 +379,7 @@
                         </control>
                         <control type="label">
                             <left>1275</left>
-                            <top>825</top>
+                            <top>25</top>
                             <width>180</width>
                             <height>20</height>
                             <label>$VAR[FanartPanelDetail2Var]</label>
@@ -764,8 +723,6 @@
 						<font>Font_ShowcaseMainLabel3x_Caps</font>
 						<visible>Container.Content(years)</visible>
 					</control>
-
-
 					<control type="image">
                         <top>-130</top>
                         <width>399</width>
@@ -876,9 +833,10 @@
                     </control>
                 </control>
             </control>
+
             <control type="fixedlist" id="511">
                 <left>450</left>
-                <top>754</top>
+                <top>762</top>
                 <width>976</width>
                 <include condition="!Skin.HasSetting(nohighlist)">LowListHeightHigh</include>
                 <include condition="Skin.HasSetting(nohighlist)">LowListHeightLow</include>
@@ -892,20 +850,21 @@
                 <viewtype label="$LOCALIZE[31153]">BigWrap</viewtype>
                 <pagecontrol>69</pagecontrol>
                 <scrolltime tween="quadratic">200</scrolltime>
-                <preloaditems>2</preloaditems>
+                <preloaditems>4</preloaditems>
                 <visible>![!IsEmpty(Skin.String(DisableLowListVL)) + Window.IsActive(videos)]</visible>
                 <animation effect="slide" tween="cubic" easing="in" time="320" start="0,606" end="0,0">WindowOpen</animation>
                 <animation effect="slide" tween="cubic" easing="in" time="240" end="0,606">WindowClose</animation>
                 <animation effect="slide" end="0,-165" time="120" condition="!Skin.HasSetting(nohighlist)">Conditional</animation>
                 <animation effect="fade" start="100" end="0" time="40" condition="Control.HasFocus(7002)">Conditional</animation>
                 <itemlayout height="66" width="825" condition="![Skin.HasSetting(lowlistbanner) + Container.Content(tvshows)]">
-                    <control type="image">
+				<control type="group">
+				<animation effect="fade" start="100" end="40" time="40" condition="![Skin.HasSetting(lowlistbanner) + Container.Content(tvshows)]">Conditional</animation>
+				<control type="image">
                         <left>1</left>
                         <top>64</top>
                         <width>795</width>
                         <height>1</height>
-                        <texture>views/lowlistpanel_line.png</texture>
-                        <colordiffuse>66FFFFFF</colordiffuse>
+                        <texture colordiffuse="66FFFFFF">views/lowlistpanel_line.png</texture>
                     </control>
                     <control type="label">
                         <left>30</left>
@@ -939,25 +898,24 @@
                         <texture>$VAR[WatchedIconVar]</texture>
                         <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                     </control>
-                </itemlayout>
-                <focusedlayout height="66" width="825" condition="![Skin.HasSetting(lowlistbanner) + Container.Content(tvshows)]">
+					</control>
+				</itemlayout>
+                <focusedlayout height="70" width="825" condition="![Skin.HasSetting(lowlistbanner) + Container.Content(tvshows)]">
+                <control type="group">
+                        <animation effect="slide" start="0,66" end="0,0" time="200" reversible="false" tween="quadratic" easing="out" condition="Container.OnPrevious">Focus</animation>
+                        <animation effect="slide" start="0,-66" end="0,0" time="200" reversible="false" tween="quadratic" easing="out" condition="Container.OnNext">Focus</animation> 
                     <control type="image">
-                        <left>1</left>
-                        <top>64</top>
-                        <width>795</width>
-                        <height>1</height>
-                        <texture>views/lowlistpanel_line.png</texture>
-                    </control>
-                    <control type="image">
-                        <width>814</width>
-                        <height>66</height>
-                        <texture border="8">views/tripanel/listselect_fo.png</texture>
-                        <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+                        <left>-8</left>
+						<top>-10</top>
+						<width>835</width>
+                        <height>97</height>
+                        <texture border="40" colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo2.png</texture>
                         <include>PanelGlowFade</include>
-                        <animation effect="fade" start="100" end="60" tween="sine" easing="inout" time="240" condition="!Control.HasFocus(511)">Conditional</animation>
+                        <animation effect="fade" start="100" end="80" tween="sine" easing="inout" time="240" condition="!Control.HasFocus(511)">Conditional</animation>
                     </control>
                     <control type="label">
                         <left>30</left>
+						<top>5</top>
                         <width>645</width>
                         <height>33</height>
                         <label>$INFO[ListItem.Label]</label>
@@ -965,7 +923,7 @@
                     </control>
                     <control type="label">
                         <left>30</left>
-                        <top>30</top>
+                        <top>35</top>
                         <width>645</width>
                         <height>33</height>
                         <label>$VAR[LowListSubTitleVar]</label>
@@ -973,6 +931,7 @@
                     </control>
 				    <control type="label">
                         <left>670</left>
+						<top>5</top>
                         <width>80</width>
                         <height>33</height>
                         <align>center</align>
@@ -981,7 +940,7 @@
                     </control>
                     <control type="label">
                         <left>670</left>
-                        <top>33</top>
+                        <top>35</top>
                         <width>80</width>
                         <height>33</height>
                         <align>center</align>
@@ -990,7 +949,7 @@
                     </control>
                     <control type="image">
                         <left>750</left>
-                        <top>8</top>
+                        <top>12</top>
                         <width>52</width>
                         <height>52</height>
                         <texture>$VAR[WatchedIconVar]</texture>
@@ -1003,9 +962,10 @@
 							<texture>$VAR[VideoextrasOverlay]</texture>
 							<visible>System.HasAddon(script.videoextras)</visible>
 						</control>
+					</control>	
                 </focusedlayout>
                 <itemlayout height="155" width="825" condition="Skin.HasSetting(lowlistbanner) + Container.Content(tvshows)">
-                    <control type="group">
+				<control type="group">
                         <left>3</left>
                         <control type="image">
                             <width>798</width>
@@ -1104,6 +1064,7 @@
                     </control>
                 </focusedlayout>
             </control>
+
             <control type="group">
                 <left>413</left>
                 <animation effect="fade" start="100" end="0" time="160" condition="!Control.HasFocus(69)">Conditional</animation>
@@ -1131,12 +1092,19 @@
             </control>
         </control>
     </include>
+
     <include name="LowListHeightHigh">
         <height>480</height>
+		<focusposition>2</focusposition>
+        <movement>2</movement>
     </include>
+
     <include name="LowListHeightLow">
         <height>330</height>
+		<focusposition>1</focusposition>
+        <movement>1</movement>
     </include>
+
     <include name="MovieSetsCdArt">
 			<control type="group">
 				<top>1</top>
@@ -1250,6 +1218,7 @@
 			</control>
     </include>
 	<!--MAD - TV show fake disc art-->
+
 	<include name="TVShowFakeDiscArt">
 		<control type="group">
 			<top>1</top>
