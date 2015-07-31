@@ -1040,7 +1040,7 @@
                     <posy>70</posy>
                     <control type="image">
                         <animation effect="slide" start="1950" end="0" time="700" tween="cubic" delay="1100">WindowOpen</animation>
-                        <posx>925</posx>
+                        <posx>1025</posx>
                         <posy>-155</posy>
                         <width>1000</width>
                         <height>4</height>
@@ -1048,7 +1048,7 @@
                     </control>
                     <control type="image">
                         <animation effect="slide" start="1950" end="0" time="700" tween="cubic" delay="1100">WindowOpen</animation>
-                        <posx>925</posx>
+                        <posx>1025</posx>
                         <posy>-85</posy>
                         <width>1000</width>
                         <height>4</height>
@@ -1056,40 +1056,40 @@
                     </control>
 					<control type="image">
                         <animation effect="slide" start="1950" end="0" time="700" tween="cubic" delay="1100">WindowOpen</animation>
-                        <posx>925</posx>
-                        <posy>-</posy>
+                        <posx>1025</posx>
+                        <posy>-40</posy>
                         <width>1000</width>
                         <height>4</height>
                         <texture>views/list_divider.png</texture>
                     </control>
+                </control>
 					<control type="label">
                         <posx>1828</posx>
-                        <posy>-270</posy>
+                        <posy>-200</posy>
                         <width>1180</width>
                         <height>38</height>
                         <aligny>-</aligny>
 						<align>right</align>
                         <scroll>true</scroll>
                         <font>Font_MainClassic</font>
-                        <visible>Substring(Control.GetLabel(8308),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath))</visible>
+                        <visible>Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath))</visible>
                         <label>$INFO[MusicPlayer.Artist]</label>
                         <textcolor>white</textcolor>
                         <shadowcolor>black</shadowcolor>
                     </control>
-                </control>
-                    <control type="image" id="8308">
+                    <control type="image" id="8318">
                         <posx>1330</posx>
                         <posy>-300</posy>
                         <width>500</width>
                         <height>193</height>
                         <fadetime>400</fadetime>
-                        <animation effect="fade" start="100" end="0" time="0" condition="Substring(Control.GetLabel(8308),empty.png)">Conditional</animation>
+                        <animation effect="fade" start="100" end="0" time="0" condition="Substring(Control.GetLabel(8318),empty.png)">Conditional</animation>
                         <texture background="true" fallback="empty.png">$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/logo.png]</texture>
                         <visible>!IsEmpty(Skin.String(ArtistsLogosPath))</visible>
 					</control>
 				<control type="label">
                         <posx>1828</posx>
-                        <posy>-90</posy>
+                        <posy>-85</posy>
                         <width>1280</width>
                         <height>45</height>
                         <aligny>-</aligny>
