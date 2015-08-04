@@ -4418,7 +4418,7 @@
         <value condition="substring(ListItem.mpaa,TV-MA)">This program is specifically designed to be viewed by adults and therefore may be unsuitable for children under 17.</value>
         <value condition="substring(ListItem.mpaa,TV-Y7)">This program is designed for children age 7 and above.</value>
         <value condition="substring(ListItem.mpaa,TV-Y)">This program is designed to be appropriate for all children.</value>
-       
+        
         <value condition="SubString(ListItem.mpaa,US:G)">General audiences. All ages admitted.</value>
         <value condition="SubString(ListItem.mpaa,PG-13)">Parents strongly cautioned. Some material may be inappropriate for children under 13.</value>
         <value condition="Substring(ListItem.mpaa,Rated PG)">Parental guidance suggested. Some material may not be suitable for children.</value>
@@ -4450,6 +4450,19 @@
         <value condition="substring(ListItem.mpaa,Brazil:14)">Não recomendado para menores de catorze anos.</value>
         <value condition="substring(ListItem.mpaa,Brazil:16)">Não recomendado para menores de dezesseis anos.</value>
         <value condition="substring(ListItem.mpaa,Brazil:18)">Não recomendado para menores de dezoito anos.</value>
+        
         <value condition="substring(ListItem.mpaa,Rated X)">Rated X.</value>
+    </variable>
+	<variable name="KodiFlixExtrasDelayVar">
+		<value condition="Skin.HasSetting(KodiFlixExtrasDelay_5)">5 seconds</value>
+		<value condition="Skin.HasSetting(KodiFlixExtrasDelay_10)">10 seconds</value>
+		<value condition="Skin.HasSetting(KodiFlixExtrasDelay_20)">20 seconds</value>
+		<value condition="Skin.HasSetting(KodiFlixExtrasDelay_30)">30 seconds</value>
+	</variable>
+	<variable name="NowPlayingDiscVar">
+        <value condition="!IsEmpty(Player.Art(discart))">$INFO[Player.Art(discart)]</value>
+        <value condition="IntegerGreaterThan(VideoPlayer.VideoResolution,719)">common/cdart/bd.png</value>
+        <value condition="!IsEmpty(VideoPlayer.VideoResolution)">common/cdart/default.png</value>
+        <value condition="Player.HasAudio">$INFO[Player.FolderPath]cdart.png</value>
     </variable>
 </includes>
