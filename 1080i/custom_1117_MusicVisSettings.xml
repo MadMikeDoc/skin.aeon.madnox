@@ -154,7 +154,14 @@
 					<onclick>Skin.ToggleSetting(AltMusicVizLayout)</onclick>
 					<onclick>Skin.Reset(widgetpola)</onclick>
 					<selected>Skin.HasSetting(AltMusicVizLayout)</selected>
-			</control>
+				</control>
+				<control type="radiobutton" id="17101">
+					<label>Alternate Music Viz Layout Info</label>
+					<include>Objects_CommonSettingsButton</include>
+					<onclick>Skin.ToggleSetting(AltMusicVizLayoutInfo)</onclick>
+					<selected>Skin.HasSetting(AltMusicVizLayoutInfo)</selected>
+					<enable>Skin.HasSetting(AltMusicVizLayout)</enable>
+				</control>
 				<control type="button" id="461">
                     <label>$LOCALIZE[31127]</label>
                     <label2>[COLOR $VAR[FontColorVar]]$INFO[system.addontitle(Skin.String(LyricScript_Path))][/COLOR]</label2>

@@ -328,6 +328,77 @@
             <include>CommonMediaPlayingBackground</include>
             <include condition="Substring(Skin.String(backgroundlist),weatherworldbackground) + System.HasAddon(script.widget.weatherworld)">WorldWeatherIcons</include>
         </control>
+		<!--Now Playing Music Info-->
+		<control type="group">
+            <animation type="WindowOpen" reversible="false">
+                <effect type="zoom" start="150" end="100" center="960,540" delay="100" time="800" tween="cubic" />
+                <effect type="fade" delay="100" start="50" end="100" time="240" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" start="100" end="0" time="240" />
+                <effect type="zoom" start="100" end="130" center="960,540" time="240" tween="cubic" easing="in" />
+            </animation>
+			<control type="group">
+				<include>Animation_WindowFade200</include>
+				<control type="image">
+					<animation effect="slide" start="-150" end="0" time="560" tween="cubic" delay="720">WindowOpen</animation>
+					<animation type="WindowClose">
+						<effect type="slide" end="-180" time="220" tween="cubic" easing="in" />
+						<effect type="fade" start="100" end="0" time="200" />
+						<condition type="!Player.Playing" />
+					</animation>
+					<posx>-110</posx>
+					<posy>920</posy>
+					<width>360</width>
+					<height>360</height>
+					<aligny>top</aligny>
+					<aspectratio>keep</aspectratio>
+					<fadetime>300</fadetime>
+					<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+					<texture background="true" fallback="common/cdart/vinyl.png">$VAR[NowPlayingDiscVar]</texture>
+					<visible>Player.HasMedia + Skin.HasSetting(NowPlayingBelowBar) + !Skin.HasSetting(BelowMidCD)</visible>
+					<include>Animation_CommonFade</include>
+				</control>
+				<control type="image">
+					<posy>952</posy>
+					<width>1920</width>
+					<height>200</height>
+					<texture colordiffuse="$VAR[DialogColorVar]">diffuseoverlay2.png</texture>
+					<visible>IsEmpty(Window(home).Property(DisableWidgets)) + Player.HasMedia + Skin.HasSetting(NowPlayingBelowBar)</visible>
+					<animation effect="fade" time="100">VisibleChange</animation>
+					<animation effect="fade" start="100" end="70" time="0" condition="true">Conditional</animation>
+				</control>
+				<control type="image">
+					<animation effect="slide" start="0,200" end="0" time="560" tween="cubic" delay="720">WindowOpen</animation>
+					<animation type="WindowClose">
+						<effect type="slide" end="-180" time="220" tween="cubic" easing="in" />
+						<effect type="fade" start="100" end="0" time="200" />
+						<condition type="!Player.Playing" />
+					</animation>
+					<posx>780</posx>
+					<posy>920</posy>
+					<width>360</width>
+					<height>360</height>
+					<aligny>top</aligny>
+					<aspectratio>keep</aspectratio>
+					<fadetime>300</fadetime>
+					<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+					<texture background="true" fallback="common/cdart/vinyl.png">$VAR[NowPlayingDiscVar]</texture>
+					<visible>Player.HasMedia + Skin.HasSetting(NowPlayingBelowBar) + Skin.HasSetting(BelowMidCD)</visible>
+					<include>Animation_CommonFade</include>
+				</control>
+				<control type="image">
+					<width>2100</width>
+					<posy>900</posy>
+					<height>600</height>
+					<texture colordiffuse="black" flipy="true">home/nowplaying_shadow.png</texture>
+					<animation effect="fade" time="500" delay="160">Visible</animation>
+					<animation effect="fade" time="700">Hidden</animation>
+					<visible>Player.HasMedia + Skin.HasSetting(NowPlayingBelowBar)</visible>
+				</control>
+			</control>
+		</control>
+        	
 		<control type="image">
 			<texture colordiffuse="base1">diffuseoverlay_blue.png</texture>
 			<include>FullscreenDimensions</include>
@@ -727,5 +798,59 @@
                 <onback condition="Stringcompare(Window(home).Property(WidgetPosition),Widget2)">SetFocus(6010)</onback>
             </control>
         </control>
-    </controls>
+		<!--Now Playing Music Info-->
+
+			<control type="group" id="89995">
+            <posy>260</posy>
+            <posx>15</posx>
+			<control type="group">
+				<visible>Player.HasAudio + Skin.HasSetting(NowPlayingBelowBar)</visible>
+				<animation effect="slide" start="0,200" end="0" time="560" tween="cubic" easing="inout" delay="350">WindowOpen</animation>
+				<animation type="WindowClose" reversible="false">
+                <effect type="fade" start="100" end="0" time="240" />
+                <effect type="zoom" start="100" end="130" center="960,540" time="240" tween="cubic" easing="in" />
+            </animation>
+				<control type="textbox">
+					<posx>0</posx>
+					<posy>700</posy>
+					<width>830</width>
+					<align>left</align>
+					<height>110</height>
+					<label>[COLOR=$VAR[FontColorVar]]$INFO[MusicPlayer.TrackNumber]: [/COLOR] - $INFO[MusicPlayer.Title][CR][COLOR=$VAR[FontColorVar]]$INFO[MusicPlayer.Artist][/COLOR][CR]$INFO[MusicPlayer.Album] [$INFO[MusicPlayer.Year]]</label>
+					<font>Font_Reg22_2</font>
+					<textcolor>white3</textcolor>
+				</control>
+				<control type="progress">
+					<posx>0</posx>
+					<posy>797</posy>
+					<width>200</width>
+					<height>5</height>
+					<reveal>true</reveal>
+					<texturebg>moo/progress.border.png</texturebg>
+					<midtexture>moo/progress.png</midtexture>
+					<lefttexture>-</lefttexture>
+					<righttexture>-</righttexture>
+					<info>Player.Progress</info>
+				</control>
+			</control>
+			<control type="textbox">
+				<animation effect="slide" start="0,200" end="0" time="560" tween="cubic" easing="inout" delay="350">WindowOpen</animation>
+				<animation type="WindowClose" reversible="false">
+                <effect type="fade" start="100" end="0" time="240" />
+                <effect type="zoom" start="100" end="130" center="960,540" time="240" tween="cubic" easing="in" />
+            </animation>
+				<posx>955</posx>
+                <posy>695</posy>
+                <width>930</width>
+                <align>right</align>
+                <height>115</height>
+                <!--label>[B][UPPERCASE]$LOCALIZE[31889][/UPPERCASE][/B][CR]$INFO[MusicPlayer.Offset(1).Title,, - ][COLOR white3]$INFO[MusicPlayer.Offset(1).Artist,,][/COLOR][COLOR $VAR[FontColorVar]]$INFO[MusicPlayer.Offset(1).Duration, - ,][/COLOR][CR]$INFO[MusicPlayer.Offset(2).Title,, - ][COLOR white3]$INFO[MusicPlayer.Offset(2).Artist,,][/COLOR][COLOR $VAR[FontColorVar]]$INFO[MusicPlayer.Offset(2).Duration, - ,][/COLOR][CR]$INFO[MusicPlayer.Offset(3).Title,, - ][COLOR white3]$INFO[MusicPlayer.Offset(3).Artist,,][/COLOR][COLOR $VAR[FontColorVar]]$INFO[MusicPlayer.Offset(3).Duration, - ,][/COLOR]</label-->
+				<label>[B][UPPERCASE]$LOCALIZE[31889][/UPPERCASE][/B][CR]$INFO[MusicPlayer.Offset(1).Title,, - ][COLOR white3]$INFO[MusicPlayer.Offset(1).Artist,,][/COLOR][CR]$INFO[MusicPlayer.Offset(2).Title,, - ][COLOR white3]$INFO[MusicPlayer.Offset(2).Artist,,][/COLOR][CR]$INFO[MusicPlayer.Offset(3).Title,, - ][COLOR white3]$INFO[MusicPlayer.Offset(3).Artist,,][/COLOR]</label>
+                <font>Font_Reg22_2</font>
+                <textcolor>$VAR[FontColorVar]</textcolor>
+                <visible>!IsEmpty(MusicPlayer.Offset(1).Title)</visible>
+                <visible>Player.HasAudio + Skin.HasSetting(NowPlayingBelowBar)</visible>
+            </control>
+        </control>
+	</controls>
 </window>
