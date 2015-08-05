@@ -331,8 +331,8 @@
 		<!--Now Playing Music Info-->
 		<control type="group">
             <animation type="WindowOpen" reversible="false">
-                <effect type="zoom" start="150" end="100" center="960,540" delay="1000" time="800" tween="cubic" />
-                <effect type="fade" delay="1500" start="50" end="100" time="240" />
+                <effect type="zoom" start="150" end="100" center="960,540" delay="100" time="800" tween="cubic" />
+                <effect type="fade" delay="100" start="50" end="100" time="240" />
             </animation>
             <animation type="WindowClose" reversible="false">
                 <effect type="fade" start="100" end="0" time="240" />
@@ -341,7 +341,7 @@
 			<control type="group">
 				<include>Animation_WindowFade200</include>
 				<control type="image">
-					<animation effect="slide" start="-150" end="0" time="560" tween="cubic" delay="320">WindowOpen</animation>
+					<animation effect="slide" start="-150" end="0" time="560" tween="cubic" delay="720">WindowOpen</animation>
 					<animation type="WindowClose">
 						<effect type="slide" end="-180" time="220" tween="cubic" easing="in" />
 						<effect type="fade" start="100" end="0" time="200" />
@@ -365,11 +365,11 @@
 					<height>200</height>
 					<texture colordiffuse="$VAR[DialogColorVar]">diffuseoverlay2.png</texture>
 					<visible>IsEmpty(Window(home).Property(DisableWidgets)) + Player.HasMedia + Skin.HasSetting(NowPlayingBelowBar)</visible>
-					<animation effect="fade" time="500">VisibleChange</animation>
+					<animation effect="fade" time="100">VisibleChange</animation>
 					<animation effect="fade" start="100" end="70" time="0" condition="true">Conditional</animation>
 				</control>
 				<control type="image">
-					<animation effect="slide" start="-150" end="0" time="560" tween="cubic" delay="320">WindowOpen</animation>
+					<animation effect="slide" start="0,200" end="0" time="560" tween="cubic" delay="720">WindowOpen</animation>
 					<animation type="WindowClose">
 						<effect type="slide" end="-180" time="220" tween="cubic" easing="in" />
 						<effect type="fade" start="100" end="0" time="200" />
@@ -805,14 +805,11 @@
             <posx>15</posx>
 			<control type="group">
 				<visible>Player.HasAudio + Skin.HasSetting(NowPlayingBelowBar)</visible>
-				<animation type="Visible">
-					<effect type="zoom" start="150" end="100" center="960,540" time="400" tween="cubic" />
-					<effect type="fade" end="100" time="240" />
-				</animation>
-				<animation type="Hidden">
-					<effect type="fade" start="100" end="0" time="240" />
-					<effect type="zoom" start="100" end="130" center="960,540" time="240" tween="cubic" easing="in" />
-				</animation>
+				<animation effect="slide" start="0,200" end="0" time="560" tween="cubic" easing="inout" delay="350">WindowOpen</animation>
+				<animation type="WindowClose" reversible="false">
+                <effect type="fade" start="100" end="0" time="240" />
+                <effect type="zoom" start="100" end="130" center="960,540" time="240" tween="cubic" easing="in" />
+            </animation>
 				<control type="textbox">
 					<posx>0</posx>
 					<posy>700</posy>
@@ -837,6 +834,11 @@
 				</control>
 			</control>
 			<control type="textbox">
+				<animation effect="slide" start="0,200" end="0" time="560" tween="cubic" easing="inout" delay="350">WindowOpen</animation>
+				<animation type="WindowClose" reversible="false">
+                <effect type="fade" start="100" end="0" time="240" />
+                <effect type="zoom" start="100" end="130" center="960,540" time="240" tween="cubic" easing="in" />
+            </animation>
 				<posx>955</posx>
                 <posy>695</posy>
                 <width>930</width>
