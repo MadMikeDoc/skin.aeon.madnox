@@ -5,12 +5,12 @@
     <include>Animation_DialogPopup</include>
     <onunload>ClearProperty(SetPanelItem,home)</onunload>
     <controls>
-        <!--<control type="button" id="9004">
+	<!-- <control type="button" id="9004">
             <include>HiddenObject</include>
             <onfocus>$VAR[FeaturedDialogStartupFocus]</onfocus>
             <onfocus>SetFocus(8001)</onfocus>
             <onclick>SetFocus(8001)</onclick>
-        </control>-->
+        </control> -->
         <control type="label" id="4321">
             <label>$INFO[Window(home).Property(Featured)]</label>
             <include>HiddenObject</include>
@@ -59,7 +59,7 @@
             <colordiffuse>white</colordiffuse>
         </control>
         <control type="panel" id="8001">
-            <left>177</left>
+            <left>157</left>
             <top>45</top>
             <width>1650</width>
             <height>620</height>
@@ -68,6 +68,7 @@
             <ondown>8993</ondown>
             <onleft>8002</onleft>
             <orientation>horizontal</orientation>
+
             <itemlayout width="400" height="310" condition="Substring(Window(home).Property(Featured),albums)">
                 <control type="group">
                     <control type="image">
@@ -81,29 +82,29 @@
                     </control>
                     <control type="image">
                         <left>45</left>
-                        <top>252</top>
+                        <top>240</top>
                         <width>300</width>
-                        <height>53</height>
+                        <height>65</height>
                         <texture>common/bgcolor.png</texture>
                         <animation effect="fade" start="100" end="80" time="40" condition="true">Conditional</animation>
                     </control>
                     <control type="label">
-                        <left>200</left>
-                        <top>263</top>
-                        <width>310</width>
-                        <height>50</height>
-                        <textoffsetx>15</textoffsetx>
+                        <left>45</left>
+                        <top>255</top>
+                        <width>300</width>
+                        <height>60</height>
+                        <textoffsetx>10</textoffsetx>
                         <align>center</align>
                         <label>$INFO[ListItem.Label]</label>
                         <font>Font_Reg28</font>
                         <textcolor>white2</textcolor>
                     </control>
                     <control type="label">
-                        <left>200</left>
-                        <top>238</top>
-                        <width>310</width>
-                        <height>50</height>
-                        <textoffsetx>15</textoffsetx>
+                        <left>45</left>
+                        <top>226</top>
+                        <width>300</width>
+                        <height>60</height>
+                        <textoffsetx>10</textoffsetx>
                         <align>center</align>
                         <label>$INFO[ListItem.Label2]</label>
                         <font>Font_Reg28</font>
@@ -124,18 +125,18 @@
                     </control>
                     <control type="image">
                         <left>45</left>
-                        <top>252</top>
+                        <top>240</top>
                         <width>300</width>
-                        <height>53</height>
+                        <height>65</height>
                         <texture>common/bgcolor.png</texture>
-                        <animation effect="fade" start="100" end="80" time="40" condition="true">Conditional</animation>
+                        <animation effect="fade" start="100" end="90" time="400" condition="true">Conditional</animation>
                     </control>
                     <control type="label">
-                        <left>159</left>
-                        <top>263</top>
-                        <width>380</width>
-                        <height>50</height>
-                        <textoffsetx>15</textoffsetx>
+                        <left>45</left>
+                        <top>255</top>
+                        <width>300</width>
+                        <height>60</height>
+                        <textoffsetx>10</textoffsetx>
                         <align>center</align>
                         <label>$INFO[ListItem.Label]</label>
                         <font>Font_Reg28</font>
@@ -143,11 +144,11 @@
                         <visible>!Control.HasFocus(8001)</visible>
                     </control>
                     <control type="label">
-                        <left>200</left>
-                        <top>263</top>
-                        <width>380</width>
-                        <height>50</height>
-                        <textoffsetx>15</textoffsetx>
+                        <left>45</left>
+                        <top>255</top>
+                        <width>300</width>
+                        <height>60</height>
+                        <textoffsetx>10</textoffsetx>
                         <align>center</align>
                         <label>$INFO[ListItem.Label]</label>
                         <font>Font_Reg28</font>
@@ -155,11 +156,11 @@
                         <visible>Control.HasFocus(8001)</visible>
                     </control>
                     <control type="label">
-                        <left>200</left>
-                        <top>238</top>
-                        <width>310</width>
-                        <height>50</height>
-                        <textoffsetx>15</textoffsetx>
+						<left>45</left>
+                        <top>226</top>
+                        <width>300</width>
+                        <height>60</height>
+                        <textoffsetx>10</textoffsetx>
                         <align>center</align>
                         <label>$INFO[ListItem.Label2]</label>
                         <font>Font_Reg28</font>
@@ -167,11 +168,11 @@
                         <visible>!Control.HasFocus(8001)</visible>
                     </control>
                     <control type="label">
-                        <left>200</left>
-                        <top>238</top>
-                        <width>310</width>
-                        <height>50</height>
-                        <textoffsetx>15</textoffsetx>
+                        <left>45</left>
+                        <top>226</top>
+                        <width>300</width>
+                        <height>60</height>
+                        <textoffsetx>10</textoffsetx>
                         <align>center</align>
                         <label>$INFO[ListItem.Label2]</label>
                         <font>Font_Reg28</font>
@@ -180,7 +181,8 @@
                     </control>
                 </control>
                 <control type="image">
-                    <width>400</width>
+                    <left>40</left>
+					<width>310</width>
                     <height>310</height>
                     <texture border="6">views/addonwall_select.png</texture>
                     <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
@@ -188,6 +190,7 @@
                     <visible>Control.HasFocus(8001)</visible>
                 </control>
             </focusedlayout>
+
             <itemlayout width="400" height="310" condition="Substring(Window(home).Property(Featured),movies)">
                 <control type="image">
                     <left>5</left>
@@ -207,11 +210,11 @@
                     <texture background="true">$INFO[ListItem.Property(Fanart)]</texture>
                 </control>
                 <control type="label">
-                    <left>200</left>
+                    <left>0</left>
                     <top>240</top>
-                    <width>380</width>
+                    <width>390</width>
                     <height>50</height>
-                    <textoffsetx>15</textoffsetx>
+                    <textoffsetx>10</textoffsetx>
                     <align>center</align>
                     <label>$INFO[ListItem.Label]</label>
                     <font>Font_Reg28</font>
@@ -235,8 +238,7 @@
                     <width>380</width>
                     <height>240</height>
                     <aspectratio>scale</aspectratio>
-                    <texture background="true" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
-
+                    <texture>$INFO[ListItem.Icon]</texture>
                 </control>
                 <control type="image">
                     <left>5</left>
@@ -247,11 +249,11 @@
                     <texture background="true">$INFO[ListItem.Property(Fanart)]</texture>
                 </control>
                 <control type="label">
-                    <left>159</left>
+                    <left>0</left>
                     <top>240</top>
-                    <width>380</width>
+                    <width>390</width>
                     <height>50</height>
-                    <textoffsetx>15</textoffsetx>
+                    <textoffsetx>10</textoffsetx>
                     <align>center</align>
                     <label>$INFO[ListItem.Label]</label>
                     <font>Font_Reg28</font>
@@ -259,11 +261,11 @@
                     <visible>!Control.HasFocus(8001)</visible>
                 </control>
                 <control type="label">
-                    <left>200</left>
+                    <left>0</left>
                     <top>240</top>
-                    <width>380</width>
+                    <width>390</width>
                     <height>50</height>
-                    <textoffsetx>15</textoffsetx>
+                    <textoffsetx>10</textoffsetx>
                     <align>center</align>
                     <label>$INFO[ListItem.Label]</label>
                     <font>Font_Reg28</font>
@@ -271,14 +273,15 @@
                     <visible>Control.HasFocus(8001)</visible>
                 </control>
                 <control type="image">
-                    <width>400</width>
-                    <height>290</height>
+                    <width>390</width>
+                    <height>300</height>
                     <texture border="6">views/addonwall_select.png</texture>
                     <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
                     <include>Animation_VisibleChange200</include>
                     <visible>Control.HasFocus(8001)</visible>
                 </control>
             </focusedlayout>
+
             <itemlayout width="400" height="310" condition="Substring(Window(home).Property(Featured),TV) | Substring(Window(home).Property(Featured),rssnews)">
                 <control type="image">
                     <left>5</left>
@@ -289,11 +292,11 @@
                     <texture background="true">$INFO[ListItem.Icon]</texture>
                 </control>
                 <control type="label">
-                    <left>200</left>
+                    <left>0</left>
                     <top>240</top>
-                    <width>380</width>
+                    <width>390</width>
                     <height>50</height>
-                    <textoffsetx>15</textoffsetx>
+                    <textoffsetx>10</textoffsetx>
                     <align>center</align>
                     <label>$INFO[ListItem.Label]</label>
                     <font>Font_Reg28</font>
@@ -320,9 +323,9 @@
                     <texture background="true">$INFO[ListItem.Icon]</texture>
                 </control>
                 <control type="label">
-                    <left>159</left>
+                    <left>0</left>
                     <top>240</top>
-                    <width>380</width>
+                    <width>390</width>
                     <height>50</height>
                     <textoffsetx>15</textoffsetx>
                     <align>center</align>
@@ -332,11 +335,11 @@
                     <visible>!Control.HasFocus(8001)</visible>
                 </control>
                 <control type="label">
-                    <left>200</left>
+                    <left>0</left>
                     <top>240</top>
-                    <width>380</width>
+                    <width>390</width>
                     <height>50</height>
-                    <textoffsetx>15</textoffsetx>
+                    <textoffsetx>10</textoffsetx>
                     <align>center</align>
                     <label>$INFO[ListItem.Label]</label>
                     <font>Font_Reg28</font>
@@ -344,8 +347,8 @@
                     <visible>Control.HasFocus(8001)</visible>
                 </control>
                 <control type="image">
-                    <width>400</width>
-                    <height>310</height>
+                    <width>390</width>
+                    <height>300</height>
                     <texture border="6">views/addonwall_select.png</texture>
                     <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
                     <include>Animation_VisibleChange200</include>
@@ -368,7 +371,7 @@
                 <include condition="Stringcompare(Window(home).Property(Featured),recenttv)">LatestEpisodesItemsHome</include>
                 <include condition="Stringcompare(Window(home).Property(Featured),randomtv)">RandomEpisodesItems</include>
                 <include condition="Stringcompare(Window(home).Property(Featured),randomtv)">RandomEpisodesItemsHome</include>
-                <include condition="Stringcompare(Window(home).Property(Featured),rssnews)">NewsWidgetContent1124</include><!-- undefined include -->
+                <include condition="Stringcompare(Window(home).Property(Featured),rssnews)">NewsWidgetContent1124</include><!-- undefined include
                 <include condition="Stringcompare(Window(home).Property(Featured),rssnews)">NewsWidgetContent</include><!-- undefined include -->
             </content>
         </control>
@@ -403,12 +406,12 @@
                 <height>39</height>
                 <texture>dialogs/context_top_shutdown.png</texture>
             </control>
-            <control type="button" id="8032">
+ <!--            <control type="button" id="8032">
                 <label>$LOCALIZE[208]</label>
                 <include>Objects_ContextMenuButton</include>
                 <onclick>$INFO[Container(8001).ListItem.Property(Path)]</onclick>
                 <onclick>Action(Close)</onclick>
-            </control>
+            </control> -->
             <control type="button" id="8016">
                 <label>$LOCALIZE[20410]</label>
                 <onclick>Action(Close)</onclick>
@@ -528,7 +531,7 @@
                     <left>238</left>
                     <top>155</top>
                     <width>1343</width>
-                    <height>198</height>
+                    <height>185</height>
                     <aligny>top</aligny>
                     <label>$INFO[Container(8001).ListItem.Property(Plot)]</label>
                     <font>Font_Reg30_2</font>
@@ -567,16 +570,18 @@
                     <label>$INFO[Container(8001).ListItem.Label]</label>
                     <font>Font_Reg40</font>
                     <visible>Substring(Control.GetLabel(9308),empty.png)</visible>
+					<autoscroll delay="500" time="AutoScrollTime">Skin.HasSetting(AutoScroll)</autoscroll>
                 </control>
                 <control type="label">
                     <left>610</left>
                     <top>5</top>
-                    <width>986</width>
+                    <width>670</width>
                     <height>50</height>
                     <textoffsetx>15</textoffsetx>
                     <label>$INFO[Container(8001).ListItem.Label]</label>
                     <font>Font_Reg40</font>
                     <visible>!Substring(Control.GetLabel(9308),empty.png)</visible>
+					<autoscroll delay="500" time="AutoScrollTime">Skin.HasSetting(AutoScroll)</autoscroll>
                 </control>
                 <control type="label">
                     <left>610</left>
@@ -590,9 +595,9 @@
                 </control>
                 <control type="textbox">
                     <left>625</left>
-                    <top>145</top>
+                    <top>125</top>
                     <width>956</width>
-                    <height>195</height>
+                    <height>215</height>
                     <aligny>top</aligny>
                     <label>$INFO[Container(8001).ListItem.Property(Plot)]</label>
                     <font>Font_Reg30_2</font>
@@ -643,9 +648,9 @@
                 </control>
                 <control type="textbox">
                     <left>360</left>
-                    <top>145</top>
+                    <top>130</top>
                     <width>1221</width>
-                    <height>195</height>
+                    <height>215</height>
                     <aligny>top</aligny>
                     <label fallback="414">$INFO[Container(8001).ListItem.Property(Plot)]$INFO[Container(8001).ListItem.Property(Description)]</label>
                     <font>Font_Reg30_2</font>
