@@ -1821,6 +1821,7 @@
                     <texture diffuse="thumbs/cdcover_mask.png">thumbs/cdcover_glass_aa.png</texture>
                     <bordertexture border="20">thumbs/cd_shadow.png</bordertexture>
                     <bordersize>20</bordersize>
+
                 </control-->
             </control>
             <control type="grouplist">
@@ -1971,29 +1972,39 @@
                         <height>68</height>
                         <texture border="4">listselect_fo_clear.png</texture>
                         <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-                        <visible>Control.HasFocus(700)</visible>
+                        <visible>Control.HasFocus(700) + !Skin.HasSetting(RightListNewTex)</visible>
+                        <include>VisibleFadeEffect</include>
+                    </control>
+					<control type="image">
+						<top>-11</top>
+                        <left>0</left>
+                        <width>840</width>
+                        <height>90</height>
+						<texture border="0" colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo2.png</texture>
+                        <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+                        <visible>Control.HasFocus(700) + Skin.HasSetting(RightListNewTex)</visible>
                         <include>VisibleFadeEffect</include>
                     </control>
                     <control type="label">
-                        <left>30</left>
+                        <left>10</left>
                         <width>775</width>
                         <height>68</height>
                         <font>font15</font>
                         <align>right</align>
                         <selectedcolor>selected</selectedcolor>
                         <label>$INFO[ListItem.Label]</label>
-                        <animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(501)">Conditional</animation>
+                        <animation effect="slide" start="0" end="-20" time="150" tween="Back" easing="out">Focus</animation>
                         <visible>[!Container.Content(songs) | Stringcompare(ListItem.Label,..)]</visible>
                     </control>
                     <control type="label">
-                        <left>30</left>
+                        <left>10</left>
                         <width>775</width>
                         <height>68</height>
                         <font>font15</font>
                         <align>right</align>
                         <selectedcolor>selected</selectedcolor>
                         <label>$INFO[ListItem.Tracknumber]: $INFO[ListItem.Title]</label>
-                        <animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(501)">Conditional</animation>
+                        <animation effect="slide" start="0" end="-20" time="150" tween="Back" easing="out">Focus</animation>
                         <visible>Container.Content(songs) + !Stringcompare(ListItem.Label,..)</visible>
                     </control>
                 </focusedlayout>
