@@ -127,7 +127,7 @@
             <animation effect="slide" end="735,0" time="300">WindowClose</animation>
             <control type="group">
                 <posy>0</posy>
-                <posx>748</posx>
+                <posx>1172</posx>
                 <control type="image">
                     <posx>-45</posx>
                     <width>794</width>
@@ -526,8 +526,8 @@
                 <control type="group">
                     <animation effect="fade" time="750">VisibleChange</animation>
                     <visible>Skin.HasSetting(vinylart)</visible>
-                    <posx>40</posx>
-                    <posy>13</posy>
+                    <posx>26</posx>
+                    <posy>20</posy>
                     <control type="image">
                         <posx>42</posx>
                         <posy>-270</posy>
@@ -705,13 +705,13 @@
 					<control type="label">
                         <animation effect="slide" end="-140" time="500" tween="cubic" easing="in" condition="!Skin.HasSetting(CDArtinVis)">Conditional</animation>
                         <posx>628</posx>
-                        <posy>-270</posy>
+                        <posy>-260</posy>
                         <width>1275</width>
                         <height>38</height>
                         <scroll>true</scroll>
                         <font>Font_MainClassic</font>
                         <visible>[Substring(Control.GetLabel(8308),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath))] + !Skin.HasSetting(widgetpola)</visible>
-                        <label>$INFO[MusicPlayer.AlbumArtist]</label>
+                        <label>$INFO[MusicPlayer.Artist]</label>
                         <textcolor>white</textcolor>
                         <shadowcolor>black</shadowcolor>
                     </control>
@@ -721,7 +721,7 @@
                     <animation effect="slide" end="-120" time="500" tween="cubic" easing="in" condition="!Skin.HasSetting(CDArtinVis)">Conditional</animation>
                     <control type="image" id="8308">
                         <posx>630</posx>
-                        <posy>-300</posy>
+                        <posy>-330</posy>
                         <width>500</width>
                         <height>193</height>
                         <fadetime>400</fadetime>
