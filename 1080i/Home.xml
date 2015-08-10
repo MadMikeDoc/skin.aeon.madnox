@@ -877,12 +877,12 @@
                         <shadowcolor>black</shadowcolor>
                         <scroll>true</scroll>
 						<label>[COLOR=white]$INFO[MusicPlayer.Title, ','][/COLOR]</label>
-						<visible>!Substring(Control.GetLabel(8318),empty.png)</visible>
+						<visible>Skin.HasSetting(BelowMidLogo) | Substring(Control.GetLabel(8318),empty.png)</visible>
 				</control>
 				<control type="label">
 						<animation effect="slide" time="250" start="-265,15" end="0,0" tween="Back" easing="out" condition="!Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath)) | !Skin.HasSetting(BelowMidLogo)">Conditional</animation>
-                        <posx>270</posx>
-                        <posy>20</posy>
+                        <posx>5</posx>
+                        <posy>35</posy>
                         <width>750</width>
                         <height>45</height>
 						<align>left</align>
@@ -891,7 +891,7 @@
                         <shadowcolor>black</shadowcolor>
                         <scroll>true</scroll>
 						<label>[COLOR=white]$INFO[MusicPlayer.Title, ','][/COLOR]</label>
-						<visible>Substring(Control.GetLabel(8318),empty.png)</visible>
+						<visible>!Skin.HasSetting(BelowMidLogo)</visible>
 				</control>
 				<control type="label">
 						<animation effect="slide" time="250" start="-270,10" end="0,0" tween="Back" easing="out" condition="!Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath)) | !Skin.HasSetting(BelowMidLogo)">Conditional</animation>
@@ -905,12 +905,12 @@
                         <textcolor>$VAR[TitleColorVar]</textcolor>
                         <shadowcolor>black</shadowcolor>
                         <scroll>true</scroll>
-						<visible>!Substring(Control.GetLabel(8318),empty.png)</visible>
+						<visible>Skin.HasSetting(BelowMidLogo) | Substring(Control.GetLabel(8318),empty.png)</visible>
                 </control>
 				<control type="label">
 						<animation effect="slide" time="250" start="-270,10" end="0,0" tween="Back" easing="out" condition="!Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath)) | !Skin.HasSetting(BelowMidLogo)">Conditional</animation>
-                        <posx>270</posx>
-                        <posy>65</posy>
+                        <posx>0</posx>
+                        <posy>75</posy>
 						<width>750</width>
                         <height>36</height>
 						<align>left</align>
@@ -919,7 +919,7 @@
                         <textcolor>$VAR[TitleColorVar]</textcolor>
                         <shadowcolor>black</shadowcolor>
                         <scroll>true</scroll>
-						<visible>Substring(Control.GetLabel(8318),empty.png)</visible>
+						<visible>!Skin.HasSetting(BelowMidLogo)</visible>
                 </control>
 				<control type="progress">
 					<animation effect="slide" time="250" start="-270,10" end="0,0" tween="Back" easing="out" condition="Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath)) | !Skin.HasSetting(BelowMidLogo)">Conditional</animation>
