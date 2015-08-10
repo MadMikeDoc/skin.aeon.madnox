@@ -3355,6 +3355,19 @@
 			<font>Font_18A</font>
 			<scroll>true</scroll>
 			<visible>[Container.Content(movies) + !SubString(ListItem.Path,videodb://movies/sets] | Container.Content(tvshows) | Container.Content(seasons)</visible>
+			<include>KodiFlixExtrasClear</include>
+		</control>
+		<control type="Label">
+			<posy>594</posy>
+			<posx>284</posx>
+			<width>254</width>
+			<height>254</height>
+			<aspectratio>stretch</aspectratio>
+			<textcolor>FFFFFAF0</textcolor>
+			<label>[COLOR $VAR[FocusTextureColorVar]]Plot[/COLOR]</label>
+			<font>Font_18A</font>
+			<scroll>true</scroll>
+			<visible>[Container.Content(movies) | Container.Content(sets)] + Skin.HasSetting(NetFiixHideFilmInfo) + [[Skin.HasSetting(KodiFlixExtrasDelay_5) + System.IdleTime(30)] | [Skin.HasSetting(KodiFlixExtrasDelay_10) + System.IdleTime(40)] | [Skin.HasSetting(KodiFlixExtrasDelay_20) + System.IdleTime(50)] | [Skin.HasSetting(KodiFlixExtrasDelay_30) + System.IdleTime(60)]]</visible>
 		</control>
 		<control type="Label">
 			<posy>594</posy>
@@ -3368,13 +3381,13 @@
 			<scroll>true</scroll>
 			<visible>Container.Content(sets) | SubString(ListItem.Path,videodb://movies/sets</visible>
 		</control>
-			
 		<control type="grouplist">
 			<orientation>horizontal</orientation>
 			<itemgap>10</itemgap>
 			<posy>629</posy>
 			<posx>284</posx>
 			<visible>!SubString(ListItem.Path,videodb://movies/sets</visible>
+			<include>KodiFlixExtrasClear</include>
 			<control type="image">
 				<width>254</width>
 				<height>254</height>
@@ -3422,12 +3435,40 @@
 				<fadetime>400</fadetime>
 				<visible>Container.Content(seasons)</visible>
 			</control>
-		</control>	
+		</control>
+		<control type="image">
+			<posy>629</posy>
+			<posx>284</posx>
+			<visible>!SubString(ListItem.Path,videodb://movies/sets</visible>
+			<width>254</width>
+			<height>254</height>
+			<aspectratio>stretch</aspectratio>
+			<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+			<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[ListItem.Art(poster)]</texture>
+			<include>KodiFlixDimAnimation</include>
+			<visible>IsEmpty(ListItem.Art(discart)) + !ListItem.IsCollection + Container.Content(movies)</visible>
+			<include>KodiFlixExtrasClear</include>
+		</control>
+		<control type="image">
+			<posy>629</posy>
+			<posx>284</posx>
+			<visible>!SubString(ListItem.Path,videodb://movies/sets</visible>
+			<width>254</width>
+			<height>254</height>
+			<aspectratio>stretch</aspectratio>
+			<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+			<texture background="true">$VAR[FakeDiscArtOverlay]</texture>
+			<include>KodiFlixDimAnimation</include>
+			<visible>IsEmpty(ListItem.Art(discart)) + !ListItem.IsCollection + Container.Content(movies)</visible>
+			<include>KodiFlixExtrasClear</include>
+		</control>
+					
 		<control type="grouplist">
 			<orientation>vertical</orientation>
 			<posy>629</posy>
 			<posx>1374</posx>
 			<visible>!SubString(ListItem.Path,videodb://movies/sets</visible>
+			<include>KodiFlixExtrasClear</include>
 			<control type="image">
 				<width>534</width>
 				<height>154</height>
@@ -3462,7 +3503,25 @@
 				<fadetime>400</fadetime>
 				<visible>Container.Content(seasons)</visible>
 			</control>
-		</control>	
+		</control>
+		<control type="group">
+			<posy>629</posy>
+			<posx>284</posx>
+			<visible>[Container.Content(movies) | Container.Content(sets)] + Skin.HasSetting(NetFiixHideFilmInfo) + [[Skin.HasSetting(KodiFlixExtrasDelay_5) + System.IdleTime(30)] | [Skin.HasSetting(KodiFlixExtrasDelay_10) + System.IdleTime(40)] | [Skin.HasSetting(KodiFlixExtrasDelay_20) + System.IdleTime(50)] | [Skin.HasSetting(KodiFlixExtrasDelay_30) + System.IdleTime(60)]]</visible>
+			<include>VisibleFadeEffect</include>
+			<control type="textbox" id="70">
+				<label>$VAR[VideoPlotVar3]</label>
+				<width>1530</width>
+				<height>238</height>
+				<textcolor>white</textcolor>
+				<font>font14_textbox</font>
+				<pagecontrol>63</pagecontrol>
+				<include>ShowCaseInfoPanelButtonsValues</include>
+				<autoscroll time="3000" delay="4000" repeat="5000"></autoscroll>
+				<shadowcolor>77000000</shadowcolor>
+			</control>
+		</control>
+		
 	</control>
 </include>
 <include name = "KodiFlixExtrasDiscAnimation">
@@ -3493,5 +3552,19 @@
 	<animation type="Visible" reversible="false">
 		<effect type="rotatey" center="125" start="90" end="0" time="360" tween="cubic" easing="in" />
     </animation>
+</include>
+<include name="KodiFlixExtrasClear">
+	<animation type="Conditional" condition="Container.Content(movies) + Skin.HasSetting(KodiFlixExtrasDelay_5) + System.IdleTime(29) + Skin.HasSetting(NetFiixHideFilmInfo)" reversible="false">
+		<effect type="fade" start="100" end="0" time="0" delay="1060" />
+	</animation>
+	<animation type="Conditional" condition="Container.Content(movies) + Skin.HasSetting(KodiFlixExtrasDelay_10) + System.IdleTime(39) + Skin.HasSetting(NetFiixHideFilmInfo)" reversible="false">
+		<effect type="fade" start="100" end="0" time="0" delay="1060" />
+	</animation>
+	<animation type="Conditional" condition="Container.Content(movies) + Skin.HasSetting(KodiFlixExtrasDelay_20) + System.IdleTime(49) + Skin.HasSetting(NetFiixHideFilmInfo)" reversible="false">
+		<effect type="fade" start="100" end="0" time="0" delay="1060" />
+	</animation>
+	<animation type="Conditional" condition="Container.Content(movies) + Skin.HasSetting(KodiFlixExtrasDelay_30) + System.IdleTime(59) + Skin.HasSetting(NetFiixHideFilmInfo)" reversible="false">
+		<effect type="fade" start="100" end="0" time="0" delay="1060" />
+	</animation>
 </include>	
 </includes>
