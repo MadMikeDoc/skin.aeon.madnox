@@ -1097,6 +1097,7 @@
                         <width>1000</width>
                         <height>4</height>
                         <texture>views/list_divider.png</texture>
+						<visible>Player.HasDuration</visible>
                     </control>
                 </control>
 					<control type="label">
@@ -1282,6 +1283,7 @@
                         <texture>$VAR[MusicOSDRepeatButtonVar]</texture>
                         <colordiffuse>white3</colordiffuse>
                         <aspectratio>keep</aspectratio>
+						<visible>Player.HasDuration</visible>
                 </control>
 				<control type="togglebutton">
 						<left>1610</left>
@@ -1293,6 +1295,7 @@
 						<usealttexture>Playlist.IsRandom</usealttexture>
 						<colordiffuse>white3</colordiffuse>
                         <aspectratio>keep</aspectratio>
+						<visible>Player.HasDuration</visible>
 				</control>
 				<!--control type="image">
                             <posx>1628</posx>
@@ -1358,6 +1361,7 @@
 					<righttexture>-</righttexture>
 					<info>Player.Progress</info>
 					<animation effect="fade" end="80" condition="true">Conditional</animation>
+					<visible>Player.HasDuration</visible>
 				</control>
 				<control type="group">
 					<visible>Skin.HasSetting(AltMusicVizLayoutInfo)</visible>
