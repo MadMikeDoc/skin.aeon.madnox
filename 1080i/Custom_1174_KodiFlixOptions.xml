@@ -25,7 +25,7 @@
                 <left>285</left>
                 <top>580</top>
                 <width>950</width>
-                <height>755</height>
+                <height>765</height>
                 <texture border="50">osd/osd_settings_back_glow.png</texture>
                 <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                 <visible>!Skin.HasSetting(DisableGlowbar)</visible>
@@ -36,7 +36,7 @@
                 <left>285</left>
                 <top>580</top>
                 <width>950</width>
-                <height>755</height>
+                <height>765</height>
                 <texture border="50">osd/osd_settings_back.png</texture>
                 <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
             </control>
@@ -213,6 +213,29 @@
 					<onclick>Skin.ToggleSetting(KodiFlixSeasonTitle)</onclick>
 					<selected>Skin.HasSetting(KodiFlixSeasonTitle)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + Container.Content(seasons) + Skin.HasSetting(KodiFlixTVPosters)</visible>
+				</control>
+				<control type="radiobutton" id="17097">
+					<description>Kodi Show Extras</description>
+					<include>Objects_MediaMenuButtonAround</include>
+					<label>Extras</label>
+					<onclick>Skin.ToggleSetting(KodiFlixExtras)</onclick>
+					<selected>Skin.HasSetting(KodiFlixExtras)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + !Skin.HasSetting(KodiFlixCenterList)</visible>
+				</control>
+				<control type="button" id="17098">
+					<label>$LOCALIZE[31709]:</label>
+					<label2>[COLOR $VAR[FontColorVar]]$VAR[KodiFlixExtrasDelayVar][/COLOR]</label2>
+					<include>Objects_MediaMenuButtonAround</include>
+					<onclick condition="!Skin.HasSetting(KodiFlixExtrasDelay_10) + !Skin.HasSetting(KodiFlixExtrasDelay_20) + !Skin.HasSetting(KodiFlixExtrasDelay_20)">Skin.SetBool(KodiFlixExtrasDelay_5)</onclick>
+					<onclick condition="Skin.HasSetting(KodiFlixExtrasDelay_5)">Skin.SetBool(KodiFlixExtrasDelay_10)</onclick>
+					<onclick condition="Skin.HasSetting(KodiFlixExtrasDelay_5)">Skin.Reset(KodiFlixExtrasDelay_5)</onclick>
+					<onclick condition="Skin.HasSetting(KodiFlixExtrasDelay_10)">Skin.SetBool(KodiFlixExtrasDelay_20)</onclick>
+					<onclick condition="Skin.HasSetting(KodiFlixExtrasDelay_10)">Skin.Reset(KodiFlixExtrasDelay_10)</onclick>
+					<onclick condition="Skin.HasSetting(KodiFlixExtrasDelay_20)">Skin.SetBool(KodiFlixExtrasDelay_30)</onclick>
+					<onclick condition="Skin.HasSetting(KodiFlixExtrasDelay_20)">Skin.Reset(KodiFlixExtrasDelay_20)</onclick>
+					<onclick condition="Skin.HasSetting(KodiFlixExtrasDelay_30)">Skin.SetBool(KodiFlixExtrasDelay_5)</onclick>
+					<onclick condition="Skin.HasSetting(KodiFlixExtrasDelay_30)">Skin.Reset(KodiFlixExtrasDelay_30)</onclick>
+					<visible>Window.IsActive(videolibrary) + Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + Skin.HasSetting(KodiFlixExtras)</visible>
 				</control>
 	        </control>
 			<control type="grouplist" id="1200">
