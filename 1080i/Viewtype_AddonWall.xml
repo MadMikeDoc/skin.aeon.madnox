@@ -20,6 +20,7 @@
                     <scrolltime tween="cubic">200</scrolltime>
                     <viewtype label="$LOCALIZE[31283]">icon</viewtype>
                     <pagecontrol>60</pagecontrol>					
+
 					<itemlayout height="268" width="290" condition="Container.Content(artists)">
                     <control type="group">
 					<left>45</left>
@@ -54,6 +55,7 @@
 					</itemlayout>                   
 					<focusedlayout height="268" width="290" condition="Container.Content(artists)">
 					<control type="group">
+					<animation effect="zoom" center="180,130" start="80" end="120" time="160" tween="quadratic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
 					<left>45</left>
 					<top>5</top>
 							<control type="image">
@@ -86,6 +88,7 @@
 							</control>			
 						</control>
                     </focusedlayout>
+
                     <itemlayout height="268" width="285" condition="Container.Content(Addons) | ![Container.Content(artists) | Container.Content(Albums) | Container.Content(songs) | Container.Content(sets) | Container.Content(seasons) | Container.Content(Movies) | Container.Content(tvshows) | Container.Content(episodes)]">
                         <control type="image">
                             <width>261</width>
@@ -98,7 +101,9 @@
                         </control>
                     </itemlayout>
                     <focusedlayout height="268" width="285" condition="Container.Content(Addons) | ![Container.Content(artists) | Container.Content(Albums) | Container.Content(songs) | Container.Content(sets) | Container.Content(seasons) | Container.Content(Movies) | Container.Content(tvshows) | Container.Content(episodes)]">
-                        <control type="image">
+                   	<control type="group">
+					<animation effect="zoom" center="180,130" start="80" end="120" time="160" tween="quadratic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
+						<control type="image">
                             <width>261</width>
                             <height>261</height>
                             <aspectratio>keep</aspectratio>
@@ -114,7 +119,9 @@
                             <texture background="true" fallback="DefaultAddonMusic.png">$VAR[ThumbnailVar]</texture>
                             <bordersize>5</bordersize>
                         </control>
+					</control>
                     </focusedlayout>
+
 					<itemlayout height="268" width="285" condition="Container.Content(Albums) | Container.Content(songs)">
                         <control type="image">
 							<top>11</top>
@@ -137,6 +144,7 @@
                         </control>
                     </itemlayout>
                     <focusedlayout height="268" width="285" condition="Container.Content(Albums) | Container.Content(songs)">
+					<animation effect="zoom" center="180,130" start="80" end="120" time="160" tween="quadratic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
 					<control type="group">
 						<animation effect="zoom" center="95,133" start="100" end="130" time="160" tween="quadratic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
 						<animation effect="zoom" center="105,133" start="110" end="115" time="160" tween="quadratic" reversible="false" condition="!Skin.HasSetting(InfoWallZoom)">Conditional</animation>
@@ -200,6 +208,8 @@
                         </control>
 					</control>
                     </focusedlayout>
+
+
 					<!-- VIDEO --> 					
                     <itemlayout height="268" width="189" condition="[Container.Content(tvshows) + ![Skin.HasSetting(TVInfoWallLandscape) | Skin.HasSetting(TVInfoWallBanner) | Skin.HasSetting(TVInfoWallLogo)]] | [[Window.IsActive(programs) + !Container.Content(addons)] + !Skin.HasSetting(InfoWallSquare)] | Container.Content(sets) | Container.Content(seasons)">    <!--  TV CASES INACTIVE-->
                         <control type="group"> 
@@ -436,7 +446,7 @@
                                 <width>165</width>
                                 <height>246</height>
                                 <texture background="true">$VAR[ListPosterVar]</texture>
-								<bordertexture border="5">thumbs/bordershadow4.png</bordertexture>
+								<bordertexture border="5" colordiffuse="$VAR[ColorDiffuseVar]">views/addonwall_select.png</bordertexture>
                                 <bordersize>5</bordersize>
                             </control>
                             <control type="image">
@@ -989,6 +999,7 @@
                                     <height>161</height>
                                     <aspectratio scalediffuse="false">scale</aspectratio>
                                     <texture background="true">$INFO[ListItem.Icon]</texture>
+									<bordertexture border="5" colordiffuse="$VAR[ColorDiffuseVar]">views/addonwall_select.png</bordertexture>
                                     <bordersize>5</bordersize>
                                 </control>
                                 <control type="image">
@@ -1023,10 +1034,9 @@
                                 <height>161</height>
                                 <aspectratio scalediffuse="false">stretch</aspectratio>
                                 <texture background="true" fallback="common/black.png">$VAR[LandscapeThumbVar]</texture>
-                                <bordertexture border="5">thumbs/bordershadow4.png</bordertexture>
+                                <bordertexture border="5" colordiffuse="$VAR[ColorDiffuseVar]">views/addonwall_select.png</bordertexture>
                                 <bordersize>5</bordersize>
                                 <visible>Container.Content(tvshows)</visible>
-                                <animation effect="fade" end="90" time="0" condition="true">Conditional</animation>
                             </control>
                             <control type="image">
                                 <width>285</width>
@@ -1114,7 +1124,7 @@
 								<height>158</height>
 								<aspectratio align="center">scale</aspectratio>
                                 <texture background="true">$VAR[BannerVar]</texture>
-								<bordertexture border="5">thumbs/bordershadow4.png</bordertexture>
+								<bordertexture border="5" colordiffuse="$VAR[ColorDiffuseVar]">views/addonwall_select.png</bordertexture>
                                 <bordersize>5</bordersize>
                             </control>
                             <control type="label">
