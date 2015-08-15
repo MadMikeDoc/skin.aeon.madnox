@@ -858,6 +858,14 @@
                 <posy>900</posy>
 				<visible>Player.ShowInfo | Skin.HasSetting(showvisinfo) | Window.IsActive(musicosd)</visible>
                 <visible>!Window.IsActive(1112) + Skin.HasSetting(AltMusicVizLayout)</visible>
+				 <animation type="Visible">
+                <effect type="fade" time="400" end="100" />
+                <effect type="slide" time="400" start="0,226" end="0,0" tween="cubic" />
+            </animation>
+            <animation type="Hidden">
+                <effect type="fade" time="400" start="100" end="0" />
+                <effect type="slide" time="400" end="0,226" easing="in" tween="cubic" />
+            </animation>
                 <animation effect="slide" start="-975" end="0" time="700" tween="cubic" delay="400">WindowOpen</animation>
                 <animation effect="slide" end="-975" time="400" tween="cubic" easing="in" delay="400" condition="Skin.HasSetting(CDArtinVis)">WindowClose</animation>
                 <animation effect="slide" end="-975" time="500" tween="cubic" easing="in" condition="!Skin.HasSetting(CDArtinVis)">WindowClose</animation>
@@ -972,8 +980,30 @@
                     <align>center</align>
 					<aligny>center</aligny>
 					<font>Hand_26</font>
-                    <visible>StringCompare(Control.GetLabel(3333),common/cdart/blank.png)</visible>
+                    <visible>StringCompare(Control.GetLabel(3333),common/cdart/blank.png) + !Skin.HasSetting(AltMusicVizLayoutCDArtist)</visible>
 					<label> $INFO[MusicPlayer.Artist]</label>
+                    <textcolor>black</textcolor>
+					<wrapmultiline>true</wrapmultiline>
+				</control>
+				<control type="label">
+                    <animation effect="slide" start="0" end="0" time="0" tween="cubic" delay="750">Visible</animation>
+                    <animation effect="slide" end="-180" time="400" tween="cubic">Hidden</animation>
+                    <animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="400">WindowOpen</animation>
+                    <animation type="WindowClose">
+                        <effect type="slide" end="-180" time="400" tween="cubic" easing="in" delay="0" />
+                        <effect type="fade" start="100" end="0" time="0" delay="400" />
+                        <condition type="!Player.Playing" />
+                    </animation>
+					<animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+                    <width>230</width>
+                    <height>70</height>
+                    <posx>335</posx>
+                    <posy>-210</posy>
+                    <align>center</align>
+					<aligny>center</aligny>
+					<font>Hand_26</font>
+                    <visible>StringCompare(Control.GetLabel(3333),common/cdart/blank.png) + Skin.HasSetting(AltMusicVizLayoutCDArtist)</visible>
+					<label> $INFO[MusicPlayer.AlbumArtist]</label>
                     <textcolor>black</textcolor>
 					<wrapmultiline>true</wrapmultiline>
 				</control>
@@ -1071,6 +1101,14 @@
 				<posy>850</posy>
 				<visible>Player.ShowInfo | Skin.HasSetting(showvisinfo) | Window.IsActive(musicosd)</visible>
                 <visible>!Window.IsActive(1112) + Skin.HasSetting(AltMusicVizLayout)</visible>
+				 <animation type="Visible">
+                <effect type="fade" time="400" end="100" />
+                <effect type="slide" time="400" start="0,226" end="0,0" tween="cubic" />
+            </animation>
+            <animation type="Hidden">
+                <effect type="fade" time="400" start="100" end="0" />
+                <effect type="slide" time="400" end="0,226" easing="in" tween="cubic" />
+            </animation>
                 <include>Animation_OpenCloseZoom</include>
                 <control type="group">
                     <posy>70</posy>
@@ -1109,9 +1147,23 @@
 						<align>right</align>
                         <scroll>true</scroll>
                         <font>Font_MainClassic2.low</font>
-                        <visible>Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath))</visible>
+                        <visible>!Skin.HasSetting(AltMusicVizLayoutArtist) + Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath))</visible>
                         <label>$INFO[MusicPlayer.Artist]</label>
                         <textcolor>white</textcolor>
+                        <shadowcolor>black</shadowcolor>
+                    </control>
+					<control type="label">
+                        <posx>1828</posx>
+                        <posy>-170</posy>
+                        <width>1180</width>
+                        <height>38</height>
+                        <aligny>-</aligny>
+						<align>right</align>
+                        <scroll>true</scroll>
+                        <font>Font_MainClassic2.low</font>
+                        <visible>Skin.HasSetting(AltMusicVizLayoutArtist) + Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath))</visible>
+                        <label>$INFO[MusicPlayer.Artist]</label>
+                        <textcolor>$VAR[TitleColorVar]</textcolor>
                         <shadowcolor>black</shadowcolor>
                     </control>
                     <control type="image" id="8318">
