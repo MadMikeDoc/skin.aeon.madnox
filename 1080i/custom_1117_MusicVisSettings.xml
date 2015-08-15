@@ -148,47 +148,54 @@
                     <onclick>Skin.ToggleSetting(MusicAuto)</onclick>
                     <selected>Skin.HasSetting(MusicAuto)</selected>
 				</control>
-				<control type="radiobutton" id="17100">
-					<label>Alternate Music Viz Layout</label>
-					<include>Objects_CommonSettingsButton</include>
-					<onclick>Skin.ToggleSetting(AltMusicVizLayout)</onclick>
-					<onclick>Skin.Reset(widgetpola)</onclick>
-					<selected>Skin.HasSetting(AltMusicVizLayout)</selected>
-				</control>
-				<control type="radiobutton" id="17101">
-					<label>Alternate Music Viz Layout Info</label>
-					<include>Objects_CommonSettingsButton</include>
-					<onclick>Skin.ToggleSetting(AltMusicVizLayoutInfo)</onclick>
-					<selected>Skin.HasSetting(AltMusicVizLayoutInfo)</selected>
-					<enable>Skin.HasSetting(AltMusicVizLayout)</enable>
-				</control>
-				<control type="radiobutton" id="17102">
-					<label>Alternate Music Viz Layout RoundCover</label>
-					<include>Objects_CommonSettingsButton</include>
-					<onclick>Skin.ToggleSetting(AltMusicVizLayoutCover)</onclick>
-					<selected>Skin.HasSetting(AltMusicVizLayoutCover)</selected>
-					<enable>Skin.HasSetting(AltMusicVizLayout)</enable>
-				</control>
-				<control type="radiobutton" id="17103">
-					<label>Alternate Music Viz Layout Color Artist</label>
-					<include>Objects_CommonSettingsButton</include>
-					<onclick>Skin.ToggleSetting(AltMusicVizLayoutArtist)</onclick>
-					<selected>Skin.HasSetting(AltMusicVizLayoutArtist)</selected>
-					<enable>Skin.HasSetting(AltMusicVizLayout)</enable>
-				</control>
-				<control type="radiobutton" id="17104">
-					<label>Alternate Music Viz Layout Use AlbumArtist on CD</label>
-					<include>Objects_CommonSettingsButton</include>
-					<onclick>Skin.ToggleSetting(AltMusicVizLayoutCDArtist)</onclick>
-					<selected>Skin.HasSetting(AltMusicVizLayoutCDArtist)</selected>
-					<enable>Skin.HasSetting(AltMusicVizLayout)</enable>
-				</control>
 				<control type="button" id="461">
                     <label>$LOCALIZE[31127]</label>
                     <label2>[COLOR $VAR[FontColorVar]]$INFO[system.addontitle(Skin.String(LyricScript_Path))][/COLOR]</label2>
                     <include>Objects_CommonSettingsButton</include>
                     <onclick>Skin.SetAddon(LyricScript_Path,xbmc.python.lyrics)</onclick>
                 </control>
+				<control type="label" id="4366">
+					<width>600</width>
+					<height>60</height>
+					<label>     Alternate Music Viz</label>
+					<font>Font_Bold33</font>
+					<textcolor>$VAR[TitleColorVar]</textcolor>
+				</control>
+				<control type="radiobutton" id="17100">
+					<label>Show Alternate Layout</label>
+					<include>Objects_CommonSettingsButton</include>
+					<onclick>Skin.ToggleSetting(AltMusicVizLayout)</onclick>
+					<onclick>Skin.Reset(widgetpola)</onclick>
+					<selected>Skin.HasSetting(AltMusicVizLayout)</selected>
+				</control>
+				<control type="radiobutton" id="17101">
+					<label>  - Show Info</label>
+					<include>Objects_CommonSettingsButton</include>
+					<onclick>Skin.ToggleSetting(AltMusicVizLayoutInfo)</onclick>
+					<selected>Skin.HasSetting(AltMusicVizLayoutInfo)</selected>
+					<enable>Skin.HasSetting(AltMusicVizLayout)</enable>
+				</control>
+				<control type="radiobutton" id="17102">
+					<label>  - Round Cover</label>
+					<include>Objects_CommonSettingsButton</include>
+					<onclick>Skin.ToggleSetting(AltMusicVizLayoutCover)</onclick>
+					<selected>Skin.HasSetting(AltMusicVizLayoutCover)</selected>
+					<enable>Skin.HasSetting(AltMusicVizLayout)</enable>
+				</control>
+				<control type="radiobutton" id="17103">
+					<label>  - Color Artist Name</label>
+					<include>Objects_CommonSettingsButton</include>
+					<onclick>Skin.ToggleSetting(AltMusicVizLayoutArtist)</onclick>
+					<selected>Skin.HasSetting(AltMusicVizLayoutArtist)</selected>
+					<enable>Skin.HasSetting(AltMusicVizLayout)</enable>
+				</control>
+				<control type="radiobutton" id="17104">
+					<label>  - Use Album Artist For Handwriting CD</label>
+					<include>Objects_CommonSettingsButton</include>
+					<onclick>Skin.ToggleSetting(AltMusicVizLayoutCDArtist)</onclick>
+					<selected>Skin.HasSetting(AltMusicVizLayoutCDArtist)</selected>
+					<enable>Skin.HasSetting(AltMusicVizLayout)</enable>
+				</control>
 				<control type="label" id="430">
 					<width>600</width>
 					<height>60</height>
