@@ -1504,10 +1504,29 @@
 							<include>Animation_VisibleChange200</include>
 						</control>
 						
-                        <control type="videowindow" id="40001">
-							<width>790</width>
-                            <height>442</height>
-							<visible>Player.Hasvideo + !VideoPlayer.IsFullscreen</visible>
+						<control type="group">
+							<control type="image" id="40001">
+								<width>790</width>
+								<height>444</height>
+								<texture background="true">videoblack.png</texture>
+								<visible>Player.Hasvideo + !VideoPlayer.IsFullscreen</visible>
+							</control>
+							<control type="videowindow" id="40001">
+								<width>790</width>
+								 <height>444</height>
+								<visible>Player.Hasvideo + !VideoPlayer.IsFullscreen</visible>
+							</control>
+						</control>
+						<!-- fanart Frame - thx 4 the idea >> shadowtek -->
+						<control type="image">
+                            <top>-5</top>
+                            <left>-5</left>
+                            <width>800</width>
+                            <height>454</height>
+                            <fadetime>300</fadetime>
+                            <texture>fanartframe.png</texture>
+                            <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+                            <include>Animation_VisibleChange200</include>
                         </control>
                     </control>
                 </control>
