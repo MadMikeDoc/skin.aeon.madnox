@@ -1147,11 +1147,10 @@
 						<align>right</align>
                         <scroll>true</scroll>
                         <font>Font_MainClassic2.low</font>
-                        <visible>Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath))</visible>
+                        <visible>!Skin.HasSetting(AltMusicVizLayoutArtist) + Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath))</visible>
                         <label>$INFO[MusicPlayer.Artist]</label>
                         <textcolor>white</textcolor>
                         <shadowcolor>black</shadowcolor>
-						<visible>Skin.ToggleSetting(AltMusicVizLayoutArtist)</visible>
                     </control>
 					<control type="label">
                         <posx>1828</posx>
@@ -1162,11 +1161,10 @@
 						<align>right</align>
                         <scroll>true</scroll>
                         <font>Font_MainClassic2.low</font>
-                        <visible>Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath))</visible>
+                        <visible>Skin.HasSetting(AltMusicVizLayoutArtist) + Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath))</visible>
                         <label>$INFO[MusicPlayer.Artist]</label>
                         <textcolor>$VAR[TitleColorVar]</textcolor>
                         <shadowcolor>black</shadowcolor>
-						<visible>!Skin.ToggleSetting(AltMusicVizLayoutArtist)</visible>
                     </control>
                     <control type="image" id="8318">
                         <posx>1330</posx>
