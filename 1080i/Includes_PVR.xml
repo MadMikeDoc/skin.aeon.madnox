@@ -204,12 +204,22 @@
             <animation effect="zoom" start="110" end="130" center="auto" time="12000" pulse="true" reversible="false" condition="Skin.HasSetting(animatedbg)">Conditional</animation>
             <animation effect="slide" start="-15,-15" end="15,15" time="6000" pulse="true" reversible="false" condition="Skin.HasSetting(animatedbg)">Conditional</animation>
         </control>
-        <include>Furniture_SettingsFloor</include>
-        <control type="videowindow">
-            <visible>Control.IsVisible(10) | Control.IsVisible(11) | Control.IsVisible(12) | Control.IsVisible(13)</visible>
+		        <include>Furniture_SettingsFloor</include>
+       <control type="videowindow" id="65">
+		<visible>Player.HasVideo + [Control.IsVisible(10) | Control.IsVisible(11) | Control.IsVisible(12) | Control.IsVisible(13)]</visible>
             <include>FullscreenDimensions</include>
-            <visible>Player.HasVideo + !Skin.HasSetting(ShowBackgroundVideo)</visible>
         </control>
+	<control type="image">
+ <include>FullscreenDimensions</include>
+ <texture colordiffuse="$VAR[DialogColorVar]">new_pvr/diffuseoverlayguide.png</texture>
+ <animation effect="fade" time="200">WindowOpen</animation>
+ <animation effect="fade" time="200">WindowClose</animation>
+ <animation effect="fade" end="100" time="440" delay="160">Visible</animation>
+ <animation effect="fade" start="100" end="0" time="320">Hidden</animation>
+ <animation effect="fade" start="100" end="85" time="0" condition="true">Conditional</animation>
+ <animation effect="fade" start="100" end="60" time="0" condition="Player.HasVideo + [Control.IsVisible(10) | Control.IsVisible(11) | Control.IsVisible(12) | Control.IsVisible(13)]">Conditional</animation>
+	</control>
+
 	</include>
 	<include name="PVRMediaMenuTop">
 		<control type="label" id="200">
@@ -745,7 +755,7 @@
                 <aspectratio align="center">keep</aspectratio>
                 <texture colordiffuse="white">$INFO[VideoPlayer.VideoCodec,new_pvr/flags/videocodec/,.png]</texture>
             </control>
-
+			
             <control type="image" id="1">
                 <left>85</left>
                 <top>42</top>
@@ -1535,7 +1545,7 @@
 					<width>220</width>
 					<height>300</height>
 					<aspectratio aligny="top">keep</aspectratio>
-					<texture>$INFO[Container(11).ListItem.PlotOutline]</texture>
+					<texture align="center" aligny="top">$INFO[Container(11).ListItem.PlotOutline]</texture>
 					<visible>SubString(Container(11).ListItem.PlotOutline,"http://",Left) | SubString(Container(11).ListItem.PlotOutline,"https://",Left)</visible>
 				</control>
 			</control>
