@@ -623,7 +623,6 @@
 					<onclick>ActivateWindow(1174)</onclick>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)</visible>
 				</control>
-				
 				<!--MAD - KodiFlix Options End -->
 				<!--MAD - Movie Sets View -->
 				<control type="radiobutton" id="17047">
@@ -659,6 +658,60 @@
 					<visible>Stringcompare(Window(home).Property(actualViewtype),ViewSets) + [Container.Content(movies) | Container.Content(sets)] + !Skin.HasSetting(MovieSetsNoDiscArt)</visible>
 				</control>
 				<!--MAD - Movie Sets View End -->
+				<!--MAD - Shelf 3D View -->
+				<control type="radiobutton" id="17103">
+					<description>Flat InfoPanel</description>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>Flat InfoPanel</label>
+					<onclick>Skin.ToggleSetting(Shelf3DFlatInfoPanel)</onclick>
+					<selected>Skin.HasSetting(Shelf3DFlatInfoPanel)</selected>
+					<include condition="!Window.IsActive(script-Rom_Collection_Browser-main.xml)">ReloadWindowOnClick</include>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Shelf) + [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]</visible>
+				</control>
+				<control type="radiobutton" id="17105">
+					<description>No InfoPanel</description>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>No InfoPanel</label>
+					<onclick>Skin.ToggleSetting(Shelf3DNoInfoPanel)</onclick>
+					<selected>Skin.HasSetting(Shelf3DNoInfoPanel)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Shelf) + [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons)  | Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]</visible>
+				</control>
+				<control type="radiobutton" id="17106">
+					<description>Flat Discs</description>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>Flat Discs</label>
+					<onclick>Skin.ToggleSetting(Shelf3DFlatDiscs)</onclick>
+					<selected>Skin.HasSetting(Shelf3DFlatDiscs)</selected>
+					<include condition="!Window.IsActive(script-Rom_Collection_Browser-main.xml)">ReloadWindowOnClick</include>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Shelf) + [Container.Content(movies) | Container.Content(sets) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]</visible>
+				</control>
+				<control type="radiobutton" id="17107">
+					<description>Fake Discs</description>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>Fake Discs</label>
+					<onclick>Skin.ToggleSetting(Shelf3DFakeDiscs)</onclick>
+					<selected>Skin.HasSetting(Shelf3DFakeDiscs)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Shelf) + [Container.Content(movies) | Container.Content(sets) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]</visible>
+				</control>
+				<!--GamesFlix options-->
+				<control type="radiobutton" id="17108">
+					<description>Small GamesFlix Wide View</description>
+					<textwidth>375</textwidth>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>Enable small Thumbs</label>
+					<onclick>Skin.ToggleSetting(smallgamesflixwideview)</onclick>
+					<selected>Skin.HasSetting(smallgamesflixwideview)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),GamesFlixWide) + Window.IsActive(programs)</visible>
+				</control>
+				<control type="radiobutton" id="17109">
+					<description>Small GamesFlix View</description>
+					<textwidth>375</textwidth>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>Enable small Thumbs</label>
+					<onclick>Skin.ToggleSetting(smallgamesflixsquareview)</onclick>
+					<selected>Skin.HasSetting(smallgamesflixsquareview)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),GamesFlixSquare) + Window.IsActive(programs)</visible>
+				</control>
 				<!-- BannerPlex options-->
 				<control type="radiobutton" id="1708">
 					<label>31696</label>
