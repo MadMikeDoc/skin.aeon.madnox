@@ -3,11 +3,6 @@
     <defaultcontrol always="true">9011</defaultcontrol>
     <onunload>ClearProperty(quicknavsetup,home)</onunload>
     <onunload>ClearProperty(viewtypeselect,home)</onunload>
-    <coordinates>
-        <left>0</left>
-        <top>0</top>
-        <system>1</system>
-    </coordinates>
     <animation type="WindowClose">
         <effect type="slide" end="-460,0" time="320" easing="in" tween="cubic" />
     </animation>
@@ -469,7 +464,7 @@
                     <onclick condition="!IsEmpty(Skin.String(DisableGamesFlixWideVL)) + !StringCompare(ListItem.Label,Container.Viewmode)">Skin.Reset(DisableGamesFlixWideVL)</onclick>
                     <visible>!IsEmpty(Window(home).Property(quicknavsetup))</visible>
                 </item>
-                
+
 				<item>
                     <label>$LOCALIZE[31236]</label>
                     <thumb>$INFO[Skin.String(DisableBannersVL)]</thumb>
