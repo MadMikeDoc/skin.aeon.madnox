@@ -147,7 +147,7 @@
 				<width>14</width>
 				<height>180</height>
 				<onup>SetProperty(MediaMenu,True,home)</onup>
-				<onup>SetFocus(9050)</onup>
+				<onup>SetFocus(9000)</onup>
 				<onleft>50</onleft>
 				<onright>50</onright>
 				<ondown>50</ondown>
@@ -765,7 +765,7 @@
 						<textcolor>white</textcolor>
 						<shadowcolor>black</shadowcolor>
 						<wrapmultiline>true</wrapmultiline>
-						<visible>IsEmpty(Control.GetLabel(84757)</visible>
+						<visible>IsEmpty(Control.GetLabel(84757))</visible>
 					</control>
 					<control type="image">
 						<visible>![SubString(ListItem.Path,videodb://movies/sets) + !Stringcompare(ListItem.Label,..)] + [!Container.Content(seasons) + !IsEmpty(ListItem.MPAA)]</visible>
@@ -941,6 +941,9 @@
 				<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(Shelf3DFlatInfoPanel) + Skin.HasSetting(Shelf3DNoInfoPanel)">
 					<effect type="slide" start="0,0" end="-220,0" time="350" tween="cubic" easing="out" />
 				</animation>
+				<animation type="Conditional" reversible="false" condition="Skin.HasSetting(Shelf3DFlatInfoPanel)">
+					<effect type="slide" start="0,0" end="120,0" time="350" tween="cubic" easing="out" />
+				</animation>
 				<animation type="Conditional" reversible="false" condition="Skin.HasSetting(Shelf3DNoInfoPanel)">
 					<effect type="slide" start="0,0" end="240,400" time="350" tween="cubic" easing="out" />
 				</animation>
@@ -1069,7 +1072,7 @@
 				<width>14</width>
 				<height>180</height>
 				<onup>SetProperty(MediaMenu,True,home)</onup>
-				<onup>SetFocus(9050)</onup>
+				<onup>SetFocus(9000)</onup>
 				<onleft>50</onleft>
 				<onright>50</onright>
 				<ondown>50</ondown>

@@ -575,7 +575,7 @@
 					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + [Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]</visible>
 				</control>
 				<control type="radiobutton" id="17991">
-					<description>Slide Left</description>
+					<description>Disable Black Overlay</description>
 					<include>Objects_MediaMenuButtonAlt2</include>
 					<label>Disable Black Overlay</label>
 					<onclick>Skin.ToggleSetting(RightListShowBG)</onclick>
@@ -615,7 +615,6 @@
 					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + [Container.Content(Artists) | Container.Content(Albums) | Container.Content(songs)] + Skin.HasSetting(rightlistCD)</visible>
 				</control>
 				
-
 				<!--MAD - End of Right List options -->
 				<!--MAD - KodiFlix Options -->
 				<control type="button" id="17085">
@@ -941,6 +940,27 @@
 					<onclick>Skin.ToggleSetting(slimlist)</onclick>
 					<selected>Skin.HasSetting(slimlist)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),List)</visible>
+				</control>
+				<control type="radiobutton" id="17110">
+					<label>Enable Case</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(ListCase)</onclick>
+					<selected>Skin.HasSetting(ListCase)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),List)</visible>
+				</control>
+				<control type="radiobutton" id="17111">
+					<label>Disable Case badge</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(ListNoCaseBadge)</onclick>
+					<selected>Skin.HasSetting(ListNoCaseBadge)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),List) + Skin.HasSetting(ListCase)</visible>
+				</control>
+				<control type="radiobutton" id="17113">
+					<label>Use thumbs as images</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(ListUseThumbsOnBack)</onclick>
+					<selected>Skin.HasSetting(ListUseThumbsOnBack)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),List) + Skin.HasSetting(ListCase)</visible>
 				</control>
 				<control type="radiobutton" id="1663">
 					<label>$LOCALIZE[31812]</label>

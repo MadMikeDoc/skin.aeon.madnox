@@ -237,6 +237,16 @@
 					<onclick condition="Skin.HasSetting(KodiFlixExtrasDelay_30)">Skin.Reset(KodiFlixExtrasDelay_30)</onclick>
 					<visible>Window.IsActive(videolibrary) + Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + Skin.HasSetting(KodiFlixExtras)</visible>
 				</control>
+				<control type="radiobutton" id="17110">
+					<description>Kodi Small Fanart</description>
+					<include>Objects_MediaMenuButtonAround</include>
+					<label>Small Fanart</label>
+					<onclick>Skin.ToggleSetting(KodiFlixSmallFanart)</onclick>
+					<selected>Skin.HasSetting(KodiFlixSmallFanart)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)</visible>
+					<onclick>Dialog.Close(all,true)</onclick>
+					<include condition="!Window.IsActive(script-Rom_Collection_Browser-main.xml)">ReloadWindowOnClick</include>
+				</control>
 	        </control>
 			<control type="grouplist" id="1200">
                 <orientation>vertical</orientation>

@@ -255,6 +255,13 @@
                     <visible>IsEmpty(Window(home).Property(quicknavsetup))</visible>
                 </item>
 				<item>
+                    <label>MusicFlix</label>
+                    <onclick>Container.SetViewMode(810)</onclick>
+                    <visible>Container.Content(albums)</visible>
+                    <visible>![Window.IsActive(videos) + !IsEmpty(Skin.String(DisableMusicFlixVL))]</visible>
+                    <visible>IsEmpty(Window(home).Property(quicknavsetup))</visible>
+                </item>
+				<item>
                     <label>$LOCALIZE[31236]</label>
                     <onclick>Container.SetViewMode(508)</onclick>
                     <visible>Container.Content(TVShows) | Container.Content(movies) | Container.Content(seasons)</visible>
@@ -444,6 +451,13 @@
                     <visible>!IsEmpty(Window(home).Property(quicknavsetup))</visible>
                 </item>
 				<item>
+                    <label>MusicFlix</label>
+                    <thumb>$INFO[Skin.String(DisableMusicFlixVL)]</thumb>
+                    <onclick condition="IsEmpty(Skin.String(DisableMusicFlixVL))">Skin.SetString(DisableMusicFlixVL,true)</onclick>
+                    <onclick condition="!IsEmpty(Skin.String(DisableMusicFlixVL)) + !StringCompare(ListItem.Label,Container.Viewmode)">Skin.Reset(DisableMusicFlixVL)</onclick>
+                    <visible>!IsEmpty(Window(home).Property(quicknavsetup))</visible>
+                </item>
+				<item>
                     <label>GamesFlix</label>
                     <thumb>$INFO[Skin.String(DisableGamesFlixVL)]</thumb>
                     <onclick condition="IsEmpty(Skin.String(DisableGamesFlixVL))">Skin.SetString(DisableGamesFlixWideVL,true)</onclick>
@@ -464,7 +478,7 @@
                     <onclick condition="!IsEmpty(Skin.String(DisableGamesFlixWideVL)) + !StringCompare(ListItem.Label,Container.Viewmode)">Skin.Reset(DisableGamesFlixWideVL)</onclick>
                     <visible>!IsEmpty(Window(home).Property(quicknavsetup))</visible>
                 </item>
-
+                
 				<item>
                     <label>$LOCALIZE[31236]</label>
                     <thumb>$INFO[Skin.String(DisableBannersVL)]</thumb>

@@ -2294,24 +2294,28 @@
 	<variable name="ExtraThumb1Var">
 		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left) + !IsEmpty(Window(home).Property(Set.Movie.1.Art(clearlogo)))">$INFO[Window(home).Property(Set.Movie.1.Art(clearlogo))]</value>
 		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left)">$INFO[Window(home).Property(Set.Movie.1.Art(fanart))]</value>
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Path]/season01-landscape.jpg</value>
 		<value condition="!IsEmpty(ListItem.Art(extrathumb1))">$INFO[ListItem.Art(extrathumb1)]</value>
 		<value>$INFO[ListItem.Path,,extrathumbs/thumb1.jpg]</value>
 	</variable>
 	<variable name="ExtraThumb2Var">
 		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left) + !IsEmpty(Window(home).Property(Set.Movie.2.Art(clearlogo)))">$INFO[Window(home).Property(Set.Movie.2.Art(clearlogo))]</value>
 		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left)">$INFO[Window(home).Property(Set.Movie.2.Art(fanart))]</value>
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Path]/season02-landscape.jpg</value>
 		<value condition="!IsEmpty(ListItem.Art(extrathumb2))">$INFO[ListItem.Art(extrathumb2)]</value>
 		<value>$INFO[ListItem.Path,,extrathumbs/thumb2.jpg]</value>
 	</variable>
 	<variable name="ExtraThumb3Var">
 		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left) + !IsEmpty(Window(home).Property(Set.Movie.3.Art(clearlogo)))">$INFO[Window(home).Property(Set.Movie.3.Art(clearlogo))]</value>
 		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left)">$INFO[Window(home).Property(Set.Movie.3.Art(fanart))]</value>
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Path]/season03-landscape.jpg</value>
 		<value condition="!IsEmpty(ListItem.Art(extrathumb3))">$INFO[ListItem.Art(extrathumb3)]</value>
 		<value>$INFO[ListItem.Path,,extrathumbs/thumb3.jpg]</value>
 	</variable>
 	<variable name="ExtraThumb4Var">
 		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left) + !IsEmpty(Window(home).Property(Set.Movie.4.Art(clearlogo)))">$INFO[Window(home).Property(Set.Movie.4.Art(clearlogo))]</value>
 		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left)">$INFO[Window(home).Property(Set.Movie.4.Art(fanart))]</value>
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Path]/season04-landscape.jpg</value>
 		<value condition="!IsEmpty(ListItem.Art(extrathumb4))">$INFO[ListItem.Art(extrathumb4)]</value>
 		<value>$INFO[ListItem.Path,,extrathumbs/thumb4.jpg]</value>
 	</variable>
@@ -2497,7 +2501,7 @@
 		<value>$INFO[ListItem.Art(fanart)]</value>
 	</variable>
 	<variable name="ListBottomLabelVar">
-		<value condition="Container.Content(movies) + Skin.HasSetting(ClassicTopBar)">$INFO[Container(50).NumItems] $VAR[ItemLabelVar]</value>
+		<value condition="Container.Content(movies) + Skin.HasSetting(ClassicTopBar)">$INFO[Container(50).CurrentItem] / $INFO[Container(50).NumItems] $VAR[ItemLabelVar]</value>
 		<value condition="!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons)">$INFO[Container(50).NumItems] $VAR[ItemLabelVar]$INFO[Container(50).Totaltime, (,)]</value>
 	</variable>
 	<!-- LowList-->
@@ -4495,4 +4499,45 @@
 		<value condition="[Container.Content(movies) | Container.Content(sets)]">[COLOR $VAR[FontColorVar]]$LOCALIZE[345]:[/COLOR] $INFO[ListItem.Year]</value>
 		<value condition="Container.Content(tvshows) | Container.Content(episodes) | Container.Content(seasons)">[COLOR $VAR[FontColorVar]]$LOCALIZE[20416]:[/COLOR] $INFO[ListItem.Premiered]</value>
 	</variable>
+	<variable name="CaseBackExtraThumb1Var">
+		<value condition="System.HasAddon(script.skin.helper.service) + [Container.Content(sets) | SubString(ListItem.Path,videodb://movies/sets/,left)]">$INFO[Window(Home).Property(SkinHelper.MovieSet.0.FanArt)]</value>
+		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + Container.Content(movies) + !Skin.HasSetting(ListUseThumbsOnBack)">$INFO[Window(Home).Property(SkinHelper.ExtraFanArt.0)]</value>
+		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + [Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(ListUseThumbsOnBack)">$INFO[Window(Home).Property(SkinHelper.ExtraFanArt.0)]</value>
+		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left) + !IsEmpty(Window(home).Property(Set.Movie.1.Art(clearlogo)))">$INFO[Window(home).Property(Set.Movie.1.Art(clearlogo))]</value>
+		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left)">$INFO[Window(home).Property(Set.Movie.1.Art(fanart))]</value>
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Path]/season01-landscape.jpg</value>
+		<value condition="!IsEmpty(ListItem.Art(extrathumb1))">$INFO[ListItem.Art(extrathumb1)]</value>
+		<value>$INFO[ListItem.Path,,extrathumbs/thumb1.jpg]</value>
+	</variable>
+	<variable name="CaseBackExtraThumb2Var">
+		<value condition="System.HasAddon(script.skin.helper.service) + [Container.Content(sets) | SubString(ListItem.Path,videodb://movies/sets/,left)]">$INFO[Window(Home).Property(SkinHelper.MovieSet.1.FanArt)]</value>
+		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + Container.Content(movies) + !Skin.HasSetting(ListUseThumbsOnBack)">$INFO[Window(Home).Property(SkinHelper.ExtraFanArt.1)]</value>
+		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + [Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(ListUseThumbsOnBack)">$INFO[Window(Home).Property(SkinHelper.ExtraFanArt.1)]</value>
+		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left) + !IsEmpty(Window(home).Property(Set.Movie.2.Art(clearlogo)))">$INFO[Window(home).Property(Set.Movie.2.Art(clearlogo))]</value>
+		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left)">$INFO[Window(home).Property(Set.Movie.2.Art(fanart))]</value>
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Path]/season02-landscape.jpg</value>
+		<value condition="!IsEmpty(ListItem.Art(extrathumb2))">$INFO[ListItem.Art(extrathumb2)]</value>
+		<value>$INFO[ListItem.Path,,extrathumbs/thumb2.jpg]</value>
+	</variable>
+	<variable name="CaseBackExtraThumb3Var">
+		<value condition="System.HasAddon(script.skin.helper.service) + [Container.Content(sets) | SubString(ListItem.Path,videodb://movies/sets/,left)]">$INFO[Window(Home).Property(SkinHelper.MovieSet.2.FanArt)]</value>
+		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + Container.Content(movies) + !Skin.HasSetting(ListUseThumbsOnBack)">$INFO[Window(Home).Property(SkinHelper.ExtraFanArt.2)]</value>
+		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + [Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(ListUseThumbsOnBack)">$INFO[Window(Home).Property(SkinHelper.ExtraFanArt.2)]</value>
+		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left) + !IsEmpty(Window(home).Property(Set.Movie.3.Art(clearlogo)))">$INFO[Window(home).Property(Set.Movie.3.Art(clearlogo))]</value>
+		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left)">$INFO[Window(home).Property(Set.Movie.3.Art(fanart))]</value>
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Path]/season03-landscape.jpg</value>
+		<value condition="!IsEmpty(ListItem.Art(extrathumb3))">$INFO[ListItem.Art(extrathumb3)]</value>
+		<value>$INFO[ListItem.Path,,extrathumbs/thumb3.jpg]</value>
+	</variable>
+	<variable name="CaseBackExtraThumb4Var">
+		<value condition="System.HasAddon(script.skin.helper.service) + [Container.Content(sets) | SubString(ListItem.Path,videodb://movies/sets/,left)]">$INFO[Window(Home).Property(SkinHelper.MovieSet.3.FanArt)]</value>
+		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + Container.Content(movies) + !Skin.HasSetting(ListUseThumbsOnBack)">$INFO[Window(Home).Property(SkinHelper.ExtraFanArt.3)]</value>
+		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + [Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(ListUseThumbsOnBack)">$INFO[Window(Home).Property(SkinHelper.ExtraFanArt.3)]</value>
+		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left) + !IsEmpty(Window(home).Property(Set.Movie.4.Art(clearlogo)))">$INFO[Window(home).Property(Set.Movie.4.Art(clearlogo))]</value>
+		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left)">$INFO[Window(home).Property(Set.Movie.4.Art(fanart))]</value>
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Path]/season04-landscape.jpg</value>
+		<value condition="!IsEmpty(ListItem.Art(extrathumb4))">$INFO[ListItem.Art(extrathumb4)]</value>
+		<value>$INFO[ListItem.Path,,extrathumbs/thumb4.jpg]</value>
+	</variable>
+	
 </includes>
