@@ -574,6 +574,14 @@
 					<selected>Skin.HasSetting(RightListShowInfo)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + [Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]</visible>
 				</control>
+				<control type="radiobutton" id="17991">
+					<description>Slide Left</description>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>Disable Black Overlay</label>
+					<onclick>Skin.ToggleSetting(RightListShowBG)</onclick>
+					<selected>!Skin.HasSetting(RightListShowBG)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList</visible>
+				</control>
 				<control type="radiobutton" id="17092">
 					<description>Show New Texture</description>
 					<label>Show New Texture</label>
@@ -606,6 +614,7 @@
 					<selected>Skin.HasSetting(RightListSlideLeft)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + [Container.Content(Artists) | Container.Content(Albums) | Container.Content(songs)] + Skin.HasSetting(rightlistCD)</visible>
 				</control>
+				
 
 				<!--MAD - End of Right List options -->
 				<!--MAD - KodiFlix Options -->
