@@ -50,7 +50,7 @@
         </control-->
         <control type="visualisation" id="2">
             <include>FullscreenDimensions</include>
-            <visible>Skin.HasSetting(FadeVizBG)</visible>
+            <visible>Skin.HasSetting(FadeVizBG) + !Skin.HasSetting(HideVizBG)</visible>
             <animation effect="fade" end="100" time="0" delay="3000" reversible="false">Visible</animation>
         </control>
         <control type="group">
@@ -82,7 +82,7 @@
                     <visible>!IsEmpty(Skin.String(ArtistsLogosPath))</visible>
                 </control>
             </control>
-			<include>DailyBabeBackgrounds</include>
+			<!--include>DailyBabeBackgrounds</include-->
             <!--include>DailyBabeBG</include--><!-- undefined include -->
             <control type="image">
                 <fadetime>600</fadetime>
@@ -117,7 +117,7 @@
         </control>
         <control type="visualisation" id="2">
             <include>FullscreenDimensions</include>
-            <visible>!Skin.HasSetting(FadeVizBG)</visible>
+            <visible>!Skin.HasSetting(FadeVizBG) + !Skin.HasSetting(HideVizBG)</visible>
             <animation effect="fade" end="100" time="0" delay="3000" reversible="false">Visible</animation>
         </control>
         <control type="group">
@@ -127,7 +127,7 @@
             <animation effect="slide" end="735,0" time="300">WindowClose</animation>
             <control type="group">
                 <posy>0</posy>
-                <posx>748r</posx>
+                <posx>1172</posx>
                 <control type="image">
                     <posx>-45</posx>
                     <width>794</width>
@@ -526,8 +526,8 @@
                 <control type="group">
                     <animation effect="fade" time="750">VisibleChange</animation>
                     <visible>Skin.HasSetting(vinylart)</visible>
-                    <posx>40</posx>
-                    <posy>13</posy>
+                    <posx>26</posx>
+                    <posy>20</posy>
                     <control type="image">
                         <posx>42</posx>
                         <posy>-270</posy>
@@ -705,13 +705,13 @@
 					<control type="label">
                         <animation effect="slide" end="-140" time="500" tween="cubic" easing="in" condition="!Skin.HasSetting(CDArtinVis)">Conditional</animation>
                         <posx>628</posx>
-                        <posy>-270</posy>
+                        <posy>-260</posy>
                         <width>1275</width>
                         <height>38</height>
                         <scroll>true</scroll>
                         <font>Font_MainClassic</font>
                         <visible>[Substring(Control.GetLabel(8308),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath))] + !Skin.HasSetting(widgetpola)</visible>
-                        <label>$INFO[MusicPlayer.AlbumArtist]</label>
+                        <label>$INFO[MusicPlayer.Artist]</label>
                         <textcolor>white</textcolor>
                         <shadowcolor>black</shadowcolor>
                     </control>
@@ -721,7 +721,7 @@
                     <animation effect="slide" end="-120" time="500" tween="cubic" easing="in" condition="!Skin.HasSetting(CDArtinVis)">Conditional</animation>
                     <control type="image" id="8308">
                         <posx>630</posx>
-                        <posy>-300</posy>
+                        <posy>-330</posy>
                         <width>500</width>
                         <height>193</height>
                         <fadetime>400</fadetime>
@@ -856,7 +856,16 @@
 			<control type="group">
                 <posx>-20</posx>
                 <posy>900</posy>
+				<visible>Player.ShowInfo | Skin.HasSetting(showvisinfo) | Window.IsActive(musicosd)</visible>
                 <visible>!Window.IsActive(1112) + Skin.HasSetting(AltMusicVizLayout)</visible>
+				 <animation type="Visible">
+                <effect type="fade" time="400" end="100" />
+                <effect type="slide" time="400" start="0,226" end="0,0" tween="cubic" />
+            </animation>
+            <animation type="Hidden">
+                <effect type="fade" time="400" start="100" end="0" />
+                <effect type="slide" time="400" end="0,226" easing="in" tween="cubic" />
+            </animation>
                 <animation effect="slide" start="-975" end="0" time="700" tween="cubic" delay="400">WindowOpen</animation>
                 <animation effect="slide" end="-975" time="400" tween="cubic" easing="in" delay="400" condition="Skin.HasSetting(CDArtinVis)">WindowClose</animation>
                 <animation effect="slide" end="-975" time="500" tween="cubic" easing="in" condition="!Skin.HasSetting(CDArtinVis)">WindowClose</animation>
@@ -970,9 +979,31 @@
                     <posy>-210</posy>
                     <align>center</align>
 					<aligny>center</aligny>
-					<font>Hand_34</font>
-                    <visible>StringCompare(Control.GetLabel(3333),common/cdart/blank.png)</visible>
+					<font>Hand_26</font>
+                    <visible>StringCompare(Control.GetLabel(3333),common/cdart/blank.png) + !Skin.HasSetting(AltMusicVizLayoutCDArtist)</visible>
 					<label> $INFO[MusicPlayer.Artist]</label>
+                    <textcolor>black</textcolor>
+					<wrapmultiline>true</wrapmultiline>
+				</control>
+				<control type="label">
+                    <animation effect="slide" start="0" end="0" time="0" tween="cubic" delay="750">Visible</animation>
+                    <animation effect="slide" end="-180" time="400" tween="cubic">Hidden</animation>
+                    <animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="400">WindowOpen</animation>
+                    <animation type="WindowClose">
+                        <effect type="slide" end="-180" time="400" tween="cubic" easing="in" delay="0" />
+                        <effect type="fade" start="100" end="0" time="0" delay="400" />
+                        <condition type="!Player.Playing" />
+                    </animation>
+					<animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+                    <width>230</width>
+                    <height>70</height>
+                    <posx>335</posx>
+                    <posy>-210</posy>
+                    <align>center</align>
+					<aligny>center</aligny>
+					<font>Hand_26</font>
+                    <visible>StringCompare(Control.GetLabel(3333),common/cdart/blank.png) + Skin.HasSetting(AltMusicVizLayoutCDArtist)</visible>
+					<label> $INFO[MusicPlayer.AlbumArtist]</label>
                     <textcolor>black</textcolor>
 					<wrapmultiline>true</wrapmultiline>
 				</control>
@@ -991,7 +1022,7 @@
                     <posx>330</posx>
                     <posy>20</posy>
                     <align>center</align>
-					<font>Hand_34</font>
+					<font>Hand_26</font>
                     <visible>StringCompare(Control.GetLabel(3333),common/cdart/blank.png)</visible>
 					<aligny>center</aligny>
 					<label> $INFO[MusicPlayer.Album]</label>
@@ -1000,23 +1031,24 @@
 				</control>
 				<control type="group">
                     <animation effect="fade" time="750">VisibleChange</animation>
-                    <!--visible>Skin.HasSetting(vinylart)</visible-->
+                    <visible>Skin.HasSetting(AltMusicVizLayoutCover)</visible>
                     <posx>40</posx>
                     <posy>13</posy>
                     <control type="image">
                         <posx>42</posx>
                         <posy>-270</posy>
                         <height>400</height>
-                        <width>400</width>
+                        <width>500</width>
                         <texture fallback="DefaultAlbumCover.png" diffuse="thumbs/cdcover_mask2.png">$INFO[MusicPlayer.Cover]</texture>
-                        <bordertexture border="-90">thumbs/cd_shadow2.png</bordertexture>
+						<aspectratio align="left">keep</aspectratio>
+                        <bordertexture border="-120">thumbs/cd_shadow2.png</bordertexture>
                     </control>
                     <control type="image">
                         <posx>42</posx>
                         <posy>-270</posy>
                         <height>400</height>
-                        <width>400</width>
-                        <aspectratio scalediffuse="false" align="right">scale</aspectratio>
+                        <width>500</width>
+                        <aspectratio scalediffuse="false" align="left">keep</aspectratio>
                         <texture diffuse="thumbs/cdcover_mask2.png">thumbs/cdcover_glass_noreflect.png</texture>
                     </control>
                     <control type="image">
@@ -1024,9 +1056,42 @@
                         <posy>132</posy>
                         <animation effect="fade" start="100" end="10" time="0" condition="true">Conditional</animation>
                         <height>400</height>
-                        <width>400</width>
+                        <width>500</width>
                         <texture flipy="true" fallback="DefaultAlbumCover.png" diffuse="thumbs/cdcover_mask2.png">$INFO[MusicPlayer.Cover]</texture>
-                        <bordertexture border="-90">thumbs/cd_shadow2.png</bordertexture>
+						<aspectratio align="left">keep</aspectratio>
+                        <bordertexture border="-120">thumbs/cd_shadow2.png</bordertexture>
+                    </control>
+                </control>
+				<control type="group">
+                    <animation effect="fade" time="750">VisibleChange</animation>
+                    <visible>!Skin.HasSetting(AltMusicVizLayoutCover)</visible>
+                    <posx>40</posx>
+                    <posy>13</posy>
+                    <control type="image">
+                        <posx>42</posx>
+                        <posy>-270</posy>
+                        <height>400</height>
+                        <width>500</width>
+                        <texture fallback="DefaultAlbumCover.png">$INFO[MusicPlayer.Cover]</texture>
+                        <aspectratio align="left">keep</aspectratio>
+                        <!--bordertexture border="-90">thumbs/cd_shadow2.png</bordertexture-->
+                    </control>
+                    <control type="image">
+                        <posx>42</posx>
+                        <posy>-270</posy>
+                        <height>400</height>
+                        <width>500</width>
+                        <aspectratio scalediffuse="false" align="left">keep</aspectratio>
+                    </control>
+                    <control type="image">
+                        <posx>42</posx>
+                        <posy>132</posy>
+                        <animation effect="fade" start="100" end="10" time="0" condition="true">Conditional</animation>
+                        <height>400</height>
+                        <width>500</width>
+                        <texture flipy="true" fallback="DefaultAlbumCover.png">$INFO[MusicPlayer.Cover]</texture>
+                        <aspectratio align="left">keep</aspectratio>
+                        <!--bordertexture border="-90">thumbs/cd_shadow2.png</bordertexture-->
                     </control>
                 </control>
             </control>
@@ -1034,7 +1099,16 @@
 			<control type="group">
                 <posx>30</posx>
 				<posy>850</posy>
+				<visible>Player.ShowInfo | Skin.HasSetting(showvisinfo) | Window.IsActive(musicosd)</visible>
                 <visible>!Window.IsActive(1112) + Skin.HasSetting(AltMusicVizLayout)</visible>
+				 <animation type="Visible">
+                <effect type="fade" time="400" end="100" />
+                <effect type="slide" time="400" start="0,226" end="0,0" tween="cubic" />
+            </animation>
+            <animation type="Hidden">
+                <effect type="fade" time="400" start="100" end="0" />
+                <effect type="slide" time="400" end="0,226" easing="in" tween="cubic" />
+            </animation>
                 <include>Animation_OpenCloseZoom</include>
                 <control type="group">
                     <posy>70</posy>
@@ -1061,25 +1135,40 @@
                         <width>1000</width>
                         <height>4</height>
                         <texture>views/list_divider.png</texture>
+						<visible>Player.HasDuration</visible>
                     </control>
                 </control>
 					<control type="label">
                         <posx>1828</posx>
-                        <posy>-200</posy>
+                        <posy>-170</posy>
                         <width>1180</width>
                         <height>38</height>
                         <aligny>-</aligny>
 						<align>right</align>
                         <scroll>true</scroll>
-                        <font>Font_MainClassic</font>
-                        <visible>Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath))</visible>
+                        <font>Font_MainClassic2.low</font>
+                        <visible>!Skin.HasSetting(AltMusicVizLayoutArtist) + Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath))</visible>
                         <label>$INFO[MusicPlayer.Artist]</label>
                         <textcolor>white</textcolor>
                         <shadowcolor>black</shadowcolor>
                     </control>
+					<control type="label">
+                        <posx>1828</posx>
+                        <posy>-170</posy>
+                        <width>1180</width>
+                        <height>38</height>
+                        <aligny>-</aligny>
+						<align>right</align>
+                        <scroll>true</scroll>
+                        <font>Font_MainClassic2.low</font>
+                        <visible>Skin.HasSetting(AltMusicVizLayoutArtist) + Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath))</visible>
+                        <label>$INFO[MusicPlayer.Artist]</label>
+                        <textcolor>$VAR[TitleColorVar]</textcolor>
+                        <shadowcolor>black</shadowcolor>
+                    </control>
                     <control type="image" id="8318">
                         <posx>1330</posx>
-                        <posy>-300</posy>
+                        <posy>-280</posy>
                         <width>500</width>
                         <height>193</height>
                         <fadetime>400</fadetime>
@@ -1089,17 +1178,18 @@
 					</control>
 				<control type="label">
                         <posx>1828</posx>
-                        <posy>-85</posy>
+                        <posy>-92</posy>
                         <width>1280</width>
                         <height>45</height>
                         <aligny>-</aligny>
 						<align>right</align>
-                        <font>Font_MainClassic3</font>
+                        <font>Font_MainClassic3.low</font>
                         <textcolor>$VAR[TitleColorVar]</textcolor>
                         <shadowcolor>black</shadowcolor>
                         <scroll>true</scroll>
                         <include>Animation_VisibleChange400</include>
-                        <label>$INFO[MusicPlayer.TrackNumber,,: ][COLOR=white]$INFO[MusicPlayer.Title][/COLOR]</label>
+                        <!--label>$INFO[MusicPlayer.TrackNumber,,: ][COLOR=white]$INFO[MusicPlayer.Title][/COLOR]</label-->
+						<label>[COLOR=white]$INFO[MusicPlayer.Title, “,”][/COLOR]</label>
 				</control>
 				<control type="label">
                         <posx>1828</posx>
@@ -1116,42 +1206,58 @@
                         <include>Animation_VisibleChange400</include>
                     </control>
 					<control type="label">
+                        <visible>!MusicPartyMode.Enabled</visible>
                         <posx>1658</posx>
                         <posy>50</posy>
                         <width>800</width>
                         <height>36</height>
-                 		<aligny>-</aligny>
-						<align>right</align>
+                         <aligny>-</aligny>
+                        <align>right</align>
                         <font>Font_Reg19_Caps</font>
-                        <label>Next:</label>
+                        <label>[COLOR gray]Next:[/COLOR]</label>
                         <textcolor>$VAR[TitleColorVar]</textcolor>
                         <shadowcolor>black</shadowcolor>
                         <scroll>true</scroll>
                         <include>Animation_VisibleChange400</include>
                 </control>
-				<control type="label">
+                    <control type="label">
+                        <visible>MusicPartyMode.Enabled</visible>
+                        <posx>1658</posx>
+                        <posy>50</posy>
+                        <width>800</width>
+                        <height>36</height>
+                         <aligny>-</aligny>
+                        <align>right</align>
+                        <font>Font_Reg19_Caps</font>
+                        <label>[COLOR gray]Party Mode$INFO[MusicPartyMode.SongsPlayed, (,)  ·  ]Next:[/COLOR]</label>
+                        <textcolor>$VAR[TitleColorVar]</textcolor>
+                        <shadowcolor>black</shadowcolor>
+                        <scroll>true</scroll>
+                        <include>Animation_VisibleChange400</include>
+                </control>
+                <control type="label">
                         <posx>1658</posx>
                         <posy>80</posy>
                         <width>800</width>
                         <height>36</height>
-                 		<aligny>-</aligny>
-						<align>right</align>
+                         <aligny>-</aligny>
+                        <align>right</align>
                         <font>Font_Reg19_Caps</font>
-                        <label>$INFO[MusicPlayer.offset(1).TrackNumber,,: ][COLOR=white]$INFO[MusicPlayer.offset(1).Title][/COLOR]</label>
+                        <label>$INFO[MusicPlayer.offset(1).Artist]</label>
                         <textcolor>$VAR[TitleColorVar]</textcolor>
                         <shadowcolor>black</shadowcolor>
                         <scroll>true</scroll>
                         <include>Animation_VisibleChange400</include>
                 </control>
-				<control type="label">
+                <control type="label">
                         <posx>1658</posx>
                         <posy>110</posy>
                         <width>800</width>
                         <height>36</height>
-                 		<aligny>-</aligny>
-						<align>right</align>
+                         <aligny>-</aligny>
+                        <align>right</align>
                         <font>Font_Reg19_Caps</font>
-                        <label>[COLOR white] $INFO[MusicPlayer.offset(1).Artist][/COLOR]</label>
+                        <label>[COLOR=white]$INFO[MusicPlayer.offset(1).Title,“,”][/COLOR]</label>
                         <textcolor>$VAR[TitleColorVar]</textcolor>
                         <shadowcolor>black</shadowcolor>
                         <scroll>true</scroll>
@@ -1174,13 +1280,46 @@
                         <animation effect="slide" end="-162" time="500" tween="cubic" easing="in" condition="!Skin.HasSetting(CDArtinVis)">Conditional</animation>
                 </control-->
 				<control type="image">
+						<visible>!Skin.HasSetting(AltMusicVizLayoutCover)</visible>
                         <posx>1678</posx>
                         <posy>50</posy>
                         <height>150</height>
                         <width>150</width>
                         <texture fallback="DefaultAlbumCover.png">$INFO[MusicPlayer.offset(1).Cover]</texture>
                     </control>
-					<control type="image">
+				<control type="group">
+                    <animation effect="fade" time="750">VisibleChange</animation>
+                    <visible>Skin.HasSetting(AltMusicVizLayoutCover)</visible>
+                    <posx>1678</posx>
+                    <posy>50</posy>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <height>150</height>
+                        <width>150</width>
+                        <texture fallback="DefaultAlbumCover.png" >$INFO[MusicPlayer.offset(1).Cover]</texture>
+						<aspectratio align="left">keep</aspectratio>
+                        <bordertexture border="-15">thumbs/cd_shadow2.png</bordertexture>
+                    </control>
+                   <!--control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <height>150</height>
+                        <width>150</width>
+                        <aspectratio scalediffuse="false" align="left">keep</aspectratio>
+                        <texture>thumbs/cdcover_glass_noreflect.png</texture>
+                    </control>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>153</posy>
+                        <animation effect="fade" start="100" end="10" time="0" condition="true">Conditional</animation>
+                        <height>150</height>
+                        <width>150</width>
+                        <texture flipy="true" fallback="DefaultAlbumCover.png" >$INFO[MusicPlayer.Cover]</texture>
+                        <bordertexture border="-9">thumbs/cd_shadow2.png</bordertexture>
+                    </control-->
+				</control>
+				<control type="image">
                         <animation effect="slide" start="1950" end="0" time="700" tween="cubic" delay="1100">WindowOpen</animation>
                         <posx>1325</posx>
                         <posy>140</posy>
@@ -1196,6 +1335,7 @@
                         <texture>$VAR[MusicOSDRepeatButtonVar]</texture>
                         <colordiffuse>white3</colordiffuse>
                         <aspectratio>keep</aspectratio>
+						<visible>Player.HasDuration</visible>
                 </control>
 				<control type="togglebutton">
 						<left>1610</left>
@@ -1207,6 +1347,7 @@
 						<usealttexture>Playlist.IsRandom</usealttexture>
 						<colordiffuse>white3</colordiffuse>
                         <aspectratio>keep</aspectratio>
+						<visible>Player.HasDuration</visible>
 				</control>
 				<!--control type="image">
                             <posx>1628</posx>
@@ -1263,10 +1404,77 @@
 				<control type="progress">
 					<left>1370</left>
 					<top>205</top>
-					<width>470</width>
+					<width>460</width>
 					<height>10</height>
+					<reveal>true</reveal>
+					<texturebg border="3">moo/progress.border.png</texturebg>
+					<midtexture>moo/progress.png</midtexture>
+					<lefttexture>-</lefttexture>
+					<righttexture>-</righttexture>
 					<info>Player.Progress</info>
 					<animation effect="fade" end="80" condition="true">Conditional</animation>
+					<visible>Player.HasDuration</visible>
+				</control>
+				<control type="group">
+					<visible>Skin.HasSetting(AltMusicVizLayoutInfo)</visible>
+                        <control type="image" id="8309">
+                        <posx>820</posx>
+                        <posy>150</posy>
+                        <width>100</width>
+                        <height>65</height>
+                        <colordiffuse>white</colordiffuse>
+                        <texture fallback="empty.png">$INFO[MusicPlayer.Codec,flags/audio/,.png]</texture>
+                    </control>
+                    <control type="label">
+                        <posx>757</posx>
+                        <posy>139</posy>
+                        <width>210</width>
+                        <height>86</height>
+                        <align>center</align>
+                        <scroll>false</scroll>
+                        <font>Font_MainClassic4.low</font>
+                        <shadowcolor>black</shadowcolor>
+                        <wrapmultiline>true</wrapmultiline>
+                        <visible>StringCompare(Control.GetLabel(8309),empty.png)</visible>
+                        <label>[COLOR=white]$INFO[MusicPlayer.Codec][/COLOR]</label>
+                    </control>
+                    <control type="image">
+						<posx>925</posx>
+						<posy>137</posy>
+						<width>150</width>
+						<height>89</height>
+						<aspectratio>keep</aspectratio>
+						<colordiffuse>white</colordiffuse>
+						<texture>flags/music/rating/$INFO[Player.StarRating]</texture>
+					</control>
+					<control type="image">
+                        <posx>1060</posx>
+                        <posy>133</posy>
+                        <width>150</width>
+                        <height>99</height>
+                        <colordiffuse>$VAR[TitleColorVar]</colordiffuse>
+                        <visible>!IsEmpty(MusicPlayer.Genre)</visible>
+                        <texture>flags/music/genre/genre.png</texture>
+                    </control>
+                    <control type="label">
+                        <posx>1125</posx>
+                        <posy>139</posy>
+                        <width>210</width>
+                        <height>86</height>
+                        <scroll>false</scroll>
+                        <font>Font_Reg19</font>
+                        <shadowcolor>black</shadowcolor>
+                        <wrapmultiline>true</wrapmultiline>
+                        <label>[COLOR=white]$INFO[MusicPlayer.Genre][/COLOR]</label>
+                        </control>
+					<control type="image" id="8669">
+						<posx>651</posx>
+						<posy>136</posy>
+						<width>130</width>
+						<height>89</height>
+						<colordiffuse>white</colordiffuse>
+						<texture fallback="empty.png">$INFO[MusicPlayer.Property(Album_Label),flags/music/recordlabel/,.png]</texture>
+					</control>
 				</control>
 			</control>
 <!-- new layout end -->	

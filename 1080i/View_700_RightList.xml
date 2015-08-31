@@ -11,6 +11,7 @@
 				<include>FullscreenDimensions</include>
 				<include>Animation_WindowFade200</include>
 				<visible>Skin.HasSetting(altoverlayinfowall)</visible>
+				<visible>Skin.HasSetting(RightListShowBG)</visible>
 			</control>
 			<control type="group">
 				<left>30</left>
@@ -1537,7 +1538,7 @@
 			<ondown>60</ondown>
 			<onleft>700</onleft>
 			<onright>SetProperty(MediaMenu,True,home)</onright>
-			<onright>SetFocus(9050)</onright>
+			<onright>SetFocus(9000)</onright>
 			<texturesliderbackground border="1">-</texturesliderbackground>
 			<texturesliderbar border="6,0,6,0">scrollbar/texturesliderbar_hor.png</texturesliderbar>
 			<texturesliderbarfocus border="6,0,6,0">scrollbar/texturesliderbarfocus_hor.png</texturesliderbarfocus>
@@ -1558,17 +1559,8 @@
                 <texture>views/episodebgoverlay.png</texture>
                 <include>FullscreenDimensions</include>
                 <include>Animation_WindowFade200</include>
+				<visible>Skin.HasSetting(RightListShowBG)</visible>
                 </control>
-            <control type="image">
-                <left>310</left>
-                <top>580</top>
-                <width>1250</width>
-                <height>570</height>
-                <aspectratio>keep</aspectratio>
-                <texture flipx="true">views/episodebgoverlay.png</texture>
-                <animation effect="fade" end="65" condition="true">Conditional</animation>
-                <visible>Skin.HasSetting(RightListShowInfo)</visible>
-            </control>
             <control type="group">
                 <left>0</left>
                 <top>50</top>
@@ -1591,6 +1583,7 @@
                 <texture background="true">$VAR[colorcdARTVar]</texture>
                 <visible>Skin.HasSetting(rightlistCD) + IsEmpty(Control.GetLabel(4172914)) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart) + !Skin.HasSetting(MusicFakeDisc) + !Container.Content(Artists)</visible>
                 <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
+				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
             </control>
             <control type="label">
                 <left>120</left>
@@ -1606,6 +1599,7 @@
                     <textcolor>black</textcolor>
                     <wrapmultiline>true</wrapmultiline>
                     <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
+					<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
             </control>
             <control type="label">
                 <left>120</left>
@@ -1621,6 +1615,7 @@
                     <textcolor>black</textcolor>
                     <wrapmultiline>true</wrapmultiline>
                 <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
+				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
             </control>
             <control type="image">
                 <top>380</top>
@@ -1631,6 +1626,7 @@
                 <texture background="true" diffuse="thumbs/sets/cdart-mask.png">$VAR[ListAlbumVar]</texture>
                 <visible>Skin.HasSetting(rightlistCD) + IsEmpty(Control.GetLabel(4172914)) + Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart) + Skin.HasSetting(MusicFakeDisc)</visible>
                 <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
+				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
             </control>
 			<control type="image">
                 <top>380</top>
@@ -1641,6 +1637,7 @@
                 <texture background="true" diffuse="thumbs/sets/cdart-mask.png">$VAR[ListAlbumVar]</texture>
                 <visible>Skin.HasSetting(rightlistCD) + IsEmpty(Control.GetLabel(4172914)) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart) + Skin.HasSetting(MusicFakeDisc)</visible>
                 <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
+				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
             </control>
             <control type="image" id="4172914">
                 <top>380</top>
@@ -1653,6 +1650,7 @@
                 <texture background="true">$VAR[cdARTVar]</texture>
                 <visible>Skin.HasSetting(rightlistCD) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart)</visible>
                 <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
+				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
             </control>
             <control type="image">
                 <top>380</top>
@@ -1663,8 +1661,9 @@
                 <aspectratio align="right">keep</aspectratio>
                 <include condition="Skin.HasSetting(vinylart)">vinylartlibrary</include>
                 <include condition="Skin.HasSetting(blurayart)">blurayartlibrary</include>
-                <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
                 <visible>Skin.HasSetting(rightlistCD) + !Skin.HasSetting(MusicFakeDisc) + !Skin.HasSetting(RightListSlideLeft) + !Stringcompare(ListItem.Label,..) + [Container.Content(albums) | Container.Content(songs)]</visible>
+                <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
+				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
             </control>
             <control type="image">
                 <top>380</top>
@@ -1675,8 +1674,9 @@
                 <aspectratio align="right">keep</aspectratio>
                 <include condition="Skin.HasSetting(vinylart)">vinylartlibrary</include>
                 <include condition="Skin.HasSetting(blurayart)">blurayartlibrary</include>
-                <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
                 <visible>Skin.HasSetting(rightlistCD) + !Skin.HasSetting(MusicFakeDisc) + Skin.HasSetting(RightListSlideLeft) + !Stringcompare(ListItem.Label,..) + [Container.Content(albums) | Container.Content(songs)]</visible>
+                <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
+				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
             </control>
             <control type="image">
                 <top>380</top>
@@ -1687,8 +1687,9 @@
                 <aspectratio align="right">keep</aspectratio>
                 <texture background="true">$VAR[cdARTVar]</texture>
                 <fadetime>IconCrossfadeTime</fadetime>
+				<visible>Skin.HasSetting(rightlistCD) + Skin.HasSetting(RightListSlideLeft) + !Stringcompare(ListItem.Label,..) + [Container.Content(albums) | Container.Content(songs)]</visible>
                 <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
-                <visible>Skin.HasSetting(rightlistCD) + Skin.HasSetting(RightListSlideLeft) + !Stringcompare(ListItem.Label,..) + [Container.Content(albums) | Container.Content(songs)]</visible>
+				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
             </control>
 			<control type="multiimage">
 				<top>380</top>
@@ -1823,58 +1824,81 @@
                     <bordersize>20</bordersize>
                 </control-->
             </control>
+			<!-- Tracklist -->
+			<control type="image">
+                <left>460</left>
+                <top>555</top>
+                <width>500</width>
+                <height>415</height>
+                <texture>moo/track.bg.png</texture>
+                <animation effect="fade" end="65" condition="true">Conditional</animation>
+                <visible>Skin.HasSetting(RightListShowTracks) | Skin.HasSetting(RightListShowInfo)</visible>
+            </control>
+			<control type="textbox">
+				<label>[COLOR white]$INFO[Window(Home).Property(SkinHelper.Music.TrackList)][/COLOR]</label>
+				<top>568</top>
+				<left>480</left>
+				<width>500</width>
+				<height>388</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font10</font>
+				<autoscroll time="1500" delay="4000" repeat="5000"></autoscroll>
+				<visible>!StringCompare(ListItem.Label,..) + Container.Content(albums) + Skin.HasSetting(RightListShowTracks)</visible>
+			</control>
+			<!--Info-->
             <control type="grouplist">
-                <left>454</left>
-                <top>570</top>
+                <left>470</left>
+                <top>568</top>
                 <width>650</width>
                 <height>385</height>
                 <visible>Skin.HasSetting(RightListShowInfo)</visible>
-                <usecontrolcoords>true</usecontrolcoords>
+				<usecontrolcoords>true</usecontrolcoords>
                 <control type="label">
-                    <label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[557]:[/COLOR][CR][COLOR white]$INFO[ListItem.Artist][/COLOR]</label>
+                    <label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[557]: [/COLOR] [COLOR white]$INFO[ListItem.Artist][/COLOR]</label>
                     <width>650</width>
-                    <include>ShowCaseInfoPanelButtonsValues</include>
+                    <include>KodiFlixButtonsValues</include>
                     <visible>!IsEmpty(ListItem.Artist)</visible>
                 </control>
                 <control type="label">
-                    <label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[515]:[/COLOR][CR][COLOR white]$INFO[ListItem.Genre][/COLOR]</label>
+                    <label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[515]: [/COLOR] [COLOR white]$INFO[ListItem.Genre][/COLOR]</label>
                     <width>650</width>
-                    <include>ShowCaseInfoPanelButtonsValues</include>
+                    <include>KodiFlixButtonsValues</include>
                     <visible>!IsEmpty(ListItem.Genre)</visible>
                 </control>
                 <control type="label">
-                    <label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[180]:[/COLOR][CR][COLOR white]$INFO[ListItem.Duration][/COLOR]</label>
+                    <label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[180]: [/COLOR] [COLOR white]$INFO[ListItem.Duration][/COLOR]</label>
                     <width>650</width>
-                    <include>ShowCaseInfoPanelButtonsValues</include>
+                    <include>KodiFlixButtonsValues</include>
                     <visible>!IsEmpty(ListItem.Duration)</visible>
                 </control>
                 <control type="label">
-                    <label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[21894]:[/COLOR][CR][COLOR white]$INFO[ListItem.Property(Artist_Formed)][/COLOR]</label>
+                    <label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[21894]: [/COLOR][COLOR white]$INFO[ListItem.Property(Artist_Formed)][/COLOR]</label>
                     <width>650</width>
-                    <include>ShowCaseInfoPanelButtonsValues</include>
+                    <include>KodiFlixButtonsValues</include>
                     <visible>!IsEmpty(ListItem.Property(Artist_Formed)) + IsEmpty(ListItem.Property(Artist_Genre)) + IsEmpty(ListItem.Property(Artist_Born))</visible>
                 </control>
                 <control type="label">
-                    <label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[21893]:[/COLOR][CR][COLOR white]$INFO[ListItem.Property(Artist_Born)][/COLOR]</label>
+                    <label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[21893]: [/COLOR][COLOR white]$INFO[ListItem.Property(Artist_Born)][/COLOR]</label>
                     <width>650</width>
-                    <include>ShowCaseInfoPanelButtonsValues</include>
+                    <include>KodiFlixButtonsValues</include>
                     <visible>!IsEmpty(ListItem.Property(Artist_Born)) + IsEmpty(ListItem.Property(Artist_Genre))</visible>
                 </control>
                 <control type="label">
-                    <label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[515]:[/COLOR][CR][COLOR white]$INFO[ListItem.Property(Artist_Genre)][/COLOR]</label>
+                    <label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[515]: [/COLOR][COLOR white]$INFO[ListItem.Property(Artist_Genre)][/COLOR]</label>
                     <width>650</width>
-                    <include>ShowCaseInfoPanelButtonsValues</include>
+                    <include>KodiFlixButtonsValues</include>
                     <visible>!IsEmpty(ListItem.Property(Artist_Genre))</visible>
                 </control>
                 <control type="textbox">
-                    <label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[569]:[/COLOR][CR][COLOR white]$INFO[ListItem.Comment][/COLOR]</label>
+                    <label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[569]: [/COLOR][COLOR white]$INFO[Window(Home).Property(SkinHelper.Music.Info)][/COLOR]</label>
                     <left>15</left>
                     <top>0</top>
                     <width>615</width>
                     <height>180</height>
                     <font>font14_textbox</font>
                     <pagecontrol>62</pagecontrol>
-                    <include>ShowCaseInfoPanelButtonsValues</include>
+                    <include>KodiFlixButtonsValues</include>
                     <autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll) + !Control.HasFocus(62)</autoscroll>
                     <visible>!IsEmpty(ListItem.Comment)</visible>
                 </control>
@@ -1912,6 +1936,7 @@
                 </control>
             </control>
             <control type="list" id="700">
+				<include>Animation_OpenCloseZoom</include>
                 <left>1090</left>
                 <top>95</top>
                 <width>1000</width>
@@ -1971,29 +1996,39 @@
                         <height>68</height>
                         <texture border="4">listselect_fo_clear.png</texture>
                         <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-                        <visible>Control.HasFocus(700)</visible>
+                        <visible>Control.HasFocus(700) + !Skin.HasSetting(RightListNewTex)</visible>
+                        <include>VisibleFadeEffect</include>
+                    </control>
+					<control type="image">
+						<top>-11</top>
+                        <left>0</left>
+                        <width>840</width>
+                        <height>90</height>
+						<texture border="0" colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo2.png</texture>
+                        <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+                        <visible>Control.HasFocus(700) + Skin.HasSetting(RightListNewTex)</visible>
                         <include>VisibleFadeEffect</include>
                     </control>
                     <control type="label">
-                        <left>30</left>
+                        <left>10</left>
                         <width>775</width>
                         <height>68</height>
                         <font>font15</font>
                         <align>right</align>
                         <selectedcolor>selected</selectedcolor>
                         <label>$INFO[ListItem.Label]</label>
-                        <animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(501)">Conditional</animation>
+                        <animation effect="slide" start="0" end="-20" time="150" tween="Back" easing="out">Focus</animation>
                         <visible>[!Container.Content(songs) | Stringcompare(ListItem.Label,..)]</visible>
                     </control>
                     <control type="label">
-                        <left>30</left>
+                        <left>10</left>
                         <width>775</width>
                         <height>68</height>
                         <font>font15</font>
                         <align>right</align>
                         <selectedcolor>selected</selectedcolor>
                         <label>$INFO[ListItem.Tracknumber]: $INFO[ListItem.Title]</label>
-                        <animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(501)">Conditional</animation>
+                        <animation effect="slide" start="0" end="-20" time="150" tween="Back" easing="out">Focus</animation>
                         <visible>Container.Content(songs) + !Stringcompare(ListItem.Label,..)</visible>
                     </control>
                 </focusedlayout>
@@ -2007,7 +2042,7 @@
                 <ondown>60</ondown>
                 <onleft>700</onleft>
                 <onright>SetProperty(MediaMenu,True,home)</onright>
-                <onright>SetFocus(9050)</onright>
+                <onright>SetFocus(9000)</onright>
                 <texturesliderbackground border="1">-</texturesliderbackground>
                 <texturesliderbar border="6,0,6,0">scrollbar/texturesliderbar_hor.png</texturesliderbar>
                 <texturesliderbarfocus border="6,0,6,0">scrollbar/texturesliderbarfocus_hor.png</texturesliderbarfocus>

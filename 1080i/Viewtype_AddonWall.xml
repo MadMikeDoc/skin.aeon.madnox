@@ -20,6 +20,8 @@
                     <scrolltime tween="cubic">200</scrolltime>
                     <viewtype label="$LOCALIZE[31283]">icon</viewtype>
                     <pagecontrol>60</pagecontrol>					
+
+					<!-- MUSIC - ADDONS - FILES -->
 					<itemlayout height="268" width="290" condition="Container.Content(artists)">
                     <control type="group">
 					<left>45</left>
@@ -54,6 +56,10 @@
 					</itemlayout>                   
 					<focusedlayout height="268" width="290" condition="Container.Content(artists)">
 					<control type="group">
+					<animation type="Focus" condition="Skin.HasSetting(InfoWallZoom)">
+						<effect type="zoom" start="60" end="120" time="200" tween="sine" easing="inout" center="auto"/>
+						<effect type="fade" start="20" end="100" time="200" tween="sine" easing="in"/>
+					</animation>
 					<left>45</left>
 					<top>5</top>
 							<control type="image">
@@ -69,10 +75,10 @@
 							<control type="image">
 								<top>211</top>
 								<left>-7</left>
-								<width>274</width>
+								<width>275</width>
 								<height>40</height>
 								<texture background="true">dialogs/shutdown_nofocus2.png</texture>
-								<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse> -->
+								<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
 							</control>
 							<control type="label">
 								<top>210</top>
@@ -86,6 +92,7 @@
 							</control>			
 						</control>
                     </focusedlayout>
+
                     <itemlayout height="268" width="285" condition="Container.Content(Addons) | ![Container.Content(artists) | Container.Content(Albums) | Container.Content(songs) | Container.Content(sets) | Container.Content(seasons) | Container.Content(Movies) | Container.Content(tvshows) | Container.Content(episodes)]">
                         <control type="image">
                             <width>261</width>
@@ -98,14 +105,19 @@
                         </control>
                     </itemlayout>
                     <focusedlayout height="268" width="285" condition="Container.Content(Addons) | ![Container.Content(artists) | Container.Content(Albums) | Container.Content(songs) | Container.Content(sets) | Container.Content(seasons) | Container.Content(Movies) | Container.Content(tvshows) | Container.Content(episodes)]">
-                        <control type="image">
+                   	<control type="group">
+					<animation type="Focus" condition="Skin.HasSetting(InfoWallZoom)">
+						<effect type="zoom" start="60" end="120" time="200" tween="sine" easing="inout" center="130,130"/>
+						<effect type="fade" start="20" end="100" time="200" tween="sine" easing="in"/>
+					</animation>
+						<control type="image">
                             <width>261</width>
                             <height>261</height>
                             <aspectratio>keep</aspectratio>
                             <texture background="true" fallback="DefaultAddonMusic.png">$VAR[ThumbnailVar]</texture>
                             <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-                            <bordertexture border="15">views/addonwall_select.png</bordertexture>
-                            <bordersize>15</bordersize>
+                            <bordertexture border="5">views/addonwall_select.png</bordertexture>
+                            <bordersize>5</bordersize>
                         </control>
                         <control type="image">
                             <width>261</width>
@@ -114,7 +126,9 @@
                             <texture background="true" fallback="DefaultAddonMusic.png">$VAR[ThumbnailVar]</texture>
                             <bordersize>5</bordersize>
                         </control>
+					</control>
                     </focusedlayout>
+
 					<itemlayout height="268" width="285" condition="Container.Content(Albums) | Container.Content(songs)">
                         <control type="image">
 							<top>11</top>
@@ -123,7 +137,7 @@
                             <height>249</height>
                             <aspectratio>stretch</aspectratio>
                             <texture background="true" fallback="DefaultAddonMusic.png" diffuse="thumbs/boxes/cdcover_mask_aa.png">$VAR[ThumbnailVar]</texture>
-                            <animation effect="fade" end="90" time="0" condition="true">Conditional</animation>
+                            <animation effect="fade" end="70" time="0" condition="true">Conditional</animation>
 					    </control>
                         <control type="image">
 							<left>0</left>
@@ -138,68 +152,63 @@
                     </itemlayout>
                     <focusedlayout height="268" width="285" condition="Container.Content(Albums) | Container.Content(songs)">
 					<control type="group">
-						<animation effect="zoom" center="95,133" start="100" end="130" time="160" tween="quadratic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
-						<animation effect="zoom" center="105,133" start="110" end="115" time="160" tween="quadratic" reversible="false" condition="!Skin.HasSetting(InfoWallZoom)">Conditional</animation>
+						<animation type="Focus" condition="Skin.HasSetting(InfoWallZoom)">
+							<effect type="zoom" start="60" end="130" time="200" tween="sine" easing="inout" center="auto"/>
+							<effect type="fade" start="20" end="100" time="200" tween="sine" easing="in"/>
+						</animation>		
 						<visible>[Container.Content(Albums) + Skin.HasSetting(addonwallmusicCase)] | [Container.Content(songs) + Skin.HasSetting(addonwallmusicCase2)]</visible>
                         <control type="image">
-                            <width>261</width>
-                            <height>261</height>
-                            <aspectratio>keep</aspectratio>
+							<top>11</top>
+							<left>19</left>
+                            <width>249</width>
+                            <height>249</height>
+                            <aspectratio>stretch</aspectratio>
                             <texture background="true"  diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAddonMusic.png">$VAR[ThumbnailVar]</texture>
-                            <bordersize>15</bordersize>
                         </control>
                         <control type="image">
-							<left>-14</left>
-							<top>-14</top>
-                            <width>291</width>
-                            <height>291</height>
-                            <aspectratio>keep</aspectratio>
+							<left>0</left>
+							<top>-4</top>
+                            <width>285</width>
+                            <height>285</height>
+                            <aspectratio>stretch</aspectratio>
                             <texture background="true">wall/boxes/wall_overlay.png</texture>
-                            <bordersize>15</bordersize>
                         </control>
 						<control type="image">
-                            <left>8</left>
-                            <top>7</top>
-                            <width>245</width>
-                            <height>244</height>
-                            <aspectratio align="center" aligny="center">stretch</aspectratio>
-							<texture border="15">views/addonwall_select.png</texture>
-							<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-							<visible>!Skin.HasSetting(InfoWallZoom)</visible>
+                            <left>9</left>
+							<top>1</top>
+                            <width>268</width>
+                            <height>268</height>
+                            <aspectratio>stretch</aspectratio>
+							<texture border="5" colordiffuse="$VAR[FocusTextureColorVar]">views/addonwall_select.png</texture>
+							<bordersize>5</bordersize>
                         </control>
 					</control>
-					<control type="group">
-						<animation effect="zoom" center="105,133" start="100" end="130" time="160" tween="quadratic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
-						<animation effect="zoom" center="105,133" start="110" end="115" time="160" tween="quadratic" reversible="false" condition="!Skin.HasSetting(InfoWallZoom)">Conditional</animation>
+					
+					<control type="group">    <!-- no case -->
+						<animation type="Focus" condition="Skin.HasSetting(InfoWallZoom)">
+							<effect type="zoom" start="60" end="130" time="200" tween="sine" easing="inout" center="auto"/>
+							<effect type="fade" start="20" end="100" time="200" tween="sine" easing="in"/>
+						</animation>
 						<visible>[Container.Content(Albums) + !Skin.HasSetting(addonwallmusicCase)] | [Container.Content(songs) + !Skin.HasSetting(addonwallmusicCase2)]</visible>
                         <control type="image">
-                            <width>261</width>
-                            <height>261</height>
-                            <aspectratio>keep</aspectratio>
-                            <texture background="true" fallback="DefaultAddonMusic.png">$VAR[ThumbnailVar]</texture>
-                            <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-                            <bordertexture border="15">home/nowplaying/OverlayDialogBackground.png</bordertexture>
-                            <bordersize>15</bordersize>
-                        </control>
-                        <control type="image">
-                            <width>261</width>
-                            <height>261</height>
-                            <aspectratio>keep</aspectratio>
-                            <texture background="true" fallback="DefaultAddonMusic.png">$VAR[ThumbnailVar]</texture>
-                            <bordersize>15</bordersize>
+							<top>11</top>
+							<left>19</left>
+                            <width>249</width>
+                            <height>249</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true"  diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAddonMusic.png">$VAR[ThumbnailVar]</texture>
                         </control>
 						<control type="image">
-                            <left>8</left>
-                            <top>7</top>
-                            <width>245</width>
-                            <height>244</height>
-                            <aspectratio align="center" aligny="center">stretch</aspectratio>
-							<texture border="15">views/addonwall_select.png</texture>
-							<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-							<visible>!Skin.HasSetting(InfoWallZoom)</visible>
-                        </control>
+                            <left>13</left>
+							<top>6</top>
+                            <width>261</width>
+                            <height>260</height>
+                            <aspectratio>stretch</aspectratio>
+							<texture border="5" colordiffuse="$VAR[FocusTextureColorVar]">views/addonwall_select.png</texture>
+                        </control>						
 					</control>
                     </focusedlayout>
+
 					<!-- VIDEO --> 					
                     <itemlayout height="268" width="189" condition="[Container.Content(tvshows) + ![Skin.HasSetting(TVInfoWallLandscape) | Skin.HasSetting(TVInfoWallBanner) | Skin.HasSetting(TVInfoWallLogo)]] | [[Window.IsActive(programs) + !Container.Content(addons)] + !Skin.HasSetting(InfoWallSquare)] | Container.Content(sets) | Container.Content(seasons)">    <!--  TV CASES INACTIVE-->
                         <control type="group"> 
@@ -287,6 +296,7 @@
 							</control>
 					  </control>
                     </itemlayout>
+
  					<itemlayout height="268" width="189" condition="[Container.Content(movies) + !Skin.HasSetting(usecases)]"><!-- MOVIES INACTIVE NO CASE TRANSPARENT -->
                         <control type="group"> 
                             <visible>Skin.HasSetting(useclearcasesinfowall2)</visible>
@@ -374,10 +384,14 @@
                             <include>UnwatchedIcon</include>
                         </control>
                     </itemlayout>
+
                     <focusedlayout height="268" width="189" condition="[Container.Content(tvshows) + ![Skin.HasSetting(TVInfoWallLandscape) | Skin.HasSetting(TVInfoWallBanner) | Skin.HasSetting(TVInfoWallLogo)]] | [[Window.IsActive(programs) + !Container.Content(addons)] + !Skin.HasSetting(InfoWallSquare)] | Container.Content(sets) | Container.Content(seasons)">   <!--  TV CASES ACTIVE -->
 						<control type="group">
                            	<visible>Skin.HasSetting(useclearcasesinfowall)</visible>
-                            <animation effect="zoom" center="87,133" start="100" end="125" time="160" tween="quadratic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
+							<animation type="Focus" condition="Skin.HasSetting(InfoWallZoom)">
+								<effect type="zoom" start="60" end="125" time="200" tween="sine" easing="inout" center="85,133"/>
+								<effect type="fade" start="20" end="100" time="200" tween="sine" easing="in"/>
+							</animation> 
                             <control type="image">
                                 <left>4</left>
                                 <top>10</top>
@@ -400,9 +414,8 @@
                                 <width>180</width>
                                 <height>262</height>
                                 <aspectratio align="center" aligny="center">stretch</aspectratio>
-								<texture border="15">views/addonwall_select.png</texture>
-								<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-								<visible>!Skin.HasSetting(InfoWallZoom)</visible>
+								<texture border="5" colordiffuse="$VAR[FocusTextureColorVar]">views/addonwall_select.png</texture>
+								<bordersize>5</bordersize>
                             </control>
                             <control type="image">
                                 <left>110</left>
@@ -427,37 +440,30 @@
 						</control>												
 						<control type="group">
                             <top>1</top>
-							<left>-7</left>
+							<left>-5</left>
 							<visible>!Skin.HasSetting(useclearcasesinfowall)</visible>
-                            <animation effect="zoom" center="87,133" start="100" end="125" time="160" tween="quadratic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
+                            <animation type="Focus" condition="Skin.HasSetting(InfoWallZoom)">
+								<effect type="zoom" start="60" end="125" time="200" tween="sine" easing="inout" center="85,133"/>
+								<effect type="fade" start="20" end="100" time="200" tween="sine" easing="in"/>
+							</animation>
                             <control type="image">
-                                <left>4</left>
+                                <left>2</left>
                                 <top>10</top>
                                 <width>165</width>
                                 <height>246</height>
                                 <texture background="true">$VAR[ListPosterVar]</texture>
-								<bordertexture border="5">thumbs/bordershadow4.png</bordertexture>
+								<bordertexture border="5" colordiffuse="$VAR[ColorDiffuseVar]">views/addonwall_select.png</bordertexture>
                                 <bordersize>5</bordersize>
                             </control>
                             <control type="image">
-                                <left>5</left>
-                                <top>9</top>
-                                <width>165</width>
-                                <height>248</height>
-                                <aspectratio align="center" aligny="center">stretch</aspectratio>
-								<texture border="15">views/addonwall_select.png</texture>
-								<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-								<visible>!Skin.HasSetting(InfoWallZoom)</visible>
-                            </control>
-                            <control type="image">
-                                <left>104</left>
+                                <left>103</left>
                                 <top>15</top>
                                 <width>60</width>
                                 <height>60</height>
                                 <include>OverlayVisibility0</include>
                             </control>
 							<control type="image">
-                                <left>104</left>
+                                <left>103</left>
                                 <top>15</top>
                                 <width>60</width>
                                 <height>60</height>
@@ -466,15 +472,19 @@
 							</control>
                             <control type="group">
                                 <top>1</top>
-                                <left>-5</left>
+                                <left>-8</left>
 								<include>UnwatchedIcon</include>
                             </control>
 						</control>
 					</focusedlayout>
+
 					<focusedlayout height="268" width="189" condition="[Container.Content(movies) + !Skin.HasSetting(usecases)]">				<!-- ACTIVE MOVIES NO CASE TRANSPARENT -->
                         <control type="group">
                             <visible>Skin.HasSetting(useclearcasesinfowall2)</visible>
-                            <animation effect="zoom" center="87,133" start="100" end="140" time="160" tween="quadratic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
+							<animation type="Focus" condition="Skin.HasSetting(InfoWallZoom)">
+								<effect type="zoom" start="60" end="140" time="200" tween="sine" easing="inout" center="87,133"/>
+								<effect type="fade" start="20" end="100" time="200" tween="sine" easing="in"/>
+							</animation> 
                             <control type="image">
                                 <left>3</left>
                                 <top>8</top>
@@ -585,6 +595,7 @@
                             </control>
                         </control>
                     </focusedlayout>
+
                     <itemlayout height="268" width="189" condition="Container.Content(movies) + Skin.HasSetting(usecases)">      			<!-- MOVIES INACTIVE WITH CASES -->
 					<control type="group">
 					<visible>Skin.HasSetting(clearcases)</visible>
@@ -718,7 +729,10 @@
 					</itemlayout>
                     <focusedlayout height="268" width="189" condition="Container.Content(movies) + Skin.HasSetting(usecases)">    			<!-- MOVIES ACTIVE WITH CASES -->    
                     <control type="group">
-                    <animation effect="zoom" center="90,134" start="100" end="140" time="160" tween="cubic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
+					<animation type="Focus" condition="Skin.HasSetting(InfoWallZoom)">
+                        <effect type="zoom" start="60" end="135" time="200" tween="sine" easing="inout" center="80,134"/>
+                        <effect type="fade" start="20" end="100" time="200" tween="sine" easing="in"/>
+                     </animation>		
 						<control type="group">				
 						<visible>Skin.HasSetting(clearcases) + Skin.HasSetting(InfoWallZoom)</visible>
 							<control type="image">
@@ -911,6 +925,7 @@
                         </control>							
                     </control>
                     </focusedlayout>
+
                     <itemlayout height="161" width="300" condition="Container.Content(episodes) | [Container.Content(tvshows) + Skin.HasSetting(TVInfoWallLandscape)]"> <!-- TV LANDSCAPE INACTIVE-->
                         <control type="group">
                             <top>1</top>
@@ -981,7 +996,10 @@
                         <control type="group">
                             <top>1</top>
 							<left>20</left>
-							<animation effect="zoom" center="150,80" start="100" end="130" time="160" tween="cubic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
+							<animation type="Focus" condition="Skin.HasSetting(InfoWallZoom)">
+								<effect type="zoom" start="60" end="120" time="200" tween="sine" easing="inout" center="150,80"/>
+								<effect type="fade" start="20" end="100" time="200" tween="sine" easing="in"/>
+							</animation>
                             <control type="group">
                                 <visible>Container.Content(episodes)</visible>
                                 <control type="image">
@@ -989,6 +1007,7 @@
                                     <height>161</height>
                                     <aspectratio scalediffuse="false">scale</aspectratio>
                                     <texture background="true">$INFO[ListItem.Icon]</texture>
+									<bordertexture border="5" colordiffuse="$VAR[ColorDiffuseVar]">views/addonwall_select.png</bordertexture>
                                     <bordersize>5</bordersize>
                                 </control>
                                 <control type="image">
@@ -1023,10 +1042,9 @@
                                 <height>161</height>
                                 <aspectratio scalediffuse="false">stretch</aspectratio>
                                 <texture background="true" fallback="common/black.png">$VAR[LandscapeThumbVar]</texture>
-                                <bordertexture border="5">thumbs/bordershadow4.png</bordertexture>
+                                <bordertexture border="5" colordiffuse="$VAR[ColorDiffuseVar]">views/addonwall_select.png</bordertexture>
                                 <bordersize>5</bordersize>
                                 <visible>Container.Content(tvshows)</visible>
-                                <animation effect="fade" end="90" time="0" condition="true">Conditional</animation>
                             </control>
                             <control type="image">
                                 <width>285</width>
@@ -1059,6 +1077,7 @@
 							</control>
                         </control>
                     </focusedlayout>
+
                     <itemlayout height="161" width="870" condition="Container.Content(tvshows) + Skin.HasSetting(TVInfoWallBanner)">   <!-- TV BANNER INACTIVE-->
                         <control type="image">
                             <left>51</left>
@@ -1103,9 +1122,12 @@
                         </control>
                     </itemlayout>
                     <focusedlayout height="161" width="870" condition="Container.Content(tvshows) + Skin.HasSetting(TVInfoWallBanner)">   <!-- TV BANNER ACTIVE  -->
-						<control type="group">
-						<animation effect="zoom" center="290,70" start="100" end="110" time="160" tween="cubic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>						
-                            <control type="group">
+						<control type="group">					
+                        <animation type="Focus" condition="Skin.HasSetting(InfoWallZoom)">
+							<effect type="zoom" start="60" end="110" time="200" tween="sine" easing="inout" center="290,70"/>
+							<effect type="fade" start="20" end="100" time="200" tween="sine" easing="in"/>
+						</animation>    
+							<control type="group">
 							<visible>Skin.HasSetting(InfoWallZoom)</visible>
 							<control type="image"> 
                                 <left>35</left>
@@ -1114,7 +1136,7 @@
 								<height>158</height>
 								<aspectratio align="center">scale</aspectratio>
                                 <texture background="true">$VAR[BannerVar]</texture>
-								<bordertexture border="5">thumbs/bordershadow4.png</bordertexture>
+								<bordertexture border="5" colordiffuse="$VAR[ColorDiffuseVar]">views/addonwall_select.png</bordertexture>
                                 <bordersize>5</bordersize>
                             </control>
                             <control type="label">
@@ -1204,6 +1226,7 @@
 							</control>	
                         </control>
                     </focusedlayout>
+
                     <itemlayout height="201" width="300" condition="Container.Content(tvshows) + Skin.HasSetting(TVInfoWallLogo)">		<!-- TV LOGO INACTIVE-->
                          	<control type="image">
                             <left>30</left>
@@ -1295,10 +1318,14 @@
                             <height>93</height>
                             <aspectratio align="center">keep</aspectratio>
                             <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-                            <animation effect="zoom" center="auto" start="100" end="130" time="160" tween="quadratic" reversible="false" condition="Skin.HasSetting(InfoWallZoom)">Conditional</animation>
+							<animation type="Focus" condition="Skin.HasSetting(InfoWallZoom)">
+							<effect type="zoom" start="60" end="120" time="200" tween="sine" easing="inout" center="auto"/>
+							<effect type="fade" start="20" end="100" time="200" tween="sine" easing="in"/>
+						</animation> 
                         </control>                    					
 					</focusedlayout>
                 </control>
+
                 <control type="scrollbar" id="60">
                     <posx>1015</posx>
                     <include>Animation_VerticalScrollBar</include>
@@ -1477,10 +1504,29 @@
 							<include>Animation_VisibleChange200</include>
 						</control>
 						
-                        <control type="videowindow" id="40001">
-							<width>790</width>
-                            <height>442</height>
-							<visible>Player.Hasvideo + !VideoPlayer.IsFullscreen</visible>
+						<control type="group">
+							<control type="image" id="40001">
+								<width>790</width>
+								<height>444</height>
+								<texture background="true">videoblack.png</texture>
+								<visible>Player.Hasvideo + !VideoPlayer.IsFullscreen</visible>
+							</control>
+							<control type="videowindow" id="40001">
+								<width>790</width>
+								 <height>444</height>
+								<visible>Player.Hasvideo + !VideoPlayer.IsFullscreen</visible>
+							</control>
+						</control>
+						<!-- fanart Frame - thx 4 the idea >> shadowtek -->
+						<control type="image">
+                            <top>-5</top>
+                            <left>-5</left>
+                            <width>800</width>
+                            <height>454</height>
+                            <fadetime>300</fadetime>
+                            <texture>fanartframe.png</texture>
+                            <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+                            <include>Animation_VisibleChange200</include>
                         </control>
                     </control>
                 </control>

@@ -66,16 +66,16 @@
             </control>
             <control type="image">
                 <left>375</left>
-                <top>232</top>
+                <top>202</top>
                 <width>1172</width>
                 <height>60</height>
                 <texture border="1">osd/osd_settings_buttonnf.png</texture>
             </control>
             <control type="label">
                 <left>360</left>
-                <top>215</top>
+                <top>225</top>
                 <width>600</width>
-                <height>60</height>
+                <height>20</height>
                 <align>center</align>
                 <label>31501</label>
                 <font>Font_Reg32</font>
@@ -83,9 +83,9 @@
             </control>
             <control type="label">
                 <left>990</left>
-                <top>215</top>
+                <top>225</top>
                 <width>572</width>
-                <height>60</height>
+                <height>20</height>
                 <textoffsety>10</textoffsety>
                 <align>center</align>
                 <label>31504</label>
@@ -96,8 +96,8 @@
                 <left>790</left>
                 <top>210</top>
                 <control type="togglebutton" id="440">
-                    <width>100</width>
-                    <height>100</height>
+                    <width>50</width>
+                    <height>50</height>
                     <texturefocus>special://skin/extras/BigIcons/ButtonPause.png</texturefocus>
                     <texturenofocus>special://skin/extras/BigIcons/ButtonPause.png</texturenofocus>
                     <alttexturefocus>special://skin/extras/BigIcons/ButtonPlay.png</alttexturefocus>
@@ -111,8 +111,8 @@
                     <onright>441</onright>
                 </control>
                 <control type="togglebutton">
-                    <width>100</width>
-                    <height>100</height>
+                    <width>50</width>
+                    <height>50</height>
                     <texturefocus>-</texturefocus>
                     <texturenofocus>special://skin/extras/BigIcons/ButtonPause.png</texturenofocus>
                     <alttexturefocus>special://skin/extras/BigIcons/ButtonPlay.png</alttexturefocus>
@@ -127,8 +127,8 @@
                 <left>1450</left>
                 <top>210</top>
                 <control type="togglebutton" id="441">
-                    <width>100</width>
-                    <height>100</height>
+                    <width>50</width>
+                    <height>50</height>
                     <texturefocus>special://skin/extras/BigIcons/ButtonPause.png</texturefocus>
                     <texturenofocus>special://skin/extras/BigIcons/ButtonPause.png</texturenofocus>
                     <alttexturefocus>special://skin/extras/BigIcons/ButtonPlay.png</alttexturefocus>
@@ -142,8 +142,8 @@
                     <onleft>440</onleft>
                 </control>
                 <control type="togglebutton">
-                    <width>100</width>
-                    <height>100</height>
+                    <width>50</width>
+                    <height>50</height>
                     <texturefocus>-</texturefocus>
                     <texturenofocus>special://skin/extras/BigIcons/ButtonPause.png</texturenofocus>
                     <alttexturefocus>special://skin/extras/BigIcons/ButtonPlay.png</alttexturefocus>
@@ -158,7 +158,7 @@
             </control>
             <control type="grouplist" id="450">
                 <left>288</left>
-                <top>312</top>
+                <top>272</top>
                 <width>1172</width>
                 <height>540</height>
                 <aligny>center</aligny>
@@ -220,7 +220,7 @@
             </control>
             <control type="grouplist" id="20">
                 <left>960</left>
-                <top>312</top>
+                <top>272</top>
                 <width>1172</width>
                 <height>540</height>
                 <aligny>center</aligny>
@@ -243,12 +243,12 @@
                 </control>
                 <control type="label" id="332">
                     <label></label>
-                    <height>30</height>
+                    <height>5</height>
                     <include>Objects_NowPlayingSettingsButton</include>
                 </control>
                 <control type="label" id="333">
                     <width>672</width>
-                    <height>60</height>
+                    <height>40</height>
                     <textoffsetx>10</textoffsetx>
                     <textoffsety>10</textoffsety>
                     <align>center</align>
@@ -258,7 +258,7 @@
                 </control>
                 <control type="label" id="334">
                     <label></label>
-                    <height>30</height>
+                    <height>10</height>
                     <font>Font_Reg32</font>
                     <include>Objects_NowPlayingSettingsButton</include>
                 </control>
@@ -271,12 +271,35 @@
                     <onclick condition="Skin.HasSetting(nowplayingpanel) + !Skin.HasSetting(rotatenowplayingpanel)">Skin.SetBool(rotatenowplayingpanel)</onclick>
                     <onclick condition="Skin.HasSetting(rotatenowplayingpanel) + Skin.HasSetting(nowplayingpanel)">Skin.Reset(rotatenowplayingpanel)</onclick>
                     <onclick condition="Skin.HasSetting(rotatenowplayingpanel) + Skin.HasSetting(nowplayingpanel)">Skin.Reset(nowplayingpanel)</onclick>
+					<enable>!Skin.HasSetting(nohomepageMusicinfo)</enable>
                 </control>
                 <control type="radiobutton" id="455">
                     <label>31729</label>
                     <include>Objects_NowPlayingSettingsButton</include>
                     <onclick>Skin.ToggleSetting(movenowplayingwidget)</onclick>
                     <selected>Skin.HasSetting(movenowplayingwidget)</selected>
+					<enable>!Skin.HasSetting(nohomepageMusicinfo)</enable>
+                </control>
+				<control type="radiobutton" id="4566"><!-- ID? -->
+                    <label>Move now Playing Below HomeBar</label>
+                    <include>Objects_NowPlayingSettingsButton</include>
+                    <onclick>Skin.ToggleSetting(NowPlayingBelowBar)</onclick>
+					<onclick>Skin.Reset(nohomepageMusicinfo)</onclick><!-- dont work...-->
+					<selected>Skin.HasSetting(NowPlayingBelowBar)</selected>
+                </control>
+				<control type="radiobutton" id="4567"><!-- ID? -->
+                    <label>Center CD Below HomeBar</label>
+                    <include>Objects_NowPlayingSettingsButton</include>
+                    <onclick>Skin.ToggleSetting(BelowMidCD)</onclick>
+					<selected>Skin.HasSetting(BelowMidCD)</selected>
+					<enable>Skin.HasSetting(NowPlayingBelowBar)</enable>
+                </control>
+				<control type="radiobutton" id="4568"><!-- ID? -->
+                    <label>Show Logo Below HomeBar</label>
+                    <include>Objects_NowPlayingSettingsButton</include>
+                    <onclick>Skin.ToggleSetting(BelowMidLogo)</onclick>
+					<selected>Skin.HasSetting(BelowMidLogo)</selected>
+					<enable>Skin.HasSetting(NowPlayingBelowBar)</enable>
                 </control>
             </control>
         </control>
