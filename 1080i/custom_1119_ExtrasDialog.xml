@@ -54,14 +54,12 @@
 			<onup>90200</onup>
 			<ondown>90200</ondown>
 			<control type="button" id="112">
-				<description>Cinema Experience button</description>
+				<description>CinemaVision</description>
 				<include>Objects_CommonSettingsButton</include>
-				<onclick>Dialog.Close(1119)</onclick>
+				<label>CinemaVision</label>
 				<onclick>Dialog.Close(MovieInformation)</onclick>
-				<onclick>RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
-				<label>$INFO[System.AddonTitle(script.cinema.experience)]</label>
-				<visible>System.HasAddon(script.cinema.experience)</visible>
-				<visible>Container.Content(movies) + !SubString(Window(10025).Property(CinemaExperienceRunning),True)</visible>
+				<onclick>RunScript(script.cinemavision,experience)</onclick>
+				<visible>System.HasAddon(script.cinemavision) + [Container.Content(movies)]</visible>
 			</control>
 			<control type="button" id="113">
 				<description>Refresh button</description>
