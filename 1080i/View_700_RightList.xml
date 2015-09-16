@@ -232,17 +232,30 @@
 					<bordersize>20</bordersize>
 					<visible>Skin.Hassetting(usecases)</visible>
 				</control>
+				<!-- change by schimi - change position - before it was on position 260 - OVER the original cover - now its under and just visible when no original cover is available --> 
+				<control type="image">  
+					<left>-1</left>
+					<top>6</top>
+					<width>438</width>
+					<height>637</height>
+					<aspectratio aligny="bottom">stretch</aspectratio>
+					<texture background="true" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterBackupVar]</texture>
+					<fadetime>IconCrossfadeTime2</fadetime>
+					<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
+					<bordersize>20</bordersize>
+					<visible>IsEmpty(Control.GetLabel(3822))</visible>
+				</control>
 				<control type="image" id="3822">
 					<left>-1</left>
 					<top>6</top>
 					<width>438</width>
 					<height>637</height>
 					<aspectratio aligny="bottom">stretch</aspectratio>
-					<texture background="true" diffuse="thumbs/movieposter_mask.png">$VAR[ListPosterVar]</texture>
+					<texture background="true">$VAR[ListPosterVar]</texture>
 					<fadetime>IconCrossfadeTime</fadetime>
 					<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
 					<bordersize>20</bordersize>
-					<visible>Skin.Hassetting(clearcases)</visible>
+					<visible>Skin.HasSetting(genrethumbs)</visible>
 				</control>
 				<control type="image">
 					<left>-1</left>
@@ -254,20 +267,9 @@
 					<fadetime>IconCrossfadeTime</fadetime>
 					<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
 					<bordersize>20</bordersize>
-					<visible>!Skin.Hassetting(usecases) | SubString(ListItem.Path,videodb://movies/sets)</visible>
+					<visible>!Skin.HasSetting(usecases) | SubString(ListItem.Path,videodb://movies/sets)</visible>
 				</control>
-				<control type="image">
-					<left>-1</left>
-					<top>6</top>
-					<width>438</width>
-					<height>637</height>
-					<aspectratio aligny="bottom">stretch</aspectratio>
-					<texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterBackupVar]</texture>
-					<fadetime>IconCrossfadeTime2</fadetime>
-					<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
-					<bordersize>20</bordersize>
-					<visible>IsEmpty(Control.GetLabel(3822))</visible>
-				</control>
+
 				
 				<control type="image">
 					<left>-50</left>

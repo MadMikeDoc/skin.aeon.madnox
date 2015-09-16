@@ -54,12 +54,13 @@
 			<onup>90200</onup>
 			<ondown>90200</ondown>
 			<control type="button" id="112">
-				<description>CinemaVision</description>
+				<description>Trailer Search</description>
+				<label>$LOCALIZE[31886]</label>
 				<include>Objects_CommonSettingsButton</include>
-				<label>CinemaVision</label>
+				<onclick>Dialog.Close(1119)</onclick>
 				<onclick>Dialog.Close(MovieInformation)</onclick>
-				<onclick>RunScript(script.cinemavision,experience)</onclick>
-				<visible>System.HasAddon(script.cinemavision) + [Container.Content(movies)]</visible>
+				<onclick>ActivateWindow(videos,plugin://plugin.video.youtube/kodion/search/query/?q=$INFO[ListItem.OriginalTitle]+Trailer)</onclick>
+				<visible>Container.Content(movies) + ![substring(Container.FolderPath,plugin://) + substring(Container.FolderPath,trailer)]</visible>
 			</control>
 			<control type="button" id="113">
 				<description>Refresh button</description>

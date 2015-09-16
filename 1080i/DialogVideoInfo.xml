@@ -2624,7 +2624,7 @@
 				<control type="grouplist" id="5000">
 					<left>808</left>
 					<top>565</top>
-					<width>1130</width>
+					<width>1135</width>
 					<height>400</height>
 					<onleft>5000</onleft>
 					<onright>5000</onright>
@@ -2640,6 +2640,14 @@
 						<label>$LOCALIZE[13404] $INFO[ListItem.PercentPlayed,(,%)]</label>
 						<include>DialogVideoInfoButton</include>
 						<visible>Control.IsEnabled(9)</visible>
+					</control>
+					<control type="button" id="109">
+						<description>CinemaVision</description>
+						<include>DialogVideoInfoButton</include>
+						<label>CinemaVision</label>
+						<onclick>Dialog.Close(MovieInformation)</onclick>
+						<onclick>RunScript(script.cinemavision,experience)</onclick>
+						<visible>System.HasAddon(script.cinemavision) + Container.Content(movies) + IsEmpty(Window(Home).Property(script.cinemavision.running))</visible>
 					</control>
 					<control type="button" id="551">
 						<description>ExtendedInfo Movies</description>
@@ -2660,7 +2668,7 @@
 						<include>DialogVideoInfoButton</include>
 						<visible>!IsEmpty(ListItem.Trailer)</visible>
 						<visible>Container.Content(movies) + ![substring(Container.FolderPath,plugin://) + substring(Container.FolderPath,trailer)]</visible>
-					</control>
+					</control> 
 					<control type="button" id="440">
 						<label>$LOCALIZE[31886]</label>
 						<include>DialogVideoInfoButton</include>
@@ -2684,8 +2692,8 @@
 						<label>Extras</label>
 						<onclick>ActivateWindow(1119)</onclick>
 						<enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
+						</control>
 					</control>
-				</control>
 				</control>
 				<control type="label">
 					<left>825</left>
