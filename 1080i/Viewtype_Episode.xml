@@ -909,45 +909,36 @@
 					<animation effect="rotate" end="-360" center="auto" time="6400" delay="1600" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
 				</control>
 			</control>
+
+			<!-- BIG cover -->
 			<control type="group">
                 <visible>Window.IsActive(videos)</visible>
                 <visible>!Skin.HasSetting(disableepisodeposter)</visible>
-                <control type="image">
-                    <left>30</left>
-                    <top>160</top>
-                    <width>540</width>
+				<control type="image">  
+					<left>49</left>
+                    <top>190</top>
+                    <width>533</width>
                     <height>800</height>
-                    <align>center</align>
-                    <texture background="true">thumbs/thumb_glass_shadow.png</texture>
-                    <bordersize>18</bordersize>
-                    <include>PanelGlowFade</include>
-                    <include>Animation_VisibleChange400</include>
-                    <visible>Skin.HasSetting(ExtendedGlowMode)</visible>
-                    <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-                    <visible>!IsEmpty(Control.GetLabel(3822))</visible>
-                </control>
-				<control type="image" id="3822">
-                    <left>49</left>
-                    <top>190</top>
-                    <width>502</width>
-                    <height>739</height>
-                    <aspectratio scalediffuse="false">stretch</aspectratio>
-                    <texture background="true" diffuse="thumbs/movieposter_mask.png">$VAR[ListPosterVar]</texture>
-                    <bordertexture border="19.5">thumbs/poster_shadow.png</bordertexture>
-                    <bordersize>19</bordersize>
-                </control>
-				<control type="image">
-                    <left>49</left>
-                    <top>190</top>
-                    <width>502</width>
-                    <height>739</height>
-                    <aspectratio scalediffuse="false">stretch</aspectratio>
-                    <texture background="true" diffuse="thumbs/movieposter_mask.png">$VAR[ListPosterBackupVar]</texture>
-                    <bordertexture border="19.5">thumbs/poster_shadow.png</bordertexture>
-                    <bordersize>19</bordersize>
+					<aspectratio aligny="bottom">stretch</aspectratio>
+					<texture background="true" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterBackupVar]</texture>
+					<fadetime>IconCrossfadeTime2</fadetime>
+					<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
+					<bordersize>20</bordersize>
 					<visible>IsEmpty(Control.GetLabel(3822))</visible>
-                </control>
-            </control>
+				</control>
+ 				<control type="image" id="3822">
+					<left>49</left>
+                    <top>190</top>
+                    <width>533</width>
+                    <height>800</height>
+					<aspectratio aligny="bottom">stretch</aspectratio>
+					<texture background="true">$VAR[ListPosterVar]</texture>
+					<fadetime>IconCrossfadeTime</fadetime>
+					<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
+					<bordersize>20</bordersize>
+					<visible>Skin.HasSetting(genrethumbs)</visible>
+				</control>
+			</control>
 		</control>
     </include>
     <include name="EpisodeViewtypeMusicLayouts">
@@ -1060,8 +1051,8 @@
         </focusedlayout>
     </include>
     <include name="EpisodeViewtypeVideoLayouts">
-        <itemlayout width="950" height="90" condition="![[Skin.HasSetting(episodebanner) | Skin.HasSetting(episodelogo)] + [Container.Content(tvshows) | Container.Content(movies)]]">
-            <control type="label">
+		<itemlayout width="950" height="90" condition="![[Skin.HasSetting(episodebanner) | Skin.HasSetting(episodelogo)] + [Container.Content(tvshows) | Container.Content(movies)]]">
+			<control type="label">
                 <left>590</left>
                 <width>690</width>
                 <height>45</height>
@@ -1117,7 +1108,7 @@
                 <visible>Container.Content(episodes)</visible>
             </control>
         </itemlayout>
-        <itemlayout width="950" height="140" condition="Skin.HasSetting(episodebanner) + [Container.Content(tvshows) | Container.Content(movies)]">
+        <itemlayout width="950" height="130" condition="Skin.HasSetting(episodebanner) + [Container.Content(tvshows) | Container.Content(movies)]">
             <control type="group">
                 <left>30</left>
                 <control type="image">
@@ -1175,13 +1166,14 @@
                     <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                 </control>
                 <control type="group">
-                    <left>684</left>
-                    <top>-10</top>
+                    <left>695</left>
+                    <top>-5</top>
                     <include>UnwatchedIcon</include>
+					<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
                 </control>
             </control>
         </itemlayout>
-        <itemlayout width="950" height="140" condition="Skin.HasSetting(episodelogo) + [Container.Content(tvshows) | Container.Content(movies)]">
+        <itemlayout width="950" height="130" condition="Skin.HasSetting(episodelogo) + [Container.Content(tvshows) | Container.Content(movies)]">
             <control type="group">
                 <left>50</left>
                 <control type="image">
@@ -1225,13 +1217,13 @@
                 <left>1120</left>
                 <top>-140</top>
                 <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
-                <control type="image">
+				<control type="image">
                     <left>8</left>
                     <top>150</top>
                     <width>150</width>
                     <height>225</height>
                     <aspectratio scalediffuse="false">scale</aspectratio>
-                    <texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
+                    <texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar]</texture>
                     <fadetime>200</fadetime>
                 </control>
                 <control type="image">
@@ -1245,8 +1237,8 @@
 					<visible>!Skin.HasSetting(EpisodeDiscArt)</visible>
                 </control>
 				<control type="group">
-                    <left>-27</left>
-                    <top>117</top>
+                    <left>-7</left>
+                    <top>137</top>
                     <include>UnwatchedIcon</include>
                 </control>
             </control>
@@ -1337,7 +1329,7 @@
             </control>
         </focusedlayout>
         <focusedlayout width="950" height="246" condition="Container.Content(episodes)">
-            <control type="image">
+			<control type="image">
                 <left>901</left>
                 <top>11</top>
                 <width>396</width>
@@ -1417,4 +1409,5 @@
             </control>
         </focusedlayout>
     </include>
+
 </includes>
