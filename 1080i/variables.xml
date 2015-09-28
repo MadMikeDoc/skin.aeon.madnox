@@ -5,12 +5,12 @@
 	<constant name="IconCrossfadeTime2">250</constant>
 	<constant name="WidgetSlideDelay">300</constant>
 	<variable name="DayTimeColorVar">
-		<value condition="Substring(System.Time(mm),0,left)">FF69f5ee</value>
-		<value condition="Substring(System.Time(mm),1,left)">FFF3F781</value>
-		<value condition="Substring(System.Time(mm),2,left)">FF69f5ee</value>
-		<value condition="Substring(System.Time(mm),3,left)">FFF3F781</value>
-		<value condition="Substring(System.Time(mm),4,left)">FF69f5ee</value>
-		<value condition="Substring(System.Time(mm),5,left)">FFF3F781</value>
+		<value condition="SubString(System.Time(mm),0,left)">FF69f5ee</value>
+		<value condition="SubString(System.Time(mm),1,left)">FFF3F781</value>
+		<value condition="SubString(System.Time(mm),2,left)">FF69f5ee</value>
+		<value condition="SubString(System.Time(mm),3,left)">FFF3F781</value>
+		<value condition="SubString(System.Time(mm),4,left)">FF69f5ee</value>
+		<value condition="SubString(System.Time(mm),5,left)">FFF3F781</value>
 	</variable>
 	<variable name="QuickConfigIconVar">
 		<value condition="!IsEmpty(Window(home).Property(quicknavsetup))">special://skin/extras/BigIcons/ButtonStop.png</value>
@@ -82,7 +82,7 @@
 	</variable>
 	<variable name="AreaColorVar">
 		<value condition="[Window.IsActive(1128) | Window.IsActive(1138)] + !IsEmpty(Skin.String(diffuse_color))">$INFO[Skin.String(diffuse_color)]</value>
-		<value condition="Substring(Skin.CurrentTheme,whit)">$VAR[WhiteAreaColorVar]</value>
+		<value condition="SubString(Skin.CurrentTheme,whit)">$VAR[WhiteAreaColorVar]</value>
 		<value>$VAR[DefaultAreaColorVar]</value>
 	</variable>
 	<variable name="DefaultFontColorVar">
@@ -120,11 +120,11 @@
 	</variable>
 	<variable name="FontColorVar">
 		<value condition="[Window.IsActive(1128) | Window.IsActive(1138)] + !IsEmpty(Skin.String(font_color))">$INFO[Skin.String(font_color)]</value>
-		<value condition="Substring(Skin.CurrentTheme,whit)">$VAR[WhiteFontColorVar]</value>
+		<value condition="SubString(Skin.CurrentTheme,whit)">$VAR[WhiteFontColorVar]</value>
 		<value>$VAR[DefaultFontColorVar]</value>
 	</variable>
 	<variable name="SpotColorVar2">
-		<value condition="Substring(Skin.CurrentTheme,whit)">FFAAAAAA</value>
+		<value condition="SubString(Skin.CurrentTheme,whit)">FFAAAAAA</value>
 		<value>$VAR[ColorDiffuseVar]</value>
 	</variable>
 	<variable name="ColorDiffuseVar">
@@ -132,12 +132,12 @@
 		<value>$VAR[AreaColorVar]</value>
 	</variable>
 	<variable name="DialogColorVar">
-		<value condition="Substring(Skin.CurrentTheme,whit)">FFFFFFFF</value>
+		<value condition="SubString(Skin.CurrentTheme,whit)">FFFFFFFF</value>
 		<value condition="Skin.HasSetting(colordialogs)">$VAR[ColorDiffuseVar]</value>
 		<value>FFFFFFFF</value>
 	</variable>
 	<variable name="ExtendedColorDiffuseVar">
-		<value condition="Substring(Skin.CurrentTheme,whit)">FFFFFFFF</value>
+		<value condition="SubString(Skin.CurrentTheme,whit)">FFFFFFFF</value>
 		<value condition="!Skin.HasSetting(randomcolor) + ![Skin.HasSetting(DisableGlowbar) + !Skin.HasSetting(ExtendedGlowMode)]">$VAR[AreaColorVar]</value>
 		<value condition="Skin.HasSetting(randomcolor) + ![Skin.HasSetting(DisableGlowbar) + !Skin.HasSetting(ExtendedGlowMode)]">$VAR[DayTimeColorVar]</value>
 		<value>white</value>
@@ -209,6 +209,7 @@
 		<value condition="VideoPlayer.Content(LiveTV)">$INFO[VideoPlayer.ChannelName]</value>
 	</variable>
 	<variable name="VideoPlayerSeekVar">
+		<value condition="!IsEmpty(Player.SeekStepSize) ">$LOCALIZE[773] $INFO[Player.SeekStepSize]</value>
 		<value condition="[Player.Paused + !Player.Caching] + !Player.Seeking + !Player.DisplayAfterSeek">$LOCALIZE[31043]</value>
 		<value condition="[Player.Paused + Player.Caching] + !Player.Seeking">$LOCALIZE[15107] $INFO[Player.CacheLevel]%</value>
 		<value condition="Player.Seeking">$LOCALIZE[773]</value>
@@ -222,18 +223,18 @@
 		<value condition="Player.Forwarding32x | Player.Rewinding32x">32x</value>
 	</variable>
 	<variable name="WidgetRatingFlagVar">
-		<value condition="substring(Window(home).Property(mpaa),Rated X)">MPAA_X_Certificate_US</value>
-		<value condition="substring(Window(home).Property(mpaa),TV-G)">TV-G_Certificate_US</value>
-		<value condition="substring(Window(home).Property(mpaa),TV-PG)">TV-PG_Certificate_US</value>
-		<value condition="substring(Window(home).Property(mpaa),TV-14)">TV-14_Certificate_US</value>
-		<value condition="substring(Window(home).Property(mpaa),TV-MA)">TV-MA_Certificate_US</value>
-		<value condition="substring(Window(home).Property(mpaa),TV-Y7)">tv-y7</value>
-		<value condition="substring(Window(home).Property(mpaa),TV-Y)">tv-y</value>
+		<value condition="SubString(Window(home).Property(mpaa),Rated X)">MPAA_X_Certificate_US</value>
+		<value condition="SubString(Window(home).Property(mpaa),TV-G) | SubString(Window(home).Property(mpaa),TV - G)">TV-G_Certificate_US</value>
+		<value condition="SubString(Window(home).Property(mpaa),TV-PG) | SubString(Window(home).Property(mpaa),TV - PG)">TV-PG_Certificate_US</value>
+		<value condition="SubString(Window(home).Property(mpaa),TV-14) | SubString(Window(home).Property(mpaa),TV - 14)">TV-14_Certificate_US</value>
+		<value condition="SubString(Window(home).Property(mpaa),TV-MA) | SubString(Window(home).Property(mpaa),TV - MA)">TV-MA_Certificate_US</value>
+		<value condition="SubString(Window(home).Property(mpaa),TV-Y7) | SubString(Window(home).Property(mpaa),TV - Y7)">tv-y7</value>
+		<value condition="SubString(Window(home).Property(mpaa),TV-Y) | SubString(Window(home).Property(mpaa),TV - Y)">tv-y</value>
 		<value condition="SubString(Window(home).Property(mpaa),US:G) | SubString(Window(home).Property(mpaa),USA:G) | SubString(Window(home).Property(mpaa),Rated G)">MPAA_G_Certificate_US</value>
-		<value condition="SubString(Window(home).Property(mpaa),PG-13)">MPAA_PG-13_Certificate_US</value>
+		<value condition="SubString(Window(home).Property(mpaa),PG-13) | SubString(Window(home).Property(mpaa),PG - 13)">MPAA_PG-13_Certificate_US</value>
 		<value condition="Substring(Window(home).Property(mpaa),Rated PG) | StringCompare(Window(home).Property(mpaa),PG)">MPAA_PG_Certificate_US</value>
 		<value condition="SubString(Window(home).Property(mpaa),US:R) | SubString(Window(home).Property(mpaa),USA:R) | SubString(Window(home).Property(mpaa),Rated R) | StringCompare(Window(home).Property(mpaa),R)">MPAA_R_Certificate_US</value>
-		<value condition="SubString(Window(home).Property(mpaa),US:NC-17)| SubString(Window(home).Property(mpaa),USA:NC-17)| SubString(Window(home).Property(mpaa),Rated NC-17)">MPAA_NC-17_Certificate_US</value>
+		<value condition="SubString(Window(home).Property(mpaa),US:NC-17)| SubString(Window(home).Property(mpaa),USA:NC-17)| SubString(Window(home).Property(mpaa),Rated NC-17) | SubString(Window(home).Property(mpaa),Rated NC - 17)">MPAA_NC-17_Certificate_US</value>
 		<value condition="SubString(Window(home).Property(mpaa),UK:U)">BBFC_U_Certificate_UK</value>
 		<value condition="SubString(Window(home).Property(mpaa),UK:PG)">BBFC_PG_Certificate_UK</value>
 		<value condition="SubString(Window(home).Property(mpaa),UK:12A)">BBFC_12A_Certificate_UK</value>
@@ -250,30 +251,30 @@
 		<value condition="SubString(Window(home).Property(mpaa),12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">HU_12</value>
 		<value condition="SubString(Window(home).Property(mpaa),16 éven aluliak számára nem ajánlott)">HU_16</value>
 		<value condition="SubString(Window(home).Property(mpaa),18 éven aluliak számára nem ajánlott)">HU_18</value>
-		<value condition="substring(Window(home).Property(mpaa),France:U) | Substring(Window(home).Property(mpaa),partir de 3 ans) | Substring(Window(home).Property(mpaa),partir de 6 ans)">csaU</value>
-		<value condition="substring(Window(home).Property(mpaa),France:-10) | Substring(Window(home).Property(mpaa),Interdit aux moins de 10 ans) | Substring(Window(home).Property(mpaa),des propos ou des images peuvent heurter)">csa10</value>
-		<value condition="substring(Window(home).Property(mpaa),France:-12) | Substring(Window(home).Property(mpaa),Interdit aux moins de 12 ans)">csa12</value>
-		<value condition="substring(Window(home).Property(mpaa),France:-16) | Substring(Window(home).Property(mpaa),Interdit aux moins de 16 ans)">csa16</value>
-		<value condition="substring(Window(home).Property(mpaa),France:-18) | Substring(Window(home).Property(mpaa),Interdit aux moins de 18 ans)">csa18</value>
-		<value condition="substring(Window(home).Property(mpaa),전체)">KR_Certificate_All</value>
-		<value condition="substring(Window(home).Property(mpaa),12세)">KR_Certificate_12</value>
-		<value condition="substring(Window(home).Property(mpaa),15세)">KR_Certificate_15</value>
-		<value condition="substring(Window(home).Property(mpaa),불가)">KR_Certificate_18</value>
-		<value condition="substring(Window(home).Property(mpaa),제한)">KR_Certificate_R</value>
-		<value condition="substring(Window(home).Property(mpaa),Brazil:Livre) | substring(Window(home).Property(mpaa),Livre)">MPAA_Brazil_Livre</value>
-		<value condition="substring(Window(home).Property(mpaa),Brazil:10) | substring(Window(home).Property(mpaa),10 anos)">MPAA_Brazil_10</value>
-		<value condition="substring(Window(home).Property(mpaa),Brazil:12) | substring(Window(home).Property(mpaa),12 anos)">MPAA_Brazil_12</value>
-		<value condition="substring(Window(home).Property(mpaa),Brazil:14) | substring(Window(home).Property(mpaa),14 anos)">MPAA_Brazil_14</value>
-		<value condition="substring(Window(home).Property(mpaa),Brazil:16) | substring(Window(home).Property(mpaa),16 anos)">MPAA_Brazil_16</value>
-		<value condition="substring(Window(home).Property(mpaa),Brazil:18) | substring(Window(home).Property(mpaa),18 anos)">MPAA_Brazil_18</value>
+		<value condition="SubString(Window(home).Property(mpaa),France:U) | Substring(Window(home).Property(mpaa),partir de 3 ans) | Substring(Window(home).Property(mpaa),partir de 6 ans)">csaU</value>
+		<value condition="SubString(Window(home).Property(mpaa),France:-10) | Substring(Window(home).Property(mpaa),Interdit aux moins de 10 ans) | Substring(Window(home).Property(mpaa),des propos ou des images peuvent heurter)">csa10</value>
+		<value condition="SubString(Window(home).Property(mpaa),France:-12) | Substring(Window(home).Property(mpaa),Interdit aux moins de 12 ans)">csa12</value>
+		<value condition="SubString(Window(home).Property(mpaa),France:-16) | Substring(Window(home).Property(mpaa),Interdit aux moins de 16 ans)">csa16</value>
+		<value condition="SubString(Window(home).Property(mpaa),France:-18) | Substring(Window(home).Property(mpaa),Interdit aux moins de 18 ans)">csa18</value>
+		<value condition="SubString(Window(home).Property(mpaa),전체)">KR_Certificate_All</value>
+		<value condition="SubString(Window(home).Property(mpaa),12세)">KR_Certificate_12</value>
+		<value condition="SubString(Window(home).Property(mpaa),15세)">KR_Certificate_15</value>
+		<value condition="SubString(Window(home).Property(mpaa),불가)">KR_Certificate_18</value>
+		<value condition="SubString(Window(home).Property(mpaa),제한)">KR_Certificate_R</value>
+		<value condition="SubString(Window(home).Property(mpaa),Brazil:Livre) | SubString(Window(home).Property(mpaa),Livre)">MPAA_Brazil_Livre</value>
+		<value condition="SubString(Window(home).Property(mpaa),Brazil:10) | SubString(Window(home).Property(mpaa),10 anos)">MPAA_Brazil_10</value>
+		<value condition="SubString(Window(home).Property(mpaa),Brazil:12) | SubString(Window(home).Property(mpaa),12 anos)">MPAA_Brazil_12</value>
+		<value condition="SubString(Window(home).Property(mpaa),Brazil:14) | SubString(Window(home).Property(mpaa),14 anos)">MPAA_Brazil_14</value>
+		<value condition="SubString(Window(home).Property(mpaa),Brazil:16) | SubString(Window(home).Property(mpaa),16 anos)">MPAA_Brazil_16</value>
+		<value condition="SubString(Window(home).Property(mpaa),Brazil:18) | SubString(Window(home).Property(mpaa),18 anos)">MPAA_Brazil_18</value>
 	</variable>
 	<variable name="TvGuideVarTxt">
-		<value condition="substring(Window(Home).Property(NextAired.StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Window(Home).Property(NextAired.StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Window(Home).Property(NextAired.StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Window(Home).Property(NextAired.StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Window(Home).Property(NextAired.StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Window(Home).Property(NextAired.StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Window(Home).Property(NextAired.StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Window(Home).Property(NextAired.StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Window(Home).Property(NextAired.StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Window(Home).Property(NextAired.StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Window(Home).Property(NextAired.StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Window(Home).Property(NextAired.StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<!-- unused variable -->
 	<variable name="nextaired_Info">
@@ -282,153 +283,153 @@
 		<value condition="IsEmpty(Window(Home).Property(NextAired.NextDate))">$INFO[Window(Home).Property(NextAired.Status)]$INFO[Window(Home).Property(NextAired.LatestDate), • $LOCALIZE[31994] ]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript">
-		<value condition="substring(ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript215">
-		<value condition="substring(Container(215).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(215).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(215).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(215).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(215).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(215).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(215).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(215).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(215).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(215).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(215).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(215).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript214">
-		<value condition="substring(Container(214).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(214).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(214).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(214).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(214).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(214).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(214).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(214).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(214).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(214).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(214).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(214).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript213">
-		<value condition="substring(Container(213).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(213).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(213).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(213).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(213).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(213).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(213).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(213).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(213).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(213).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(213).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(213).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript212">
-		<value condition="substring(Container(212).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(212).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(212).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(212).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(212).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(212).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(212).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(212).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(212).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(212).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(212).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(212).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript211">
-		<value condition="substring(Container(211).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(211).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(211).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(211).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(211).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(211).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(211).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(211).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(211).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(211).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(211).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(211).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript210">
-		<value condition="substring(Container(210).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(210).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(210).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(210).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(210).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(210).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(210).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(210).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(210).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(210).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(210).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(210).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript209">
-		<value condition="substring(Container(209).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(209).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(209).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(209).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(209).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(209).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(209).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(209).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(209).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(209).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(209).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(209).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript208">
-		<value condition="substring(Container(208).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(208).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(208).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(208).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(208).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(208).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(208).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(208).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(208).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(208).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(208).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(208).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript207">
-		<value condition="substring(Container(207).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(207).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(207).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(207).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(207).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(207).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(207).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(207).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(207).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(207).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(207).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(207).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript206">
-		<value condition="substring(Container(206).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(206).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(206).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(206).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(206).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(206).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(206).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(206).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(206).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(206).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(206).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(206).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript205">
-		<value condition="substring(Container(205).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(205).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(205).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(205).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(205).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(205).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(205).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(205).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(205).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(205).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(205).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(205).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript204">
-		<value condition="substring(Container(204).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(204).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(204).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(204).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(204).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(204).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(204).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(204).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(204).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(204).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(204).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(204).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript203">
-		<value condition="substring(Container(203).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(203).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(203).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(203).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(203).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(203).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(203).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(203).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(203).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(203).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(203).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(203).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript202">
-		<value condition="substring(Container(202).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(202).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(202).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(202).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(202).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(202).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(202).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(202).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(202).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(202).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(202).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(202).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript201">
-		<value condition="substring(Container(201).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(201).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(201).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(201).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(201).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(201).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(201).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(201).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(201).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(201).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(201).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(201).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript200">
-		<value condition="substring(Container(200).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(200).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(200).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(200).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(200).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(200).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(200).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(200).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(200).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(200).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(200).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(200).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="RatingFlagVar">
-		<value condition="substring(ListItem.mpaa,TV-G)">TV-G_Certificate_US</value>
-		<value condition="substring(ListItem.mpaa,TV-PG)">TV-PG_Certificate_US</value>
-		<value condition="substring(ListItem.mpaa,TV-14)">TV-14_Certificate_US</value>
-		<value condition="substring(ListItem.mpaa,TV-MA)">TV-MA_Certificate_US</value>
-		<value condition="substring(ListItem.mpaa,TV-Y7)">tv-y7</value>
-		<value condition="substring(ListItem.mpaa,TV-Y)">tv-y</value>
+		<value condition="SubString(ListItem.mpaa,TV-G) | SubString(ListItem.mpaa,TV - G)">TV-G_Certificate_US</value>
+		<value condition="SubString(ListItem.mpaa,TV-PG) | SubString(ListItem.mpaa,TV - PG)">TV-PG_Certificate_US</value>
+		<value condition="SubString(ListItem.mpaa,TV-14) | SubString(ListItem.mpaa,TV - 14)">TV-14_Certificate_US</value>
+		<value condition="SubString(ListItem.mpaa,TV-MA) | SubString(ListItem.mpaa,TV - MA)">TV-MA_Certificate_US</value>
+		<value condition="SubString(ListItem.mpaa,TV-Y7) | SubString(ListItem.mpaa,TV - Y7)">tv-y7</value>
+		<value condition="SubString(ListItem.mpaa,TV-Y) | SubString(ListItem.mpaa,TV - Y)">tv-y</value>
 		<value condition="SubString(ListItem.mpaa,US:G) | SubString(ListItem.mpaa,USA:G) | SubString(ListItem.mpaa,Rated G)">MPAA_G_Certificate_US</value>
-		<value condition="SubString(ListItem.mpaa,PG-13)">MPAA_PG-13_Certificate_US</value>
+		<value condition="SubString(ListItem.mpaa,PG-13) | SubString(ListItem.mpaa,PG - 13)">MPAA_PG-13_Certificate_US</value>
 		<value condition="Substring(ListItem.mpaa,Rated PG) | StringCompare(ListItem.Mpaa,PG)">MPAA_PG_Certificate_US</value>
 		<value condition="SubString(ListItem.mpaa,US:R) | SubString(ListItem.mpaa,USA:R) | SubString(ListItem.mpaa,Rated R) | StringCompare(ListItem.mpaa,R)">MPAA_R_Certificate_US</value>
-		<value condition="SubString(ListItem.mpaa,US:NC-17)| SubString(ListItem.mpaa,USA:NC-17)| SubString(ListItem.mpaa,Rated NC-17)">MPAA_NC-17_Certificate_US</value>
+		<value condition="SubString(ListItem.mpaa,US:NC-17)| SubString(ListItem.mpaa,USA:NC-17)| SubString(ListItem.mpaa,Rated NC-17) | SubString(ListItem.mpaa,Rated NC - 17)">MPAA_NC-17_Certificate_US</value>
 		<value condition="SubString(ListItem.mpaa,UK:U)">BBFC_U_Certificate_UK</value>
 		<value condition="SubString(ListItem.mpaa,UK:PG)">BBFC_PG_Certificate_UK</value>
 		<value condition="SubString(ListItem.mpaa,UK:12A)">BBFC_12A_Certificate_UK</value>
@@ -445,37 +446,37 @@
 		<value condition="SubString(ListItem.mpaa,12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">HU_12</value>
 		<value condition="SubString(ListItem.mpaa,16 éven aluliak számára nem ajánlott)">HU_16</value>
 		<value condition="SubString(ListItem.mpaa,18 éven aluliak számára nem ajánlott)">HU_18</value>
-		<value condition="substring(ListItem.mpaa,France:U) | Substring(ListItem.mpaa,partir de 3 ans) | Substring(ListItem.mpaa,partir de 6 ans)">csaU</value>
-		<value condition="substring(ListItem.mpaa,France:-10) | Substring(ListItem.mpaa,Interdit aux moins de 10 ans) | Substring(ListItem.mpaa,des propos ou des images peuvent heurter)">csa10</value>
-		<value condition="substring(ListItem.mpaa,France:-12) | Substring(ListItem.mpaa,Interdit aux moins de 12 ans)">csa12</value>
-		<value condition="substring(ListItem.mpaa,France:-16) | Substring(ListItem.mpaa,Interdit aux moins de 16 ans)">csa16</value>
-		<value condition="substring(ListItem.mpaa,France:-18) | Substring(ListItem.mpaa,Interdit aux moins de 18 ans)">csa18</value>
-		<value condition="substring(ListItem.mpaa,전체)">KR_Certificate_All</value>
-		<value condition="substring(ListItem.mpaa,12세)">KR_Certificate_12</value>
-		<value condition="substring(ListItem.mpaa,15세)">KR_Certificate_15</value>
-		<value condition="substring(ListItem.mpaa,불가)">KR_Certificate_18</value>
-		<value condition="substring(ListItem.mpaa,제한)">KR_Certificate_R</value>
-		<value condition="substring(ListItem.mpaa,Brazil:Livre) | substring(ListItem.mpaa,Livre)">MPAA_Brazil_Livre</value>
-		<value condition="substring(ListItem.mpaa,Brazil:10) | substring(ListItem.mpaa,10 anos)">MPAA_Brazil_10</value>
-		<value condition="substring(ListItem.mpaa,Brazil:12) | substring(ListItem.mpaa,12 anos)">MPAA_Brazil_12</value>
-		<value condition="substring(ListItem.mpaa,Brazil:14) | substring(ListItem.mpaa,14 anos)">MPAA_Brazil_14</value>
-		<value condition="substring(ListItem.mpaa,Brazil:16) | substring(ListItem.mpaa,16 anos)">MPAA_Brazil_16</value>
-		<value condition="substring(ListItem.mpaa,Brazil:18) | substring(ListItem.mpaa,18 anos)">MPAA_Brazil_18</value>
-		<value condition="substring(ListItem.mpaa,Rated X)">MPAA_X_Certificate_US</value>
+		<value condition="SubString(ListItem.mpaa,France:U) | Substring(ListItem.mpaa,partir de 3 ans) | Substring(ListItem.mpaa,partir de 6 ans)">csaU</value>
+		<value condition="SubString(ListItem.mpaa,France:-10) | Substring(ListItem.mpaa,Interdit aux moins de 10 ans) | Substring(ListItem.mpaa,des propos ou des images peuvent heurter)">csa10</value>
+		<value condition="SubString(ListItem.mpaa,France:-12) | Substring(ListItem.mpaa,Interdit aux moins de 12 ans)">csa12</value>
+		<value condition="SubString(ListItem.mpaa,France:-16) | Substring(ListItem.mpaa,Interdit aux moins de 16 ans)">csa16</value>
+		<value condition="SubString(ListItem.mpaa,France:-18) | Substring(ListItem.mpaa,Interdit aux moins de 18 ans)">csa18</value>
+		<value condition="SubString(ListItem.mpaa,전체)">KR_Certificate_All</value>
+		<value condition="SubString(ListItem.mpaa,12세)">KR_Certificate_12</value>
+		<value condition="SubString(ListItem.mpaa,15세)">KR_Certificate_15</value>
+		<value condition="SubString(ListItem.mpaa,불가)">KR_Certificate_18</value>
+		<value condition="SubString(ListItem.mpaa,제한)">KR_Certificate_R</value>
+		<value condition="SubString(ListItem.mpaa,Brazil:Livre) | SubString(ListItem.mpaa,Livre)">MPAA_Brazil_Livre</value>
+		<value condition="SubString(ListItem.mpaa,Brazil:10) | SubString(ListItem.mpaa,10 anos)">MPAA_Brazil_10</value>
+		<value condition="SubString(ListItem.mpaa,Brazil:12) | SubString(ListItem.mpaa,12 anos)">MPAA_Brazil_12</value>
+		<value condition="SubString(ListItem.mpaa,Brazil:14) | SubString(ListItem.mpaa,14 anos)">MPAA_Brazil_14</value>
+		<value condition="SubString(ListItem.mpaa,Brazil:16) | SubString(ListItem.mpaa,16 anos)">MPAA_Brazil_16</value>
+		<value condition="SubString(ListItem.mpaa,Brazil:18) | SubString(ListItem.mpaa,18 anos)">MPAA_Brazil_18</value>
+		<value condition="SubString(ListItem.mpaa,Rated X)">MPAA_X_Certificate_US</value>
 	</variable>
 	<variable name="VideoRatingFlagVar">
-		<value condition="substring(VideoPlayer.mpaa,Rated X)">MPAA_X_Certificate_US</value>
-		<value condition="substring(VideoPlayer.mpaa,TV-G)">TV-G_Certificate_US</value>
-		<value condition="substring(VideoPlayer.mpaa,TV-PG)">TV-PG_Certificate_US</value>
-		<value condition="substring(VideoPlayer.mpaa,TV-14)">TV-14_Certificate_US</value>
-		<value condition="substring(VideoPlayer.mpaa,TV-MA)">TV-MA_Certificate_US</value>
-		<value condition="substring(VideoPlayer.mpaa,TV-Y7)">tv-y7</value>
-		<value condition="substring(VideoPlayer.mpaa,TV-Y)">tv-y</value>
+		<value condition="SubString(VideoPlayer.mpaa,Rated X)">MPAA_X_Certificate_US</value>
+		<value condition="SubString(VideoPlayer.mpaa,TV-G) | SubString(VideoPlayer.mpaa,TV - G)">TV-G_Certificate_US</value>
+		<value condition="SubString(VideoPlayer.mpaa,TV-PG) | SubString(VideoPlayer.mpaa,TV - PG)">TV-PG_Certificate_US</value>
+		<value condition="SubString(VideoPlayer.mpaa,TV-14) | SubString(VideoPlayer.mpaa,TV - 14)">TV-14_Certificate_US</value>
+		<value condition="SubString(VideoPlayer.mpaa,TV-MA) | SubString(VideoPlayer.mpaa,TV - MA)">TV-MA_Certificate_US</value>
+		<value condition="SubString(VideoPlayer.mpaa,TV-Y7) | SubString(VideoPlayer.mpaa,TV - Y7)">tv-y7</value>
+		<value condition="SubString(VideoPlayer.mpaa,TV-Y) | SubString(VideoPlayer.mpaa,TV - Y)">tv-y</value>
 		<value condition="SubString(VideoPlayer.mpaa,US:G) | SubString(VideoPlayer.mpaa,USA:G) | SubString(VideoPlayer.mpaa,Rated G)">MPAA_G_Certificate_US</value>
-		<value condition="SubString(VideoPlayer.mpaa,PG-13)">MPAA_PG-13_Certificate_US</value>
+		<value condition="SubString(VideoPlayer.mpaa,PG-13) | SubString(VideoPlayer.mpaa,PG - 13)">MPAA_PG-13_Certificate_US</value>
 		<value condition="Substring(VideoPlayer.mpaa,Rated PG) | StringCompare(VideoPlayer.Mpaa,PG)">MPAA_PG_Certificate_US</value>
 		<value condition="SubString(VideoPlayer.mpaa,US:R) | SubString(VideoPlayer.mpaa,USA:R) | SubString(VideoPlayer.mpaa,Rated R) | StringCompare(VideoPlayer.Mpaa,R)">MPAA_R_Certificate_US</value>
-		<value condition="SubString(VideoPlayer.mpaa,US:NC-17) | SubString(VideoPlayer.mpaa,USA:NC-17) | SubString(VideoPlayer.mpaa,Rated NC-17)">MPAA_NC-17_Certificate_US</value>
+		<value condition="SubString(VideoPlayer.mpaa,US:NC-17) | SubString(VideoPlayer.mpaa,USA:NC-17) | SubString(VideoPlayer.mpaa,Rated NC-17) | SubString(VideoPlayer.mpaa,Rated NC - 17)">MPAA_NC-17_Certificate_US</value>
 		<value condition="SubString(VideoPlayer.mpaa,UK:U)">BBFC_U_Certificate_UK</value>
 		<value condition="SubString(VideoPlayer.mpaa,UK:PG)">BBFC_PG_Certificate_UK</value>
 		<value condition="SubString(VideoPlayer.mpaa,UK:12A)">BBFC_12A_Certificate_UK</value>
@@ -492,29 +493,29 @@
 		<value condition="SubString(VideoPlayer.mpaa,12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">HU_12</value>
 		<value condition="SubString(VideoPlayer.mpaa,16 éven aluliak számára nem ajánlott)">HU_16</value>
 		<value condition="SubString(VideoPlayer.mpaa,18 éven aluliak számára nem ajánlott)">HU_18</value>
-		<value condition="substring(VideoPlayer.mpaa,France:U) | Substring(VideoPlayer.mpaa,partir de 3 ans) | Substring(VideoPlayer.mpaa,partir de 6 ans)">csaU</value>
-		<value condition="substring(VideoPlayer.mpaa,France:-10) | Substring(VideoPlayer.mpaa,Interdit aux moins de 10 ans) | Substring(VideoPlayer.mpaa,des propos ou des images peuvent heurter)">csa10</value>
-		<value condition="substring(VideoPlayer.mpaa,France:-12) | Substring(VideoPlayer.mpaa,Interdit aux moins de 12 ans)">csa12</value>
-		<value condition="substring(VideoPlayer.mpaa,France:-16) | Substring(VideoPlayer.mpaa,Interdit aux moins de 16 ans)">csa16</value>
-		<value condition="substring(VideoPlayer.mpaa,France:-18) | Substring(VideoPlayer.mpaa,Interdit aux moins de 18 ans)">csa18</value>
-		<value condition="substring(VideoPlayer.mpaa,전체)">KR_Certificate_All</value>
-		<value condition="substring(VideoPlayer.mpaa,12세)">KR_Certificate_12</value>
-		<value condition="substring(VideoPlayer.mpaa,15세)">KR_Certificate_15</value>
-		<value condition="substring(VideoPlayer.mpaa,불가)">KR_Certificate_18</value>
-		<value condition="substring(VideoPlayer.mpaa,제한)">KR_Certificate_R</value>
-		<value condition="substring(VideoPlayer.mpaa,Brazil:Livre) | substring(VideoPlayer.mpaa,Livre)">MPAA_Brazil_Livre</value>
-		<value condition="substring(VideoPlayer.mpaa,Brazil:10) | substring(VideoPlayer.mpaa,10 anos)">MPAA_Brazil_10</value>
-		<value condition="substring(VideoPlayer.mpaa,Brazil:12) | substring(VideoPlayer.mpaa,12 anos)">MPAA_Brazil_12</value>
-		<value condition="substring(VideoPlayer.mpaa,Brazil:14) | substring(VideoPlayer.mpaa,14 anos)">MPAA_Brazil_14</value>
-		<value condition="substring(VideoPlayer.mpaa,Brazil:16) | substring(VideoPlayer.mpaa,16 anos)">MPAA_Brazil_16</value>
-		<value condition="substring(VideoPlayer.mpaa,Brazil:18) | substring(VideoPlayer.mpaa,18 anos)">MPAA_Brazil_18</value>
+		<value condition="SubString(VideoPlayer.mpaa,France:U) | Substring(VideoPlayer.mpaa,partir de 3 ans) | Substring(VideoPlayer.mpaa,partir de 6 ans)">csaU</value>
+		<value condition="SubString(VideoPlayer.mpaa,France:-10) | Substring(VideoPlayer.mpaa,Interdit aux moins de 10 ans) | Substring(VideoPlayer.mpaa,des propos ou des images peuvent heurter)">csa10</value>
+		<value condition="SubString(VideoPlayer.mpaa,France:-12) | Substring(VideoPlayer.mpaa,Interdit aux moins de 12 ans)">csa12</value>
+		<value condition="SubString(VideoPlayer.mpaa,France:-16) | Substring(VideoPlayer.mpaa,Interdit aux moins de 16 ans)">csa16</value>
+		<value condition="SubString(VideoPlayer.mpaa,France:-18) | Substring(VideoPlayer.mpaa,Interdit aux moins de 18 ans)">csa18</value>
+		<value condition="SubString(VideoPlayer.mpaa,전체)">KR_Certificate_All</value>
+		<value condition="SubString(VideoPlayer.mpaa,12세)">KR_Certificate_12</value>
+		<value condition="SubString(VideoPlayer.mpaa,15세)">KR_Certificate_15</value>
+		<value condition="SubString(VideoPlayer.mpaa,불가)">KR_Certificate_18</value>
+		<value condition="SubString(VideoPlayer.mpaa,제한)">KR_Certificate_R</value>
+		<value condition="SubString(VideoPlayer.mpaa,Brazil:Livre) | SubString(VideoPlayer.mpaa,Livre)">MPAA_Brazil_Livre</value>
+		<value condition="SubString(VideoPlayer.mpaa,Brazil:10) | SubString(VideoPlayer.mpaa,10 anos)">MPAA_Brazil_10</value>
+		<value condition="SubString(VideoPlayer.mpaa,Brazil:12) | SubString(VideoPlayer.mpaa,12 anos)">MPAA_Brazil_12</value>
+		<value condition="SubString(VideoPlayer.mpaa,Brazil:14) | SubString(VideoPlayer.mpaa,14 anos)">MPAA_Brazil_14</value>
+		<value condition="SubString(VideoPlayer.mpaa,Brazil:16) | SubString(VideoPlayer.mpaa,16 anos)">MPAA_Brazil_16</value>
+		<value condition="SubString(VideoPlayer.mpaa,Brazil:18) | SubString(VideoPlayer.mpaa,18 anos)">MPAA_Brazil_18</value>
 	</variable>
 	<variable name="AudioFlagVar">
 		<value>$INFO[ListItem.AudioCodec]$INFO[ListItem.AudioChannels]</value>
 	</variable>
 	<variable name="NextEpisodeVar">
 		<value condition="!IsEmpty(Window(Home).Property(NextAired.Label)) + !IsEmpty(Window(Home).Property(NextAired.NextDay))">$INFO[Window(Home).Property(NextAired.NextDay)]</value>
-		<value condition="substring(Window(Home).Property(NextAired.StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Window(Home).Property(NextAired.StatusID),1)">$LOCALIZE[32977]</value>
 		<value>$LOCALIZE[31003]</value>
 	</variable>
 	<variable name="LastEpisodeVar">
@@ -762,7 +763,7 @@
 	</variable>
 	<variable name="FanartPanelValue4Var">
 		<value condition="Container.Content(episodes) | IsEmpty(ListItem.TvShowTitle)">$INFO[ListItem.RatingAndVotes]</value>
-		<value condition="substring(Window(Home).Property(NextAired.StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Window(Home).Property(NextAired.StatusID),1)">$LOCALIZE[32977]</value>
 		<value>$INFO[Window(Home).Property(NextAired.AirTime)]</value>
 	</variable>
 	<variable name="FanartPanelDetail5Var">
@@ -3958,7 +3959,7 @@
 	<variable name="KodiFlixSubLabelInfo">
 		<value condition="Substring(ListItem.Path,videodb://movies/sets/,left) + ListItem.IsFolder + !IsEmpty(ListItem.Title) + IntegerGreaterThan(Window(home).Property(Set.Movies.Count),1)">$INFO[Window(home).Property(Set.Movies.Count), • , $LOCALIZE[342]]</value>
 		<value condition="Substring(ListItem.Path,videodb://movies/sets/,left) + ListItem.IsFolder + !IsEmpty(ListItem.Title) + !IntegerGreaterThan(Window(home).Property(Set.Movies.Count),1)">$INFO[Window(home).Property(Set.Movies.Count), • , $LOCALIZE[20338]]</value>
-		<value condition="[Container.Content(Movies) + substring(Container.FolderPath,plugin://plugin.video,left)] + !IsEmpty(ListItem.Property(ReleaseDate))">$INFO[ListItem.Property(ReleaseDate),$LOCALIZE[31004]: ]</value>
+		<value condition="[Container.Content(Movies) + SubString(Container.FolderPath,plugin://plugin.video,left)] + !IsEmpty(ListItem.Property(ReleaseDate))">$INFO[ListItem.Property(ReleaseDate),$LOCALIZE[31004]: ]</value>
 		<value condition="Container.Content(tvshows)">• $INFO[ListItem.Premiered] •</value>
 		<value>• $INFO[ListItem.Year] •</value>
 	</variable>
@@ -4124,17 +4125,17 @@
 		<value>$INFO[Container(5801).ListItem.VideoCodec]</value>
 	</variable>
 	<variable name="MovieSetsRatingFlagVar">
-		<value condition="substring(Container(5801).Listitem.mpaa,TV-G)">TV-G_Certificate_US</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,TV-PG)">TV-PG_Certificate_US</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,TV-14)">TV-14_Certificate_US</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,TV-MA)">TV-MA_Certificate_US</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,TV-Y7)">tv-y7</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,TV-Y)">tv-y</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,TV-G) | SubString(Container(5801).Listitem.mpaa,TV - G)">TV-G_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,TV-PG) | SubString(Container(5801).Listitem.mpaa,TV - PG)">TV-PG_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,TV-14) | SubString(Container(5801).Listitem.mpaa,TV - 14)">TV-14_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,TV-MA) | SubString(Container(5801).Listitem.mpaa,TV - MA)">TV-MA_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,TV-Y7) | SubString(Container(5801).Listitem.mpaa,TV - Y7)">tv-y7</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,TV-Y) | SubString(Container(5801).Listitem.mpaa,TV - Y)">tv-y</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,US:G) | SubString(Container(5801).Listitem.mpaa,USA:G) | SubString(Container(5801).Listitem.mpaa,Rated G)">MPAA_G_Certificate_US</value>
-		<value condition="SubString(Container(5801).Listitem.mpaa,PG-13)">MPAA_PG-13_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,PG-13) | SubString(Container(5801).Listitem.mpaa,PG - 13)">MPAA_PG-13_Certificate_US</value>
 		<value condition="Substring(Container(5801).Listitem.mpaa,Rated PG) | StringCompare(Container(5801).Listitem.Mpaa,PG)">MPAA_PG_Certificate_US</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,US:R) | SubString(Container(5801).Listitem.mpaa,USA:R) | SubString(Container(5801).Listitem.mpaa,Rated R) | StringCompare(Container(5801).Listitem.mpaa,R)">MPAA_R_Certificate_US</value>
-		<value condition="SubString(Container(5801).Listitem.mpaa,US:NC-17)| SubString(Container(5801).Listitem.mpaa,USA:NC-17)| SubString(Container(5801).Listitem.mpaa,Rated NC-17)">MPAA_NC-17_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,US:NC-17)| SubString(Container(5801).Listitem.mpaa,USA:NC-17)| SubString(Container(5801).Listitem.mpaa,Rated NC-17) | SubString(Container(5801).Listitem.mpaa,Rated NC - 17)">MPAA_NC-17_Certificate_US</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,UK:U)">BBFC_U_Certificate_UK</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,UK:PG)">BBFC_PG_Certificate_UK</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,UK:12A)">BBFC_12A_Certificate_UK</value>
@@ -4151,23 +4152,23 @@
 		<value condition="SubString(Container(5801).Listitem.mpaa,12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">HU_12</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,16 éven aluliak számára nem ajánlott)">HU_16</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,18 éven aluliak számára nem ajánlott)">HU_18</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,France:U) | Substring(Container(5801).Listitem.mpaa,partir de 3 ans) | Substring(Container(5801).Listitem.mpaa,partir de 6 ans)">csaU</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,France:-10) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 10 ans) | Substring(Container(5801).Listitem.mpaa,des propos ou des images peuvent heurter)">csa10</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,France:-12) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 12 ans)">csa12</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,France:-16) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 16 ans)">csa16</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,France:-18) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 18 ans)">csa18</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,??)">KR_Certificate_All</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,12?)">KR_Certificate_12</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,15?)">KR_Certificate_15</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,??)">KR_Certificate_18</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,??)">KR_Certificate_R</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Brazil:Livre) | substring(Container(5801).Listitem.mpaa,Livre)">MPAA_Brazil_Livre</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Brazil:10) | substring(Container(5801).Listitem.mpaa,10 anos)">MPAA_Brazil_10</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Brazil:12) | substring(Container(5801).Listitem.mpaa,12 anos)">MPAA_Brazil_12</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Brazil:14) | substring(Container(5801).Listitem.mpaa,14 anos)">MPAA_Brazil_14</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Brazil:16) | substring(Container(5801).Listitem.mpaa,16 anos)">MPAA_Brazil_16</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Brazil:18) | substring(Container(5801).Listitem.mpaa,18 anos)">MPAA_Brazil_18</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Rated X)">MPAA_X_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,France:U) | Substring(Container(5801).Listitem.mpaa,partir de 3 ans) | Substring(Container(5801).Listitem.mpaa,partir de 6 ans)">csaU</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,France:-10) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 10 ans) | Substring(Container(5801).Listitem.mpaa,des propos ou des images peuvent heurter)">csa10</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,France:-12) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 12 ans)">csa12</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,France:-16) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 16 ans)">csa16</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,France:-18) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 18 ans)">csa18</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,??)">KR_Certificate_All</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,12?)">KR_Certificate_12</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,15?)">KR_Certificate_15</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,??)">KR_Certificate_18</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,??)">KR_Certificate_R</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Brazil:Livre) | SubString(Container(5801).Listitem.mpaa,Livre)">MPAA_Brazil_Livre</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Brazil:10) | SubString(Container(5801).Listitem.mpaa,10 anos)">MPAA_Brazil_10</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Brazil:12) | SubString(Container(5801).Listitem.mpaa,12 anos)">MPAA_Brazil_12</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Brazil:14) | SubString(Container(5801).Listitem.mpaa,14 anos)">MPAA_Brazil_14</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Brazil:16) | SubString(Container(5801).Listitem.mpaa,16 anos)">MPAA_Brazil_16</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Brazil:18) | SubString(Container(5801).Listitem.mpaa,18 anos)">MPAA_Brazil_18</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Rated X)">MPAA_X_Certificate_US</value>
 	</variable>
 	<variable name="MovieSetsAudioFlagVar">
 		<value>$INFO[Container(5801).ListItem.AudioCodec]$INFO[Container(5801).ListItem.AudioChannels]</value>
@@ -4200,17 +4201,17 @@
 	</variable>
 	<!-- unused variable -->
 	<variable name="DialogInfoRatingFlagVar">
-		<value condition="substring(Container(5801).Listitem.mpaa,TV-G)">TV-G_Certificate_US</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,TV-PG)">TV-PG_Certificate_US</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,TV-14)">TV-14_Certificate_US</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,TV-MA)">TV-MA_Certificate_US</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,TV-Y7)">tv-y7</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,TV-Y)">tv-y</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,TV-G) | SubString(Container(5801).Listitem.mpaa,TV - G)">TV-G_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,TV-PG) | SubString(Container(5801).Listitem.mpaa,TV - PG)">TV-PG_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,TV-14) | SubString(Container(5801).Listitem.mpaa,TV - 14)">TV-14_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,TV-MA) | SubString(Container(5801).Listitem.mpaa,TV - MA)">TV-MA_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,TV-Y7) | SubString(Container(5801).Listitem.mpaa,TV - Y7)">tv-y7</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,TV-Y) | SubString(Container(5801).Listitem.mpaa,TV - Y)">tv-y</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,US:G) | SubString(Container(5801).Listitem.mpaa,USA:G) | SubString(Container(5801).Listitem.mpaa,Rated G)">MPAA_G_Certificate_US</value>
-		<value condition="SubString(Container(5801).Listitem.mpaa,PG-13)">MPAA_PG-13_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,PG-13) | SubString(Container(5801).Listitem.mpaa,PG - 13)">MPAA_PG-13_Certificate_US</value>
 		<value condition="Substring(Container(5801).Listitem.mpaa,Rated PG) | StringCompare(Container(5801).Listitem.Mpaa,PG)">MPAA_PG_Certificate_US</value>
 		<value condition="SubString(Window.Property(movie.mpaa),US:R) | SubString(Container(5801).Listitem.mpaa,USA:R) | SubString(Container(5801).Listitem.mpaa,Rated R) | StringCompare(Container(5801).Listitem.mpaa,R)">MPAA_R_Certificate_US</value>
-		<value condition="SubString(Container(5801).Listitem.mpaa,US:NC-17)| SubString(Container(5801).Listitem.mpaa,USA:NC-17)| SubString(Container(5801).Listitem.mpaa,Rated NC-17)">MPAA_NC-17_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,US:NC-17)| SubString(Container(5801).Listitem.mpaa,USA:NC-17)| SubString(Container(5801).Listitem.mpaa,Rated NC-17) | SubString(Container(5801).Listitem.mpaa,Rated NC - 17)">MPAA_NC-17_Certificate_US</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,UK:U)">BBFC_U_Certificate_UK</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,UK:PG)">BBFC_PG_Certificate_UK</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,UK:12A)">BBFC_12A_Certificate_UK</value>
@@ -4227,23 +4228,23 @@
 		<value condition="SubString(Container(5801).Listitem.mpaa,12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">HU_12</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,16 éven aluliak számára nem ajánlott)">HU_16</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,18 éven aluliak számára nem ajánlott)">HU_18</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,France:U) | Substring(Container(5801).Listitem.mpaa,partir de 3 ans) | Substring(Container(5801).Listitem.mpaa,partir de 6 ans)">csaU</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,France:-10) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 10 ans) | Substring(Container(5801).Listitem.mpaa,des propos ou des images peuvent heurter)">csa10</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,France:-12) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 12 ans)">csa12</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,France:-16) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 16 ans)">csa16</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,France:-18) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 18 ans)">csa18</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,??)">KR_Certificate_All</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,12?)">KR_Certificate_12</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,15?)">KR_Certificate_15</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,??)">KR_Certificate_18</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,??)">KR_Certificate_R</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Brazil:Livre) | substring(Container(5801).Listitem.mpaa,Livre)">MPAA_Brazil_Livre</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Brazil:10) | substring(Container(5801).Listitem.mpaa,10 anos)">MPAA_Brazil_10</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Brazil:12) | substring(Container(5801).Listitem.mpaa,12 anos)">MPAA_Brazil_12</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Brazil:14) | substring(Container(5801).Listitem.mpaa,14 anos)">MPAA_Brazil_14</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Brazil:16) | substring(Container(5801).Listitem.mpaa,16 anos)">MPAA_Brazil_16</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Brazil:18) | substring(Container(5801).Listitem.mpaa,18 anos)">MPAA_Brazil_18</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Rated X)">MPAA_X_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,France:U) | Substring(Container(5801).Listitem.mpaa,partir de 3 ans) | Substring(Container(5801).Listitem.mpaa,partir de 6 ans)">csaU</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,France:-10) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 10 ans) | Substring(Container(5801).Listitem.mpaa,des propos ou des images peuvent heurter)">csa10</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,France:-12) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 12 ans)">csa12</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,France:-16) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 16 ans)">csa16</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,France:-18) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 18 ans)">csa18</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,??)">KR_Certificate_All</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,12?)">KR_Certificate_12</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,15?)">KR_Certificate_15</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,??)">KR_Certificate_18</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,??)">KR_Certificate_R</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Brazil:Livre) | SubString(Container(5801).Listitem.mpaa,Livre)">MPAA_Brazil_Livre</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Brazil:10) | SubString(Container(5801).Listitem.mpaa,10 anos)">MPAA_Brazil_10</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Brazil:12) | SubString(Container(5801).Listitem.mpaa,12 anos)">MPAA_Brazil_12</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Brazil:14) | SubString(Container(5801).Listitem.mpaa,14 anos)">MPAA_Brazil_14</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Brazil:16) | SubString(Container(5801).Listitem.mpaa,16 anos)">MPAA_Brazil_16</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Brazil:18) | SubString(Container(5801).Listitem.mpaa,18 anos)">MPAA_Brazil_18</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Rated X)">MPAA_X_Certificate_US</value>
 	</variable>
 	<variable name="FakeDiscArtOverlay">
 		<value condition="[Container.Content(tvshows) | Container.Content(seasons)]">common/discart/tvepisodes.png</value>
@@ -4458,18 +4459,18 @@
 	</variable>
 	
 	<variable name="RatingFlagVar_Description">
-        <value condition="substring(ListItem.mpaa,TV-G)">Most parents would find this program suitable for all ages.</value>
-        <value condition="substring(ListItem.mpaa,TV-PG)">This program contains material that parents may find unsuitable for younger children.</value>
-        <value condition="substring(ListItem.mpaa,TV-14)">This program contains some material that many parents would find unsuitable for children under 14 years of age.</value>
-        <value condition="substring(ListItem.mpaa,TV-MA)">This program is specifically designed to be viewed by adults and therefore may be unsuitable for children under 17.</value>
-        <value condition="substring(ListItem.mpaa,TV-Y7)">This program is designed for children age 7 and above.</value>
-        <value condition="substring(ListItem.mpaa,TV-Y)">This program is designed to be appropriate for all children.</value>
+        <value condition="SubString(ListItem.mpaa,TV-G) | SubString(ListItem.mpaa,TV - G)">Most parents would find this program suitable for all ages.</value>
+        <value condition="SubString(ListItem.mpaa,TV-PG) | SubString(ListItem.mpaa,TV - PG)">This program contains material that parents may find unsuitable for younger children.</value>
+        <value condition="SubString(ListItem.mpaa,TV-14) | SubString(ListItem.mpaa,TV - 14)">This program contains some material that many parents would find unsuitable for children under 14 years of age.</value>
+        <value condition="SubString(ListItem.mpaa,TV-MA) | SubString(ListItem.mpaa,TV - MA)">This program is specifically designed to be viewed by adults and therefore may be unsuitable for children under 17.</value>
+        <value condition="SubString(ListItem.mpaa,TV-Y7) | SubString(ListItem.mpaa,TV - Y7)">This program is designed for children age 7 and above.</value>
+        <value condition="SubString(ListItem.mpaa,TV-Y) | SubString(ListItem.mpaa,TV - Y)">This program is designed to be appropriate for all children.</value>
         
         <value condition="SubString(ListItem.mpaa,US:G)">General audiences. All ages admitted.</value>
-        <value condition="SubString(ListItem.mpaa,PG-13)">Parents strongly cautioned. Some material may be inappropriate for children under 13.</value>
+        <value condition="SubString(ListItem.mpaa,PG-13) | SubString(ListItem.mpaa,PG - 13)">Parents strongly cautioned. Some material may be inappropriate for children under 13.</value>
         <value condition="Substring(ListItem.mpaa,Rated PG)">Parental guidance suggested. Some material may not be suitable for children.</value>
         <value condition="SubString(ListItem.mpaa,US:R)">Restricted. Under 17 requires accompanying parent or adult guardian.</value>
-        <value condition="SubString(ListItem.mpaa,US:NC-17)">Adults only. No One 17 and Under Admitted.</value>
+        <value condition="SubString(ListItem.mpaa,US:NC-17) | SubString(ListItem.mpaa,US:NC - 17) | SubString(ListItem.mpaa,USA:NC-17) | SubString(ListItem.mpaa,Rated NC-17) | SubString(ListItem.mpaa,Rated NC - 17)">Adults only. No One 17 and Under Admitted.</value>
         
         <value condition="SubString(ListItem.mpaa,UK:U)">Suitable for all.</value>
         <value condition="SubString(ListItem.mpaa,UK:PG)">General viewing, but some scenes may be unsuitable for young children.</value>
@@ -4484,20 +4485,20 @@
         <value condition="SubString(ListItem.mpaa,Germany:18)">Keine jugendfreigabe.</value>
         <value condition="SubString(ListItem.mpaa,Germany)">Ohne altersbeschränkung.</value>
         
-        <value condition="substring(ListItem.mpaa,France:U)">Tous publics.</value>
-        <value condition="substring(ListItem.mpaa,France:-10)">Déconseillé aux moins de 10 ans.</value>
-        <value condition="substring(ListItem.mpaa,France:-12)">Déconseillé aux moins de 12 ans.</value>
-        <value condition="substring(ListItem.mpaa,France:-16)">Déconseillé aux moins de 16 ans.</value>
-        <value condition="substring(ListItem.mpaa,France:-18)">Déconseillé aux moins de 18 ans.</value>
+        <value condition="SubString(ListItem.mpaa,France:U)">Tous publics.</value>
+        <value condition="SubString(ListItem.mpaa,France:-10)">Déconseillé aux moins de 10 ans.</value>
+        <value condition="SubString(ListItem.mpaa,France:-12)">Déconseillé aux moins de 12 ans.</value>
+        <value condition="SubString(ListItem.mpaa,France:-16)">Déconseillé aux moins de 16 ans.</value>
+        <value condition="SubString(ListItem.mpaa,France:-18)">Déconseillé aux moins de 18 ans.</value>
         
-        <value condition="substring(ListItem.mpaa,Brazil:Livre)">Livre.</value>
-        <value condition="substring(ListItem.mpaa,Brazil:10">Não recomendado para menores de dez anos.</value>
-        <value condition="substring(ListItem.mpaa,Brazil:12)">Não recomendado para menores de doze anos.</value>
-        <value condition="substring(ListItem.mpaa,Brazil:14)">Não recomendado para menores de catorze anos.</value>
-        <value condition="substring(ListItem.mpaa,Brazil:16)">Não recomendado para menores de dezesseis anos.</value>
-        <value condition="substring(ListItem.mpaa,Brazil:18)">Não recomendado para menores de dezoito anos.</value>
+        <value condition="SubString(ListItem.mpaa,Brazil:Livre)">Livre.</value>
+        <value condition="SubString(ListItem.mpaa,Brazil:10">Não recomendado para menores de dez anos.</value>
+        <value condition="SubString(ListItem.mpaa,Brazil:12)">Não recomendado para menores de doze anos.</value>
+        <value condition="SubString(ListItem.mpaa,Brazil:14)">Não recomendado para menores de catorze anos.</value>
+        <value condition="SubString(ListItem.mpaa,Brazil:16)">Não recomendado para menores de dezesseis anos.</value>
+        <value condition="SubString(ListItem.mpaa,Brazil:18)">Não recomendado para menores de dezoito anos.</value>
         
-        <value condition="substring(ListItem.mpaa,Rated X)">Rated X.</value>
+        <value condition="SubString(ListItem.mpaa,Rated X)">Rated X.</value>
     </variable>
 	<variable name="KodiFlixExtrasDelayVar">
 		<value condition="Skin.HasSetting(KodiFlixExtrasDelay_5)">5 seconds</value>
