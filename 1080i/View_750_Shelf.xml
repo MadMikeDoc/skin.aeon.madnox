@@ -924,7 +924,7 @@
 					<effect type="slide" start="0,0" end="-120,0" time="350" tween="cubic" easing="out" />
 				</animation>
 				<animation type="Conditional" reversible="false" condition="Skin.HasSetting(Shelf3DNoInfoPanel)">
-					<effect type="slide" start="0,0" end="240,400" time="350" tween="cubic" easing="out" />
+					<effect type="slide" start="0,0" end="1040,400" time="350" tween="cubic" easing="out" />
 				</animation>
 				<left>150</left>
 				<top>-44</top>
@@ -933,7 +933,7 @@
 				<aspectratio aligny="bottom">keep</aspectratio>
 				<texture background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist,,/logo.png]</texture>
 			</control>
-			<control type="textbox">
+			<!--control type="textbox">
 				<animation effect="rotatey" center="1230" start="-12" end="-12" time="0" condition="!Skin.HasSetting(Shelf3DFlatInfoPanel)">Conditional</animation>
 				<animation type="Conditional" reversible="false" condition="Skin.HasSetting(Shelf3DFlatInfoPanel)">
 					<effect type="slide" start="0,0" end="-120,0" time="350" tween="cubic" easing="out" />
@@ -945,7 +945,7 @@
 					<effect type="slide" start="0,0" end="120,0" time="350" tween="cubic" easing="out" />
 				</animation>
 				<animation type="Conditional" reversible="false" condition="Skin.HasSetting(Shelf3DNoInfoPanel)">
-					<effect type="slide" start="0,0" end="240,400" time="350" tween="cubic" easing="out" />
+					<effect type="slide" start="0,0" end="940,400" time="350" tween="cubic" easing="out" />
 				</animation>
 				<left>32</left>
 				<top>74</top>
@@ -956,10 +956,10 @@
 				<textcolor>$VAR[TitleColorVar]</textcolor>
 				<shadowcolor>black</shadowcolor>
 				<font>font_SimplerE3D_bold</font>
-				<!--font>unique</font-->
+				
 				<label>[B]$VAR[FirstLabelVar][/B]</label>
 				<visible>Skin.HasSetting(Shelf3DFlatInfoPanel) + IsEmpty(Control.GetLabel(4295))</visible>
-			</control>
+			</control-->
 			<control type="textbox">
 				<animation effect="rotatey" center="1230" start="-12" end="-12" time="0" condition="!Skin.HasSetting(Shelf3DFlatInfoPanel)">Conditional</animation>
 				<left>292</left>
@@ -1416,8 +1416,8 @@
 				</control>
 				<control type="textbox">
 					<animation effect="rotatey" center="1230" start="-12" end="-12" time="0" condition="!Skin.HasSetting(Shelf3DFlatInfoPanel)">Conditional</animation>
-					<left>692</left>
-					<top>935</top>
+					<left>680</left>
+					<top>970</top>
 					<width>800</width>
 					<height>80</height>
 					<align>left</align>
