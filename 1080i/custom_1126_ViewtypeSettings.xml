@@ -687,6 +687,30 @@
 					<selected>Skin.HasSetting(Shelf3DNoInfoPanel)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),Shelf) + [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons)  | Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]</visible>
 				</control>
+				<control type="radiobutton" id="171072">
+					<description>LOGO</description>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>Disable Logo</label>
+					<onclick>Skin.ToggleSetting(Shelf3DLogo)</onclick>
+					<selected>!Skin.HasSetting(Shelf3DLogo)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Shelf) + [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows)]</visible>
+				</control>
+				<control type="radiobutton" id="171073">
+					<description>LOGO</description>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>Disable Logo</label>
+					<onclick>Skin.ToggleSetting(Shelf3DLogoMusic)</onclick>
+					<selected>!Skin.HasSetting(Shelf3DLogoMusic)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Shelf) + [Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]</visible>
+				</control>
+				<control type="radiobutton" id="171071">
+					<description>Spine Text</description>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>Disable Spine Text</label>
+					<onclick>Skin.ToggleSetting(Shelf3DSpineText)</onclick>
+					<selected>!Skin.HasSetting(Shelf3DSpineText)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Shelf) +  Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]</visible>
+				</control>
 				<control type="radiobutton" id="17106">
 					<description>Flat Discs</description>
 					<include>Objects_MediaMenuButtonAlt2</include>
