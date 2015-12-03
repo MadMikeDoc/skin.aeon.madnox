@@ -177,8 +177,6 @@
 					<fadetime>650</fadetime>
 					<aspectratio aligny="top">scale</aspectratio>
 					<imagepath background="true">$INFO[ListItem.Path,,/extrafanart/]</imagepath>
-					<bordertexture border="1,1,2,1">thumbs/panel_border.png</bordertexture>
-					<bordersize>1,1,2,1</bordersize>
 				</control>
 				<control type="multiimage" id="4209">
 					<left>1276</left>
@@ -190,8 +188,6 @@
 					<aspectratio aligny="top">scale</aspectratio>
 					<visible>IsEmpty(Control.GetLabel(4208))</visible>
 					<imagepath background="true">$INFO[ListItem.Path,,/extrathumbs/]</imagepath>
-					<bordertexture border="1,1,2,1">thumbs/panel_border.png</bordertexture>
-					<bordersize>1,1,2,1</bordersize>
 				</control>
 				<control type="image">
 					<left>1276</left>
@@ -201,8 +197,6 @@
 					<visible>IsEmpty(Control.GetLabel(4208)) + IsEmpty(Control.GetLabel(4209))</visible>
 					<aspectratio aligny="top">scale</aspectratio>
 					<texture background="true">$INFO[ListItem(0).Art(fanart)]</texture>
-					<bordertexture border="1,1,2,1">thumbs/panel_border.png</bordertexture>
-					<bordersize>1,1,2,1</bordersize>
 				</control>
 				<control type="image">
 					<left>1276</left>
@@ -244,7 +238,6 @@
 					<ondown>88</ondown>
 					<orientation>horizontal</orientation>
 					<focusposition>2</focusposition>
-					<onfocus>RunScript(script.toolbox,info=blur,id='"$VAR[ListPosterVar]"',radius=20,prefix=VideoInfo)</onfocus>
 					<scrolltime>100</scrolltime>
 					<preloaditems>2</preloaditems>
 					<pagecontrol>88</pagecontrol>
@@ -318,19 +311,15 @@
 							<font>font_cdvv_12</font>
 							<textcolor>white</textcolor>
 							<shadowcolor>black</shadowcolor>
-							<scroll>true</scroll>
-							<scrollspeed>50</scrollspeed>
-							<textcolor>grey2</textcolor>
-							<shadowcolor>black</shadowcolor>
 							<label>$INFO[ListItem.Title]</label>
 							<animation effect="rotate" center="auto" start="" end="-90" time="0" condition="true">Conditional</animation>
 						</control>
 					</itemlayout>
 					<focusedlayout width="280" height="434">
-						<animation type="Focus" reversible="false">
+						<control type="group">
+						<animation reversible="false">
 							<effect type="zoom" center="50,180" start="80" end="100" time="600" tween="cubic" easing="out" />
 						</animation>
-						<control type="group">
 							<left>170</left>
 							<top>0</top>
 							<control type="image">
@@ -408,10 +397,7 @@
 					<font>font_cdvv_18</font>
 					<textcolor>white</textcolor>
 					<shadowcolor>black</shadowcolor>
-					<scroll>true</scroll>
-					<scrollspeed>50</scrollspeed>
 					<label>$INFO[ListItem.Title]</label>
-					<wrapmultiline>false</wrapmultiline>
 					<animation effect="rotate" center="auto" start="" end="-90" time="0" condition="true">Conditional</animation>
 					<!--animation effect="rotatey" center="50" start="8" end="8" time="0" condition="true">Conditional</animation-->
 				</control>
@@ -433,7 +419,7 @@
 					<top>670</top>
 					<width>290</width>
 					<height>290</height>
-					<visible>!ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(ListItem.Art(discart))</visible>	
+					<visible>!ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(ListItem.Art(discart))</visible>
 					<visible>Container.Content(movies) | Container.Content(sets)</visible>
 					<include>Shelf3DDiscAnimation</include>
 					<animation type="Focus" reversible="false">
@@ -454,7 +440,7 @@
 					<top>960</top>
 					<width>290</width>
 					<height>290</height>
-					<visible>!ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(ListItem.Art(discart))</visible>	
+					<visible>!ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(ListItem.Art(discart))</visible>
 					<visible>Container.Content(movies) | Container.Content(sets)</visible>
 					<include>Shelf3DDiscAnimationReflection</include>
 					<animation type="Focus" reversible="false">
@@ -475,7 +461,7 @@
 					<top>670</top>
 					<width>294</width>
 					<height>294</height>
-					<visible>!ListItem.IsCollection</visible>	
+					<visible>!ListItem.IsCollection</visible>
 					<include>Shelf3DDiscAnimation</include>
 					<texture background="true">$INFO[ListItem.Art(discart)]</texture>
 				</control>
@@ -485,7 +471,7 @@
 					<top>960</top>
 					<width>294</width>
 					<height>294</height>
-					<visible>!ListItem.IsCollection</visible>	
+					<visible>!ListItem.IsCollection</visible>
 					<include>Shelf3DDiscAnimationReflection</include>
 					<texture flipy="true" background="true">$INFO[ListItem.Art(discart)]</texture>
 					<colordiffuse>61FFFFFF</colordiffuse>
@@ -496,7 +482,7 @@
 					<top>670</top>
 					<width>294</width>
 					<height>294</height>
-					<visible>ListItem.IsCollection</visible>	
+					<visible>ListItem.IsCollection</visible>
 					<animation type="Focus" reversible="false">
 						<effect type="fade" start="0" end="100" delay="2000" time="150" />
 					</animation>
@@ -510,7 +496,7 @@
 					<width>290</width>
 					<height>290</height>
 					<include>Shelf3DDiscAnimation</include>
-					<visible>ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4289))</visible>	
+					<visible>ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4289))</visible>
 					<animation type="Focus" reversible="false">
 						<effect type="fade" start="0" end="100" delay="2000" time="200" />
 					</animation>
@@ -521,7 +507,7 @@
 					<control type="image">
 						<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
 						<texture background="true">$VAR[FakeDiscArtOverlay]</texture>
-						<visible>ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4289))</visible>	
+						<visible>ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4289))</visible>
 					</control>
 				</control>
 				<control type="image" id="4298">
@@ -530,7 +516,7 @@
 					<top>670</top>
 					<width>294</width>
 					<height>294</height>
-					<visible>ListItem.IsCollection</visible>	
+					<visible>ListItem.IsCollection</visible>
 					<animation type="Focus" reversible="false">
 						<effect type="fade" start="0" end="100" delay="2000" time="150" />
 					</animation>
@@ -543,7 +529,7 @@
 					<top>670</top>
 					<width>290</width>
 					<height>290</height>
-					<visible>ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4298)) + !IsEmpty(Window(home).Property(Set.Movie.2.Art(poster)))</visible>	
+					<visible>ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4298)) + !IsEmpty(Window(home).Property(Set.Movie.2.Art(poster)))</visible>
 					<include>Shelf3DDiscAnimation</include>
 					<animation type="Focus" reversible="false">
 						<effect type="fade" start="0" end="100" delay="2000" time="200" />
@@ -563,7 +549,7 @@
 					<top>670</top>
 					<width>294</width>
 					<height>294</height>
-					<visible>ListItem.IsCollection</visible>	
+					<visible>ListItem.IsCollection</visible>
 					<animation type="Focus" reversible="false">
 						<effect type="fade" start="0" end="100" delay="2000" time="150" />
 					</animation>
@@ -576,7 +562,7 @@
 					<top>670</top>
 					<width>290</width>
 					<height>290</height>
-					<visible>ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4297)) + !IsEmpty(Window(home).Property(Set.Movie.3.Art(poster)))</visible>	
+					<visible>ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4297)) + !IsEmpty(Window(home).Property(Set.Movie.3.Art(poster)))</visible>
 					<include>Shelf3DDiscAnimation</include>
 					<animation type="Focus" reversible="false">
 						<effect type="fade" start="0" end="100" delay="2000" time="200" />
@@ -596,7 +582,7 @@
 					<top>960</top>
 					<width>294</width>
 					<height>294</height>
-					<visible>ListItem.IsCollection</visible>	
+					<visible>ListItem.IsCollection</visible>
 					<animation type="Focus" reversible="false">
 						<effect type="fade" start="0" end="100" delay="2000" time="150" />
 					</animation>
@@ -610,7 +596,7 @@
 					<top>960</top>
 					<width>290</width>
 					<height>290</height>
-					<visible>ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4299)) + !IsEmpty(Window(home).Property(Set.Movie.1.Art(poster)))</visible>	
+					<visible>ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4299)) + !IsEmpty(Window(home).Property(Set.Movie.1.Art(poster)))</visible>
 					<include>Shelf3DDiscAnimationReflection</include>
 					<animation type="Focus" reversible="false">
 						<effect type="fade" start="0" end="100" delay="2000" time="200" />
@@ -632,7 +618,7 @@
 					<top>960</top>
 					<width>294</width>
 					<height>294</height>
-					<visible>ListItem.IsCollection</visible>	
+					<visible>ListItem.IsCollection</visible>
 					<animation type="Focus" reversible="false">
 						<effect type="fade" start="0" end="100" delay="2000" time="150" />
 					</animation>
@@ -646,7 +632,7 @@
 					<top>960</top>
 					<width>290</width>
 					<height>290</height>
-					<visible>ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4298)) + !IsEmpty(Window(home).Property(Set.Movie.2.Art(poster)))</visible>	
+					<visible>ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4298)) + !IsEmpty(Window(home).Property(Set.Movie.2.Art(poster)))</visible>
 					<include>Shelf3DDiscAnimationReflection</include>
 					<animation type="Focus" reversible="false">
 						<effect type="fade" start="0" end="100" delay="2000" time="200" />
@@ -668,7 +654,7 @@
 					<top>960</top>
 					<width>294</width>
 					<height>294</height>
-					<visible>ListItem.IsCollection</visible>	
+					<visible>ListItem.IsCollection</visible>
 					<animation type="Focus" reversible="false">
 						<effect type="fade" start="0" end="100" delay="2000" time="150" />
 					</animation>
@@ -682,7 +668,7 @@
 					<top>960</top>
 					<width>290</width>
 					<height>290</height>
-					<visible>ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4297)) + !IsEmpty(Window(home).Property(Set.Movie.3.Art(poster)))</visible>	
+					<visible>ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4297)) + !IsEmpty(Window(home).Property(Set.Movie.3.Art(poster)))</visible>
 					<include>Shelf3DDiscAnimationReflection</include>
 					<animation type="Focus" reversible="false">
 						<effect type="fade" start="0" end="100" delay="2000" time="200" />
@@ -958,7 +944,7 @@
 				<textcolor>$VAR[TitleColorVar]</textcolor>
 				<shadowcolor>black</shadowcolor>
 				<font>font_SimplerE3D_bold</font>
-				
+
 				<label>[B]$VAR[FirstLabelVar][/B]</label>
 				<visible>Skin.HasSetting(Shelf3DFlatInfoPanel) + IsEmpty(Control.GetLabel(4295))</visible>
 			</control-->
@@ -977,7 +963,7 @@
 				<label>[B]$VAR[FirstLabelVar][/B]</label>
 				<visible>!Skin.HasSetting(Shelf3DFlatInfoPanel) + IsEmpty(Control.GetLabel(4295)) + !Skin.HasSetting(Shelf3DNoInfoPanel)</visible>
 			</control>
-			
+
 			<control type="grouplist">
                	<animation effect="rotatey" center="1230" start="-12" end="-12" time="0" condition="!Skin.HasSetting(Shelf3DFlatInfoPanel)">Conditional</animation>
 				<left>595</left>
@@ -1035,7 +1021,7 @@
                     <include>ShowCaseInfoPanelButtonsValues</include>
                     <visible>!IsEmpty(ListItem.Property(Artist_Genre))</visible>
                 </control>
-            </control>	
+            </control>
             <control type="textbox">
                 <animation effect="rotatey" center="1230" start="-12" end="-12" time="0" condition="!Skin.HasSetting(Shelf3DFlatInfoPanel)">Conditional</animation>
 				<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[569]:[/COLOR] [COLOR white]$INFO[ListItem.Comment][/COLOR]</label>
@@ -1100,8 +1086,6 @@
 					<fadetime>650</fadetime>
 					<aspectratio aligny="top">scale</aspectratio>
 					<imagepath background="true">$VAR[MusicExtraFanartVar]</imagepath>
-					<bordertexture border="1,1,2,1">thumbs/panel_border.png</bordertexture>
-					<bordersize>1,1,2,1</bordersize>
 				</control>
 				<control type="multiimage" id="4209">
 					<left>1276</left>
@@ -1113,8 +1097,6 @@
 					<aspectratio aligny="top">scale</aspectratio>
 					<visible>IsEmpty(Control.GetLabel(4208))</visible>
 					<imagepath background="true">$INFO[ListItem.Path,,/extrathumbs/]</imagepath>
-					<bordertexture border="1,1,2,1">thumbs/panel_border.png</bordertexture>
-					<bordersize>1,1,2,1</bordersize>
 				</control>
 				<control type="image">
 					<left>1276</left>
@@ -1167,7 +1149,6 @@
 					<ondown>88</ondown>
 					<orientation>horizontal</orientation>
 					<focusposition>2</focusposition>
-					<onfocus>RunScript(script.toolbox,info=blur,id='"$VAR[ListPosterVar]"',radius=20,prefix=VideoInfo)</onfocus>
 					<scrolltime>100</scrolltime>
 					<preloaditems>2</preloaditems>
 					<pagecontrol>88</pagecontrol>
@@ -1197,7 +1178,7 @@
 								<top>524</top>
 								<width>230</width>
 								<height>180</height>
-								<texture flipy="true" background="true"  fallback="DefaultAlbumCover.png">$VAR[ListALbumVar]</texture>
+								<texture flipy="true" background="true"  fallback="DefaultAlbumCover.png">$VAR[ListAlbumVar]</texture>
 								<aspectratio>scale</aspectratio>
 								<colordiffuse>61FFFFFF</colordiffuse>
 							</control>
@@ -1237,10 +1218,7 @@
 							<font>font_cdvv_10</font>
 							<textcolor>white</textcolor>
 							<shadowcolor>black</shadowcolor>
-							<scrolltime>200</scrolltime>
 							<autoscroll delay="3000" time="1000" repeat="5000"></autoscroll>
-							<textcolor>grey2</textcolor>
-							<shadowcolor>black</shadowcolor>
 							<label>$INFO[ListItem.Artist]</label>
 							<visible>Container.Content(artists) + Skin.HasSetting(Shelf3DSpineText)</visible>
 							<animation effect="rotate" center="auto" start="" end="-90" time="0" condition="true">Conditional</animation>
@@ -1257,8 +1235,6 @@
 							<wrapmultiline>true</wrapmultiline>
 							<!--scroll>true</scroll-->
 							<scrollspeed>50</scrollspeed>
-							<textcolor>grey2</textcolor>
-							<shadowcolor>black</shadowcolor>
 							<label>$INFO[ListItem.Title]</label>
 							<visible>Container.Content(albums) + Skin.HasSetting(Shelf3DSpineText)</visible>
 							<animation effect="rotate" center="auto" start="" end="-90" time="0" condition="true">Conditional</animation>
@@ -1272,20 +1248,17 @@
 							<font>font_cdvv_10</font>
 							<textcolor>white</textcolor>
 							<shadowcolor>black</shadowcolor>
-							<scrolltime>200</scrolltime>
 							<autoscroll delay="3000" time="1000" repeat="5000"></autoscroll>
-							<textcolor>grey2</textcolor>
-							<shadowcolor>black</shadowcolor>
 							<label>$INFO[ListItem.Tracknumber]: $INFO[ListItem.Title]</label>
 							<visible>Container.Content(songs) + Skin.HasSetting(Shelf3DSpineText)</visible>
 							<animation effect="rotate" center="auto" start="" end="-90" time="0" condition="true">Conditional</animation>
 						</control>
 					</itemlayout>
 					<focusedlayout width="380" height="434">
+						<control type="group">
 						<animation type="Focus" reversible="false">
 							<effect type="zoom" center="50,180" start="80" end="100" time="600" tween="cubic" easing="out" />
 						</animation>
-						<control type="group">
 							<left>170</left>
 							<top>0</top>
 							<control type="image">
@@ -1338,7 +1311,7 @@
 					<top>650</top>
 					<width>294</width>
 					<height>294</height>
-					<visible>!Stringcompare(ListItem.Label,..)</visible>	
+					<visible>!Stringcompare(ListItem.Label,..)</visible>
 					<animation type="Focus" reversible="false">
 						<effect type="fade" start="0" end="100" delay="2000" time="150" />
 					</animation>
@@ -1350,7 +1323,7 @@
 					<top>985</top>
 					<width>294</width>
 					<height>294</height>
-					<visible>!ListItem.IsCollection</visible>	
+					<visible>!ListItem.IsCollection</visible>
 					<animation type="Focus" reversible="false">
 						<effect type="fade" start="0" end="100" delay="2000" time="150" />
 					</animation>
@@ -1364,7 +1337,7 @@
 					<top>690</top>
 					<width>290</width>
 					<height>290</height>
-					<visible>!Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4294))</visible>	
+					<visible>!Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4294))</visible>
 					<animation type="Focus" reversible="false">
 						<effect type="fade" start="0" end="100" delay="2000" time="200" />
 					</animation>
@@ -1380,7 +1353,7 @@
 					<top>980</top>
 					<width>290</width>
 					<height>290</height>
-					<visible>!Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4294))</visible>	
+					<visible>!Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4294))</visible>
 					<animation type="Focus" reversible="false">
 						<effect type="fade" start="0" end="100" delay="2000" time="200" />
 					</animation>
@@ -1411,7 +1384,6 @@
 					<font>Font_MainClassic3.low</font>
 					<textcolor>white</textcolor>
 					<shadowcolor>00000000</shadowcolor>
-					<scrolltime>200</scrolltime>
 					<autoscroll delay="3000" time="1000" repeat="5000"></autoscroll>
 					<label>$INFO[ListItem.Tracknumber]: $INFO[ListItem.Title]</label>
 					<visible>Container.Content(songs) + !Skin.HasSetting(Shelf3DSpineText)</visible>
@@ -1426,7 +1398,6 @@
 					<font>Font_MainClassic3.low</font>
 					<textcolor>white</textcolor>
 					<shadowcolor>black</shadowcolor>
-					<scrolltime>200</scrolltime>
 					<autoscroll delay="3000" time="1000" repeat="5000"></autoscroll>
 					<label>$INFO[ListItem.Title]</label>
 					<visible>Container.Content(albums) + !Skin.HasSetting(Shelf3DSpineText)</visible>
@@ -1441,10 +1412,7 @@
 					<font>font_cdvv_18</font>
 					<textcolor>white</textcolor>
 					<shadowcolor>black</shadowcolor>
-					<scrolltime>200</scrolltime>
 					<autoscroll delay="3000" time="1000" repeat="5000"></autoscroll>
-					<textcolor>grey2</textcolor>
-					<shadowcolor>black</shadowcolor>
 					<label>$INFO[ListItem.Artist]</label>
 					<visible>Container.Content(artists) + Skin.HasSetting(Shelf3DSpineText)</visible>
 					<animation effect="rotate" center="auto" start="" end="-90" time="0" condition="true">Conditional</animation>
@@ -1458,10 +1426,7 @@
 					<font>font_cdvv_18</font>
 					<textcolor>white</textcolor>
 					<shadowcolor>black</shadowcolor>
-					<scrolltime>200</scrolltime>
 					<autoscroll delay="3000" time="1000" repeat="5000"></autoscroll>
-					<textcolor>grey2</textcolor>
-					<shadowcolor>black</shadowcolor>
 					<label>$INFO[ListItem.Title]</label>
 					<visible>Container.Content(albums) + Skin.HasSetting(Shelf3DSpineText)</visible>
 					<animation effect="rotate" center="auto" start="" end="-90" time="0" condition="true">Conditional</animation>
@@ -1475,10 +1440,7 @@
 					<font>font_cdvv_18</font>
 					<textcolor>white</textcolor>
 					<shadowcolor>black</shadowcolor>
-					<scrolltime>200</scrolltime>
 					<autoscroll delay="3000" time="1000" repeat="5000"></autoscroll>
-					<textcolor>grey2</textcolor>
-					<shadowcolor>black</shadowcolor>
 					<label>$INFO[ListItem.Tracknumber]: $INFO[ListItem.Title]</label>
 					<visible>Container.Content(songs) + Skin.HasSetting(Shelf3DSpineText)</visible>
 					<animation effect="rotate" center="auto" start="" end="-90" time="0" condition="true">Conditional</animation>
@@ -1493,7 +1455,7 @@
 					<texture>$VAR[ColorFlagsSource]source/$VAR[SourceFlagVar,,.png]</texture>
 					<visible>!Container.Content(tvshows) + !IsEmpty(ListItem.VideoCodec) + Skin.HasSetting(Shelf3DSpineText)</visible>
 				</control>
-				
+
 			</control>
 		</control>
 	</include>

@@ -2,7 +2,6 @@
 <window>
     <defaultcontrol always="true">7510</defaultcontrol>
     <backgroundcolor>backgroundcolor</backgroundcolor>
-    <allowoverlay>no</allowoverlay>
     <include condition="!Skin.HasSetting(firstrun4.0)">AutoConfig</include>
     <onload condition="!Skin.HasSetting(ExplainMediaMenu)">ActivateWindow(1123)</onload>
     <onunload>ClearProperty(FSMap,weather)</onunload>
@@ -2427,12 +2426,6 @@
                         <label>5</label>
                         <include>Objects_MediaMenuButtonAlt</include>
                         <onclick>ActivateWindow(MyWeatherSettings)</onclick>
-                    </control>
-                    <control type="button" id="2250">
-                        <label>31846</label>
-                        <include>Objects_MediaMenuButtonAlt</include>
-                        <onclick>ActivateWindow(1153)</onclick>
-                        <visible>System.HasAddon(script.widget.weatherworld)</visible>
                     </control>
                     <control type="button" id="301">
                         <width>400</width>
