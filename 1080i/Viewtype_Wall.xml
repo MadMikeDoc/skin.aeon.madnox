@@ -220,7 +220,7 @@
 					<texture>common/bgcolor.png</texture>
 					<animation effect="fade" start="100" end="90" time="40" condition="true">Conditional</animation>
 					<visible>!Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs) + !Container.Content(genres)</visible>
-				</control>				
+				</control>
 					<!-- disable rating -->
                 <control type="label">
                     <top>172</top>
@@ -313,7 +313,7 @@
 					<top>-8</top>
 					<width>200</width>
 					<height>135</height>
-					<aspectratio align="keep">keep</aspectratio>
+					<aspectratio>keep</aspectratio>
 					<texture fallback="special://skin/extras/Alticons/color studios/studios/Default-Studio.png">special://skin/extras/Alticons/color studios/studios/$INFO[ListItem.Label,,.png]</texture>
 					<visible>Container.Content(studios) + !StringCompare(ListItem.Label,..)</visible>
 				</control>
@@ -443,7 +443,7 @@
 				</control>
          	</control>
 		</itemlayout>
-		<focusedlayout height="197" width="841" condition="[Container.Content(movies) + Skin.HasSetting(MovieWallBanner)] | [Container.Content(tvshows) + Skin.HasSetting(TVWallBanner)]">	
+		<focusedlayout height="197" width="841" condition="[Container.Content(movies) + Skin.HasSetting(MovieWallBanner)] | [Container.Content(tvshows) + Skin.HasSetting(TVWallBanner)]">
 			<control type="group">
 				<posx>4</posx>
 				<posy>18</posy>
@@ -747,7 +747,7 @@
 							</control>
                         </control>
                     </itemlayout>
-		<focusedlayout height="200" width="331" condition="Container.Content(episodes)"><!-- TV EPISODES LANDSCAPE ACTIVE-->                      
+		<focusedlayout height="200" width="331" condition="Container.Content(episodes)"><!-- TV EPISODES LANDSCAPE ACTIVE-->
                       <control type="group">
                             <top>13</top>
 							<left>10</left>
@@ -809,8 +809,8 @@
 								<visible>!Skin.HasSetting(InfoWallZoom)</visible>
 			                </control>
                         </control>
-                    </focusedlayout>	
-		
+                    </focusedlayout>
+
 		<itemlayout width="208" height="201" condition="![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(musicvideos) | [Window.IsActive(videolibrary) + Container.Content(genres)] | [Window.IsActive(pictures) + Substring(Container.FolderPath,\comics\)]] + ![Skin.HasSetting(titlewall) | StringCompare(Container.FolderName,youtube)]">
 			<include>WallIcons</include>
 		</itemlayout>

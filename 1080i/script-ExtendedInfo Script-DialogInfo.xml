@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">9001</defaultcontrol>
-	<allowoverlay>no</allowoverlay>
 	<controls>
 		<control type="group">
 			<animation effect="slide" start="-729,0" end="0,0" time="500" tween="quadratic">WindowOpen</animation>
@@ -50,7 +49,7 @@
 					<width>149</width>
 					<height>60</height>
 					<texture>special://home/addons/script.extendedinfo/resources/skins/Default/media/moviedb.png</texture>
-					<aspectratio align="left" aligny="center">keep</aspectratio>                   
+					<aspectratio align="left" aligny="center">keep</aspectratio>
 				</control>
 				<control type="image">
 					<left>-37</left>
@@ -66,8 +65,8 @@
 					<height>468</height>
 					<onup>4002</onup>
 					<ondown>9001</ondown>
-				<!-- Add onleft condition -->						
-					<onleft>Close</onleft>						
+				<!-- Add onleft condition -->
+					<onleft>Close</onleft>
 					<orientation>horizontal</orientation>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
 					<itemlayout height="117" width="594">
@@ -204,11 +203,11 @@
 							<label />
 							<onup>300</onup>
 							<ondown>150</ondown>
-					<!-- Add onleft condition -->						
-							<onleft>Close</onleft>							
+					<!-- Add onleft condition -->
+							<onleft>Close</onleft>
 							<include>ButtonInfoDialogsCommonValues</include>
 						</control>
-		<!-- Add Plot Dialogue -->										
+		<!-- Add Plot Dialogue -->
 						<control type="textbox" id="800">
 							<description>Plot</description>
 							<left>36</left>
@@ -225,7 +224,7 @@
 							<animation effect="fade" start="100" end="78" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(132)">Conditional</animation>
 						</control>
 					</control>
-		<!-- Add Movies Dialogue -->					
+		<!-- Add Movies Dialogue -->
 					<control type="panel" id="150">
 						<description>Movies roles</description>
 						<left>0</left>
@@ -247,8 +246,8 @@
 							<left>204</left>
                             <width>93</width>
                             <height>93</height>
-                            <texture>extendedinfo.png</texture>						
-							<visible>!IsEmpty(ListItem.Property(DBID))</visible>							
+                            <texture>extendedinfo.png</texture>
+							<visible>!IsEmpty(ListItem.Property(DBID))</visible>
                         </control>
                         <control type="image">
                             <top>0</top>
@@ -257,7 +256,7 @@
                             <height>40</height>
                             <texture>black.png</texture>
                             <colordiffuse>88ffffff</colordiffuse>
-							<visible>!IsEmpty(ListItem.Year)</visible>							
+							<visible>!IsEmpty(ListItem.Year)</visible>
                         </control>
 						<control type="textbox">
                             <left>8</left>
@@ -267,15 +266,15 @@
                             <align>left</align>
 							<font>font13</font>
                             <shadowcolor>black</shadowcolor>
-							<label>$INFO[ListItem.Year]</label>				
-						</control>						
+							<label>$INFO[ListItem.Year]</label>
+						</control>
                         <control type="image">
                             <top>363</top>
                             <width>297</width>
                             <height>78</height>
                             <texture>black.png</texture>
                             <colordiffuse>88ffffff</colordiffuse>
-							<visible>!IsEmpty(ListItem.Label)</visible>							
+							<visible>!IsEmpty(ListItem.Label)</visible>
                         </control>
 						<control type="label">
 							<left>14</left>
@@ -286,8 +285,8 @@
 							<font>font13</font>
                             <shadowcolor>black</shadowcolor>
 							<textcolor>white</textcolor>
-							<label>$INFO[ListItem.Label]</label>							
-						</control>						
+							<label>$INFO[ListItem.Label]</label>
+						</control>
 						<control type="label">
                             <left>14</left>
                             <top>396</top>
@@ -296,9 +295,9 @@
                             <align>center</align>
 							<font>font13</font>
                             <shadowcolor>black</shadowcolor>
-							<textcolor>grey2</textcolor>							
-							<label>$INFO[ListItem.Property(Character)]</label>							
-						</control>							
+							<textcolor>grey2</textcolor>
+							<label>$INFO[ListItem.Property(Character)]</label>
+						</control>
 					</itemlayout>
 					<focusedlayout height="440" width="297">
                         <control type="group">
@@ -325,8 +324,8 @@
 							<left>204</left>
                             <width>93</width>
                             <height>93</height>
-                            <texture>extendedinfo.png</texture>						
-							<visible>!IsEmpty(ListItem.Property(DBID))</visible>							
+                            <texture>extendedinfo.png</texture>
+							<visible>!IsEmpty(ListItem.Property(DBID))</visible>
                         </control>
                         <control type="image">
                             <top>8</top>
@@ -335,7 +334,7 @@
                             <height>32</height>
                             <texture>black.png</texture>
                             <colordiffuse>88ffffff</colordiffuse>
-							<visible>!IsEmpty(ListItem.Year)</visible>						
+							<visible>!IsEmpty(ListItem.Year)</visible>
                         </control>
 						<control type="textbox">
                             <left>8</left>
@@ -345,8 +344,8 @@
                             <align>left</align>
 							<font>font13</font>
                             <shadowcolor>black</shadowcolor>
-							<label>$INFO[ListItem.Year]</label>					
-						</control>						
+							<label>$INFO[ListItem.Year]</label>
+						</control>
                         <control type="image">
 							<left>8</left>
                             <top>363</top>
@@ -354,7 +353,7 @@
                             <height>70</height>
                             <texture>black.png</texture>
                             <colordiffuse>88ffffff</colordiffuse>
-							<visible>!IsEmpty(ListItem.Label)</visible>							
+							<visible>!IsEmpty(ListItem.Label)</visible>
                         </control>
 						<control type="label">
 							<left>14</left>
@@ -366,8 +365,7 @@
 							<shadowcolor>black</shadowcolor>
 							<textcolor>$VAR[FocusTextureColorVar]</textcolor>
 							<label>$INFO[ListItem.Label]</label>
-							<autoscroll delay="0" time="0" repeat="1000">true</autoscroll>									
-						</control>						
+						</control>
 						<control type="label">
                             <left>14</left>
                             <top>396</top>
@@ -376,13 +374,12 @@
                             <align>center</align>
 							<font>font13</font>
                             <shadowcolor>black</shadowcolor>
-							<textcolor>grey2</textcolor>							
+							<textcolor>grey2</textcolor>
 							<label>$INFO[ListItem.Property(Character)]</label>
-							<autoscroll delay="0" time="0" repeat="1000">true</autoscroll>							
-						</control>							
+						</control>
 					</focusedlayout>
-					</control> 
-		<!-- Add TV Shows Dialogue -->					
+					</control>
+		<!-- Add TV Shows Dialogue -->
 					<control type="panel" id="250">
 						<description>TV roles</description>
 						<left>0</left>
@@ -404,8 +401,8 @@
 							<left>204</left>
                             <width>93</width>
                             <height>93</height>
-                            <texture>extendedinfo.png</texture>						
-							<visible>!IsEmpty(ListItem.Property(DBID))</visible>							
+                            <texture>extendedinfo.png</texture>
+							<visible>!IsEmpty(ListItem.Property(DBID))</visible>
                         </control>
                         <control type="image">
                             <top>0</top>
@@ -414,7 +411,7 @@
                             <height>40</height>
                             <texture>black.png</texture>
                             <colordiffuse>88ffffff</colordiffuse>
-							<visible>!IsEmpty(ListItem.Year)</visible>							
+							<visible>!IsEmpty(ListItem.Year)</visible>
                         </control>
 						<control type="textbox">
                             <left>8</left>
@@ -424,15 +421,15 @@
                             <align>left</align>
 							<font>font13</font>
                             <shadowcolor>black</shadowcolor>
-							<label>$INFO[ListItem.Year]</label>				
-						</control>						
+							<label>$INFO[ListItem.Year]</label>
+						</control>
                         <control type="image">
                             <top>363</top>
                             <width>297</width>
                             <height>78</height>
                             <texture>black.png</texture>
                             <colordiffuse>88ffffff</colordiffuse>
-							<visible>!IsEmpty(ListItem.Label)</visible>							
+							<visible>!IsEmpty(ListItem.Label)</visible>
                         </control>
 						<control type="label">
 							<left>14</left>
@@ -443,8 +440,8 @@
 							<font>font13</font>
                             <shadowcolor>black</shadowcolor>
 							<textcolor>white</textcolor>
-							<label>$INFO[ListItem.Label]</label>							
-						</control>						
+							<label>$INFO[ListItem.Label]</label>
+						</control>
 						<control type="label">
                             <left>14</left>
                             <top>396</top>
@@ -453,9 +450,9 @@
                             <align>center</align>
 							<font>font13</font>
                             <shadowcolor>black</shadowcolor>
-							<textcolor>grey2</textcolor>							
-							<label>$INFO[ListItem.Property(Character)]</label>							
-						</control>							
+							<textcolor>grey2</textcolor>
+							<label>$INFO[ListItem.Property(Character)]</label>
+						</control>
 					</itemlayout>
 					<focusedlayout height="440" width="297">
                         <control type="group">
@@ -482,8 +479,8 @@
 							<left>204</left>
                             <width>93</width>
                             <height>93</height>
-                            <texture>extendedinfo.png</texture>						
-							<visible>!IsEmpty(ListItem.Property(DBID))</visible>							
+                            <texture>extendedinfo.png</texture>
+							<visible>!IsEmpty(ListItem.Property(DBID))</visible>
                         </control>
                         <control type="image">
                             <top>8</top>
@@ -492,7 +489,7 @@
                             <height>32</height>
                             <texture>black.png</texture>
                             <colordiffuse>88ffffff</colordiffuse>
-							<visible>!IsEmpty(ListItem.Year)</visible>						
+							<visible>!IsEmpty(ListItem.Year)</visible>
                         </control>
 						<control type="textbox">
                             <left>8</left>
@@ -502,8 +499,8 @@
                             <align>left</align>
 							<font>font13</font>
                             <shadowcolor>black</shadowcolor>
-							<label>$INFO[ListItem.Year]</label>					
-						</control>						
+							<label>$INFO[ListItem.Year]</label>
+						</control>
                         <control type="image">
 							<left>8</left>
                             <top>363</top>
@@ -511,7 +508,7 @@
                             <height>70</height>
                             <texture>black.png</texture>
                             <colordiffuse>88ffffff</colordiffuse>
-							<visible>!IsEmpty(ListItem.Label)</visible>							
+							<visible>!IsEmpty(ListItem.Label)</visible>
                         </control>
 						<control type="label">
 							<left>14</left>
@@ -523,8 +520,7 @@
 							<shadowcolor>black</shadowcolor>
 							<textcolor>$VAR[FocusTextureColorVar]</textcolor>
 							<label>$INFO[ListItem.Label]</label>
-							<autoscroll delay="0" time="0" repeat="1000">true</autoscroll>									
-						</control>						
+						</control>
 						<control type="label">
                             <left>14</left>
                             <top>396</top>
@@ -533,13 +529,12 @@
                             <align>center</align>
 							<font>font13</font>
                             <shadowcolor>black</shadowcolor>
-							<textcolor>grey2</textcolor>							
+							<textcolor>grey2</textcolor>
 							<label>$INFO[ListItem.Property(Character)]</label>
-							<autoscroll delay="0" time="0" repeat="1000">true</autoscroll>							
-						</control>							
+						</control>
 					</focusedlayout>
-					</control>   
-		<!-- Add YouTube Dialogue -->					
+					</control>
+		<!-- Add YouTube Dialogue -->
 					<control type="panel" id="350">
 						<description>Youtube Videos</description>
 						<left>0</left>
@@ -564,8 +559,8 @@
                             <height>94</height>
                             <texture>black.png</texture>
                             <colordiffuse>88ffffff</colordiffuse>
-							<visible>!IsEmpty(ListItem.Title)</visible>							
-                        </control>						
+							<visible>!IsEmpty(ListItem.Title)</visible>
+                        </control>
 						<control type="textbox">
                             <left>17</left>
                             <top>292</top>
@@ -582,20 +577,20 @@
                             <animation type="Focus" reversible="false">
                                 <effect type="zoom" start="95" end="100" time="300" tween="sine" easing="inout" center="auto" />
                                 <effect type="fade" start="80" end="100" time="300" tween="sine" easing="in" />
-                            </animation> 
+                            </animation>
 							<control type="image">
 								<width>594</width>
 								<height>387</height>
 								<aspectratio>scale</aspectratio>
 								<texture background="true" fallback="DefaultVideoCover.png">$INFO[ListItem.Thumb]</texture>
-                            </control>							
+                            </control>
 							<control type="image">
 								<width>594</width>
 								<height>387</height>
 								<aspectratio align="center" aligny="center">stretch</aspectratio>
 								<texture border="15">views/addonwall_select.png</texture>
 								<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-							</control>							
+							</control>
 						</control>
                         <control type="image">
 							<left>8</left>
@@ -604,8 +599,8 @@
                             <height>86</height>
                             <texture>black.png</texture>
                             <colordiffuse>88ffffff</colordiffuse>
-							<visible>!IsEmpty(ListItem.Title)</visible>							
-                        </control>						
+							<visible>!IsEmpty(ListItem.Title)</visible>
+                        </control>
 						<control type="textbox">
                             <left>17</left>
                             <top>292</top>
@@ -615,11 +610,11 @@
 							<font>font13</font>
                             <textcolor>white</textcolor>
 							<label>$INFO[ListItem.Property(Type),[B],: [/B]]$INFO[ListItem.Label]</label>
-							<autoscroll delay="1000" time="2300" repeat="1500">true</autoscroll>							
+							<autoscroll delay="1000" time="2300" repeat="1500">true</autoscroll>
 						</control>
-					</focusedlayout>                 
+					</focusedlayout>
 					</control>
-		<!-- Add Movie Crew Dialogue -->					
+		<!-- Add Movie Crew Dialogue -->
 					<control type="panel" id="550">
 						<description>Crew</description>
 						<left>0</left>
@@ -641,8 +636,8 @@
 							<left>204</left>
                             <width>93</width>
                             <height>93</height>
-                            <texture>extendedinfo.png</texture>						
-							<visible>!IsEmpty(ListItem.Property(DBID))</visible>							
+                            <texture>extendedinfo.png</texture>
+							<visible>!IsEmpty(ListItem.Property(DBID))</visible>
                         </control>
                         <control type="image">
                             <top>0</top>
@@ -651,7 +646,7 @@
                             <height>40</height>
                             <texture>black.png</texture>
                             <colordiffuse>88ffffff</colordiffuse>
-							<visible>!IsEmpty(ListItem.Year)</visible>							
+							<visible>!IsEmpty(ListItem.Year)</visible>
                         </control>
 						<control type="textbox">
                             <left>8</left>
@@ -661,15 +656,15 @@
                             <align>left</align>
 							<font>font13</font>
                             <shadowcolor>black</shadowcolor>
-							<label>$INFO[ListItem.Year]</label>				
-						</control>						
+							<label>$INFO[ListItem.Year]</label>
+						</control>
                         <control type="image">
                             <top>363</top>
                             <width>297</width>
                             <height>78</height>
                             <texture>black.png</texture>
                             <colordiffuse>88ffffff</colordiffuse>
-							<visible>!IsEmpty(ListItem.Label)</visible>							
+							<visible>!IsEmpty(ListItem.Label)</visible>
                         </control>
 						<control type="label">
 							<left>14</left>
@@ -680,8 +675,8 @@
 							<font>font13</font>
                             <shadowcolor>black</shadowcolor>
 							<textcolor>white</textcolor>
-							<label>$INFO[ListItem.Label]</label>							
-						</control>						
+							<label>$INFO[ListItem.Label]</label>
+						</control>
 						<control type="label">
                             <left>14</left>
                             <top>396</top>
@@ -690,9 +685,9 @@
                             <align>center</align>
 							<font>font13</font>
                             <shadowcolor>black</shadowcolor>
-							<textcolor>grey2</textcolor>							
-							<label>$INFO[ListItem.Property(Job)]</label>							
-						</control>							
+							<textcolor>grey2</textcolor>
+							<label>$INFO[ListItem.Property(Job)]</label>
+						</control>
 					</itemlayout>
 					<focusedlayout height="440" width="297">
                         <control type="group">
@@ -719,8 +714,8 @@
 							<left>204</left>
                             <width>93</width>
                             <height>93</height>
-                            <texture>extendedinfo.png</texture>						
-							<visible>!IsEmpty(ListItem.Property(DBID))</visible>							
+                            <texture>extendedinfo.png</texture>
+							<visible>!IsEmpty(ListItem.Property(DBID))</visible>
                         </control>
                         <control type="image">
                             <top>8</top>
@@ -729,7 +724,7 @@
                             <height>32</height>
                             <texture>black.png</texture>
                             <colordiffuse>88ffffff</colordiffuse>
-							<visible>!IsEmpty(ListItem.Year)</visible>						
+							<visible>!IsEmpty(ListItem.Year)</visible>
                         </control>
 						<control type="textbox">
                             <left>8</left>
@@ -739,8 +734,8 @@
                             <align>left</align>
 							<font>font13</font>
                             <shadowcolor>black</shadowcolor>
-							<label>$INFO[ListItem.Year]</label>					
-						</control>						
+							<label>$INFO[ListItem.Year]</label>
+						</control>
                         <control type="image">
 							<left>8</left>
                             <top>363</top>
@@ -748,7 +743,7 @@
                             <height>70</height>
                             <texture>black.png</texture>
                             <colordiffuse>88ffffff</colordiffuse>
-							<visible>!IsEmpty(ListItem.Label)</visible>							
+							<visible>!IsEmpty(ListItem.Label)</visible>
                         </control>
 						<control type="label">
 							<left>14</left>
@@ -760,8 +755,7 @@
 							<shadowcolor>black</shadowcolor>
 							<textcolor>$VAR[FocusTextureColorVar]</textcolor>
 							<label>$INFO[ListItem.Label]</label>
-							<autoscroll delay="0" time="0" repeat="1000">true</autoscroll>									
-						</control>						
+						</control>
 						<control type="label">
                             <left>14</left>
                             <top>396</top>
@@ -770,13 +764,12 @@
                             <align>center</align>
 							<font>font13</font>
                             <shadowcolor>black</shadowcolor>
-							<textcolor>grey2</textcolor>							
+							<textcolor>grey2</textcolor>
 							<label>$INFO[ListItem.Property(Job)]</label>
-							<autoscroll delay="0" time="0" repeat="1000">true</autoscroll>							
-						</control>							
+						</control>
 					</focusedlayout>
 					</control>
-		<!-- Add Thumbs Dialogue -->				
+		<!-- Add Thumbs Dialogue -->
 					<control type="panel" id="450">
 						<description>Artwork</description>
 						<left>0</left>
@@ -794,7 +787,7 @@
                             <height>446</height>
 							<aspectratio>scale</aspectratio>
 							<texture background="true" fallback="Placeholder_Black.png">$INFO[ListItem.Thumb]</texture>
-						</control>						
+						</control>
 					</itemlayout>
 					<focusedlayout height="446" width="297">
                         <control type="group">
@@ -815,10 +808,10 @@
 								<texture border="15">views/addonwall_select.png</texture>
 								<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
 							</control>
-                        </control>							
+                        </control>
 					</focusedlayout>
 					</control>
-		<!-- Add Fanart Dialogue -->					
+		<!-- Add Fanart Dialogue -->
 					<control type="panel" id="750">
 						<description>Fanart</description>
 						<left>0</left>
@@ -843,7 +836,7 @@
                             <height>78</height>
                             <texture>black.png</texture>
                             <colordiffuse>88ffffff</colordiffuse>
-							<visible>!IsEmpty(ListItem.Title)</visible>							
+							<visible>!IsEmpty(ListItem.Title)</visible>
                         </control>
 						<control type="textbox">
                             <left>14</left>
@@ -854,8 +847,8 @@
 							<font>font13</font>
                             <shadowcolor>black</shadowcolor>
 							<label>$INFO[ListItem.Title]</label>
-							<autoscroll delay="1000" time="2300" repeat="1500">true</autoscroll>							
-						</control>							
+							<autoscroll delay="1000" time="2300" repeat="1500">true</autoscroll>
+						</control>
 					</itemlayout>
 					<focusedlayout height="440" width="594">
                         <control type="group">
@@ -884,7 +877,7 @@
                             <height>70</height>
                             <texture>black.png</texture>
                             <colordiffuse>88ffffff</colordiffuse>
-							<visible>!IsEmpty(ListItem.Title)</visible>							
+							<visible>!IsEmpty(ListItem.Title)</visible>
                         </control>
 						<control type="textbox">
                             <left>14</left>
@@ -895,15 +888,15 @@
 							<font>font13</font>
                             <shadowcolor>black</shadowcolor>
 							<label>$INFO[ListItem.Title]</label>
-							<autoscroll delay="1000" time="2300" repeat="1500">true</autoscroll>							
-						</control>								
-					</focusedlayout>                
+							<autoscroll delay="1000" time="2300" repeat="1500">true</autoscroll>
+						</control>
+					</focusedlayout>
 					</control>
 				</control>
 				<control type="scrollbar" id="70">
 					<include>HiddenObject</include>
 				</control>
-		<!-- Add Page Count -->	
+		<!-- Add Page Count -->
 				<control type="group">
                     <left>915</left>
                     <top>980</top>
@@ -911,51 +904,45 @@
                     <height>90</height>
                     <aligny>top</aligny>
 					<align>left</align>
-                    <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>					
+                    <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
 					<control type="label">
-						<font>font14</font>	
+						<font>font14</font>
 						<textcolor>grey2</textcolor>
-						<fadetime>200</fadetime>						
 						<visible>ControlGroup(9001).HasFocus(150)</visible>
 						<label>Page: $INFO[Container(150).CurrentPage]/$INFO[Container(150).NumPages]</label>
-					</control>	
+					</control>
 					<control type="label">
-						<font>font14</font>	
+						<font>font14</font>
 						<textcolor>grey2</textcolor>
-						<fadetime>200</fadetime>						
 						<visible>ControlGroup(9001).HasFocus(250)</visible>
 						<label>Page: $INFO[Container(250).CurrentPage]/$INFO[Container(250).NumPages]</label>
 					</control>
 					<control type="label">
-						<font>font14</font>	
+						<font>font14</font>
 						<textcolor>grey2</textcolor>
-						<fadetime>200</fadetime>						
 						<visible>ControlGroup(9001).HasFocus(350)</visible>
 						<label>Page: $INFO[Container(350).CurrentPage]/$INFO[Container(350).NumPages]</label>
 					</control>
 					<control type="label">
-						<font>font14</font>	
+						<font>font14</font>
 						<textcolor>grey2</textcolor>
-						<fadetime>200</fadetime>						
 						<visible>ControlGroup(9001).HasFocus(550)</visible>
 						<label>Page: $INFO[Container(550).CurrentPage]/$INFO[Container(550).NumPages]</label>
 					</control>
 					<control type="label">
-						<font>font14</font>	
+						<font>font14</font>
 						<textcolor>grey2</textcolor>
-						<fadetime>200</fadetime>						
 						<visible>ControlGroup(9001).HasFocus(450)</visible>
 						<label>Page: $INFO[Container(450).CurrentPage]/$INFO[Container(450).NumPages]</label>
 					</control>
 					<control type="label">
-						<font>font14</font>	
+						<font>font14</font>
 						<textcolor>grey2</textcolor>
-						<fadetime>200</fadetime>						
 						<visible>ControlGroup(9001).HasFocus(750)</visible>
 						<label>Page: $INFO[Container(750).CurrentPage]/$INFO[Container(750).NumPages]</label>
-					</control>						
-                </control>					
-		<!-- Add Section Label -->				
+					</control>
+                </control>
+		<!-- Add Section Label -->
 				<control type="group">
 					<left>0</left>
 					<top>980</top>
@@ -987,7 +974,7 @@
 						<texturefocus border="1">android/numberpicker_down_longpressed_holo_dark.png</texturefocus>
 						<onclick>PageDown(70)</onclick>
 						<animation effect="fade" time="100">VisibleChange</animation>
-						<visible>Container(9001).HasNext</visible>						
+						<visible>Container(9001).HasNext</visible>
 					</control>
 				</control>
 			</control>
