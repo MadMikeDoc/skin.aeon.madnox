@@ -2293,20 +2293,20 @@
 	</variable>
 	<!-- List -->
 	<!-- unused variable -->
-	<variable name="TriPanelLabel1Var">
+	<!-- <variable name="TriPanelLabel1Var">
 		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Title) + !SubString(Container.FolderPath,videodb://recentlyaddedepisodes/)">$INFO[ListItem.Title]</value>
 		<value>$INFO[ListItem.Label]</value>
-	</variable>
+	</variable> -->
 	<variable name="ListLabel1Var">
 		<value condition="[Container.Content(songs) | Container.Content(episodes)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
-	<variable name="SlimListLabel1Var">
+	<!-- <variable name="SlimListLabel1Var">
 		<value condition="Container.Content(albums)">[COLOR grey]$INFO[ListItem.Year,, • ][/COLOR]$INFO[ListItem.Label]</value>
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Title]</value>
 		<value condition="Container.Content(songs) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Tracknumber,,. ]$INFO[ListItem.Title]</value>
 		<value>$INFO[ListItem.Label]</value>
-	</variable>
+	</variable> -->
 	<variable name="ListLabel2Var">
 		<value condition="Container.Content(songs)">$INFO[ListItem.Artist]</value>
 		<value condition="Container.Content(movies) + [StringCompare(ListItem.Label2,ListItem.Rating) | StringCompare(ListItem.Label2,ListItem.Year)]">$INFO[ListItem.Rating]</value>
@@ -2496,7 +2496,7 @@
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 	<!-- unused variable -->
-	<variable name="ThumbnailVar1">
+	<!-- <variable name="ThumbnailVar1">
 		<value condition="Container.Content(countries)">$VAR[ColorFlagsLanguage]$INFO[ListItem.Label,,.png]</value>
 		<value condition="Window.IsActive(musiclibrary) + Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/genre/music/icons/,.jpg]</value>
 		<value condition="Window.IsActive(musiclibrary) + Container.Content(years)">$INFO[ListItem.Label,special://skin/extras/year/music/icons/,.jpg]</value>
@@ -2504,7 +2504,7 @@
 		<value condition="Window.IsActive(videos) + Container.Content(years)">$INFO[ListItem.Label,special://skin/extras/year/video/icons/,.jpg]</value>
 		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value>$INFO[ListItem.Icon]</value>
-	</variable>
+	</variable> -->
 	<variable name="PVRManagerHeaderVar">
 		<value condition="IsEmpty(Window.Property(IsRadio))">$LOCALIZE[19199] - $LOCALIZE[19023]</value>
 		<value>$LOCALIZE[19199] - $LOCALIZE[19024]</value>
@@ -2743,11 +2743,11 @@
 		<value>-</value>
 	</variable>
 	<!-- unused variable -->
-	<variable name="AddonWallCasesLabelVar">
+	<!-- <variable name="AddonWallCasesLabelVar">
 		<value condition="Skin.HasSetting(useclearcasesinfowall2)">$LOCALIZE[31282]</value>
 		<value condition="Skin.HasSetting(usecasesinfowall)">$LOCALIZE[31248]</value>
 		<value>$LOCALIZE[106]</value>
-	</variable>
+	</variable> -->
 	<variable name="VideoFanArtLabelVar">
 		<value condition="[Container.Content(seasons) + Skin.HasSetting(extrafanartseasons)] | [Container.Content(tvshows) + Skin.HasSetting(extrafanarttvshows)] | [Container.Content(episodes) + Skin.HasSetting(extrafanartepisodes)] | [Container.Content(movies) + Skin.HasSetting(extrafanartmovies)] | [Container.Content(musicvideos) + Skin.HasSetting(extrafanartmusicvideos)]">$LOCALIZE[31047]</value>
 		<value condition="[Skin.HasSetting(NoVideoLibraryFanartMusicVideos)  + Container.Content(musicvideos)] | [Skin.HasSetting(NoVideoLibraryFanartTVShows)  + [Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes)]] | [Skin.HasSetting(NoVideoLibraryFanart)  + ![Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes)]]">$LOCALIZE[106]</value>
@@ -3490,12 +3490,12 @@
 		<value condition="Skin.HasSetting(InfoWallTagLine)">$LOCALIZE[351]</value>
 		<value>$LOCALIZE[31429]</value>
 	</variable>
-	<variable name="PVRThumbVar">
+	<!-- <variable name="PVRThumbVar">
 		<value condition="Control.IsVisible(11)">special://skin/backgrounds/fallback_livetv.jpg</value>
 		<value condition="Control.IsVisible(12)">special://skin/backgrounds/fallback_radio.jpg</value>
 		<value condition="Control.IsVisible(13) + !StringCompare(Container(13).ListItem.Icon,DefaultVideo.png)">$INFO[Container(13).ListItem.Icon]</value>
 		<value>special://skin/backgrounds/fallback_record.jpg</value>
-	</variable>
+	</variable> -->
 	<variable name="LiveTvGuideTypeOptionsClickVar">
 		<value condition="IsEmpty(Skin.String(LiveTV.EpgViewChannels))">Skin.SetString(LiveTV.EpgViewChannels,1)</value>
 		<value condition="StringCompare(Skin.String(LiveTV.EpgViewChannels),1)">Skin.SetString(LiveTV.EpgViewChannels,2)</value>
@@ -3839,12 +3839,12 @@
 		<value>flags/</value>
 	</variable>
 	<!-- unused variable -->
-	<variable name="ColorFlagsRating1">
+	<!-- <variable name="ColorFlagsRating1">
 		<value condition="Skin.HasSetting(RatingColorFlag) + !Skin.HasSetting(DisableRatingColorFlag)">$INFO[Skin.String(ColorFlagsPath)]</value>
 		<value condition="Skin.HasSetting(RatingColorFlagreloaded) + !Skin.HasSetting(DisableRatingColorFlag)">$INFO[Skin.String(ReloadedFlagsPath)]</value>
 		<value condition="Skin.HasSetting(DisableRatingColorFlag)">-</value>
 		<value>playerflags/</value>
-	</variable>
+	</variable> -->
 	<variable name="ColorFlagsRatingextended">
 		<value condition="[Skin.HasSetting(RatingColorFlag) + Skin.HasSetting(ExtendedRatingVideoinfo)] + !Skin.HasSetting(DisableRatingColorFlag)">$INFO[Skin.String(ColorFlagsPath)]rating/info/</value>
 		<value condition="[Skin.HasSetting(RatingColorFlagreloaded) + Skin.HasSetting(ExtendedRatingVideoinfo)] + !Skin.HasSetting(DisableRatingColorFlag)">$INFO[Skin.String(ReloadedFlagsPath)]rating/info/</value>
@@ -3913,12 +3913,12 @@
 		<value>$INFO[ListItem.Plot]</value>
 	</variable>
 	<!-- unused variable -->
-	<variable name="VideoPlotVar2">
+	<!-- <variable name="VideoPlotVar2">
 		<value condition="Container.Content(seasons)">$INFO[Container.ShowPlot]</value>
 		<value condition="!IsEmpty(ListItem.TagLine) + !IsEmpty(ListItem.PlotOutline) + !Skin.HasSetting(VideoInfoPlotToggle)">$INFO[ListItem.Tagline,[COLOR $VAR[TitleColorVar]],[/COLOR] - ]$INFO[ListItem.PlotOutline]</value>
 		<value condition="!IsEmpty(ListItem.TagLine) + System.GetBool(videolibrary.showunwatchedplots)">$INFO[ListItem.Tagline,[COLOR $VAR[TitleColorVar]],[/COLOR] - ]$INFO[ListItem.Plot]</value>
 		<value>$INFO[ListItem.Plot]</value>
-	</variable>
+	</variable> -->
 
 	<variable name="VideoPlotVar3">
 		<value condition="!IsEmpty(ListItem.PlotOutline) + !IsEmpty(ListItem.Tagline)">[COLOR $VAR[FontColorVar]]$INFO[ListItem.Tagline] - [/COLOR]$INFO[ListItem.PlotOutline]</value>
@@ -3959,15 +3959,15 @@
 		<value>• $INFO[ListItem.Year] •</value>
 	</variable>
 	<!-- unused variable -->
-	<variable name="KodiFlixSeasonsLabel">
+	<!-- <variable name="KodiFlixSeasonsLabel">
 		<value condition="Container.Content(TVShows) + IntegerGreaterThan(ListItem.Property(TotalSeasons),1)">$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[33054]]</value>
 		<value condition="Container.Content(TVShows) + !IntegerGreaterThan(ListItem.Property(TotalSeasons),1)">$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[20373]]</value>
-	</variable>
+	</variable> -->
 	<!-- unused variable -->
-	<variable name="KodiFlixIMDBInfo">
+	<!-- <variable name="KodiFlixIMDBInfo">
 		<value condition="!IsEmpty(ListItem.Top250)">$INFO[ListItem.Top250,Top 250 #]</value>
 		<value>$INFO[ListItem.RatingAndVotes]</value>
-	</variable>
+	</variable> -->
 	<!--variable name="KodiFlixLandscapeThumb">
 		<value condition="StringCompare(ListItem.Label,..)">thumbs/DefaultFolderBack.png/folderback_fanart_tp.png</value>
 		<value condition="Container.Content(TVShows) + !IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
@@ -4080,34 +4080,6 @@
 		<value condition="SubString(skin.string(colortexture),grey)">FF898A8C</value><!-- color 23 grey -->
 		<value condition="SubString(skin.string(colortexture),graphite)">FF3B3B3B</value><!-- color 24 graphite -->
 	</variable>
-	<!-- unused variable -->
-	<variable name="value_texturecolorfocus">
-		<value condition="SubString(skin.string(colortexture),nocolor)">FFFFFAF0</value><!-- nocolor -->
-		<value condition="SubString(skin.string(colortexture),lightblue)">FF45565C</value><!-- color 1 lightblue -->
-		<value condition="SubString(skin.string(colortexture),aqua)">FF29524E</value><!-- color 2 aqua -->
-		<value condition="SubString(skin.string(colortexture),ocean)">FF004C66</value><!-- color 3 ocean -->
-		<value condition="SubString(skin.string(colortexture),sky)">FF004666</value><!-- color 4 sky -->
-		<value condition="SubString(skin.string(colortexture),deepblue)">FF003A4C</value><!-- color 5 deepblue -->
-		<value condition="SubString(skin.string(colortexture),royal)">FF203470</value><!-- color 6 royal -->
-		<value condition="SubString(skin.string(colortexture),turquoise)">FF004243</value><!-- color 7 turquoise -->
-		<value condition="SubString(skin.string(colortexture),digital)">FF3A4646</value><!-- color 8 digital -->
-		<value condition="SubString(skin.string(colortexture),olive)">FF2A3618</value><!-- color 9 olive -->
-		<value condition="SubString(skin.string(colortexture),red)">FF660000</value><!-- color 10 red -->
-		<value condition="SubString(skin.string(colortexture),blood)">FF470000</value><!-- color 11 blood -->
-		<value condition="SubString(skin.string(colortexture),brown)">FF3E1C10</value><!-- color 12 brown -->
-		<value condition="SubString(skin.string(colortexture),chocolate)">FF4F280D</value><!-- color 13 chocolate -->
-		<value condition="SubString(skin.string(colortexture),lightyellow)">FF605842</value><!-- color 14 lightyellow -->
-		<value condition="SubString(skin.string(colortexture),goldyellow)">FF6D5210</value><!-- color 15 gold yellow -->
-		<value condition="SubString(skin.string(colortexture),orange)">FF805200</value><!-- color 16 orange -->
-		<value condition="SubString(skin.string(colortexture),spring)">FF175F3A</value><!-- color 17 spring -->
-		<value condition="SubString(skin.string(colortexture),forest)">FF002E00</value><!-- color 18 forest -->
-		<value condition="SubString(skin.string(colortexture),violet)">FF451671</value><!-- color 19 violet -->
-		<value condition="SubString(skin.string(colortexture),purple)">FF3B2D56</value><!-- color 20 purple -->
-		<value condition="SubString(skin.string(colortexture),white)">FFFFFAF0</value><!-- color 21 white -->
-		<value condition="SubString(skin.string(colortexture),silver)">FF4D4D4D</value><!-- color 22 silver -->
-		<value condition="SubString(skin.string(colortexture),grey)">FF444546</value><!-- color 23 grey -->
-		<value condition="SubString(skin.string(colortexture),graphite)">FF2F2F2F</value><!-- color 24 graphite -->
-	</variable>
 	<variable name="MovieSetsSourceFlagVar">
 		<value condition="[SubString(Container(5801).ListItem.filename,PDTV) | SubString(Container(5801).ListItem.filename,sdtv) | SubString(Container(5801).ListItem.filename,sd tv)]">sdtv</value>
 		<value condition="[SubString(Container(5801).ListItem.Filename,hdtv) | SubString(Container(5801).ListItem.Filename,hd tv)]">hdtv</value>
@@ -4168,7 +4140,7 @@
 	<variable name="MovieSetsAudioFlagVar">
 		<value>$INFO[Container(5801).ListItem.AudioCodec]$INFO[Container(5801).ListItem.AudioChannels]</value>
 	</variable>
-	<variable name="MovieSetsGlobalCaseVar">
+	<!-- <variable name="MovieSetsGlobalCaseVar">
 		<value condition="SubString(ListItem.Filename,.3D.) | SubString(ListItem.Filename,.3d.)">3d.png</value>
 		<value condition="SubString(ListItem.Filename, 3D.) | SubString(ListItem.Filename, 3d.)">3d.png</value>
 		<value condition="SubString(ListItem.Filename,.3DBD.) | SubString(ListItem.Filename,.3dbd.)">3d.png</value>
@@ -4185,17 +4157,17 @@
 		<value condition="SubString(ListItem.Filename, WEB-DL.) | SubString(ListItem.Filename, web-dl.)">webdl.png</value>
 		<value condition="SubString(ListItem.Filename,.4K.) | SubString(ListItem.Filename,.4k.)">4k.png</value>
 		<value condition="SubString(ListItem.Filename, 4K.) | SubString(ListItem.Filename, 4k.)">4k.png</value>
-		<!--value condition="SubString(ListItem.Filename,hdtv)">hdtv.png</value-->
+		value condition="SubString(ListItem.Filename,hdtv)">hdtv.png</value
 		<value>$INFO[ListItem.VideoResolution]p.png</value>
-	</variable>
+	</variable> -->
 	<!-- unused variable -->
-	<variable name="MovieSetsMovieDuration">
+	<!-- <variable name="MovieSetsMovieDuration">
 		<value condition="System.HasAddon(script.duration) + !SubString(ListItem.Path,videodb://movies/sets/,left)">$INFO[Container(5801)window.Property(Duration)]</value>
 		<value condition="System.HasAddon(script.duration) + SubString(ListItem.Path,videodb://movies/sets/,left) + !Stringcompare(ListItem.Label,..)">$INFO[Window(Home).Property(Set.Movies.runtime)] $LOCALIZE[12391]</value>
 		<value>$INFO[ListItem.Duration]</value>
-	</variable>
+	</variable> -->
 	<!-- unused variable -->
-	<variable name="DialogInfoRatingFlagVar">
+	<!-- <variable name="DialogInfoRatingFlagVar">
 		<value condition="SubString(Container(5801).Listitem.mpaa,TV-G) | SubString(Container(5801).Listitem.mpaa,TV - G)">TV-G_Certificate_US</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,TV-PG) | SubString(Container(5801).Listitem.mpaa,TV - PG)">TV-PG_Certificate_US</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,TV-14) | SubString(Container(5801).Listitem.mpaa,TV - 14)">TV-14_Certificate_US</value>
@@ -4240,7 +4212,7 @@
 		<value condition="SubString(Container(5801).Listitem.mpaa,Brazil:16) | SubString(Container(5801).Listitem.mpaa,16 anos)">MPAA_Brazil_16</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,Brazil:18) | SubString(Container(5801).Listitem.mpaa,18 anos)">MPAA_Brazil_18</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,Rated X)">MPAA_X_Certificate_US</value>
-	</variable>
+	</variable> -->
 	<variable name="FakeDiscArtOverlay">
 		<value condition="[Container.Content(tvshows) | Container.Content(seasons)]">common/discart/tvepisodes.png</value>
 		<value condition="SubString(ListItem.Filename,.3D.) | SubString(ListItem.Filename,.3d.)">common/discart/3d.png</value>
@@ -4345,13 +4317,13 @@
 		<value condition="Skin.HasSetting(KodiFlixSeasonLandscape)">Landscape.jpg</value>
 		<value>$LOCALIZE[21371]</value>
 	</variable>
-	<variable name="KodiFlixSeasonLandscape">
+	<!-- <variable name="KodiFlixSeasonLandscape">
 		<value condition="IntegerGreaterThan(ListItem.Season,9)">$INFO[ListItem.Path]season$INFO[ListItem.Season]-landscape.jpg</value>
 		<value condition="IntegerGreaterThan(ListItem.Season,0)">$INFO[ListItem.Path]season0$INFO[ListItem.Season]-landscape.jpg</value>
 		<value condition="!SubString(ListItem.Episode,S)">$INFO[ListItem.Path]season-all-landscape.jpg</value>
 		<value condition="SubString(ListItem.Episode,S)">$INFO[ListItem.Path]season00-landscape.jpg</value>
 		<value>$INFO[ListItem.Path]season-all-landscape.jpg</value>
-	</variable>
+	</variable> -->
 	<variable name="KodiFlixSeasonLandscapeThumbVar">
 		<value condition="IntegerGreaterThan(ListItem.Season,9)">$INFO[ListItem.Path]season$INFO[ListItem.Season]-landscape.jpg</value>
 		<value condition="IntegerGreaterThan(ListItem.Season,0)">$INFO[ListItem.Path]season0$INFO[ListItem.Season]-landscape.jpg</value>
@@ -4417,7 +4389,7 @@
 		<value condition="Skin.HasSetting(KodiFlixDiscArtView)">DiscArt</value>
 		<value>default</value>
 	</variable>
-	<variable name="PlayerTimeRemainingVar">
+	<!-- <variable name="PlayerTimeRemainingVar">
 		<value condition="IntegerGreaterThan(Player.TimeRemaining(h),1) + IntegerGreaterThan(Player.TimeRemaining(mm),09)">$INFO[Player.TimeRemaining(h)] $LOCALIZE[12392][CR]$INFO[Player.TimeRemaining(mm)] $LOCALIZE[32035]</value>
 		<value condition="IntegerGreaterThan(Player.TimeRemaining(h),1) + !IntegerGreaterThan(Player.TimeRemaining(mm),09) + StringCompare(Player.TimeRemaining(mm),09)">$INFO[Player.TimeRemaining(h)] $LOCALIZE[12392][CR]$LOCALIZE[12319] $LOCALIZE[32035]</value>
 		<value condition="IntegerGreaterThan(Player.TimeRemaining(h),1) + !IntegerGreaterThan(Player.TimeRemaining(mm),09) + StringCompare(Player.TimeRemaining(mm),08)">$INFO[Player.TimeRemaining(h)] $LOCALIZE[12392][CR]$LOCALIZE[12318] $LOCALIZE[32035]</value>
@@ -4451,8 +4423,7 @@
 		<value condition="!IntegerGreaterThan(Player.TimeRemaining(mm),09) + IntegerGreaterThan(Player.TimeRemaining(mm),0) + StringCompare(Player.TimeRemaining(mm),02)">$LOCALIZE[12312][CR]$LOCALIZE[32035]</value>
 		<value condition="!IntegerGreaterThan(Player.TimeRemaining(mm),09) + IntegerGreaterThan(Player.TimeRemaining(mm),0) + StringCompare(Player.TimeRemaining(mm),01)">$LOCALIZE[12311][CR]$LOCALIZE[32037]</value>
 		<value condition="!IntegerGreaterThan(Player.TimeRemaining(h),0) + !IntegerGreaterThan(Player.TimeRemaining(mm),01)">$INFO[Player.TimeRemaining(ss)][CR]$LOCALIZE[32039]</value>
-	</variable>
-
+	</variable> -->
 	<variable name="RatingFlagVar_Description">
         <value condition="SubString(ListItem.mpaa,TV-G) | SubString(ListItem.mpaa,TV - G)">Most parents would find this program suitable for all ages.</value>
         <value condition="SubString(ListItem.mpaa,TV-PG) | SubString(ListItem.mpaa,TV - PG)">This program contains material that parents may find unsuitable for younger children.</value>
@@ -4577,13 +4548,12 @@
 		<value condition="!IsEmpty(ListItem.Art(extrathumb4))">$INFO[ListItem.Art(extrathumb4)]</value>
 		<value>$INFO[ListItem.Path,,extrathumbs/thumb4.jpg]</value>
 	</variable>
-	<variable name="JukeboxSelector">
+	<!-- <variable name="JukeboxSelector">
 		<value condition="Container.Content(artists)">Please Choose an Artist</value>
 		<value condition="Container.Content(albums)">Please Choose an Album</value>
 		<value condition="Container.Content(songs)">Please Choose a Song</value>
-	</variable>
-
-	<variable name="MovieSetDisc1FakeDiscArtOverlay">
+	</variable> -->
+	<!-- <variable name="MovieSetDisc1FakeDiscArtOverlay">
 		<value condition="[Container.Content(tvshows) | Container.Content(seasons)]">common/discart/tvepisodes.png</value>
 		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.3D.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.3d.)">common/discart/3d.png</value>
 		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), 3D.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), 3d.)">common/discart/3d.png</value>
@@ -4639,7 +4609,6 @@
 		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), 4K.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), 4k.)">common/discart/4khandcolor.png</value>
 		<value>common/discart/$INFO[Window(Home).Property(SkinHelper.MovieSet.0.Resolution]phandcolor.png</value>
 	</variable>
-
 	<variable name="MovieSetDisc2FakeDiscArtOverlay">
 		<value condition="[Container.Content(tvshows) | Container.Content(seasons)]">common/discart/tvepisodes.png</value>
 		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.3D.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.3d.)">common/discart/3d.png</value>
@@ -4696,7 +4665,6 @@
 		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), 4K.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), 4k.)">common/discart/4khandcolor.png</value>
 		<value>common/discart/$INFO[Window(Home).Property(SkinHelper.MovieSet.1.Resolution]phandcolor.png</value>
 	</variable>
-
 	<variable name="MovieSetDisc3FakeDiscArtOverlay">
 		<value condition="[Container.Content(tvshows) | Container.Content(seasons)]">common/discart/tvepisodes.png</value>
 		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.3D.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.3d.)">common/discart/3d.png</value>
@@ -4770,7 +4738,5 @@
 		<value condition="Skin.HasSetting(FanartMovieInfoDelay_10)">10 seconds</value>
 		<value condition="Skin.HasSetting(FanartMovieInfoDelay_20)">20 seconds</value>
 		<value condition="Skin.HasSetting(FanartMovieInfoDelay_30)">30 seconds</value>
-	</variable>
-
-
+	</variable> -->
 </includes>
