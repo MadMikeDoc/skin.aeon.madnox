@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
     <defaultcontrol>1000</defaultcontrol>
-    
+
     <coordinates>
 		<posx>0</posx>
         <posy>0</posy>
@@ -70,8 +70,7 @@
                 <colordiffuse>$VAR[SpotColorVar2]</colordiffuse>
                 <onclick>RunScript(script.tv.show.next.aired,updateshow=$INFO[ListItem.Label])</onclick>
 				<visible>System.HasAddon(script.tv.show.next.aired) + Container.Content(tvshows)</visible>
-				<autoscroll>true</autoscroll>
-            </control>			
+            </control>
             <control type="button" id="2007">
                 <width>462</width>
                 <height>58</height>
@@ -155,7 +154,7 @@
                 <focusedcolor>white2</focusedcolor>
                 <colordiffuse>$VAR[SpotColorVar2]</colordiffuse>
                 <visible>Container.Content(movies) | [!IsEmpty(Window.Property(SongToMusicVideo.Path)) + Window.IsActive(musiclibrary)]</visible>
-                <onclick condition="Container.Content(movies) + !IsEmpty(ListItem.Trailer)">Dialog.Close(106)</onclick>
+                <onclick condition="Container.Content(movies) + !IsEmpty(ListItem.Trailer)">Dialog.Close(contextmenu)</onclick>
                 <onclick condition="Container.Content(movies) + !IsEmpty(ListItem.Trailer)">SetFocus(7566)</onclick>
                 <onclick condition="Container.Content(movies) + IsEmpty(ListItem.Trailer)">ActivateWindow(videos,plugin://plugin.video.youtube/kodion/search/query/?q=$ESCINFO[ListItem.Label] Trailer,return)</onclick>
                 <onclick condition="!IsEmpty(Window.Property(SongToMusicVideo.Path)) + Window.IsActive(musiclibrary)">PlayMedia($ESCINFO[Window.Property(SongToMusicVideo.Path)])</onclick>
@@ -207,7 +206,7 @@
                 <focusedcolor>white2</focusedcolor>
                 <colordiffuse>$VAR[SpotColorVar2]</colordiffuse>
                 <onclick>ReloadSkin()</onclick>
-			</control>			
+			</control>
         </control>
         <control type="image" id="997">
 		    <posx>-1</posx>
@@ -217,7 +216,7 @@
             <texture>$VAR[ContextTopVar]</texture>
             <colordiffuse>$VAR[SpotColorVar2]</colordiffuse>
         </control>
-   		
+
         <control type="button" id="1000">
             <width>462</width>
             <height>59</height>
@@ -231,6 +230,6 @@
             <focusedcolor>white2</focusedcolor>
             <colordiffuse>$VAR[SpotColorVar2]</colordiffuse>
         </control>
-		
+
     </controls>
 </window>

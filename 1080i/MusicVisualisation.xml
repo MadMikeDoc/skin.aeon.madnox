@@ -2,16 +2,15 @@
 <window>
     <defaultcontrol>-</defaultcontrol>
     <backgroundcolor>backgroundcolor</backgroundcolor>
-    <allowoverlay>no</allowoverlay>
     <onload>Skin.Reset(vispanelrotate)</onload>
-    <onload>AlarmClock(Vis,Skin.ToggleSetting(vispanelrotate),00:20,silent,loop)</onload>
+    <!-- <onload>AlarmClock(Vis,Skin.ToggleSetting(vispanelrotate),00:20,silent,loop)</onload>
     <onload>AlarmClock(Vis3,Control.Move(5222,1),00:04,silent,loop)</onload>
     <onload>AlarmClock(Vis4,Control.Move(5223,1),00:04,silent,loop)</onload>
     <onload>AlarmClock(BGMoveViz,Control.Move(4324,1),00:07,silent,loop)</onload>
     <onunload>CancelAlarm(Vis,true)</onunload>
     <onunload>CancelAlarm(Vis3,true)</onunload>
     <onunload>CancelAlarm(Vis4,true)</onunload>
-    <onunload>CancelAlarm(BGMoveViz,true)</onunload>
+    <onunload>CancelAlarm(BGMoveViz,true)</onunload> -->
     <onunload>Skin.Reset(vispanelrotate)</onunload>
     <onload condition="!Skin.HasSetting(AltMusicVizLayout)">RunScript(script.cu.lrclyrics)</onload>
 	<controls>
@@ -898,7 +897,7 @@
                     <fadetime>300</fadetime>
                     <visible>!Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart)</visible>
                     <include>cdart</include>
-                    <aspectratio align="bottom">keep</aspectratio>
+                    <aspectratio aligny="bottom">keep</aspectratio>
                 </control>
                 <control type="image">
                     <visible>Skin.HasSetting(cdartinvis)</visible>
@@ -919,7 +918,7 @@
                     <fadetime>300</fadetime>
                     <include>vinylart</include>
                     <visible>Skin.HasSetting(vinylart)</visible>
-                    <aspectratio align="bottom">keep</aspectratio>
+                    <aspectratio aligny="bottom">keep</aspectratio>
                 </control>
                 <control type="image">
                     <visible>Skin.HasSetting(cdartinvis)</visible>
@@ -940,7 +939,7 @@
                     <fadetime>300</fadetime>
                     <include>blurayart</include>
                     <visible>Skin.HasSetting(blurayart)</visible>
-                    <aspectratio align="bottom">keep</aspectratio>
+                    <aspectratio aligny="bottom">keep</aspectratio>
                 </control>
                 <control type="image" id="3333">
 					<visible>Skin.HasSetting(cdartinvis)</visible>
@@ -961,7 +960,7 @@
 					<fadetime>300</fadetime>
 					<visible>!Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart)</visible>
 					<texture background="true" fallback="common/cdart/blank.png">$INFO[Player.FolderPath]cdart.png</texture>
-					<aspectratio align="bottom">keep</aspectratio>
+					<aspectratio aligny="bottom">keep</aspectratio>
 				</control>
 				<control type="label">
                     <animation effect="slide" start="0" end="0" time="0" tween="cubic" delay="750">Visible</animation>
@@ -1143,7 +1142,6 @@
                         <posy>-170</posy>
                         <width>1180</width>
                         <height>38</height>
-                        <aligny>-</aligny>
 						<align>right</align>
                         <scroll>true</scroll>
                         <font>Font_MainClassic2.low</font>
@@ -1157,7 +1155,6 @@
                         <posy>-170</posy>
                         <width>1180</width>
                         <height>38</height>
-                        <aligny>-</aligny>
 						<align>right</align>
                         <scroll>true</scroll>
                         <font>Font_MainClassic2.low</font>
@@ -1181,7 +1178,6 @@
                         <posy>-92</posy>
                         <width>1280</width>
                         <height>45</height>
-                        <aligny>-</aligny>
 						<align>right</align>
                         <font>Font_MainClassic3.low</font>
                         <textcolor>$VAR[TitleColorVar]</textcolor>
@@ -1196,7 +1192,6 @@
                         <posy>-10</posy>
                         <width>1280</width>
                         <height>36</height>
-                        <aligny>-</aligny>
 						<align>right</align>
                         <font>Font_MainClassic22</font>
                         <label>[COLOR white]$INFO[MusicPlayer.Album][/COLOR]$INFO[MusicPlayer.Year, [,] ]</label>
@@ -1211,7 +1206,6 @@
                         <posy>50</posy>
                         <width>800</width>
                         <height>36</height>
-                         <aligny>-</aligny>
                         <align>right</align>
                         <font>Font_Reg19_Caps</font>
                         <label>[COLOR gray]Next:[/COLOR]</label>
@@ -1226,7 +1220,6 @@
                         <posy>50</posy>
                         <width>800</width>
                         <height>36</height>
-                         <aligny>-</aligny>
                         <align>right</align>
                         <font>Font_Reg19_Caps</font>
                         <label>[COLOR gray]Party Mode$INFO[MusicPartyMode.SongsPlayed, (,)  ·  ]Next:[/COLOR]</label>
@@ -1240,7 +1233,6 @@
                         <posy>80</posy>
                         <width>800</width>
                         <height>36</height>
-                         <aligny>-</aligny>
                         <align>right</align>
                         <font>Font_Reg19_Caps</font>
                         <label>$INFO[MusicPlayer.offset(1).Artist]</label>
@@ -1254,7 +1246,6 @@
                         <posy>110</posy>
                         <width>800</width>
                         <height>36</height>
-                         <aligny>-</aligny>
                         <align>right</align>
                         <font>Font_Reg19_Caps</font>
                         <label>[COLOR=white]$INFO[MusicPlayer.offset(1).Title,“,”][/COLOR]</label>
@@ -1346,7 +1337,6 @@
 						<alttexturenofocus>special://skin/extras/BigIcons/ButtonShuffle.png</alttexturenofocus>
 						<usealttexture>Playlist.IsRandom</usealttexture>
 						<colordiffuse>white3</colordiffuse>
-                        <aspectratio>keep</aspectratio>
 						<visible>Player.HasDuration</visible>
 				</control>
 				<!--control type="image">
@@ -1383,7 +1373,6 @@
                         <font>Font_MainClassic22</font>
                         <textcolor>$VAR[TitleColorVar]</textcolor>
 						<label>$INFO[MusicPlayer.Time,, / ]$INFO[MusicPlayer.Duration]</label>
-                        <textcolor>white</textcolor>
                         <shadowcolor>black</shadowcolor>
                         <align>right</align>
                         <aligny>bottom</aligny>
@@ -1477,7 +1466,7 @@
 					</control>
 				</control>
 			</control>
-<!-- new layout end -->	
+<!-- new layout end -->
 
 		<control type="group">
 				<posx>1480</posx>

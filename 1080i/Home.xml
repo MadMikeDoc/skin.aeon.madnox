@@ -2,17 +2,17 @@
 <window>
     <defaultcontrol always="true">9004</defaultcontrol>
     <backgroundcolor>backgroundcolor</backgroundcolor>
-    <include condition="!Skin.HasSetting(firstrun4.0)">AutoConfig</include>
+    <!-- <include condition="!Skin.HasSetting(firstrun4.0)">AutoConfig</include> -->
     <onload condition="!Window.Previous(startup) + Skin.HasSetting(randomizehome) + [Substring(Skin.String(widgetlist),random) | Substring(Skin.String(widget2list),random) | Substring(Skin.String(backgroundlist),random)]">SetProperty(SkinWidgets_RandomItems_Update,true)</onload>
     <onload>ClearProperty(DontRunTVShowScripts,Home)</onload>
-    <onload>AlarmClock(WidgetMove,Control.Move(8000,1),00:07,silent,loop)</onload>
+    <!-- <onload>AlarmClock(WidgetMove,Control.Move(8000,1),00:07,silent,loop)</onload>
     <onload>AlarmClock(Widget2Move,Control.Move(7000,1),00:07,silent,loop)</onload>
     <onload>AlarmClock(HomeTileLeft,Control.Move(5001,1),00:07,silent,loop)</onload>
     <onload>AlarmClock(HomeTileRight,Control.Move(5003,1),00:10,silent,loop)</onload>
     <onload>AlarmClock(HomeTileMid,Control.Move(5002,1),00:15,silent,loop)</onload>
     <onload>AlarmClock(HomeTile2Left,Control.Move(6001,1),00:07,silent,loop)</onload>
     <onload>AlarmClock(HomeTile2Right,Control.Move(6003,1),00:10,silent,loop)</onload>
-    <onload>AlarmClock(HomeTile2Mid,Control.Move(6002,1),00:15,silent,loop)</onload>
+    <onload>AlarmClock(HomeTile2Mid,Control.Move(6002,1),00:15,silent,loop)</onload> -->
     <onload condition="!Window.Previous(startup) + Skin.HasSetting(randomizehome) + Substring(Skin.String(SmartPlaylist1.Call),random)">$INFO[Skin.String(SmartPlaylist1.Call)]</onload>
     <onload condition="!Window.Previous(startup) + Skin.HasSetting(randomizehome) + Substring(Skin.String(SmartPlaylist2.Call),random)">$INFO[Skin.String(SmartPlaylist2.Call)]</onload>
     <onload condition="!Window.Previous(startup) + Skin.HasSetting(randomizehome) + Substring(Skin.String(SmartPlaylist3.Call),random)">$INFO[Skin.String(SmartPlaylist3.Call)]</onload>
@@ -25,8 +25,8 @@
     <onload condition="!Window.Previous(startup) + Skin.HasSetting(randomizehome) + Substring(Skin.String(SmartPlaylist10.Call),random)">$INFO[Skin.String(SmartPlaylist10.Call)]</onload>
     <onload condition="!Window.Previous(startup) + Skin.HasSetting(randomizehome) + Substring(Skin.String(SmartPlaylist11.Call),random)">$INFO[Skin.String(SmartPlaylist11.Call)]</onload>
     <onload condition="!Window.Previous(startup) + Skin.HasSetting(randomizehome) + Substring(Skin.String(SmartPlaylist12.Call),random)">$INFO[Skin.String(SmartPlaylist12.Call)]</onload>
-    <!--  <onload>AlarmClock(AutoMusicInfoPanel,ActivateWindow(1156),00:15,silent,loop)</onload> -->
-    <onunload>CancelAlarm(AutoMusicInfoPanel,true)</onunload>
+    <!--  <onload>AlarmClock(AutoMusicInfoPanel,ActivateWindow(1156),00:15,silent,loop)</onload>
+	<onunload>CancelAlarm(AutoMusicInfoPanel,true)</onunload>
     <onunload>CancelAlarm(HomeTileLeft,true)</onunload>
     <onunload>CancelAlarm(HomeTileRight,true)</onunload>
     <onunload>CancelAlarm(HomeTileMid,true)</onunload>
@@ -34,10 +34,9 @@
     <onunload>CancelAlarm(HomeTile2Right,true)</onunload>
     <onunload>CancelAlarm(HomeTile2Mid,true)</onunload>
     <onunload>CancelAlarm(WidgetMove,true)</onunload>
-    <onunload>CancelAlarm(Widget2Move,true)</onunload>
+    <onunload>CancelAlarm(Widget2Move,true)</onunload> -->
     <onunload>ClearProperty(PanelWidgetInfo,Home)</onunload>
     <onunload>ClearProperty(PanelWidget2Info,Home)</onunload>
-    <allowoverlay>yes</allowoverlay>
     <controls>
         <control type="button" id="9004">
             <include>HiddenObject</include>
@@ -532,7 +531,7 @@
                     <fadetime>300</fadetime>
                     <visible>Player.HasMedia + Skin.HasSetting(NowPlayingBelowBar) + Skin.HasSetting(BelowMidCD) +!Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart)</visible>
                     <include>cdart</include>
-                    <aspectratio align="bottom">keep</aspectratio>
+                    <aspectratio aligny="bottom">keep</aspectratio>
                 </control>
                 <control type="image">
                     <visible>Skin.HasSetting(cdartinvis)</visible>
@@ -551,7 +550,7 @@
                     <fadetime>300</fadetime>
                     <include>vinylart</include>
                     <visible>Player.HasMedia + Skin.HasSetting(NowPlayingBelowBar) + Skin.HasSetting(BelowMidCD) + Skin.HasSetting(vinylart)</visible>
-                    <aspectratio align="bottom">keep</aspectratio>
+                    <aspectratio aligny="bottom">keep</aspectratio>
                 </control>
                 <control type="image">
                     <visible>Skin.HasSetting(cdartinvis)</visible>
@@ -570,7 +569,7 @@
                     <fadetime>300</fadetime>
                     <include>blurayart</include>
                     <visible>Player.HasMedia + Skin.HasSetting(NowPlayingBelowBar) + Skin.HasSetting(BelowMidCD) + Skin.HasSetting(blurayart)</visible>
-                    <aspectratio align="bottom">keep</aspectratio>
+                    <aspectratio aligny="bottom">keep</aspectratio>
                 </control>
                 <control type="image" id="3334">
 					<visible>Skin.HasSetting(cdartinvis)</visible>
@@ -589,7 +588,7 @@
 					<fadetime>300</fadetime>
 					<visible>Player.HasMedia + Skin.HasSetting(NowPlayingBelowBar) + Skin.HasSetting(BelowMidCD) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart)</visible>
 					<texture background="true" fallback="common/cdart/blank.png">$INFO[Player.FolderPath]cdart.png</texture>
-					<aspectratio align="bottom">keep</aspectratio>
+					<aspectratio aligny="bottom">keep</aspectratio>
 				</control>
 				<control type="label">
                     <animation effect="slide" start="0" end="0" time="0" tween="cubic" delay="750">Visible</animation>
@@ -1085,7 +1084,6 @@
                         <posy>0</posy>
                         <width>790</width>
                         <height>38</height>
-                        <aligny>-</aligny>
 						<align>left</align>
                         <scroll>true</scroll>
                         <font>Font_Reg22_2</font>
@@ -1174,13 +1172,13 @@
 					<visible>Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath)) | !Skin.HasSetting(BelowMidLogo)</visible>
 					<visible>Player.HasDuration</visible>
 				</control>
-			</control>			
+			</control>
 			<control type="group">
 				<animation effect="slide" start="0,200" end="0" time="560" tween="cubic" easing="inout" delay="350">WindowOpen</animation>
 				<animation type="WindowClose" reversible="false">
                 <effect type="fade" start="100" end="0" time="240" />
                 <effect type="zoom" start="100" end="130" center="960,540" time="240" tween="cubic" easing="in" />
-				</animation>	
+				</animation>
 				<posx>1880</posx>
 				<posy>695</posy>
 				<visible>!IsEmpty(MusicPlayer.Offset(1).Title)</visible>
@@ -1215,7 +1213,7 @@
                         <height>36</height>
                         <align>right</align>
                         <font>Font_Reg22_2</font>
-                        <label>[COLOR $VAR[FontColorVar]]Party Mode$INFO[MusicPartyMode.SongsPlayed, (,)  ·  ]Next:[/COLOR]</label>
+                        <label>[COLOR $VAR[FontColorVar]]Party Mode$INFO[MusicPartyMode.SongsPlayed, (,)   ]Next:[/COLOR]</label>
                         <shadowcolor>black</shadowcolor>
                         <scroll>true</scroll>
                         <include>Animation_VisibleChange400</include>
@@ -1226,10 +1224,9 @@
                         <posy>40</posy>
                         <width>750</width>
                         <height>36</height>
-                        <aligny>-</aligny>
                         <align>right</align>
                         <font>Font_Reg19_Caps</font>
-                        <label>$INFO[MusicPlayer.offset(1).Artist, , - ][COLOR=white]$INFO[MusicPlayer.offset(1).Title,“,”][/COLOR]</label>
+                        <label>$INFO[MusicPlayer.offset(1).Artist, , - ][COLOR=white]$INFO[MusicPlayer.offset(1).Title,","][/COLOR]</label>
                         <textcolor>$VAR[TitleColorVar]</textcolor>
                         <shadowcolor>black</shadowcolor>
                         <scroll>true</scroll>
@@ -1240,10 +1237,9 @@
                         <posy>65</posy>
                         <width>750</width>
                         <height>36</height>
-                         <aligny>-</aligny>
                         <align>right</align>
                         <font>Font_Reg19_Caps</font>
-                        <label>$INFO[MusicPlayer.offset(2).Artist, , - ][COLOR=white]$INFO[MusicPlayer.offset(2).Title,“,”][/COLOR]</label>
+                        <label>$INFO[MusicPlayer.offset(2).Artist, , - ][COLOR=white]$INFO[MusicPlayer.offset(2).Title,","][/COLOR]</label>
                         <textcolor>$VAR[TitleColorVar]</textcolor>
                         <shadowcolor>black</shadowcolor>
                         <scroll>true</scroll>
@@ -1254,10 +1250,9 @@
                         <posy>90</posy>
                         <width>750</width>
                         <height>36</height>
-                         <aligny>-</aligny>
                         <align>right</align>
                         <font>Font_Reg19_Caps</font>
-                        <label>$INFO[MusicPlayer.offset(3).Artist, , - ][COLOR=white]$INFO[MusicPlayer.offset(3).Title,“,”][/COLOR]</label>
+                        <label>$INFO[MusicPlayer.offset(3).Artist, , - ][COLOR=white]$INFO[MusicPlayer.offset(3).Title,","][/COLOR]</label>
                         <textcolor>$VAR[TitleColorVar]</textcolor>
                         <shadowcolor>black</shadowcolor>
                         <scroll>true</scroll>

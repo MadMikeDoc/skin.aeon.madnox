@@ -2022,8 +2022,9 @@
                         <animation effect="slide" start="0" end="-20" time="150" tween="Back" easing="out">Focus</animation>
                         <visible>[!Container.Content(songs) | Stringcompare(ListItem.Label,..)]</visible>
                     </control>
-                    <control type="label">
+					<control type="label">
                         <left>10</left>
+						<top>0</top>
                         <width>775</width>
                         <height>68</height>
                         <font>font15</font>
@@ -2031,7 +2032,31 @@
                         <selectedcolor>selected</selectedcolor>
                         <label>$INFO[ListItem.Tracknumber]: $INFO[ListItem.Title]</label>
                         <animation effect="slide" start="0" end="-20" time="150" tween="Back" easing="out">Focus</animation>
-                        <visible>Container.Content(songs) + !Stringcompare(ListItem.Label,..)</visible>
+                        <visible>Container.Content(songs) + !Stringcompare(ListItem.Label,..) + !Stringcompare(ListItem.AlbumArtist,Various Artists)</visible>
+                    </control>
+                    <control type="label">
+                        <left>5</left>
+						<top>15</top>
+                        <width>775</width>
+                        <height>68</height>
+                        <font>font9</font>
+                        <align>right</align>
+                        <selectedcolor>selected</selectedcolor>
+                        <label>$INFO[ListItem.Artist]</label>
+                        <animation effect="slide" start="0" end="-20" time="150" tween="Back" easing="out">Focus</animation>
+                        <visible>Container.Content(songs) + !Stringcompare(ListItem.Label,..) + Stringcompare(ListItem.AlbumArtist,Various Artists)</visible>
+                    </control>
+					<control type="label">
+                        <left>10</left>
+						<top>-12</top>
+                        <width>775</width>
+                        <height>68</height>
+                        <font>font15</font>
+                        <align>right</align>
+                        <selectedcolor>selected</selectedcolor>
+                        <label>$INFO[ListItem.Tracknumber]: $INFO[ListItem.Title]</label>
+                        <animation effect="slide" start="0" end="-20" time="150" tween="Back" easing="out">Focus</animation>
+                        <visible>Container.Content(songs) + !Stringcompare(ListItem.Label,..) + Stringcompare(ListItem.AlbumArtist,Various Artists)</visible>
                     </control>
                 </focusedlayout>
             </control>

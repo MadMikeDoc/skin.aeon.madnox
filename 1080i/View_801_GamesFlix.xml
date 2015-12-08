@@ -94,7 +94,7 @@
 			</control>
 		</control>
 		<!--End Games Information -->
-		
+
 		<!-- Games Plot -->
 		<control type="group">
 			<left>40</left>
@@ -135,8 +135,8 @@
 			</control>
 		</control>
 		<!-- End Small Games Plot -->
-		
-		<!-- Games List -->	
+
+		<!-- Games List -->
 			<control type="fixedlist" id="801">
 				<left>-130</left>
 				<top>300</top>
@@ -155,7 +155,7 @@
 				<focusposition>1</focusposition>
 				<visible>SubString(Container.FolderPath,plugin.program.advanced.launcher)</visible>
 		<!-- Portrait Orientation Thumbs -->
-				<itemlayout width="300" height="400" condition="!Skin.HasSetting(smallgamesflixview)"> 
+				<itemlayout width="300" height="400" condition="!Skin.HasSetting(smallgamesflixview)">
 				<control type="image">
 					<top>260</top>
 					<width>303</width>
@@ -229,7 +229,7 @@
 				</focusedlayout>
 			<!-- End of Portrait Orientation Thumbs-->
 			<!-- Small Portrait Orientation Thumbs -->
-				<itemlayout width="200" height="300" condition="Skin.HasSetting(smallgamesflixview)"> 
+				<itemlayout width="200" height="300" condition="Skin.HasSetting(smallgamesflixview)">
 				<control type="image">
 					<top>360</top>
 					<width>200</width>
@@ -341,7 +341,7 @@
 			<aspectratio align="center" aligny="center">stretch</aspectratio>
 			<texture border="15">views/addonwall_select.png</texture>
             <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-			<visible>Control.IsVisible(801) + Window.IsActive(programs + Skin.HasSetting(smallgamesflixview)</visible>
+			<visible>Control.IsVisible(801) + Window.IsActive(programs) + Skin.HasSetting(smallgamesflixview)</visible>
 		</control>
 	<!-- End Small Item Highlight -->
 	</include>
