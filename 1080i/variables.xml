@@ -4432,11 +4432,11 @@
         <value condition="SubString(ListItem.mpaa,TV-Y7) | SubString(ListItem.mpaa,TV - Y7)">This program is designed for children age 7 and above.</value>
         <value condition="SubString(ListItem.mpaa,TV-Y) | SubString(ListItem.mpaa,TV - Y)">This program is designed to be appropriate for all children.</value>
 
-        <value condition="SubString(ListItem.mpaa,US:G)">General audiences. All ages admitted.</value>
+        <value condition="SubString(ListItem.mpaa,US:G) | SubString(ListItem.MPAA,USA:G) | SubString(ListItem.MPAA,Rated G)">General audiences. All ages admitted.</value>
         <value condition="SubString(ListItem.mpaa,PG-13) | SubString(ListItem.mpaa,PG - 13)">Parents strongly cautioned. Some material may be inappropriate for children under 13.</value>
-        <value condition="Substring(ListItem.mpaa,Rated PG)">Parental guidance suggested. Some material may not be suitable for children.</value>
-        <value condition="SubString(ListItem.mpaa,US:R)">Restricted. Under 17 requires accompanying parent or adult guardian.</value>
-        <value condition="SubString(ListItem.mpaa,US:NC-17) | SubString(ListItem.mpaa,US:NC - 17) | SubString(ListItem.mpaa,USA:NC-17) | SubString(ListItem.mpaa,Rated NC-17) | SubString(ListItem.mpaa,Rated NC - 17)">Adults only. No One 17 and Under Admitted.</value>
+        <value condition="SubString(ListItem.MPAA,Rated PG) | StringCompare(ListItem.Mpaa,PG)">Parental guidance suggested. Some material may not be suitable for children.</value>
+        <value condition="SubString(ListItem.MPAA,US:R) | SubString(ListItem.MPAA,USA:R) | SubString(ListItem.MPAA,Rated R) | StringCompare(ListItem.MPAA,R)">Restricted. Under 17 requires accompanying parent or adult guardian.</value>
+        <value condition="SubString(ListItem.MPAA,US:NC-17) | SubString(ListItem.MPAA,USA:NC-17) | SubString(ListItem.MPAA,Rated NC-17)">Adults only. No One 17 and Under Admitted.</value>
 
         <value condition="SubString(ListItem.mpaa,UK:U)">Suitable for all.</value>
         <value condition="SubString(ListItem.mpaa,UK:PG)">General viewing, but some scenes may be unsuitable for young children.</value>
