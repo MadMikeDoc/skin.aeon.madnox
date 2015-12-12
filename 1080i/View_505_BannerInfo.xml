@@ -50,11 +50,11 @@
 								<width>980</width>
 								<height>181</height>
 								<aspectratio>stretch</aspectratio>
-								<texture background="true">$VAR[BannerVar]</texture>
+								<texture background="true" fallback="thumbs/fallback_banner_tp_solid.jpg">$VAR[BannerVar]</texture>
 								<fadetime>400</fadetime>
 								<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
 								<bordersize>8</bordersize>
-								<visible>[!IsEmpty(ListItem.Art(banner)) + [!Skin.HasSetting(BannerInfoUseLogo) | !SubString(ListItem.Path,videodb://movies/sets)] ]| !IsEmpty(ListItem.Art(fanart)) + !SubString(ListItem.Path,videodb://movies/sets)</visible>
+								<visible>[!IsEmpty(ListItem.Art(banner)) + [!Skin.HasSetting(BannerInfoUseLogo) | !SubString(ListItem.Path,videodb://movies/sets) ]]| !IsEmpty(ListItem.Art(fanart)) + !SubString(ListItem.Path,videodb://movies/sets)</visible>
 							</control>
 							<control type="group">
 								<visible>IsEmpty(ListItem.Art(banner)) | [Skin.HasSetting(BannerInfoUseLogo) + SubString(ListItem.Path,videodb://movies/sets)]</visible>
@@ -157,9 +157,9 @@
 									<width>980</width>
 									<height>181</height>
 									<aspectratio>stretch</aspectratio>
-									<texture background="true">$VAR[BannerVar]</texture>
+									<texture background="true" fallback="thumbs/fallback_banner_tp_solid.jpg">$VAR[BannerVar]</texture>
 									<fadetime>400</fadetime>
-									<visible>[!IsEmpty(ListItem.Art(banner)) + [!Skin.HasSetting(BannerInfoUseLogo) | !SubString(ListItem.Path,videodb://movies/sets)] ]| !IsEmpty(ListItem.Art(fanart)) + !SubString(ListItem.Path,videodb://movies/sets)</visible>
+									<visible>[!IsEmpty(ListItem.Art(banner)) + [!Skin.HasSetting(BannerInfoUseLogo) | !SubString(ListItem.Path,videodb://movies/sets) ]]| !IsEmpty(ListItem.Art(fanart)) + !SubString(ListItem.Path,videodb://movies/sets)</visible>
 								</control>					
 								<control type="group">
 									<visible>IsEmpty(ListItem.Art(banner)) | [Skin.HasSetting(BannerInfoUseLogo) + SubString(ListItem.Path,videodb://movies/sets)]</visible>
