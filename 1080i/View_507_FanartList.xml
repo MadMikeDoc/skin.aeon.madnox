@@ -275,7 +275,7 @@
 						<width>693</width>
 						<height>390</height>
 						<aspectratio>scale</aspectratio>
-						<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+						<texture background="true" fallback="thumbs/fallback_episode_tp.png">$INFO[ListItem.Art(fanart)]</texture>
 						<fadetime>400</fadetime>
 						<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
 						<bordersize>2</bordersize>
@@ -285,7 +285,7 @@
 						<width>693</width>
 						<height>390</height>
 						<aspectratio>scale</aspectratio>
-						<texture background="true">$INFO[ListItem.Art(landscape)]</texture>
+						<texture background="true" fallback="thumbs/fallback_episode_tp.png">$INFO[ListItem.Art(landscape)]</texture>
 						<fadetime>400</fadetime>
 						<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
 						<bordersize>2</bordersize>
@@ -299,7 +299,7 @@
 						<include condition="Window.IsActive(pictures)">Aspectratio_Keep</include>
 						<include condition="!Window.IsActive(pictures)">Aspectratio_Scale</include>
 						<timeperimage>3000</timeperimage>
-						<imagepath background="true">$VAR[VideoExtraFanartVar]</imagepath>
+						<imagepath background="true" fallback="thumbs/fallback_episode_tp.png">$VAR[VideoExtraFanartVar]</imagepath>
 						<visible>StringCompare(Control.GetLabel(4420),fanart)</visible>
 						<include>Animation_VisibleChange200</include>
 					</control>
@@ -307,7 +307,7 @@
 						<width>693</width>
 						<height>390</height>
 						<aspectratio>scale</aspectratio>
-						<texture background="true" fallback="thumbs/sets/backset.png">$INFO[ListItem.Art(extrafanart1)]</texture>
+						<texture background="true"  fallback="thumbs/fallback_episode_tp.png">$INFO[ListItem.Art(extrafanart1)]</texture>
 						<visible>StringCompare(Control.GetLabel(4420),fanart) + SubString(ListItem.Path,videodb://movies/sets) + !IsEmpty(ListItem.Art(extrafanart1))</visible>
 					</control>
 					<control type="image">
@@ -315,7 +315,7 @@
 						<width>693</width>
 						<height>390</height>
 						<aspectratio>scale</aspectratio>
-						<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+						<texture background="true" fallback="thumbs/fallback_episode_tp.png">$INFO[ListItem.Art(thumb)]</texture>
 						<fadetime>400</fadetime>
 						<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
 						<bordersize>2</bordersize>
@@ -346,7 +346,7 @@
 						<posy>92</posy>
 						<width>1056</width>
 						<height>840</height>
-						<onleft>62</onleft>
+						<!-- <onleft>62</onleft> -->
 						<onright condition="Control.IsVisible(60)">60</onright>
 						<onright condition="!Control.IsVisible(60)">SetProperty(MediaMenu,True,home)</onright>
 						<onright condition="!Control.IsVisible(60)">SetFocus(9000)</onright>

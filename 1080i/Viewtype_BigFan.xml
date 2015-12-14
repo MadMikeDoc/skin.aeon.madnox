@@ -62,7 +62,7 @@
 						</control>
 					</focusedlayout>
 				</control>
-						 <control type="multiimage" id="4002">
+				<control type="multiimage" id="4002">
 							<imagepath background="true">$VAR[VideoExtraFanartVar]</imagepath>
 							<fadetime>350</fadetime>
 							<include>FullscreenDimensions</include>
@@ -70,7 +70,7 @@
 							<include>Animation_VisibleChange400</include>
 							<visible>Skin.HasSetting(bigfanextrafanart)</visible>
 						</control>
-						 <control type="multiimage" id="4001">
+				<control type="multiimage" id="4001">
 							<imagepath background="true">$VAR[MovieFanartVar]</imagepath>
 							<fadetime>350</fadetime>
 							<include>FullscreenDimensions</include>
@@ -141,7 +141,7 @@
 						<top>166</top>
 						<width>215</width>
 						<height>315</height>
-						<texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
+						<texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar]</texture>
 						<fadetime>275</fadetime>
 						<visible>Skin.HasSetting(genrethumbs)</visible>
 					</control>
@@ -150,7 +150,7 @@
 						<top>166</top>
 						<width>215</width>
 						<height>315</height>
-						<texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar1]</texture>
+						<texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar1]</texture>
 						<fadetime>275</fadetime>
 						<visible>!Skin.HasSetting(genrethumbs)</visible>
 					</control>
@@ -172,7 +172,7 @@
 						<width>270</width>
 						<height>152</height>
 						<aspectratio aligny="bottom">keep</aspectratio>
-						<texture background="true">$VAR[BigFanIconVar]</texture>
+						<texture background="true" fallback="thumbs/fallback_episode_tp.png">$VAR[BigFanIconVar]</texture>
 						<fadetime>300</fadetime>
 						<animation effect="slide" end="0,-20" time="0" condition="Skin.HasSetting(bigfanlogo)">Conditional</animation>
 						<bordersize>7</bordersize>
@@ -185,7 +185,7 @@
 						<top>754</top>
 						<width>204</width>
 						<height>303</height>
-						<texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="DefaultVideoBigPoster.png">$INFO[ListItem.Art(poster)]</texture>
+						<texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="thumbs/fallback_poster_tp_solid.jpg">$INFO[ListItem.Art(poster)]</texture>
 						<fadetime>275</fadetime>
 						<visible>Stringcompare(Window(home).Property(actualViewtype),BigFan) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(genres) | Container.Content(sets)] | Container.Content(seasons)</visible>
 					</control>
@@ -197,7 +197,7 @@
 					<height>200</height>
 					<include>OverlayVisibility0</include>
 				</control>
-					<control type="image">
+				<control type="image">
 					<left>194r</left>
 					<top>0</top>
 					<width>200</width>
