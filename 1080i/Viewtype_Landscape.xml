@@ -27,8 +27,8 @@
 			<width>500</width>
 			<height>147</height>
 			<aspectratio>keep</aspectratio>
-			<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-			<visible>Container.Content(movies) + IsEmpty(ListItem.Art(landscape))</visible>
+			<texture background="true">$INFO[Container.ListItem.Art(clearlogo)]</texture>
+			<visible>Container.Content(movies) + IsEmpty(Container.ListItem.Art(landscape))</visible>
 		</control>
 		<control type="image">
 			<left>-3</left>
@@ -337,7 +337,7 @@
 			<width>390</width>
 			<height>164</height>
 			<aspectratio aligny="bottom">keep</aspectratio>
-			<texture background="true" fallback="thumbs/fallback_episode_tp.png">$INFO[ListItem.Art(clearlogo)]</texture>
+			<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
 		</control>
 		<control type="image">
 			<left>52</left>
@@ -345,7 +345,7 @@
 			<width>390</width>
 			<height>164</height>
 			<aspectratio aligny="top">keep</aspectratio>
-			<texture background="true" flipy="true" fallback="thumbs/fallback_episode_tp.png">$INFO[ListItem.Art(clearlogo)]</texture>
+			<texture background="true" flipy="true">$INFO[ListItem.Art(clearlogo)]</texture>
 			<animation effect="fade" start="10" end="10" time="160" tween="cubic" easing="inout" condition="true">Conditional</animation>
 		</control>
 		<control type="group">

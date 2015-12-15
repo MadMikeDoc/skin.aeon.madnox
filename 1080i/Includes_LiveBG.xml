@@ -1,0 +1,985 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Live backgrounds for homepage -->
+<includes>
+
+	<!-- Live DVD/BD Cases -->
+	<include name="LiveBG">
+		<control type="group">
+			<visible>[Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + IntegerGreaterThan(Container(8011).NumItems,0)] |
+				[SubString(Container(9000).ListItem.Property(background),.Live,right) + ![Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),FanartList,right) + IntegerGreaterThan(Container(8011).NumItems,0) + !IsEmpty(Container(8011).ListItem.Art(fanart))]] |
+				SubString(Control.GetLabel(4322),case)</visible>
+			<!-- Background image -->
+			<control type="image">
+				<aspectratio align="center" aligny="top">scale</aspectratio>
+				<texture background="true" fallback="special://skin/backgrounds/speakergrill.jpg">$VAR[LiveBGBackground]</texture>
+				<fadetime>600</fadetime>
+				<include>FullscreenDimensions</include>
+				<include>Animation_WindowFade250</include>
+				<animation effect="fade" time="400">Visible</animation>
+				<animation effect="fade" time="400">Hidden</animation>
+			</control>
+
+			<!-- DVD Cases -->
+			<control type="group">
+				<animation effect="fade" time="600">VisibleChange</animation>
+				<include>Animation_WindowFade250</include>
+				<visible>[Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + IntegerGreaterThan(Container(8011).NumItems,0) + SubString(Container(9010).ListItem.Property(backgroundCase),DVD)] |
+					[SubString(Container(9000).ListItem.Property(background),.Live,right) + ![Control.HasFocus(9010) + [SubString(Container(9010).ListItem.Property(background),FanartList,right) | SubString(Container(9010).ListItem.Property(background),.Live,right)] + IntegerGreaterThan(Container(8011).NumItems,0) + !IsEmpty(Container(8011).ListItem.Art(fanart))] + SubString(Container(9000).ListItem.Property(backgroundCase),DVD)] | 
+					SubString(Control.GetLabel(4322),dvdcase,left)</visible>
+				<control type="group">
+					<control type="group">
+						<left>800</left>
+						<top>-150</top>
+						<animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="65" end="65" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<left>39</left>
+							<top>9</top>
+							<width>223</width>
+							<height>335</height>
+							<fadetime>600</fadetime>
+							<align>center</align>
+							<!-- MikeBZH44 Scale to Stretch for poster -->
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+							<texture background="true" diffuse="thumbs/boxes/movieposter_mask.png">$VAR[LiveBG2]</texture>
+						</control>
+						<control type="image">
+							<top>-20</top>
+							<width>276</width>
+							<height>380</height>
+							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG2Resolution]p.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<left>580</left>
+						<top>180</top>
+						<animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="10" end="10" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<left>39</left>
+							<top>9</top>
+							<width>223</width>
+							<height>335</height>
+							<fadetime>600</fadetime>
+							<align>center</align>
+							<!-- MikeBZH44 Scale to Stretch for poster -->
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+							<texture background="true" diffuse="thumbs/boxes/movieposter_mask.png">$VAR[LiveBG3]</texture>
+						</control>
+						<control type="image">
+							<top>-20</top>
+							<width>276</width>
+							<height>380</height>
+							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG3Resolution]p.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<left>500</left>
+						<top>1170</top>
+						<animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="285" end="285" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<left>39</left>
+							<top>9</top>
+							<width>223</width>
+							<height>335</height>
+							<fadetime>600</fadetime>
+							<align>center</align>
+							<!-- MikeBZH44 Scale to Stretch for poster -->
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+							<texture background="true" diffuse="thumbs/boxes/movieposter_mask.png">$VAR[LiveBG5]</texture>
+						</control>
+						<control type="image">
+							<top>-20</top>
+							<width>276</width>
+							<height>380</height>
+							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG5Resolution]p.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<left>1950</left>
+						<top>0</top>
+						<animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="75" end="75" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<left>39</left>
+							<top>9</top>
+							<width>223</width>
+							<height>335</height>
+							<fadetime>600</fadetime>
+							<align>center</align>
+							<!-- MikeBZH44 Scale to Stretch for poster -->
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+							<texture background="true" diffuse="thumbs/boxes/movieposter_mask.png">$VAR[LiveBG6]</texture>
+						</control>
+						<control type="image">
+							<top>-20</top>
+							<width>276</width>
+							<height>380</height>
+							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG6Resolution]p.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<left>1550</left>
+						<top>300</top>
+						<animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="-20" end="-20" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<left>39</left>
+							<top>9</top>
+							<width>223</width>
+							<height>335</height>
+							<fadetime>600</fadetime>
+							<align>center</align>
+							<!-- MikeBZH44 Scale to Stretch for poster -->
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+							<texture background="true" diffuse="thumbs/boxes/movieposter_mask.png">$VAR[LiveBG4]</texture>
+						</control>
+						<control type="image">
+							<top>-20</top>
+							<width>276</width>
+							<height>380</height>
+							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG4Resolution]p.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<left>1380</left>
+						<top>650</top>
+						<animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="-35" end="-35" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<left>39</left>
+							<top>9</top>
+							<width>223</width>
+							<height>335</height>
+							<fadetime>600</fadetime>
+							<align>center</align>
+							<!-- MikeBZH44 Scale to Stretch for poster -->
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+							<texture background="true" diffuse="thumbs/boxes/movieposter_mask.png">$VAR[LiveBG8]</texture>
+						</control>
+						<control type="image">
+							<top>-20</top>
+							<width>276</width>
+							<height>380</height>
+							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG8Resolution]p.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<left>1650</left>
+						<top>650</top>
+						<animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="65" end="65" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<left>39</left>
+							<top>9</top>
+							<width>223</width>
+							<height>335</height>
+							<fadetime>600</fadetime>
+							<align>center</align>
+							<!-- MikeBZH44 Scale to Stretch for poster -->
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+							<texture background="true" diffuse="thumbs/boxes/movieposter_mask.png">$VAR[LiveBG7]</texture>
+						</control>
+						<control type="image">
+							<top>-20</top>
+							<width>276</width>
+							<height>380</height>
+							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG7Resolution]p.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<left>1100</left>
+						<top>400</top>
+						<animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="-10" end="-10" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<left>39</left>
+							<top>9</top>
+							<width>223</width>
+							<height>335</height>
+							<fadetime>600</fadetime>
+							<align>center</align>
+							<!-- MikeBZH44 Scale to Stretch for poster -->
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+							<texture background="true" diffuse="thumbs/boxes/movieposter_mask.png">$VAR[LiveBG9]</texture>
+						</control>
+						<control type="image">
+							<top>-20</top>
+							<width>276</width>
+							<height>380</height>
+							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG9Resolution]p.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<left>800</left>
+						<top>400</top>
+						<animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="16" end="16" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<left>39</left>
+							<top>9</top>
+							<width>223</width>
+							<height>335</height>
+							<fadetime>600</fadetime>
+							<align>center</align>
+							<!-- MikeBZH44 Scale to Stretch for poster -->
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+							<texture background="true" diffuse="thumbs/boxes/movieposter_mask.png">$VAR[LiveBG10]</texture>
+						</control>
+						<control type="image">
+							<top>-20</top>
+							<width>276</width>
+							<height>380</height>
+							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG10Resolution]p.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<left>1100</left>
+						<top>1230</top>
+						<animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="-65" end="-65" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<left>39</left>
+							<top>9</top>
+							<width>223</width>
+							<height>335</height>
+							<fadetime>600</fadetime>
+							<align>center</align>
+							<!-- MikeBZH44 Scale to Stretch for poster -->
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+							<texture background="true" diffuse="thumbs/boxes/movieposter_mask.png">$VAR[LiveBG1]</texture>
+						</control>
+						<control type="image">
+							<top>-20</top>
+							<width>276</width>
+							<height>380</height>
+							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG1Resolution]p.png</texture>
+						</control>
+					</control>
+				</control>
+			</control>
+
+			<!-- CD Cases -->
+			<control type="group">
+				<animation effect="fade" time="600">VisibleChange</animation>
+				<include>Animation_WindowFade250</include>
+				<visible>[Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + IntegerGreaterThan(Container(8011).NumItems,0) + SubString(Container(9010).ListItem.Property(backgroundCase),CD)] |
+					[SubString(Container(9000).ListItem.Property(background),.Live,right) + ![Control.HasFocus(9010) + [SubString(Container(9010).ListItem.Property(background),FanartList,right) | SubString(Container(9010).ListItem.Property(background),.Live,right)] + IntegerGreaterThan(Container(8011).NumItems,0) + !IsEmpty(Container(8011).ListItem.Art(fanart))] + SubString(Container(9000).ListItem.Property(backgroundCase),CD)] | 
+					SubString(Control.GetLabel(4322),case,left)</visible>
+				<control type="group">
+					<left>-200</left>
+					<control type="group">
+						<left>1120</left>
+						<top>700</top>
+						<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="9" end="9" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<include>LiveCDCasesBGDim1</include>
+							<fadetime>600</fadetime>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG1]</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<visible>[Window.IsVisible(Home) + !SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + !Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<include>LiveCDCasesBGDim2</include>
+							<fadetime>600</fadetime>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG1]</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<visible>[Window.IsVisible(Home) + SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<width>375</width>
+							<height>342</height>
+							<bordertexture>thumbs/boxes/cd_shadow_light.png</bordertexture>
+							<texture background="true">thumbs/boxes/cd_glass.png</texture>
+							<visible>[Window.IsVisible(Home) + !SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + !Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<width>375</width>
+							<height>342</height>
+							<texture background="true">thumbs/boxes/cd_box_closed.png</texture>
+							<visible>[Window.IsVisible(Home) + SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+					</control>
+					<control type="group">
+						<left>700</left>
+						<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="65" end="65" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<include>LiveCDCasesBGDim1</include>
+							<fadetime>600</fadetime>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG2]</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<visible>[Window.IsVisible(Home) + !SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + !Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<include>LiveCDCasesBGDim2</include>
+							<fadetime>600</fadetime>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG2]</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<visible>[Window.IsVisible(Home) + SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<width>375</width>
+							<height>342</height>
+							<bordertexture>thumbs/boxes/cd_shadow_light.png</bordertexture>
+							<texture background="true">thumbs/boxes/cd_glass.png</texture>
+							<visible>[Window.IsVisible(Home) + !SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + !Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<width>375</width>
+							<height>342</height>
+							<texture background="true">thumbs/boxes/cd_box_closed.png</texture>
+							<visible>[Window.IsVisible(Home) + SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+					</control>
+					<control type="group">
+						<left>430</left>
+						<top>150</top>
+						<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="10" end="10" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<include>LiveCDCasesBGDim1</include>
+							<fadetime>600</fadetime>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG3]</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<visible>[Window.IsVisible(Home) + !SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + !Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<include>LiveCDCasesBGDim2</include>
+							<fadetime>600</fadetime>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG3]</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<visible>[Window.IsVisible(Home) + SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<width>375</width>
+							<height>342</height>
+							<bordertexture>thumbs/boxes/cd_shadow_light.png</bordertexture>
+							<texture background="true">thumbs/boxes/cd_glass.png</texture>
+							<visible>[Window.IsVisible(Home) + !SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + !Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<width>375</width>
+							<height>342</height>
+							<texture background="true">thumbs/boxes/cd_box_closed.png</texture>
+							<visible>[Window.IsVisible(Home) + SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+					</control>
+					<control type="group">
+						<left>1600</left>
+						<top>200</top>
+						<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="-20" end="-20" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<include>LiveCDCasesBGDim1</include>
+							<fadetime>600</fadetime>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG4]</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<visible>[Window.IsVisible(Home) + !SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + !Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<include>LiveCDCasesBGDim2</include>
+							<fadetime>600</fadetime>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG4]</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<visible>[Window.IsVisible(Home) + SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<width>375</width>
+							<height>342</height>
+							<bordertexture>thumbs/boxes/cd_shadow_light.png</bordertexture>
+							<texture background="true">thumbs/boxes/cd_glass.png</texture>
+							<visible>[Window.IsVisible(Home) + !SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + !Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<width>375</width>
+							<height>342</height>
+							<texture background="true">thumbs/boxes/cd_box_closed.png</texture>
+							<visible>[Window.IsVisible(Home) + SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+					</control>
+					<control type="group">
+						<left>1000</left>
+						<top>100</top>
+						<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="25" end="25" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<include>LiveCDCasesBGDim1</include>
+							<fadetime>600</fadetime>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG5]</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<visible>[Window.IsVisible(Home) + !SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + !Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<include>LiveCDCasesBGDim2</include>
+							<fadetime>600</fadetime>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG5]</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<visible>[Window.IsVisible(Home) + SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<width>375</width>
+							<height>342</height>
+							<bordertexture>thumbs/boxes/cd_shadow_light.png</bordertexture>
+							<texture background="true">thumbs/boxes/cd_glass.png</texture>
+							<visible>[Window.IsVisible(Home) + !SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + !Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<width>375</width>
+							<height>342</height>
+							<texture background="true">thumbs/boxes/cd_box_closed.png</texture>
+							<visible>[Window.IsVisible(Home) + SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+					</control>
+					<control type="group">
+						<left>1950</left>
+						<top>-100</top>
+						<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="75" end="75" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<include>LiveCDCasesBGDim1</include>
+							<fadetime>600</fadetime>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG6]</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<visible>[Window.IsVisible(Home) + !SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + !Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<include>LiveCDCasesBGDim2</include>
+							<fadetime>600</fadetime>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG6]</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<visible>[Window.IsVisible(Home) + SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<width>375</width>
+							<height>342</height>
+							<bordertexture>thumbs/boxes/cd_shadow_light.png</bordertexture>
+							<texture background="true">thumbs/boxes/cd_glass.png</texture>
+							<visible>[Window.IsVisible(Home) + !SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + !Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<width>375</width>
+							<height>342</height>
+							<texture background="true">thumbs/boxes/cd_box_closed.png</texture>
+							<visible>[Window.IsVisible(Home) + SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+					</control>
+					<control type="group">
+						<left>1700</left>
+						<top>800</top>
+						<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="45" end="45" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<include>LiveCDCasesBGDim1</include>
+							<fadetime>600</fadetime>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG7]</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<visible>[Window.IsVisible(Home) + !SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + !Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<include>LiveCDCasesBGDim2</include>
+							<fadetime>600</fadetime>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG7]</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<visible>[Window.IsVisible(Home) + SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<width>375</width>
+							<height>342</height>
+							<bordertexture>thumbs/boxes/cd_shadow_light.png</bordertexture>
+							<texture background="true">thumbs/boxes/cd_glass.png</texture>
+							<visible>[Window.IsVisible(Home) + !SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + !Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<width>375</width>
+							<height>342</height>
+							<texture background="true">thumbs/boxes/cd_box_closed.png</texture>
+							<visible>[Window.IsVisible(Home) + SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+					</control>
+					<control type="group">
+						<left>1470</left>
+						<top>510</top>
+						<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="-15" end="-15" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<include>LiveCDCasesBGDim1</include>
+							<fadetime>600</fadetime>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG8]</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<visible>[Window.IsVisible(Home) + !SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + !Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<include>LiveCDCasesBGDim2</include>
+							<fadetime>600</fadetime>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG8]</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<visible>[Window.IsVisible(Home) + SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<width>375</width>
+							<height>342</height>
+							<bordertexture>thumbs/boxes/cd_shadow_light.png</bordertexture>
+							<texture background="true">thumbs/boxes/cd_glass.png</texture>
+							<visible>[Window.IsVisible(Home) + !SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + !Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<width>375</width>
+							<height>342</height>
+							<texture background="true">thumbs/boxes/cd_box_closed.png</texture>
+							<visible>[Window.IsVisible(Home) + SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+					</control>
+					<control type="group">
+						<left>1050</left>
+						<top>400</top>
+						<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="-10" end="-10" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<include>LiveCDCasesBGDim1</include>
+							<fadetime>600</fadetime>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG9]</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<visible>[Window.IsVisible(Home) + !SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + !Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<include>LiveCDCasesBGDim2</include>
+							<fadetime>600</fadetime>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG9]</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<visible>[Window.IsVisible(Home) + SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<width>375</width>
+							<height>342</height>
+							<bordertexture>thumbs/boxes/cd_shadow_light.png</bordertexture>
+							<texture background="true">thumbs/boxes/cd_glass.png</texture>
+							<visible>[Window.IsVisible(Home) + !SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + !Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<width>375</width>
+							<height>342</height>
+							<texture background="true">thumbs/boxes/cd_box_closed.png</texture>
+							<visible>[Window.IsVisible(Home) + SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+					</control>
+					<control type="group">
+						<left>600</left>
+						<top>400</top>
+						<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="3" end="3" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<include>LiveCDCasesBGDim1</include>
+							<fadetime>600</fadetime>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG10]</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<visible>[Window.IsVisible(Home) + !SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + !Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<include>LiveCDCasesBGDim2</include>
+							<fadetime>600</fadetime>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG10]</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<visible>[Window.IsVisible(Home) + SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<width>375</width>
+							<height>342</height>
+							<bordertexture>thumbs/boxes/cd_shadow_light.png</bordertexture>
+							<texture background="true">thumbs/boxes/cd_glass.png</texture>
+							<visible>[Window.IsVisible(Home) + !SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + !Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+						<control type="image">
+							<width>375</width>
+							<height>342</height>
+							<texture background="true">thumbs/boxes/cd_box_closed.png</texture>
+							<visible>[Window.IsVisible(Home) + SubString(Container(9000).ListItem.Property(backgroundCase),Clear,right)] | [!Window.IsVisible(Home) + Skin.HasSetting(LiveBGCDCase)]</visible>
+						</control>
+					</control>
+				</control>
+			</control>
+
+			<!-- No cases -->
+			<control type="group">
+				<animation effect="fade" time="480">VisibleChange</animation>
+				<include>Animation_WindowFade250</include>
+				<visible>[Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + IntegerGreaterThan(Container(8011).NumItems,0) + IsEmpty(Container(9010).ListItem.Property(backgroundCase))] |
+					[SubString(Container(9000).ListItem.Property(background),.Live,right) + ![Control.HasFocus(9010) + [SubString(Container(9010).ListItem.Property(background),FanartList,right) | SubString(Container(9010).ListItem.Property(background),.Live,right)] + IntegerGreaterThan(Container(8011).NumItems,0) + !IsEmpty(Container(8011).ListItem.Art(fanart))] + IsEmpty(Container(9000).ListItem.Property(backgroundCase))] | 
+					SubString(Control.GetLabel(4322),nocase,left)</visible>
+				<control type="group">
+					<left>-200</left>
+					<control type="group">
+						<left>1120</left>
+						<top>700</top>
+						<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="9" end="9" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<left>54</left>
+							<top>17</top>
+							<width>400</width>
+							<height>400</height>
+							<aspectratio scalediffuse="false">keep</aspectratio>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG1Picture]</texture>
+							<fadetime>600</fadetime>
+						</control>
+					</control>
+					<control type="group">
+						<left>700</left>
+						<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="65" end="65" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<left>54</left>
+							<top>17</top>
+							<width>400</width>
+							<height>400</height>
+							<aspectratio scalediffuse="false">keep</aspectratio>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG2Picture]</texture>
+							<fadetime>600</fadetime>
+						</control>
+					</control>
+					<control type="group">
+						<left>430</left>
+						<top>150</top>
+						<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="10" end="10" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<left>54</left>
+							<top>17</top>
+							<width>400</width>
+							<height>400</height>
+							<aspectratio scalediffuse="false">keep</aspectratio>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG3Picture]</texture>
+							<fadetime>600</fadetime>
+						</control>
+					</control>
+					<control type="group">
+						<left>1600</left>
+						<top>200</top>
+						<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="-20" end="-20" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<left>54</left>
+							<top>17</top>
+							<width>400</width>
+							<height>400</height>
+							<aspectratio scalediffuse="false">keep</aspectratio>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG4Picture]</texture>
+							<fadetime>600</fadetime>
+						</control>
+					</control>
+					<control type="group">
+						<left>1000</left>
+						<top>100</top>
+						<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="25" end="25" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<left>54</left>
+							<top>17</top>
+							<width>400</width>
+							<height>400</height>
+							<aspectratio scalediffuse="false">keep</aspectratio>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG5Picture]</texture>
+							<fadetime>600</fadetime>
+						</control>
+					</control>
+					<control type="group">
+						<left>1950</left>
+						<top>-100</top>
+						<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="75" end="75" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<left>54</left>
+							<top>17</top>
+							<width>400</width>
+							<height>400</height>
+							<aspectratio scalediffuse="false">keep</aspectratio>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG6Picture]</texture>
+							<fadetime>600</fadetime>
+						</control>
+					</control>
+					<control type="group">
+						<left>1700</left>
+						<top>800</top>
+						<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="45" end="45" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<left>54</left>
+							<top>17</top>
+							<width>400</width>
+							<height>400</height>
+							<aspectratio scalediffuse="false">keep</aspectratio>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG7Picture]</texture>
+							<fadetime>600</fadetime>
+						</control>
+					</control>
+					<control type="group">
+						<left>1470</left>
+						<top>510</top>
+						<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="-15" end="-15" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<left>54</left>
+							<top>17</top>
+							<width>400</width>
+							<height>400</height>
+							<aspectratio scalediffuse="false">keep</aspectratio>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG8Picture]</texture>
+							<fadetime>600</fadetime>
+						</control>
+					</control>
+					<control type="group">
+						<left>1050</left>
+						<top>400</top>
+						<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="-10" end="-10" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<left>54</left>
+							<top>17</top>
+							<width>400</width>
+							<height>400</height>
+							<aspectratio scalediffuse="false">keep</aspectratio>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG9Picture]</texture>
+							<fadetime>600</fadetime>
+						</control>
+					</control>
+					<control type="group">
+						<left>600</left>
+						<top>400</top>
+						<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+						<animation effect="rotate" center="auto" start="3" end="3" time="0" condition="true">Conditional</animation>
+						<control type="image">
+							<left>54</left>
+							<top>17</top>
+							<width>400</width>
+							<height>400</height>
+							<aspectratio scalediffuse="false">keep</aspectratio>
+							<texture background="true" diffuse="thumbs/boxes/cdcover_mask_aa.png" fallback="DefaultAudio.png">$VAR[LiveBG10Picture]</texture>
+							<fadetime>600</fadetime>
+						</control>
+					</control>
+				</control>
+			</control>
+		</control>
+	</include>
+
+	<variable name="LiveBG1">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(0).Art(poster))">$INFO[Container(8011).ListItem(0).Art(poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(0).Art(tvshow.poster))">$INFO[Container(8011).ListItem(0).Art(tvshow.poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(0).Icon]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(0).Art(poster))">$INFO[Container(8020).ListItem(0).Art(poster)]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(0).Art(tvshow.poster))">$INFO[Container(8020).ListItem(0).Art(tvshow.poster)]</value>
+		<value>$INFO[Container(8020).ListItem(0).Icon]</value>
+	</variable>
+	<variable name="LiveBG2">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(1).Art(poster))">$INFO[Container(8011).ListItem(1).Art(poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(1).Art(tvshow.poster))">$INFO[Container(8011).ListItem(1).Art(tvshow.poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(1).Icon]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(1).Art(poster))">$INFO[Container(8020).ListItem(1).Art(poster)]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(1).Art(tvshow.poster))">$INFO[Container(8020).ListItem(1).Art(tvshow.poster)]</value>
+		<value>$INFO[Container(8020).ListItem(1).Icon]</value>
+	</variable>
+	<variable name="LiveBG3">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(2).Art(poster))">$INFO[Container(8011).ListItem(2).Art(poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(2).Art(tvshow.poster))">$INFO[Container(8011).ListItem(2).Art(tvshow.poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(2).Icon]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(2).Art(poster))">$INFO[Container(8020).ListItem(2).Art(poster)]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(2).Art(tvshow.poster))">$INFO[Container(8020).ListItem(2).Art(tvshow.poster)]</value>
+		<value>$INFO[Container(8020).ListItem(2).Icon]</value>
+	</variable>
+	<variable name="LiveBG4">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(3).Art(poster))">$INFO[Container(8011).ListItem(3).Art(poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(3).Art(tvshow.poster))">$INFO[Container(8011).ListItem(3).Art(tvshow.poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(3).Icon]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(3).Art(poster))">$INFO[Container(8020).ListItem(3).Art(poster)]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(3).Art(tvshow.poster))">$INFO[Container(8020).ListItem(3).Art(tvshow.poster)]</value>
+		<value>$INFO[Container(8020).ListItem(3).Icon]</value>
+	</variable>
+	<variable name="LiveBG5">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(4).Art(poster))">$INFO[Container(8011).ListItem(4).Art(poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(4).Art(tvshow.poster))">$INFO[Container(8011).ListItem(4).Art(tvshow.poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(4).Icon]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(4).Art(poster))">$INFO[Container(8020).ListItem(4).Art(poster)]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(4).Art(tvshow.poster))">$INFO[Container(8020).ListItem(4).Art(tvshow.poster)]</value>
+		<value>$INFO[Container(8020).ListItem(4).Icon]</value>
+	</variable>
+	<variable name="LiveBG6">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(5).Art(poster))">$INFO[Container(8011).ListItem(5).Art(poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(5).Art(tvshow.poster))">$INFO[Container(8011).ListItem(5).Art(tvshow.poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(5).Icon]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(5).Art(poster))">$INFO[Container(8020).ListItem(5).Art(poster)]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(5).Art(tvshow.poster))">$INFO[Container(8020).ListItem(5).Art(tvshow.poster)]</value>
+		<value>$INFO[Container(8020).ListItem(5).Icon]</value>
+	</variable>
+	<variable name="LiveBG7">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(6).Art(poster))">$INFO[Container(8011).ListItem(6).Art(poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(6).Art(tvshow.poster))">$INFO[Container(8011).ListItem(6).Art(tvshow.poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(6).Icon]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(6).Art(poster))">$INFO[Container(8020).ListItem(6).Art(poster)]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(6).Art(tvshow.poster))">$INFO[Container(8020).ListItem(6).Art(tvshow.poster)]</value>
+		<value>$INFO[Container(8020).ListItem(6).Icon]</value>
+	</variable>
+	<variable name="LiveBG8">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(7).Art(poster))">$INFO[Container(8011).ListItem(7).Art(poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(7).Art(tvshow.poster))">$INFO[Container(8011).ListItem(7).Art(tvshow.poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(7).Icon]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(7).Art(poster))">$INFO[Container(8020).ListItem(7).Art(poster)]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(7).Art(tvshow.poster))">$INFO[Container(8020).ListItem(7).Art(tvshow.poster)]</value>
+		<value>$INFO[Container(8020).ListItem(7).Icon]</value>
+	</variable>
+	<variable name="LiveBG9">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(8).Art(poster))">$INFO[Container(8011).ListItem(8).Art(poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(8).Art(tvshow.poster))">$INFO[Container(8011).ListItem(8).Art(tvshow.poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(8).Icon]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(8).Art(poster))">$INFO[Container(8020).ListItem(8).Art(poster)]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(8).Art(tvshow.poster))">$INFO[Container(8020).ListItem(8).Art(tvshow.poster)]</value>
+		<value>$INFO[Container(8020).ListItem(8).Icon]</value>
+	</variable>
+	<variable name="LiveBG10">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(9).Art(poster))">$INFO[Container(8011).ListItem(9).Art(poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(9).Art(tvshow.poster))">$INFO[Container(8011).ListItem(9).Art(tvshow.poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(9).Icon]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(9).Art(poster))">$INFO[Container(8020).ListItem(9).Art(poster)]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(9).Art(tvshow.poster))">$INFO[Container(8020).ListItem(9).Art(tvshow.poster)]</value>
+		<value>$INFO[Container(8020).ListItem(9).Icon]</value>
+	</variable>
+
+	<variable name="LiveBG1Picture">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(0).Art(poster))">$INFO[Container(8011).ListItem(0).Art(poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(0).Art(artists.thumb))">$INFO[Container(8011).ListItem(0).Art(artists.thumb)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(0).Icon]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(0).Art(poster))">$INFO[Container(8020).ListItem(0).Art(poster)]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(0).Art(artists.thumb))">$INFO[Container(8020).ListItem(0).Art(artists.thumb)]</value>
+		<value>$INFO[Container(8020).ListItem(0).Icon]</value>
+	</variable>
+	<variable name="LiveBG2Picture">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(1).Art(poster))">$INFO[Container(8011).ListItem(1).Art(poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(1).Art(artists.thumb))">$INFO[Container(8011).ListItem(1).Art(artists.thumb)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(1).Icon]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(1).Art(poster))">$INFO[Container(8020).ListItem(1).Art(poster)]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(1).Art(artists.thumb))">$INFO[Container(8020).ListItem(1).Art(artists.thumb)]</value>
+		<value>$INFO[Container(8020).ListItem(1).Icon]</value>
+	</variable>
+	<variable name="LiveBG3Picture">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(2).Art(poster))">$INFO[Container(8011).ListItem(2).Art(poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(2).Art(artists.thumb))">$INFO[Container(8011).ListItem(2).Art(artists.thumb)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(2).Icon]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(2).Art(poster))">$INFO[Container(8020).ListItem(2).Art(poster)]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(2).Art(artists.thumb))">$INFO[Container(8020).ListItem(2).Art(artists.thumb)]</value>
+		<value>$INFO[Container(8020).ListItem(2).Icon]</value>
+	</variable>
+	<variable name="LiveBG4Picture">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(3).Art(poster))">$INFO[Container(8011).ListItem(3).Art(poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(3).Art(artists.thumb))">$INFO[Container(8011).ListItem(3).Art(artists.thumb)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(3).Icon]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(3).Art(poster))">$INFO[Container(8020).ListItem(3).Art(poster)]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(3).Art(artists.thumb))">$INFO[Container(8020).ListItem(3).Art(artists.thumb)]</value>
+		<value>$INFO[Container(8020).ListItem(3).Icon]</value>
+	</variable>
+	<variable name="LiveBG5Picture">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(4).Art(poster))">$INFO[Container(8011).ListItem(4).Art(poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(4).Art(artists.thumb))">$INFO[Container(8011).ListItem(4).Art(artists.thumb)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(4).Icon]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(4).Art(poster))">$INFO[Container(8020).ListItem(4).Art(poster)]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(4).Art(artists.thumb))">$INFO[Container(8020).ListItem(4).Art(artists.thumb)]</value>
+		<value>$INFO[Container(8020).ListItem(4).Icon]</value>
+	</variable>
+	<variable name="LiveBG6Picture">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(5).Art(poster))">$INFO[Container(8011).ListItem(5).Art(poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(5).Art(artists.thumb))">$INFO[Container(8011).ListItem(5).Art(artists.thumb)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(5).Icon]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(5).Art(poster))">$INFO[Container(8020).ListItem(5).Art(poster)]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(5).Art(artists.thumb))">$INFO[Container(8020).ListItem(5).Art(artists.thumb)]</value>
+		<value>$INFO[Container(8020).ListItem(5).Icon]</value>
+	</variable>
+	<variable name="LiveBG7Picture">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(6).Art(poster))">$INFO[Container(8011).ListItem(6).Art(poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(6).Art(artists.thumb))">$INFO[Container(8011).ListItem(6).Art(artists.thumb)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(6).Icon]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(6).Art(poster))">$INFO[Container(8020).ListItem(6).Art(poster)]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(6).Art(artists.thumb))">$INFO[Container(8020).ListItem(6).Art(artists.thumb)]</value>
+		<value>$INFO[Container(8020).ListItem(6).Icon]</value>
+	</variable>
+	<variable name="LiveBG8Picture">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(7).Art(poster))">$INFO[Container(8011).ListItem(7).Art(poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(7).Art(artists.thumb))">$INFO[Container(8011).ListItem(7).Art(artists.thumb)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(7).Icon]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(7).Art(poster))">$INFO[Container(8020).ListItem(7).Art(poster)]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(7).Art(artists.thumb))">$INFO[Container(8020).ListItem(7).Art(artists.thumb)]</value>
+		<value>$INFO[Container(8020).ListItem(7).Icon]</value>
+	</variable>
+	<variable name="LiveBG9Picture">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(8).Art(poster))">$INFO[Container(8011).ListItem(8).Art(poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(8).Art(artists.thumb))">$INFO[Container(8011).ListItem(8).Art(artists.thumb)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(8).Icon]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(8).Art(poster))">$INFO[Container(8020).ListItem(8).Art(poster)]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(8).Art(artists.thumb))">$INFO[Container(8020).ListItem(8).Art(artists.thumb)]</value>
+		<value>$INFO[Container(8020).ListItem(8).Icon]</value>
+	</variable>
+	<variable name="LiveBG10Picture">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(9).Art(poster))">$INFO[Container(8011).ListItem(9).Art(poster)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + !IsEmpty(Container(8011).ListItem(9).Art(artists.thumb))">$INFO[Container(8011).ListItem(9).Art(artists.thumb)]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(9).Icon]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(9).Art(poster))">$INFO[Container(8020).ListItem(9).Art(poster)]</value>
+		<value condition="!IsEmpty(Container(8020).ListItem(9).Art(artists.thumb))">$INFO[Container(8020).ListItem(9).Art(artists.thumb)]</value>
+		<value>$INFO[Container(8020).ListItem(9).Icon]</value>
+	</variable>
+
+	<variable name="LiveBG1Resolution">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(0).VideoResolution]</value>
+		<value>$INFO[Container(8020).ListItem(0).VideoResolution]</value>
+	</variable>
+	<variable name="LiveBG2Resolution">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(1).VideoResolution]</value>
+		<value>$INFO[Container(8020).ListItem(1).VideoResolution]</value>
+	</variable>
+	<variable name="LiveBG3Resolution">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(2).VideoResolution]</value>
+		<value>$INFO[Container(8020).ListItem(2).VideoResolution]</value>
+	</variable>
+	<variable name="LiveBG4Resolution">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(3).VideoResolution]</value>
+		<value>$INFO[Container(8020).ListItem(3).VideoResolution]</value>
+	</variable>
+	<variable name="LiveBG5Resolution">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(4).VideoResolution]</value>
+		<value>$INFO[Container(8020).ListItem(4).VideoResolution]</value>
+	</variable>
+	<variable name="LiveBG6Resolution">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(5).VideoResolution]</value>
+		<value>$INFO[Container(8020).ListItem(5).VideoResolution]</value>
+	</variable>
+	<variable name="LiveBG7Resolution">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(6).VideoResolution]</value>
+		<value>$INFO[Container(8020).ListItem(6).VideoResolution]</value>
+	</variable>
+	<variable name="LiveBG8Resolution">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(7).VideoResolution]</value>
+		<value>$INFO[Container(8020).ListItem(7).VideoResolution]</value>
+	</variable>
+	<variable name="LiveBG9Resolution">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(8).VideoResolution]</value>
+		<value>$INFO[Container(8020).ListItem(8).VideoResolution]</value>
+	</variable>
+	<variable name="LiveBG10Resolution">
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(9).VideoResolution]</value>
+		<value>$INFO[Container(8020).ListItem(9).VideoResolution]</value>
+	</variable>
+		
+
+	<variable name="LiveBGCases">
+		<value condition="Window.IsVisible(Home) + Substring(Container(9000).ListItem.Property(backgroundCase),Clear,right)">movies</value>
+		<value condition="Window.IsVisible(Home) + SubString(Container(9000).ListItem.Property(backgroundCase),Color,right)">colorcases</value>
+		<value condition="Window.IsVisible(Home)">tvshows</value>
+		<value condition="Stringcompare(Skin.String(LiveBGCase),movies)">movies</value>
+		<value condition="Stringcompare(Skin.String(LiveBGCase),tvshows)">colorcases</value>
+		<value>tvshows</value>
+	</variable>
+
+	<variable name="LiveBGBackground">
+		<value condition="Window.IsVisible(Home) + Control.HasFocus(9010) + StringCompare(Container(9010).ListItem.Property(Playlist.Live)) + IntegerGreaterThan(Container(8011).NumItems,0)">$INFO[Container(9010).ListItem.Property(backgroundLive)]</value>
+		<value condition="Window.IsVisible(Home)">$INFO[Container(9000).ListItem.Property(backgroundLive)]</value>
+		<value>$INFO[Skin.String(LiveBG)]</value>
+	</variable>
+</includes>

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="dialog" id="1159">
-    <defaultcontrol always="true">2020</defaultcontrol>
-    <onload>ClearProperty(quicknavsetup,home)</onload>
-    <animation effect="slide" start="0,100" end="0,0" time="320" tween="quadratic">WindowOpen</animation>
-    <animation effect="slide" start="0,0" end="0,100" time="320" tween="quadratic">WindowClose</animation>
-    <controls>
-        <control type="group">
+	<defaultcontrol always="true">2020</defaultcontrol>
+	<onload>ClearProperty(quicknavsetup,home)</onload>
+	<animation effect="slide" start="0,100" end="0,0" time="320" tween="quadratic">WindowOpen</animation>
+	<animation effect="slide" start="0,0" end="0,100" time="320" tween="quadratic">WindowClose</animation>
+	<controls>
+		<control type="group">
 			<visible>Skin.HasSetting(bottomindicator)</visible>
-            <control type="image">
-                <top>978</top>
-                <width>1920</width>
-                <height>630</height>
-                <texture>views/lowlist_panelback.png</texture>
-            </control>
-            <control type="button" id="2019">
+			<control type="image">
+				<top>978</top>
+				<width>1920</width>
+				<height>630</height>
+				<texture>views/lowlist_panelback.png</texture>
+			</control>
+			<!--control type="button" id="2019">
                 <top>1020</top>
                 <width>60</width>
                 <height>60</height>
@@ -37,146 +37,150 @@
             <control type="list" id="2020">
                 <left>60</left>
                 <top>1020</top>
-                <width>1920</width>
-                <height>135</height>
-                <orientation>horizontal</orientation>
-                <onleft>2019</onleft>
-                <onup>Action(Close)</onup>
-                <ondown>Action(Close)</ondown>
-                <onright>2020</onright>
-                <itemlayout height="60" width="310">
-                    <control type="image">
-                        <top>7</top>
-                        <width>62</width>
-                        <height>52</height>
-                        <aspectratio align="left">keep</aspectratio>
-                        <texture>$INFO[ListItem.Thumb]</texture>
-                        <colordiffuse>grey</colordiffuse>
-                    </control>
-                    <control type="label">
-                        <left>58</left>
-                        <top>2</top>
-                        <width>250</width>
-                        <height>30</height>
-                        <align>left</align>
-                        <label>$INFO[ListItem.Label]</label>
-                        <font>Font_Reg22_Caps</font>
-                        <textcolor>white2</textcolor>
-                    </control>
-                    <control type="textbox">
-                        <left>58</left>
-                        <top>26</top>
-                        <width>250</width>
-                        <height>30</height>
-                        <align>left</align>
-                        <autoscroll delay="3000" time="2000" repeat="10000">!Control.HasFocus(13)</autoscroll>
-                        <label>$INFO[ListItem.Label2]</label>
-                        <font>Font_Reg22_Caps</font>
-                        <textcolor>grey2</textcolor>
-                    </control>
-                </itemlayout>
-                <focusedlayout height="60" width="310">
-                    <control type="image">
-                        <width>310</width>
-                        <height>60</height>
-                        <texture border="8">views/tripanel/listselect_fo.png</texture>
-                        <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-                        <visible>Control.HasFocus(2020)</visible>
-                    </control>
-                    <control type="image">
-                        <top>7</top>
-                        <width>62</width>
-                        <height>52</height>
-                        <aspectratio align="left">keep</aspectratio>
-                        <texture>$INFO[ListItem.Thumb]</texture>
-                        <colordiffuse>white2</colordiffuse>
-                    </control>
-                    <control type="label">
-                        <left>58</left>
-                        <top>2</top>
-                        <width>250</width>
-                        <height>30</height>
-                        <align>left</align>
-                        <label>$INFO[ListItem.Label]</label>
-                        <font>Font_Reg22_Caps</font>
-                    </control>
-                    <control type="textbox">
-                        <left>58</left>
-                        <top>26</top>
-                        <width>250</width>
-                        <height>30</height>
-                        <align>left</align>
-                        <autoscroll delay="5000" time="2000" repeat="10000">!Control.HasFocus(13)</autoscroll>
-                        <label>$INFO[ListItem.Label2]</label>
-                        <font>Font_Reg22_Caps</font>
-                    </control>
-                </focusedlayout>
-                <content>
-                    <item id="1">
-                        <label>31335</label>
-                        <label2>$INFO[Window(Home).Property(RecommendedMovie.1.Title)]</label2>
-                        <thumb>dialogs/circle/$INFO[Window(Home).Property(RecommendedMovie.1.PercentPlayed)].png</thumb>
-                        <onclick>Dialog.Close(1159)</onclick>
-                        <onclick>ActivateWindow(videos,special://skin/extras/playlists/MoviesInProgress.xsp,return)</onclick>
-                        <visible>!IsEmpty(Window(Home).Property(RecommendedMovie.1.Title))</visible>
-                    </item>
-                    <item id="2">
-                        <label>$LOCALIZE[31831]</label>
-                        <label2>$INFO[System.DVDLabel]</label2>
-                        <thumb>special://skin/extras/BigIcons/CD-DVD.png</thumb>
-                        <visible>System.HasMediadvd</visible>
-                        <onclick>Dialog.Close(1159)</onclick>
-                        <onclick>PlayDVD()</onclick>
-                    </item>
-                    <item id="3">
-                        <label>31172</label>
-                        <label2>$INFO[MusicPlayer.Artist]</label2>
-                        <thumb>special://skin/extras/BigIcons/Headphone.png</thumb>
-                        <visible>Player.HasAudio</visible>
-                        <onclick>Dialog.Close(1159)</onclick>
-                        <onclick>ActivateWindow(1154)</onclick>
-                    </item>
-                    <item id="4">
-                        <label>31819</label>
-                        <label2 fallback="No TVShows Today">$INFO[Window(Home).Property(NextAired.1.ShortTime),,: ]$INFO[Window(Home).Property(NextAired.1.Label)]</label2>
-                        <thumb fallback="special://skin/extras/BigIcons/Television.png">$INFO[Window(Home).Property(NextAired.1.Art(clearlogo))]</thumb>
-                        <onclick>Dialog.Close(1159)</onclick>
-                        <onclick>RunAddon(script.tv.show.next.aired)</onclick>
-                    </item>
-                    <item id="5">
-                        <label>$LOCALIZE[33050] ($INFO[Window(weather).Property(Alerts.Count)])</label>
-                        <label2>$INFO[Window(weather).Property(Alerts.1.Description),,[CR]]</label2>
-                        <thumb>$INFO[Window(weather).Property(Current.ConditionIcon)]</thumb>
-                        <onclick>Dialog.Close(1159)</onclick>
-                        <onclick>ActivateWindow(weather)</onclick>
-                        <visible>!IsEmpty(Window(weather).Property(Alerts.1.Description))</visible>
-                    </item>
-                    <item id="6">
-                        <label>19158</label>
-                        <label2>$INFO[PVR.NowRecordingTitle]</label2>
-                        <thumb>special://skin/extras/BigIcons/Television.png</thumb>
-                        <onclick>Dialog.Close(1159)</onclick>
-                        <onclick>ActivateWindowAndFocus(PVR, 34,0, 13,0)</onclick>
-                        <visible>PVR.IsRecording</visible>
-                    </item>
-                    <item id="7">
-                        <label>19157</label>
-                        <label2>$INFO[PVR.NextRecordingDateTime]: $INFO[PVR.NextRecordingTitle]</label2>
-                        <thumb>special://skin/extras/BigIcons/ButtonRecord.png</thumb>
-                        <onclick>Dialog.Close(1159)</onclick>
-                        <onclick>ActivateWindowAndFocus(PVR, 34,0, 13,0)</onclick>
-                        <visible>PVR.HasNonRecordingTimer</visible>
-                    </item>
-                    <item id="8">
-                        <label>31163</label>
-                        <label2>[COLOR grey]$LOCALIZE[20343]:[/COLOR] $INFO[Window(Home).Property(TVShows.Count)]</label2>
-                        <thumb>special://skin/extras/BigIcons/Star.png</thumb>
-                        <onclick>Dialog.Close(1159)</onclick>
-                        <onclick>ActivateWindow(1115)</onclick>
-                    </item>
-                </content>
-            </control>
-            <!--        <control type="grouplist" id="2020">
+                <width>1920</width-->
+			<control type="list" id="2020">
+				<left>0</left>
+				<top>1020</top>
+				<width>1980</width>
+				<height>135</height>
+				<orientation>horizontal</orientation>
+				<onleft>2019</onleft>
+				<onup>Action(Close)</onup>
+				<ondown>Action(Close)</ondown>
+				<onright>2020</onright>
+				<itemlayout height="60" width="310">
+					<control type="image">
+						<top>7</top>
+						<width>62</width>
+						<height>52</height>
+						<aspectratio align="left">keep</aspectratio>
+						<texture>$INFO[ListItem.Thumb]</texture>
+						<colordiffuse>grey</colordiffuse>
+					</control>
+					<control type="label">
+						<left>58</left>
+						<top>2</top>
+						<width>250</width>
+						<height>30</height>
+						<align>left</align>
+						<label>$INFO[ListItem.Label]</label>
+						<font>Font_Reg22_Caps</font>
+						<textcolor>white2</textcolor>
+					</control>
+					<control type="textbox">
+						<left>58</left>
+						<top>26</top>
+						<width>250</width>
+						<height>30</height>
+						<align>left</align>
+						<autoscroll delay="3000" time="2000" repeat="10000">!Control.HasFocus(13)</autoscroll>
+						<label>$INFO[ListItem.Label2]</label>
+						<font>Font_Reg22_Caps</font>
+						<textcolor>grey2</textcolor>
+					</control>
+				</itemlayout>
+				<focusedlayout height="60" width="310">
+					<control type="image">
+						<width>310</width>
+						<height>60</height>
+						<texture border="8">views/tripanel/listselect_fo.png</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<visible>Control.HasFocus(2020)</visible>
+					</control>
+					<control type="image">
+						<top>7</top>
+						<width>62</width>
+						<height>52</height>
+						<aspectratio align="left">keep</aspectratio>
+						<texture>$INFO[ListItem.Thumb]</texture>
+						<colordiffuse>white2</colordiffuse>
+					</control>
+					<control type="label">
+						<left>58</left>
+						<top>2</top>
+						<width>250</width>
+						<height>30</height>
+						<align>left</align>
+						<label>$INFO[ListItem.Label]</label>
+						<font>Font_Reg22_Caps</font>
+					</control>
+					<control type="textbox">
+						<left>58</left>
+						<top>26</top>
+						<width>250</width>
+						<height>30</height>
+						<align>left</align>
+						<autoscroll delay="5000" time="2000" repeat="10000">!Control.HasFocus(13)</autoscroll>
+						<label>$INFO[ListItem.Label2]</label>
+						<font>Font_Reg22_Caps</font>
+					</control>
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<label>31335</label>
+						<label2>$INFO[Container(8014).ListItem.Label]</label2>
+						<thumb>dialogs/circle/$INFO[Container(8014).ListItem.PercentPlayed].png</thumb>
+						<onclick>Dialog.Close(1159)</onclick>
+						<onclick>ActivateWindow(videos,special://skin/extras/Playlists/MoviesInProgress.xsp,return)</onclick>
+						<visible>IntegerGreaterThan(Container(8014).NumItems,0)</visible>
+					</item>
+					<item id="2">
+						<label>$LOCALIZE[31831]</label>
+						<label2>$INFO[System.DVDLabel]</label2>
+						<thumb>special://skin/extras/BigIcons/CD-DVD.png</thumb>
+						<visible>System.HasMediadvd</visible>
+						<onclick>Dialog.Close(1159)</onclick>
+						<onclick>PlayDVD()</onclick>
+					</item>
+					<item id="3">
+						<label>31172</label>
+						<label2>$INFO[MusicPlayer.Artist]</label2>
+						<thumb>special://skin/extras/BigIcons/Headphone.png</thumb>
+						<visible>Player.HasAudio</visible>
+						<onclick>Dialog.Close(1159)</onclick>
+						<onclick>ActivateWindow(1154)</onclick>
+					</item>
+					<item id="4">
+						<label>31819</label>
+						<label2 fallback="No TVShows Today">$INFO[Window(Home).Property(NextAired.1.ShortTime),,: ]$INFO[Window(Home).Property(NextAired.1.Label)]</label2>
+						<thumb fallback="special://skin/extras/BigIcons/Television.png">$INFO[Window(Home).Property(NextAired.1.Art(clearlogo))]</thumb>
+						<onclick>Dialog.Close(1159)</onclick>
+						<onclick>RunAddon(script.tv.show.next.aired)</onclick>
+					</item>
+					<item id="5">
+						<label>$LOCALIZE[33050] ($INFO[Window(weather).Property(Alerts.Count)])</label>
+						<label2>$INFO[Window(weather).Property(Alerts.1.Description),,[CR]]</label2>
+						<thumb>$INFO[Window(weather).Property(Current.ConditionIcon)]</thumb>
+						<onclick>Dialog.Close(1159)</onclick>
+						<onclick>ActivateWindow(weather)</onclick>
+						<visible>!IsEmpty(Window(weather).Property(Alerts.1.Description))</visible>
+					</item>
+					<item id="6">
+						<label>19158</label>
+						<label2>$INFO[PVR.NowRecordingTitle]</label2>
+						<thumb>special://skin/extras/BigIcons/Television.png</thumb>
+						<onclick>Dialog.Close(1159)</onclick>
+						<onclick>ActivateWindowAndFocus(PVR, 34,0, 13,0)</onclick>
+						<visible>PVR.IsRecording</visible>
+					</item>
+					<item id="7">
+						<label>19157</label>
+						<label2>$INFO[PVR.NextRecordingDateTime]: $INFO[PVR.NextRecordingTitle]</label2>
+						<thumb>special://skin/extras/BigIcons/ButtonRecord.png</thumb>
+						<onclick>Dialog.Close(1159)</onclick>
+						<onclick>ActivateWindowAndFocus(PVR, 34,0, 13,0)</onclick>
+						<visible>PVR.HasNonRecordingTimer</visible>
+					</item>
+					<item id="8">
+						<label>31163</label>
+						<label2>[COLOR grey]$LOCALIZE[20343]:[/COLOR] $INFO[Window(Home).Property(TVShows.Count)]</label2>
+						<thumb>special://skin/extras/BigIcons/Star.png</thumb>
+						<onclick>Dialog.Close(1159)</onclick>
+						<onclick>ActivateWindow(1115)</onclick>
+					</item>
+				</content>
+			</control>
+			<!--        <control type="grouplist" id="2020">
                 <left>0</left>
                 <top>1007</top>
                 <width>600</width>
@@ -203,6 +207,16 @@
                 <colordiffuse>white</colordiffuse>
                 <texture>dialogs/circle/$INFO[Window(Home).Property(RecommendedMovie.1.PercentPlayed)].png</texture>
             </control> -->
-        </control>
-    </controls>
+		</control>
+		<control type="wraplist" id="8014">
+			<left>-1000</left>
+			<top>-1000</top>
+			<width>100</width>
+			<height>100</height>
+			<itemlayout height="100" width="100" />
+			<focusedlayout height="100" width="100" />
+			<content>special://skin/extras/Playlists/MoviesInProgress.xsp</content>
+			<autoscroll time="7000" delay="7000" repeat="7000">True</autoscroll>
+		</control>
+	</controls>
 </window>

@@ -1,324 +1,324 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window id="1169" type="dialog">
-    <defaultcontrol always="true">451</defaultcontrol>
-    
-    <coordinates>
-        <left>0</left>
-        <top>-250</top>
-        <system>1</system>
-    </coordinates>
-    <include>Animation_DialogPopup</include>
-    <controls>
-        <control type="label" id="4420">
-            <label>$VAR[1112StyleVar]</label>
-            <include>HiddenObject</include>
-        </control>
-        <control type="label" id="4421">
-            <label>$VAR[InfoPanelVar]</label>
-            <include>HiddenObject</include>
-        </control>
-        <control type="group">
-            <top>30</top>
+	<defaultcontrol always="true">451</defaultcontrol>
+
+	<coordinates>
+		<left>0</left>
+		<top>-250</top>
+		<system>1</system>
+	</coordinates>
+	<include>Animation_DialogPopup</include>
+	<controls>
+		<control type="label" id="4420">
+			<label>$VAR[1112StyleVar]</label>
+			<include>HiddenObject</include>
+		</control>
+		<control type="label" id="4421">
+			<label>$VAR[InfoPanelVar]</label>
+			<include>HiddenObject</include>
+		</control>
+		<control type="group">
+			<top>30</top>
 			<left>200</left>
-            <control type="image">
-                <left>285</left>
-                <top>580</top>
-                <width>950</width>
-                <height>415</height>
-                <texture border="50">osd/osd_settings_back_glow.png</texture>
-                <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-                <visible>!Skin.HasSetting(DisableGlowbar)</visible>
-                <include>Animation_VisibleChange400</include>
-                <include>PanelGlowFade</include>
-            </control>
-            <control type="image">
-                <left>285</left>
-                <top>580</top>
-                <width>950</width>
-                <height>415</height>
-                <texture border="50">osd/osd_settings_back.png</texture>
-                <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
-            </control>
-            <control type="image">
-                <left>320</left>
-                <top>622</top>
-                <width>880</width>
-                <height>30</height>
-                <texture border="1">osd/osd_settings_buttonnf.png</texture>
-            </control>
-            <control type="panel" id="451">
-                <left>305</left>
-                <top>660</top>
-                <width>600</width>
-                <height>520</height>
-                <orientation>vertical</orientation>
-                <onleft>450</onleft>
-                <onup>451</onup>
-                <ondown>451</ondown>
-                <onright>1100</onright>
-                <animation type="WindowClose">
-                    <effect type="fade" start="100" end="0" time="320" />
-                    <effect type="zoom" end="180,100" time="320" tween="cubic" />
-                </animation>
-                <itemlayout width="250" height="150">
-                    <control type="image">
-                        <width>250</width>
-                        <height>122</height>
-                        <info>ListItem.ActualIcon</info>
-                        <aspectratio>keep</aspectratio>
+			<control type="image">
+				<left>285</left>
+				<top>580</top>
+				<width>950</width>
+				<height>415</height>
+				<texture border="50">osd/osd_settings_back_glow.png</texture>
+				<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+				<visible>!Skin.HasSetting(DisableGlowbar)</visible>
+				<include>Animation_VisibleChange400</include>
+				<include>PanelGlowFade</include>
+			</control>
+			<control type="image">
+				<left>285</left>
+				<top>580</top>
+				<width>950</width>
+				<height>415</height>
+				<texture border="50">osd/osd_settings_back.png</texture>
+				<colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+			</control>
+			<control type="image">
+				<left>320</left>
+				<top>622</top>
+				<width>880</width>
+				<height>30</height>
+				<texture border="1">osd/osd_settings_buttonnf.png</texture>
+			</control>
+			<control type="panel" id="451">
+				<left>305</left>
+				<top>660</top>
+				<width>600</width>
+				<height>520</height>
+				<orientation>vertical</orientation>
+				<onleft>450</onleft>
+				<onup>451</onup>
+				<ondown>451</ondown>
+				<onright>1100</onright>
+				<animation type="WindowClose">
+					<effect type="fade" start="100" end="0" time="320" />
+					<effect type="zoom" end="180,100" time="320" tween="cubic" />
+				</animation>
+				<itemlayout width="250" height="150">
+					<control type="image">
+						<width>250</width>
+						<height>122</height>
+						<info>ListItem.ActualIcon</info>
+						<aspectratio>keep</aspectratio>
 						<colordiffuse>88ffffff</colordiffuse>
-                    </control>
-                    <control type="label">
-                        <left></left>
-                        <top>115</top>
-                        <width>250</width>
-                        <height>30</height>
-                        <align>center</align>
-                        <font>Font_Reg28</font>
-                        <textcolor>bcicon</textcolor>
-                        <info>ListItem.Label</info>
-                    </control>
-                </itemlayout>
-                <focusedlayout width="250" height="150">
-                    <control type="image">
-                        <width>250</width>
-                        <height>122</height>
-                        <info>ListItem.Thumb</info>
-                        <aspectratio>keep</aspectratio>
-                    </control>
-                    <control type="label">
-                        <left></left>
-                        <top>115</top>
-                        <width>250</width>
-                        <height>30</height>
-                        <align>center</align>
-                        <font>Font_Reg28</font>
-                        <info>ListItem.Label</info>
-                    </control>
-                </focusedlayout>
-                <content>
-                    <item id="1">
-                        <label>$LOCALIZE[32995]</label>
-                        <icon>views/original.png</icon>
-                        <thumb>views/original_focus.png</thumb>
+					</control>
+					<control type="label">
+						<left></left>
+						<top>115</top>
+						<width>250</width>
+						<height>30</height>
+						<align>center</align>
+						<font>Font_Reg28</font>
+						<textcolor>bcicon</textcolor>
+						<info>ListItem.Label</info>
+					</control>
+				</itemlayout>
+				<focusedlayout width="250" height="150">
+					<control type="image">
+						<width>250</width>
+						<height>122</height>
+						<info>ListItem.Thumb</info>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="label">
+						<left></left>
+						<top>115</top>
+						<width>250</width>
+						<height>30</height>
+						<align>center</align>
+						<font>Font_Reg28</font>
+						<info>ListItem.Label</info>
+					</control>
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<label>$LOCALIZE[31259]</label>
+						<icon>views/original.png</icon>
+						<thumb>views/original_focus.png</thumb>
 						<onclick>Skin.Reset(VideoInfoInverse)</onclick>
 						<visible>Container.Content(movies) | Container.Content(MusicVideos)</visible>
-                    </item>
-                    <item id="2">
-                        <label>$LOCALIZE[32996]</label>
-                        <icon>views/invert.png</icon>
-                        <thumb>views/invert_focus.png</thumb>
-                        <onclick>Skin.SetBool(VideoInfoInverse)</onclick>
+					</item>
+					<item id="2">
+						<label>$LOCALIZE[31260]</label>
+						<icon>views/invert.png</icon>
+						<thumb>views/invert_focus.png</thumb>
+						<onclick>Skin.SetBool(VideoInfoInverse)</onclick>
 						<onclick>Skin.Reset(VideoInfoOriginal)</onclick>
 						<enable>false</enable>
 						<visible>Container.Content(movies) | Container.Content(MusicVideos)</visible>
-                    </item>
-                    <item id="1">
-                        <label>$LOCALIZE[32995]</label>
-                        <icon>views/originalTV.png</icon>
-                        <thumb>views/originalTV_focus.png</thumb>
+					</item>
+					<item id="1">
+						<label>$LOCALIZE[31259]</label>
+						<icon>views/originalTV.png</icon>
+						<thumb>views/originalTV_focus.png</thumb>
 						<onclick>Skin.Reset(VideoInfoInverse)</onclick>
 						<visible>Container.Content(tvshows) | Container.Content(episodes)</visible>
-                    </item>
-                    <item id="2">
-                        <label>$LOCALIZE[32996]</label>
-                        <icon>views/inverttv.png</icon>
-                        <thumb>views/inverttv_focus.png</thumb>
-                        <onclick>Skin.SetBool(VideoInfoInverse)</onclick>
+					</item>
+					<item id="2">
+						<label>$LOCALIZE[31260]</label>
+						<icon>views/inverttv.png</icon>
+						<thumb>views/inverttv_focus.png</thumb>
+						<onclick>Skin.SetBool(VideoInfoInverse)</onclick>
 						<onclick>Skin.Reset(VideoInfoOriginal)</onclick>
 						<enable>false</enable>
 						<visible>Container.Content(tvshows) | Container.Content(episodes)</visible>
-                    </item>
-                </content>
-            </control>
-            <control type="label">
-                <top>610</top>
-                <left>200</left>
-                <width>720</width>
-                <label>31063</label>
-                <include>Objects_MediaMenuLabelAlt2</include>
-                <align>center</align>
-            </control>
-            <control type="label">
-                <top>610</top>
-                <left>650</left>
-                <width>720</width>
-                <label>31176</label>
-                <include>Objects_MediaMenuLabelAlt2</include>
-                <align>center</align>
-            </control>
- 			<control type="grouplist" id="1100">
-                <orientation>vertical</orientation>
-                <left>815</left>
-                <top>660</top>
-                <onleft>451</onleft>
-                <onright>450</onright>
-                <height>1080</height>
+					</item>
+				</content>
+			</control>
+			<control type="label">
+				<top>610</top>
+				<left>200</left>
+				<width>720</width>
+				<label>31063</label>
+				<include>Objects_MediaMenuLabelAlt2</include>
+				<align>center</align>
+			</control>
+			<control type="label">
+				<top>610</top>
+				<left>650</left>
+				<width>720</width>
+				<label>31176</label>
+				<include>Objects_MediaMenuLabelAlt2</include>
+				<align>center</align>
+			</control>
+			<control type="grouplist" id="1100">
+				<orientation>vertical</orientation>
+				<left>815</left>
+				<top>660</top>
+				<onleft>451</onleft>
+				<onright>450</onright>
+				<height>1080</height>
 				<control type="radiobutton" id="1199">
-					<label>$LOCALIZE[32998]</label>
+					<label>$LOCALIZE[31262]</label>
 					<include>Objects_MediaMenuButtonAround</include>
 					<onclick>Skin.ToggleSetting(Colortdefaulticons)</onclick>
 					<selected>Skin.HasSetting(Colortdefaulticons)</selected>
 					<visible>Container.Content(tvshows) | Container.Content(movies)</visible>
 				</control>
-				 <control type="button" id="1200">
-					<label>$LOCALIZE[32999]</label>
+				<control type="button" id="1200">
+					<label>$LOCALIZE[31263]</label>
 					<label2>[COLOR $VAR[FontColorVar]]$VAR[RatingLabelVar][/COLOR]</label2>
 					<include>Objects_MediaMenuButtonAround</include>
-                    <onclick condition="Skin.HasSetting(RatingColorFlag)">Skin.Reset(RatingColorFlag)</onclick>
-                    <onclick condition="Skin.HasSetting(RatingColorFlagreloaded)">Skin.Reset(RatingColorFlagreloaded)</onclick>
-                    <onclick condition="Skin.HasSetting(RatingColorFlag)">Skin.Reset(ExtendedRatingVideoinfo)</onclick>
-                    <onclick condition="Skin.HasSetting(RatingColorFlagreloaded)">Skin.Reset(ExtendedRatingVideoinfo)</onclick>
+					<onclick condition="Skin.HasSetting(RatingColorFlag)">Skin.Reset(RatingColorFlag)</onclick>
+					<onclick condition="Skin.HasSetting(RatingColorFlagreloaded)">Skin.Reset(RatingColorFlagreloaded)</onclick>
+					<onclick condition="Skin.HasSetting(RatingColorFlag)">Skin.Reset(ExtendedRatingVideoinfo)</onclick>
+					<onclick condition="Skin.HasSetting(RatingColorFlagreloaded)">Skin.Reset(ExtendedRatingVideoinfo)</onclick>
 					<onclick condition="!Skin.HasSetting(RatingColorFlag) + Skin.HasSetting(RatingColorFlagreloaded)">Skin.SetBool(RatingColorFlag)</onclick>
-                    <onclick condition="!Skin.HasSetting(RatingColorFlag) + !Skin.HasSetting(RatingColorFlagreloaded)">Skin.SetBool(RatingColorFlagreloaded)</onclick>
+					<onclick condition="!Skin.HasSetting(RatingColorFlag) + !Skin.HasSetting(RatingColorFlagreloaded)">Skin.SetBool(RatingColorFlagreloaded)</onclick>
 					<onclick>SetFocus(1200)</onclick>
 					<visible>Container.Content(movies)</visible>
 					<visible>!IsEmpty(Skin.String(ColorFlagsPath)) + !IsEmpty(Skin.String(ReloadedFlagsPath))</visible>
 				</control>
-                <control type="radiobutton" id="1301">
-                    <label>$LOCALIZE[33000]</label>
-                    <include>Objects_MediaMenuButtonAround</include>
-                    <onclick>Skin.ToggleSetting(RatingColorFlag)</onclick>
-                    <selected>Skin.HasSetting(RatingColorFlag)</selected>
+				<control type="radiobutton" id="1301">
+					<label>$LOCALIZE[31264]</label>
+					<include>Objects_MediaMenuButtonAround</include>
+					<onclick>Skin.ToggleSetting(RatingColorFlag)</onclick>
+					<selected>Skin.HasSetting(RatingColorFlag)</selected>
 					<visible>Container.Content(movies) + [!IsEmpty(Skin.String(ColorFlagsPath)) + IsEmpty(Skin.String(ReloadedFlagsPath))]</visible>
 				</control>
-                <control type="radiobutton" id="1302">
-                    <label>$LOCALIZE[32007]</label>
-                    <include>Objects_MediaMenuButtonAround</include>
-                    <onclick>Skin.ToggleSetting(RatingColorFlagreloaded)</onclick>
-                    <selected>Skin.HasSetting(RatingColorFlagreloaded)</selected>
+				<control type="radiobutton" id="1302">
+					<label>$LOCALIZE[31052]</label>
+					<include>Objects_MediaMenuButtonAround</include>
+					<onclick>Skin.ToggleSetting(RatingColorFlagreloaded)</onclick>
+					<selected>Skin.HasSetting(RatingColorFlagreloaded)</selected>
 					<visible>Container.Content(movies) + [IsEmpty(Skin.String(ColorFlagsPath)) + !IsEmpty(Skin.String(ReloadedFlagsPath))]</visible>
 				</control>
-                <control type="radiobutton" id="1201">
-                    <label>$LOCALIZE[32006]</label>
-                    <include>Objects_MediaMenuButtonAround</include>
-                    <onclick>Skin.ToggleSetting(ColortvguideFlags)</onclick>
-                    <selected>Skin.HasSetting(ColortvguideFlags)</selected>
+				<control type="radiobutton" id="1201">
+					<label>$LOCALIZE[31051]</label>
+					<include>Objects_MediaMenuButtonAround</include>
+					<onclick>Skin.ToggleSetting(ColortvguideFlags)</onclick>
+					<selected>Skin.HasSetting(ColortvguideFlags)</selected>
 					<visible>Container.Content(tvshows)</visible>
 				</control>
-				 <control type="button" id="1202">
-					<label>$LOCALIZE[32999]</label>
+				<control type="button" id="1202">
+					<label>$LOCALIZE[31263]</label>
 					<label2>[COLOR $VAR[FontColorVar]]$VAR[RatingLabelVarTvshows][/COLOR]</label2>
 					<include>Objects_MediaMenuButtonAround</include>
-                    <onclick condition="Skin.HasSetting(RatingColorFlagreloaded)">Skin.Reset(RatingColorFlagreloaded)</onclick>
+					<onclick condition="Skin.HasSetting(RatingColorFlagreloaded)">Skin.Reset(RatingColorFlagreloaded)</onclick>
 					<onclick condition="Skin.HasSetting(RatingColorFlag)">Skin.Reset(RatingColorFlag)</onclick>
 					<onclick condition="Skin.HasSetting(ExtendedRatingVideoinfo)">Skin.Reset(ExtendedRatingVideoinfo)</onclick>
-                    <onclick condition="!Skin.HasSetting(RatingColorFlagreloaded)">Skin.SetBool(RatingColorFlagreloaded)</onclick>
+					<onclick condition="!Skin.HasSetting(RatingColorFlagreloaded)">Skin.SetBool(RatingColorFlagreloaded)</onclick>
 					<onclick>SetFocus(1202)</onclick>
 					<visible>Container.Content(tvshows)</visible>
 					<visible>!IsEmpty(Skin.String(ColorFlagsPath)) + !IsEmpty(Skin.String(ReloadedFlagsPath))</visible>
 				</control>
-                <control type="radiobutton" id="1305">
-                    <label>$LOCALIZE[33000]</label>
-                    <include>Objects_MediaMenuButtonAround</include>
-                    <onclick>Skin.ToggleSetting(RatingColorFlag)</onclick>
-                    <selected>Skin.HasSetting(RatingColorFlag)</selected>
+				<control type="radiobutton" id="1305">
+					<label>$LOCALIZE[31264]</label>
+					<include>Objects_MediaMenuButtonAround</include>
+					<onclick>Skin.ToggleSetting(RatingColorFlag)</onclick>
+					<selected>Skin.HasSetting(RatingColorFlag)</selected>
 					<visible>Container.Content(tvshows) + [!IsEmpty(Skin.String(ColorFlagsPath)) + IsEmpty(Skin.String(ReloadedFlagsPath))]</visible>
 				</control>
-                <control type="radiobutton" id="1306">
-                    <label>$LOCALIZE[32007]</label>
-                    <include>Objects_MediaMenuButtonAround</include>
-                    <onclick>Skin.ToggleSetting(RatingColorFlagreloaded)</onclick>
-                    <selected>Skin.HasSetting(RatingColorFlagreloaded)</selected>
+				<control type="radiobutton" id="1306">
+					<label>$LOCALIZE[31052]</label>
+					<include>Objects_MediaMenuButtonAround</include>
+					<onclick>Skin.ToggleSetting(RatingColorFlagreloaded)</onclick>
+					<selected>Skin.HasSetting(RatingColorFlagreloaded)</selected>
 					<visible>Container.Content(tvshows) + [IsEmpty(Skin.String(ColorFlagsPath)) + !IsEmpty(Skin.String(ReloadedFlagsPath))]</visible>
 				</control>
-                <control type="radiobutton" id="1203">
-                    <label>$LOCALIZE[31082]</label>
-                    <include>Objects_MediaMenuButtonAround</include>
-                    <onclick>Skin.ToggleSetting(ExtendedRatingVideoinfo)</onclick>
-                    <selected>Skin.HasSetting(ExtendedRatingVideoinfo)</selected>
+				<control type="radiobutton" id="1203">
+					<label>$LOCALIZE[31082]</label>
+					<include>Objects_MediaMenuButtonAround</include>
+					<onclick>Skin.ToggleSetting(ExtendedRatingVideoinfo)</onclick>
+					<selected>Skin.HasSetting(ExtendedRatingVideoinfo)</selected>
 					<enable>Skin.HasSetting(RatingColorFlag) | Skin.HasSetting(RatingColorFlagreloaded)</enable>
 					<visible>Container.Content(Movies)</visible>
-                </control>
+				</control>
 				<control type="radiobutton" id="17077">
-                    <label>$LOCALIZE[31082]</label>
-                    <include>Objects_MediaMenuButtonAround</include>
-                    <onclick>Skin.ToggleSetting(ExtendedTVRatingVideoinfo)</onclick>
-                    <selected>Skin.HasSetting(ExtendedTVRatingVideoinfo)</selected>
+					<label>$LOCALIZE[31082]</label>
+					<include>Objects_MediaMenuButtonAround</include>
+					<onclick>Skin.ToggleSetting(ExtendedTVRatingVideoinfo)</onclick>
+					<selected>Skin.HasSetting(ExtendedTVRatingVideoinfo)</selected>
 					<enable>Skin.HasSetting(RatingColorFlag) | Skin.HasSetting(RatingColorFlagreloaded)</enable>
 					<visible>Container.Content(tvshows)</visible>
-                </control>
-                <control type="radiobutton" id="1205">
-                    <label>$LOCALIZE[31182] Top250</label>
-                    <include>Objects_MediaMenuButtonAround</include>
-                    <onclick>Skin.ToggleSetting(ColorImdb250)</onclick>
-                    <selected>Skin.HasSetting(ColorImdb250)</selected>
+				</control>
+				<control type="radiobutton" id="1205">
+					<label>$LOCALIZE[31182] Top250</label>
+					<include>Objects_MediaMenuButtonAround</include>
+					<onclick>Skin.ToggleSetting(ColorImdb250)</onclick>
+					<selected>Skin.HasSetting(ColorImdb250)</selected>
 					<visible>Container.Content(Movies) + [System.HasAddon(script.ratingupdate) | System.HasAddon(script.imdbupdate)]</visible>
-                </control>
+				</control>
 				<control type="button" id="1204">
-					<label>$LOCALIZE[32997]</label>
+					<label>$LOCALIZE[31261]</label>
 					<include>Objects_MediaMenuButtonAround</include>
 					<onclick>ActivateWindow(1168)</onclick>
 				</control>
-            </control>
- 			<control type="group">
-                <left>475</left>
-                <top>820</top>
+			</control>
+			<control type="group">
+				<left>475</left>
+				<top>820</top>
 				<visible>Container.Content(movies)</visible>
- 					<control type="image">
-						<top>5</top>
-						<width>200</width>
-						<height>90</height>
-						<aspectratio>keep</aspectratio>
-						<texture>flags/rating/$VAR[RatingFlagVar,,.png]</texture>
-						<colordiffuse>white2</colordiffuse>
-						<visible>![Skin.HasSetting(RatingColorFlag) | Skin.HasSetting(RatingColorFlagreloaded)]</visible>
-					</control>
- 					<control type="image">
-						<top>5</top>
-						<width>200</width>
-						<height>90</height>
-						<aspectratio>keep</aspectratio>
-						<texture>$VAR[ColorFlagsRating]rating/$VAR[RatingFlagVar,,.png]</texture>
-						<colordiffuse>white2</colordiffuse>
-						<visible>!Skin.HasSetting(ExtendedRatingVideoinfo)</visible>
-					</control>
- 					<control type="image">
-						<left>-80</left>
-						<top>10</top>
-						<width>330</width>
-						<height>90</height>
-						<aspectratio>keep</aspectratio>
-						<texture>$VAR[ColorFlagsRating]rating/info/$VAR[RatingFlagVar,,.png]</texture>
-						<colordiffuse>white2</colordiffuse>
-						<visible>Skin.HasSetting(ExtendedRatingVideoinfo)</visible>
-					</control>
-            </control>
- 			<control type="group">
-                <left>405</left>
-                <top>860</top>
+				<control type="image">
+					<top>5</top>
+					<width>200</width>
+					<height>90</height>
+					<aspectratio>keep</aspectratio>
+					<texture>flags/rating/$VAR[RatingFlagVar,,.png]</texture>
+					<colordiffuse>white2</colordiffuse>
+					<visible>![Skin.HasSetting(RatingColorFlag) | Skin.HasSetting(RatingColorFlagreloaded)]</visible>
+				</control>
+				<control type="image">
+					<top>5</top>
+					<width>200</width>
+					<height>90</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$VAR[ColorFlagsRating]rating/$VAR[RatingFlagVar,,.png]</texture>
+					<colordiffuse>white2</colordiffuse>
+					<visible>!Skin.HasSetting(ExtendedRatingVideoinfo)</visible>
+				</control>
+				<control type="image">
+					<left>-80</left>
+					<top>10</top>
+					<width>330</width>
+					<height>90</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$VAR[ColorFlagsRating]rating/info/$VAR[RatingFlagVar,,.png]</texture>
+					<colordiffuse>white2</colordiffuse>
+					<visible>Skin.HasSetting(ExtendedRatingVideoinfo)</visible>
+				</control>
+			</control>
+			<control type="group">
+				<left>405</left>
+				<top>860</top>
 				<visible>Container.Content(tvshows)</visible>
- 					<control type="image">
-						<top>5</top>
-						<width>200</width>
-						<height>90</height>
-						<aspectratio>keep</aspectratio>
-						<texture>$VAR[ColorFlagsRating]rating/$VAR[RatingFlagVar,,.png]</texture>
-						<colordiffuse>white2</colordiffuse>
-					</control>
-            </control>
- 			<control type="group">
-                <left>525</left>
-                <top>870</top>
+				<control type="image">
+					<top>5</top>
+					<width>200</width>
+					<height>90</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$VAR[ColorFlagsRating]rating/$VAR[RatingFlagVar,,.png]</texture>
+					<colordiffuse>white2</colordiffuse>
+				</control>
+			</control>
+			<control type="group">
+				<left>525</left>
+				<top>870</top>
 				<visible>Container.Content(tvshows)</visible>
-					<control type="label">
-						<top>-5</top>
-						<width>155</width>
-						<height>38</height>
-						<align>center</align>
-						<label>$VAR[TvGuideVarTxt]</label>
-						<font>Font_Reg19_Caps</font>
-						<textcolor>floor</textcolor>
-					</control>
-					<control type="image">
-						<top>5</top>
-						<width>155</width>
-						<height>68</height>
-						<aspectratio>keep</aspectratio>
-						<texture>$VAR[ColortvguideFlags]$INFO[Window(Home).Property(NextAired.StatusID)].png</texture>
-						<colordiffuse>white2</colordiffuse>
-					</control>
-            </control>
-        </control>
-    </controls>
+				<control type="label">
+					<top>-5</top>
+					<width>155</width>
+					<height>38</height>
+					<align>center</align>
+					<label>$VAR[TvGuideVarTxt]</label>
+					<font>Font_Reg19_Caps</font>
+					<textcolor>floor</textcolor>
+				</control>
+				<control type="image">
+					<top>5</top>
+					<width>155</width>
+					<height>68</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$VAR[ColortvguideFlags]$INFO[Window(Home).Property(NextAired.StatusID)].png</texture>
+					<colordiffuse>white2</colordiffuse>
+				</control>
+			</control>
+		</control>
+	</controls>
 </window>

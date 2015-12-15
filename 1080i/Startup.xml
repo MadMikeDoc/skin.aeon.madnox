@@ -1,88 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
-    <defaultcontrol always="true">10</defaultcontrol>
-    <backgroundcolor>backgroundcolor</backgroundcolor>
-    <include condition="!Skin.HasSetting(firstrun4.0)">AutoConfig</include>
-    <onload condition="System.HasAddon(script.favourites)">RunScript(script.favourites)</onload>
+	<defaultcontrol always="true">10</defaultcontrol>
+	<backgroundcolor>backgroundcolor</backgroundcolor>
+	<include condition="!Skin.HasSetting(firstrun4.0)">AutoConfig</include>
+	<onload condition="System.HasAddon(script.favourites)">RunScript(script.favourites)</onload>
 	<onload condition="System.HasAddon(script.toolbox)">RunScript(script.toolbox,daemon=True,radius=30)</onload>
 	<onload condition="System.HasAddon(script.skin.info.service)">RunScript(script.skin.info.service)</onload>
-    <onload condition="Substring(Skin.String(widgetlist),roms) | Substring(Skin.String(widget2list),roms)">RunScript(script.games.rom.collection.browser,limit=10)</onload>
-    <onload condition="!IsEmpty(Skin.String(SmartPlaylist1.Call))">$INFO[Skin.String(SmartPlaylist1.Call)]</onload>
-    <onload condition="!IsEmpty(Skin.String(SmartPlaylist2.Call))">$INFO[Skin.String(SmartPlaylist2.Call)]</onload>
-    <onload condition="!IsEmpty(Skin.String(SmartPlaylist3.Call))">$INFO[Skin.String(SmartPlaylist3.Call)]</onload>
-    <onload condition="!IsEmpty(Skin.String(SmartPlaylist4.Call))">$INFO[Skin.String(SmartPlaylist4.Call)]</onload>
-    <onload condition="!IsEmpty(Skin.String(SmartPlaylist5.Call))">$INFO[Skin.String(SmartPlaylist5.Call)]</onload>
-    <onload condition="!IsEmpty(Skin.String(SmartPlaylist6.Call))">$INFO[Skin.String(SmartPlaylist6.Call)]</onload>
-    <onload condition="!IsEmpty(Skin.String(SmartPlaylist7.Call))">$INFO[Skin.String(SmartPlaylist7.Call)]</onload>
-    <onload condition="!IsEmpty(Skin.String(SmartPlaylist8.Call))">$INFO[Skin.String(SmartPlaylist8.Call)]</onload>
-    <onload condition="!IsEmpty(Skin.String(SmartPlaylist9.Call))">$INFO[Skin.String(SmartPlaylist9.Call)]</onload>
-    <onload condition="!IsEmpty(Skin.String(SmartPlaylist10.Call))">$INFO[Skin.String(SmartPlaylist10.Call)]</onload>
-    <onload condition="!IsEmpty(Skin.String(SmartPlaylist11.Call))">$INFO[Skin.String(SmartPlaylist11.Call)]</onload>
-    <onload condition="!IsEmpty(Skin.String(SmartPlaylist12.Call))">$INFO[Skin.String(SmartPlaylist12.Call)]</onload>
-    <onload condition="System.HasAddon(script.xbmc.intro.movie)">RunScript(script.xbmc.intro.movie)</onload>
-    <!-- Intro Movie -->
+	<!-- Intro Movie -->
 	<onload condition="!Skin.HasSetting(DisableIntro)">PlayMedia(special://skin/extras/intro.mp4,1)</onload>
-    <onunload>PlayerControl(Stop)</onunload>
+	<onunload>PlayerControl(Stop)</onunload>
 	<!-- Intro End -->
-	<onunload>Skin.SetString(widgetlist,$INFO[Control.GetLabel(11111)])</onunload>
-    <onunload>Skin.SetString(widget2list,$INFO[Control.GetLabel(11112)])</onunload>
-    <onunload>Skin.SetString(backgroundlist,$INFO[Control.GetLabel(11113)])</onunload>
-    <onunload>Skin.SetString(submenulist,$INFO[Control.GetLabel(11114)])</onunload>
-    <animation type="WindowClose" reversible="false">
-        <effect type="fade" start="100" end="0" time="640" />
-    </animation>
-    <animation type="WindowOpen" reversible="false">
-        <effect type="fade" end="100" delay="800" time="640" />
-    </animation>
-    <controls>
-        <control type="group">
-            <animation effect="fade" start="100" end="0" time="0" condition="true">conditional</animation>
-            <include>InvisibleIncludeLabels</include>
-            <control type="button" id="10">
-                <onfocus condition="Skin.HasSetting(Use_Startup_Playlist) + !IsEmpty(Skin.String(Startup_Playlist_Path)) + !SubString(Skin.String(Startup_Playlist_Path),RunScript,left)">PlayMedia($ESCINFO[Skin.String(Startup_Playlist_Path)])</onfocus>
-                <onfocus condition="Skin.HasSetting(Use_Startup_Playlist) + !IsEmpty(Skin.String(Startup_Playlist_Path)) + SubString(Skin.String(Startup_Playlist_Path),RunScript,left)">$ESCINFO[Skin.String(Startup_Playlist_Path)]</onfocus>
-                <onfocus>SetFocus(11)</onfocus>
-				<onclick>noop</onclick>
-            </control>
-            <control type="button" id="11">
-                <onup>ReplaceWindow($INFO[System.StartupWindow])</onup>
-                <ondown>ReplaceWindow($INFO[System.StartupWindow])</ondown>
-                <onleft>ReplaceWindow($INFO[System.StartupWindow])</onleft>
-                <onright>ReplaceWindow($INFO[System.StartupWindow])</onright>
-                <onclick>ReplaceWindow($INFO[System.StartupWindow])</onclick><onfocus>ReplaceWindow($INFO[System.StartupWindow])</onfocus>
-				<animation effect="fade" start="100" end="0" time="10000">Focus</animation>
-            </control>
-        </control>
-        <control type="image">
-            <texture>common/white.png</texture>
-            <include>Animation_WindowFade200</include>
-            <include>FullscreenDimensions</include>
-            <colordiffuse>black</colordiffuse>
-        </control>
-        <control type="image">
-           <left>923</left>
-           <top>603</top>
-           <width>74</width>
-           <height>74</height>
-           <texture>spinner.png</texture>
-           <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-           <animation effect="rotate" end="-360" center="auto" time="2000" loop="true" reversible="false" condition="true">Conditional</animation>
-           <animation effect="fade" start="70" time="1200" condition="true" pulse="true">Conditional</animation>
-		   <visible>Skin.HasSetting(DisableIntro)</visible>
-        </control>
-        <control type="image">
-           <left>708</left>
-           <top>300</top>
-           <width>512</width>
-           <height>180</height>
-           <aspectratio>keep</aspectratio>
-           <texture>KODI_Logo.png</texture>
-           <colordiffuse>white</colordiffuse>
-		   <visible>Skin.HasSetting(DisableIntro)</visible>
-        </control>
-        <control type="videowindow">
-            <include>FullscreenDimensions</include>
-            <visible>Player.HasVideo</visible>
-        </control>
-    </controls>
+	<onunload>Skin.SetString(SkinHelper.RandomFanartDelay,7)</onunload>
+	<animation type="WindowClose" reversible="false">
+		<effect type="fade" start="100" end="0" time="640" />
+	</animation>
+	<animation type="WindowOpen" reversible="false">
+		<effect type="fade" end="100" delay="800" time="640" />
+	</animation>
+	<controls>
+		<control type="button" id="10">
+			<onfocus condition="Skin.HasSetting(Use_Startup_Playlist) + !IsEmpty(Skin.String(Startup_Playlist_Path)) + !SubString(Skin.String(Startup_Playlist_Path),RunScript,left)">PlayMedia($ESCINFO[Skin.String(Startup_Playlist_Path)])</onfocus>
+			<onfocus condition="Skin.HasSetting(Use_Startup_Playlist) + !IsEmpty(Skin.String(Startup_Playlist_Path)) + SubString(Skin.String(Startup_Playlist_Path),RunScript,left)">$ESCINFO[Skin.String(Startup_Playlist_Path)]</onfocus>
+			<onfocus>SetFocus(11)</onfocus>
+			<onclick>noop</onclick>
+		</control>
+		<control type="button" id="11">
+			<onup>ReplaceWindow($INFO[System.StartupWindow])</onup>
+			<ondown>ReplaceWindow($INFO[System.StartupWindow])</ondown>
+			<onleft>ReplaceWindow($INFO[System.StartupWindow])</onleft>
+			<onright>ReplaceWindow($INFO[System.StartupWindow])</onright>
+			<onclick>ReplaceWindow($INFO[System.StartupWindow])</onclick>
+			<onfocus>ReplaceWindow($INFO[System.StartupWindow])</onfocus>
+			<animation effect="fade" start="100" end="0" time="7500">Focus</animation>
+		</control>
+		<control type="image">
+			<texture>common/white.png</texture>
+			<include>Animation_WindowFade200</include>
+			<include>FullscreenDimensions</include>
+			<colordiffuse>black</colordiffuse>
+		</control>
+		<control type="image">
+			<left>923</left>
+			<top>603</top>
+			<width>74</width>
+			<height>74</height>
+			<texture>spinner.png</texture>
+			<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+			<animation effect="rotate" end="-360" center="auto" time="2000" loop="true" reversible="false" condition="true">Conditional</animation>
+			<animation effect="fade" start="70" time="1200" condition="true" pulse="true">Conditional</animation>
+			<visible>Skin.HasSetting(DisableIntro)</visible>
+		</control>
+		<control type="image">
+			<left>708</left>
+			<top>300</top>
+			<width>512</width>
+			<height>180</height>
+			<aspectratio>keep</aspectratio>
+			<texture>KODI_Logo.png</texture>
+			<colordiffuse>white</colordiffuse>
+			<visible>Skin.HasSetting(DisableIntro)</visible>
+		</control>
+		<control type="videowindow">
+			<include>FullscreenDimensions</include>
+			<visible>Player.HasVideo</visible>
+		</control>
+	</controls>
 </window>

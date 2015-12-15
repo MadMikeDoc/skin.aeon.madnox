@@ -17,11 +17,11 @@
 		<textcolor>FFFFFAF0</textcolor>
 		<scroll>true</scroll>
 	</include>
-<include name="ViewSets">
-	<control type="group"><!-- default group -->
-		<animation effect="fade" time="400">VisibleChange</animation>
-		<visible>Control.IsVisible(900)</visible>
-		<!--control type="image">
+	<include name="ViewSets">
+		<control type="group"><!-- default group -->
+			<animation effect="fade" time="400">VisibleChange</animation>
+			<visible>Control.IsVisible(900)</visible>
+			<!--control type="image">
 			<left>10</left>
 			<top>60</top>
 			<width>1900</width>
@@ -30,7 +30,7 @@
 			<colordiffuse>F9000000</colordiffuse>
 			<animation effect="fade" end="85" condition="true">Conditional</animation>
 		</control-->
-		<!--control type="image">
+			<!--control type="image">
 			<left>900</left>
 			<top>690</top>
 			<width>380</width>
@@ -39,36 +39,36 @@
 			<colordiffuse>$VAR[value_texturecolor]</colordiffuse>
 			<animation effect="fade" end="85" condition="true">Conditional</animation>
 		</control-->
-		<control type="image">
-			<left>0</left>
-			<top>471</top>
-			<width>1950</width>
-			<height>30</height>
-			<texture>shadow_h.png</texture>
-			<colordiffuse>C3FFFFFF</colordiffuse>
-		</control>
-		<control type="image">
-			<left>0</left>
-			<top>0</top>
-			<width>1920</width>
-			<height>362</height>
-			<texture flipy="true" diffuse="shadow_mask.png">darkgrey.png</texture>
-			<!--texture flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/other/panel.png</texture-->
-			<colordiffuse>$VAR[TitleColorVar]</colordiffuse>
-			<animation effect="fade" end="85" condition="true">Conditional</animation>
-		</control>
-		<control type="image">
-			<left>1295</left>
-			<top>500</top>
-			<width>620</width>
-			<height>370</height>
-			<texture diffuse="shadow_mask.png">darkgrey.png</texture>
-			<!--texture flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/other/panel.png</texture-->
-			<colordiffuse>$VAR[TitleColorVar]</colordiffuse>
-			<animation effect="fade" end="85" condition="true">Conditional</animation>
-		</control>
-		<!-- MAD - Shadow for clearlogo -->
-		<!--control type="image">
+			<control type="image">
+				<left>0</left>
+				<top>471</top>
+				<width>1950</width>
+				<height>30</height>
+				<texture>shadow_h.png</texture>
+				<colordiffuse>C3FFFFFF</colordiffuse>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>1920</width>
+				<height>362</height>
+				<texture flipy="true" diffuse="shadow_mask.png">darkgrey.png</texture>
+				<!--texture flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/other/panel.png</texture-->
+				<colordiffuse>$VAR[TitleColorVar]</colordiffuse>
+				<animation effect="fade" end="85" condition="true">Conditional</animation>
+			</control>
+			<control type="image">
+				<left>1295</left>
+				<top>500</top>
+				<width>620</width>
+				<height>370</height>
+				<texture diffuse="shadow_mask.png">darkgrey.png</texture>
+				<!--texture flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/other/panel.png</texture-->
+				<colordiffuse>$VAR[TitleColorVar]</colordiffuse>
+				<animation effect="fade" end="85" condition="true">Conditional</animation>
+			</control>
+			<!-- MAD - Shadow for clearlogo -->
+			<!--control type="image">
 			<left>1470</left>
 			<top>140</top>
 			<width>390</width>
@@ -77,787 +77,523 @@
 			<colordiffuse>$VAR[TitleColorVar]</colordiffuse>
 			<animation effect="fade" end="85" condition="true">Conditional</animation>
 		</control-->
-		<control type="image">
-			<left>0</left>
-			<top>501</top>
-			<width>1920</width>
-			<height>360</height>
-			<texture flipy="true" diffuse="shadow_mask.png">darkgrey.png</texture>
-			<colordiffuse>$VAR[TitleColorVar]</colordiffuse>
-			<animation effect="fade" end="85" condition="true">Conditional</animation>
-		</control>
-		<control type="image">
-			<left>1470</left>
-			<top>140</top>
-			<width>390</width>
-			<height>164</height>
-			<aspectratio aligny="bottom">keep</aspectratio>
-			<texture background="true" fallback="empty.png">$VAR[LogoVarList]</texture>
-			<visible>!Control.HasFocus(5801)</visible>
-		</control>
-		<control type="image">
-			<left>1470</left>
-			<top>140</top>
-			<width>390</width>
-			<height>164</height>
-			<aspectratio aligny="bottom">keep</aspectratio>
-			<texture background="true" fallback="empty.png">$INFO[Container(5801).ListItem.Art(clearlogo)]</texture>
-			<visible>Control.HasFocus(5801)</visible>
-		</control>
-		<control type="image">
-			<!--Source logo-->
-			<top>920</top>
-			<left>115</left>
-			<texture>$VAR[ColorFlagsSource]source/$VAR[MovieSetsSourceFlagVar,,.png]</texture>
-			<include>AudioFlagsVars</include>
-			<animation effect="slide" end="64" condition="Control.IsVisible(512) | Control.IsVisible(550)">Conditional</animation>
-		</control>
-		<control type="image">
-			<!--Resolution logo-->
-			<top>915</top>
-			<left>415</left>
-			<texture>$VAR[ColorFlagsResolution]resolution/$INFO[Container(5801).ListItem.VideoResolution,,.png]</texture>
-			<include>AudioFlagsVars</include>
-		</control>
-		<control type="image">
-			<!--AspectRatio logo-->
-			<top>915</top>
-			<left>715</left>
-			<texture>$VAR[ColorFlagsAspectRatio]aspectratio/$INFO[Container(5801).ListItem.VideoAspect,,.png]</texture>
-			<include>AudioFlagsVars</include>
-		</control>
-		<control type="image">
-			<top>915</top>
-			<left>1015</left>
-			<texture>$VAR[ColorFlagsAudio]audio/$VAR[MovieSetsAudioFlagVar,,.png]</texture>
-			<!--Audio logo-->
-			<include>AudioFlagsVars</include>
-			<animation effect="slide" end="-5" condition="Control.IsVisible(12100)">Conditional</animation>
-		</control>
-		<control type="image" id="76">
-			<left>1315</left>
-			<animation effect="slide" end="109" condition="Control.IsVisible(512) | Control.IsVisible(550)">Conditional</animation>
-			<top>910</top>
-			<texture>$VAR[ColorFlagsStudio]$INFO[Container(5801).ListItem.Studio,,.png]</texture>
-			<width>135</width>
-			<height>82</height>
-			<aspectratio>keep</aspectratio>
-			<fadetime>IconCrossfadeTime2</fadetime>
-			<colordiffuse>floor</colordiffuse>
-			<animation effect="fade" time="200">VisibleChange</animation>
-		</control>
-		<control type="image">
-			<left>1315</left>
-			<animation effect="slide" end="109" condition="Control.IsVisible(512) | Control.IsVisible(550)">Conditional</animation>
-			<top>910</top>
-			<texture>$VAR[ColorFlagsStudio]default-studio.png</texture>
-			<include>AudioFlagsVars</include>
-			<visible>IsEmpty(Container(5801).ListItem.Studio)</visible>
-		</control>
-		<control type="label">
-			<left>1315</left>
-			<animation effect="slide" end="109" condition="Control.IsVisible(512) | Control.IsVisible(550)">Conditional</animation>
-			<top>910</top>
-			<width>155</width>
-			<height>70</height>
-			<align>center</align>
-			<label>$INFO[Container(5801).ListItem.Studio]</label>
-			<font>Font_Reg22_Caps</font>
-			<textcolor>grey</textcolor>
-			<wrapmultiline>true</wrapmultiline>
-			<visible>IsEmpty(Control.GetLabel(76)) + !Skin.HasSetting(DisableStudiosColorFlag)</visible>
-		</control>
-		<control type="image" id="1110">
-			<animation effect="slide" end="109" condition="Control.IsVisible(512) | Control.IsVisible(550)">Conditional</animation>
-			<top>920</top>
-			<left>1615</left>
-			<texture>$VAR[ColorFlagsRating]rating/$VAR[MovieSetsRatingFlagVar,,.png]</texture>
-			<include>AudioFlagsVars</include>
-			<animation effect="slide" end="138" condition="Control.IsVisible(512) | Control.IsVisible(550)">Conditional</animation>
-		</control>
-		<control type="image">
-			<top>920</top>
-			<left>1615</left>
-			<texture>$VAR[ColorFlagsRating]rating/MPAA_NR_Certificate_US.png</texture>
-			<include>AudioFlagsVars</include>
-			<animation effect="slide" end="138" condition="Control.IsVisible(512) | Control.IsVisible(550)">Conditional</animation>
-			<visible>IsEmpty(Control.GetLabel(1110))</visible>
-		</control>
-		<control type="image">
-			<top>920</top>
-			<width>26</width>
-			<height>22</height>
-			<aspectratio>scale</aspectratio>
-			<texture>$VAR[ColorFlagsLanguage]$INFO[Window(movieinformation).Property(AudioLanguage.1),,.png]</texture>
-			<visible>!IsEmpty(Window(movieinformation).Property(AudioLanguage.1))</visible>
-			<include>Animation_VisibleChange200</include>
-			<fadetime>400</fadetime>
-		</control>
-		<control type="image">
-			<top>915</top>
-			<width>26</width>
-			<height>22</height>
-			<aspectratio>scale</aspectratio>
-			<texture>$VAR[ColorFlagsLanguage]$INFO[Window(movieinformation).Property(AudioLanguage.2),,.png]</texture>
-			<visible>!IsEmpty(Window(movieinformation).Property(AudioLanguage.2))</visible>
-			<visible>!Stringcompare(Window(movieinformation).Property(AudioLanguage.1),Window(movieinformation).Property(AudioLanguage.2))</visible>
-			<include>Animation_VisibleChange200</include>
-			<fadetime>400</fadetime>
-		</control>
-		<control type="image">
-			<top>915</top>
-			<width>26</width>
-			<height>22</height>
-			<aspectratio>scale</aspectratio>
-			<texture>$VAR[ColorFlagsLanguage]$INFO[Window(movieinformation).Property(AudioLanguage.3),,.png]</texture>
-			<visible>!IsEmpty(Window(movieinformation).Property(AudioLanguage.3))</visible>
-			<visible>!Stringcompare(Window(movieinformation).Property(AudioLanguage.1),Window(movieinformation).Property(AudioLanguage.3))</visible>
-			<visible>!Stringcompare(Window(movieinformation).Property(AudioLanguage.2),Window(movieinformation).Property(AudioLanguage.3))</visible>
-			<include>Animation_VisibleChange200</include>
-			<fadetime>400</fadetime>
-		</control>
-		<control type="label">
-			<include>SetsLabel</include>
-			<left>40</left>
-			<top>500</top>
-			<label>345</label>
-		</control>
-		<control type="label">
-			<include>SetsValue</include>
-			<left>40</left>
-			<top>529</top>
-			<label>$INFO[Window(0).Property(Set.Movies.Years)]</label>
-			<visible>!Control.HasFocus(5801)</visible>
-		</control>
-		<control type="label">
-			<include>SetsValue</include>
-			<left>40</left>
-			<top>529</top>
-			<label>$INFO[Container(5801).ListItem.Year]</label><!-- MOD -->
-			<visible>Control.HasFocus(5801)</visible>
-		</control>
-		<control type="label">
-			<include>SetsLabel</include>
-			<left>160</left>
-			<top>500</top>
-			<label>180</label>
-			<visible>Control.HasFocus(5801)</visible>
-		</control>
-		<control type="label">
-			<include>SetsValue</include>
-			<left>160</left>
-			<top>529</top>
-			<label>$INFO[Container(5801).ListItem.Duration,, $LOCALIZE[12391]]</label><!-- MOD -->
-			<visible>Control.HasFocus(5801)</visible>
-		</control>
-
-		<control type="label"><!-- Country -->
-			<include>SetsLabel</include>
-			<left>40</left>
-			<top>559</top>
-			<label>$LOCALIZE[21875]</label>
-		</control>
-		<control type="label">
-			<include>SetsValue</include>
-			<left>40</left>
-			<top>586</top>
-			<label>$INFO[Window(0).Property(Set.Movies.Country)]</label>
-			<visible>!Control.HasFocus(5801)</visible>
-		</control>
-		<control type="label">
-			<include>SetsValue</include>
-			<left>40</left>
-			<top>586</top>
-			<label>$INFO[Container(5801).ListItem.Country]</label>
-			<visible>Control.HasFocus(5801)</visible>
-		</control>
-		<control type="label"><!-- Genre -->
-			<include>SetsLabel</include>
-			<left>522</left>
-			<top>500</top>
-			<label>$LOCALIZE[515]</label>
-		</control>
-		<control type="label">
-			<include>SetsValue</include>
-			<left>522</left>
-			<top>529</top>
-			<label>$INFO[Window(0).Property(Set.Movies.Genre)]</label>
-			<visible>!Control.HasFocus(5801)</visible>
-		</control>
-		<control type="label">
-			<include>SetsValue</include>
-			<left>522</left>
-			<top>529</top>
-			<label>$INFO[Container(5801).ListItem.Genre]</label>
-			<visible>Control.HasFocus(5801)</visible>
-		</control>
-		<control type="label"><!-- Studio -->
-			<include>SetsLabel</include>
-			<left>522</left>
-			<top>559</top>
-			<label>$LOCALIZE[20388]</label>
-		</control>
-		<control type="label">
-			<include>SetsValue</include>
-			<left>522</left>
-			<top>586</top>
-			<label>$INFO[Window(0).Property(Set.Movies.Studio)]</label>
-			<visible>!Control.HasFocus(5801)</visible>
-		</control>
-		<control type="label">
-			<include>SetsValue</include>
-			<left>522</left>
-			<top>586</top>
-			<label>$INFO[Container(5801).ListItem.Studio]</label>
-			<visible>Control.HasFocus(5801)</visible>
-		</control>
-		<control type="textbox"><!-- Plot -->
-			<left>40</left>
-			<top>635</top>
-			<width>906</width>
-			<height>206</height>
-			<align>justify</align>
-			<font>Font18a</font>
-			<label>$INFO[Window(0).Property(Set.Movies.ExtendedPlot)]</label>
-			<textcolor>FFFFFAF0</textcolor>
-			<autoscroll delay="8000" time="2000" repeat="8000">!Skin.HasSetting(MovieSetsNoPlotScroll)</autoscroll>
-			<visible>!Control.HasFocus(5801)</visible>
-		</control>
-		<control type="textbox"><!-- Plot -->
-			<left>40</left>
-			<top>635</top>
-			<width>906</width>
-			<height>206</height>
-			<align>justify</align>
-			<font>Font18a</font>
-			<label>$INFO[Container(5801).ListItem.Plot]</label>
-			<textcolor>FFFFFAF0</textcolor>
-			<autoscroll delay="8000" time="2000" repeat="8000"></autoscroll>
-			<visible>Control.HasFocus(5801)</visible>
-		</control>
-		<control type="image"><!-- Fanart -->
-			<left>1045</left>
-			<top>506</top>
-			<height>362</height>
-			<width>603</width>
-			<fadetime>200</fadetime>
-			<aspectratio align="left">keep</aspectratio>
-			<texture fallback="DefaultExtraThumbs.png" background="true">$INFO[Container(5801).ListItem.Art(fanart)]</texture>
-			<bordertexture border="-2">black.png</bordertexture>
-			<animation effect="fade" start="0" end="100" time="350" tween="sine" easing="out" condition="true">Visible</animation>
-			<visible>Control.HasFocus(5801) + !Skin.HasSetting(MovieSetsExtraFanart)</visible>
-		</control>
-		<!-- MOD Extrafanart ohne VAR mit Slideshow -->
-		<control type="multiimage" id="2222">
-			<left>1045</left>
-			<top>506</top>
-			<height>362</height>
-			<width>603</width>
-			<aspectratio>scale</aspectratio>
-			<randomize>true</randomize>
-			<fadetime>500</fadetime>
-			<include condition="Window.IsActive(pictures)">Aspectratio_Keep</include>
-			<include condition="!Window.IsActive(pictures)">Aspectratio_Scale</include>
-
-			<imagepath background="true">$INFO[Container(5801).ListItem.Path]extrafanart</imagepath>
-			<visible>Control.HasFocus(5801) + Skin.HasSetting(MovieSetsExtraFanart)</visible>
-			<include>Animation_VisibleChange200</include>
-		</control>
-		<control type="image"><!-- Fanart -->
-			<left>1045</left>
-			<top>506</top>
-			<height>362</height>
-			<width>603</width>
-			<fadetime>FanartCrossFadeTime</fadetime>
-			<aspectratio align="left">keep</aspectratio>
-			<texture fallback="DefaultExtraThumbs.png" background="true">$INFO[Container(5801).ListItem.Art(landscape)]</texture>
-			<bordertexture border="-2">black.png</bordertexture>
-			<animation effect="fade" start="0" end="100" time="350" tween="sine" easing="out" condition="true">Visible</animation>
-			<visible>Control.HasFocus(5801) + IsEmpty(Container(5801).ListItem.Art(fanart))</visible>
-		</control>
-		<!-- Right List + Poster Focus -->
-		<control type="group">
-			<animation effect="slide" start="0,0" end="620,0" time="250" tween="sine" easing="out" condition="Control.HasFocus(5801)">Conditional</animation>
-			<!-- Poster Art -->
-			<control type="group">
-				<left>545</left>
-				<top>291</top>
-				<include>Animation_CommonFade</include>
-				<control type="image">
-					<left>500</left>
-					<top>222</top>
-					<width>230</width>
-					<height>345</height>
-					<fadetime>FanartCrossFadeTime</fadetime>
-					<aspectratio align="right" aligny="bottom">stretch</aspectratio>
-					<texture fallback="DefaultVideoPoster.png" background="true">$VAR[ListPosterVar]</texture>
-					<bordertexture border="-2">black.png</bordertexture>
-				</control>
-			</control>
-			<!-- Right List -->
-			<control type="list" id="900">
-				<viewtype label="Sets">list</viewtype>
-				<left>1280</left>
+			<control type="image">
+				<left>0</left>
 				<top>501</top>
-				<width>720</width>
+				<width>1920</width>
 				<height>360</height>
-				<onleft>9000</onleft>
-				<onright>5801</onright>
-				<orientation>vertical</orientation>
-				<pagecontrol>80</pagecontrol>
-				<scrolltime>400</scrolltime>
-				<preloaditems>2</preloaditems>
-				<visible>Container.Content(movies) | Container.Content(sets)</visible>
-				<itemlayout height="40">
-					<control type="image">
-						<left>0</left>
-						<top>0</top>
-						<width>380</width>
-						<height>1</height>
-						<texture>separator2.png</texture>
-					</control>
-					<control type="label">
-						<left>20</left>
-						<top>0</top>
-						<height>40</height>
-						<width>580</width>
-						<aligny>center</aligny>
-						<font>Font_22</font>
-						<label>$INFO[ListItem.Label]</label>
-						</control>
-				</itemlayout>
-				<focusedlayout height="40">
-					<control type="image">
-						<left>20</left>
-						<top>0</top>
-						<width>620</width>
-						<height>40</height>
-						<texture>listselect_fo.png</texture>
-						<animation effect="fade" start="100" end="30" time="0" condition="!Control.Hasfocus(900)">conditional</animation>
-					</control>
-					<control type="image">
-						<left>620</left>
-						<top>0</top>
-						<width>20</width>
-						<height>40</height>
-						<texture>arrow_settings.png</texture>
-						<colordiffuse>$VAR[TitleColorVar]</colordiffuse>
-						<include>Animation_CommonFade</include>
-						<animation effect="fade" start="20" end="80" time="700" condition="true" pulse="true">Conditional</animation>
-						<visible>SubString(ListItem.Path,videodb://movies/sets,left)</visible>
-					</control>
-					<control type="label">
-						<left>20</left>
-						<top>0</top>
-						<height>40</height>
-						<width>580</width>
-						<aligny>center</aligny>
-						<font>Font_24A</font>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-				</focusedlayout>
+				<texture flipy="true" diffuse="shadow_mask.png">darkgrey.png</texture>
+				<colordiffuse>$VAR[TitleColorVar]</colordiffuse>
+				<animation effect="fade" end="85" condition="true">Conditional</animation>
 			</control>
 			<control type="image">
-				<left>1285</left>
+				<left>1470</left>
+				<top>140</top>
+				<width>390</width>
+				<height>164</height>
+				<aspectratio aligny="bottom">keep</aspectratio>
+				<texture background="true" fallback="empty.png">$VAR[LogoVarList]</texture>
+				<visible>!Control.HasFocus(5801)</visible>
+			</control>
+			<control type="image">
+				<left>1470</left>
+				<top>140</top>
+				<width>390</width>
+				<height>164</height>
+				<aspectratio aligny="bottom">keep</aspectratio>
+				<texture background="true" fallback="empty.png">$INFO[Container(5801).ListItem.Art(clearlogo)]</texture>
+				<visible>Control.HasFocus(5801)</visible>
+			</control>
+			<control type="image">
+				<!--Source logo-->
+				<top>920</top>
+				<left>115</left>
+				<texture>$VAR[ColorFlagsSource]source/$VAR[MovieSetsSourceFlagVar,,.png]</texture>
+				<include>AudioFlagsVars</include>
+				<animation effect="slide" end="64" condition="Control.IsVisible(512) | Control.IsVisible(550)">Conditional</animation>
+			</control>
+			<control type="image">
+				<!--Resolution logo-->
+				<top>915</top>
+				<left>415</left>
+				<texture>$VAR[ColorFlagsResolution]resolution/$INFO[Container(5801).ListItem.VideoResolution,,.png]</texture>
+				<include>AudioFlagsVars</include>
+			</control>
+			<control type="image">
+				<!--AspectRatio logo-->
+				<top>915</top>
+				<left>715</left>
+				<texture>$VAR[ColorFlagsAspectRatio]aspectratio/$INFO[Container(5801).ListItem.VideoAspect,,.png]</texture>
+				<include>AudioFlagsVars</include>
+			</control>
+			<control type="image">
+				<top>915</top>
+				<left>1015</left>
+				<texture>$VAR[ColorFlagsAudio]audio/$VAR[MovieSetsAudioFlagVar,,.png]</texture>
+				<!--Audio logo-->
+				<include>AudioFlagsVars</include>
+				<animation effect="slide" end="-5" condition="Control.IsVisible(12100)">Conditional</animation>
+			</control>
+			<control type="image" id="76">
+				<left>1315</left>
+				<animation effect="slide" end="109" condition="Control.IsVisible(512) | Control.IsVisible(550)">Conditional</animation>
+				<top>910</top>
+				<texture>$VAR[ColorFlagsStudio]$INFO[Container(5801).ListItem.Studio,,.png]</texture>
+				<width>135</width>
+				<height>82</height>
+				<aspectratio>keep</aspectratio>
+				<fadetime>IconCrossfadeTime2</fadetime>
+				<colordiffuse>floor</colordiffuse>
+				<animation effect="fade" time="200">VisibleChange</animation>
+			</control>
+			<control type="image">
+				<left>1315</left>
+				<animation effect="slide" end="109" condition="Control.IsVisible(512) | Control.IsVisible(550)">Conditional</animation>
+				<top>910</top>
+				<texture>$VAR[ColorFlagsStudio]default-studio.png</texture>
+				<include>AudioFlagsVars</include>
+				<visible>IsEmpty(Container(5801).ListItem.Studio)</visible>
+			</control>
+			<control type="label">
+				<left>1315</left>
+				<animation effect="slide" end="109" condition="Control.IsVisible(512) | Control.IsVisible(550)">Conditional</animation>
+				<top>910</top>
+				<width>155</width>
+				<height>70</height>
+				<align>center</align>
+				<label>$INFO[Container(5801).ListItem.Studio]</label>
+				<font>Font_Reg22_Caps</font>
+				<textcolor>grey</textcolor>
+				<wrapmultiline>true</wrapmultiline>
+				<visible>IsEmpty(Control.GetLabel(76)) + !Skin.HasSetting(DisableStudiosColorFlag)</visible>
+			</control>
+			<control type="image" id="1110">
+				<animation effect="slide" end="109" condition="Control.IsVisible(512) | Control.IsVisible(550)">Conditional</animation>
+				<top>920</top>
+				<left>1615</left>
+				<texture>$VAR[ColorFlagsRating]rating/$VAR[MovieSetsRatingFlagVar,,.png]</texture>
+				<include>AudioFlagsVars</include>
+				<animation effect="slide" end="138" condition="Control.IsVisible(512) | Control.IsVisible(550)">Conditional</animation>
+			</control>
+			<control type="image">
+				<top>920</top>
+				<left>1615</left>
+				<texture>$VAR[ColorFlagsRating]rating/MPAA_NR_Certificate_US.png</texture>
+				<include>AudioFlagsVars</include>
+				<animation effect="slide" end="138" condition="Control.IsVisible(512) | Control.IsVisible(550)">Conditional</animation>
+				<visible>IsEmpty(Control.GetLabel(1110))</visible>
+			</control>
+			<control type="image">
+				<top>920</top>
+				<width>26</width>
+				<height>22</height>
+				<aspectratio>scale</aspectratio>
+				<texture>$VAR[ColorFlagsLanguage]$INFO[Window(movieinformation).Property(AudioLanguage.1),,.png]</texture>
+				<visible>!IsEmpty(Window(movieinformation).Property(AudioLanguage.1))</visible>
+				<include>Animation_VisibleChange200</include>
+				<fadetime>400</fadetime>
+			</control>
+			<control type="image">
+				<top>915</top>
+				<width>26</width>
+				<height>22</height>
+				<aspectratio>scale</aspectratio>
+				<texture>$VAR[ColorFlagsLanguage]$INFO[Window(movieinformation).Property(AudioLanguage.2),,.png]</texture>
+				<visible>!IsEmpty(Window(movieinformation).Property(AudioLanguage.2))</visible>
+				<visible>!Stringcompare(Window(movieinformation).Property(AudioLanguage.1),Window(movieinformation).Property(AudioLanguage.2))</visible>
+				<include>Animation_VisibleChange200</include>
+				<fadetime>400</fadetime>
+			</control>
+			<control type="image">
+				<top>915</top>
+				<width>26</width>
+				<height>22</height>
+				<aspectratio>scale</aspectratio>
+				<texture>$VAR[ColorFlagsLanguage]$INFO[Window(movieinformation).Property(AudioLanguage.3),,.png]</texture>
+				<visible>!IsEmpty(Window(movieinformation).Property(AudioLanguage.3))</visible>
+				<visible>!Stringcompare(Window(movieinformation).Property(AudioLanguage.1),Window(movieinformation).Property(AudioLanguage.3))</visible>
+				<visible>!Stringcompare(Window(movieinformation).Property(AudioLanguage.2),Window(movieinformation).Property(AudioLanguage.3))</visible>
+				<include>Animation_VisibleChange200</include>
+				<fadetime>400</fadetime>
+			</control>
+			<control type="label">
+				<include>SetsLabel</include>
+				<left>40</left>
 				<top>500</top>
-				<width>30</width>
-				<height>370</height>
-				<texture>shadow.png</texture>
-				<colordiffuse>C3FFFFFF</colordiffuse>
+				<label>345</label>
+			</control>
+			<control type="label">
+				<include>SetsValue</include>
+				<left>40</left>
+				<top>529</top>
+				<label>$INFO[Window(0).Property(Set.Movies.Years)]</label>
+				<visible>!Control.HasFocus(5801)</visible>
+			</control>
+			<control type="label">
+				<include>SetsValue</include>
+				<left>40</left>
+				<top>529</top>
+				<label>$INFO[Container(5801).ListItem.Year]</label><!-- MOD -->
+				<visible>Control.HasFocus(5801)</visible>
+			</control>
+			<control type="label">
+				<include>SetsLabel</include>
+				<left>160</left>
+				<top>500</top>
+				<label>180</label>
+				<visible>Control.HasFocus(5801)</visible>
+			</control>
+			<control type="label">
+				<include>SetsValue</include>
+				<left>160</left>
+				<top>529</top>
+				<label>$INFO[Container(5801).ListItem.Duration,, $LOCALIZE[12391]]</label><!-- MOD -->
+				<visible>Control.HasFocus(5801)</visible>
+			</control>
+
+			<control type="label"><!-- Country -->
+				<include>SetsLabel</include>
+				<left>40</left>
+				<top>559</top>
+				<label>$LOCALIZE[21875]</label>
+			</control>
+			<control type="label">
+				<include>SetsValue</include>
+				<left>40</left>
+				<top>586</top>
+				<label>$INFO[Window(0).Property(Set.Movies.Country)]</label>
+				<visible>!Control.HasFocus(5801)</visible>
+			</control>
+			<control type="label">
+				<include>SetsValue</include>
+				<left>40</left>
+				<top>586</top>
+				<label>$INFO[Container(5801).ListItem.Country]</label>
+				<visible>Control.HasFocus(5801)</visible>
+			</control>
+			<control type="label"><!-- Genre -->
+				<include>SetsLabel</include>
+				<left>522</left>
+				<top>500</top>
+				<label>$LOCALIZE[515]</label>
+			</control>
+			<control type="label">
+				<include>SetsValue</include>
+				<left>522</left>
+				<top>529</top>
+				<label>$INFO[Window(0).Property(Set.Movies.Genre)]</label>
+				<visible>!Control.HasFocus(5801)</visible>
+			</control>
+			<control type="label">
+				<include>SetsValue</include>
+				<left>522</left>
+				<top>529</top>
+				<label>$INFO[Container(5801).ListItem.Genre]</label>
+				<visible>Control.HasFocus(5801)</visible>
+			</control>
+			<control type="label"><!-- Studio -->
+				<include>SetsLabel</include>
+				<left>522</left>
+				<top>559</top>
+				<label>$LOCALIZE[20388]</label>
+			</control>
+			<control type="label">
+				<include>SetsValue</include>
+				<left>522</left>
+				<top>586</top>
+				<label>$INFO[Window(0).Property(Set.Movies.Studio)]</label>
+				<visible>!Control.HasFocus(5801)</visible>
+			</control>
+			<control type="label">
+				<include>SetsValue</include>
+				<left>522</left>
+				<top>586</top>
+				<label>$INFO[Container(5801).ListItem.Studio]</label>
+				<visible>Control.HasFocus(5801)</visible>
+			</control>
+			<control type="textbox"><!-- Plot -->
+				<left>40</left>
+				<top>635</top>
+				<width>906</width>
+				<height>206</height>
+				<align>justify</align>
+				<font>Font18a</font>
+				<label>$INFO[Window(0).Property(Set.Movies.ExtendedPlot)]</label>
+				<textcolor>FFFFFAF0</textcolor>
+				<autoscroll delay="8000" time="2000" repeat="8000">!Skin.HasSetting(MovieSetsNoPlotScroll)</autoscroll>
+				<visible>!Control.HasFocus(5801)</visible>
+			</control>
+			<control type="textbox"><!-- Plot -->
+				<left>40</left>
+				<top>635</top>
+				<width>906</width>
+				<height>206</height>
+				<align>justify</align>
+				<font>Font18a</font>
+				<label>$INFO[Container(5801).ListItem.Plot]</label>
+				<textcolor>FFFFFAF0</textcolor>
+				<autoscroll delay="8000" time="2000" repeat="8000"></autoscroll>
+				<visible>Control.HasFocus(5801)</visible>
+			</control>
+			<control type="image"><!-- Fanart -->
+				<left>1045</left>
+				<top>506</top>
+				<height>362</height>
+				<width>603</width>
+				<fadetime>200</fadetime>
+				<aspectratio align="left">keep</aspectratio>
+				<texture fallback="DefaultExtraThumbs.png" background="true">$INFO[Container(5801).ListItem.Art(fanart)]</texture>
+				<bordertexture border="-2">black.png</bordertexture>
+				<animation effect="fade" start="0" end="100" time="350" tween="sine" easing="out" condition="true">Visible</animation>
+				<visible>Control.HasFocus(5801) + !Skin.HasSetting(MovieSetsExtraFanart)</visible>
+			</control>
+			<!-- MOD Extrafanart ohne VAR mit Slideshow -->
+			<control type="multiimage" id="2222">
+				<left>1045</left>
+				<top>506</top>
+				<height>362</height>
+				<width>603</width>
+				<aspectratio>scale</aspectratio>
+				<randomize>true</randomize>
+				<fadetime>500</fadetime>
+				<include condition="Window.IsActive(pictures)">Aspectratio_Keep</include>
+				<include condition="!Window.IsActive(pictures)">Aspectratio_Scale</include>
+
+				<imagepath background="true">$INFO[Container(5801).ListItem.Path]extrafanart</imagepath>
+				<visible>Control.HasFocus(5801) + Skin.HasSetting(MovieSetsExtraFanart)</visible>
+				<include>Animation_VisibleChange200</include>
+			</control>
+			<control type="image"><!-- Fanart -->
+				<left>1045</left>
+				<top>506</top>
+				<height>362</height>
+				<width>603</width>
+				<fadetime>FanartCrossFadeTime</fadetime>
+				<aspectratio align="left">keep</aspectratio>
+				<texture fallback="DefaultExtraThumbs.png" background="true">$INFO[Container(5801).ListItem.Art(landscape)]</texture>
+				<bordertexture border="-2">black.png</bordertexture>
+				<animation effect="fade" start="0" end="100" time="350" tween="sine" easing="out" condition="true">Visible</animation>
+				<visible>Control.HasFocus(5801) + IsEmpty(Container(5801).ListItem.Art(fanart))</visible>
+			</control>
+			<!-- Right List + Poster Focus -->
+			<control type="group">
+				<animation effect="slide" start="0,0" end="620,0" time="250" tween="sine" easing="out" condition="Control.HasFocus(5801)">Conditional</animation>
+				<!-- Poster Art -->
+				<control type="group">
+					<left>545</left>
+					<top>291</top>
+					<include>Animation_CommonFade</include>
+					<control type="image">
+						<left>500</left>
+						<top>222</top>
+						<width>230</width>
+						<height>345</height>
+						<fadetime>FanartCrossFadeTime</fadetime>
+						<aspectratio align="right" aligny="bottom">stretch</aspectratio>
+						<texture fallback="DefaultVideoPoster.png" background="true">$VAR[ListPosterVar]</texture>
+						<bordertexture border="-2">black.png</bordertexture>
+					</control>
+				</control>
+				<!-- Right List -->
+				<control type="list" id="900">
+					<viewtype label="Sets">list</viewtype>
+					<left>1280</left>
+					<top>501</top>
+					<width>720</width>
+					<height>360</height>
+					<onleft>9000</onleft>
+					<onright>5801</onright>
+					<orientation>vertical</orientation>
+					<pagecontrol>80</pagecontrol>
+					<scrolltime>400</scrolltime>
+					<preloaditems>2</preloaditems>
+					<visible>Container.Content(movies) | Container.Content(sets)</visible>
+					<itemlayout height="40">
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<width>380</width>
+							<height>1</height>
+							<texture>separator2.png</texture>
+						</control>
+						<control type="label">
+							<left>20</left>
+							<top>0</top>
+							<height>40</height>
+							<width>580</width>
+							<aligny>center</aligny>
+							<font>Font_22</font>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="40">
+						<control type="image">
+							<left>20</left>
+							<top>0</top>
+							<width>620</width>
+							<height>40</height>
+							<texture>listselect_fo.png</texture>
+							<animation effect="fade" start="100" end="30" time="0" condition="!Control.Hasfocus(900)">conditional</animation>
+						</control>
+						<control type="image">
+							<left>620</left>
+							<top>0</top>
+							<width>20</width>
+							<height>40</height>
+							<texture>arrow_settings.png</texture>
+							<colordiffuse>$VAR[TitleColorVar]</colordiffuse>
+							<include>Animation_CommonFade</include>
+							<animation effect="fade" start="20" end="80" time="700" condition="true" pulse="true">Conditional</animation>
+							<visible>SubString(ListItem.Path,videodb://movies/sets,left)</visible>
+						</control>
+						<control type="label">
+							<left>20</left>
+							<top>0</top>
+							<height>40</height>
+							<width>580</width>
+							<aligny>center</aligny>
+							<font>Font_24A</font>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+					</focusedlayout>
+				</control>
+				<control type="image">
+					<left>1285</left>
+					<top>500</top>
+					<width>30</width>
+					<height>370</height>
+					<texture>shadow.png</texture>
+					<colordiffuse>C3FFFFFF</colordiffuse>
+				</control>
+				<control type="image">
+					<left>1035</left>
+					<top>501</top>
+					<width>2</width>
+					<height>366</height>
+					<texture>separator_v.png</texture>
+				</control>
 			</control>
 			<control type="image">
 				<left>1035</left>
-				<top>501</top>
+				<top>500</top>
 				<width>2</width>
 				<height>366</height>
 				<texture>separator_v.png</texture>
 			</control>
-		</control>
-		<control type="image">
-			<left>1035</left>
-			<top>500</top>
-			<width>2</width>
-			<height>366</height>
-			<texture>separator_v.png</texture>
-		</control>
-		<control type="scrollbar" id="80">
-			<include>ScrollBar_Vertical</include>
-			<left>875</left>
-			<top>293</top>
-			<height>360</height>
-			<onleft>9900</onleft>
-			<onright>65</onright>
-			<include>Animation_CommonFade</include>
-			<visible allowhiddenfocus="true">Control.IsVisible(900) + Control.HasFocus(80)</visible>
-		</control>
-		<!-- Movies in Set -->
-		<control type="list" id="5801">
-			<viewtype>list</viewtype>
-			<left>60</left>
-			<top>85</top>
-			<width>1400</width>
-			<height>1130</height>
-			<onup>Skin.Reset(coverzoom)</onup>
-			<onup>SetFocus(160)</onup>
-			<onup>Skin.SetBool(moviezoom)</onup>
-			<ondown>900</ondown>
-			<orientation>horizontal</orientation>
-			<scrolltime>350</scrolltime>
-			<preloaditems>2</preloaditems>
-		<itemlayout condition="Skin.HasSetting(MovieSetsNoDiscArt)" height="460" width="282">
-			<control type="group">   <!-- clearcase no disc -->
-			<visible>Skin.HasSetting(clearcases)</visible>
-			<control type="image">
-					<left>6</left>
-					<top>31</top>
-					<width>220</width>
-					<height>330</height>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture background="true" diffuse="thumbs/movieposter_mask.png">$VAR[ListPosterVar]</texture>
-				</control>
-				<control type="image">
-					<left>-35</left>
-					<top>0</top>
-					<width>278</width>
-					<height>382</height>
-                    <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
-                    <bordersize>2</bordersize>
-			    </control>
-				<control type="image">
-					<left>167</left>
-					<top>24</top>
-					<width>52</width>
-					<height>52</height>
-					<texture>$VAR[VideoextrasOverlay]</texture>
-					<visible>System.HasAddon(script.videoextras)</visible>
-				</control>
-				<control type="image">
-					<left>167</left>
-                    <top>24</top>
-                    <width>65</width>
-                    <height>65</height>
-                    <include>OverlayVisibility0</include>
-				</control>
-				<control type="image">
-                    <left>167</left>
-                    <top>24</top>
-                    <width>65</width>
-                    <height>65</height>
-					<texture>overlayprogress.png</texture>
-					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-				</control>
+			<control type="scrollbar" id="80">
+				<include>ScrollBar_Vertical</include>
+				<left>875</left>
+				<top>293</top>
+				<height>360</height>
+				<onleft>9900</onleft>
+				<onright>65</onright>
+				<include>Animation_CommonFade</include>
+				<visible allowhiddenfocus="true">Control.IsVisible(900) + Control.HasFocus(80)</visible>
 			</control>
-			<control type="group">   <!-- nocase + bd + color cases no disc -->
-			<visible>!Skin.HasSetting(clearcases) + !Skin.HasSetting(Colorcases) | !Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)</visible>
-				<control type="image">
-					<left>6</left>
-					<top>31</top>
-					<width>220</width>
-					<height>330</height>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture>$VAR[ListPosterVar]</texture>
-				</control>
-				<control type="image">
-					<left>-35</left>
-					<top>-5</top>
-					<width>282</width>
-					<height>386</height>
-                    <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
-                    <bordersize>2</bordersize>
-					<visible>Skin.Hassetting(usecases)</visible>
-			    </control>
-				<control type="image">
-					<left>161</left>
-					<top>31</top>
-					<width>52</width>
-					<height>52</height>
-					<texture>$VAR[VideoextrasOverlay]</texture>
-					<visible>System.HasAddon(script.videoextras)</visible>
-				</control>
-				<control type="image">
-					<left>161</left>
-                    <top>31</top>
-                    <width>65</width>
-                    <height>65</height>
-                    <include>OverlayVisibility0</include>
-				</control>
-				<control type="image">
-                    <left>161</left>
-                    <top>31</top>
-                    <width>65</width>
-                    <height>65</height>
-					<texture>overlayprogress.png</texture>
-					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-				</control>
-			</control>
-		</itemlayout>
-
-		<itemlayout condition="!Skin.HasSetting(MovieSetsNoDiscArt)" height="460" width="352">
-				<control type="image">
-					<left>87</left>
-					<top>40</top>
-					<width>260</width>
-					<height>260</height>
-					<texture diffuse="cdart_diffuse.png" background="true">$INFO[ListItem.Art(discart)]</texture>
-					<fadetime>FanartCrossFadeTime</fadetime>
-					<aspectratio align="center" aligny="center">keep</aspectratio>
-					<animation effect="rotate" start="0" end="-360" center="auto" time="4000" delay="500" loop="true" reversible="false" condition="!Player.HasVideo">Conditional</animation>
-					<include>Animation_ViewsCDart</include>
-					<visible>!IsEmpty(ListItem.Art(discart))</visible>
-				</control>
-				<!--MAD - Fake Disc Art - Start -->
-				<control type="image">
-					<left>87</left>
-					<top>40</top>
-					<width>260</width>
-					<height>260</height>
-					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[ListItem.Art(poster)]</texture>
-					<aspectratio align="center" aligny="center">keep</aspectratio>
-					<animation effect="rotate" start="0" end="-360" center="auto" time="4000" delay="500" loop="true" reversible="false" condition="!Player.HasVideo">Conditional</animation>
-					<include>Animation_ViewsCDart</include>
-					<visible>IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Skin.HasSetting(Fakediscart)</visible>
-				</control>
-				<control type="image">
-					<left>87</left>
-					<top>40</top>
-					<width>260</width>
-					<height>260</height>
-					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-					<texture background="true">$VAR[FakeDiscArtOverlay]</texture>
-					<animation effect="rotate" start="0" end="-360" center="auto" time="4000" delay="500" loop="true" reversible="false" condition="!Player.HasVideo">Conditional</animation>
-					<include>Animation_ViewsCDart</include>
-					<visible>IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Skin.HasSetting(Fakediscart)</visible>
-				</control>
-				<control type="image">
-					<left>87</left>
-					<top>40</top>
-					<width>260</width>
-					<height>260</height>
-					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-					<texture background="true">$VAR[FakeDischand]</texture>
-					<animation effect="rotate" start="0" end="-360" center="auto" time="4000" delay="500" loop="true" reversible="false" condition="!Player.HasVideo">Conditional</animation>
-					<include>Animation_ViewsCDart</include>
-					<visible>IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Skin.HasSetting(Fakedischandwriting) + !Skin.Hassetting(Fakehanddisccolor)</visible>
-				</control>
-				<control type="image">
-					<left>87</left>
-					<top>40</top>
-					<width>260</width>
-					<height>260</height>
-					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-					<texture background="true">$VAR[FakeDischandcolor]</texture>
-					<animation effect="rotate" start="0" end="-360" center="auto" time="4000" delay="500" loop="true" reversible="false" condition="!Player.HasVideo">Conditional</animation>
-					<include>Animation_ViewsCDart</include>
-					<visible>IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Skin.HasSetting(Fakedischandwriting) + Skin.Hassetting(Fakehanddisccolor)</visible>
-				</control>
-				<control type="textbox">
-                    <animation effect="rotate" start="02" end="-360" center="217,167" time="4000" delay="500" loop="true" reversible="false" condition="!Player.HasVideo">Conditional</animation>
-					<!--animation effect="rotate" end="-360" center="216,-8" time="6400" delay="1200" loop="false" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation-->
-                    <top>200</top>
-					<left>117</left>
-					<width>190</width>
-					<height>170</height>
-					<align>center</align>
-					<font>Hand_16</font>
-					<visible>IsEmpty(ListItem.Art(discart)) + Skin.HasSetting(Fakedischandwriting) + IsEmpty(ListItem.Art(clearlogo))</visible>
-                    <label> $INFO[ListItem.Label]</label>
-                    <textcolor>black</textcolor>
-				</control>
-				<control type="group">
-					<animation effect="rotate" start="02" end="-360" center="217,167" time="4000" delay="500" loop="true" reversible="false" condition="!Player.HasVideo">Conditional</animation>
-					<!--animation effect="rotate" end="-360" center="222,164" time="6400" delay="1200" loop="false" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation-->
-					<top>70</top>
-					<left>152</left>
-					<width>140</width>
-					<height>70</height>
-					<aspectratio aligny="bottom">keep</aspectratio>
-					<visible>!IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(discart)) + Skin.HasSetting(Fakedischandwriting)</visible>
-					<control type="image">
-						<texture background="true" fallback="empty.png">$INFO[ListItem.Art(clearlogo)]</texture>
+			<!-- Movies in Set -->
+			<control type="list" id="5801">
+				<viewtype>list</viewtype>
+				<left>60</left>
+				<top>85</top>
+				<width>1400</width>
+				<height>1130</height>
+				<onup>Skin.Reset(coverzoom)</onup>
+				<onup>SetFocus(160)</onup>
+				<onup>Skin.SetBool(moviezoom)</onup>
+				<ondown>900</ondown>
+				<orientation>horizontal</orientation>
+				<scrolltime>350</scrolltime>
+				<preloaditems>2</preloaditems>
+				<itemlayout condition="Skin.HasSetting(MovieSetsNoDiscArt)" height="460" width="282">
+					<control type="group">   <!-- clearcase no disc -->
+						<visible>Skin.HasSetting(clearcases)</visible>
+						<control type="image">
+							<left>6</left>
+							<top>31</top>
+							<width>220</width>
+							<height>330</height>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+							<texture background="true" diffuse="thumbs/movieposter_mask.png">$VAR[ListPosterVar]</texture>
+						</control>
+						<control type="image">
+							<left>-35</left>
+							<top>0</top>
+							<width>278</width>
+							<height>382</height>
+							<texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+							<bordersize>2</bordersize>
+						</control>
+						<control type="image">
+							<left>167</left>
+							<top>24</top>
+							<width>52</width>
+							<height>52</height>
+							<texture>$VAR[VideoextrasOverlay]</texture>
+							<visible>System.HasAddon(script.videoextras)</visible>
+						</control>
+						<control type="image">
+							<left>167</left>
+							<top>24</top>
+							<width>65</width>
+							<height>65</height>
+							<include>OverlayVisibility0</include>
+						</control>
+						<control type="image">
+							<left>167</left>
+							<top>24</top>
+							<width>65</width>
+							<height>65</height>
+							<texture>overlayprogress.png</texture>
+							<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+						</control>
 					</control>
-				</control>
-				<!--MAD - Fale Disc Art - End -->
-			<control type="group">   <!-- clearcase  with disc -->
-			<visible>Skin.HasSetting(clearcases) + !Skin.HasSetting(MovieSetsDiscsOnly)</visible>
-				<control type="image">
-					<left>6</left>
-					<top>31</top>
-					<width>220</width>
-					<height>330</height>
-					<texture background="true" diffuse="thumbs/movieposter_mask.png">$VAR[ListPosterVar]</texture>
-				</control>
-				<control type="image">
-					<left>-35</left>
-					<top>0</top>
-					<width>279</width>
-					<height>382</height>
-                    <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
-                    <bordersize>2</bordersize>
-			    </control>
-				<control type="image">
-					<left>167</left>
-					<top>24</top>
-					<width>52</width>
-					<height>52</height>
-					<texture>$VAR[VideoextrasOverlay]</texture>
-					<visible>System.HasAddon(script.videoextras)</visible>
-				</control>
-				<control type="image">
-					<left>167</left>
-                    <top>24</top>
-                    <width>65</width>
-                    <height>65</height>
-                    <include>OverlayVisibility0</include>
-				</control>
-				<control type="image">
-                    <left>167</left>
-                    <top>24</top>
-                    <width>65</width>
-                    <height>65</height>
-					<texture>overlayprogress.png</texture>
-					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-				</control>
-			</control>
-			<control type="group">   <!-- nocase + bd + color cases with disc -->
-			<visible>[[!Skin.HasSetting(clearcases) + !Skin.HasSetting(Colorcases)] | [!Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)]] + !Skin.HasSetting(MovieSetsDiscsOnly)</visible>
-				<control type="image">
-					<left>6</left>
-					<top>31</top>
-					<width>220</width>
-					<height>330</height>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture>$VAR[ListPosterVar]</texture>
-				</control>
-				<control type="image">
-					<left>-36</left>
-					<top>-5</top>
-					<width>282</width>
-					<height>386</height>
-                    <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
-                    <bordersize>2</bordersize>
-					<visible>Skin.Hassetting(usecases)</visible>
-			    </control>
-				<control type="image">
-					<left>161</left>
-					<top>31</top>
-					<width>52</width>
-					<height>52</height>
-					<texture>$VAR[VideoextrasOverlay]</texture>
-					<visible>System.HasAddon(script.videoextras)</visible>
-				</control>
-				<control type="image">
-					<left>161</left>
-                    <top>31</top>
-                    <width>65</width>
-                    <height>65</height>
-                    <include>OverlayVisibility0</include>
-				</control>
-				<control type="image">
-                    <left>161</left>
-                    <top>31</top>
-                    <width>65</width>
-                    <height>65</height>
-					<texture>overlayprogress.png</texture>
-					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-				</control>
-			</control>
-		</itemlayout>
-		<focusedlayout condition="Skin.HasSetting(MovieSetsNoDiscArt)" height="320" width="282"><!-- Sem disco -->
-		<control type="group"> <!-- FOCUS ZOOM NO DISC-->
-					<animation effect="zoom" start="100" end="115" center="125,180" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-			<control type="group">   <!-- focus clearcase no disc -->
-				<visible>Skin.HasSetting(clearcases)</visible>
-				<control type="image">
-					<left>6</left>
-					<top>31</top>
-					<width>220</width>
-					<height>330</height>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture background="true" diffuse="thumbs/movieposter_mask.png">$VAR[ListPosterVar]</texture>
-				</control>
-				<control type="image">
-					<left>-35</left>
-					<top>0</top>
-					<width>278</width>
-					<height>382</height>
-                    <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
-                    <bordersize>2</bordersize>
-			    </control>
-				<control type="image">
-					<left>167</left>
-					<top>24</top>
-					<width>52</width>
-					<height>52</height>
-					<texture>$VAR[VideoextrasOverlay]</texture>
-					<visible>System.HasAddon(script.videoextras)</visible>
-				</control>
-				<control type="image">
-					<left>167</left>
-                    <top>24</top>
-                    <width>65</width>
-                    <height>65</height>
-                    <include>OverlayVisibility0</include>
-				</control>
-				<control type="image">
-                    <left>167</left>
-                    <top>24</top>
-                    <width>65</width>
-                    <height>65</height>
-					<texture>overlayprogress.png</texture>
-					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-				</control>
-			</control>
-			<control type="group">   <!-- nocase + bd + color cases no disc -->
-			<visible>!Skin.HasSetting(clearcases) + !Skin.HasSetting(Colorcases) | !Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)</visible>
-				<control type="image">
-					<left>6</left>
-					<top>31</top>
-					<width>220</width>
-					<height>330</height>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture>$VAR[ListPosterVar]</texture>
-				</control>
-				<control type="image">
-					<left>-35</left>
-					<top>-5</top>
-					<width>282</width>
-					<height>386</height>
-                    <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
-                    <bordersize>2</bordersize>
-					<visible>Skin.Hassetting(usecases)</visible>
-			    </control>
-				<control type="image">
-					<left>161</left>
-					<top>31</top>
-					<width>52</width>
-					<height>52</height>
-					<texture>$VAR[VideoextrasOverlay]</texture>
-					<visible>System.HasAddon(script.videoextras)</visible>
-				</control>
-				<control type="image">
-					<left>161</left>
-                    <top>31</top>
-                    <width>65</width>
-                    <height>65</height>
-                    <include>OverlayVisibility0</include>
-				</control>
-				<control type="image">
-                    <left>161</left>
-                    <top>31</top>
-                    <width>65</width>
-                    <height>65</height>
-					<texture>overlayprogress.png</texture>
-					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-				</control>
-				</control>
-		</control>
-		</focusedlayout>
+					<control type="group">   <!-- nocase + bd + color cases no disc -->
+						<visible>!Skin.HasSetting(clearcases) + !Skin.HasSetting(Colorcases) | !Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)</visible>
+						<control type="image">
+							<left>6</left>
+							<top>31</top>
+							<width>220</width>
+							<height>330</height>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+							<texture>$VAR[ListPosterVar]</texture>
+						</control>
+						<control type="image">
+							<left>-35</left>
+							<top>-5</top>
+							<width>282</width>
+							<height>386</height>
+							<texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+							<bordersize>2</bordersize>
+							<visible>Skin.Hassetting(usecases)</visible>
+						</control>
+						<control type="image">
+							<left>161</left>
+							<top>31</top>
+							<width>52</width>
+							<height>52</height>
+							<texture>$VAR[VideoextrasOverlay]</texture>
+							<visible>System.HasAddon(script.videoextras)</visible>
+						</control>
+						<control type="image">
+							<left>161</left>
+							<top>31</top>
+							<width>65</width>
+							<height>65</height>
+							<include>OverlayVisibility0</include>
+						</control>
+						<control type="image">
+							<left>161</left>
+							<top>31</top>
+							<width>65</width>
+							<height>65</height>
+							<texture>overlayprogress.png</texture>
+							<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+						</control>
+					</control>
+				</itemlayout>
 
-		<focusedlayout condition="!Skin.HasSetting(MovieSetsNoDiscArt)" height="320" width="352"><!-- Com disco -->
-			<control type="group">
-					<animation effect="zoom" start="100" end="115" center="125,180" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
-					<control type="image"><!-- Disc Poster 1 -->
+				<itemlayout condition="!Skin.HasSetting(MovieSetsNoDiscArt)" height="460" width="352">
+					<control type="image">
 						<left>87</left>
 						<top>40</top>
 						<width>260</width>
@@ -870,221 +606,484 @@
 						<visible>!IsEmpty(ListItem.Art(discart))</visible>
 					</control>
 					<!--MAD - Fake Disc Art - Start -->
-				<control type="image">
-					<left>87</left>
-					<top>40</top>
-					<width>260</width>
-					<height>260</height>
-					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[ListItem.Art(poster)]</texture>
-					<aspectratio align="center" aligny="center">keep</aspectratio>
-					<animation effect="rotate" start="0" end="-360" center="auto" time="4000" delay="500" loop="true" reversible="false" condition="!Player.HasVideo">Conditional</animation>
-					<include>Animation_ViewsCDart</include>
-					<visible>IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Skin.HasSetting(Fakediscart)</visible>
-				</control>
-				<control type="image">
-					<left>87</left>
-					<top>40</top>
-					<width>260</width>
-					<height>260</height>
-					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-					<texture background="true">$VAR[FakeDiscArtOverlay]</texture>
-					<animation effect="rotate" start="0" end="-360" center="auto" time="4000" delay="500" loop="true" reversible="false" condition="!Player.HasVideo">Conditional</animation>
-					<include>Animation_ViewsCDart</include>
-					<visible>IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Skin.HasSetting(Fakediscart)</visible>
-				</control>
-				<control type="image">
-					<left>87</left>
-					<top>40</top>
-					<width>260</width>
-					<height>260</height>
-					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-					<texture background="true">$VAR[FakeDischand]</texture>
-					<animation effect="rotate" start="0" end="-360" center="auto" time="4000" delay="500" loop="true" reversible="false" condition="!Player.HasVideo">Conditional</animation>
-					<include>Animation_ViewsCDart</include>
-					<visible>IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Skin.HasSetting(Fakedischandwriting) + !Skin.Hassetting(Fakehanddisccolor)</visible>
-				</control>
-				<control type="image">
-					<left>87</left>
-					<top>40</top>
-					<width>260</width>
-					<height>260</height>
-					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-					<texture background="true">$VAR[FakeDischandcolor]</texture>
-					<animation effect="rotate" start="0" end="-360" center="auto" time="4000" delay="500" loop="true" reversible="false" condition="!Player.HasVideo">Conditional</animation>
-					<include>Animation_ViewsCDart</include>
-					<visible>IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Skin.HasSetting(Fakedischandwriting) + Skin.Hassetting(Fakehanddisccolor)</visible>
-				</control>
-				<control type="textbox">
-                    <animation effect="rotate" start="02" end="-360" center="217,167" time="4000" delay="500" loop="true" reversible="false" condition="!Player.HasVideo">Conditional</animation>
-					<!--animation effect="rotate" end="-360" center="216,-8" time="6400" delay="1200" loop="false" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation-->
-                    <top>200</top>
-					<left>117</left>
-					<width>190</width>
-					<height>170</height>
-					<align>center</align>
-					<font>Hand_16</font>
-					<visible>IsEmpty(ListItem.Art(discart)) + Skin.HasSetting(Fakedischandwriting) + IsEmpty(ListItem.Art(clearlogo))</visible>
-                    <label> $INFO[ListItem.Label]</label>
-                    <textcolor>black</textcolor>
-				</control>
-				<control type="group">
-					<animation effect="rotate" start="02" end="-360" center="217,167" time="4000" delay="500" loop="true" reversible="false" condition="!Player.HasVideo">Conditional</animation>
-					<!--animation effect="rotate" end="-360" center="222,164" time="6400" delay="1200" loop="false" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation-->
-					<top>70</top>
-					<left>152</left>
-					<width>140</width>
-					<height>70</height>
-					<aspectratio aligny="bottom">keep</aspectratio>
-					<visible>!IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(discart)) + Skin.HasSetting(Fakedischandwriting)</visible>
 					<control type="image">
-						<texture background="true" fallback="empty.png">$INFO[ListItem.Art(clearlogo)]</texture>
+						<left>87</left>
+						<top>40</top>
+						<width>260</width>
+						<height>260</height>
+						<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+						<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[ListItem.Art(poster)]</texture>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<animation effect="rotate" start="0" end="-360" center="auto" time="4000" delay="500" loop="true" reversible="false" condition="!Player.HasVideo">Conditional</animation>
+						<include>Animation_ViewsCDart</include>
+						<visible>IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Skin.HasSetting(Fakediscart)</visible>
 					</control>
-				</control>
-				<!--MAD - Fale Disc Art - End -->
-				<control type="group">   <!-- clearcase  with disc -->
-				<visible>Skin.HasSetting(clearcases) + !Skin.HasSetting(MovieSetsDiscsOnly)</visible>
-				<control type="image">
-					<left>6</left>
-					<top>31</top>
-					<width>220</width>
-					<height>330</height>
-					<texture background="true" diffuse="thumbs/movieposter_mask.png">$VAR[ListPosterVar]</texture>
-				</control>
-				<control type="image">
-					<left>-35</left>
-					<top>0</top>
-					<width>279</width>
-					<height>382</height>
-                    <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
-                    <bordersize>2</bordersize>
-			    </control>
-				<control type="image">
-					<left>167</left>
-					<top>24</top>
-					<width>52</width>
-					<height>52</height>
-					<texture>$VAR[VideoextrasOverlay]</texture>
-					<visible>System.HasAddon(script.videoextras)</visible>
-				</control>
-				<control type="image">
-					<left>167</left>
-                    <top>24</top>
-                    <width>65</width>
-                    <height>65</height>
-                    <include>OverlayVisibility0</include>
-				</control>
-				<control type="image">
-                    <left>167</left>
-                    <top>24</top>
-                    <width>65</width>
-                    <height>65</height>
-					<texture>overlayprogress.png</texture>
-					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-				</control>
-				</control>
+					<control type="image">
+						<left>87</left>
+						<top>40</top>
+						<width>260</width>
+						<height>260</height>
+						<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+						<texture background="true">$VAR[FakeDiscArtOverlay]</texture>
+						<animation effect="rotate" start="0" end="-360" center="auto" time="4000" delay="500" loop="true" reversible="false" condition="!Player.HasVideo">Conditional</animation>
+						<include>Animation_ViewsCDart</include>
+						<visible>IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Skin.HasSetting(Fakediscart)</visible>
+					</control>
+					<control type="image">
+						<left>87</left>
+						<top>40</top>
+						<width>260</width>
+						<height>260</height>
+						<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+						<texture background="true">$VAR[FakeDischand]</texture>
+						<animation effect="rotate" start="0" end="-360" center="auto" time="4000" delay="500" loop="true" reversible="false" condition="!Player.HasVideo">Conditional</animation>
+						<include>Animation_ViewsCDart</include>
+						<visible>IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Skin.HasSetting(Fakedischandwriting) + !Skin.Hassetting(Fakehanddisccolor)</visible>
+					</control>
+					<control type="image">
+						<left>87</left>
+						<top>40</top>
+						<width>260</width>
+						<height>260</height>
+						<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+						<texture background="true">$VAR[FakeDischandcolor]</texture>
+						<animation effect="rotate" start="0" end="-360" center="auto" time="4000" delay="500" loop="true" reversible="false" condition="!Player.HasVideo">Conditional</animation>
+						<include>Animation_ViewsCDart</include>
+						<visible>IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Skin.HasSetting(Fakedischandwriting) + Skin.Hassetting(Fakehanddisccolor)</visible>
+					</control>
+					<control type="textbox">
+						<animation effect="rotate" start="02" end="-360" center="217,167" time="4000" delay="500" loop="true" reversible="false" condition="!Player.HasVideo">Conditional</animation>
+						<!--animation effect="rotate" end="-360" center="216,-8" time="6400" delay="1200" loop="false" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation-->
+						<top>200</top>
+						<left>117</left>
+						<width>190</width>
+						<height>170</height>
+						<align>center</align>
+						<font>Hand_16</font>
+						<visible>IsEmpty(ListItem.Art(discart)) + Skin.HasSetting(Fakedischandwriting) + IsEmpty(ListItem.Art(clearlogo))</visible>
+						<label> $INFO[ListItem.Label]</label>
+						<textcolor>black</textcolor>
+					</control>
+					<control type="group">
+						<animation effect="rotate" start="02" end="-360" center="217,167" time="4000" delay="500" loop="true" reversible="false" condition="!Player.HasVideo">Conditional</animation>
+						<!--animation effect="rotate" end="-360" center="222,164" time="6400" delay="1200" loop="false" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation-->
+						<top>70</top>
+						<left>152</left>
+						<width>140</width>
+						<height>70</height>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<visible>!IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(discart)) + Skin.HasSetting(Fakedischandwriting)</visible>
+						<control type="image">
+							<texture background="true" fallback="empty.png">$INFO[ListItem.Art(clearlogo)]</texture>
+						</control>
+					</control>
+					<!--MAD - Fale Disc Art - End -->
+					<control type="group">   <!-- clearcase  with disc -->
+						<visible>Skin.HasSetting(clearcases) + !Skin.HasSetting(MovieSetsDiscsOnly)</visible>
+						<control type="image">
+							<left>6</left>
+							<top>31</top>
+							<width>220</width>
+							<height>330</height>
+							<texture background="true" diffuse="thumbs/movieposter_mask.png">$VAR[ListPosterVar]</texture>
+						</control>
+						<control type="image">
+							<left>-35</left>
+							<top>0</top>
+							<width>279</width>
+							<height>382</height>
+							<texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+							<bordersize>2</bordersize>
+						</control>
+						<control type="image">
+							<left>167</left>
+							<top>24</top>
+							<width>52</width>
+							<height>52</height>
+							<texture>$VAR[VideoextrasOverlay]</texture>
+							<visible>System.HasAddon(script.videoextras)</visible>
+						</control>
+						<control type="image">
+							<left>167</left>
+							<top>24</top>
+							<width>65</width>
+							<height>65</height>
+							<include>OverlayVisibility0</include>
+						</control>
+						<control type="image">
+							<left>167</left>
+							<top>24</top>
+							<width>65</width>
+							<height>65</height>
+							<texture>overlayprogress.png</texture>
+							<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+						</control>
+					</control>
+					<control type="group">   <!-- nocase + bd + color cases with disc -->
+						<visible>[[!Skin.HasSetting(clearcases) + !Skin.HasSetting(Colorcases)] | [!Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)]] + !Skin.HasSetting(MovieSetsDiscsOnly)</visible>
+						<control type="image">
+							<left>6</left>
+							<top>31</top>
+							<width>220</width>
+							<height>330</height>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+							<texture>$VAR[ListPosterVar]</texture>
+						</control>
+						<control type="image">
+							<left>-36</left>
+							<top>-5</top>
+							<width>282</width>
+							<height>386</height>
+							<texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+							<bordersize>2</bordersize>
+							<visible>Skin.Hassetting(usecases)</visible>
+						</control>
+						<control type="image">
+							<left>161</left>
+							<top>31</top>
+							<width>52</width>
+							<height>52</height>
+							<texture>$VAR[VideoextrasOverlay]</texture>
+							<visible>System.HasAddon(script.videoextras)</visible>
+						</control>
+						<control type="image">
+							<left>161</left>
+							<top>31</top>
+							<width>65</width>
+							<height>65</height>
+							<include>OverlayVisibility0</include>
+						</control>
+						<control type="image">
+							<left>161</left>
+							<top>31</top>
+							<width>65</width>
+							<height>65</height>
+							<texture>overlayprogress.png</texture>
+							<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout condition="Skin.HasSetting(MovieSetsNoDiscArt)" height="320" width="282"><!-- Sem disco -->
+					<control type="group"> <!-- FOCUS ZOOM NO DISC-->
+						<animation effect="zoom" start="100" end="115" center="125,180" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
+						<control type="group">   <!-- focus clearcase no disc -->
+							<visible>Skin.HasSetting(clearcases)</visible>
+							<control type="image">
+								<left>6</left>
+								<top>31</top>
+								<width>220</width>
+								<height>330</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture background="true" diffuse="thumbs/movieposter_mask.png">$VAR[ListPosterVar]</texture>
+							</control>
+							<control type="image">
+								<left>-35</left>
+								<top>0</top>
+								<width>278</width>
+								<height>382</height>
+								<texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+								<bordersize>2</bordersize>
+							</control>
+							<control type="image">
+								<left>167</left>
+								<top>24</top>
+								<width>52</width>
+								<height>52</height>
+								<texture>$VAR[VideoextrasOverlay]</texture>
+								<visible>System.HasAddon(script.videoextras)</visible>
+							</control>
+							<control type="image">
+								<left>167</left>
+								<top>24</top>
+								<width>65</width>
+								<height>65</height>
+								<include>OverlayVisibility0</include>
+							</control>
+							<control type="image">
+								<left>167</left>
+								<top>24</top>
+								<width>65</width>
+								<height>65</height>
+								<texture>overlayprogress.png</texture>
+								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+							</control>
+						</control>
+						<control type="group">   <!-- nocase + bd + color cases no disc -->
+							<visible>!Skin.HasSetting(clearcases) + !Skin.HasSetting(Colorcases) | !Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)</visible>
+							<control type="image">
+								<left>6</left>
+								<top>31</top>
+								<width>220</width>
+								<height>330</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture>$VAR[ListPosterVar]</texture>
+							</control>
+							<control type="image">
+								<left>-35</left>
+								<top>-5</top>
+								<width>282</width>
+								<height>386</height>
+								<texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+								<bordersize>2</bordersize>
+								<visible>Skin.Hassetting(usecases)</visible>
+							</control>
+							<control type="image">
+								<left>161</left>
+								<top>31</top>
+								<width>52</width>
+								<height>52</height>
+								<texture>$VAR[VideoextrasOverlay]</texture>
+								<visible>System.HasAddon(script.videoextras)</visible>
+							</control>
+							<control type="image">
+								<left>161</left>
+								<top>31</top>
+								<width>65</width>
+								<height>65</height>
+								<include>OverlayVisibility0</include>
+							</control>
+							<control type="image">
+								<left>161</left>
+								<top>31</top>
+								<width>65</width>
+								<height>65</height>
+								<texture>overlayprogress.png</texture>
+								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+							</control>
+						</control>
+					</control>
+				</focusedlayout>
 
-			<control type="group">   <!-- nocase + bd + color cases with disc -->
-			<visible>[[!Skin.HasSetting(clearcases) + !Skin.HasSetting(Colorcases)] | [!Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)]] + !Skin.HasSetting(MovieSetsDiscsOnly)</visible>
-				<control type="image">
-					<left>6</left>
-					<top>31</top>
-					<width>220</width>
-					<height>330</height>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture>$VAR[ListPosterVar]</texture>
-				</control>
-				<control type="image">
-					<left>-36</left>
-					<top>-5</top>
-					<width>282</width>
-					<height>386</height>
-                    <texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
-                    <bordersize>2</bordersize>
-					<visible>Skin.Hassetting(usecases)</visible>
-			    </control>
-				<control type="image">
-					<left>161</left>
-					<top>31</top>
-					<width>52</width>
-					<height>52</height>
-					<texture>$VAR[VideoextrasOverlay]</texture>
-					<visible>System.HasAddon(script.videoextras)</visible>
-				</control>
-				<control type="image">
-					<left>161</left>
-                    <top>31</top>
-                    <width>65</width>
-                    <height>65</height>
-                    <include>OverlayVisibility0</include>
-				</control>
-				<control type="image">
-                    <left>161</left>
-                    <top>31</top>
-                    <width>65</width>
-                    <height>65</height>
-					<texture>overlayprogress.png</texture>
-					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-				</control>
-				</control>
+				<focusedlayout condition="!Skin.HasSetting(MovieSetsNoDiscArt)" height="320" width="352"><!-- Com disco -->
+					<control type="group">
+						<animation effect="zoom" start="100" end="115" center="125,180" time="400" easing="out" reversible="false" tween="cubic">Focus</animation>
+						<control type="image"><!-- Disc Poster 1 -->
+							<left>87</left>
+							<top>40</top>
+							<width>260</width>
+							<height>260</height>
+							<texture diffuse="cdart_diffuse.png" background="true">$INFO[ListItem.Art(discart)]</texture>
+							<fadetime>FanartCrossFadeTime</fadetime>
+							<aspectratio align="center" aligny="center">keep</aspectratio>
+							<animation effect="rotate" start="0" end="-360" center="auto" time="4000" delay="500" loop="true" reversible="false" condition="!Player.HasVideo">Conditional</animation>
+							<include>Animation_ViewsCDart</include>
+							<visible>!IsEmpty(ListItem.Art(discart))</visible>
+						</control>
+						<!--MAD - Fake Disc Art - Start -->
+						<control type="image">
+							<left>87</left>
+							<top>40</top>
+							<width>260</width>
+							<height>260</height>
+							<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+							<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[ListItem.Art(poster)]</texture>
+							<aspectratio align="center" aligny="center">keep</aspectratio>
+							<animation effect="rotate" start="0" end="-360" center="auto" time="4000" delay="500" loop="true" reversible="false" condition="!Player.HasVideo">Conditional</animation>
+							<include>Animation_ViewsCDart</include>
+							<visible>IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Skin.HasSetting(Fakediscart)</visible>
+						</control>
+						<control type="image">
+							<left>87</left>
+							<top>40</top>
+							<width>260</width>
+							<height>260</height>
+							<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+							<texture background="true">$VAR[FakeDiscArtOverlay]</texture>
+							<animation effect="rotate" start="0" end="-360" center="auto" time="4000" delay="500" loop="true" reversible="false" condition="!Player.HasVideo">Conditional</animation>
+							<include>Animation_ViewsCDart</include>
+							<visible>IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Skin.HasSetting(Fakediscart)</visible>
+						</control>
+						<control type="image">
+							<left>87</left>
+							<top>40</top>
+							<width>260</width>
+							<height>260</height>
+							<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+							<texture background="true">$VAR[FakeDischand]</texture>
+							<animation effect="rotate" start="0" end="-360" center="auto" time="4000" delay="500" loop="true" reversible="false" condition="!Player.HasVideo">Conditional</animation>
+							<include>Animation_ViewsCDart</include>
+							<visible>IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Skin.HasSetting(Fakedischandwriting) + !Skin.Hassetting(Fakehanddisccolor)</visible>
+						</control>
+						<control type="image">
+							<left>87</left>
+							<top>40</top>
+							<width>260</width>
+							<height>260</height>
+							<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+							<texture background="true">$VAR[FakeDischandcolor]</texture>
+							<animation effect="rotate" start="0" end="-360" center="auto" time="4000" delay="500" loop="true" reversible="false" condition="!Player.HasVideo">Conditional</animation>
+							<include>Animation_ViewsCDart</include>
+							<visible>IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Skin.HasSetting(Fakedischandwriting) + Skin.Hassetting(Fakehanddisccolor)</visible>
+						</control>
+						<control type="textbox">
+							<animation effect="rotate" start="02" end="-360" center="217,167" time="4000" delay="500" loop="true" reversible="false" condition="!Player.HasVideo">Conditional</animation>
+							<!--animation effect="rotate" end="-360" center="216,-8" time="6400" delay="1200" loop="false" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation-->
+							<top>200</top>
+							<left>117</left>
+							<width>190</width>
+							<height>170</height>
+							<align>center</align>
+							<font>Hand_16</font>
+							<visible>IsEmpty(ListItem.Art(discart)) + Skin.HasSetting(Fakedischandwriting) + IsEmpty(ListItem.Art(clearlogo))</visible>
+							<label> $INFO[ListItem.Label]</label>
+							<textcolor>black</textcolor>
+						</control>
+						<control type="group">
+							<animation effect="rotate" start="02" end="-360" center="217,167" time="4000" delay="500" loop="true" reversible="false" condition="!Player.HasVideo">Conditional</animation>
+							<!--animation effect="rotate" end="-360" center="222,164" time="6400" delay="1200" loop="false" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation-->
+							<top>70</top>
+							<left>152</left>
+							<width>140</width>
+							<height>70</height>
+							<aspectratio aligny="bottom">keep</aspectratio>
+							<visible>!IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(discart)) + Skin.HasSetting(Fakedischandwriting)</visible>
+							<control type="image">
+								<texture background="true" fallback="empty.png">$INFO[ListItem.Art(clearlogo)]</texture>
+							</control>
+						</control>
+						<!--MAD - Fale Disc Art - End -->
+						<control type="group">   <!-- clearcase  with disc -->
+							<visible>Skin.HasSetting(clearcases) + !Skin.HasSetting(MovieSetsDiscsOnly)</visible>
+							<control type="image">
+								<left>6</left>
+								<top>31</top>
+								<width>220</width>
+								<height>330</height>
+								<texture background="true" diffuse="thumbs/movieposter_mask.png">$VAR[ListPosterVar]</texture>
+							</control>
+							<control type="image">
+								<left>-35</left>
+								<top>0</top>
+								<width>279</width>
+								<height>382</height>
+								<texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+								<bordersize>2</bordersize>
+							</control>
+							<control type="image">
+								<left>167</left>
+								<top>24</top>
+								<width>52</width>
+								<height>52</height>
+								<texture>$VAR[VideoextrasOverlay]</texture>
+								<visible>System.HasAddon(script.videoextras)</visible>
+							</control>
+							<control type="image">
+								<left>167</left>
+								<top>24</top>
+								<width>65</width>
+								<height>65</height>
+								<include>OverlayVisibility0</include>
+							</control>
+							<control type="image">
+								<left>167</left>
+								<top>24</top>
+								<width>65</width>
+								<height>65</height>
+								<texture>overlayprogress.png</texture>
+								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+							</control>
+						</control>
+
+						<control type="group">   <!-- nocase + bd + color cases with disc -->
+							<visible>[[!Skin.HasSetting(clearcases) + !Skin.HasSetting(Colorcases)] | [!Skin.HasSetting(clearcases) + Skin.HasSetting(Colorcases)]] + !Skin.HasSetting(MovieSetsDiscsOnly)</visible>
+							<control type="image">
+								<left>6</left>
+								<top>31</top>
+								<width>220</width>
+								<height>330</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture>$VAR[ListPosterVar]</texture>
+							</control>
+							<control type="image">
+								<left>-36</left>
+								<top>-5</top>
+								<width>282</width>
+								<height>386</height>
+								<texture>thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+								<bordersize>2</bordersize>
+								<visible>Skin.Hassetting(usecases)</visible>
+							</control>
+							<control type="image">
+								<left>161</left>
+								<top>31</top>
+								<width>52</width>
+								<height>52</height>
+								<texture>$VAR[VideoextrasOverlay]</texture>
+								<visible>System.HasAddon(script.videoextras)</visible>
+							</control>
+							<control type="image">
+								<left>161</left>
+								<top>31</top>
+								<width>65</width>
+								<height>65</height>
+								<include>OverlayVisibility0</include>
+							</control>
+							<control type="image">
+								<left>161</left>
+								<top>31</top>
+								<width>65</width>
+								<height>65</height>
+								<texture>overlayprogress.png</texture>
+								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+							</control>
+						</control>
+					</control>
+				</focusedlayout>
+				<content target="video" sortby="year" sortorder="ascending">videodb://movies/sets/$INFO[ListItem.DBID]/</content>
 			</control>
-		</focusedlayout>
+		</control>
 
-			<content target="video">videodb://movies/sets/$INFO[ListItem.DBID]/</content>
+		<!-- Fullscreen Poster Art -->
+		<control type="group">
+			<left>-1280</left>
+			<top>15</top>
+			<animation effect="slide" start="0,0" end="1280,0" time="400" tween="cubic" easing="inout" condition="Control.HasFocus(160)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,-25" time="600" delay="1000" tween="cubic" easing="inout" condition="Control.HasFocus(160)">Conditional</animation>
+			<control type="image"><!-- Cover -->
+				<left>390</left>
+				<top>32</top>
+				<width>500</width>
+				<height>640</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true">$INFO[Container(900).ListItem.Icon]</texture>
+				<visible>Skin.HasSetting(coverzoom)</visible>
+			</control>
+			<control type="image"><!-- Movie -->
+				<left>390</left>
+				<top>32</top>
+				<width>500</width>
+				<height>640</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true">$INFO[Container(5801).ListItem.Icon]</texture>
+				<visible>Skin.HasSetting(moviezoom)</visible>
+			</control>
 		</control>
-	</control>
-
-	<!-- Fullscreen Poster Art -->
-	<control type="group">
-		<left>-1280</left>
-		<top>15</top>
-		<animation effect="slide" start="0,0" end="1280,0" time="400" tween="cubic" easing="inout" condition="Control.HasFocus(160)">Conditional</animation>
-		<animation effect="slide" start="0,0" end="0,-25" time="600" delay="1000" tween="cubic" easing="inout" condition="Control.HasFocus(160)">Conditional</animation>
-		<control type="image"><!-- Cover -->
-			<left>390</left>
-			<top>32</top>
-			<width>500</width>
-			<height>640</height>
-			<aspectratio>keep</aspectratio>
-			<texture background="true">$INFO[Container(900).ListItem.Icon]</texture>
-			<visible>Skin.HasSetting(coverzoom)</visible>
-		</control>
-		<control type="image"><!-- Movie -->
-			<left>390</left>
-			<top>32</top>
-			<width>500</width>
-			<height>640</height>
-			<aspectratio>keep</aspectratio>
-			<texture background="true">$INFO[Container(5801).ListItem.Icon]</texture>
-			<visible>Skin.HasSetting(moviezoom)</visible>
-		</control>
-	</control>
-	<!-- Fullscreen Poster Label -->
-	<control type="group">
-		<visible>Control.HasFocus(160)</visible>
-		<animation effect="slide" start="0,0" end="0,-80" time="600" delay="1000" tween="cubic" easing="inout" condition="Control.HasFocus(160)">Conditional</animation>
-		<control type="image">
-			<left>0</left>
-			<top>760</top>
-			<height>40</height>
-			<width>1280</width>
-			<texture>darkgrey.png</texture>
-			<colordiffuse>$VAR[TitleColorVar]</colordiffuse>
-			<include>Animation_DefaultGlass2</include>
-		</control>
-		<control type="label">
-			<left>0</left>
-			<top>760</top>
-			<height>40</height>
-			<width>1280</width>
-			<align>center</align>
-			<aligny>center</aligny>
-			<label>$INFO[Container(5801).ListItem.Label]</label>
-			<font>Font_24</font>
-			<textcolor>FFFFFAF0</textcolor>
-			<scroll>true</scroll>
-		</control>
-		<!--control type="image">
+		<!-- Fullscreen Poster Label -->
+		<control type="group">
+			<visible>Control.HasFocus(160)</visible>
+			<animation effect="slide" start="0,0" end="0,-80" time="600" delay="1000" tween="cubic" easing="inout" condition="Control.HasFocus(160)">Conditional</animation>
+			<control type="image">
+				<left>0</left>
+				<top>760</top>
+				<height>40</height>
+				<width>1280</width>
+				<texture>darkgrey.png</texture>
+				<colordiffuse>$VAR[TitleColorVar]</colordiffuse>
+				<include>Animation_DefaultGlass2</include>
+			</control>
+			<control type="label">
+				<left>0</left>
+				<top>760</top>
+				<height>40</height>
+				<width>1280</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[Container(5801).ListItem.Label]</label>
+				<font>Font_24</font>
+				<textcolor>FFFFFAF0</textcolor>
+				<scroll>true</scroll>
+			</control>
+			<!--control type="image">
 			<left>0</left>
 			<top>760</top>
 			<height>40</height>
@@ -1092,5 +1091,5 @@
 			<texture>gradient_small.png</texture>
 		</control-->
 		</control>
-</include>
+	</include>
 </includes>

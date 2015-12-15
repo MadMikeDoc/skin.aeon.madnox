@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
-    <coordinates>
-        <posx>0</posx>
-        <posy>0</posy>
-        <system>1</system>
-    </coordinates>
-    <controls>
-        <control type="group">
-            <control type="image" id="299">
-                <description>list</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width>0</width>
-                <height>0</height>
-                <texture>-</texture>
-            </control>
+	<coordinates>
+		<posx>0</posx>
+		<posy>0</posy>
+		<system>1</system>
+	</coordinates>
+	<controls>
+		<control type="group">
+			<control type="image" id="299">
+				<description>list</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>0</width>
+				<height>0</height>
+				<texture>-</texture>
+			</control>
 			<control type="image">
 				<posx>50</posx>
 				<posy>150</posy>
@@ -22,161 +22,161 @@
 				<height>490</height>
 				<texture>mooviz/lyr.bg.png</texture>
 			</control>
-            <control type="list" id="110">
-                <posx>85</posx>
-                <posy>170</posy>
-                <width>1354</width>
-                <height>460</height>
-                <onleft>111</onleft>
-                <onright>111</onright>
-                <onup>110</onup>
-                <ondown>110</ondown>
-                <pagecontrol>111</pagecontrol>
-                <scrolltime>200</scrolltime>
-                <animation effect="fade" time="800">WindowOpen</animation>
-                <animation effect="fade" time="160">WindowClose</animation>
-                <itemlayout height="45">
-                    <control type="label">
-                        <posx>1</posx>
-                        <width>1000</width>
-                        <height>45</height>
-                        <align>left</align>
-                        <font>Font_Reg32</font>
-                        <textcolor>white</textcolor>
-                        <label>$INFO[ListItem.Label]</label>
+			<control type="list" id="110">
+				<posx>85</posx>
+				<posy>170</posy>
+				<width>1354</width>
+				<height>460</height>
+				<onleft>111</onleft>
+				<onright>111</onright>
+				<onup>110</onup>
+				<ondown>110</ondown>
+				<pagecontrol>111</pagecontrol>
+				<scrolltime>200</scrolltime>
+				<animation effect="fade" time="800">WindowOpen</animation>
+				<animation effect="fade" time="160">WindowClose</animation>
+				<itemlayout height="45">
+					<control type="label">
+						<posx>1</posx>
+						<width>1000</width>
+						<height>45</height>
+						<align>left</align>
+						<font>Font_Reg32</font>
+						<textcolor>white</textcolor>
+						<label>$INFO[ListItem.Label]</label>
 						<shadowcolor>black</shadowcolor>
-                    </control>
-                </itemlayout>
-                <focusedlayout height="45">
-                    <control type="group">
-                        <animation effect="zoom" start="100" end="110" time="150" center="500,50">Focus</animation>
-                        <animation effect="zoom" end="100" start="110" time="150" center="500,50">UnFocus</animation>
-                        <control type="label">
-                            <posx>10</posx>
-                            <width>1000</width>
-                            <height>45</height>
-                            <align>left</align>
-                            <label>$INFO[ListItem.Label]</label>
-                            <font>Font_Reg32</font>
-                            <textcolor>$VAR[TitleColorVar]</textcolor>
-                            <visible>!Control.HasFocus(110)</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="45">
+					<control type="group">
+						<animation effect="zoom" start="100" end="110" time="150" center="500,50">Focus</animation>
+						<animation effect="zoom" end="100" start="110" time="150" center="500,50">UnFocus</animation>
+						<control type="label">
+							<posx>10</posx>
+							<width>1000</width>
+							<height>45</height>
+							<align>left</align>
+							<label>$INFO[ListItem.Label]</label>
+							<font>Font_Reg32</font>
+							<textcolor>$VAR[TitleColorVar]</textcolor>
+							<visible>!Control.HasFocus(110)</visible>
 							<shadowcolor>black</shadowcolor>
-                        </control>
-                        <control type="label">
-                            <posx>60</posx>
-                            <width>1000</width>
-                            <height>45</height>
-                            <align>left</align>
-                            <label fallback="--">$INFO[ListItem.Label]</label>
-                            <font>Font_Reg32</font>
-                            <textcolor>$VAR[TitleColorVar]</textcolor>
-                            <visible>Control.HasFocus(110)</visible>
+						</control>
+						<control type="label">
+							<posx>60</posx>
+							<width>1000</width>
+							<height>45</height>
+							<align>left</align>
+							<label fallback="--">$INFO[ListItem.Label]</label>
+							<font>Font_Reg32</font>
+							<textcolor>$VAR[TitleColorVar]</textcolor>
+							<visible>Control.HasFocus(110)</visible>
 							<shadowcolor>black</shadowcolor>
-                        </control>
-                    </control>
-                </focusedlayout>
-            </control>
-            <control type="spincontrol" id="111">
-                <posx>1800</posx>
-                <posy>6</posy>
-                <height>98</height>
-                <textoffsetx>0</textoffsetx>
-                <textcolor>grey</textcolor>
-                <spinposx>-4</spinposx>
-                <subtype>page</subtype>
-                <onleft>110</onleft>
-                <onright>110</onright>
-                <ondown>110</ondown>
-                <onup>110</onup>
-                <spinwidth>60</spinwidth>
-                <spinheight>92</spinheight>
-                <visible>Control.IsVisible(110)</visible>
-                <animation effect="fade" time="800">WindowOpen</animation>
-                <animation effect="fade" time="160">WindowClose</animation>
-            </control>
-            <control type="label">
-                <posx>82</posx>
-                <posy>150</posy>
-                <width>1754</width>
-                <height>478</height>
-                <align>center</align>
-                <label>31733</label>
-                <font>Font_Reg57_Caps</font>
-                <textcolor>white</textcolor>
-                <visible>Control.IsVisible(120) + ![Control.IsVisible(100) | Control.IsVisible(110)]</visible>
-            </control>
-            <control type="list" id="120">
-                <posx>482</posx>
-                <posy>90</posy>
-                <width>1354</width>
-                <height>450</height>
-                <onleft>121</onleft>
-                <onright>121</onright>
-                <onup>120</onup>
-                <ondown>120</ondown>
-                <pagecontrol>121</pagecontrol>
-                <scrolltime>200</scrolltime>
-                <animation effect="fade" time="800">WindowOpen</animation>
-                <animation effect="fade" time="160">WindowClose</animation>
-                <itemlayout height="60">
-                    <control type="image">
-                        <width>1754</width>
-                        <height>62</height>
-                        <texture>dialogs/setcontent_button_nofocus.png</texture>
-                    </control>
-                    <control type="label">
-                        <posx>52</posx>
-                        <width>1724</width>
-                        <height>60</height>
-                        <font>Font_Reg57</font>
-                        <textcolor>white</textcolor>
-                        <label>$INFO[ListItem.Label]</label>
-                    </control>
-                </itemlayout>
-                <focusedlayout height="60">
-                    <control type="image">
-                        <width>1754</width>
-                        <height>62</height>
-                        <texture>dialogs/setcontent_button_nofocus.png</texture>
-                        <visible>!Control.HasFocus(120)</visible>
-                    </control>
-                    <control type="image">
-                        <width>1754</width>
-                        <height>62</height>
-                        <texture>dialogs/setcontent_button_focus.png</texture>
-                        <visible>Control.HasFocus(120)</visible>
-                    </control>
-                    <control type="label">
-                        <posx>52</posx>
-                        <width>1724</width>
-                        <height>60</height>
-                        <font>Font_Reg57</font>
-                        <textcolor>white</textcolor>
-                        <label>$INFO[ListItem.Label]</label>
-                    </control>
-                </focusedlayout>
-            </control>
-            <control type="spincontrol" id="121">
-                <posx>1800</posx>
-                <posy>6</posy>
-                <height>98</height>
-                <textoffsetx>0</textoffsetx>
-                <textcolor>grey</textcolor>
-                <spinposx>-4</spinposx>
-                <subtype>page</subtype>
-                <onleft>120</onleft>
-                <onright>120</onright>
-                <ondown>120</ondown>
-                <onup>120</onup>
-                <visible>Control.IsVisible(120)</visible>
-                <spinwidth>60</spinwidth>
-                <spinheight>92</spinheight>
-                <animation effect="fade" time="800">WindowOpen</animation>
-                <animation effect="fade" time="160">WindowClose</animation>
-            </control>
-            <control type="label" id="200">
-                <include>HiddenObject</include>
-            </control>
-        </control>
-    </controls>
+						</control>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="spincontrol" id="111">
+				<posx>1800</posx>
+				<posy>6</posy>
+				<height>98</height>
+				<textoffsetx>0</textoffsetx>
+				<textcolor>grey</textcolor>
+				<spinposx>-4</spinposx>
+				<subtype>page</subtype>
+				<onleft>110</onleft>
+				<onright>110</onright>
+				<ondown>110</ondown>
+				<onup>110</onup>
+				<spinwidth>60</spinwidth>
+				<spinheight>92</spinheight>
+				<visible>Control.IsVisible(110)</visible>
+				<animation effect="fade" time="800">WindowOpen</animation>
+				<animation effect="fade" time="160">WindowClose</animation>
+			</control>
+			<control type="label">
+				<posx>82</posx>
+				<posy>150</posy>
+				<width>1754</width>
+				<height>478</height>
+				<align>center</align>
+				<label>31733</label>
+				<font>Font_Reg57_Caps</font>
+				<textcolor>white</textcolor>
+				<visible>Control.IsVisible(120) + ![Control.IsVisible(100) | Control.IsVisible(110)]</visible>
+			</control>
+			<control type="list" id="120">
+				<posx>482</posx>
+				<posy>90</posy>
+				<width>1354</width>
+				<height>450</height>
+				<onleft>121</onleft>
+				<onright>121</onright>
+				<onup>120</onup>
+				<ondown>120</ondown>
+				<pagecontrol>121</pagecontrol>
+				<scrolltime>200</scrolltime>
+				<animation effect="fade" time="800">WindowOpen</animation>
+				<animation effect="fade" time="160">WindowClose</animation>
+				<itemlayout height="60">
+					<control type="image">
+						<width>1754</width>
+						<height>62</height>
+						<texture>dialogs/setcontent_button_nofocus.png</texture>
+					</control>
+					<control type="label">
+						<posx>52</posx>
+						<width>1724</width>
+						<height>60</height>
+						<font>Font_Reg57</font>
+						<textcolor>white</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout height="60">
+					<control type="image">
+						<width>1754</width>
+						<height>62</height>
+						<texture>dialogs/setcontent_button_nofocus.png</texture>
+						<visible>!Control.HasFocus(120)</visible>
+					</control>
+					<control type="image">
+						<width>1754</width>
+						<height>62</height>
+						<texture>dialogs/setcontent_button_focus.png</texture>
+						<visible>Control.HasFocus(120)</visible>
+					</control>
+					<control type="label">
+						<posx>52</posx>
+						<width>1724</width>
+						<height>60</height>
+						<font>Font_Reg57</font>
+						<textcolor>white</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="spincontrol" id="121">
+				<posx>1800</posx>
+				<posy>6</posy>
+				<height>98</height>
+				<textoffsetx>0</textoffsetx>
+				<textcolor>grey</textcolor>
+				<spinposx>-4</spinposx>
+				<subtype>page</subtype>
+				<onleft>120</onleft>
+				<onright>120</onright>
+				<ondown>120</ondown>
+				<onup>120</onup>
+				<visible>Control.IsVisible(120)</visible>
+				<spinwidth>60</spinwidth>
+				<spinheight>92</spinheight>
+				<animation effect="fade" time="800">WindowOpen</animation>
+				<animation effect="fade" time="160">WindowClose</animation>
+			</control>
+			<control type="label" id="200">
+				<include>HiddenObject</include>
+			</control>
+		</control>
+	</controls>
 </window>

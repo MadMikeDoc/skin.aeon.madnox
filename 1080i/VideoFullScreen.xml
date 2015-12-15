@@ -8,7 +8,7 @@
 			<animation effect="slide" end="0,135" time="160" tween="cubic" condition="!VideoPlayer.Content(LiveTV) + Window.IsVisible(fullscreeninfo) + IsEmpty(Window(home).Property(morefullscreeninfo)) + !Player.Paused">Conditional</animation>
 			<!-- codec infos -->
 			<control type="image">
-			<visible>!VideoPlayer.Content(LiveTV)</visible>
+				<visible>!VideoPlayer.Content(LiveTV)</visible>
 				<left>0</left>
 				<top>0</top>
 				<width>1920</width>
@@ -65,7 +65,7 @@
 					<textcolor>grey2</textcolor>
 				</control>
 			</control>
-		    <control type="group">
+			<control type="group">
 				<left>-20</left>
 				<top>320</top>
 				<visible>VideoPlayer.Content(LiveTV) + System.GetBool(pvrplayback.signalquality)</visible>
@@ -165,6 +165,14 @@
 					<font>Font_Reg28</font>
 					<textcolor>grey2</textcolor>
 				</control>
+				<control type="progress_cache">
+					<description>Progressbar Cache</description>
+					<posx>270</posx>
+					<posy>137</posy>
+					<width>910</width>
+					<height>14</height>
+					<info>PVR.ActStreamProgrSignal</info>
+				</control>
 				<control type="progress">
 					<description>Progressbar</description>
 					<posx>270</posx>
@@ -196,6 +204,14 @@
 					<label>$LOCALIZE[19009]:</label>
 					<font>Font_Reg28</font>
 					<textcolor>grey2</textcolor>
+				</control>
+				<control type="progress_cache">
+					<description>Progressbar Cache</description>
+					<posx>270</posx>
+					<posy>167</posy>
+					<width>910</width>
+					<height>14</height>
+					<info>PVR.ActStreamProgrSNR</info>
 				</control>
 				<control type="progress">
 					<description>Progressbar</description>
@@ -291,41 +307,41 @@
 				</control>
 			</control>
 		</control>
-			<control type="group" id="1">
-                 <animation type="WindowOpen">
-                    <effect type="fade" time="160" end="100" />
-                    <effect type="slide" time="160" start="0,-98" end="0,0" tween="cubic" />
-                </animation>
-                <animation type="WindowClose">
-                    <effect type="fade" time="160" start="100" end="0" />
-                    <effect type="slide" time="160" end="0,-98" easing="in" tween="cubic" />
-                </animation>
-                <animation type="Visible">
-                    <effect type="fade" time="160" end="100" />
-                    <effect type="slide" time="160" start="0,-98" end="0,0" tween="cubic" />
-                </animation>
-                <animation type="Hidden">
-                    <effect type="fade" time="160" start="100" end="0" />
-                    <effect type="slide" time="160" end="0,-98" easing="in" tween="cubic" />
-                </animation>
-                <visible>[Player.Seeking | [Player.DisplayAfterSeek + [!IsEmpty(Player.SeekOffset) | !IsEmpty(Player.Chapter)]] | Player.Forwarding | Player.Rewinding] + ![Player.Paused|[Player.Paused+Player.Seeking] | [Player.Paused+Player.DisplayAfterSeek]]</visible>
-            <control type="image" id="1">
-                <posx>704</posx>
-                <width>513</width>
-                <height>87</height>
-                <texture flipy="true">osd/osd_top_bar.png</texture>
-                <visible>[[Player.Paused + !Player.Caching] + !Player.Seeking + !Player.DisplayAfterSeek] | [[Player.Paused + Player.Caching] + !Player.Seeking] | Player.Seeking|[Player.DisplayAfterSeek + ![player.forwarding | player.rewinding] + !IsEmpty(Player.SeekOffset)]</visible>
-            </control>
-            <control type="label" id="1">
-                <posx>750</posx>
-                <width>420</width>
-                <height>42</height>
-                <align>center</align>
-                <label>$VAR[VideoPlayerSeekVar]</label>
-                <font>Font_Reg33_Caps</font>
-                <shadowcolor>88e5e5e5</shadowcolor>
-                <textcolor>FF363636</textcolor>
-            </control>
+		<control type="group" id="1">
+			<animation type="WindowOpen">
+				<effect type="fade" time="160" end="100" />
+				<effect type="slide" time="160" start="0,-98" end="0,0" tween="cubic" />
+			</animation>
+			<animation type="WindowClose">
+				<effect type="fade" time="160" start="100" end="0" />
+				<effect type="slide" time="160" end="0,-98" easing="in" tween="cubic" />
+			</animation>
+			<animation type="Visible">
+				<effect type="fade" time="160" end="100" />
+				<effect type="slide" time="160" start="0,-98" end="0,0" tween="cubic" />
+			</animation>
+			<animation type="Hidden">
+				<effect type="fade" time="160" start="100" end="0" />
+				<effect type="slide" time="160" end="0,-98" easing="in" tween="cubic" />
+			</animation>
+			<visible>[Player.Seeking | [Player.DisplayAfterSeek + [!IsEmpty(Player.SeekOffset) | !IsEmpty(Player.Chapter)]] | Player.Forwarding | Player.Rewinding] + ![Player.Paused|[Player.Paused+Player.Seeking] | [Player.Paused+Player.DisplayAfterSeek]]</visible>
+			<control type="image" id="1">
+				<posx>704</posx>
+				<width>513</width>
+				<height>87</height>
+				<texture flipy="true">osd/osd_top_bar.png</texture>
+				<visible>[[Player.Paused + !Player.Caching] + !Player.Seeking + !Player.DisplayAfterSeek] | [[Player.Paused + Player.Caching] + !Player.Seeking] | Player.Seeking|[Player.DisplayAfterSeek + ![player.forwarding | player.rewinding] + !IsEmpty(Player.SeekOffset)]</visible>
+			</control>
+			<control type="label" id="1">
+				<posx>750</posx>
+				<width>420</width>
+				<height>42</height>
+				<align>center</align>
+				<label>$VAR[VideoPlayerSeekVar]</label>
+				<font>Font_Reg33_Caps</font>
+				<shadowcolor>88e5e5e5</shadowcolor>
+				<textcolor>FF363636</textcolor>
+			</control>
 		</control>
 		<control type="group" id="2">
 			<visible>[Player.ShowInfo|Player.Forwarding|Player.Seeking] + ![Window.IsVisible(fullscreeninfo) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(videobookmarks) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)]</visible>

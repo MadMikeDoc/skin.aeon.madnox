@@ -12,20 +12,20 @@
 				<include>FullscreenDimensions</include>
 				<include>Animation_WindowFade200</include>
 			</control>
-	<!-- Artist Clearlogo -->
-		<control type="image" id="8100">
-			<left>50</left>
-			<top>25</top>
-			<width>490</width>
-			<height>210</height>
-			<fadetime>100</fadetime>
-			<aspectratio align="left" aligny="bottom">keep</aspectratio>
-			<texture background="true">$INFO[Window(Home).Property(SkinHelper.Music.LogoArt)]</texture>
-			<!--texture background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist,,/logo.png]</texture-->
-		</control>
-	<!-- End Artist Clearlogo -->
-	<!-- Fake Artist Clearlogo -->
-		<control type="label">
+			<!-- Artist Clearlogo -->
+			<control type="image" id="8100">
+				<left>50</left>
+				<top>25</top>
+				<width>490</width>
+				<height>210</height>
+				<fadetime>100</fadetime>
+				<aspectratio align="left" aligny="bottom">keep</aspectratio>
+				<texture background="true">$INFO[Window(Home).Property(SkinHelper.Music.LogoArt)]</texture>
+				<!--texture background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist,,/logo.png]</texture-->
+			</control>
+			<!-- End Artist Clearlogo -->
+			<!-- Fake Artist Clearlogo -->
+			<control type="label">
 				<left>40</left>
 				<top>25</top>
 				<width>670</width>
@@ -38,210 +38,210 @@
 				<label>$INFO[ListItem.Artist]</label>
 				<scroll>true</scroll>
 				<visible>IsEmpty(Window(Home).Property(SkinHelper.Music.LogoArt))</visible>
-		</control>
-	<!-- End of Fake Artist Clearlogo -->
-	<!-- Album Info Box-->
-		<control type="group">
-			<left>40</left>
-			<top>240</top>
-			<width>650</width>
-			<height>270</height>
-			<textcolor>$VAR[TitleColorVar]</textcolor>
-	<!-- Album Info-->
-			<control type="grouplist">
-				<left>2</left>
-				<itemgap>-40</itemgap>
-				<visible>Container.Content(Albums)</visible>
-				<control type="label">
-					<width>480</width>
-					<height>80</height>
-					<textcolor>white</textcolor>
-					<label>[COLOR $VAR[FocusTextureColorVar]]Album: [/COLOR] $INFO[ListItem.Album]</label>
-					<include>KodiFlixButtonsValues</include>
-					<visible>!IsEmpty(ListItem.Album)</visible>
-				</control>
-				<control type="label">
-					<label>[COLOR $VAR[FocusTextureColorVar]]Genre: [/COLOR] [COLOR white]$INFO[ListItem.Genre][/COLOR]</label>
-					<width>650</width>
-					<include>KodiFlixButtonsValues</include>
-					<visible>!IsEmpty(ListItem.Genre)</visible>
-				</control>
 			</control>
-			<control type="textbox">
-				<top>80</top>
-				<left>15</left>
+			<!-- End of Fake Artist Clearlogo -->
+			<!-- Album Info Box-->
+			<control type="group">
+				<left>40</left>
+				<top>240</top>
 				<width>650</width>
-				<label>[COLOR $VAR[FocusTextureColorVar]]TrackList: [/COLOR]</label>
-				<include>KodiFlixButtonsValues</include>
-				<visible>!StringCompare(ListItem.Label,..) + Container.Content(albums)</visible>
-			</control>
-			<control type="textbox">
-				<label>[COLOR white]$INFO[Window(Home).Property(SkinHelper.Music.TrackList)][/COLOR]</label>
-				<top>80</top>
-				<left>130</left>
-				<width>610</width>
-				<height>160</height>
-				<align>left</align>
-				<include>KodiFlixButtonsValues</include>
-				<autoscroll time="3000" delay="4000" repeat="5000"></autoscroll>
-				<visible>!StringCompare(ListItem.Label,..) + Container.Content(albums)</visible>
-			</control>
-	<!-- End Album Info -->
-	<!--Album Song list-->
-		<control type="group">
-			<left>0</left>
-			<top>130</top>
-			<visible>Control.IsVisible(810)</visible>
-			<include>VisibleFadeEffect</include>
-			<control type="textbox" id="70">
-				<label>$INFO[Window(Home).Property(SkinHelper.Music.Info)]</label>
-				<!--label>$VAR[MusicPlotVar]</label-->
-				<left>15</left>
-				<top>120</top>
-				<width>580</width>
-				<height>160</height>
-				<textcolor>white</textcolor>
-				<font>font12_textbox</font>
-				<pagecontrol>63</pagecontrol>
-				<include>ShowCaseInfoPanelButtonsValues</include>
-				<autoscroll time="3000" delay="4000" repeat="5000"></autoscroll>
-				<visible>!StringCompare(ListItem.Label,..)</visible>
-			</control>
-		</control>
-	<!-- End of Album Song List -->
+				<height>270</height>
+				<textcolor>$VAR[TitleColorVar]</textcolor>
+				<!-- Album Info-->
+				<control type="grouplist">
+					<left>2</left>
+					<itemgap>-40</itemgap>
+					<visible>Container.Content(Albums)</visible>
+					<control type="label">
+						<width>480</width>
+						<height>80</height>
+						<textcolor>white</textcolor>
+						<label>[COLOR $VAR[FocusTextureColorVar]]Album: [/COLOR] $INFO[ListItem.Album]</label>
+						<include>KodiFlixButtonsValues</include>
+						<visible>!IsEmpty(ListItem.Album)</visible>
+					</control>
+					<control type="label">
+						<label>[COLOR $VAR[FocusTextureColorVar]]Genre: [/COLOR] [COLOR white]$INFO[ListItem.Genre][/COLOR]</label>
+						<width>650</width>
+						<include>KodiFlixButtonsValues</include>
+						<visible>!IsEmpty(ListItem.Genre)</visible>
+					</control>
+				</control>
+				<control type="textbox">
+					<top>80</top>
+					<left>15</left>
+					<width>650</width>
+					<label>[COLOR $VAR[FocusTextureColorVar]]TrackList: [/COLOR]</label>
+					<include>KodiFlixButtonsValues</include>
+					<visible>!StringCompare(ListItem.Label,..) + Container.Content(albums)</visible>
+				</control>
+				<control type="textbox">
+					<label>[COLOR white]$INFO[Window(Home).Property(SkinHelper.Music.TrackList)][/COLOR]</label>
+					<top>80</top>
+					<left>130</left>
+					<width>610</width>
+					<height>160</height>
+					<align>left</align>
+					<include>KodiFlixButtonsValues</include>
+					<autoscroll time="3000" delay="4000" repeat="5000"></autoscroll>
+					<visible>!StringCompare(ListItem.Label,..) + Container.Content(albums)</visible>
+				</control>
+				<!-- End Album Info -->
+				<!--Album Song list-->
+				<control type="group">
+					<left>0</left>
+					<top>130</top>
+					<visible>Control.IsVisible(810)</visible>
+					<include>VisibleFadeEffect</include>
+					<control type="textbox" id="70">
+						<label>$INFO[Window(Home).Property(SkinHelper.Music.Info)]</label>
+						<!--label>$VAR[MusicPlotVar]</label-->
+						<left>15</left>
+						<top>120</top>
+						<width>580</width>
+						<height>160</height>
+						<textcolor>white</textcolor>
+						<font>font12_textbox</font>
+						<pagecontrol>63</pagecontrol>
+						<include>ShowCaseInfoPanelButtonsValues</include>
+						<autoscroll time="3000" delay="4000" repeat="5000"></autoscroll>
+						<visible>!StringCompare(ListItem.Label,..)</visible>
+					</control>
+				</control>
+				<!-- End of Album Song List -->
 
-	<!-- List View -->
-			<control type="fixedlist" id="810">
-				<left>-130</left>
-				<top>300</top>
-				<width>2100</width>
-				<height>750</height>
-				<onup>SetProperty(MediaMenu,True,home)</onup>
-				<onup>SetFocus(9000)</onup>
-				<onleft>810</onleft>
-				<onright>810</onright>
-				<ondown>75</ondown>
-				<orientation>horizontal</orientation>
-				<viewtype label="MusicFlix">BigWrap</viewtype>
-				<pagecontrol>75</pagecontrol>
-				<preloaditems>2</preloaditems>
-				<scrolltime tween="quadratic">400</scrolltime>
-				<focusposition>1</focusposition>
-				<visible>Container.Content(artists) | Container.Content(Albums)</visible>
-	<!-- Square Thumbs -->
-				<itemlayout width="300" height="300" condition="Control.IsVisible(810)">
-				<control type="image">
-					<left>-141</left>
-					<top>120</top>
-					<width>303</width>
-					<height>303</height>
-					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture border="30">views/other/panel.png</texture>
+				<!-- List View -->
+				<control type="fixedlist" id="810">
+					<left>-130</left>
+					<top>300</top>
+					<width>2100</width>
+					<height>750</height>
+					<onup>SetProperty(MediaMenu,True,home)</onup>
+					<onup>SetFocus(9000)</onup>
+					<onleft>810</onleft>
+					<onright>810</onright>
+					<ondown>75</ondown>
+					<orientation>horizontal</orientation>
+					<viewtype label="MusicFlix">BigWrap</viewtype>
+					<pagecontrol>75</pagecontrol>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic">400</scrolltime>
+					<focusposition>1</focusposition>
+					<visible>Container.Content(artists) | Container.Content(Albums)</visible>
+					<!-- Square Thumbs -->
+					<itemlayout width="300" height="300" condition="Control.IsVisible(810)">
+						<control type="image">
+							<left>-141</left>
+							<top>120</top>
+							<width>303</width>
+							<height>303</height>
+							<aspectratio align="center" aligny="center">stretch</aspectratio>
+							<texture border="30">views/other/panel.png</texture>
+						</control>
+						<control type="image">
+							<left>-141</left>
+							<top>420</top>
+							<width>303</width>
+							<height>303</height>
+							<aspectratio align="center" aligny="center">stretch</aspectratio>
+							<texture border="30" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/other/panel2.png</texture>
+						</control>
+						<control type="image">
+							<left>-141</left>
+							<top>122</top>
+							<width>299</width>
+							<height>299</height>
+							<aspectratio align="center" aligny="center">stretch</aspectratio>
+							<texture background="true" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar]</texture>
+							<bordertexture border="15">thumbs/thumb_border.png</bordertexture>
+							<bordersize>8</bordersize>
+						</control>
+						<control type="image">
+							<left>-141</left>
+							<top>664</top>
+							<width>299</width>
+							<height>299</height>
+							<aspectratio align="center" aligny="center">stretch</aspectratio>
+							<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar]</texture>
+							<bordersize>8</bordersize>
+						</control>
+					</itemlayout>
+					<!-- Square Thumbs Focus-->
+					<focusedlayout width="300" height="300" condition="Control.IsVisible(810)">
+						<control type="image">
+							<left>-141</left>
+							<top>120</top>
+							<width>303</width>
+							<height>303</height>
+							<aspectratio align="center" aligny="center">stretch</aspectratio>
+							<texture border="30">views/other/panel.png</texture>
+						</control>
+						<control type="image">
+							<left>-141</left>
+							<top>420</top>
+							<width>303</width>
+							<height>303</height>
+							<aspectratio align="center" aligny="center">stretch</aspectratio>
+							<texture border="30" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/other/panel2.png</texture>
+						</control>
+						<control type="image">
+							<left>-141</left>
+							<top>122</top>
+							<width>299</width>
+							<height>299</height>
+							<aspectratio align="center" aligny="center">stretch</aspectratio>
+							<texture background="true" fallback="thumbs/fallback_poster_tp.png">$VAR[ListAlbumVar]</texture>
+							<bordertexture border="15">thumbs/thumb_border.png</bordertexture>
+							<bordersize>8</bordersize>
+						</control>
+						<control type="image">
+							<left>-141</left>
+							<top>664</top>
+							<width>299</width>
+							<height>299</height>
+							<aspectratio align="center" aligny="center">stretch</aspectratio>
+							<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_poster_tp.png">$VAR[ListAlbumVar]</texture>
+							<bordersize>8</bordersize>
+						</control>
+					</focusedlayout>
+					<!-- End of Square Thumbs -->
 				</control>
-				<control type="image">
-					<left>-141</left>
-					<top>420</top>
-					<width>303</width>
-					<height>303</height>
-					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture border="30" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/other/panel2.png</texture>
+				<!-- Scrollbar -->
+				<control type="scrollbar" id="75">
+					<left>0</left>
+					<top>960</top>
+					<width>FullScreenWidth</width>
+					<height>12</height>
+					<onup>810</onup>
+					<ondown>noop</ondown>
+					<texturesliderbackground border="1">-</texturesliderbackground>
+					<texturesliderbar border="6,0,6,0">scrollbar/texturesliderbar_hor.png</texturesliderbar>
+					<texturesliderbarfocus border="6,0,6,0">scrollbar/texturesliderbarfocus_hor.png</texturesliderbarfocus>
+					<textureslidernib>-</textureslidernib>
+					<textureslidernibfocus>-</textureslidernibfocus>
+					<showonepage>false</showonepage>
+					<orientation>horizontal</orientation>
+					<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(75) + !Container.Scrolling">Conditional</animation>
 				</control>
-				<control type="image">
-					<left>-141</left>
-					<top>122</top>
-					<width>299</width>
-					<height>299</height>
-					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture background="true" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar]</texture>
-					<bordertexture border="15">thumbs/thumb_border.png</bordertexture>
-					<bordersize>8</bordersize>
-				</control>
-				<control type="image">
-					<left>-141</left>
-					<top>664</top>
-					<width>299</width>
-					<height>299</height>
-					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar]</texture>
-					<bordersize>8</bordersize>
-				</control>
-				</itemlayout>
-		<!-- Square Thumbs Focus-->
-				<focusedlayout width="300" height="300" condition="Control.IsVisible(810)">
-				<control type="image">
-					<left>-141</left>
-					<top>120</top>
-					<width>303</width>
-					<height>303</height>
-					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture border="30">views/other/panel.png</texture>
-				</control>
-				<control type="image">
-					<left>-141</left>
-					<top>420</top>
-					<width>303</width>
-					<height>303</height>
-					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture border="30" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/other/panel2.png</texture>
-				</control>
-				<control type="image">
-					<left>-141</left>
-					<top>122</top>
-					<width>299</width>
-					<height>299</height>
-					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture background="true" fallback="thumbs/fallback_poster_tp.png">$VAR[ListAlbumVar]</texture>
-					<bordertexture border="15">thumbs/thumb_border.png</bordertexture>
-					<bordersize>8</bordersize>
-				</control>
-				<control type="image">
-					<left>-141</left>
-					<top>664</top>
-					<width>299</width>
-					<height>299</height>
-					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_poster_tp.png">$VAR[ListAlbumVar]</texture>
-					<bordersize>8</bordersize>
-				</control>
-				</focusedlayout>
-	<!-- End of Square Thumbs -->
-	</control>
-		<!-- Scrollbar -->
-			<control type="scrollbar" id="75">
-				<left>0</left>
-				<top>960</top>
-				<width>FullScreenWidth</width>
-				<height>12</height>
-				<onup>810</onup>
-				<ondown>noop</ondown>
-				<texturesliderbackground border="1">-</texturesliderbackground>
-				<texturesliderbar border="6,0,6,0">scrollbar/texturesliderbar_hor.png</texturesliderbar>
-				<texturesliderbarfocus border="6,0,6,0">scrollbar/texturesliderbarfocus_hor.png</texturesliderbarfocus>
-				<textureslidernib>-</textureslidernib>
-				<textureslidernibfocus>-</textureslidernibfocus>
-				<showonepage>false</showonepage>
-				<orientation>horizontal</orientation>
-				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(75) + !Container.Scrolling">Conditional</animation>
 			</control>
+			<!-- End Scrollbar -->
+			<!-- Item Highlight-->
+			<control type="image">
+				<left>66.5</left>
+				<top>660</top>
+				<width>303</width>
+				<height>303</height>
+				<aspectratio align="center" aligny="center">stretch</aspectratio>
+				<texture border="15">views/addonwall_select.png</texture>
+				<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				<visible>Control.IsVisible(810)</visible>
+			</control>
+			<!-- End Item Highlight -->
 		</control>
-	<!-- End Scrollbar -->
-	<!-- Item Highlight-->
-		<control type="image">
-			<left>66.5</left>
-			<top>660</top>
-			<width>303</width>
-			<height>303</height>
-			<aspectratio align="center" aligny="center">stretch</aspectratio>
-			<texture border="15">views/addonwall_select.png</texture>
-            <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-			<visible>Control.IsVisible(810)</visible>
-		</control>
-	<!-- End Item Highlight -->
-	</control>
-	<!--End Media Flags-->
+		<!--End Media Flags-->
 	</include>
 </includes>
 <!-- MusicFlix Album view by UsefulG -->
-	<!-- Credit and Thanks to MikeSilvo164 for his Aeon Nox Silvo skin on which this is based-->
-	<!-- Credit and Thanks to Mike_Doc and Schimi2k for their Madnox Kodiflix view which I love and has inspired this view and has a good chunk of their code in it -->
-	<!-- Credit to Butchabay's Cirrus Extended skin for showing me how to get Logos and ExtraFanart associated with the Launcher items -->
+<!-- Credit and Thanks to MikeSilvo164 for his Aeon Nox Silvo skin on which this is based-->
+<!-- Credit and Thanks to Mike_Doc and Schimi2k for their Madnox Kodiflix view which I love and has inspired this view and has a good chunk of their code in it -->
+<!-- Credit to Butchabay's Cirrus Extended skin for showing me how to get Logos and ExtraFanart associated with the Launcher items -->
