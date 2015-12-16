@@ -2227,6 +2227,7 @@
 		<value>$INFO[ListItem.VideoResolution]p.png</value>
 	</variable-->
 	<variable name="MusicShowcaseItem-6Var">
+		<value condition="Stringcompare(ListItem.label,..)">DefaultFolderBackList.png</value>
 		<value condition="Container.Content(genres)">$INFO[ListItem(-6).Label,special://skin/extras/genre/music/icons/,.jpg]</value>
 		<value condition="Container.Content(years)">$INFO[ListItem(-6).Label,special://skin/extras/year/music/icons/,.jpg]</value>
 		<value>$INFO[ListItem(-6).Icon]</value>
@@ -2476,6 +2477,7 @@
 	</variable>
 
 	<variable name="BannerVar">
+		<value condition="Stringcompare(ListItem.label,..)">DefaultFolderBackBanner.png</value>
 		<value condition="!IsEmpty(ListItem.Art(banner))">$INFO[ListItem.Art(banner)]</value>
 		<value condition="!IsEmpty(ListItem.Art(tvshow.banner))">$INFO[ListItem.Art(tvshow.banner)]</value>
 		<value condition="!Skin.HasSetting(UseTVShowLocalCovers) + IsEmpty(ListItem.Art(banner)) + !IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
@@ -2483,12 +2485,14 @@
 		<value>common/bgcolor.png</value>
 	</variable>
 	<variable name="ListAlbumVar">
+		<value condition="Stringcompare(ListItem.label,..)">DefaultFolderBackList.png</value>
 		<value condition="Container.Content(countries)">$VAR[ColorFlagsLanguage]$INFO[ListItem.Label,,.png]</value>
 		<value condition="Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/genre/music/icons/,.jpg]</value>
 		<value condition="Container.Content(years)">$INFO[ListItem.Label,special://skin/extras/year/music/icons/,.jpg]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 	<variable name="ThumbnailVar">
+		<value condition="Stringcompare(ListItem.label,..)">DefaultFolderBackList.png</value>
 		<value condition="Container.Content(countries)">$VAR[ColorFlagsLanguage]$INFO[ListItem.Label,,.png]</value>
 		<value condition="Window.IsActive(musiclibrary) + Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/genre/music/icons/,.jpg]</value>
 		<value condition="Window.IsActive(musiclibrary) + Container.Content(years)">$INFO[ListItem.Label,special://skin/extras/year/music/icons/,.jpg]</value>
