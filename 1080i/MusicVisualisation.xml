@@ -12,6 +12,7 @@
     <onunload>CancelAlarm(Vis4,true)</onunload>
     <onunload>CancelAlarm(BGMoveViz,true)</onunload> -->
     <onunload>Skin.Reset(vispanelrotate)</onunload>
+	<onload>RunScript(script.artistslideshow)</onload>
     <onload condition="!Skin.HasSetting(AltMusicVizLayout) + !Skin.HasSetting(ThirdMusicVizLayout)">RunScript(script.cu.lrclyrics)</onload>
 	<controls>
         <control type="label" id="4322">
@@ -1047,8 +1048,8 @@
                         <posy>-270</posy>
                         <height>400</height>
                         <width>500</width>
-                        <aspectratio scalediffuse="false" align="left">keep</aspectratio>
-                        <texture diffuse="thumbs/cdcover_mask2.png">thumbs/cdcover_glass_noreflect.png</texture>
+						<aspectratio align="left">keep</aspectratio>                       
+						<texture diffuse="thumbs/cdcover_mask2.png">thumbs/cdcover_glass_noreflect.png</texture>
                     </control>
                     <control type="image">
                         <posx>42</posx>
@@ -1175,7 +1176,7 @@
 					</control>
 				<control type="label">
                         <posx>1828</posx>
-                        <posy>-92</posy>
+                        <posy>-80</posy>
                         <width>1280</width>
                         <height>45</height>
 						<align>right</align>
@@ -1185,7 +1186,7 @@
                         <scroll>true</scroll>
                         <include>Animation_VisibleChange400</include>
                         <!--label>$INFO[MusicPlayer.TrackNumber,,: ][COLOR=white]$INFO[MusicPlayer.Title][/COLOR]</label-->
-						<label>[COLOR=white]$INFO[MusicPlayer.Title, “,”][/COLOR]</label>
+						<label>[COLOR=white]$INFO[MusicPlayer.Title, “ , ”][/COLOR]</label>
 				</control>
 				<control type="label">
                         <posx>1828</posx>
