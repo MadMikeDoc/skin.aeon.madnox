@@ -266,14 +266,14 @@
 								<top>514</top>
 								<width>205</width>
 								<height>340</height>
-								<texture flipy="true" fallback="DefaultVideoBigPoster.png" diffuse="thumbs/reflection_diffuse_sq.png" background="true">$VAR[ListPosterVar]</texture>
+								<texture flipy="true" fallback="thumbs/fallback_poster_tp_solid.jpg" diffuse="thumbs/reflection_diffuse_sq.png" background="true">$VAR[ListPosterVar]</texture>
 							</control>
 							<control type="image">
 								<left>-75</left>
 								<top>163</top>
 									<width>207</width>
 								<height>333</height>
-								<texture fallback="DefaultVideoBigPoster.png" diffuse="thumbs/movieposter_mask.png" background="true">$VAR[ListPosterVar]</texture>
+								<texture fallback="thumbs/fallback_poster_tp_solid.jpg" diffuse="thumbs/movieposter_mask.png" background="true">$VAR[ListPosterVar]</texture>
 								<aspectratio>stretch</aspectratio>
 							</control>
 							<control type="image">
@@ -334,7 +334,7 @@
 								<top>66</top>
 								<width>277</width>
 								<height>470</height>
-								<texture fallback="DefaultVideoBigPoster.png" diffuse="thumbs/movieposter_mask.png" background="true">$VAR[ListPosterVar]</texture>
+								<texture fallback="thumbs/fallback_poster_tp_solid.jpg" diffuse="thumbs/movieposter_mask.png" background="true">$VAR[ListPosterVar]</texture>
 								<aspectratio scalediffuse="false">stretch</aspectratio>
 							</control>
 							<control type="image">
@@ -342,7 +342,7 @@
 								<top>556</top>
 								<width>276</width>
 								<height>480</height>
-								<texture fallback="DefaultVideoBigPoster.png" diffuse="thumbs/movieposter_mask.png" flipy="true" background="true">$VAR[ListPosterVar]</texture>
+								<texture fallback="thumbs/fallback_poster_tp_solid.jpg" diffuse="thumbs/movieposter_mask.png" flipy="true" background="true">$VAR[ListPosterVar]</texture>
 								<aspectratio scalediffuse="false">stretch</aspectratio>
 								<colordiffuse>61FFFFFF</colordiffuse>
 							</control>
@@ -411,278 +411,6 @@
 					<texture>$VAR[ColorFlagsSource]source/$VAR[SourceFlagVar,,.png]</texture>
 					<visible>!IsEmpty(ListItem.VideoCodec)</visible>
 					<animation effect="rotatey" center="50" start="8" end="8" time="0" condition="true">Conditional</animation>
-				</control>
-				<!-- DiscArt -->
-				<control type="group">
-					<animation effect="rotatey" center="1230" start="-12" end="-12" time="0" condition="!Skin.HasSetting(Shelf3DFlatDiscs)">Conditional</animation>
-					<left>700</left>
-					<top>670</top>
-					<width>290</width>
-					<height>290</height>
-					<visible>!ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(ListItem.Art(discart))</visible>
-					<visible>Container.Content(movies) | Container.Content(sets)</visible>
-					<include>Shelf3DDiscAnimation</include>
-					<animation type="Focus" reversible="false">
-						<effect type="fade" start="0" end="100" delay="2000" time="200" />
-					</animation>
-					<control type="image">
-						<aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
-						<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[ListItem.Art(poster)]</texture>
-					</control>
-					<control type="image">
-						<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-						<texture background="true">$VAR[FakeDiscArtOverlay]</texture>
-					</control>
-				</control>
-				<control type="group">
-					<animation effect="rotatey" center="1230" start="-12" end="-12" time="0" condition="!Skin.HasSetting(Shelf3DFlatDiscs)">Conditional</animation>
-					<left>700</left>
-					<top>960</top>
-					<width>290</width>
-					<height>290</height>
-					<visible>!ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(ListItem.Art(discart))</visible>
-					<visible>Container.Content(movies) | Container.Content(sets)</visible>
-					<include>Shelf3DDiscAnimationReflection</include>
-					<animation type="Focus" reversible="false">
-						<effect type="fade" start="0" end="100" delay="2000" time="200" />
-					</animation>
-					<control type="image">
-						<aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
-						<texture flipy="true" background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[ListItem.Art(poster)]</texture>
-					</control>
-					<control type="image">
-						<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-						<texture background="true">$VAR[FakeDiscArtOverlay]</texture>
-					</control>
-				</control>
-				<control type="image">
-					<animation effect="rotatey" center="1230" start="-12" end="-12" time="0" condition="!Skin.HasSetting(Shelf3DFlatDiscs)">Conditional</animation>
-					<left>700</left>
-					<top>670</top>
-					<width>294</width>
-					<height>294</height>
-					<visible>!ListItem.IsCollection</visible>
-					<include>Shelf3DDiscAnimation</include>
-					<texture background="true">$INFO[ListItem.Art(discart)]</texture>
-				</control>
-				<control type="image">
-					<animation effect="rotatey" center="1230" start="-12" end="-12" time="0" condition="!Skin.HasSetting(Shelf3DFlatDiscs)">Conditional</animation>
-					<left>700</left>
-					<top>960</top>
-					<width>294</width>
-					<height>294</height>
-					<visible>!ListItem.IsCollection</visible>
-					<include>Shelf3DDiscAnimationReflection</include>
-					<texture flipy="true" background="true">$INFO[ListItem.Art(discart)]</texture>
-					<colordiffuse>61FFFFFF</colordiffuse>
-				</control>
-				<control type="image" id="4289">
-					<animation effect="rotatey" center="1230" start="-12" end="-12" time="0" condition="!Skin.HasSetting(Shelf3DFlatDiscs)">Conditional</animation>
-					<left>700</left>
-					<top>670</top>
-					<width>294</width>
-					<height>294</height>
-					<visible>ListItem.IsCollection</visible>
-					<animation type="Focus" reversible="false">
-						<effect type="fade" start="0" end="100" delay="2000" time="150" />
-					</animation>
-					<texture background="true">$INFO[Window(home).Property(Set.Movie.1.Art(Discart))]</texture>
-					<include>Shelf3DDiscAnimation</include>
-				</control>
-				<control type="group">
-					<animation effect="rotatey" center="1230" start="-12" end="-12" time="0" condition="!Skin.HasSetting(Shelf3DFlatDiscs)">Conditional + !IsEmpty($INFO[Window(home).Property(Set.Movie.1.Art(poster))])</animation>
-					<left>700</left>
-					<top>670</top>
-					<width>290</width>
-					<height>290</height>
-					<include>Shelf3DDiscAnimation</include>
-					<visible>ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4289))</visible>
-					<animation type="Focus" reversible="false">
-						<effect type="fade" start="0" end="100" delay="2000" time="200" />
-					</animation>
-					<control type="image">
-						<aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
-						<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[Window(home).Property(Set.Movie.1.Art(poster))]</texture>
-					</control>
-					<control type="image">
-						<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-						<texture background="true">$VAR[FakeDiscArtOverlay]</texture>
-						<visible>ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4289))</visible>
-					</control>
-				</control>
-				<control type="image" id="4298">
-					<animation effect="rotatey" center="1230" start="-12" end="-12" time="0" condition="!Skin.HasSetting(Shelf3DFlatDiscs)">Conditional</animation>
-					<left>1000</left>
-					<top>670</top>
-					<width>294</width>
-					<height>294</height>
-					<visible>ListItem.IsCollection</visible>
-					<animation type="Focus" reversible="false">
-						<effect type="fade" start="0" end="100" delay="2000" time="150" />
-					</animation>
-					<texture background="true">$INFO[Window(home).Property(Set.Movie.2.Art(Discart))]</texture>
-					<include>Shelf3DDiscAnimation</include>
-				</control>
-				<control type="group">
-					<animation effect="rotatey" center="1230" start="-12" end="-12" time="0" condition="!Skin.HasSetting(Shelf3DFlatDiscs)">Conditional</animation>
-					<left>1000</left>
-					<top>670</top>
-					<width>290</width>
-					<height>290</height>
-					<visible>ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4298)) + !IsEmpty(Window(home).Property(Set.Movie.2.Art(poster)))</visible>
-					<include>Shelf3DDiscAnimation</include>
-					<animation type="Focus" reversible="false">
-						<effect type="fade" start="0" end="100" delay="2000" time="200" />
-					</animation>
-					<control type="image">
-						<aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
-						<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[Window(home).Property(Set.Movie.2.Art(poster))]</texture>
-					</control>
-					<control type="image">
-						<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-						<texture background="true">$VAR[FakeDiscArtOverlay]</texture>
-					</control>
-				</control>
-				<control type="image" id="4297">
-					<animation effect="rotatey" center="1230" start="-12" end="-12" time="0" condition="!Skin.HasSetting(Shelf3DFlatDiscs)">Conditional</animation>
-					<left>1300</left>
-					<top>670</top>
-					<width>294</width>
-					<height>294</height>
-					<visible>ListItem.IsCollection</visible>
-					<animation type="Focus" reversible="false">
-						<effect type="fade" start="0" end="100" delay="2000" time="150" />
-					</animation>
-					<texture background="true">$INFO[Window(home).Property(Set.Movie.3.Art(Discart))]</texture>
-					<include>Shelf3DDiscAnimation</include>
-				</control>
-				<control type="group">
-					<animation effect="rotatey" center="1230" start="-12" end="-12" time="0" condition="!Skin.HasSetting(Shelf3DFlatDiscs)">Conditional</animation>
-					<left>1300</left>
-					<top>670</top>
-					<width>290</width>
-					<height>290</height>
-					<visible>ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4297)) + !IsEmpty(Window(home).Property(Set.Movie.3.Art(poster)))</visible>
-					<include>Shelf3DDiscAnimation</include>
-					<animation type="Focus" reversible="false">
-						<effect type="fade" start="0" end="100" delay="2000" time="200" />
-					</animation>
-					<control type="image">
-						<aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
-						<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[Window(home).Property(Set.Movie.3.Art(poster))]</texture>
-					</control>
-					<control type="image">
-						<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-						<texture background="true">$VAR[FakeDiscArtOverlay]</texture>
-					</control>
-				</control>
-				<control type="image">
-					<animation effect="rotatey" center="1230" start="-12" end="-12" time="0" condition="!Skin.HasSetting(Shelf3DFlatDiscs)">Conditional</animation>
-					<left>700</left>
-					<top>960</top>
-					<width>294</width>
-					<height>294</height>
-					<visible>ListItem.IsCollection</visible>
-					<animation type="Focus" reversible="false">
-						<effect type="fade" start="0" end="100" delay="2000" time="150" />
-					</animation>
-					<texture flipy="true" background="true">$INFO[Window(home).Property(Set.Movie.1.Art(Discart))]</texture>
-					<colordiffuse>61FFFFFF</colordiffuse>
-					<include>Shelf3DDiscAnimationReflection</include>
-				</control>
-				<control type="group">
-					<animation effect="rotatey" center="1230" start="-12" end="-12" time="0" condition="!Skin.HasSetting(Shelf3DFlatDiscs)">Conditional</animation>
-					<left>700</left>
-					<top>960</top>
-					<width>290</width>
-					<height>290</height>
-					<visible>ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4299)) + !IsEmpty(Window(home).Property(Set.Movie.1.Art(poster)))</visible>
-					<include>Shelf3DDiscAnimationReflection</include>
-					<animation type="Focus" reversible="false">
-						<effect type="fade" start="0" end="100" delay="2000" time="200" />
-					</animation>
-					<control type="image">
-						<aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
-						<texture flipy="true" background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[Window(home).Property(Set.Movie.1.Art(poster))]</texture>
-						<colordiffuse>61FFFFFF</colordiffuse>
-					</control>
-					<control type="image">
-						<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-						<texture flipy="true" background="true">$VAR[FakeDiscArtOverlay]</texture>
-						<colordiffuse>61FFFFFF</colordiffuse>
-					</control>
-				</control>
-				<control type="image">
-					<animation effect="rotatey" center="1230" start="-12" end="-12" time="0" condition="!Skin.HasSetting(Shelf3DFlatDiscs)">Conditional</animation>
-					<left>1000</left>
-					<top>960</top>
-					<width>294</width>
-					<height>294</height>
-					<visible>ListItem.IsCollection</visible>
-					<animation type="Focus" reversible="false">
-						<effect type="fade" start="0" end="100" delay="2000" time="150" />
-					</animation>
-					<texture flipy="true" background="true">$INFO[Window(home).Property(Set.Movie.2.Art(Discart))]</texture>
-					<include>Shelf3DDiscAnimationReflection</include>
-					<colordiffuse>61FFFFFF</colordiffuse>
-				</control>
-				<control type="group">
-					<animation effect="rotatey" center="1230" start="-12" end="-12" time="0" condition="!Skin.HasSetting(Shelf3DFlatDiscs)">Conditional</animation>
-					<left>1000</left>
-					<top>960</top>
-					<width>290</width>
-					<height>290</height>
-					<visible>ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4298)) + !IsEmpty(Window(home).Property(Set.Movie.2.Art(poster)))</visible>
-					<include>Shelf3DDiscAnimationReflection</include>
-					<animation type="Focus" reversible="false">
-						<effect type="fade" start="0" end="100" delay="2000" time="200" />
-					</animation>
-					<control type="image">
-						<aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
-						<texture flipy="true" background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[Window(home).Property(Set.Movie.2.Art(poster))]</texture>
-						<colordiffuse>61FFFFFF</colordiffuse>
-					</control>
-					<control type="image">
-						<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-						<texture flipy="true" background="true">$VAR[FakeDiscArtOverlay]</texture>
-						<colordiffuse>61FFFFFF</colordiffuse>
-					</control>
-				</control>
-				<control type="image">
-					<animation effect="rotatey" center="1230" start="-12" end="-12" time="0" condition="!Skin.HasSetting(Shelf3DFlatDiscs)">Conditional</animation>
-					<left>1300</left>
-					<top>960</top>
-					<width>294</width>
-					<height>294</height>
-					<visible>ListItem.IsCollection</visible>
-					<animation type="Focus" reversible="false">
-						<effect type="fade" start="0" end="100" delay="2000" time="150" />
-					</animation>
-					<texture flipy="true" background="true">$INFO[Window(home).Property(Set.Movie.3.Art(Discart))]</texture>
-					<include>Shelf3DDiscAnimationReflection</include>
-					<colordiffuse>61FFFFFF</colordiffuse>
-				</control>
-				<control type="group">
-					<animation effect="rotatey" center="1230" start="-12" end="-12" time="0" condition="!Skin.HasSetting(Shelf3DFlatDiscs)">Conditional</animation>
-					<left>1300</left>
-					<top>960</top>
-					<width>290</width>
-					<height>290</height>
-					<visible>ListItem.IsCollection + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4297)) + !IsEmpty(Window(home).Property(Set.Movie.3.Art(poster)))</visible>
-					<include>Shelf3DDiscAnimationReflection</include>
-					<animation type="Focus" reversible="false">
-						<effect type="fade" start="0" end="100" delay="2000" time="200" />
-					</animation>
-					<control type="image">
-						<aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
-						<texture flipy="true" background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[Window(home).Property(Set.Movie.3.Art(poster))]</texture>
-						<colordiffuse>61FFFFFF</colordiffuse>
-					</control>
-					<control type="image">
-						<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-						<texture flipy="true" background="true">$VAR[FakeDiscArtOverlay]</texture>
-						<colordiffuse>61FFFFFF</colordiffuse>
-					</control>
 				</control>
 				<!-- Media Flags -->
 				<control type="group">
@@ -1303,65 +1031,6 @@
 							</control>
 						</control>
 					</focusedlayout>
-				</control>
-				<!-- DiscArt -->
-				<control type="image" id="4294">
-					<animation effect="rotatey" center="1230" start="-12" end="-12" time="0" condition="!Skin.HasSetting(Shelf3DFlatDiscs)">Conditional</animation>
-					<left>800</left>
-					<top>650</top>
-					<width>294</width>
-					<height>294</height>
-					<visible>!Stringcompare(ListItem.Label,..)</visible>
-					<animation type="Focus" reversible="false">
-						<effect type="fade" start="0" end="100" delay="2000" time="150" />
-					</animation>
-					<texture background="true">$VAR[cdARTVar]</texture>
-				</control>
-				<control type="image">
-					<animation effect="rotatey" center="1230" start="-12" end="-12" time="0" condition="!Skin.HasSetting(Shelf3DFlatDiscs)">Conditional</animation>
-					<left>800</left>
-					<top>985</top>
-					<width>294</width>
-					<height>294</height>
-					<visible>!ListItem.IsCollection</visible>
-					<animation type="Focus" reversible="false">
-						<effect type="fade" start="0" end="100" delay="2000" time="150" />
-					</animation>
-					<texture background="true">$VAR[cdARTVar]</texture>
-				<colordiffuse>61FFFFFF</colordiffuse>
-				</control>
-				<control type="group">
-					<visible>Container.Content(ablums) | Container.Content(songs)</visible>
-					<animation effect="rotatey" center="1230" start="-12" end="-12" time="0" condition="!Skin.HasSetting(Shelf3DFlatDiscs)">Conditional</animation>
-					<left>800</left>
-					<top>690</top>
-					<width>290</width>
-					<height>290</height>
-					<visible>!Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4294))</visible>
-					<animation type="Focus" reversible="false">
-						<effect type="fade" start="0" end="100" delay="2000" time="200" />
-					</animation>
-					<control type="image">
-						<aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
-						<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$VAR[ListAlbumVar]</texture>
-					</control>
-				</control>
-				<control type="group">
-					<visible>Container.Content(ablums) | Container.Content(songs)</visible>
-					<animation effect="rotatey" center="1230" start="-12" end="-12" time="0" condition="!Skin.HasSetting(Shelf3DFlatDiscs)">Conditional</animation>
-					<left>800</left>
-					<top>980</top>
-					<width>290</width>
-					<height>290</height>
-					<visible>!Stringcompare(ListItem.Label,..) + Skin.HasSetting(Shelf3DFakeDiscs) + IsEmpty(Control.GetLabel(4294))</visible>
-					<animation type="Focus" reversible="false">
-						<effect type="fade" start="0" end="100" delay="2000" time="200" />
-					</animation>
-					<control type="image">
-						<aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
-						<texture flipy="true" background="true" diffuse="thumbs/sets/cdart-mask.png">$VAR[ListAlbumVar]</texture>
-						<colordiffuse>61FFFFFF</colordiffuse>
-					</control>
 				</control>
 				<!-- focused Spine -->
 				<!-- no spine -->
