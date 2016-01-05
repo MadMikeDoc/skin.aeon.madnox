@@ -1826,15 +1826,24 @@
                     <bordersize>20</bordersize>
                 </control-->
             </control>
-			<!-- Tracklist -->
+			<!-- Track/cdlist -->
 			<control type="image">
                 <left>460</left>
                 <top>555</top>
                 <width>500</width>
                 <height>415</height>
-                <texture>moo/track.bg.png</texture>
+                <texture>mooviz/track.bg.png</texture>
                 <animation effect="fade" end="65" condition="true">Conditional</animation>
-                <visible>Skin.HasSetting(RightListShowTracks) | Skin.HasSetting(RightListShowInfo)</visible>
+                <visible>Container.Content(albums) + [Skin.HasSetting(RightListShowTracks) | Skin.HasSetting(RightListShowInfo)]</visible>
+            </control>
+			<control type="image">
+                <left>460</left>
+                <top>555</top>
+                <width>500</width>
+                <height>415</height>
+                <texture>mooviz/track.bg.png</texture>
+                <animation effect="fade" end="65" condition="true">Conditional</animation>
+                <visible>Container.Content(artists) + [Skin.HasSetting(RightListShowCDs) | Skin.HasSetting(RightListShowInfo)]</visible>
             </control>
 			<control type="textbox">
 				<label>[COLOR white]$INFO[Window(Home).Property(SkinHelper.Music.TrackList)][/COLOR]</label>
@@ -1847,6 +1856,18 @@
 				<font>font10</font>
 				<autoscroll time="1500" delay="4000" repeat="5000"></autoscroll>
 				<visible>!StringCompare(ListItem.Label,..) + Container.Content(albums) + Skin.HasSetting(RightListShowTracks)</visible>
+			</control>
+			<control type="textbox">
+				<label>[COLOR white]$INFO[Window(Home).Property(SkinHelper.Music.Albums)][/COLOR]</label>
+				<top>568</top>
+				<left>480</left>
+				<width>500</width>
+				<height>388</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font14_textbox</font>
+				<autoscroll time="1500" delay="4000" repeat="5000"></autoscroll>
+				<visible>Skin.HasSetting(RightListShowCDs) + Container.Content(artists)</visible>
 			</control>
 			<!--Info-->
             <control type="grouplist">
