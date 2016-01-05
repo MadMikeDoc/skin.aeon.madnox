@@ -51,14 +51,51 @@
 			<width>185</width>
 			<height>182</height>
 			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture background="true" fallback="DefaultAudio.png">$VAR[ListAlbumVar]</texture>
+			<visible>!Skin.HasSetting(MusicWallCase) + !Skin.HasSetting(MusicWallRound)</visible>
+		</control>
+		<control type="image">
+			<left>12</left>
+			<top>11</top>
+			<width>185</width>
+			<height>182</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture background="true" diffuse="thumbs/cdcover_mask.png" fallback="DefaultAudio.png">$VAR[ListAlbumVar]</texture>
+			<bordertexture border="-17">thumbs/cd_shadow4.png</bordertexture>
+			<visible>Skin.HasSetting(MusicWallRound) + !Skin.HasSetting(MusicWallCase)</visible>
+		</control>
+		<control type="image">
+			<posx>12</posx>
+            <posy>11</posy>
+			<height>185</height>
+			<width>185</width>
+			<aspectratio align="left">keep</aspectratio>
+			<texture diffuse="thumbs/cdcover_mask.png">thumbs/cdcover_glass_noreflect.png</texture>
+			<visible>Skin.HasSetting(MusicWallRound) + !Skin.HasSetting(MusicWallCase)</visible>
+		</control>
+		<control type="image">
+			<left>12</left>
+			<top>11</top>
+			<width>185</width>
+			<height>182</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
 			<texture background="true" diffuse="thumbs/boxes/cdcover_mask.png" fallback="DefaultAudio.png">$VAR[ListAlbumVar]</texture>
+			<visible>!Skin.HasSetting(MusicWallRound)</visible>
 		</control>
 		<control type="image">
 			<top>1</top>
 			<width>208</width>
 			<height>204</height>
 			<texture>wall/boxes/wall_overlay.png</texture>
-			<visible>!Container.Content(artists)</visible>
+			<visible>!Container.Content(artists) + Skin.HasSetting(MusicWallCase) + !Skin.HasSetting(MusicWallCaseAlt)</visible>
+		</control>
+		<control type="image">
+			<top>1</top>
+			<left>1</left>
+			<width>208</width>
+			<height>204</height>
+			<texture>thumbs/boxes/cd_shadow_light.png</texture>
+			<visible>!Container.Content(artists) + Skin.HasSetting(MusicWallCase) + Skin.HasSetting(MusicWallCaseAlt)</visible>
 		</control>
 		<control type="image">
             <left>148</left>
