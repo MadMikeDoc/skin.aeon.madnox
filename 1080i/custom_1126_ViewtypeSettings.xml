@@ -573,16 +573,7 @@
 					<onclick>Skin.ToggleSetting(RightListShowTracks)</onclick>
 					<onclick>Skin.Reset(RightListShowInfo)</onclick>
 					<selected>Skin.HasSetting(RightListShowTracks)</selected>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + [Container.Content(albums)]</visible>
-				</control>
-				<control type="radiobutton" id="17094">
-					<description>Show CD List</description>
-					<label>Show CD's</label>
-					<include>Objects_MediaMenuButtonAlt2</include>
-					<onclick>Skin.ToggleSetting(RightListShowCDs)</onclick>
-					<onclick>Skin.Reset(RightListShowInfo)</onclick>
-					<selected>Skin.HasSetting(RightListShowCDs)</selected>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + [Container.Content(artists)]</visible>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + [Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]</visible>
 				</control>
 				<control type="radiobutton" id="17090">
 					<description>Show Info</description>
@@ -590,7 +581,6 @@
 					<include>Objects_MediaMenuButtonAlt2</include>
 					<onclick>Skin.ToggleSetting(RightListShowInfo)</onclick>
 					<onclick>Skin.Reset(RightListShowTracks)</onclick>
-					<onclick>Skin.Reset(RightListShowCDs)</onclick>
 					<selected>Skin.HasSetting(RightListShowInfo)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + [Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]</visible>
 				</control>
@@ -626,7 +616,14 @@
 					<selected>Skin.HasSetting(rightlistCD)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + [Container.Content(Artists) | Container.Content(Albums) | Container.Content(songs)]</visible>
 				</control>
-				
+				<control type="radiobutton" id="17091">
+					<description>Slide Left</description>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>Slide Left CD</label>
+					<onclick>Skin.ToggleSetting(RightListSlideLeft)</onclick>
+					<selected>Skin.HasSetting(RightListSlideLeft)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + [Container.Content(Artists) | Container.Content(Albums) | Container.Content(songs)] + Skin.HasSetting(rightlistCD)</visible>
+				</control>
 
 				<!--MAD - End of Right List options -->
 				<!--MAD - KodiFlix Options -->
@@ -712,7 +709,7 @@
 					<label>Disable Spine Text</label>
 					<onclick>Skin.ToggleSetting(Shelf3DSpineText)</onclick>
 					<selected>!Skin.HasSetting(Shelf3DSpineText)</selected>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),Shelf) + [Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]</visible>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Shelf) + Container.Content(artists) | Container.Content(albums) | Container.Content(songs)</visible>
 				</control>
 				<control type="radiobutton" id="17106">
 					<description>Flat Discs</description>
