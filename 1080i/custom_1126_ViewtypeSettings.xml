@@ -573,7 +573,16 @@
 					<onclick>Skin.ToggleSetting(RightListShowTracks)</onclick>
 					<onclick>Skin.Reset(RightListShowInfo)</onclick>
 					<selected>Skin.HasSetting(RightListShowTracks)</selected>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + [Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]</visible>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + [Container.Content(albums)]</visible>
+				</control>
+				<control type="radiobutton" id="17094">
+					<description>Show CD List</description>
+					<label>Show CD's</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(RightListShowCDs)</onclick>
+					<onclick>Skin.Reset(RightListShowInfo)</onclick>
+					<selected>Skin.HasSetting(RightListShowCDs)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + [Container.Content(artists)]</visible>
 				</control>
 				<control type="radiobutton" id="17090">
 					<description>Show Info</description>
@@ -581,6 +590,7 @@
 					<include>Objects_MediaMenuButtonAlt2</include>
 					<onclick>Skin.ToggleSetting(RightListShowInfo)</onclick>
 					<onclick>Skin.Reset(RightListShowTracks)</onclick>
+					<onclick>Skin.Reset(RightListShowCDs)</onclick>
 					<selected>Skin.HasSetting(RightListShowInfo)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + [Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]</visible>
 				</control>
@@ -709,7 +719,7 @@
 					<label>Disable Spine Text</label>
 					<onclick>Skin.ToggleSetting(Shelf3DSpineText)</onclick>
 					<selected>!Skin.HasSetting(Shelf3DSpineText)</selected>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),Shelf) + Container.Content(artists) | Container.Content(albums) | Container.Content(songs)</visible>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Shelf) + [Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]</visible>
 				</control>
 				<control type="radiobutton" id="17106">
 					<description>Flat Discs</description>
@@ -1091,7 +1101,7 @@
 					<include>Objects_MediaMenuButtonAlt2</include>
 					<onclick>Skin.ToggleSetting(iconlabel)</onclick>
 					<selected>Skin.HasSetting(iconlabel)</selected>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),Wall) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos) | Stringcompare(Container.FolderName,youtube) | [Window.IsActive(pictures) + Substring(Container.FolderPath,\comics\)]]</visible>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Wall) + Skin.HasSetting(titlewall) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos) | Stringcompare(Container.FolderName,youtube) | [Window.IsActive(pictures) + Substring(Container.FolderPath,\comics\)]]</visible>
 				</control>
 				<control type="radiobutton" id="16530">
 					<label>31282</label>
@@ -1120,6 +1130,29 @@
 					<onclick>Skin.ToggleSetting(TVWallBanner)</onclick>
 					<selected>Skin.HasSetting(TVWallBanner)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),Wall) + Container.Content(tvshows)</visible>
+				</control>
+				<control type="radiobutton" id="164421">
+					<label>Show CD Case</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(MusicWallCase)</onclick>
+					<onclick>Skin.Reset(MusicWallRound)</onclick>
+					<selected>Skin.HasSetting(MusicWallCase)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Wall) + Container.Content(albums)</visible>
+				</control>
+				<control type="radiobutton" id="164423">
+					<label> - Alternativ CD Case</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(MusicWallCaseAlt)</onclick>
+					<onclick>Skin.Reset(MusicWallRound)</onclick>
+					<selected>Skin.HasSetting(MusicWallCaseAlt)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Wall) + Container.Content(albums) + Skin.HasSetting(MusicWallCase)</visible>
+				</control>
+				<control type="radiobutton" id="164422">
+					<label>Round Covers</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(MusicWallRound)</onclick>
+					<selected>Skin.HasSetting(MusicWallRound)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Wall) + Container.Content(albums) + !Skin.HasSetting(MusicWallCase)</visible>
 				</control>
 				<control type="radiobutton" id="1644">
 					<label>$LOCALIZE[31454]</label>

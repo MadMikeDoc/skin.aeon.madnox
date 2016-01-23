@@ -74,8 +74,19 @@
 					<height>495</height>
 					<aspectratio align="center">keep</aspectratio>
 					<fadetime>400</fadetime>
+					<texture background="true">$INFO[Window(Home).Property(SkinHelper.Music.DiscArt)]</texture>
+					<visible>Skin.HasSetting(rightlistCD) + Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart)</visible>
+					<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
+					<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
+				</control>
+				<control type="image">
+					<width>495</width>
+					<height>495</height>
+					<aspectratio align="center">keep</aspectratio>
+					<fadetime>400</fadetime>
 					<include condition="Skin.HasSetting(vinylart)">vinylartlibrary</include>
 					<include condition="Skin.HasSetting(blurayart)">blurayartlibrary</include>
+					<visible>IsEmpty(Window(Home).Property(SkinHelper.Music.DiscArt))</visible>
 					<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
 					<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
 				</control>
@@ -137,7 +148,7 @@
 				</animation>
 				<include>Animation_ListSlideRight</include>
 				<visible>[Skin.HasSetting(roundedcovers) + !Container.Content(episodes)] | [Skin.HasSetting(listshowposter) + Container.Content(episodes)]</visible>
-				<visible>[Container.Content(movies) |Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(seasons) | Container.Content(genres) | Container.Content(musicvideos) | [Window.IsActive(programs) + !Container.Content(addons)]]</visible>
+				<visible>[Container.Content(movies) |Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(seasons) | Container.Content(genres) | Container.Content(tags) | Container.Content(musicvideos) | [Window.IsActive(programs) + !Container.Content(addons)]]</visible>
 				<control type="image">
 					<left>-211</left>
 					<top>135</top>
@@ -282,7 +293,7 @@
 						<top>-40</top>
 						<width>550</width>
 						<height>825</height>
-						<texture background="true" diffuse="thumbs/movieposter_mask.png">$VAR[ListPosterVar]</texture>
+						<texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar]</texture>
 						<fadetime>IconCrossfadeTime2</fadetime>
 						<bordertexture border="19.5">thumbs/poster_shadow.png</bordertexture>
 						<bordersize>19</bordersize>
@@ -294,7 +305,7 @@
 						<width>550</width>
 						<height>825</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterBackupVar]</texture>
+						<texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterBackupVar]</texture>
 						<fadetime>IconCrossfadeTime2</fadetime>
 						<bordertexture border="19.5">thumbs/poster_shadow.png</bordertexture>
 						<bordersize>19</bordersize>
@@ -309,7 +320,7 @@
 						<top>26</top>
 						<width>535</width>
 						<height>745</height>
-						<texture background="true" diffuse="thumbs/movieposter_mask.png">$VAR[ListPosterVar]</texture>
+						<texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar]</texture>
 						<fadetime>IconCrossfadeTime2</fadetime>
 						<bordertexture border="19.5">thumbs/poster_shadow.png</bordertexture>
 						<bordersize>19</bordersize>
@@ -349,7 +360,7 @@
 						<top>770</top>
 						<width>510</width>
 						<height>765</height>
-						<texture diffuse="thumbs/movieposter_mask_reflect.png" flipy="true" background="true" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar1]</texture>
+						<texture diffuse="thumbs/movieposter_mask_reflect.png" flipy="true" background="true" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar1]</texture>
 						<fadetime>IconCrossfadeTime2</fadetime>
 						<colordiffuse>d0FFFFFF</colordiffuse>
 						<visible>!Skin.HasSetting(genrethumbs)</visible>
@@ -358,7 +369,7 @@
 						<top>770</top>
 						<width>510</width>
 						<height>765</height>
-						<texture diffuse="thumbs/movieposter_mask_reflect.png" flipy="true" background="true" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
+						<texture diffuse="thumbs/movieposter_mask_reflect.png" flipy="true" background="true" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar]</texture>
 						<fadetime>IconCrossfadeTime2</fadetime>
 						<colordiffuse>d0FFFFFF</colordiffuse>
 						<visible>Skin.HasSetting(genrethumbs)</visible>
@@ -368,7 +379,7 @@
 						<width>510</width>
 						<height>765</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<texture diffuse="thumbs/movieposter_mask_reflect.png" flipy="true" background="true" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterBackupVar]</texture>
+						<texture diffuse="thumbs/movieposter_mask_reflect.png" flipy="true" background="true" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterBackupVar]</texture>
 						<fadetime>IconCrossfadeTime2</fadetime>
 						<colordiffuse>d0FFFFFF</colordiffuse>
 						<visible>IsEmpty(Control.GetLabel(3822))</visible>
@@ -1184,7 +1195,7 @@
 							<width>550</width>
 							<height>826</height>
 							<aspectratio aligny="bottom">stretch</aspectratio>
-							<texture background="true">$VAR[ListPosterVar]</texture>
+							<texture background="true" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar]</texture>
 							<fadetime>0</fadetime>
 							<colordiffuse>FF000000</colordiffuse>
 							<bordersize>17</bordersize>
@@ -1196,7 +1207,7 @@
 							<width>550</width>
 							<height>825</height>
 							<aspectratio aligny="bottom">stretch</aspectratio>
-							<texture background="true">$VAR[ListPosterVar]</texture>
+							<texture background="true" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar]</texture>
 							<bordertexture border="19,5">thumbs/thumbshadow.png</bordertexture>
 							<bordersize>19</bordersize>
 							<visible>[!Skin.HasSetting(listcdart) + Container.Content(movies)] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
@@ -1206,13 +1217,13 @@
 							<width>512</width>
 							<height>765</height>
 							<aspectratio aligny="bottom">stretch</aspectratio>
-							<texture diffuse="thumbs/diffuse_mirror3.png"  flipy="true" background="true" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
+							<texture diffuse="thumbs/diffuse_mirror3.png"  flipy="true" background="true" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar]</texture>
 							<colordiffuse>d0FFFFFF</colordiffuse>
 							<fadetime>IconCrossfadeTime2</fadetime>
 							<visible>[!Skin.HasSetting(listcdart) + Container.Content(movies)] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
 						</control>
 						<control type="image">			<!-- Poster Mask backround with disc -->
-							<left>70</left>
+							<left>-19</left>
 							<top>-40</top>
 							<width>550</width>
 							<height>826</height>
@@ -1224,23 +1235,23 @@
 							<visible>Skin.HasSetting(listcdart) + Container.Content(movies)</visible>
 						</control>
 						<control type="image">     		<!-- Poster hard corner with disc -->
-							<left>70</left>
+							<left>-19</left>
 							<top>-40</top>
 							<width>550</width>
 							<height>825</height>
 							<aspectratio aligny="bottom">stretch</aspectratio>
-							<texture background="true">$VAR[ListPosterVar]</texture>
+							<texture background="true" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar]</texture>
 							<bordertexture border="19,5">thumbs/thumbshadow.png</bordertexture>
 							<bordersize>19</bordersize>
 							<visible>Skin.HasSetting(listcdart) + Container.Content(movies)</visible>
 						</control>
 						<control type="image">			<!-- Poster hard corners ground reflect with disc -->
-							<left>89</left>
+							<left>0</left>
 							<top>772</top>
 							<width>512</width>
 							<height>765</height>
 							<aspectratio aligny="bottom">stretch</aspectratio>
-							<texture diffuse="thumbs/diffuse_mirror3.png"  flipy="true" background="true" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
+							<texture diffuse="thumbs/diffuse_mirror3.png"  flipy="true" background="true" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar]</texture>
 							<colordiffuse>d0FFFFFF</colordiffuse>
 							<fadetime>IconCrossfadeTime2</fadetime>
 							<visible>Skin.HasSetting(listcdart) + Container.Content(movies)</visible>
@@ -1254,7 +1265,7 @@
 							<top>26</top>
 							<width>535</width>
 							<height>745</height>
-							<texture background="true" diffuse="thumbs/movieposter_mask.png">$VAR[ListPosterVar]</texture>
+							<texture background="true" diffuse="thumbs/movieposter_mask.png" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar]</texture>
 							<fadetime>IconCrossfadeTime2</fadetime>
 							<bordertexture border="19.5">thumbs/poster_shadow.png</bordertexture>
 							<bordersize>19</bordersize>
@@ -1317,7 +1328,7 @@
 							<top>787</top>
 							<width>497</width>
 							<height>680</height>
-							<texture flipy="true" background="true" diffuse="thumbs/movieposter_mask_reflect.png">$VAR[ListPosterVar]</texture>
+							<texture flipy="true" background="true" diffuse="thumbs/movieposter_mask_reflect.png" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar]</texture>
 							<fadetime>IconCrossfadeTime2</fadetime>
 							<visible>Skin.HasSetting(genrethumbs)</visible>
 						</control>

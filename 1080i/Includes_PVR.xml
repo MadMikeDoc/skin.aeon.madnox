@@ -1230,11 +1230,14 @@
 		<left>60</left>
 		<top>75</top>
 		<width>1800</width>
-		<height>1060</height>
+		<height>940</height>
 		<control type="image">
+		<left>-10</left>
+		<top>-10</top>
 			<width>1800</width>
-			<height>1060</height>
-			<texture colordiffuse="$VAR[DialogColorVar]">wall/wall_bg.png</texture>
+			<height>940</height>
+			<texture border="40" colordiffuse="$VAR[DialogColorVar]">buttons/roundedbutton-nofocus.png</texture>
+		<aspectratio>stretch</aspectratio>
 		</control>
 		<control type="image">
 			<left>965</left>
@@ -1348,7 +1351,7 @@
 						<textcolor>$VAR[FontColorVar]</textcolor>
 						<selectedcolor>orange</selectedcolor>
 						<font>Font_Reg29</font>
-						<width>700</width>
+						<width>650</width>
 						<label>[B][COLOR white]$INFO[ListItem.Label][/COLOR][/B]  $INFO[ListItem.Title]</label>
 					</control>
 					<control type="image">
@@ -1433,7 +1436,7 @@
 						<textcolor>white</textcolor>
 						<selectedcolor>white</selectedcolor>
 						<font>Font_Reg29</font>
-						<width>695</width>
+						<width>655</width>
 						<label>[B][COLOR white]$INFO[ListItem.Label][/COLOR][/B]  $INFO[ListItem.Title]</label>
 					</control>
 					<control type="image">
@@ -1515,7 +1518,7 @@
 			<control type="label">
 				<top>210</top>
 				<height>50</height>
-				<width>750</width>
+				<width>655</width>
 				<font>Font_Reg38</font>
 				<aligny>top</aligny>
 				<textcolor>$VAR[FontColorVar]</textcolor>
@@ -1523,23 +1526,23 @@
 				<wrapmultiline>true</wrapmultiline>
 			</control>
 			<control type="group">
-				<top>270</top>
+				<top>290</top>
 				<control type="textbox">
 					<width>750</width>
-					<height>448</height>
+					<height>425</height>
 					<font>Font_Reg37</font>
 					<textcolor>grey</textcolor>
 					<label>$INFO[Container(11).ListItem.Plot]</label>
-					<autoscroll delay="8000" time="2000" repeat="10000">true</autoscroll>
+					<autoscroll time="1500" delay="11000" repeat="11000">true</autoscroll>
 					<visible>!Control.IsVisible(55)</visible>
 				</control>
 				<control type="textbox">
 					<width>500</width>
-					<height>448</height>
+					<height>425</height>
 					<font>Font_Reg37</font>
 					<textcolor>grey</textcolor>
 					<label>$INFO[Container(11).ListItem.Plot]</label>
-					<autoscroll delay="8000" time="2000" repeat="10000">true</autoscroll>
+					<autoscroll time="1500" delay="11000" repeat="11000">true</autoscroll>
 					<visible>Control.IsVisible(55)</visible>
 				</control>
 				<control type="image" id="55">

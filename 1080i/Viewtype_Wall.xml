@@ -51,14 +51,51 @@
 			<width>185</width>
 			<height>182</height>
 			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture background="true" fallback="DefaultAudio.png">$VAR[ListAlbumVar]</texture>
+			<visible>!Skin.HasSetting(MusicWallCase) + !Skin.HasSetting(MusicWallRound)</visible>
+		</control>
+		<control type="image">
+			<left>12</left>
+			<top>11</top>
+			<width>185</width>
+			<height>182</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture background="true" diffuse="thumbs/cdcover_mask.png" fallback="DefaultAudio.png">$VAR[ListAlbumVar]</texture>
+			<bordertexture border="-17">thumbs/cd_shadow4.png</bordertexture>
+			<visible>Skin.HasSetting(MusicWallRound) + !Skin.HasSetting(MusicWallCase)</visible>
+		</control>
+		<control type="image">
+			<posx>12</posx>
+            <posy>11</posy>
+			<height>185</height>
+			<width>185</width>
+			<aspectratio align="left">keep</aspectratio>
+			<texture diffuse="thumbs/cdcover_mask.png">thumbs/cdcover_glass_noreflect.png</texture>
+			<visible>Skin.HasSetting(MusicWallRound) + !Skin.HasSetting(MusicWallCase)</visible>
+		</control>
+		<control type="image">
+			<left>12</left>
+			<top>11</top>
+			<width>185</width>
+			<height>182</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
 			<texture background="true" diffuse="thumbs/boxes/cdcover_mask.png" fallback="DefaultAudio.png">$VAR[ListAlbumVar]</texture>
+			<visible>!Skin.HasSetting(MusicWallRound)</visible>
 		</control>
 		<control type="image">
 			<top>1</top>
 			<width>208</width>
 			<height>204</height>
 			<texture>wall/boxes/wall_overlay.png</texture>
-			<visible>!Container.Content(artists)</visible>
+			<visible>!Container.Content(artists) + Skin.HasSetting(MusicWallCase) + !Skin.HasSetting(MusicWallCaseAlt)</visible>
+		</control>
+		<control type="image">
+			<top>1</top>
+			<left>1</left>
+			<width>208</width>
+			<height>204</height>
+			<texture>thumbs/boxes/cd_shadow_light.png</texture>
+			<visible>!Container.Content(artists) + Skin.HasSetting(MusicWallCase) + Skin.HasSetting(MusicWallCaseAlt)</visible>
 		</control>
 		<control type="image">
             <left>148</left>
@@ -390,7 +427,7 @@
 					<height>173</height>
 					<aspectratio align="center">scale</aspectratio>
 					<fadetime>IconCrossfadeTime</fadetime>
-					<texture background="true">$VAR[BannerVar]</texture>
+					<texture background="true" fallback="thumbs/fallback_banner_tp_solid.jpg">$VAR[BannerVar]</texture>
 					<bordertexture border="8">thumbs/poster_shadow6.png</bordertexture>
 					<bordersize>15</bordersize>
 				</control>
@@ -456,7 +493,7 @@
 					<height>173</height>
 					<aspectratio align="center">scale</aspectratio>
 					<fadetime>IconCrossfadeTime</fadetime>
-					<texture background="true">$VAR[BannerVar]</texture>
+					<texture background="true" fallback="thumbs/fallback_banner_tp_solid.jpg">$VAR[BannerVar]</texture>
 					<bordersize>15</bordersize>
 				</control>
 				<control type="image">
@@ -518,7 +555,7 @@
 				<width>265</width>
 				<height>398</height>
 				<aspectratio>stretch</aspectratio>
-				<texture background="true" diffuse="wall/wall_movie_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar1]</texture>
+				<texture background="true" diffuse="wall/wall_movie_mask.png" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar1]</texture>
 				<bordersize>24</bordersize>
 				<visible>!Skin.HasSetting(squarethumbs) + !Skin.HasSetting(genrethumbs)</visible>
 			</control>
@@ -528,7 +565,7 @@
 				<width>265</width>
 				<height>398</height>
 				<aspectratio>stretch</aspectratio>
-				<texture background="true" diffuse="" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar1]</texture>
+				<texture background="true" diffuse="" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar1]</texture>
 				<bordersize>24</bordersize>
 				<visible>Skin.HasSetting(squarethumbs) + Skin.HasSetting(genrethumbs)</visible>
 			</control>
@@ -538,7 +575,7 @@
 				<width>265</width>
 				<height>398</height>
 				<aspectratio>stretch</aspectratio>
-				<texture background="true" diffuse="wall/wall_movie_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
+				<texture background="true" diffuse="wall/wall_movie_mask.png" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar]</texture>
 				<bordersize>24</bordersize>
 				<visible>!Skin.HasSetting(squarethumbs) + Skin.HasSetting(genrethumbs)</visible>
 			</control>
@@ -548,7 +585,7 @@
 				<width>265</width>
 				<height>398</height>
 				<aspectratio>stretch</aspectratio>
-				<texture background="true" diffuse="" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
+				<texture background="true" diffuse="" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar]</texture>
 				<bordersize>24</bordersize>
 				<visible>Skin.HasSetting(squarethumbs) + Skin.HasSetting(genrethumbs)</visible>
 			</control>
@@ -558,7 +595,7 @@
 				<width>265</width>
 				<height>398</height>
 				<aspectratio>stretch</aspectratio>
-				<texture background="true" diffuse="" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar1]</texture>
+				<texture background="true" diffuse="" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar1]</texture>
 				<bordersize>24</bordersize>
 				<visible>Skin.HasSetting(squarethumbs) + !Skin.HasSetting(genrethumbs)</visible>
 			</control>
@@ -589,7 +626,7 @@
 					<top>10</top>
 					<width>265</width>
 					<height>398</height>
-					<texture background="true" diffuse="wall/wall_movie_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar1]</texture>
+					<texture background="true" diffuse="wall/wall_movie_mask.png" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar1]</texture>
 					<bordertexture border="1" colordiffuse="$VAR[FocusTextureColorVar]">thumbs/poster_shadow40.png</bordertexture>
 					<bordersize>18</bordersize>
 					<visible>!Skin.HasSetting(squarethumbs) + !Skin.HasSetting(genrethumbs)</visible>
@@ -599,7 +636,7 @@
 					<top>10</top>
 					<width>265</width>
 					<height>398</height>
-					<texture background="true" diffuse="" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar1]</texture>
+					<texture background="true" diffuse="" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar1]</texture>
 					<bordertexture border="12" colordiffuse="$VAR[FocusTextureColorVar]">thumbs_square/poster_shadow90.png</bordertexture>
 					<bordersize>15</bordersize>
 					<visible>Skin.HasSetting(squarethumbs) + Skin.HasSetting(genrethumbs)</visible>
@@ -609,7 +646,7 @@
 					<top>10</top>
 					<width>265</width>
 					<height>398</height>
-					<texture background="true" diffuse="wall/wall_movie_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
+					<texture background="true" diffuse="wall/wall_movie_mask.png" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar]</texture>
 					<bordertexture border="1" colordiffuse="$VAR[FocusTextureColorVar]">thumbs/poster_shadow40.png</bordertexture>
 					<bordersize>18</bordersize>
 					<visible>!Skin.HasSetting(squarethumbs) + Skin.HasSetting(genrethumbs)</visible>
@@ -619,7 +656,7 @@
 					<top>10</top>
 					<width>265</width>
 					<height>398</height>
-					<texture background="true" diffuse="" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
+					<texture background="true" diffuse="" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar]</texture>
 					<bordertexture border="12" colordiffuse="$VAR[FocusTextureColorVar]">thumbs_square/poster_shadow90.png</bordertexture>
 					<bordersize>15</bordersize>
 					<visible>Skin.HasSetting(squarethumbs) + Skin.HasSetting(genrethumbs)</visible>
@@ -629,7 +666,7 @@
 					<top>10</top>
 					<width>265</width>
 					<height>398</height>
-					<texture background="true" diffuse="" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar1]</texture>
+					<texture background="true" diffuse="" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar1]</texture>
 					<bordertexture border="12" colordiffuse="$VAR[FocusTextureColorVar]">thumbs_square/poster_shadow90.png</bordertexture>
 					<bordersize>15</bordersize>
 					<visible>Skin.HasSetting(squarethumbs) + !Skin.HasSetting(genrethumbs)</visible>

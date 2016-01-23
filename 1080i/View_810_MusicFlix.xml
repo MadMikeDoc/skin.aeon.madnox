@@ -46,7 +46,7 @@
 			<top>240</top>
 			<width>650</width>
 			<height>270</height>
-			<textcolor>$VAR[FontTitleColorVar]</textcolor>
+			<textcolor>$VAR[TitleColorVar]</textcolor>
 	<!-- Album Info-->
 			<control type="grouplist">
 				<left>2</left>
@@ -109,8 +109,8 @@
 			</control>
 		</control>
 	<!-- End of Album Song List -->
-	
-	<!-- List View -->	
+
+	<!-- List View -->
 			<control type="fixedlist" id="810">
 				<left>-130</left>
 				<top>300</top>
@@ -122,14 +122,14 @@
 				<onright>810</onright>
 				<ondown>75</ondown>
 				<orientation>horizontal</orientation>
-				<viewtype label="MusicFlix">BigWrap</viewtype> 
+				<viewtype label="MusicFlix">BigWrap</viewtype>
 				<pagecontrol>75</pagecontrol>
 				<preloaditems>2</preloaditems>
 				<scrolltime tween="quadratic">400</scrolltime>
 				<focusposition>1</focusposition>
 				<visible>Container.Content(artists) | Container.Content(Albums)</visible>
 	<!-- Square Thumbs -->
-				<itemlayout width="300" height="300" condition="Control.IsVisible(810)"> 
+				<itemlayout width="300" height="300" condition="Control.IsVisible(810)">
 				<control type="image">
 					<left>-141</left>
 					<top>120</top>
@@ -190,7 +190,7 @@
 					<width>299</width>
 					<height>299</height>
 					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture background="true" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar]</texture>
+					<texture background="true" fallback="thumbs/fallback_poster_tp.png">$VAR[ListAlbumVar]</texture>
 					<bordertexture border="15">thumbs/thumb_border.png</bordertexture>
 					<bordersize>8</bordersize>
 				</control>
@@ -200,7 +200,7 @@
 					<width>299</width>
 					<height>299</height>
 					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar]</texture>
+					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_poster_tp.png">$VAR[ListAlbumVar]</texture>
 					<bordersize>8</bordersize>
 				</control>
 				</focusedlayout>

@@ -31,7 +31,7 @@
 						<posy>179</posy>
 						<height>905</height>
 						<width>980</width>
-						<onleft>62</onleft>
+						<!-- <onleft>62</onleft> -->
 						<onleft>SetProperty(MediaMenu,True,home)</onleft>
 						<onleft>SetFocus(9000)</onleft>
 						<onright>60</onright>
@@ -50,11 +50,11 @@
 								<width>980</width>
 								<height>181</height>
 								<aspectratio>stretch</aspectratio>
-								<texture background="true">$VAR[BannerVar]</texture>
+								<texture background="true" fallback="thumbs/fallback_banner_tp.png">$VAR[BannerVar]</texture>
 								<fadetime>400</fadetime>
 								<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
 								<bordersize>8</bordersize>
-								<visible>[!IsEmpty(ListItem.Art(banner)) + [!Skin.HasSetting(BannerInfoUseLogo) | !SubString(ListItem.Path,videodb://movies/sets)] ]| !IsEmpty(ListItem.Art(fanart)) + !SubString(ListItem.Path,videodb://movies/sets)</visible>
+								<visible>[!IsEmpty(ListItem.Art(banner)) + [!Skin.HasSetting(BannerInfoUseLogo) | !SubString(ListItem.Path,videodb://movies/sets) ]]| !IsEmpty(ListItem.Art(fanart)) + !SubString(ListItem.Path,videodb://movies/sets)</visible>
 							</control>
 							<control type="group">
 								<visible>IsEmpty(ListItem.Art(banner)) | [Skin.HasSetting(BannerInfoUseLogo) + SubString(ListItem.Path,videodb://movies/sets)]</visible>
@@ -81,7 +81,7 @@
 									<width>1000</width>
 									<height>181</height>
 									<aspectratio>keep</aspectratio>
-									<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+									<texture background="true" fallback="thumbs/fallback_banner_tp.png">$INFO[ListItem.Art(clearlogo)]</texture>
 									<fadetime>400</fadetime>
 									<bordersize>2</bordersize>
 									<visible>SubString(ListItem.Path,videodb://movies/sets)</visible>
@@ -157,9 +157,9 @@
 									<width>980</width>
 									<height>181</height>
 									<aspectratio>stretch</aspectratio>
-									<texture background="true">$VAR[BannerVar]</texture>
+									<texture background="true" fallback="thumbs/fallback_banner_tp.png">$VAR[BannerVar]</texture>
 									<fadetime>400</fadetime>
-									<visible>[!IsEmpty(ListItem.Art(banner)) + [!Skin.HasSetting(BannerInfoUseLogo) | !SubString(ListItem.Path,videodb://movies/sets)] ]| !IsEmpty(ListItem.Art(fanart)) + !SubString(ListItem.Path,videodb://movies/sets)</visible>
+									<visible>[!IsEmpty(ListItem.Art(banner)) + [!Skin.HasSetting(BannerInfoUseLogo) | !SubString(ListItem.Path,videodb://movies/sets) ]]| !IsEmpty(ListItem.Art(fanart)) + !SubString(ListItem.Path,videodb://movies/sets)</visible>
 								</control>					
 								<control type="group">
 									<visible>IsEmpty(ListItem.Art(banner)) | [Skin.HasSetting(BannerInfoUseLogo) + SubString(ListItem.Path,videodb://movies/sets)]</visible>
@@ -194,7 +194,7 @@
 										<width>1000</width>
 										<height>181</height>
 										<aspectratio>keep</aspectratio>
-										<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+										<texture background="true" fallback="thumbs/fallback_banner_tp.png">$INFO[ListItem.Art(clearlogo)]</texture>
 										<fadetime>400</fadetime>
 										<bordersize>2</bordersize>
 										<visible>SubString(ListItem.Path,videodb://movies/sets)</visible>
@@ -298,7 +298,7 @@
 							<width>685</width>
 							<height>385</height>
 							<aspectratio>scale</aspectratio>
-							<texture background="true" fallback="thumbs/sets/backset.png">$INFO[ListItem.Art(extrafanart1)]</texture>
+							<texture background="true" fallback="thumbs/fallback_episode_tp.png">$INFO[ListItem.Art(extrafanart1)]</texture>
 							<visible>StringCompare(Control.GetLabel(4420),fanart) + SubString(ListItem.Path,videodb://movies/sets) + !IsEmpty(ListItem.Art(extrafanart1))</visible>
 						</control>
 						<control type="image">
@@ -320,7 +320,7 @@
 							<include condition="Window.IsActive(pictures)">Aspectratio_Keep</include>
 							<include condition="!Window.IsActive(pictures)">Aspectratio_Scale</include>
 							<timeperimage>3000</timeperimage>
-							<imagepath background="true">$VAR[VideoExtraFanartVar]</imagepath>
+							<imagepath background="true" fallback="thumbs/fallback_episode_tp.png">$VAR[VideoExtraFanartVar]</imagepath>
 							<visible>StringCompare(Control.GetLabel(4420),fanart) + !SubString(ListItem.Path,videodb://movies/sets)</visible>
 							<include>Animation_VisibleChange200</include>
 						</control>

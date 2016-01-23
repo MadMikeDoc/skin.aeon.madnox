@@ -226,7 +226,7 @@
 					<width>422</width>
 					<height>626</height>
 					<aspectratio aligny="bottom">stretch</aspectratio>
-					<texture background="true">$VAR[ListPosterVar]</texture>
+					<texture background="true" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar]</texture>
 					<fadetime>IconCrossfadeTime</fadetime>
 					<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
 					<bordersize>20</bordersize>
@@ -239,7 +239,7 @@
 					<width>438</width>
 					<height>637</height>
 					<aspectratio aligny="bottom">stretch</aspectratio>
-					<texture background="true" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterBackupVar]</texture>
+					<texture background="true" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterBackupVar]</texture>
 					<fadetime>IconCrossfadeTime2</fadetime>
 					<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
 					<bordersize>20</bordersize>
@@ -251,7 +251,7 @@
 					<width>438</width>
 					<height>637</height>
 					<aspectratio aligny="bottom">stretch</aspectratio>
-					<texture background="true">$VAR[ListPosterVar]</texture>
+					<texture background="true" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar]</texture>
 					<fadetime>IconCrossfadeTime</fadetime>
 					<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
 					<bordersize>20</bordersize>
@@ -263,7 +263,7 @@
 					<width>438</width>
 					<height>637</height>
 					<aspectratio aligny="bottom">stretch</aspectratio>
-					<texture background="true">$VAR[ListPosterVar]</texture>
+					<texture background="true" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar]</texture>
 					<fadetime>IconCrossfadeTime</fadetime>
 					<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
 					<bordersize>20</bordersize>
@@ -399,17 +399,17 @@
 				<control type="scrollbar" id="63">
 					<left>640</left>
 					<top>120</top>
-					<width>12</width>
+					<width>17</width>
 					<height>198</height>
 					<onup>PageUp(70)</onup>
 					<ondown>PageUp(70)</ondown>
 					<onleft>62</onleft>
-					<!--onleft>SetProperty(MediaMenu,True,home)</onleft-->
-					<!--onleft>SetFocus(9050)</onleft-->
+					<!-- <onleft>SetProperty(MediaMenu,True,home)</onleft>
+					<onleft>SetFocus(9050)</onleft> -->
 					<onright>700</onright>
 					<texturesliderbackground>scrollbar/texturesliderbackground2.png</texturesliderbackground>
-					<texturesliderbar>scrollbar/texturesliderbar2.png</texturesliderbar>
-					<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
+					<texturesliderbar>scrollbar/texturesliderbar3.png</texturesliderbar>
+					<texturesliderbarfocus border="1">scrollbar/texturesliderbar3.png</texturesliderbarfocus>
 					<showonepage>false</showonepage>
 					<orientation>vertical</orientation>
 					<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(63) + !Container.Scrolling">Conditional</animation>
@@ -1532,9 +1532,9 @@
 			</focusedlayout>
 		</control>
 		<control type="scrollbar" id="60">
-			<left>1904</left>
+			<left>1894</left>
 			<top>40</top>
-			<width>14</width>
+			<width>17</width>
 			<height>920</height>
 			<onup>60</onup>
 			<ondown>60</ondown>
@@ -1544,8 +1544,8 @@
 			<texturesliderbackground border="1">-</texturesliderbackground>
 			<texturesliderbar border="6,0,6,0">scrollbar/texturesliderbar_hor.png</texturesliderbar>
 			<texturesliderbarfocus border="6,0,6,0">scrollbar/texturesliderbarfocus_hor.png</texturesliderbarfocus>
-			<textureslidernib>-</textureslidernib>
-			<textureslidernibfocus>-</textureslidernibfocus>
+			<!-- <textureslidernib>-</textureslidernib>
+			<textureslidernibfocus>-</textureslidernibfocus> -->
 			<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
 			<showonepage>false</showonepage>
 			<orientation>vertical</orientation>
@@ -1641,6 +1641,19 @@
                 <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
 				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
             </control>
+			<control type="image">
+                <top>380</top>
+                <left>65</left>
+                <width>380</width>
+                <height>380</height>
+                <include>Animation_ListSlideLeft</include>
+                <aspectratio align="right">keep</aspectratio>
+                <fadetime>400</fadetime>
+                <texture background="true">$INFO[Window(Home).Property(SkinHelper.Music.DiscArt)]</texture>
+				<visible>Skin.HasSetting(rightlistCD) + Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart)</visible>
+                <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
+				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
+            </control>
             <control type="image" id="4172914">
                 <top>380</top>
                 <left>65</left>
@@ -1663,7 +1676,7 @@
                 <aspectratio align="right">keep</aspectratio>
                 <include condition="Skin.HasSetting(vinylart)">vinylartlibrary</include>
                 <include condition="Skin.HasSetting(blurayart)">blurayartlibrary</include>
-                <visible>Skin.HasSetting(rightlistCD) + !Skin.HasSetting(MusicFakeDisc) + !Skin.HasSetting(RightListSlideLeft) + !Stringcompare(ListItem.Label,..) + [Container.Content(albums) | Container.Content(songs)]</visible>
+                <visible>IsEmpty(Window(Home).Property(SkinHelper.Music.DiscArt)) + Skin.HasSetting(rightlistCD) + !Skin.HasSetting(MusicFakeDisc) + !Skin.HasSetting(RightListSlideLeft) + !Stringcompare(ListItem.Label,..) + [Container.Content(albums) | Container.Content(songs)]</visible>
                 <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
 				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
             </control>
@@ -1676,7 +1689,7 @@
                 <aspectratio align="right">keep</aspectratio>
                 <include condition="Skin.HasSetting(vinylart)">vinylartlibrary</include>
                 <include condition="Skin.HasSetting(blurayart)">blurayartlibrary</include>
-                <visible>Skin.HasSetting(rightlistCD) + !Skin.HasSetting(MusicFakeDisc) + Skin.HasSetting(RightListSlideLeft) + !Stringcompare(ListItem.Label,..) + [Container.Content(albums) | Container.Content(songs)]</visible>
+                <visible>IsEmpty(Window(Home).Property(SkinHelper.Music.DiscArt)) + Skin.HasSetting(rightlistCD) + !Skin.HasSetting(MusicFakeDisc) + Skin.HasSetting(RightListSlideLeft) + !Stringcompare(ListItem.Label,..) + [Container.Content(albums) | Container.Content(songs)]</visible>
                 <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
 				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
             </control>
@@ -1826,15 +1839,24 @@
                     <bordersize>20</bordersize>
                 </control-->
             </control>
-			<!-- Tracklist -->
+			<!-- Track/cdlist -->
 			<control type="image">
                 <left>460</left>
                 <top>555</top>
                 <width>500</width>
                 <height>415</height>
-                <texture>moo/track.bg.png</texture>
+                <texture>mooviz/track.bg.png</texture>
                 <animation effect="fade" end="65" condition="true">Conditional</animation>
-                <visible>Skin.HasSetting(RightListShowTracks) | Skin.HasSetting(RightListShowInfo)</visible>
+                <visible>Container.Content(albums) + [Skin.HasSetting(RightListShowTracks) | Skin.HasSetting(RightListShowInfo)]</visible>
+            </control>
+			<control type="image">
+                <left>460</left>
+                <top>555</top>
+                <width>500</width>
+                <height>415</height>
+                <texture>mooviz/track.bg.png</texture>
+                <animation effect="fade" end="65" condition="true">Conditional</animation>
+                <visible>Container.Content(artists) + [Skin.HasSetting(RightListShowCDs) | Skin.HasSetting(RightListShowInfo)]</visible>
             </control>
 			<control type="textbox">
 				<label>[COLOR white]$INFO[Window(Home).Property(SkinHelper.Music.TrackList)][/COLOR]</label>
@@ -1847,6 +1869,18 @@
 				<font>font10</font>
 				<autoscroll time="1500" delay="4000" repeat="5000"></autoscroll>
 				<visible>!StringCompare(ListItem.Label,..) + Container.Content(albums) + Skin.HasSetting(RightListShowTracks)</visible>
+			</control>
+			<control type="textbox">
+				<label>[COLOR white]$INFO[Window(Home).Property(SkinHelper.Music.Albums)][/COLOR]</label>
+				<top>568</top>
+				<left>480</left>
+				<width>500</width>
+				<height>388</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font14_textbox</font>
+				<autoscroll time="1500" delay="4000" repeat="5000"></autoscroll>
+				<visible>Skin.HasSetting(RightListShowCDs) + Container.Content(artists)</visible>
 			</control>
 			<!--Info-->
             <control type="grouplist">

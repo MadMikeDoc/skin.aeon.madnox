@@ -1498,7 +1498,7 @@
 					<width>198</width>
 					<height>299</height>
 					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture background="true" fallback="thumbs/fallback_episode_tp.png">$VAR[ListPosterVar]</texture>
+					<texture background="true" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar]</texture>
 					<bordertexture border="15">thumbs/thumb_border.png</bordertexture>
 					<include>KodiFlixDimAnimation</include>
 					<bordersize>6</bordersize>
@@ -1509,7 +1509,7 @@
 					<width>198</width>
 					<height>299</height>
 					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_episode_tp.png">$VAR[ListPosterVar]</texture>
+					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar]</texture>
 					<bordertexture border="15">thumbs/thumb_border_fade.png</bordertexture>
 					<bordersize>6</bordersize>
 					<include>KodiFlixDimAnimation</include>
@@ -1645,7 +1645,7 @@
 				</control>
 				<control type="image">
 					<include>KodiFlixMovieThumb</include>
-					<texture background="true" diffuse="thumbs/thumb_mask.png" fallback="DefaultVideoBigPoster.png">$VAR[ListPosterVar]</texture>
+					<texture background="true" diffuse="thumbs/thumb_mask.png" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar]</texture>
 					<include>KodiFlixOpenCase</include>
 					<visible>Skin.HasSetting(usecases) + [Container.Content(movies) | Container.Content(sets)] + Skin.Hassetting(KodiFlixCases) + !stringcompare(ListItem.Label,..) + Skin.HasSetting(KodiFlixOpenCase) + !IsEmpty(ListItem.Art(discart))</visible>
 				</control>
@@ -2511,7 +2511,7 @@
 					<width>198</width>
 					<height>299</height>
 					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture background="true" fallback="thumbs/fallback_episode_tp.png">$VAR[ListPosterVar]</texture>
+					<texture background="true" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar]</texture>
 					<bordertexture border="15">thumbs/thumb_border.png</bordertexture>
 					<bordersize>6</bordersize>
 					<include>KodiFlixDimAnimation</include>
@@ -2522,7 +2522,7 @@
 					<width>198</width>
 					<height>299</height>
 					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_episode_tp.png">$VAR[ListPosterVar]</texture>
+					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar]</texture>
 					<bordertexture border="15">thumbs/thumb_border_fade.png</bordertexture>
 					<bordersize>6</bordersize>
 					<animation type="Conditional" reversible="false" condition="Skin.HasSetting(KodiFlixDimItems)">
@@ -2591,6 +2591,7 @@
 				</control>
 			</focusedlayout>
 		</control>
+		
 		<control type="image">
 			<left>45</left>
 			<top>620</top>
