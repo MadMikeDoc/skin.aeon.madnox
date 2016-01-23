@@ -1,320 +1,258 @@
 <?xml version="1.0" encoding="utf-8"?>
-<includes>
-    <include name="Banners">
-        <control type="group">
-            <visible>Control.IsVisible(508)</visible>
-            <animation effect="slide" tween="cubic" easing="out" time="500" start="0,506" end="0,0">VisibleChange</animation>
-            <include>Animation_OpenCloseZoom</include>
-            <control type="image">
-                <left>10</left>
-                <top>806</top>
-                <width>40</width>
-                <height>40</height>
-                <texture flipx="true">arrowright.png</texture>
-                <include>Animation_VisibleChange200</include>
-                <colordiffuse>white2</colordiffuse>
-                <animation effect="slide" start="-150" end="0" delay="640" time="320" tween="cubic">WindowOpen</animation>
-                <animation effect="slide" start="50" end="0" time="320" tween="cubic" condition="![!Container(508).Position(1) + !Container(508).Position(2) + !Container(508).Position(0)] + !Skin.HasSetting(AltBannerPlex)">Conditional</animation>
-                <visible>Container.HasPrevious</visible>
-            </control>
-            <control type="image">
-                <left>1880</left>
-                <top>806</top>
-                <width>40</width>
-                <height>40</height>
-                <texture>arrowright.png</texture>
-                <colordiffuse>white2</colordiffuse>
-                <include>Animation_VisibleChange200</include>
-                <animation effect="slide" start="-50" end="0" time="320" tween="cubic" condition="![!Container(508).Position(6) + !Container(508).Position(7) + !Container(508).Position(8)] + !Skin.HasSetting(AltBannerPlex)">Conditional</animation>
-                <animation effect="slide" start="150" end="0" delay="640" time="320" tween="cubic">WindowOpen</animation>
-                <visible>Container.HasNext</visible>
-            </control>
-            <control type="group">
-                <visible>Skin.HasSetting(AltBannerPlex)</visible>
-                <include>Animation_VisibleChange400</include>
-                <control type="image">
-                    <left>96</left>
-                    <top>601</top>
-                    <width>1730</width>
-                    <height>389</height>
-                    <texture border="50">featured/panel_featured.png</texture>
-                    <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
-                </control>
-                <control type="image">
-                    <left>117</left>
-                    <top>971</top>
-                    <width>1688</width>
-                    <height>119</height>
-                    <texture border="50">featured/panel_featured_reflect.png</texture>
-                </control>
-            </control>
-            <control type="image">
-                <left>117</left>
-                <top>622</top>
-                <width>1688</width>
-                <height>347</height>
-                <texture border="21">featured/panel_featured_overlay.png</texture>
-                <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
-                <include>Animation_VisibleChange400</include>
-                <visible>Skin.HasSetting(AltBannerPlex)</visible>
-                <animation effect="fade" time="160" delay="120" start="100" end="40" condition="Control.IsVisible(7550)">Conditional</animation>
-            </control>
-			<control type="panel" id="508">
-                <left>117</left>
-                <top>614</top>
-                <width>1686</width>
-                <height>360</height>
-                <animation effect="slide" end="0,16" condition="Skin.HasSetting(AltBannerPlex)">Conditional</animation>
-                <onleft>508</onleft>
-                <onright>508</onright>
-                <onup>7000</onup>
-                <ondown>61</ondown>
-                <orientation>horizontal</orientation>
-                <viewtype label="$LOCALIZE[31236]">wide icon</viewtype>
-                <pagecontrol>61</pagecontrol>
-                <scrolltime tween="cubic">300</scrolltime>
-                <preloaditems>2</preloaditems>
-                <visible>Container.Content(TVShows) | Container.Content(movies) | Container.Content(seasons)</visible>
-                <visible>![!IsEmpty(Skin.String(DisableBannersVL)) + Window.IsActive(videos)]</visible>
-                <itemlayout width="562" height="120" condition="!Skin.HasSetting(AltBannerPlex)">
-                    <control type="image">
-                        <left>6</left>
-                        <top>8</top>
-                        <width>552</width>
-                        <height>104</height>
-                        <aspectratio scalediffuse="false">scale</aspectratio>
-                        <texture background="true" diffuse="thumbs/banner_mask.png">$VAR[BannerVar]</texture>
-                    </control>
-                    <control type="image">
-                        <left>16</left>
-                        <top>12</top>
-                        <width>552</width>
-                        <height>96</height>
-                        <aspectratio scalediffuse="false" align="left">keep</aspectratio>
-                        <texture background="true" diffuse="thumbs/banner_mask.png">$VAR[LogoVarList]</texture>
-                        <visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner))</visible>
-                    </control>
-                    <control type="label">
-                        <left>8</left>
-                        <top>8</top>
-                        <width>528</width>
-                        <height>105</height>
-                        <align>center</align>
-                        <label>$INFO[ListItem.Label]</label>
-                        <font>Font_Bold40</font>
-                        <shadowcolor>black</shadowcolor>
-                        <visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner)) + IsEmpty(ListItem.Art(clearlogo))</visible>
-                    </control>
-                    <control type="group">
-                        <top>5</top>
-                        <include>UnwatchedIcon</include>
-                    </control>
-                    <control type="image">
-                        <left>468</left>
-                        <top>8</top>
-                        <width>90</width>
-                        <height>90</height>
-                        <include>OverlayVisibility0</include>
-                    </control>
+	<includes>
+		<include name="Banners">
+			<control type="group">
+				<visible>Control.IsVisible(508)</visible>
+				<animation effect="slide" tween="cubic" easing="out" time="500" start="0,506" end="0,0">VisibleChange</animation>
+				<include>Animation_OpenCloseZoom</include>
+				<control type="image">
+					<left>10</left>
+					<top>806</top>
+					<width>40</width>
+					<height>40</height>
+					<texture flipx="true">arrowright.png</texture>
+					<include>Animation_VisibleChange200</include>
+					<colordiffuse>white2</colordiffuse>
+					<animation effect="slide" start="-150" end="0" delay="640" time="320" tween="cubic">WindowOpen</animation>
+					<animation effect="slide" start="50" end="0" time="320" tween="cubic" condition="![!Container(508).Position(1) + !Container(508).Position(2) + !Container(508).Position(0)] + !Skin.HasSetting(AltBannerPlex)">Conditional</animation>
+					<visible>Container.HasPrevious</visible>
+				</control>
+				<control type="image">
+					<left>1880</left>
+					<top>806</top>
+					<width>40</width>
+					<height>40</height>
+					<texture>arrowright.png</texture>
+					<colordiffuse>white2</colordiffuse>
+					<include>Animation_VisibleChange200</include>
+					<animation effect="slide" start="-50" end="0" time="320" tween="cubic" condition="![!Container(508).Position(6) + !Container(508).Position(7) + !Container(508).Position(8)] + !Skin.HasSetting(AltBannerPlex)">Conditional</animation>
+					<animation effect="slide" start="150" end="0" delay="640" time="320" tween="cubic">WindowOpen</animation>
+					<visible>Container.HasNext</visible>
+				</control>
+				<control type="group">
+					<visible>Skin.HasSetting(AltBannerPlex)</visible>
+					<include>Animation_VisibleChange400</include>
 					<control type="image">
-                        <left>468</left>
-                        <top>8</top>
-                        <width>90</width>
-                        <height>90</height>
-						<texture>overlayprogress.png</texture>
-						<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+						<left>96</left>
+						<top>601</top>
+						<width>1730</width>
+						<height>389</height>
+						<texture border="50">featured/panel_featured.png</texture>
+						<colordiffuse>$VAR[DialogColorVar]</colordiffuse>
 					</control>
 					<control type="image">
-                        <left>468</left>
-                        <top>8</top>
-                        <width>90</width>
-                        <height>90</height>
-						<texture background="true" diffuse="thumbs/ExtraOverlayWatched.png">$VAR[VideoextrasOverlay]</texture>
-						<visible>System.HasAddon(script.videoextras)</visible>
+						<left>117</left>
+						<top>971</top>
+						<width>1688</width>
+						<height>119</height>
+						<texture border="50">featured/panel_featured_reflect.png</texture>
 					</control>
-                    <control type="image">
-                        <left>6</left>
-                        <top>8</top>
-                        <width>552</width>
-                        <height>105</height>
-                        <aspectratio scalediffuse="false">scale</aspectratio>
-                        <texture diffuse="thumbs/banner_mask.png">common/bgcolor.png</texture>
-                        <animation effect="fade" start="100" end="50" time="40" condition="true">Conditional</animation>
-                    </control>
-                </itemlayout>
-                <focusedlayout width="562" height="120" condition="!Skin.HasSetting(AltBannerPlex)">
-                    <control type="group">
-                        <animation effect="zoom" center="auto" start="100" end="122" time="480" tween="back" reversible="false">Focus</animation>
-                      	<control type="image">
-                            <left>6</left>
-                            <top>8</top>
-                            <width>552</width>
-                            <height>105</height>
-                            <aspectratio scalediffuse="false">scale</aspectratio>
-                            <texture background="true" diffuse="thumbs/banner_mask.png">$VAR[BannerVar]</texture>
-                        </control>
-                        <control type="image">
-                            <left>16</left>
-                            <top>12</top>
-                            <width>552</width>
-                            <height>96</height>
-                            <aspectratio scalediffuse="false" align="left">keep</aspectratio>
-                            <texture background="true" diffuse="thumbs/banner_mask.png">$VAR[LogoVarList]</texture>
-                            <visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner))</visible>
-                        </control>
-                        <control type="label">
-                            <left>8</left>
-                            <top>8</top>
-                            <width>528</width>
-                            <height>105</height>
-                            <align>center</align>
-                            <label>$INFO[ListItem.Label]</label>
-                            <font>Font_Bold40</font>
-                            <shadowcolor>black</shadowcolor>
-                            <visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner)) + IsEmpty(ListItem.Art(clearlogo))</visible>
-                        </control>
-                        <control type="group">
-                            <top>5</top>
-                            <include>UnwatchedIcon</include>
-                        </control>
-                        <control type="image">
-                            <left>468</left>
-                            <top>7</top>
-                            <width>90</width>
-                            <height>90</height>
-                            <include>OverlayVisibility0</include>
-                        </control>
+				</control>
+				<control type="image">
+					<left>117</left>
+					<top>622</top>
+					<width>1688</width>
+					<height>347</height>
+					<texture border="21">featured/panel_featured_overlay.png</texture>
+					<colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+					<include>Animation_VisibleChange400</include>
+					<visible>Skin.HasSetting(AltBannerPlex)</visible>
+					<animation effect="fade" time="160" delay="120" start="100" end="40" condition="Control.IsVisible(7550)">Conditional</animation>
+				</control>
+				<control type="panel" id="508">
+					<left>117</left>
+					<top>614</top>
+					<width>1686</width>
+					<height>360</height>
+					<animation effect="slide" end="0,16" condition="Skin.HasSetting(AltBannerPlex)">Conditional</animation>
+					<onleft>508</onleft>
+					<onright>508</onright>
+					<onup>7000</onup>
+					<ondown>61</ondown>
+					<orientation>horizontal</orientation>
+					<viewtype label="$LOCALIZE[31236]">wide icon</viewtype>
+					<pagecontrol>61</pagecontrol>
+					<scrolltime tween="cubic">300</scrolltime>
+					<preloaditems>2</preloaditems>
+					<visible>Container.Content(TVShows) | Container.Content(movies) | Container.Content(seasons)</visible>
+					<visible>![!IsEmpty(Skin.String(DisableBannersVL)) + Window.IsActive(videos)]</visible>
+					<itemlayout width="562" height="120" condition="!Skin.HasSetting(AltBannerPlex)">
+						<control type="image">
+							<left>6</left>
+							<top>8</top>
+							<width>552</width>
+							<height>104</height>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<texture background="true" diffuse="thumbs/banner_mask.png">$VAR[BannerVar]</texture>
+						</control>
+						<control type="image">
+							<left>16</left>
+							<top>12</top>
+							<width>552</width>
+							<height>96</height>
+							<aspectratio scalediffuse="false" align="left">keep</aspectratio>
+							<texture background="true" diffuse="thumbs/banner_mask.png">$VAR[LogoVarList]</texture>
+							<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner))</visible>
+						</control>
+						<control type="label">
+							<left>8</left>
+							<top>8</top>
+							<width>528</width>
+							<height>105</height>
+							<align>center</align>
+							<label>$INFO[ListItem.Label]</label>
+							<font>Font_Bold40</font>
+							<shadowcolor>black</shadowcolor>
+							<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner)) + IsEmpty(ListItem.Art(clearlogo))</visible>
+						</control>
+						<control type="group">
+							<top>-5</top>
+							<left>-5</left>
+							<include>UnwatchedIcon</include>
+						</control>
 						<control type="image">
 							<left>468</left>
-							<top>7</top>
+							<top>8</top>
+							<width>91</width>
+							<height>90</height>
+							<texture background="true" diffuse="thumbs/ExtraOverlayWatched.png">$VAR[VideoextrasOverlay]</texture>
+							<visible>System.HasAddon(script.videoextras)</visible>
+						</control>
+						<control type="image">
+							<left>468</left>
+							<top>8</top>
+							<width>90</width>
+							<height>90</height>
+							<include>OverlayVisibility0</include>
+						</control>
+						<control type="image">
+							<left>468</left>
+							<top>8</top>
 							<width>90</width>
 							<height>90</height>
 							<texture>overlayprogress.png</texture>
 							<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
 						</control>
+						<control type="image">
+							<left>6</left>
+							<top>8</top>
+							<width>552</width>
+							<height>105</height>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<texture diffuse="thumbs/banner_mask.png">common/bgcolor.png</texture>
+							<animation effect="fade" start="100" end="50" time="40" condition="true">Conditional</animation>
+						</control>
+					</itemlayout>
+					<focusedlayout width="562" height="120" condition="!Skin.HasSetting(AltBannerPlex)">
+						<control type="group">
+							<animation effect="zoom" center="auto" start="100" end="122" time="480" tween="back" reversible="false">Focus</animation>
 							<control type="image">
-                            <left>468</left>
-                            <top>7</top>
-                            <width>90</width>
-                            <height>90</height>
-							<texture background="true" diffuse="thumbs/ExtraOverlayWatched.png">$VAR[VideoextrasOverlay]</texture>
+								<left>6</left>
+								<top>8</top>
+								<width>552</width>
+								<height>105</height>
+								<aspectratio scalediffuse="false">scale</aspectratio>
+								<texture background="true" diffuse="thumbs/banner_mask.png">$VAR[BannerVar]</texture>
+							</control>
+							<control type="image">
+								<left>16</left>
+								<top>12</top>
+								<width>552</width>
+								<height>96</height>
+								<aspectratio scalediffuse="false" align="left">keep</aspectratio>
+								<texture background="true" diffuse="thumbs/banner_mask.png">$VAR[LogoVarList]</texture>
+								<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner))</visible>
+							</control>
+							<control type="label">
+								<left>8</left>
+								<top>8</top>
+								<width>528</width>
+								<height>105</height>
+								<align>center</align>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Font_Bold40</font>
+								<shadowcolor>black</shadowcolor>
+								<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner)) + IsEmpty(ListItem.Art(clearlogo))</visible>
+							</control>
+							<control type="group">
+								<top>-5</top>
+								<left>-5</left>
+								<include>UnwatchedIcon</include>
+							</control>
+								<control type="image">
+								<left>469</left>
+								<top>8</top>
+								<width>90</width>
+								<height>90</height>
+								<texture background="true" diffuse="thumbs/ExtraOverlayWatched.png">$VAR[VideoextrasOverlay]</texture>
+								<visible>System.HasAddon(script.videoextras)</visible>
+							</control>
+							<control type="image">
+								<left>469</left>
+								<top>8</top>
+								<width>90</width>
+								<height>90</height>
+								<include>OverlayVisibility0</include>
+							</control>
+							<control type="image">
+								<left>469</left>
+								<top>8</top>
+								<width>90</width>
+								<height>90</height>
+								<texture>overlayprogress.png</texture>
+								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+							</control>
+							<control type="image">
+								<left>-6</left>
+								<top>-4</top>
+								<width>576</width>
+								<height>128</height>
+								<texture diffuse="thumbs/banner_mask.png">common/blank.png</texture>
+								<bordersize>12</bordersize>
+								<bordertexture border="12">thumbs/banner_shadow.png</bordertexture>
+								<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+							</control>
+						</control>
+					</focusedlayout>
+					<itemlayout width="562" height="104" condition="Skin.HasSetting(AltBannerPlex)">
+						<control type="image">
+							<width>562</width>
+							<height>104</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$VAR[BannerVar]</texture>
+						</control>
+						<control type="image">
+							<left>-7</left>
+							<top>1</top>
+							<width>576</width>
+							<height>103</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$VAR[LogoVarList]</texture>
+							<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner))</visible>
+						</control>
+						<control type="label">
+							<left></left>
+							<width>562</width>
+							<height>104</height>
+							<align>center</align>
+							<label>$INFO[ListItem.Label]</label>
+							<font>Font_Bold40</font>
+							<shadowcolor>black</shadowcolor>
+							<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner)) + IsEmpty(ListItem.Art(clearlogo))</visible>
+						</control>
+						<control type="image">
+							<left>473</left>
+							<width>90</width>
+							<height>90</height>
+							<texture>$VAR[VideoextrasOverlay]</texture>
 							<visible>System.HasAddon(script.videoextras)</visible>
 						</control>
-                        <control type="image">
-                            <left>-6</left>
-                            <top>-4</top>
-                            <width>576</width>
-                            <height>128</height>
-                            <texture diffuse="thumbs/banner_mask.png">common/blank.png</texture>
-                            <bordersize>12</bordersize>
-                            <bordertexture border="12">thumbs/banner_shadow.png</bordertexture>
-                            <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-                        </control>
-                    </control>
-                </focusedlayout>
-                <itemlayout width="562" height="104" condition="Skin.HasSetting(AltBannerPlex)">
-                    <control type="image">
-                        <width>562</width>
-                        <height>104</height>
-                        <aspectratio>scale</aspectratio>
-                        <texture background="true">$VAR[BannerVar]</texture>
-                    </control>
-                    <control type="image">
-                        <left>-7</left>
-                        <top>1</top>
-                        <width>576</width>
-                        <height>103</height>
-                        <aspectratio>keep</aspectratio>
-                        <texture background="true">$VAR[LogoVarList]</texture>
-                        <visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner))</visible>
-                    </control>
-                    <control type="label">
-                        <left></left>
-                        <width>562</width>
-                        <height>104</height>
-                        <align>center</align>
-                        <label>$INFO[ListItem.Label]</label>
-                        <font>Font_Bold40</font>
-                        <shadowcolor>black</shadowcolor>
-                        <visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner)) + IsEmpty(ListItem.Art(clearlogo))</visible>
-                    </control>
-                    <control type="image">
-                        <left>472</left>
-                        <width>90</width>
-                        <height>90</height>
-                        <include>OverlayVisibility0</include>
-                    </control>
-					<control type="image">
-                        <left>472</left>
-                        <width>90</width>
-                        <height>90</height>
-						<texture>overlayprogress.png</texture>
-						<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-					</control>
-					<control type="image">
-                        <left>472</left>
-                        <width>90</width>
-                        <height>90</height>
-						<texture>$VAR[VideoextrasOverlay]</texture>
-						<visible>System.HasAddon(script.videoextras)</visible>
-					</control>
-                    <control type="group">
-                        <include>UnwatchedIcon</include>
-                    </control>
-                    <control type="image">
-                        <width>562</width>
-                        <height>104</height>
-                        <texture>common/bgcolor.png</texture>
-                        <colordiffuse>77FFFFFF</colordiffuse>
-                    </control>
-                    <control type="image">
-                        <width>562</width>
-                        <height>104</height>
-                        <texture background="true">thumbs/banner_shadow_in.png</texture>
-                    </control>
-                </itemlayout>
-                <focusedlayout width="562" height="104" condition="Skin.HasSetting(AltBannerPlex)">
-                    <control type="group">
-                        <animation effect="zoom" center="auto" start="100" end="115" time="160" tween="quadratic" reversible="false">Focus</animation>
-                        <control type="image">
-                            <left>-7</left>
-                            <top>-7</top>
-                            <width>576</width>
-                            <height>118</height>
-                            <aspectratio>scale</aspectratio>
-                            <texture background="true">$VAR[BannerVar]</texture>
-                            <bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
-                            <bordersize>7</bordersize>
-                        </control>
-                        <control type="image">
-                            <left>-7</left>
-                            <top>1</top>
-                            <width>576</width>
-                            <height>103</height>
-                            <aspectratio>keep</aspectratio>
-                            <texture background="true">$VAR[LogoVarList]</texture>
-                            <visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner))</visible>
-                        </control>
-                        <control type="label">
-                            <left></left>
-                            <width>562</width>
-                            <height>104</height>
-                            <align>center</align>
-                            <label>$INFO[ListItem.Label]</label>
-                            <font>Font_Bold40</font>
-                            <shadowcolor>black</shadowcolor>
-                            <textcolor>CCFFFFFF</textcolor>
-                            <visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner)) + IsEmpty(ListItem.Art(clearlogo))</visible>
-                        </control>
-                        <control type="group">
-                            <include>UnwatchedIcon</include>
-                        </control>
-                        <control type="image">
-                            <left>472</left>
-                            <width>90</width>
-                            <height>90</height>
-                            <include>OverlayVisibility0</include>
-                        </control>
+						<control type="image">
+							<left>472</left>
+							<width>90</width>
+							<height>90</height>
+							<include>OverlayVisibility0</include>
+						</control>
 						<control type="image">
 							<left>472</left>
 							<width>90</width>
@@ -322,22 +260,90 @@
 							<texture>overlayprogress.png</texture>
 							<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
 						</control>
-						<control type="image">
-                            <left>472</left>
-                            <width>90</width>
-                            <height>90</height>
-							<texture>$VAR[VideoextrasOverlay]</texture>
-							<visible>System.HasAddon(script.videoextras)</visible>
+						<control type="group">
+							<top>-10</top>
+							<left>-10</left>
+							<include>UnwatchedIcon</include>
 						</control>
-                        <control type="image">
-                            <width>562</width>
-                            <height>104</height>
-                            <texture background="true">thumbs/banner_shadow_in.png</texture>
-                            <animation effect="fade" time="120" delay="120" start="100" end="0">Focus</animation>
-                        </control>
-                    </control>
-                </focusedlayout>
-            </control>
-        </control>
-    </include>
-</includes>
+						<control type="image">
+							<width>562</width>
+							<height>104</height>
+							<texture>common/bgcolor.png</texture>
+							<colordiffuse>77FFFFFF</colordiffuse>
+						</control>
+						<control type="image">
+							<width>562</width>
+							<height>104</height>
+							<texture background="true">thumbs/banner_shadow_in.png</texture>
+						</control>
+					</itemlayout>
+					<focusedlayout width="562" height="104" condition="Skin.HasSetting(AltBannerPlex)">
+						<control type="group">
+							<animation effect="zoom" center="auto" start="100" end="115" time="160" tween="quadratic" reversible="false">Focus</animation>
+							<control type="image">
+								<left>-7</left>
+								<top>-7</top>
+								<width>576</width>
+								<height>118</height>
+								<aspectratio>scale</aspectratio>
+								<texture background="true">$VAR[BannerVar]</texture>
+								<bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
+								<bordersize>7</bordersize>
+							</control>
+							<control type="image">
+								<left>-7</left>
+								<top>1</top>
+								<width>576</width>
+								<height>103</height>
+								<aspectratio>keep</aspectratio>
+								<texture background="true">$VAR[LogoVarList]</texture>
+								<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner))</visible>
+							</control>
+							<control type="label">
+								<left></left>
+								<width>562</width>
+								<height>104</height>
+								<align>center</align>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Font_Bold40</font>
+								<shadowcolor>black</shadowcolor>
+								<textcolor>CCFFFFFF</textcolor>
+								<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner)) + IsEmpty(ListItem.Art(clearlogo))</visible>
+							</control>
+							<control type="group">
+								<top>-10</top>
+								<left>-10</left>
+								<include>UnwatchedIcon</include>
+							</control>
+							<control type="image">
+								<left>473</left>
+								<width>90</width>
+								<height>90</height>
+								<texture>$VAR[VideoextrasOverlay]</texture>
+								<visible>System.HasAddon(script.videoextras)</visible>
+							</control>
+							<control type="image">
+								<left>472</left>
+								<width>90</width>
+								<height>90</height>
+								<include>OverlayVisibility0</include>
+							</control>
+							<control type="image">
+								<left>472</left>
+								<width>90</width>
+								<height>90</height>
+								<texture>overlayprogress.png</texture>
+								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+							</control>
+							<control type="image">
+								<width>562</width>
+								<height>104</height>
+								<texture background="true">thumbs/banner_shadow_in.png</texture>
+								<animation effect="fade" time="120" delay="120" start="100" end="0">Focus</animation>
+							</control>
+						</control>
+					</focusedlayout>
+				</control>
+			</control>
+		</include>
+	</includes>

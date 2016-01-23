@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="dialog" id="52">
-    <zorder>2</zorder>
+    
     <visible>Window.IsVisible(mutebug) | Window.IsVisible(volumebar)</visible>
     <animation type="WindowOpen" reversible="false">
         <effect type="zoom" start="80" end="100" center="960,540" delay="160" tween="back" time="240" />
@@ -19,10 +19,10 @@
             <animation effect="slide" end="0,-870" time="0" condition="True">Conditional</animation>
             <animation effect="zoom" start="100" end="60" center="960,1080" time="640" easing="inout" tween="circle" condition="true">Conditional</animation>
             <control type="image">
-                <left>-4</left>
+                <left>-5</left>
                 <top>-4</top>
-                <width>300</width>
-                <height>147</height>
+                <width>332</width>
+                <height>162</height>
                 <texture>dialogs/scan_backg_shadow.png</texture>
                 <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                 <visible>!Skin.HasSetting(DisableGlowbar)</visible>
@@ -38,24 +38,25 @@
                 <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
             </control>
             <control type="group">
-                <visible>!Window.IsVisible(mutebug)</visible>
+                <visible>!Window.IsVisible(mutebug) + !player.passthrough</visible>
                 <control type="image">
                     <left>-10</left>
-                    <top>-5</top>
+                    <top>0</top>
                     <width>150</width>
                     <height>150</height>
+					<align>center</align>
                     <texture>$VAR[VolumeIconVar]</texture>
                     <fadetime>0</fadetime>
                     <colordiffuse>$VAR[VolumeColorVar]</colordiffuse>
                 </control>
-			    <control type="image">
+<!-- 			    <control type="image">
                     <left>40</left>
                     <top>45</top>
                     <width>55</width>
                     <height>55</height>
                     <texture>dialogs/volume.png</texture>
                     <colordiffuse>white2</colordiffuse>
-                </control>
+                </control> -->
             </control>
             <control type="group">
                 <visible>!player.passthrough</visible>
@@ -64,20 +65,22 @@
                     <info>Player.Volume</info>
                 </control>
                 <control type="label">
-                    <left>163</left>
-                    <top>-35</top>
-                    <width>564</width>
-                    <height>200</height>
-                    <align>left</align>
-                    <label>$INFO[Control.GetLabel(20)] %</label>
+                    <left>50</left>
+                    <top>-5</top>
+                    <width>330</width>
+                    <height>160</height>
+                    <align>center</align>
+                    <label>VOLUME</label>
                     <font>Font_MainClassic3</font>
                     <scroll>true</scroll>
                     <visible>!Window.IsVisible(mutebug)</visible>
                 </control>
             </control>
 		    <control type="label">
-			    <left>12</left>
-				<top>110</top>
+			 	<left>15</left>
+				<top>0</top>
+				<width>320</width>
+				<height>160</height>
 			    <align>left</align>
                 <label>29802</label>
                 <include>Dialogs_Label2</include>
@@ -94,11 +97,11 @@
                     <colordiffuse>white2</colordiffuse>
                 </control>
 				<control type="label">
-                    <left>158</left>
-                    <top>-25</top>
-                    <width>564</width>
-                    <height>200</height>
-                    <align>left</align>
+                    <left>50</left>
+					<top>-5</top>
+					<width>330</width>
+					<height>160</height>
+                    <align>center</align>
                     <label>31832</label>
                     <font>Font_MainClassic3</font>
                     <scroll>true</scroll>

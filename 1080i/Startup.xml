@@ -2,19 +2,11 @@
 <window>
     <defaultcontrol always="true">10</defaultcontrol>
     <backgroundcolor>backgroundcolor</backgroundcolor>
-    <allowoverlay>no</allowoverlay>
     <include condition="!Skin.HasSetting(firstrun4.0)">AutoConfig</include>
-    <onload>RunScript(script.favourites)</onload>
-	<onload>RunScript(script.skin.info.service)</onload>
-	<onload>RunScript(script.toolbox,daemon=True,radius=30)</onload>
-	<!--<onload condition="System.HasAddon(script.skin.info.service)">RunScript(script.skin.info.service)</onload>-->
-	<!-- <onload condition="System.HasAddon(script.extendedinfo) + [Substring(Skin.String(widgetlist),xkcd) | Substring(Skin.String(widget2list),xkcd)]">RunScript(script.extendedinfo,info=xkcd)</onload>-->
-	<!--<onload condition="System.HasAddon(script.moreinfo) + Substring(Skin.String(backgroundlist),flickr)">RunScript(script.moreinfo,info=flickr)</onload> -->
-	<onload condition="Substring(Skin.String(widgetlist),actors) | Substring(Skin.String(widget2list),actors) | Skin.HasSetting(ActorBirthdayRSS)">RunScript(script.metadata.actors,borntoday,10,random)</onload>
-    <onload condition="Substring(Skin.String(backgroundlist),weatherworldbackground) + System.HasAddon(script.widget.weatherworld)">RunScript(script.widget.weatherworld,time=10&amp;limit=9&amp;mapsize=1920x1080&amp;tilesize=360x60&amp;window=10000&amp;condition=StringCompare(Control.GetLabel(4322),weatherworldbackground))</onload>
-    <onload condition="Substring(Skin.String(widgetlist),concerts) | Substring(Skin.String(widget2list),concerts)">RunScript(script.moreinfo,info=NearEvents)</onload>
+    <onload condition="System.HasAddon(script.favourites)">RunScript(script.favourites)</onload>
+	<onload condition="System.HasAddon(script.toolbox)">RunScript(script.toolbox,daemon=True,radius=30)</onload>
+	<onload condition="System.HasAddon(script.skin.info.service)">RunScript(script.skin.info.service)</onload>
     <onload condition="Substring(Skin.String(widgetlist),roms) | Substring(Skin.String(widget2list),roms)">RunScript(script.games.rom.collection.browser,limit=10)</onload>
-    <!--onload condition="skin.hassetting(backendmode)">RunScript(script.moreinfo,backend=true)</onload-->
     <onload condition="!IsEmpty(Skin.String(SmartPlaylist1.Call))">$INFO[Skin.String(SmartPlaylist1.Call)]</onload>
     <onload condition="!IsEmpty(Skin.String(SmartPlaylist2.Call))">$INFO[Skin.String(SmartPlaylist2.Call)]</onload>
     <onload condition="!IsEmpty(Skin.String(SmartPlaylist3.Call))">$INFO[Skin.String(SmartPlaylist3.Call)]</onload>
@@ -29,7 +21,7 @@
     <onload condition="!IsEmpty(Skin.String(SmartPlaylist12.Call))">$INFO[Skin.String(SmartPlaylist12.Call)]</onload>
     <onload condition="System.HasAddon(script.xbmc.intro.movie)">RunScript(script.xbmc.intro.movie)</onload>
     <!-- Intro Movie -->
-	<onload>PlayMedia(special://skin/extras/intro.mp4,1)</onload>
+	<onload condition="!Skin.HasSetting(DisableIntro)">PlayMedia(special://skin/extras/intro.mp4,1)</onload>
     <onunload>PlayerControl(Stop)</onunload>
 	<!-- Intro End -->
 	<onunload>Skin.SetString(widgetlist,$INFO[Control.GetLabel(11111)])</onunload>
@@ -49,18 +41,15 @@
             <control type="button" id="10">
                 <onfocus condition="Skin.HasSetting(Use_Startup_Playlist) + !IsEmpty(Skin.String(Startup_Playlist_Path)) + !SubString(Skin.String(Startup_Playlist_Path),RunScript,left)">PlayMedia($ESCINFO[Skin.String(Startup_Playlist_Path)])</onfocus>
                 <onfocus condition="Skin.HasSetting(Use_Startup_Playlist) + !IsEmpty(Skin.String(Startup_Playlist_Path)) + SubString(Skin.String(Startup_Playlist_Path),RunScript,left)">$ESCINFO[Skin.String(Startup_Playlist_Path)]</onfocus>
-                <!--onfocus condition="!System.HasAddon(script.xbmc.intro.movie)">SetFocus(11)</onfocus-->
                 <onfocus>SetFocus(11)</onfocus>
 				<onclick>noop</onclick>
             </control>
             <control type="button" id="11">
-                <!--onclick>noop</onclick-->
                 <onup>ReplaceWindow($INFO[System.StartupWindow])</onup>
                 <ondown>ReplaceWindow($INFO[System.StartupWindow])</ondown>
                 <onleft>ReplaceWindow($INFO[System.StartupWindow])</onleft>
                 <onright>ReplaceWindow($INFO[System.StartupWindow])</onright>
                 <onclick>ReplaceWindow($INFO[System.StartupWindow])</onclick><onfocus>ReplaceWindow($INFO[System.StartupWindow])</onfocus>
-                <!--animation effect="fade" start="100" end="0" time="3200">Focus</animation-->
 				<animation effect="fade" start="100" end="0" time="10000">Focus</animation>
             </control>
         </control>
@@ -70,7 +59,7 @@
             <include>FullscreenDimensions</include>
             <colordiffuse>black</colordiffuse>
         </control>
-        <!--control type="image">
+        <control type="image">
            <left>923</left>
            <top>603</top>
            <width>74</width>
@@ -79,6 +68,7 @@
            <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
            <animation effect="rotate" end="-360" center="auto" time="2000" loop="true" reversible="false" condition="true">Conditional</animation>
            <animation effect="fade" start="70" time="1200" condition="true" pulse="true">Conditional</animation>
+		   <visible>Skin.HasSetting(DisableIntro)</visible>
         </control>
         <control type="image">
            <left>708</left>
@@ -88,7 +78,8 @@
            <aspectratio>keep</aspectratio>
            <texture>KODI_Logo.png</texture>
            <colordiffuse>white</colordiffuse>
-        </control-->
+		   <visible>Skin.HasSetting(DisableIntro)</visible>
+        </control>
         <control type="videowindow">
             <include>FullscreenDimensions</include>
             <visible>Player.HasVideo</visible>

@@ -7,7 +7,7 @@
 	    <visible>Control.IsVisible(511)</visible>
 		<visible>Skin.HasSetting(BlueOverlay)</visible>
     </control>
-        <control type="group">
+    <control type="group">
             <visible>Control.IsVisible(511)</visible>
             <animation effect="slide" tween="cubic" easing="out" time="480" start="0,806" end="0,0">VisibleChange</animation>
             <control type="image">
@@ -27,14 +27,6 @@
                     <animation effect="slide" end="0,-165" time="120" condition="!Skin.HasSetting(nohighlist)">Conditional</animation>
                     <control type="group">
                         <visible>Container.Content(movies) + [Skin.HasSetting(lowlisttagline) | Control.HasFocus(7002)] + !IsEmpty(ListItem.Tagline)</visible>
-                        <!--                         <animation type="Visible">
-                            <effect type="slide" start="0,50" end="0,0" time="400" easing="in" tween="cubic" />
-                            <effect type="fade" end="100" time="300" />
-                        </animation>
-                        <animation type="Hidden">
-                            <effect type="slide" end="0,50" time="400" tween="cubic" />
-                            <effect type="fade" start="100" end="0" time="200" />
-                        </animation> -->
                         <animation type="Visible">
                             <effect type="zoom" end="100,100" start="100,0" time="320" easing="in" tween="cubic" center="960,755" />
                         </animation>
@@ -66,8 +58,8 @@
                             <height>651</height>
                             <aspectratio scalediffuse="false">stretch</aspectratio>
                             <texture>views/lowlist_panelback.png</texture>
-                            <animation effect="fade" start="100" end="80" time="40" condition="!Skin.HasSetting(listpanelthin)">Conditional</animation>
-                            <animation effect="fade" start="100" end="35" time="40" condition="Skin.HasSetting(listpanelthin)">Conditional</animation>
+                            <animation effect="fade" start="100" end="100" time="40" condition="!Skin.HasSetting(listpanelthin)">Conditional</animation>
+                            <animation effect="fade" start="100" end="50" time="40" condition="Skin.HasSetting(listpanelthin)">Conditional</animation>
                         </control>
                         <control type="image">
                             <left>1420</left>
@@ -93,47 +85,6 @@
                             <include>Animation_VisibleChange400</include>
                             <visible>!Skin.HasSetting(lowlistclearart) + [Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(movies) | Container.Content(sets)]</visible>
                         </control>
-
-						<!--control type="textbox">
-							<left>1490</left>
-                            <top>530</top>
-                            <width>400</width>
-							<height>220</height>
-							<align>center</align>
-							<aligny>top</aligny>
-							<textcolor>themecolor_transparent</textcolor>
-							<shadowcolor>black</shadowcolor>
-							<font>font_terminator</font>
-							<label>[B]$VAR[FirstLabelVar][/B]</label>
-							<textoffsetx>15</textoffsetx>
-							<include>Animation_VisibleChange400</include>
-                            <visible>IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(rightlistfakelogo)</visible>
-							<visible>!Skin.HasSetting(lowlistclearart) + [Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(movies) | Container.Content(sets)]</visible>
-							<visible>SubString(ListItem.Title,a,Left) | SubString(ListItem.Title,b,Left) | SubString(ListItem.Title,c,Left) | SubString(ListItem.Title,d,Left)</visible>
-							<scroll>true</scroll>
-							<wrapmultiline>true</wrapmultiline>
-						</control>
-
-						<control type="textbox">
-							<left>1490</left>
-                            <top>600</top>
-                            <width>400</width>
-							<height>220</height>
-							<align>center</align>
-							<aligny>center</aligny>
-							<textcolor>themecolor_transparent</textcolor>
-							<shadowcolor>black</shadowcolor>
-							<font>font_terminator</font>
-							<label>[B]$VAR[FirstLabelVar][/B]</label>
-							<textoffsetx>15</textoffsetx>
-							<include>Animation_VisibleChange400</include>
-                            <visible>IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(rightlistfakelogo)</visible>
-							<visible>!Skin.HasSetting(lowlistclearart) + [Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(movies) | Container.Content(sets)]</visible>
-							<visible>SubString(ListItem.Title,u,Left) | SubString(ListItem.Title,v,Left) | SubString(ListItem.Title,w,Left) | SubString(ListItem.Title,x,Left) | SubString(ListItem.Title,y,Left) | SubString(ListItem.Title,z,Left)</visible>
-							<scroll>true</scroll>
-							<wrapmultiline>true</wrapmultiline>
-						</control-->
-
                     </control>
                     <control type="image">
                         <left>1128</left>
@@ -562,10 +513,10 @@
                 </control>
             </control>
             <control type="image">
-                <left>40</left>
+                <left>45</left>
                 <top>235</top>
-                <width>400</width>
-                <height>400</height>
+                <width>390</width>
+                <height>390</height>
                 <aspectratio align="right">keep</aspectratio>
                 <texture background="true">$VAR[cdArtMoviesVar]</texture>
                 <animation effect="slide" tween="cubic" easing="in" time="320" start="-450" end="0">WindowOpen</animation>
@@ -579,10 +530,10 @@
             </control>
 			<!--MAD - Fake Disc Start -->
 				<control type="image">
-					<left>32</left>
+					<left>40</left>
 					<top>235</top>
-					<width>410</width>
-					<height>410</height>
+					<width>400</width>
+					<height>400</height>
 					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
 					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[ListItem.Art(poster)]</texture>
 					<animation effect="slide" end="-40,0" time="320" easing="inout" tween="cubic" condition="Control.HasFocus(69)">Conditional</animation>
@@ -593,10 +544,10 @@
 					<animation effect="slide" start="0,300" end="0,0" delay="1000" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
 				</control>
 				<control type="image">
-					<left>32</left>
+					<left>40</left>
 					<top>235</top>
-					<width>410</width>
-					<height>410</height>
+					<width>400</width>
+					<height>400</height>
 					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
 					<texture background="true">$VAR[FakeDiscArtOverlay]</texture>
 					<animation effect="slide" tween="cubic" easing="in" time="320" start="-450" end="0">WindowOpen</animation>
@@ -609,10 +560,10 @@
 					<animation effect="slide" start="0,300" end="0,0" delay="1000" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
 				</control>
 				<control type="image">
-					<left>40</left>
+					<left>45</left>
 					<top>235</top>
-					<width>400</width>
-					<height>400</height>
+					<width>390</width>
+					<height>390</height>
 					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
 					<texture background="true">$VAR[FakeDischand]</texture>
 					<animation effect="slide" tween="cubic" easing="in" time="320" start="-450" end="0">WindowOpen</animation>
@@ -624,10 +575,10 @@
 					<animation effect="slide" start="0,300" end="0,0" delay="1000" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
 				</control>
 				<control type="image">
-					<left>40</left>
+					<left>45</left>
 					<top>235</top>
-					<width>400</width>
-					<height>400</height>
+					<width>390</width>
+					<height>390</height>
 					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
 					<texture background="true">$VAR[FakeDischandcolor]</texture>
 					<animation effect="slide" tween="cubic" easing="in" time="320" start="-450" end="0">WindowOpen</animation>
@@ -724,11 +675,11 @@
                         <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                     </control>
                     <control type="image">
-                        <top>-130</top>
-                        <width>399</width>
-                        <height>600</height>
-                        <aspectratio scalediffuse="false">scale</aspectratio>
-                        <texture diffuse="thumbs/movieposter_mask.png">common/black.png</texture>
+						<top>-119</top>
+                        <width>388</width>
+                        <height>594</height>
+                        <aspectratio scalediffuse="false">stretch</aspectratio>
+                        <texture diffuse="thumbs/thumb_mask.png">common/black.png</texture>
 						<visible>!Container.Content(years)</visible>
                     </control>
                     <control type="image">
@@ -772,8 +723,6 @@
 						<font>Font_ShowcaseMainLabel3x_Caps</font>
 						<visible>Container.Content(years)</visible>
 					</control>
-
-
 					<control type="image">
                         <top>-130</top>
                         <width>399</width>
@@ -782,41 +731,38 @@
 						<visible>!Skin.HasSetting(genrethumbs)</visible>
                     </control>
                     <control type="image">
-                        <left>-19.5</left>
-                        <top>-149.5</top>
-                        <width>438</width>
-                        <height>639</height>
+                        <top>-120</top>
+                        <width>389</width>
+                        <height>595</height>
                         <aspectratio scalediffuse="false">stretch</aspectratio>
-                        <texture diffuse="thumbs/movieposter_mask.png">thumbs/thumb_glass_noreflect.png</texture>
-                        <bordertexture border="19.5">thumbs/poster_shadow.png</bordertexture>
-                        <bordersize>19.5</bordersize>
+                        <texture diffuse="thumbs/thumb_mask.png">thumbs/thumb_glass_noreflect.png</texture>
 						<visible>!Container.Content(years)</visible>
                     </control>
                     <control type="image">
-                        <left>2</left>
-                        <top>454</top>
-                        <width>395</width>
+                        <left>0</left>
+                        <top>477</top>
+                        <width>389</width>
                         <height>300</height>
                         <aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
                         <texture background="true" flipy="true" diffuse="thumbs/movieposter_mask_reflect.png">$VAR[ListPosterVar]</texture>
-                        <fadetime>400</fadetime>
-                        <animation effect="slide" end="0,23" time="320" easing="inout" tween="cubic" condition="Skin.HasSetting(usecaseslowlist)">Conditional</animation>
+                        <fadetime>50</fadetime>
+                        <animation effect="slide" end="0,23" time="50" easing="inout" tween="cubic" condition="Skin.HasSetting(usecaseslowlist)">Conditional</animation>
 						<visible>Skin.HasSetting(genrethumbs)</visible>
                     </control>
-					  <control type="image">
-                        <left>2</left>
-                        <top>454</top>
-                        <width>395</width>
-                        <height>300</height>
+					<control type="image">
+                        <left>-70</left>
+                        <top>466</top>
+                        <width>490</width>
+                        <height>384</height>
                         <aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
-                        <texture background="true" flipy="true" diffuse="thumbs/movieposter_mask_reflect.png">$VAR[ListPosterVar1]</texture>
-                        <fadetime>400</fadetime>
-                        <animation effect="slide" end="0,23" time="320" easing="inout" tween="cubic" condition="Skin.HasSetting(usecaseslowlist)">Conditional</animation>
-						<visible>!Skin.HasSetting(genrethumbs)</visible>
+                        <texture background="true" flipy="true" diffuse="thumbs/movieposter_mask_reflect.png">thumbs/boxes/$VAR[lowlistCasePathVar]/$VAR[GlobalCaseVar]</texture>
+                        <fadetime>50</fadetime>
+                        <visible>[Skin.HasSetting(usecaseslowlist) + Container.Content(movies)] | [[Container.Content(tvshows) | Container.Content(seasons)] + Skin.Hassetting(TVshowCases)]</visible>
+                        <include>Animation_VisibleChange200</include>
                     </control>
 					<control type="image">
-                        <left>-68</left>
-                        <top>-182</top>
+                        <left>-70</left>
+                        <top>-180</top>
                         <width>490</width>
                         <height>684</height>
                         <aspectratio scalediffuse="false">stretch</aspectratio>
@@ -884,9 +830,10 @@
                     </control>
                 </control>
             </control>
+
             <control type="fixedlist" id="511">
                 <left>450</left>
-                <top>754</top>
+                <top>762</top>
                 <width>976</width>
                 <include condition="!Skin.HasSetting(nohighlist)">LowListHeightHigh</include>
                 <include condition="Skin.HasSetting(nohighlist)">LowListHeightLow</include>
@@ -900,20 +847,21 @@
                 <viewtype label="$LOCALIZE[31153]">BigWrap</viewtype>
                 <pagecontrol>69</pagecontrol>
                 <scrolltime tween="quadratic">200</scrolltime>
-                <preloaditems>2</preloaditems>
-                <visible>![!IsEmpty(Skin.String(DisableLowListVL)) + Window.IsActive(videos)]</visible>
+                <preloaditems>4</preloaditems>
+				<visible>![!IsEmpty(Skin.String(DisableLowListVL)) + Window.IsActive(videos)]</visible>
                 <animation effect="slide" tween="cubic" easing="in" time="320" start="0,606" end="0,0">WindowOpen</animation>
                 <animation effect="slide" tween="cubic" easing="in" time="240" end="0,606">WindowClose</animation>
                 <animation effect="slide" end="0,-165" time="120" condition="!Skin.HasSetting(nohighlist)">Conditional</animation>
                 <animation effect="fade" start="100" end="0" time="40" condition="Control.HasFocus(7002)">Conditional</animation>
                 <itemlayout height="66" width="825" condition="![Skin.HasSetting(lowlistbanner) + Container.Content(tvshows)]">
-                    <control type="image">
+				<control type="group">
+				<animation effect="fade" start="100" end="40" time="40" condition="![Skin.HasSetting(lowlistbanner) + Container.Content(tvshows)]">Conditional</animation>
+				<control type="image">
                         <left>1</left>
                         <top>64</top>
                         <width>795</width>
                         <height>1</height>
-                        <texture>views/lowlistpanel_line.png</texture>
-                        <colordiffuse>66FFFFFF</colordiffuse>
+                        <texture colordiffuse="66FFFFFF">views/lowlistpanel_line.png</texture>
                     </control>
                     <control type="label">
                         <left>30</left>
@@ -932,6 +880,13 @@
                         <font>Font_Bold28</font>
                         <textcolor>$VAR[SubTitleColorVar]</textcolor>
                     </control>
+						<control type="image">
+                        <left>763</left>
+                        <width>52</width>
+                        <height>52</height>
+							<texture>$VAR[VideoextrasOverlay]</texture>
+							<visible>System.HasAddon(script.videoextras)</visible>
+						</control>
                     <control type="image">
                         <left>750</left>
                         <top>8</top>
@@ -940,33 +895,24 @@
                         <texture>$VAR[WatchedIconVar]</texture>
                         <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                     </control>
-						<control type="image">
-                        <left>750</left>
-                        <top>8</top>
-                        <width>52</width>
-                        <height>52</height>
-							<texture>$VAR[VideoextrasOverlay]</texture>
-							<visible>System.HasAddon(script.videoextras)</visible>
-						</control>
-                </itemlayout>
-                <focusedlayout height="66" width="825" condition="![Skin.HasSetting(lowlistbanner) + Container.Content(tvshows)]">
+					</control>
+				</itemlayout>
+                <focusedlayout height="70" width="825" condition="![Skin.HasSetting(lowlistbanner) + Container.Content(tvshows)]">
+                <control type="group">
+                        <animation effect="slide" start="0,66" end="0,0" time="200" reversible="false" tween="quadratic" easing="out" condition="Container.OnPrevious">Focus</animation>
+                        <animation effect="slide" start="0,-66" end="0,0" time="200" reversible="false" tween="quadratic" easing="out" condition="Container.OnNext">Focus</animation> 
                     <control type="image">
-                        <left>1</left>
-                        <top>64</top>
-                        <width>795</width>
-                        <height>1</height>
-                        <texture>views/lowlistpanel_line.png</texture>
-                    </control>
-                    <control type="image">
-                        <width>814</width>
-                        <height>66</height>
-                        <texture border="8">views/tripanel/listselect_fo.png</texture>
-                        <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+                        <left>-8</left>
+						<top>-10</top>
+						<width>835</width>
+                        <height>97</height>
+                        <texture border="40" colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo2.png</texture>
                         <include>PanelGlowFade</include>
-                        <animation effect="fade" start="100" end="60" tween="sine" easing="inout" time="240" condition="!Control.HasFocus(511)">Conditional</animation>
+                        <animation effect="fade" start="100" end="80" tween="sine" easing="inout" time="240" condition="!Control.HasFocus(511)">Conditional</animation>
                     </control>
                     <control type="label">
                         <left>30</left>
+						<top>5</top>
                         <width>645</width>
                         <height>33</height>
                         <label>$INFO[ListItem.Label]</label>
@@ -974,7 +920,7 @@
                     </control>
                     <control type="label">
                         <left>30</left>
-                        <top>30</top>
+                        <top>35</top>
                         <width>645</width>
                         <height>33</height>
                         <label>$VAR[LowListSubTitleVar]</label>
@@ -982,6 +928,7 @@
                     </control>
 				    <control type="label">
                         <left>670</left>
+						<top>5</top>
                         <width>80</width>
                         <height>33</height>
                         <align>center</align>
@@ -990,7 +937,7 @@
                     </control>
                     <control type="label">
                         <left>670</left>
-                        <top>33</top>
+                        <top>35</top>
                         <width>80</width>
                         <height>33</height>
                         <align>center</align>
@@ -999,23 +946,23 @@
                     </control>
                     <control type="image">
                         <left>750</left>
-                        <top>8</top>
+                        <top>12</top>
                         <width>52</width>
                         <height>52</height>
                         <texture>$VAR[WatchedIconVar]</texture>
                         <colordiffuse>white</colordiffuse>
                     </control>
 						<control type="image">
-                        <left>750</left>
-                        <top>8</top>
+                        <left>763</left>
                         <width>52</width>
                         <height>52</height>
 							<texture>$VAR[VideoextrasOverlay]</texture>
 							<visible>System.HasAddon(script.videoextras)</visible>
 						</control>
+					</control>	
                 </focusedlayout>
                 <itemlayout height="155" width="825" condition="Skin.HasSetting(lowlistbanner) + Container.Content(tvshows)">
-                    <control type="group">
+				<control type="group">
                         <left>3</left>
                         <control type="image">
                             <width>798</width>
@@ -1042,7 +989,7 @@
                         </control>
                         <control type="image">
                             <left>703</left>
-                            <top>6</top>
+                            <top>5</top>
                             <width>90</width>
                             <height>90</height>
                             <include>OverlayVisibility0</include>
@@ -1114,6 +1061,7 @@
                     </control>
                 </focusedlayout>
             </control>
+
             <control type="group">
                 <left>413</left>
                 <animation effect="fade" start="100" end="0" time="160" condition="!Control.HasFocus(69)">Conditional</animation>
@@ -1141,12 +1089,19 @@
             </control>
         </control>
     </include>
+
     <include name="LowListHeightHigh">
         <height>480</height>
+		<focusposition>3</focusposition>
+        <movement>2</movement>
     </include>
+
     <include name="LowListHeightLow">
         <height>330</height>
+		<focusposition>2</focusposition>
+        <movement>1</movement>
     </include>
+
     <include name="MovieSetsCdArt">
 			<control type="group">
 				<top>1</top>
@@ -1260,6 +1215,7 @@
 			</control>
     </include>
 	<!--MAD - TV show fake disc art-->
+
 	<include name="TVShowFakeDiscArt">
 		<control type="group">
 			<top>1</top>

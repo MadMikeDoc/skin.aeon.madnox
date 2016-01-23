@@ -5,12 +5,12 @@
 	<constant name="IconCrossfadeTime2">250</constant>
 	<constant name="WidgetSlideDelay">300</constant>
 	<variable name="DayTimeColorVar">
-		<value condition="Substring(System.Time(mm),0,left)">FF69f5ee</value>
-		<value condition="Substring(System.Time(mm),1,left)">FFF3F781</value>
-		<value condition="Substring(System.Time(mm),2,left)">FF69f5ee</value>
-		<value condition="Substring(System.Time(mm),3,left)">FFF3F781</value>
-		<value condition="Substring(System.Time(mm),4,left)">FF69f5ee</value>
-		<value condition="Substring(System.Time(mm),5,left)">FFF3F781</value>
+		<value condition="SubString(System.Time(mm),0,left)">FF69f5ee</value>
+		<value condition="SubString(System.Time(mm),1,left)">FFF3F781</value>
+		<value condition="SubString(System.Time(mm),2,left)">FF69f5ee</value>
+		<value condition="SubString(System.Time(mm),3,left)">FFF3F781</value>
+		<value condition="SubString(System.Time(mm),4,left)">FF69f5ee</value>
+		<value condition="SubString(System.Time(mm),5,left)">FFF3F781</value>
 	</variable>
 	<variable name="QuickConfigIconVar">
 		<value condition="!IsEmpty(Window(home).Property(quicknavsetup))">special://skin/extras/BigIcons/ButtonStop.png</value>
@@ -28,6 +28,8 @@
 		<value condition="SubString(ListItem.Filename, 3DBD.) | SubString(ListItem.Filename, 3dbd.)">3d.png</value>
 		<value condition="SubString(ListItem.Filename,.HDDVD.) | SubString(ListItem.Filename,.hddvd.)">hddvd.png</value>
 		<value condition="SubString(ListItem.Filename, HDDVD.) | SubString(ListItem.Filename, hddvd.)">hddvd.png</value>
+		<value condition="SubString(ListItem.Filename,.SDTV.) | SubString(ListItem.Filename,.sdtv.)">sdtv.png</value>
+		<value condition="SubString(ListItem.Filename, SDTV.) | SubString(ListItem.Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(ListItem.Filename,.HDTV.) | SubString(ListItem.Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(ListItem.Filename, HDTV.) | SubString(ListItem.Filename, hdtv.)">hdtv.png</value>
 		<value condition="SubString(ListItem.Filename,.WEBDL.) | SubString(ListItem.Filename,.webdl.)">webdl.png</value>
@@ -39,11 +41,6 @@
 		<!--value condition="SubString(ListItem.Filename,hdtv)">hdtv.png</value-->
 		<value>$INFO[ListItem.VideoResolution]p.png</value>
 	</variable>
-	<!-- unused variable -->
-	<variable name="WidgetCaseVar">
-		<value condition="SubString(ListItem.Property(VideoResolution),3d)">3d.png</value>
-		<value>$INFO[ListItem.Property(VideoResolution)]p.png</value>
-	</variable>
 	<variable name="DefaultAreaColorVar">
 		<value condition="[Window.IsActive(fullscreeninfo) | Window.IsActive(fullscreenvideo) | Window.IsActive(videoosd) | Window.IsActive(videos) | Window.IsActive(script-videoextras-main.xml) | Window.IsActive(script-NextAired-TVGuide.xml) | Window.IsActive(script-NextAired-TVGuide2.xml) | Window.IsActive(osdvideosettings) | Window.IsActive(osdaudiosettings)| Window.IsActive(videobookmarks)] + !IsEmpty(Skin.String(diffuse_videolibrary))">$INFO[Skin.String(diffuse_videolibrary)]</value>
 		<value condition="[Window.IsActive(musiclibrary) | Window.IsActive(musicosd) | Window.IsActive(musicfiles) | Window.IsActive(visualisation)] + !IsEmpty(Skin.String(diffuse_music))">$INFO[Skin.String(diffuse_music)]</value>
@@ -53,7 +50,7 @@
 		<value condition="Window.IsActive(addonbrowser) + !IsEmpty(Skin.String(diffuse_addons))">$INFO[Skin.String(diffuse_addons)]</value>
 		<value condition="Window.IsActive(musicplaylist) + !IsEmpty(Skin.String(diffuse_musicplaylist))">$INFO[Skin.String(diffuse_musicplaylist)]</value>
 		<value condition="Window.IsActive(videoplaylist) + !IsEmpty(Skin.String(diffuse_videoplaylist))">$INFO[Skin.String(diffuse_videoplaylist)]</value>
-		<value condition="[Window.IsActive(weather) | Window.IsActive(1153)] + !IsEmpty(Skin.String(diffuse_weather))">$INFO[Skin.String(diffuse_weather)]</value>
+		<value condition="[Window.IsActive(weather)] + !IsEmpty(Skin.String(diffuse_weather))">$INFO[Skin.String(diffuse_weather)]</value>
 		<value condition="[Window.IsActive(1147) | Window.IsActive(script-globalsearch-main.xml)] + !IsEmpty(Skin.String(diffuse_featured))">$INFO[Skin.String(diffuse_featured)]</value>
 		<value condition="[Window.IsActive(1147) | Window.IsActive(script-videoextras-main.xml)] + !IsEmpty(Skin.String(diffuse_featured))">$INFO[Skin.String(diffuse_featured)]</value>
 		<value condition="[Window.IsActive(skinsettings) | Window.IsActive(settings) | Window.IsActive(systeminfo) | Window.IsActive(picturessettings) | Window.IsActive(programssettings) | Window.IsActive(weathersettings) | Window.IsActive(musicsettings) | Window.IsActive(systemsettings) | Window.IsActive(videossettings) | Window.IsActive(networksettings) | Window.IsActive(appearancesettings) | Window.IsActive(profiles) | Window.IsActive(filemanager) | Window.IsActive(pvrsettings)] + !IsEmpty(Skin.String(diffuse_settings))">$INFO[Skin.String(diffuse_settings)]</value>
@@ -70,7 +67,7 @@
         <value condition="Window.IsActive(addonbrowser) + !IsEmpty(Skin.String(diffuse_white_addons))">$INFO[Skin.String(diffuse_white_addons)]</value>
         <value condition="Window.IsActive(musicplaylist) + !IsEmpty(Skin.String(diffuse_white_musicplaylist))">$INFO[Skin.String(diffuse_white_musicplaylist)]</value>
         <value condition="Window.IsActive(videoplaylist) + !IsEmpty(Skin.String(diffuse_white_videoplaylist))">$INFO[Skin.String(diffuse_white_videoplaylist)]</value>
-        <value condition="[Window.IsActive(weather) | Window.IsActive(1153)] + !IsEmpty(Skin.String(diffuse_white_weather))">$INFO[Skin.String(diffuse_white_weather)]</value>
+        <value condition="[Window.IsActive(weather)] + !IsEmpty(Skin.String(diffuse_white_weather))">$INFO[Skin.String(diffuse_white_weather)]</value>
         <value condition="[Window.IsActive(1147) | Window.IsActive(script-globalsearch-main.xml)] + !IsEmpty(Skin.String(diffuse_white_featured))">$INFO[Skin.String(diffuse_white_featured)]</value>
 		<value condition="[Window.IsActive(1147) | Window.IsActive(script-videoextras-main.xml)] + !IsEmpty(Skin.String(diffuse_white_featured))">$INFO[Skin.String(diffuse_white_featured)]</value>
         <value condition="[Window.IsActive(skinsettings) | Window.IsActive(settings) | Window.IsActive(systeminfo) | Window.IsActive(picturessettings) | Window.IsActive(programssettings) | Window.IsActive(weathersettings) | Window.IsActive(musicsettings) | Window.IsActive(systemsettings) | Window.IsActive(videossettings) | Window.IsActive(networksettings) | Window.IsActive(appearancesettings) | Window.IsActive(profiles) | Window.IsActive(filemanager) | Window.IsActive(pvrsettings)] + !IsEmpty(Skin.String(diffuse_white_settings))">$INFO[Skin.String(diffuse_white_settings)]</value>
@@ -80,7 +77,7 @@
 	</variable>
 	<variable name="AreaColorVar">
 		<value condition="[Window.IsActive(1128) | Window.IsActive(1138)] + !IsEmpty(Skin.String(diffuse_color))">$INFO[Skin.String(diffuse_color)]</value>
-		<value condition="Substring(Skin.CurrentTheme,whit)">$VAR[WhiteAreaColorVar]</value>
+		<value condition="SubString(Skin.CurrentTheme,whit)">$VAR[WhiteAreaColorVar]</value>
 		<value>$VAR[DefaultAreaColorVar]</value>
 	</variable>
 	<variable name="DefaultFontColorVar">
@@ -92,7 +89,7 @@
 		<value condition="Window.IsActive(addonbrowser) + !IsEmpty(Skin.String(font_addons))">$INFO[Skin.String(font_addons)]</value>
 		<value condition="Window.IsActive(musicplaylist) + !IsEmpty(Skin.String(font_musicplaylist))">$INFO[Skin.String(font_musicplaylist)]</value>
 		<value condition="Window.IsActive(videoplaylist) + !IsEmpty(Skin.String(font_videoplaylist))">$INFO[Skin.String(font_videoplaylist)]</value>
-		<value condition="[Window.IsActive(weather) | Window.IsActive(1153)] + !IsEmpty(Skin.String(font_weather))">$INFO[Skin.String(font_weather)]</value>
+		<value condition="[Window.IsActive(weather)] + !IsEmpty(Skin.String(font_weather))">$INFO[Skin.String(font_weather)]</value>
 		<value condition="[Window.IsActive(1147) | Window.IsActive(script-globalsearch-main.xml) | Window.IsActive(script-globalsearch-infodialog.xml)] + !IsEmpty(Skin.String(font_featured))">$INFO[Skin.String(font_featured)]</value>
 		<value condition="[Window.IsActive(1147) | Window.IsActive(script-videoextras-main.xml)] + !IsEmpty(Skin.String(font_featured))">$INFO[Skin.String(font_featured)]</value>
 		<value condition="[Window.IsActive(skinsettings) | Window.IsActive(settings) | Window.IsActive(systeminfo) | Window.IsActive(picturessettings) | Window.IsActive(programssettings) | Window.IsActive(weathersettings) | Window.IsActive(musicsettings) | Window.IsActive(systemsettings) | Window.IsActive(videossettings) | Window.IsActive(networksettings) | Window.IsActive(appearancesettings) | Window.IsActive(profiles) | Window.IsActive(filemanager) | Window.IsActive(pvrsettings)] + !IsEmpty(Skin.String(font_settings))">$INFO[Skin.String(font_settings)]</value>
@@ -109,7 +106,7 @@
 		<value condition="Window.IsActive(addonbrowser) + !IsEmpty(Skin.String(white_font_addons))">$INFO[Skin.String(white_font_addons)]</value>
 		<value condition="Window.IsActive(musicplaylist) + !IsEmpty(Skin.String(white_font_musicplaylist))">$INFO[Skin.String(white_font_musicplaylist)]</value>
 		<value condition="Window.IsActive(videoplaylist) + !IsEmpty(Skin.String(white_font_videoplaylist))">$INFO[Skin.String(white_font_videoplaylist)]</value>
-		<value condition="[Window.IsActive(weather) | Window.IsActive(1153)] + !IsEmpty(Skin.String(white_font_weather))">$INFO[Skin.String(white_font_weather)]</value>
+		<value condition="[Window.IsActive(weather)] + !IsEmpty(Skin.String(white_font_weather))">$INFO[Skin.String(white_font_weather)]</value>
 		<value condition="[Window.IsActive(1147) | Window.IsActive(script-globalsearch-main.xml) | Window.IsActive(script-globalsearch-infodialog.xml)] + !IsEmpty(Skin.String(white_font_featured))">$INFO[Skin.String(white_font_featured)]</value>
 		<value condition="[Window.IsActive(1147) | Window.IsActive(script-videoextras-main.xml)] + !IsEmpty(Skin.String(white_font_featured))">$INFO[Skin.String(white_font_featured)]</value>
 	    <value condition="[Window.IsActive(skinsettings) | Window.IsActive(settings) | Window.IsActive(systeminfo) | Window.IsActive(picturessettings) | Window.IsActive(programssettings) | Window.IsActive(weathersettings) | Window.IsActive(musicsettings) | Window.IsActive(systemsettings) | Window.IsActive(videossettings) | Window.IsActive(networksettings) | Window.IsActive(appearancesettings) | Window.IsActive(profiles) | Window.IsActive(filemanager) | Window.IsActive(pvrsettings)] + !IsEmpty(Skin.String(white_font_settings))">$INFO[Skin.String(white_font_settings)]</value>
@@ -118,11 +115,11 @@
 	</variable>
 	<variable name="FontColorVar">
 		<value condition="[Window.IsActive(1128) | Window.IsActive(1138)] + !IsEmpty(Skin.String(font_color))">$INFO[Skin.String(font_color)]</value>
-		<value condition="Substring(Skin.CurrentTheme,whit)">$VAR[WhiteFontColorVar]</value>
+		<value condition="SubString(Skin.CurrentTheme,whit)">$VAR[WhiteFontColorVar]</value>
 		<value>$VAR[DefaultFontColorVar]</value>
 	</variable>
 	<variable name="SpotColorVar2">
-		<value condition="Substring(Skin.CurrentTheme,whit)">FFAAAAAA</value>
+		<value condition="SubString(Skin.CurrentTheme,whit)">FFAAAAAA</value>
 		<value>$VAR[ColorDiffuseVar]</value>
 	</variable>
 	<variable name="ColorDiffuseVar">
@@ -130,12 +127,12 @@
 		<value>$VAR[AreaColorVar]</value>
 	</variable>
 	<variable name="DialogColorVar">
-		<value condition="Substring(Skin.CurrentTheme,whit)">FFFFFFFF</value>
+		<value condition="SubString(Skin.CurrentTheme,whit)">FFFFFFFF</value>
 		<value condition="Skin.HasSetting(colordialogs)">$VAR[ColorDiffuseVar]</value>
 		<value>FFFFFFFF</value>
 	</variable>
 	<variable name="ExtendedColorDiffuseVar">
-		<value condition="Substring(Skin.CurrentTheme,whit)">FFFFFFFF</value>
+		<value condition="SubString(Skin.CurrentTheme,whit)">FFFFFFFF</value>
 		<value condition="!Skin.HasSetting(randomcolor) + ![Skin.HasSetting(DisableGlowbar) + !Skin.HasSetting(ExtendedGlowMode)]">$VAR[AreaColorVar]</value>
 		<value condition="Skin.HasSetting(randomcolor) + ![Skin.HasSetting(DisableGlowbar) + !Skin.HasSetting(ExtendedGlowMode)]">$VAR[DayTimeColorVar]</value>
 		<value>white</value>
@@ -207,6 +204,7 @@
 		<value condition="VideoPlayer.Content(LiveTV)">$INFO[VideoPlayer.ChannelName]</value>
 	</variable>
 	<variable name="VideoPlayerSeekVar">
+		<value condition="!IsEmpty(Player.SeekStepSize) ">$LOCALIZE[773] $INFO[Player.SeekStepSize]</value>
 		<value condition="[Player.Paused + !Player.Caching] + !Player.Seeking + !Player.DisplayAfterSeek">$LOCALIZE[31043]</value>
 		<value condition="[Player.Paused + Player.Caching] + !Player.Seeking">$LOCALIZE[15107] $INFO[Player.CacheLevel]%</value>
 		<value condition="Player.Seeking">$LOCALIZE[773]</value>
@@ -220,299 +218,299 @@
 		<value condition="Player.Forwarding32x | Player.Rewinding32x">32x</value>
 	</variable>
 	<variable name="WidgetRatingFlagVar">
-		<value condition="substring(Window(home).Property(mpaa),Rated X)">MPAA_X_Certificate_US</value>
-		<value condition="substring(Window(home).Property(mpaa),TV-G)">TV-G_Certificate_US</value>
-		<value condition="substring(Window(home).Property(mpaa),TV-PG)">TV-PG_Certificate_US</value>
-		<value condition="substring(Window(home).Property(mpaa),TV-14)">TV-14_Certificate_US</value>
-		<value condition="substring(Window(home).Property(mpaa),TV-MA)">TV-MA_Certificate_US</value>
-		<value condition="substring(Window(home).Property(mpaa),TV-Y7)">tv-y7</value>
-		<value condition="substring(Window(home).Property(mpaa),TV-Y)">tv-y</value>
+		<value condition="SubString(Window(home).Property(mpaa),Rated X)">MPAA_X_Certificate_US</value>
+		<value condition="SubString(Window(home).Property(mpaa),TV-G) | SubString(Window(home).Property(mpaa),TV - G)">TV-G_Certificate_US</value>
+		<value condition="SubString(Window(home).Property(mpaa),TV-PG) | SubString(Window(home).Property(mpaa),TV - PG)">TV-PG_Certificate_US</value>
+		<value condition="SubString(Window(home).Property(mpaa),TV-14) | SubString(Window(home).Property(mpaa),TV - 14)">TV-14_Certificate_US</value>
+		<value condition="SubString(Window(home).Property(mpaa),TV-MA) | SubString(Window(home).Property(mpaa),TV - MA)">TV-MA_Certificate_US</value>
+		<value condition="SubString(Window(home).Property(mpaa),TV-Y7) | SubString(Window(home).Property(mpaa),TV - Y7)">tv-y7</value>
+		<value condition="SubString(Window(home).Property(mpaa),TV-Y) | SubString(Window(home).Property(mpaa),TV - Y)">tv-y</value>
 		<value condition="SubString(Window(home).Property(mpaa),US:G) | SubString(Window(home).Property(mpaa),USA:G) | SubString(Window(home).Property(mpaa),Rated G)">MPAA_G_Certificate_US</value>
-		<value condition="SubString(Window(home).Property(mpaa),PG-13)">MPAA_PG-13_Certificate_US</value>
+		<value condition="SubString(Window(home).Property(mpaa),PG-13) | SubString(Window(home).Property(mpaa),PG - 13)">MPAA_PG-13_Certificate_US</value>
 		<value condition="Substring(Window(home).Property(mpaa),Rated PG) | StringCompare(Window(home).Property(mpaa),PG)">MPAA_PG_Certificate_US</value>
 		<value condition="SubString(Window(home).Property(mpaa),US:R) | SubString(Window(home).Property(mpaa),USA:R) | SubString(Window(home).Property(mpaa),Rated R) | StringCompare(Window(home).Property(mpaa),R)">MPAA_R_Certificate_US</value>
-		<value condition="SubString(Window(home).Property(mpaa),US:NC-17)| SubString(Window(home).Property(mpaa),USA:NC-17)| SubString(Window(home).Property(mpaa),Rated NC-17)">MPAA_NC-17_Certificate_US</value>
+		<value condition="SubString(Window(home).Property(mpaa),US:NC-17)| SubString(Window(home).Property(mpaa),USA:NC-17)| SubString(Window(home).Property(mpaa),Rated NC-17) | SubString(Window(home).Property(mpaa),Rated NC - 17)">MPAA_NC-17_Certificate_US</value>
 		<value condition="SubString(Window(home).Property(mpaa),UK:U)">BBFC_U_Certificate_UK</value>
 		<value condition="SubString(Window(home).Property(mpaa),UK:PG)">BBFC_PG_Certificate_UK</value>
 		<value condition="SubString(Window(home).Property(mpaa),UK:12A)">BBFC_12A_Certificate_UK</value>
 		<value condition="SubString(Window(home).Property(mpaa),UK:12)">BBFC_12_Certificate_UK</value>
 		<value condition="SubString(Window(home).Property(mpaa),UK:15)">BBFC_15_Certificate_UK</value>
 		<value condition="SubString(Window(home).Property(mpaa),UK:18)">BBFC_18_Certificate_UK</value>
-		<value condition="SubString(Window(home).Property(mpaa),Germany:6)| SubString(Window(home).Property(mpaa),ab 6) | StringCompare(Window(home).Property(mpaa),6) | Substring(Window(home).Property(mpaa),FSK 16) | SubString(Window(home).Property(mpaa),Rated 6)">FSK-6</value>
+		<value condition="SubString(Window(home).Property(mpaa),Germany:6)| SubString(Window(home).Property(mpaa),ab 6) | StringCompare(Window(home).Property(mpaa),6) | Substring(Window(home).Property(mpaa),FSK 6) | SubString(Window(home).Property(mpaa),Rated 6)">FSK-6</value>
 		<value condition="SubString(Window(home).Property(mpaa),Germany:12) | SubString(Window(home).Property(mpaa),ab 12) | StringCompare(Window(home).Property(mpaa),12) | Substring(Window(home).Property(mpaa),FSK 12) | SubString(Window(home).Property(mpaa),Rated 12)">FSK-12</value>
 		<value condition="SubString(Window(home).Property(mpaa),Germany:16) | SubString(Window(home).Property(mpaa),ab 16) | StringCompare(Window(home).Property(mpaa),16) | Substring(Window(home).Property(mpaa),FSK 16) | SubString(Window(home).Property(mpaa),Rated 16)">FSK-16</value>
 		<value condition="SubString(Window(home).Property(mpaa),Germany:18) | SubString(Window(home).Property(mpaa),ab 18) | StringCompare(Window(home).Property(mpaa),18) | Substring(Window(home).Property(mpaa),FSK 18) | SubString(Window(home).Property(mpaa),Rated 18)">FSK-18</value>
-		<value condition="SubString(Window(home).Property(mpaa),Germany)|SubString(Window(home).Property(mpaa),FSK)| SubString(Window(home).Property(mpaa),o.A)| SubString(Window(home).Property(mpaa),Rated 0)">FSK-0</value>
+		<value condition="SubString(Window(home).Property(mpaa),0)|SubString(Window(home).Property(mpaa),Germany)|SubString(Window(home).Property(mpaa),FSK)| SubString(Window(home).Property(mpaa),o.A)| SubString(Window(home).Property(mpaa),Rated 0)">FSK-0</value>
 		<value condition="SubString(Window(home).Property(mpaa),besorolás alatt)">HU_BA</value>
 		<value condition="SubString(Window(home).Property(mpaa),korhatárra való tekintett nélkül megtekintetheto)">HU_KN</value>
 		<value condition="SubString(Window(home).Property(mpaa),12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">HU_12</value>
 		<value condition="SubString(Window(home).Property(mpaa),16 éven aluliak számára nem ajánlott)">HU_16</value>
 		<value condition="SubString(Window(home).Property(mpaa),18 éven aluliak számára nem ajánlott)">HU_18</value>
-		<value condition="substring(Window(home).Property(mpaa),France:U) | Substring(Window(home).Property(mpaa),partir de 3 ans) | Substring(Window(home).Property(mpaa),partir de 6 ans)">csaU</value>
-		<value condition="substring(Window(home).Property(mpaa),France:-10) | Substring(Window(home).Property(mpaa),Interdit aux moins de 10 ans) | Substring(Window(home).Property(mpaa),des propos ou des images peuvent heurter)">csa10</value>
-		<value condition="substring(Window(home).Property(mpaa),France:-12) | Substring(Window(home).Property(mpaa),Interdit aux moins de 12 ans)">csa12</value>
-		<value condition="substring(Window(home).Property(mpaa),France:-16) | Substring(Window(home).Property(mpaa),Interdit aux moins de 16 ans)">csa16</value>
-		<value condition="substring(Window(home).Property(mpaa),France:-18) | Substring(Window(home).Property(mpaa),Interdit aux moins de 18 ans)">csa18</value>
-		<value condition="substring(Window(home).Property(mpaa),전체)">KR_Certificate_All</value>
-		<value condition="substring(Window(home).Property(mpaa),12세)">KR_Certificate_12</value>
-		<value condition="substring(Window(home).Property(mpaa),15세)">KR_Certificate_15</value>
-		<value condition="substring(Window(home).Property(mpaa),불가)">KR_Certificate_18</value>
-		<value condition="substring(Window(home).Property(mpaa),제한)">KR_Certificate_R</value>
-		<value condition="substring(Window(home).Property(mpaa),Brazil:Livre) | substring(Window(home).Property(mpaa),Livre)">MPAA_Brazil_Livre</value>
-		<value condition="substring(Window(home).Property(mpaa),Brazil:10) | substring(Window(home).Property(mpaa),10 anos)">MPAA_Brazil_10</value>
-		<value condition="substring(Window(home).Property(mpaa),Brazil:12) | substring(Window(home).Property(mpaa),12 anos)">MPAA_Brazil_12</value>
-		<value condition="substring(Window(home).Property(mpaa),Brazil:14) | substring(Window(home).Property(mpaa),14 anos)">MPAA_Brazil_14</value>
-		<value condition="substring(Window(home).Property(mpaa),Brazil:16) | substring(Window(home).Property(mpaa),16 anos)">MPAA_Brazil_16</value>
-		<value condition="substring(Window(home).Property(mpaa),Brazil:18) | substring(Window(home).Property(mpaa),18 anos)">MPAA_Brazil_18</value>
+		<value condition="SubString(Window(home).Property(mpaa),France:U) | Substring(Window(home).Property(mpaa),partir de 3 ans) | Substring(Window(home).Property(mpaa),partir de 6 ans)">csaU</value>
+		<value condition="SubString(Window(home).Property(mpaa),France:-10) | Substring(Window(home).Property(mpaa),Interdit aux moins de 10 ans) | Substring(Window(home).Property(mpaa),des propos ou des images peuvent heurter)">csa10</value>
+		<value condition="SubString(Window(home).Property(mpaa),France:-12) | Substring(Window(home).Property(mpaa),Interdit aux moins de 12 ans)">csa12</value>
+		<value condition="SubString(Window(home).Property(mpaa),France:-16) | Substring(Window(home).Property(mpaa),Interdit aux moins de 16 ans)">csa16</value>
+		<value condition="SubString(Window(home).Property(mpaa),France:-18) | Substring(Window(home).Property(mpaa),Interdit aux moins de 18 ans)">csa18</value>
+		<value condition="SubString(Window(home).Property(mpaa),전체)">KR_Certificate_All</value>
+		<value condition="SubString(Window(home).Property(mpaa),12세)">KR_Certificate_12</value>
+		<value condition="SubString(Window(home).Property(mpaa),15세)">KR_Certificate_15</value>
+		<value condition="SubString(Window(home).Property(mpaa),불가)">KR_Certificate_18</value>
+		<value condition="SubString(Window(home).Property(mpaa),제한)">KR_Certificate_R</value>
+		<value condition="SubString(Window(home).Property(mpaa),Brazil:Livre) | SubString(Window(home).Property(mpaa),Livre)">MPAA_Brazil_Livre</value>
+		<value condition="SubString(Window(home).Property(mpaa),Brazil:10) | SubString(Window(home).Property(mpaa),10 anos)">MPAA_Brazil_10</value>
+		<value condition="SubString(Window(home).Property(mpaa),Brazil:12) | SubString(Window(home).Property(mpaa),12 anos)">MPAA_Brazil_12</value>
+		<value condition="SubString(Window(home).Property(mpaa),Brazil:14) | SubString(Window(home).Property(mpaa),14 anos)">MPAA_Brazil_14</value>
+		<value condition="SubString(Window(home).Property(mpaa),Brazil:16) | SubString(Window(home).Property(mpaa),16 anos)">MPAA_Brazil_16</value>
+		<value condition="SubString(Window(home).Property(mpaa),Brazil:18) | SubString(Window(home).Property(mpaa),18 anos)">MPAA_Brazil_18</value>
 	</variable>
 	<variable name="TvGuideVarTxt">
-		<value condition="substring(Window(Home).Property(NextAired.StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Window(Home).Property(NextAired.StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Window(Home).Property(NextAired.StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Window(Home).Property(NextAired.StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Window(Home).Property(NextAired.StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Window(Home).Property(NextAired.StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Window(Home).Property(NextAired.StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Window(Home).Property(NextAired.StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Window(Home).Property(NextAired.StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Window(Home).Property(NextAired.StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Window(Home).Property(NextAired.StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Window(Home).Property(NextAired.StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<!-- unused variable -->
-	<variable name="nextaired_Info">
+	<!-- <variable name="nextaired_Info">
 		<value condition="StringCompare(Window(Home).Property(NextAired.Status),cancelled/ended)">$INFO[Window(Home).Property(NextAired.Status)]</value>
 		<value condition="!IsEmpty(Window(Home).Property(NextAired.NextDate))">$INFO[Window(Home).Property(NextAired.Status)]$INFO[Window(Home).Property(NextAired.NextSeasonNumber), • S]$INFO[Window(Home).Property(NextAired.NextEpisodeNumber),E, •] $INFO[Window(Home).Property(NextAired.NextDate),$LOCALIZE[31993] ]  $INFO[Window(Home).Property(NextAired.ShortTime)]</value>
 		<value condition="IsEmpty(Window(Home).Property(NextAired.NextDate))">$INFO[Window(Home).Property(NextAired.Status)]$INFO[Window(Home).Property(NextAired.LatestDate), • $LOCALIZE[31994] ]</value>
-	</variable>
+	</variable> -->
 	<variable name="TvGuideVarTxtScript">
-		<value condition="substring(ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript215">
-		<value condition="substring(Container(215).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(215).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(215).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(215).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(215).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(215).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(215).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(215).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(215).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(215).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(215).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(215).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript214">
-		<value condition="substring(Container(214).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(214).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(214).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(214).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(214).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(214).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(214).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(214).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(214).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(214).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(214).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(214).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript213">
-		<value condition="substring(Container(213).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(213).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(213).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(213).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(213).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(213).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(213).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(213).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(213).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(213).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(213).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(213).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript212">
-		<value condition="substring(Container(212).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(212).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(212).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(212).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(212).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(212).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(212).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(212).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(212).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(212).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(212).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(212).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript211">
-		<value condition="substring(Container(211).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(211).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(211).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(211).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(211).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(211).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(211).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(211).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(211).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(211).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(211).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(211).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript210">
-		<value condition="substring(Container(210).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(210).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(210).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(210).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(210).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(210).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(210).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(210).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(210).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(210).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(210).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(210).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript209">
-		<value condition="substring(Container(209).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(209).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(209).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(209).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(209).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(209).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(209).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(209).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(209).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(209).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(209).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(209).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript208">
-		<value condition="substring(Container(208).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(208).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(208).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(208).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(208).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(208).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(208).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(208).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(208).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(208).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(208).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(208).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript207">
-		<value condition="substring(Container(207).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(207).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(207).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(207).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(207).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(207).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(207).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(207).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(207).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(207).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(207).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(207).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript206">
-		<value condition="substring(Container(206).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(206).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(206).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(206).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(206).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(206).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(206).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(206).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(206).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(206).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(206).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(206).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript205">
-		<value condition="substring(Container(205).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(205).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(205).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(205).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(205).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(205).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(205).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(205).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(205).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(205).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(205).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(205).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript204">
-		<value condition="substring(Container(204).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(204).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(204).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(204).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(204).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(204).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(204).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(204).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(204).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(204).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(204).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(204).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript203">
-		<value condition="substring(Container(203).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(203).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(203).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(203).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(203).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(203).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(203).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(203).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(203).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(203).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(203).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(203).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript202">
-		<value condition="substring(Container(202).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(202).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(202).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(202).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(202).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(202).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(202).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(202).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(202).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(202).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(202).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(202).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript201">
-		<value condition="substring(Container(201).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(201).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(201).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(201).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(201).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(201).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(201).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(201).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(201).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(201).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(201).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(201).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="TvGuideVarTxtScript200">
-		<value condition="substring(Container(200).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
-		<value condition="substring(Container(200).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
-		<value condition="substring(Container(200).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
-		<value condition="substring(Container(200).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
-		<value condition="substring(Container(200).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
-		<value condition="substring(Container(200).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
+		<value condition="SubString(Container(200).ListItem.Property(StatusID),0)">$LOCALIZE[32976]</value>
+		<value condition="SubString(Container(200).ListItem.Property(StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Container(200).ListItem.Property(StatusID),2)">$LOCALIZE[32978]</value>
+		<value condition="SubString(Container(200).ListItem.Property(StatusID),4)">$LOCALIZE[32980]</value>
+		<value condition="SubString(Container(200).ListItem.Property(StatusID),6)">$LOCALIZE[32982]</value>
+		<value condition="SubString(Container(200).ListItem.Property(StatusID),-1)">$LOCALIZE[32989]</value>
 	</variable>
 	<variable name="RatingFlagVar">
-		<value condition="substring(ListItem.mpaa,TV-G)">TV-G_Certificate_US</value>
-		<value condition="substring(ListItem.mpaa,TV-PG)">TV-PG_Certificate_US</value>
-		<value condition="substring(ListItem.mpaa,TV-14)">TV-14_Certificate_US</value>
-		<value condition="substring(ListItem.mpaa,TV-MA)">TV-MA_Certificate_US</value>
-		<value condition="substring(ListItem.mpaa,TV-Y7)">tv-y7</value>
-		<value condition="substring(ListItem.mpaa,TV-Y)">tv-y</value>
+		<value condition="SubString(ListItem.mpaa,TV-G) | SubString(ListItem.mpaa,TV - G)">TV-G_Certificate_US</value>
+		<value condition="SubString(ListItem.mpaa,TV-PG) | SubString(ListItem.mpaa,TV - PG)">TV-PG_Certificate_US</value>
+		<value condition="SubString(ListItem.mpaa,TV-14) | SubString(ListItem.mpaa,TV - 14)">TV-14_Certificate_US</value>
+		<value condition="SubString(ListItem.mpaa,TV-MA) | SubString(ListItem.mpaa,TV - MA)">TV-MA_Certificate_US</value>
+		<value condition="SubString(ListItem.mpaa,TV-Y7) | SubString(ListItem.mpaa,TV - Y7)">tv-y7</value>
+		<value condition="SubString(ListItem.mpaa,TV-Y) | SubString(ListItem.mpaa,TV - Y)">tv-y</value>
 		<value condition="SubString(ListItem.mpaa,US:G) | SubString(ListItem.mpaa,USA:G) | SubString(ListItem.mpaa,Rated G)">MPAA_G_Certificate_US</value>
-		<value condition="SubString(ListItem.mpaa,PG-13)">MPAA_PG-13_Certificate_US</value>
+		<value condition="SubString(ListItem.mpaa,PG-13) | SubString(ListItem.mpaa,PG - 13)">MPAA_PG-13_Certificate_US</value>
 		<value condition="Substring(ListItem.mpaa,Rated PG) | StringCompare(ListItem.Mpaa,PG)">MPAA_PG_Certificate_US</value>
 		<value condition="SubString(ListItem.mpaa,US:R) | SubString(ListItem.mpaa,USA:R) | SubString(ListItem.mpaa,Rated R) | StringCompare(ListItem.mpaa,R)">MPAA_R_Certificate_US</value>
-		<value condition="SubString(ListItem.mpaa,US:NC-17)| SubString(ListItem.mpaa,USA:NC-17)| SubString(ListItem.mpaa,Rated NC-17)">MPAA_NC-17_Certificate_US</value>
+		<value condition="SubString(ListItem.mpaa,US:NC-17)| SubString(ListItem.mpaa,USA:NC-17)| SubString(ListItem.mpaa,Rated NC-17) | SubString(ListItem.mpaa,Rated NC - 17)">MPAA_NC-17_Certificate_US</value>
 		<value condition="SubString(ListItem.mpaa,UK:U)">BBFC_U_Certificate_UK</value>
 		<value condition="SubString(ListItem.mpaa,UK:PG)">BBFC_PG_Certificate_UK</value>
 		<value condition="SubString(ListItem.mpaa,UK:12A)">BBFC_12A_Certificate_UK</value>
 		<value condition="SubString(ListItem.mpaa,UK:12)">BBFC_12_Certificate_UK</value>
 		<value condition="SubString(ListItem.mpaa,UK:15)">BBFC_15_Certificate_UK</value>
 		<value condition="SubString(ListItem.mpaa,UK:18)">BBFC_18_Certificate_UK</value>
-		<value condition="SubString(ListItem.mpaa,Germany:6)| SubString(ListItem.mpaa,ab 6) | StringCompare(ListItem.mpaa,6) | Substring(ListItem.mpaa,FSK 16) | SubString(ListItem.mpaa,Rated 6)">FSK-6</value>
+		<value condition="SubString(ListItem.mpaa,Germany:6)| SubString(ListItem.mpaa,ab 6) | StringCompare(ListItem.mpaa,6) | Substring(ListItem.mpaa,FSK 6) | SubString(ListItem.mpaa,Rated 6)">FSK-6</value>
 		<value condition="SubString(ListItem.mpaa,Germany:12) | SubString(ListItem.mpaa,ab 12) | StringCompare(ListItem.mpaa,12) | Substring(ListItem.mpaa,FSK 12) | SubString(ListItem.mpaa,Rated 12)">FSK-12</value>
 		<value condition="SubString(ListItem.mpaa,Germany:16) | SubString(ListItem.mpaa,ab 16) | StringCompare(ListItem.mpaa,16) | Substring(ListItem.mpaa,FSK 16) | SubString(ListItem.mpaa,Rated 16)">FSK-16</value>
 		<value condition="SubString(ListItem.mpaa,Germany:18) | SubString(ListItem.mpaa,ab 18) | StringCompare(ListItem.mpaa,18) | Substring(ListItem.mpaa,FSK 18) | SubString(ListItem.mpaa,Rated 18)">FSK-18</value>
-		<value condition="SubString(ListItem.mpaa,Germany)|SubString(ListItem.mpaa,FSK)| SubString(ListItem.mpaa,o.A)| SubString(ListItem.mpaa,Rated 0)">FSK-0</value>
+		<value condition="SubString(ListItem.mpaa,Germany)|SubString(ListItem.mpaa,FSK)| SubString(ListItem.mpaa,o.A)| SubString(ListItem.mpaa,Rated 0)| StringCompare(ListItem.mpaa,0)">FSK-0</value>
 		<value condition="SubString(ListItem.mpaa,besorolás alatt)">HU_BA</value>
 		<value condition="SubString(ListItem.mpaa,korhatárra való tekintett nélkül megtekintetheto)">HU_KN</value>
 		<value condition="SubString(ListItem.mpaa,12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">HU_12</value>
 		<value condition="SubString(ListItem.mpaa,16 éven aluliak számára nem ajánlott)">HU_16</value>
 		<value condition="SubString(ListItem.mpaa,18 éven aluliak számára nem ajánlott)">HU_18</value>
-		<value condition="substring(ListItem.mpaa,France:U) | Substring(ListItem.mpaa,partir de 3 ans) | Substring(ListItem.mpaa,partir de 6 ans)">csaU</value>
-		<value condition="substring(ListItem.mpaa,France:-10) | Substring(ListItem.mpaa,Interdit aux moins de 10 ans) | Substring(ListItem.mpaa,des propos ou des images peuvent heurter)">csa10</value>
-		<value condition="substring(ListItem.mpaa,France:-12) | Substring(ListItem.mpaa,Interdit aux moins de 12 ans)">csa12</value>
-		<value condition="substring(ListItem.mpaa,France:-16) | Substring(ListItem.mpaa,Interdit aux moins de 16 ans)">csa16</value>
-		<value condition="substring(ListItem.mpaa,France:-18) | Substring(ListItem.mpaa,Interdit aux moins de 18 ans)">csa18</value>
-		<value condition="substring(ListItem.mpaa,전체)">KR_Certificate_All</value>
-		<value condition="substring(ListItem.mpaa,12세)">KR_Certificate_12</value>
-		<value condition="substring(ListItem.mpaa,15세)">KR_Certificate_15</value>
-		<value condition="substring(ListItem.mpaa,불가)">KR_Certificate_18</value>
-		<value condition="substring(ListItem.mpaa,제한)">KR_Certificate_R</value>
-		<value condition="substring(ListItem.mpaa,Brazil:Livre) | substring(ListItem.mpaa,Livre)">MPAA_Brazil_Livre</value>
-		<value condition="substring(ListItem.mpaa,Brazil:10) | substring(ListItem.mpaa,10 anos)">MPAA_Brazil_10</value>
-		<value condition="substring(ListItem.mpaa,Brazil:12) | substring(ListItem.mpaa,12 anos)">MPAA_Brazil_12</value>
-		<value condition="substring(ListItem.mpaa,Brazil:14) | substring(ListItem.mpaa,14 anos)">MPAA_Brazil_14</value>
-		<value condition="substring(ListItem.mpaa,Brazil:16) | substring(ListItem.mpaa,16 anos)">MPAA_Brazil_16</value>
-		<value condition="substring(ListItem.mpaa,Brazil:18) | substring(ListItem.mpaa,18 anos)">MPAA_Brazil_18</value>
-		<value condition="substring(ListItem.mpaa,Rated X)">MPAA_X_Certificate_US</value>
+		<value condition="SubString(ListItem.mpaa,France:U) | Substring(ListItem.mpaa,partir de 3 ans) | Substring(ListItem.mpaa,partir de 6 ans)">csaU</value>
+		<value condition="SubString(ListItem.mpaa,France:-10) | Substring(ListItem.mpaa,Interdit aux moins de 10 ans) | Substring(ListItem.mpaa,des propos ou des images peuvent heurter)">csa10</value>
+		<value condition="SubString(ListItem.mpaa,France:-12) | Substring(ListItem.mpaa,Interdit aux moins de 12 ans)">csa12</value>
+		<value condition="SubString(ListItem.mpaa,France:-16) | Substring(ListItem.mpaa,Interdit aux moins de 16 ans)">csa16</value>
+		<value condition="SubString(ListItem.mpaa,France:-18) | Substring(ListItem.mpaa,Interdit aux moins de 18 ans)">csa18</value>
+		<value condition="SubString(ListItem.mpaa,전체)">KR_Certificate_All</value>
+		<value condition="SubString(ListItem.mpaa,12세)">KR_Certificate_12</value>
+		<value condition="SubString(ListItem.mpaa,15세)">KR_Certificate_15</value>
+		<value condition="SubString(ListItem.mpaa,불가)">KR_Certificate_18</value>
+		<value condition="SubString(ListItem.mpaa,제한)">KR_Certificate_R</value>
+		<value condition="SubString(ListItem.mpaa,Brazil:Livre) | SubString(ListItem.mpaa,Livre)">MPAA_Brazil_Livre</value>
+		<value condition="SubString(ListItem.mpaa,Brazil:10) | SubString(ListItem.mpaa,10 anos)">MPAA_Brazil_10</value>
+		<value condition="SubString(ListItem.mpaa,Brazil:12) | SubString(ListItem.mpaa,12 anos)">MPAA_Brazil_12</value>
+		<value condition="SubString(ListItem.mpaa,Brazil:14) | SubString(ListItem.mpaa,14 anos)">MPAA_Brazil_14</value>
+		<value condition="SubString(ListItem.mpaa,Brazil:16) | SubString(ListItem.mpaa,16 anos)">MPAA_Brazil_16</value>
+		<value condition="SubString(ListItem.mpaa,Brazil:18) | SubString(ListItem.mpaa,18 anos)">MPAA_Brazil_18</value>
+		<value condition="SubString(ListItem.mpaa,Rated X)">MPAA_X_Certificate_US</value>
 	</variable>
 	<variable name="VideoRatingFlagVar">
-		<value condition="substring(VideoPlayer.mpaa,Rated X)">MPAA_X_Certificate_US</value>
-		<value condition="substring(VideoPlayer.mpaa,TV-G)">TV-G_Certificate_US</value>
-		<value condition="substring(VideoPlayer.mpaa,TV-PG)">TV-PG_Certificate_US</value>
-		<value condition="substring(VideoPlayer.mpaa,TV-14)">TV-14_Certificate_US</value>
-		<value condition="substring(VideoPlayer.mpaa,TV-MA)">TV-MA_Certificate_US</value>
-		<value condition="substring(VideoPlayer.mpaa,TV-Y7)">tv-y7</value>
-		<value condition="substring(VideoPlayer.mpaa,TV-Y)">tv-y</value>
+		<value condition="SubString(VideoPlayer.mpaa,Rated X)">MPAA_X_Certificate_US</value>
+		<value condition="SubString(VideoPlayer.mpaa,TV-G) | SubString(VideoPlayer.mpaa,TV - G)">TV-G_Certificate_US</value>
+		<value condition="SubString(VideoPlayer.mpaa,TV-PG) | SubString(VideoPlayer.mpaa,TV - PG)">TV-PG_Certificate_US</value>
+		<value condition="SubString(VideoPlayer.mpaa,TV-14) | SubString(VideoPlayer.mpaa,TV - 14)">TV-14_Certificate_US</value>
+		<value condition="SubString(VideoPlayer.mpaa,TV-MA) | SubString(VideoPlayer.mpaa,TV - MA)">TV-MA_Certificate_US</value>
+		<value condition="SubString(VideoPlayer.mpaa,TV-Y7) | SubString(VideoPlayer.mpaa,TV - Y7)">tv-y7</value>
+		<value condition="SubString(VideoPlayer.mpaa,TV-Y) | SubString(VideoPlayer.mpaa,TV - Y)">tv-y</value>
 		<value condition="SubString(VideoPlayer.mpaa,US:G) | SubString(VideoPlayer.mpaa,USA:G) | SubString(VideoPlayer.mpaa,Rated G)">MPAA_G_Certificate_US</value>
-		<value condition="SubString(VideoPlayer.mpaa,PG-13)">MPAA_PG-13_Certificate_US</value>
+		<value condition="SubString(VideoPlayer.mpaa,PG-13) | SubString(VideoPlayer.mpaa,PG - 13)">MPAA_PG-13_Certificate_US</value>
 		<value condition="Substring(VideoPlayer.mpaa,Rated PG) | StringCompare(VideoPlayer.Mpaa,PG)">MPAA_PG_Certificate_US</value>
 		<value condition="SubString(VideoPlayer.mpaa,US:R) | SubString(VideoPlayer.mpaa,USA:R) | SubString(VideoPlayer.mpaa,Rated R) | StringCompare(VideoPlayer.Mpaa,R)">MPAA_R_Certificate_US</value>
-		<value condition="SubString(VideoPlayer.mpaa,US:NC-17) | SubString(VideoPlayer.mpaa,USA:NC-17) | SubString(VideoPlayer.mpaa,Rated NC-17)">MPAA_NC-17_Certificate_US</value>
+		<value condition="SubString(VideoPlayer.mpaa,US:NC-17) | SubString(VideoPlayer.mpaa,USA:NC-17) | SubString(VideoPlayer.mpaa,Rated NC-17) | SubString(VideoPlayer.mpaa,Rated NC - 17)">MPAA_NC-17_Certificate_US</value>
 		<value condition="SubString(VideoPlayer.mpaa,UK:U)">BBFC_U_Certificate_UK</value>
 		<value condition="SubString(VideoPlayer.mpaa,UK:PG)">BBFC_PG_Certificate_UK</value>
 		<value condition="SubString(VideoPlayer.mpaa,UK:12A)">BBFC_12A_Certificate_UK</value>
 		<value condition="SubString(VideoPlayer.mpaa,UK:12)">BBFC_12_Certificate_UK</value>
 		<value condition="SubString(VideoPlayer.mpaa,UK:15)">BBFC_15_Certificate_UK</value>
 		<value condition="SubString(VideoPlayer.mpaa,UK:18)">BBFC_18_Certificate_UK</value>
-		<value condition="SubString(VideoPlayer.mpaa,Germany:6)| SubString(VideoPlayer.mpaa,ab 6) | StringCompare(VideoPlayer.mpaa,6) | StringCompare(VideoPlayer.mpaa,FSK 16) | SubString(VideoPlayer.mpaa,Rated 6)">FSK-6</value>
+		<value condition="SubString(VideoPlayer.mpaa,Germany:6)| SubString(VideoPlayer.mpaa,ab 6) | StringCompare(VideoPlayer.mpaa,6) | StringCompare(VideoPlayer.mpaa,FSK 6) | SubString(VideoPlayer.mpaa,Rated 6)">FSK-6</value>
 		<value condition="SubString(VideoPlayer.mpaa,Germany:12) | SubString(VideoPlayer.mpaa,ab 12) | StringCompare(VideoPlayer.mpaa,12) | Substring(VideoPlayer.mpaa,FSK 12) | SubString(VideoPlayer.mpaa,Rated 12)">FSK-12</value>
 		<value condition="SubString(VideoPlayer.mpaa,Germany:16) | SubString(VideoPlayer.mpaa,ab 16) | StringCompare(VideoPlayer.mpaa,16) | Substring(VideoPlayer.mpaa,FSK 16) | SubString(VideoPlayer.mpaa,Rated 16)">FSK-16</value>
 		<value condition="SubString(VideoPlayer.mpaa,Germany:18) | SubString(VideoPlayer.mpaa,ab 18) | StringCompare(VideoPlayer.mpaa,18) | Substring(VideoPlayer.mpaa,FSK 18) | SubString(VideoPlayer.mpaa,Rated 18)">FSK-18</value>
-		<value condition="SubString(VideoPlayer.mpaa,Germany)|SubString(VideoPlayer.mpaa,FSK)| SubString(VideoPlayer.mpaa,o.A)| SubString(VideoPlayer.mpaa,Rated 0)">FSK-0</value>
+		<value condition="SubString(VideoPlayer.mpaa,Germany)|SubString(VideoPlayer.mpaa,FSK)| StringCompare(VideoPlayer.mpaa,0) | SubString(VideoPlayer.mpaa,o.A)| SubString(VideoPlayer.mpaa,Rated 0)">FSK-0</value>
 		<value condition="SubString(VideoPlayer.mpaa,korhatárra való tekintett nélkül megtekintethető)">HU_KN</value>
 		<value condition="SubString(VideoPlayer.mpaa,6 éven aluliak számára nem ajánlott)">HU_06</value>
 		<value condition="SubString(VideoPlayer.mpaa,12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">HU_12</value>
 		<value condition="SubString(VideoPlayer.mpaa,16 éven aluliak számára nem ajánlott)">HU_16</value>
 		<value condition="SubString(VideoPlayer.mpaa,18 éven aluliak számára nem ajánlott)">HU_18</value>
-		<value condition="substring(VideoPlayer.mpaa,France:U) | Substring(VideoPlayer.mpaa,partir de 3 ans) | Substring(VideoPlayer.mpaa,partir de 6 ans)">csaU</value>
-		<value condition="substring(VideoPlayer.mpaa,France:-10) | Substring(VideoPlayer.mpaa,Interdit aux moins de 10 ans) | Substring(VideoPlayer.mpaa,des propos ou des images peuvent heurter)">csa10</value>
-		<value condition="substring(VideoPlayer.mpaa,France:-12) | Substring(VideoPlayer.mpaa,Interdit aux moins de 12 ans)">csa12</value>
-		<value condition="substring(VideoPlayer.mpaa,France:-16) | Substring(VideoPlayer.mpaa,Interdit aux moins de 16 ans)">csa16</value>
-		<value condition="substring(VideoPlayer.mpaa,France:-18) | Substring(VideoPlayer.mpaa,Interdit aux moins de 18 ans)">csa18</value>
-		<value condition="substring(VideoPlayer.mpaa,전체)">KR_Certificate_All</value>
-		<value condition="substring(VideoPlayer.mpaa,12세)">KR_Certificate_12</value>
-		<value condition="substring(VideoPlayer.mpaa,15세)">KR_Certificate_15</value>
-		<value condition="substring(VideoPlayer.mpaa,불가)">KR_Certificate_18</value>
-		<value condition="substring(VideoPlayer.mpaa,제한)">KR_Certificate_R</value>
-		<value condition="substring(VideoPlayer.mpaa,Brazil:Livre) | substring(VideoPlayer.mpaa,Livre)">MPAA_Brazil_Livre</value>
-		<value condition="substring(VideoPlayer.mpaa,Brazil:10) | substring(VideoPlayer.mpaa,10 anos)">MPAA_Brazil_10</value>
-		<value condition="substring(VideoPlayer.mpaa,Brazil:12) | substring(VideoPlayer.mpaa,12 anos)">MPAA_Brazil_12</value>
-		<value condition="substring(VideoPlayer.mpaa,Brazil:14) | substring(VideoPlayer.mpaa,14 anos)">MPAA_Brazil_14</value>
-		<value condition="substring(VideoPlayer.mpaa,Brazil:16) | substring(VideoPlayer.mpaa,16 anos)">MPAA_Brazil_16</value>
-		<value condition="substring(VideoPlayer.mpaa,Brazil:18) | substring(VideoPlayer.mpaa,18 anos)">MPAA_Brazil_18</value>
+		<value condition="SubString(VideoPlayer.mpaa,France:U) | Substring(VideoPlayer.mpaa,partir de 3 ans) | Substring(VideoPlayer.mpaa,partir de 6 ans)">csaU</value>
+		<value condition="SubString(VideoPlayer.mpaa,France:-10) | Substring(VideoPlayer.mpaa,Interdit aux moins de 10 ans) | Substring(VideoPlayer.mpaa,des propos ou des images peuvent heurter)">csa10</value>
+		<value condition="SubString(VideoPlayer.mpaa,France:-12) | Substring(VideoPlayer.mpaa,Interdit aux moins de 12 ans)">csa12</value>
+		<value condition="SubString(VideoPlayer.mpaa,France:-16) | Substring(VideoPlayer.mpaa,Interdit aux moins de 16 ans)">csa16</value>
+		<value condition="SubString(VideoPlayer.mpaa,France:-18) | Substring(VideoPlayer.mpaa,Interdit aux moins de 18 ans)">csa18</value>
+		<value condition="SubString(VideoPlayer.mpaa,전체)">KR_Certificate_All</value>
+		<value condition="SubString(VideoPlayer.mpaa,12세)">KR_Certificate_12</value>
+		<value condition="SubString(VideoPlayer.mpaa,15세)">KR_Certificate_15</value>
+		<value condition="SubString(VideoPlayer.mpaa,불가)">KR_Certificate_18</value>
+		<value condition="SubString(VideoPlayer.mpaa,제한)">KR_Certificate_R</value>
+		<value condition="SubString(VideoPlayer.mpaa,Brazil:Livre) | SubString(VideoPlayer.mpaa,Livre)">MPAA_Brazil_Livre</value>
+		<value condition="SubString(VideoPlayer.mpaa,Brazil:10) | SubString(VideoPlayer.mpaa,10 anos)">MPAA_Brazil_10</value>
+		<value condition="SubString(VideoPlayer.mpaa,Brazil:12) | SubString(VideoPlayer.mpaa,12 anos)">MPAA_Brazil_12</value>
+		<value condition="SubString(VideoPlayer.mpaa,Brazil:14) | SubString(VideoPlayer.mpaa,14 anos)">MPAA_Brazil_14</value>
+		<value condition="SubString(VideoPlayer.mpaa,Brazil:16) | SubString(VideoPlayer.mpaa,16 anos)">MPAA_Brazil_16</value>
+		<value condition="SubString(VideoPlayer.mpaa,Brazil:18) | SubString(VideoPlayer.mpaa,18 anos)">MPAA_Brazil_18</value>
 	</variable>
 	<variable name="AudioFlagVar">
 		<value>$INFO[ListItem.AudioCodec]$INFO[ListItem.AudioChannels]</value>
 	</variable>
 	<variable name="NextEpisodeVar">
 		<value condition="!IsEmpty(Window(Home).Property(NextAired.Label)) + !IsEmpty(Window(Home).Property(NextAired.NextDay))">$INFO[Window(Home).Property(NextAired.NextDay)]</value>
-		<value condition="substring(Window(Home).Property(NextAired.StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Window(Home).Property(NextAired.StatusID),1)">$LOCALIZE[32977]</value>
 		<value>$LOCALIZE[31003]</value>
 	</variable>
 	<variable name="LastEpisodeVar">
@@ -563,11 +561,11 @@
 		<!--         <value condition="Container.Content(movies)">$INFO[ListItem.Title]$INFO[ListItem.Year, [,]]</value>		-->
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
-	<variable name="DialogVideoInfoFanartVar">
+	<!-- <variable name="DialogVideoInfoFanartVar">
 		<value condition="!IsEmpty(ListItem.Art(season.fanart)) + [Container.Content(seasons) | Container.Content(episodes)]">$INFO[ListItem.Art(season.fanart)]</value>
 		<value condition="Container.Content(tvshows)">$INFO[ListItem.Art(fanart)]</value>
 		<value>$INFO[ListItem.Art(fanart)]</value>
-	</variable>
+	</variable> -->
 	<variable name="DialogVideoInfoButtonLabelVar">
 		<value condition="Container.Content(tvshows) | Container.Content(seasons)">$LOCALIZE[502]</value>
 		<value>$LOCALIZE[208]</value>
@@ -628,7 +626,7 @@
 		<value condition="Skin.HasSetting(NoVideoLibraryFanart)">special://skin/backgrounds/videos/</value>
 		<!--value condition="Control.HasFocus(950)">$INFO[ListItem.Art(fanart)]</value-->
 		<value condition="Control.HasFocus(960)">$INFO[ListItem.Art(fanart)]</value>
-		<!--value condition="!IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value-->
+		<value condition="!IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
 		<value condition="Container.Content(addons) + IsEmpty(Skin.String(VideosBackground))">special://skin/backgrounds/programs/</value>
 		<value condition="!IsEmpty(Skin.String(VideosBackground))">$INFO[Skin.String(VideosBackground)]</value>
 		<value>special://skin/backgrounds/videos/</value>
@@ -659,12 +657,12 @@
 		<value>special://skin/backgrounds/musicvideos/</value>
 	</variable>
 	<!-- unused variable -->
-	<variable name="NodeFanartVar">
+	<!-- <variable name="NodeFanartVar">
 		<value>$INFO[Control.GetLabel(4324)]</value>
-		<!--<value condition="!Skin.HasSetting(livenodecovers)">$INFO[Control.GetLabel(4324)]</value>		-->
+		<value condition="!Skin.HasSetting(livenodecovers)">$INFO[Control.GetLabel(4324)]</value>
 		<value condition="!IsEmpty(Skin.String(LiveBG))">INFO[Skin.String(LiveBG)]</value>
 		<value>special://skin/backgrounds/speakergrill.jpg</value>
-	</variable>
+	</variable> -->
 	<variable name="MovieFanartVar">
 		<value condition="Skin.HasSetting(RotateFanart) + !IsEmpty(Window(Home).Property(Detail.Movie.1.Art(fanart))) + skin.hassetting(backendmode) + !Skin.HasSetting(NoVideoLibraryFanart) + [Container.Content(sets) | SubString(ListItem.Path,videodb://movies/sets/,left)]">$INFO[Control.GetLabel(4324)]</value>
 		<value condition="Skin.HasSetting(NoVideoLibraryFanart) + !IsEmpty(Skin.String(MoviesBackground))">$INFO[Skin.String(MoviesBackground)]</value>
@@ -760,7 +758,7 @@
 	</variable>
 	<variable name="FanartPanelValue4Var">
 		<value condition="Container.Content(episodes) | IsEmpty(ListItem.TvShowTitle)">$INFO[ListItem.RatingAndVotes]</value>
-		<value condition="substring(Window(Home).Property(NextAired.StatusID),1)">$LOCALIZE[32977]</value>
+		<value condition="SubString(Window(Home).Property(NextAired.StatusID),1)">$LOCALIZE[32977]</value>
 		<value>$INFO[Window(Home).Property(NextAired.AirTime)]</value>
 	</variable>
 	<variable name="FanartPanelDetail5Var">
@@ -1227,12 +1225,12 @@
 		<value>home/homemenu_back_nox.png</value>
 	</variable>
 	<!-- unused variable -->
-	<variable name="HomeMenuBackVar1">
+	<!-- <variable name="HomeMenuBackVar1">
 		<value condition="Skin.HasSetting(glasshome) + ![Player.HasMedia + System.IdleTime(8)]">home/homemenu_back_glass.png</value>
 		<value condition="Skin.HasSetting(classichome) + ![Player.HasMedia + System.IdleTime(8)]">home/homemenu_back.png</value>
 		<value condition="Skin.HasSetting(ProgressMainMenu) + Skin.HasSetting(glasshome)">home/homemenu_back_glass.png</value>
 		<value>home/homemenu_back_nox1.png</value>
-	</variable>
+	</variable> -->
 	<variable name="HomeOSDLabelVar">
 		<value condition="Player.HasDuration">$INFO[Player.Time]  /  $INFO[Player.Duration]</value>
 		<value>$INFO[Player.Time]</value>
@@ -1547,10 +1545,10 @@
 		<value>$INFO[Skin.String(MusicBackground)]</value>
 	</variable>
 	<!-- unused variable -->
-	<variable name="PlayerTimeLabelVar">
+	<!-- <variable name="PlayerTimeLabelVar">
 		<value condition="Player.HasDuration">$INFO[MusicPlayer.Time,, / ]$INFO[MusicPlayer.Duration]</value>
 		<value>$INFO[MusicPlayer.Time,, / ]∞</value>
-	</variable>
+	</variable> -->
 	<variable name="SettingsFanartVar">
 		<value condition="IsEmpty(Skin.String(SettingsBackground))">special://skin/backgrounds/system/</value>
 		<value>$INFO[Skin.String(SettingsBackground)]</value>
@@ -1573,14 +1571,15 @@
 	<variable name="MusicPanelDetailLabel1Var">
 		<value condition="Container.Content(albums)">$LOCALIZE[176]:</value>
 		<value condition="Container.Content(addons)">$LOCALIZE[21863]:</value>
-		<value condition="Container.Content(artists) + !IsEmpty(ListItem.Property(Artist_Born))">$LOCALIZE[21893]:</value>
+		<value condition="Container.Content(artists) + !IsEmpty(ListItem.Property(Artist_Born)) + !IsEmpty(ListItem.Property(Artist_Formed))">$LOCALIZE[21893] / $LOCALIZE[21894]:</value>
+		<value condition="Container.Content(artists) + !IsEmpty(ListItem.Property(Artist_Born)) + IsEmpty(ListItem.Property(Artist_Formed))">$LOCALIZE[21893]:</value>
 		<value condition="Container.Content(artists) + !IsEmpty(ListItem.Property(Artist_Formed))">$LOCALIZE[21894]:</value>
 		<value condition="[Window.IsActive(programs) + !Container.Content(addons)]">$LOCALIZE[572]:</value>
 	</variable>
 	<variable name="MusicPanelValueLabel1Var">
 		<value condition="Container.Content(albums)">$INFO[ListItem.Property(Album_Style)]</value>
 		<value condition="Container.Content(addons)">$INFO[ListItem.Property(Addon.Creator)]</value>
-		<value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Born)]$INFO[ListItem.Property(Artist_Formed)]</value>
+		<value condition="Container.Content(artists) + !IsEmpty(ListItem.Property(Artist_Born)) + !IsEmpty(ListItem.Property(Artist_Formed))">$INFO[ListItem.Property(Artist_Born)] / $INFO[ListItem.Property(Artist_Formed)]</value>
 		<value condition="[Window.IsActive(programs) + !Container.Content(addons)]">$INFO[ListItem.Studio]</value>
 	</variable>
 	<variable name="MusicPanelDetailLabel2Var">
@@ -1863,20 +1862,20 @@
 		<value>movies</value>
 	</variable>
 	<!-- unused variable -->
-	<variable name="addonwallCasePathVar">
+	<!-- <variable name="addonwallCasePathVar">
 		<value condition="!Skin.HasSetting(useclearcasesinfowall2) + Skin.HasSetting(ColorcasesAddonWall)">colorcases</value>
 		<value>tvshows</value>
-	</variable>
+	</variable> -->
 	<variable name="lowlistCasePathVar">
 		<value condition="Skin.HasSetting(ColorcasesLowList)">colorcases</value>
 		<value>tvshows</value>
 	</variable>
 	<!-- unused variable -->
-	<variable name="ShowcaseCaseLabelVar">
+	<!-- <variable name="ShowcaseCaseLabelVar">
 		<value condition="Skin.HasSetting(usecases) + Skin.HasSetting(clearcases)">$LOCALIZE[31282]</value>
 		<value condition="Skin.HasSetting(usecases)">$LOCALIZE[31248]</value>
 		<value>$LOCALIZE[106]</value>
-	</variable>
+	</variable> -->
 	<variable name="ShowcaseCase-7Var">
 		<!--value condition="SubString(Container(501).ListItem(-7).Filename,.3D.)">3d.png</value>
 		<value condition="SubString(Container(501).ListItem(-7).Filename,hdtv)">hdtv.png</value>
@@ -1887,6 +1886,8 @@
 		<value condition="SubString(Container(501).ListItem(-7).Filename, 3DBD.) | SubString(Container(501).ListItem(-7).Filename, 3dbd.)">3d.png</value>
 		<value condition="SubString(Container(501).ListItem(-7).Filename,.HDDVD.) | SubString(Container(501).ListItem(-7).Filename,.hddvd.)">hddvd.png</value>
 		<value condition="SubString(Container(501).ListItem(-7).Filename, HDDVD.) | SubString(Container(501).ListItem(-7).Filename, hddvd.)">hddvd.png</value>
+		<value condition="SubString(Container(501).ListItem(-7).Filename,.SDTV.) | SubString(Container(501).ListItem(-7).Filename,.sdtv.)">sdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(-7).Filename, SDTV.) | SubString(Container(501).ListItem(-7).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-7).Filename,.HDTV.) | SubString(Container(501).ListItem(-7).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-7).Filename, HDTV.) | SubString(Container(501).ListItem(-7).Filename, hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-7).Filename,.WEBDL.) | SubString(Container(501).ListItem(-7).Filename,.webdl.)">webdl.png</value>
@@ -1908,6 +1909,8 @@
 		<value condition="SubString(Container(501).ListItem(-6).Filename, 3DBD.) | SubString(Container(501).ListItem(-6).Filename, 3dbd.)">3d.png</value>
 		<value condition="SubString(Container(501).ListItem(-6).Filename,.HDDVD.) | SubString(Container(501).ListItem(-6).Filename,.hddvd.)">hddvd.png</value>
 		<value condition="SubString(Container(501).ListItem(-6).Filename, HDDVD.) | SubString(Container(501).ListItem(-6).Filename, hddvd.)">hddvd.png</value>
+		<value condition="SubString(Container(501).ListItem(-6).Filename,.SDTV.) | SubString(Container(501).ListItem(-6).Filename,.sdtv.)">sdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(-6).Filename, SDTV.) | SubString(Container(501).ListItem(-6).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-6).Filename,.HDTV.) | SubString(Container(501).ListItem(-6).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-6).Filename, HDTV.) | SubString(Container(501).ListItem(-6).Filename, hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-6).Filename,.WEBDL.) | SubString(Container(501).ListItem(-6).Filename,.webdl.)">webdl.png</value>
@@ -1929,6 +1932,8 @@
 		<value condition="SubString(Container(501).ListItem(-5).Filename, 3DBD.) | SubString(Container(501).ListItem(-5).Filename, 3dbd.)">3d.png</value>
 		<value condition="SubString(Container(501).ListItem(-5).Filename,.HDDVD.) | SubString(Container(501).ListItem(-5).Filename,.hddvd.)">hddvd.png</value>
 		<value condition="SubString(Container(501).ListItem(-5).Filename, HDDVD.) | SubString(Container(501).ListItem(-5).Filename, hddvd.)">hddvd.png</value>
+		<value condition="SubString(Container(501).ListItem(-5).Filename,.SDTV.) | SubString(Container(501).ListItem(-5).Filename,.sdtv.)">sdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(-5).Filename, SDTV.) | SubString(Container(501).ListItem(-5).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-5).Filename,.HDTV.) | SubString(Container(501).ListItem(-5).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-5).Filename, HDTV.) | SubString(Container(501).ListItem(-5).Filename, hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-5).Filename,.WEBDL.) | SubString(Container(501).ListItem(-5).Filename,.webdl.)">webdl.png</value>
@@ -1950,6 +1955,8 @@
 		<value condition="SubString(Container(501).ListItem(-4).Filename, 3DBD.) | SubString(Container(501).ListItem(-4).Filename, 3dbd.)">3d.png</value>
 		<value condition="SubString(Container(501).ListItem(-4).Filename,.HDDVD.) | SubString(Container(501).ListItem(-4).Filename,.hddvd.)">hddvd.png</value>
 		<value condition="SubString(Container(501).ListItem(-4).Filename, HDDVD.) | SubString(Container(501).ListItem(-4).Filename, hddvd.)">hddvd.png</value>
+		<value condition="SubString(Container(501).ListItem(-4).Filename,.SDTV.) | SubString(Container(501).ListItem(-4).Filename,.sdtv.)">sdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(-4).Filename, SDTV.) | SubString(Container(501).ListItem(-4).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-4).Filename,.HDTV.) | SubString(Container(501).ListItem(-4).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-4).Filename, HDTV.) | SubString(Container(501).ListItem(-4).Filename, hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-4).Filename,.WEBDL.) | SubString(Container(501).ListItem(-4).Filename,.webdl.)">webdl.png</value>
@@ -1971,6 +1978,8 @@
 		<value condition="SubString(Container(501).ListItem(-3).Filename, 3DBD.) | SubString(Container(501).ListItem(-3).Filename, 3dbd.)">3d.png</value>
 		<value condition="SubString(Container(501).ListItem(-3).Filename,.HDDVD.) | SubString(Container(501).ListItem(-3).Filename,.hddvd.)">hddvd.png</value>
 		<value condition="SubString(Container(501).ListItem(-3).Filename, HDDVD.) | SubString(Container(501).ListItem(-3).Filename, hddvd.)">hddvd.png</value>
+		<value condition="SubString(Container(501).ListItem(-3).Filename,.SDTV.) | SubString(Container(501).ListItem(-3).Filename,.sdtv.)">sdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(-3).Filename, SDTV.) | SubString(Container(501).ListItem(-3).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-3).Filename,.HDTV.) | SubString(Container(501).ListItem(-3).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-3).Filename, HDTV.) | SubString(Container(501).ListItem(-3).Filename, hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-3).Filename,.WEBDL.) | SubString(Container(501).ListItem(-3).Filename,.webdl.)">webdl.png</value>
@@ -1992,6 +2001,8 @@
 		<value condition="SubString(Container(501).ListItem(-2).Filename, 3DBD.) | SubString(Container(501).ListItem(-2).Filename, 3dbd.)">3d.png</value>
 		<value condition="SubString(Container(501).ListItem(-2).Filename,.HDDVD.) | SubString(Container(501).ListItem(-2).Filename,.hddvd.)">hddvd.png</value>
 		<value condition="SubString(Container(501).ListItem(-2).Filename, HDDVD.) | SubString(Container(501).ListItem(-2).Filename, hddvd.)">hddvd.png</value>
+		<value condition="SubString(Container(501).ListItem(-2).Filename,.SDTV.) | SubString(Container(501).ListItem(-2).Filename,.sdtv.)">sdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(-2).Filename, SDTV.) | SubString(Container(501).ListItem(-2).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-2).Filename,.HDTV.) | SubString(Container(501).ListItem(-2).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-2).Filename, HDTV.) | SubString(Container(501).ListItem(-2).Filename, hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-2).Filename,.WEBDL.) | SubString(Container(501).ListItem(-2).Filename,.webdl.)">webdl.png</value>
@@ -2013,6 +2024,8 @@
 		<value condition="SubString(Container(501).ListItem(-1).Filename, 3DBD.) | SubString(Container(501).ListItem(-1).Filename, 3dbd.)">3d.png</value>
 		<value condition="SubString(Container(501).ListItem(-1).Filename,.HDDVD.) | SubString(Container(501).ListItem(-1).Filename,.hddvd.)">hddvd.png</value>
 		<value condition="SubString(Container(501).ListItem(-1).Filename, HDDVD.) | SubString(Container(501).ListItem(-1).Filename, hddvd.)">hddvd.png</value>
+		<value condition="SubString(Container(501).ListItem(-1).Filename,.SDTV.) | SubString(Container(501).ListItem(-1).Filename,.sdtv.)">sdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(-1).Filename, SDTV.) | SubString(Container(501).ListItem(-1).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-1).Filename,.HDTV.) | SubString(Container(501).ListItem(-1).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-1).Filename, HDTV.) | SubString(Container(501).ListItem(-1).Filename, hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(-1).Filename,.WEBDL.) | SubString(Container(501).ListItem(-1).Filename,.webdl.)">webdl.png</value>
@@ -2034,6 +2047,8 @@
 		<value condition="SubString(Container(501).ListItem(0).Filename, 3DBD.) | SubString(Container(501).ListItem(0).Filename, 3dbd.)">3d.png</value>
 		<value condition="SubString(Container(501).ListItem(0).Filename,.HDDVD.) | SubString(Container(501).ListItem(0).Filename,.hddvd.)">hddvd.png</value>
 		<value condition="SubString(Container(501).ListItem(0).Filename, HDDVD.) | SubString(Container(501).ListItem(0).Filename, hddvd.)">hddvd.png</value>
+		<value condition="SubString(Container(501).ListItem(0).Filename,.SDTV.) | SubString(Container(501).ListItem(0).Filename,.sdtv.)">sdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(0).Filename, SDTV.) | SubString(Container(501).ListItem(0).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(0).Filename,.HDTV.) | SubString(Container(501).ListItem(0).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(0).Filename, HDTV.) | SubString(Container(501).ListItem(0).Filename, hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(0).Filename,.WEBDL.) | SubString(Container(501).ListItem(0).Filename,.webdl.)">webdl.png</value>
@@ -2055,6 +2070,8 @@
 		<value condition="SubString(Container(501).ListItem(1).Filename, 3DBD.) | SubString(Container(501).ListItem(1).Filename, 3dbd.)">3d.png</value>
 		<value condition="SubString(Container(501).ListItem(1).Filename,.HDDVD.) | SubString(Container(501).ListItem(1).Filename,.hddvd.)">hddvd.png</value>
 		<value condition="SubString(Container(501).ListItem(1).Filename, HDDVD.) | SubString(Container(501).ListItem(1).Filename, hddvd.)">hddvd.png</value>
+		<value condition="SubString(Container(501).ListItem(1).Filename,.SDTV.) | SubString(Container(501).ListItem(1).Filename,.sdtv.)">sdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(1).Filename, SDTV.) | SubString(Container(501).ListItem(1).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(1).Filename,.HDTV.) | SubString(Container(501).ListItem(1).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(1).Filename, HDTV.) | SubString(Container(501).ListItem(1).Filename, hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(1).Filename,.WEBDL.) | SubString(Container(501).ListItem(1).Filename,.webdl.)">webdl.png</value>
@@ -2076,6 +2093,8 @@
 		<value condition="SubString(Container(501).ListItem(2).Filename, 3DBD.) | SubString(Container(501).ListItem(2).Filename, 3dbd.)">3d.png</value>
 		<value condition="SubString(Container(501).ListItem(2).Filename,.HDDVD.) | SubString(Container(501).ListItem(2).Filename,.hddvd.)">hddvd.png</value>
 		<value condition="SubString(Container(501).ListItem(2).Filename, HDDVD.) | SubString(Container(501).ListItem(2).Filename, hddvd.)">hddvd.png</value>
+		<value condition="SubString(Container(501).ListItem(2).Filename,.SDTV.) | SubString(Container(501).ListItem(2).Filename,.sdtv.)">sdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(2).Filename, SDTV.) | SubString(Container(501).ListItem(2).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(2).Filename,.HDTV.) | SubString(Container(501).ListItem(2).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(2).Filename, HDTV.) | SubString(Container(501).ListItem(2).Filename, hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(2).Filename,.WEBDL.) | SubString(Container(501).ListItem(2).Filename,.webdl.)">webdl.png</value>
@@ -2097,6 +2116,8 @@
 		<value condition="SubString(Container(501).ListItem(3).Filename, 3DBD.) | SubString(Container(501).ListItem(3).Filename, 3dbd.)">3d.png</value>
 		<value condition="SubString(Container(501).ListItem(3).Filename,.HDDVD.) | SubString(Container(501).ListItem(3).Filename,.hddvd.)">hddvd.png</value>
 		<value condition="SubString(Container(501).ListItem(3).Filename, HDDVD.) | SubString(Container(501).ListItem(3).Filename, hddvd.)">hddvd.png</value>
+		<value condition="SubString(Container(501).ListItem(3).Filename,.SDTV.) | SubString(Container(501).ListItem(3).Filename,.sdtv.)">sdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(3).Filename, SDTV.) | SubString(Container(501).ListItem(3).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(3).Filename,.HDTV.) | SubString(Container(501).ListItem(3).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(3).Filename, HDTV.) | SubString(Container(501).ListItem(3).Filename, hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(3).Filename,.WEBDL.) | SubString(Container(501).ListItem(3).Filename,.webdl.)">webdl.png</value>
@@ -2118,6 +2139,8 @@
 		<value condition="SubString(Container(501).ListItem(4).Filename, 3DBD.) | SubString(Container(501).ListItem(4).Filename, 3dbd.)">3d.png</value>
 		<value condition="SubString(Container(501).ListItem(4).Filename,.HDDVD.) | SubString(Container(501).ListItem(4).Filename,.hddvd.)">hddvd.png</value>
 		<value condition="SubString(Container(501).ListItem(4).Filename, HDDVD.) | SubString(Container(501).ListItem(4).Filename, hddvd.)">hddvd.png</value>
+		<value condition="SubString(Container(501).ListItem(4).Filename,.SDTV.) | SubString(Container(501).ListItem(4).Filename,.sdtv.)">sdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(4).Filename, SDTV.) | SubString(Container(501).ListItem(4).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(4).Filename,.HDTV.) | SubString(Container(501).ListItem(4).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(4).Filename, HDTV.) | SubString(Container(501).ListItem(4).Filename, hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(4).Filename,.WEBDL.) | SubString(Container(501).ListItem(4).Filename,.webdl.)">webdl.png</value>
@@ -2139,6 +2162,8 @@
 		<value condition="SubString(Container(501).ListItem(5).Filename, 3DBD.) | SubString(Container(501).ListItem(5).Filename, 3dbd.)">3d.png</value>
 		<value condition="SubString(Container(501).ListItem(5).Filename,.HDDVD.) | SubString(Container(501).ListItem(5).Filename,.hddvd.)">hddvd.png</value>
 		<value condition="SubString(Container(501).ListItem(5).Filename, HDDVD.) | SubString(Container(501).ListItem(5).Filename, hddvd.)">hddvd.png</value>
+		<value condition="SubString(Container(501).ListItem(5).Filename,.SDTV.) | SubString(Container(501).ListItem(5).Filename,.sdtv.)">sdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(5).Filename, SDTV.) | SubString(Container(501).ListItem(5).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(5).Filename,.HDTV.) | SubString(Container(501).ListItem(5).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(5).Filename, HDTV.) | SubString(Container(501).ListItem(5).Filename, hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(5).Filename,.WEBDL.) | SubString(Container(501).ListItem(5).Filename,.webdl.)">webdl.png</value>
@@ -2160,6 +2185,8 @@
 		<value condition="SubString(Container(501).ListItem(6).Filename, 3DBD.) | SubString(Container(501).ListItem(6).Filename, 3dbd.)">3d.png</value>
 		<value condition="SubString(Container(501).ListItem(6).Filename,.HDDVD.) | SubString(Container(501).ListItem(6).Filename,.hddvd.)">hddvd.png</value>
 		<value condition="SubString(Container(501).ListItem(6).Filename, HDDVD.) | SubString(Container(501).ListItem(6).Filename, hddvd.)">hddvd.png</value>
+		<value condition="SubString(Container(501).ListItem(6).Filename,.SDTV.) | SubString(Container(501).ListItem(6).Filename,.sdtv.)">sdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(6).Filename, SDTV.) | SubString(Container(501).ListItem(6).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(6).Filename,.HDTV.) | SubString(Container(501).ListItem(6).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(6).Filename, HDTV.) | SubString(Container(501).ListItem(6).Filename, hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(6).Filename,.WEBDL.) | SubString(Container(501).ListItem(6).Filename,.webdl.)">webdl.png</value>
@@ -2181,6 +2208,8 @@
 		<value condition="SubString(Container(501).ListItem(7).Filename, 3DBD.) | SubString(Container(501).ListItem(7).Filename, 3dbd.)">3d.png</value>
 		<value condition="SubString(Container(501).ListItem(7).Filename,.HDDVD.) | SubString(Container(501).ListItem(7).Filename,.hddvd.)">hddvd.png</value>
 		<value condition="SubString(Container(501).ListItem(7).Filename, HDDVD.) | SubString(Container(501).ListItem(7).Filename, hddvd.)">hddvd.png</value>
+		<value condition="SubString(Container(501).ListItem(7).Filename,.SDTV.) | SubString(Container(501).ListItem(7).Filename,.sdtv.)">sdtv.png</value>
+		<value condition="SubString(Container(501).ListItem(7).Filename, SDTV.) | SubString(Container(501).ListItem(7).Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(7).Filename,.HDTV.) | SubString(Container(501).ListItem(7).Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(7).Filename, HDTV.) | SubString(Container(501).ListItem(7).Filename, hdtv.)">hdtv.png</value>
 		<value condition="SubString(Container(501).ListItem(7).Filename,.WEBDL.) | SubString(Container(501).ListItem(7).Filename,.webdl.)">webdl.png</value>
@@ -2293,24 +2322,28 @@
 	<variable name="ExtraThumb1Var">
 		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left) + !IsEmpty(Window(home).Property(Set.Movie.1.Art(clearlogo)))">$INFO[Window(home).Property(Set.Movie.1.Art(clearlogo))]</value>
 		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left)">$INFO[Window(home).Property(Set.Movie.1.Art(fanart))]</value>
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Path]/season01-landscape.jpg</value>
 		<value condition="!IsEmpty(ListItem.Art(extrathumb1))">$INFO[ListItem.Art(extrathumb1)]</value>
 		<value>$INFO[ListItem.Path,,extrathumbs/thumb1.jpg]</value>
 	</variable>
 	<variable name="ExtraThumb2Var">
 		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left) + !IsEmpty(Window(home).Property(Set.Movie.2.Art(clearlogo)))">$INFO[Window(home).Property(Set.Movie.2.Art(clearlogo))]</value>
 		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left)">$INFO[Window(home).Property(Set.Movie.2.Art(fanart))]</value>
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Path]/season02-landscape.jpg</value>
 		<value condition="!IsEmpty(ListItem.Art(extrathumb2))">$INFO[ListItem.Art(extrathumb2)]</value>
 		<value>$INFO[ListItem.Path,,extrathumbs/thumb2.jpg]</value>
 	</variable>
 	<variable name="ExtraThumb3Var">
 		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left) + !IsEmpty(Window(home).Property(Set.Movie.3.Art(clearlogo)))">$INFO[Window(home).Property(Set.Movie.3.Art(clearlogo))]</value>
 		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left)">$INFO[Window(home).Property(Set.Movie.3.Art(fanart))]</value>
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Path]/season03-landscape.jpg</value>
 		<value condition="!IsEmpty(ListItem.Art(extrathumb3))">$INFO[ListItem.Art(extrathumb3)]</value>
 		<value>$INFO[ListItem.Path,,extrathumbs/thumb3.jpg]</value>
 	</variable>
 	<variable name="ExtraThumb4Var">
 		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left) + !IsEmpty(Window(home).Property(Set.Movie.4.Art(clearlogo)))">$INFO[Window(home).Property(Set.Movie.4.Art(clearlogo))]</value>
 		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left)">$INFO[Window(home).Property(Set.Movie.4.Art(fanart))]</value>
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Path]/season04-landscape.jpg</value>
 		<value condition="!IsEmpty(ListItem.Art(extrathumb4))">$INFO[ListItem.Art(extrathumb4)]</value>
 		<value>$INFO[ListItem.Path,,extrathumbs/thumb4.jpg]</value>
 	</variable>
@@ -2367,7 +2400,7 @@
 		<value condition="Window.IsActive(profilesettings)">$LOCALIZE[5] / $LOCALIZE[13200]</value>
 		<value condition="Window.IsActive(SettingsCategory.xml)">$LOCALIZE[5]$INFO[Control.GetLabel(2), / ]</value>
 		<value condition="Window.IsActive(loginscreen)">$INFO[Control.GetLabel(2)]</value>
-		<value condition="Window.IsActive(weather) | Window.IsActive(1153)">$LOCALIZE[8]</value>
+		<value condition="Window.IsActive(weather)">$LOCALIZE[8]</value>
 		<value condition="Window.IsActive(pictures)">$LOCALIZE[1213]</value>
 		<value condition="Window.IsActive(filemanager)">$LOCALIZE[10003]</value>
 		<value condition="Window.IsActive(script-NextAired-TVGuide.xml)">$LOCALIZE[31290]</value>
@@ -2388,7 +2421,7 @@
 		<value condition="Window.IsActive(programs) | Window.IsActive(script-Rom_Collection_Browser-main.xml)">common/logo_games.png</value>
 		<value condition="Window.IsActive(filemanager)">common/logo_playlist.png</value>
 		<value condition="Window.IsActive(settings) | Window.IsActive(skinsettings) | Window.IsActive(systeminfo) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(profilesettings) | Window.IsActive(loginscreen)">common/settings_logo.png</value>
-		<value condition="Window.IsActive(pictures) | Window.IsActive(1153)">common/logo_pics.png</value>
+		<value condition="Window.IsActive(pictures)">common/logo_pics.png</value>
 		<value condition="Window.IsActive(weather)">common/weather.png</value>
 		<value condition="Window.IsActive(script-globalsearch-main.xml)">common/DefaultSearch.png</value>
 		<value condition="Window.IsActive(PVR)">pvr/TVIcon.png</value>
@@ -2432,10 +2465,19 @@
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Art(tvshow.poster)]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
+	<variable name="ListPosterBackupVar">
+		<value condition="Stringcompare(ListItem.label,..)">DefaultFolderBack.png</value>
+		<value condition="Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/genre/video/icons/,.jpg]</value>
+		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
+		<value condition="Container.Content(episodes)">$INFO[ListItem.Art(tvshow.poster)]</value>
+		<value>$INFO[ListItem.Icon]</value>
+	</variable>
+
 	<variable name="BannerVar">
 		<value condition="!IsEmpty(ListItem.Art(banner))">$INFO[ListItem.Art(banner)]</value>
 		<value condition="!IsEmpty(ListItem.Art(tvshow.banner))">$INFO[ListItem.Art(tvshow.banner)]</value>
-		<value condition="!Skin.HasSetting(UseTVShowLocalCovers) + IsEmpty(ListItem.Art(banner))">$INFO[ListItem.Icon]</value>
+		<value condition="!Skin.HasSetting(UseTVShowLocalCovers) + IsEmpty(ListItem.Art(banner)) + !IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+		<value condition="!Skin.HasSetting(UseTVShowLocalCovers) + IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Icon]</value>
 		<value>common/bgcolor.png</value>
 	</variable>
 	<variable name="ListAlbumVar">
@@ -2487,7 +2529,7 @@
 		<value>$INFO[ListItem.Art(fanart)]</value>
 	</variable>
 	<variable name="ListBottomLabelVar">
-		<value condition="Container.Content(movies) + Skin.HasSetting(ClassicTopBar)">$INFO[Container(50).NumItems] $VAR[ItemLabelVar]</value>
+		<value condition="Container.Content(movies) + Skin.HasSetting(ClassicTopBar)">$INFO[Container(50).CurrentItem] / $INFO[Container(50).NumItems] $VAR[ItemLabelVar]</value>
 		<value condition="!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons)">$INFO[Container(50).NumItems] $VAR[ItemLabelVar]$INFO[Container(50).Totaltime, (,)]</value>
 	</variable>
 	<!-- LowList-->
@@ -3811,6 +3853,14 @@
 		<value condition="Skin.HasSetting(DisableRatingColorFlag)">-</value>
 		<value>flags/rating/</value>
 	</variable>
+	<variable name="ColorFlagsTVRatingextended">
+		<value condition="[Skin.HasSetting(RatingColorFlag) + Skin.HasSetting(ExtendedTVRatingVideoinfo)] + !Skin.HasSetting(DisableRatingColorFlag)">$INFO[Skin.String(ColorFlagsPath)]rating/info/</value>
+		<value condition="[Skin.HasSetting(RatingColorFlagreloaded) + Skin.HasSetting(ExtendedRatingVideoinfo)] + !Skin.HasSetting(DisableRatingColorFlag)">$INFO[Skin.String(ReloadedFlagsPath)]rating/info/</value>
+		<value condition="Skin.HasSetting(RatingColorFlag) + !Skin.HasSetting(DisableRatingColorFlag)">$INFO[Skin.String(ColorFlagsPath)]rating/</value>
+		<value condition="Skin.HasSetting(RatingColorFlagreloaded) + !Skin.HasSetting(DisableRatingColorFlag)">$INFO[Skin.String(ReloadedFlagsPath)]rating/</value>
+		<value condition="Skin.HasSetting(DisableRatingColorFlag)">-</value>
+		<value>flags/rating/</value>
+	</variable>
 	<variable name="ColorFlagsResolution">
 		<value condition="Skin.HasSetting(ResolutionColorFlag) + !Skin.HasSetting(DisableResolutionColorFlag)">$INFO[Skin.String(ColorFlagsPath)]</value>
 		<value condition="Skin.HasSetting(ResolutionColorFlagreloaded) + !Skin.HasSetting(DisableResolutionColorFlag)">$INFO[Skin.String(ReloadedFlagsPath)]</value>
@@ -3871,8 +3921,8 @@
 	</variable>
 
 	<variable name="VideoPlotVar3">
-		<value condition="!IsEmpty(ListItem.PlotOutline) + !IsEmpty(ListItem.Tagline)">[COLOR $VAR[TitleColorVar]]$INFO[ListItem.Tagline] - [/COLOR]$INFO[ListItem.PlotOutline]</value>
-		<value condition="IsEmpty(ListItem.PlotOutline) + !IsEmpty(ListItem.Tagline)">[COLOR $VAR[TitleColorVar]]$INFO[ListItem.Tagline] - [/COLOR]$INFO[ListItem.Plot]</value>
+		<value condition="!IsEmpty(ListItem.PlotOutline) + !IsEmpty(ListItem.Tagline)">[COLOR $VAR[FontColorVar]]$INFO[ListItem.Tagline] - [/COLOR]$INFO[ListItem.PlotOutline]</value>
+		<value condition="IsEmpty(ListItem.PlotOutline) + !IsEmpty(ListItem.Tagline)">[COLOR $VAR[FontColorVar]]$INFO[ListItem.Tagline] - [/COLOR]$INFO[ListItem.Plot]</value>
 		<value condition="!IsEmpty(Window(home).Property(Set.Movies.ExtendedPlot))">$INFO[Window(home).Property(Set.Movies.ExtendedPlot)]</value>
 		<value>$INFO[ListItem.Plot]</value>
 	</variable>
@@ -3904,7 +3954,7 @@
 	<variable name="KodiFlixSubLabelInfo">
 		<value condition="Substring(ListItem.Path,videodb://movies/sets/,left) + ListItem.IsFolder + !IsEmpty(ListItem.Title) + IntegerGreaterThan(Window(home).Property(Set.Movies.Count),1)">$INFO[Window(home).Property(Set.Movies.Count), • , $LOCALIZE[342]]</value>
 		<value condition="Substring(ListItem.Path,videodb://movies/sets/,left) + ListItem.IsFolder + !IsEmpty(ListItem.Title) + !IntegerGreaterThan(Window(home).Property(Set.Movies.Count),1)">$INFO[Window(home).Property(Set.Movies.Count), • , $LOCALIZE[20338]]</value>
-		<value condition="[Container.Content(Movies) + substring(Container.FolderPath,plugin://plugin.video,left)] + !IsEmpty(ListItem.Property(ReleaseDate))">$INFO[ListItem.Property(ReleaseDate),$LOCALIZE[31004]: ]</value>
+		<value condition="[Container.Content(Movies) + SubString(Container.FolderPath,plugin://plugin.video,left)] + !IsEmpty(ListItem.Property(ReleaseDate))">$INFO[ListItem.Property(ReleaseDate),$LOCALIZE[31004]: ]</value>
 		<value condition="Container.Content(tvshows)">• $INFO[ListItem.Premiered] •</value>
 		<value>• $INFO[ListItem.Year] •</value>
 	</variable>
@@ -4070,50 +4120,50 @@
 		<value>$INFO[Container(5801).ListItem.VideoCodec]</value>
 	</variable>
 	<variable name="MovieSetsRatingFlagVar">
-		<value condition="substring(Container(5801).Listitem.mpaa,TV-G)">TV-G_Certificate_US</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,TV-PG)">TV-PG_Certificate_US</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,TV-14)">TV-14_Certificate_US</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,TV-MA)">TV-MA_Certificate_US</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,TV-Y7)">tv-y7</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,TV-Y)">tv-y</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,TV-G) | SubString(Container(5801).Listitem.mpaa,TV - G)">TV-G_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,TV-PG) | SubString(Container(5801).Listitem.mpaa,TV - PG)">TV-PG_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,TV-14) | SubString(Container(5801).Listitem.mpaa,TV - 14)">TV-14_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,TV-MA) | SubString(Container(5801).Listitem.mpaa,TV - MA)">TV-MA_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,TV-Y7) | SubString(Container(5801).Listitem.mpaa,TV - Y7)">tv-y7</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,TV-Y) | SubString(Container(5801).Listitem.mpaa,TV - Y)">tv-y</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,US:G) | SubString(Container(5801).Listitem.mpaa,USA:G) | SubString(Container(5801).Listitem.mpaa,Rated G)">MPAA_G_Certificate_US</value>
-		<value condition="SubString(Container(5801).Listitem.mpaa,PG-13)">MPAA_PG-13_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,PG-13) | SubString(Container(5801).Listitem.mpaa,PG - 13)">MPAA_PG-13_Certificate_US</value>
 		<value condition="Substring(Container(5801).Listitem.mpaa,Rated PG) | StringCompare(Container(5801).Listitem.Mpaa,PG)">MPAA_PG_Certificate_US</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,US:R) | SubString(Container(5801).Listitem.mpaa,USA:R) | SubString(Container(5801).Listitem.mpaa,Rated R) | StringCompare(Container(5801).Listitem.mpaa,R)">MPAA_R_Certificate_US</value>
-		<value condition="SubString(Container(5801).Listitem.mpaa,US:NC-17)| SubString(Container(5801).Listitem.mpaa,USA:NC-17)| SubString(Container(5801).Listitem.mpaa,Rated NC-17)">MPAA_NC-17_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,US:NC-17)| SubString(Container(5801).Listitem.mpaa,USA:NC-17)| SubString(Container(5801).Listitem.mpaa,Rated NC-17) | SubString(Container(5801).Listitem.mpaa,Rated NC - 17)">MPAA_NC-17_Certificate_US</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,UK:U)">BBFC_U_Certificate_UK</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,UK:PG)">BBFC_PG_Certificate_UK</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,UK:12A)">BBFC_12A_Certificate_UK</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,UK:12)">BBFC_12_Certificate_UK</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,UK:15)">BBFC_15_Certificate_UK</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,UK:18)">BBFC_18_Certificate_UK</value>
-		<value condition="SubString(Container(5801).Listitem.mpaa,Germany:6)| SubString(Container(5801).Listitem.mpaa,ab 6) | StringCompare(Container(5801).Listitem.mpaa,6) | Substring(Container(5801).Listitem.mpaa,FSK 16) | SubString(Container(5801).Listitem.mpaa,Rated 6)">FSK-6</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Germany:6)| SubString(Container(5801).Listitem.mpaa,ab 6) | StringCompare(Container(5801).Listitem.mpaa,6) | Substring(Container(5801).Listitem.mpaa,FSK 6) | SubString(Container(5801).Listitem.mpaa,Rated 6)">FSK-6</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,Germany:12) | SubString(Container(5801).Listitem.mpaa,ab 12) | StringCompare(Container(5801).Listitem.mpaa,12) | Substring(Container(5801).Listitem.mpaa,FSK 12) | SubString(Container(5801).Listitem.mpaa,Rated 12)">FSK-12</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,Germany:16) | SubString(Container(5801).Listitem.mpaa,ab 16) | StringCompare(Container(5801).Listitem.mpaa,16) | Substring(Container(5801).Listitem.mpaa,FSK 16) | SubString(Container(5801).Listitem.mpaa,Rated 16)">FSK-16</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,Germany:18) | SubString(Container(5801).Listitem.mpaa,ab 18) | StringCompare(Container(5801).Listitem.mpaa,18) | Substring(Container(5801).Listitem.mpaa,FSK 18) | SubString(Container(5801).Listitem.mpaa,Rated 18)">FSK-18</value>
-		<value condition="SubString(Container(5801).Listitem.mpaa,Germany)|SubString(Container(5801).Listitem.mpaa,FSK)| SubString(Container(5801).Listitem.mpaa,o.A)| SubString(Container(5801).Listitem.mpaa,Rated 0)">FSK-0</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Germany)|SubString(Container(5801).Listitem.mpaa,FSK) | SubString(Container(5801).Listitem.mpaa,0) | SubString(Container(5801).Listitem.mpaa,o.A)| SubString(Container(5801).Listitem.mpaa,Rated 0)">FSK-0</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,besorolás alatt)">HU_BA</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,korhatárra való tekintett nélkül megtekintetheto)">HU_KN</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">HU_12</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,16 éven aluliak számára nem ajánlott)">HU_16</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,18 éven aluliak számára nem ajánlott)">HU_18</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,France:U) | Substring(Container(5801).Listitem.mpaa,partir de 3 ans) | Substring(Container(5801).Listitem.mpaa,partir de 6 ans)">csaU</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,France:-10) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 10 ans) | Substring(Container(5801).Listitem.mpaa,des propos ou des images peuvent heurter)">csa10</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,France:-12) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 12 ans)">csa12</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,France:-16) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 16 ans)">csa16</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,France:-18) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 18 ans)">csa18</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,??)">KR_Certificate_All</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,12?)">KR_Certificate_12</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,15?)">KR_Certificate_15</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,??)">KR_Certificate_18</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,??)">KR_Certificate_R</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Brazil:Livre) | substring(Container(5801).Listitem.mpaa,Livre)">MPAA_Brazil_Livre</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Brazil:10) | substring(Container(5801).Listitem.mpaa,10 anos)">MPAA_Brazil_10</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Brazil:12) | substring(Container(5801).Listitem.mpaa,12 anos)">MPAA_Brazil_12</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Brazil:14) | substring(Container(5801).Listitem.mpaa,14 anos)">MPAA_Brazil_14</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Brazil:16) | substring(Container(5801).Listitem.mpaa,16 anos)">MPAA_Brazil_16</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Brazil:18) | substring(Container(5801).Listitem.mpaa,18 anos)">MPAA_Brazil_18</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Rated X)">MPAA_X_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,France:U) | Substring(Container(5801).Listitem.mpaa,partir de 3 ans) | Substring(Container(5801).Listitem.mpaa,partir de 6 ans)">csaU</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,France:-10) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 10 ans) | Substring(Container(5801).Listitem.mpaa,des propos ou des images peuvent heurter)">csa10</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,France:-12) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 12 ans)">csa12</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,France:-16) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 16 ans)">csa16</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,France:-18) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 18 ans)">csa18</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,??)">KR_Certificate_All</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,12?)">KR_Certificate_12</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,15?)">KR_Certificate_15</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,??)">KR_Certificate_18</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,??)">KR_Certificate_R</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Brazil:Livre) | SubString(Container(5801).Listitem.mpaa,Livre)">MPAA_Brazil_Livre</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Brazil:10) | SubString(Container(5801).Listitem.mpaa,10 anos)">MPAA_Brazil_10</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Brazil:12) | SubString(Container(5801).Listitem.mpaa,12 anos)">MPAA_Brazil_12</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Brazil:14) | SubString(Container(5801).Listitem.mpaa,14 anos)">MPAA_Brazil_14</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Brazil:16) | SubString(Container(5801).Listitem.mpaa,16 anos)">MPAA_Brazil_16</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Brazil:18) | SubString(Container(5801).Listitem.mpaa,18 anos)">MPAA_Brazil_18</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Rated X)">MPAA_X_Certificate_US</value>
 	</variable>
 	<variable name="MovieSetsAudioFlagVar">
 		<value>$INFO[Container(5801).ListItem.AudioCodec]$INFO[Container(5801).ListItem.AudioChannels]</value>
@@ -4125,6 +4175,8 @@
 		<value condition="SubString(ListItem.Filename, 3DBD.) | SubString(ListItem.Filename, 3dbd.)">3d.png</value>
 		<value condition="SubString(ListItem.Filename,.HDDVD.) | SubString(ListItem.Filename,.hddvd.)">hddvd.png</value>
 		<value condition="SubString(ListItem.Filename, HDDVD.) | SubString(ListItem.Filename, hddvd.)">hddvd.png</value>
+		<value condition="SubString(ListItem.Filename,.SDTV.) | SubString(ListItem.Filename,.sdtv.)">sdtv.png</value>
+		<value condition="SubString(ListItem.Filename, SDTV.) | SubString(ListItem.Filename, sdtv.)">sdtv.png</value>
 		<value condition="SubString(ListItem.Filename,.HDTV.) | SubString(ListItem.Filename,.hdtv.)">hdtv.png</value>
 		<value condition="SubString(ListItem.Filename, HDTV.) | SubString(ListItem.Filename, hdtv.)">hdtv.png</value>
 		<value condition="SubString(ListItem.Filename,.WEBDL.) | SubString(ListItem.Filename,.webdl.)">webdl.png</value>
@@ -4144,24 +4196,24 @@
 	</variable>
 	<!-- unused variable -->
 	<variable name="DialogInfoRatingFlagVar">
-		<value condition="substring(Container(5801).Listitem.mpaa,TV-G)">TV-G_Certificate_US</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,TV-PG)">TV-PG_Certificate_US</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,TV-14)">TV-14_Certificate_US</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,TV-MA)">TV-MA_Certificate_US</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,TV-Y7)">tv-y7</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,TV-Y)">tv-y</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,TV-G) | SubString(Container(5801).Listitem.mpaa,TV - G)">TV-G_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,TV-PG) | SubString(Container(5801).Listitem.mpaa,TV - PG)">TV-PG_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,TV-14) | SubString(Container(5801).Listitem.mpaa,TV - 14)">TV-14_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,TV-MA) | SubString(Container(5801).Listitem.mpaa,TV - MA)">TV-MA_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,TV-Y7) | SubString(Container(5801).Listitem.mpaa,TV - Y7)">tv-y7</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,TV-Y) | SubString(Container(5801).Listitem.mpaa,TV - Y)">tv-y</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,US:G) | SubString(Container(5801).Listitem.mpaa,USA:G) | SubString(Container(5801).Listitem.mpaa,Rated G)">MPAA_G_Certificate_US</value>
-		<value condition="SubString(Container(5801).Listitem.mpaa,PG-13)">MPAA_PG-13_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,PG-13) | SubString(Container(5801).Listitem.mpaa,PG - 13)">MPAA_PG-13_Certificate_US</value>
 		<value condition="Substring(Container(5801).Listitem.mpaa,Rated PG) | StringCompare(Container(5801).Listitem.Mpaa,PG)">MPAA_PG_Certificate_US</value>
 		<value condition="SubString(Window.Property(movie.mpaa),US:R) | SubString(Container(5801).Listitem.mpaa,USA:R) | SubString(Container(5801).Listitem.mpaa,Rated R) | StringCompare(Container(5801).Listitem.mpaa,R)">MPAA_R_Certificate_US</value>
-		<value condition="SubString(Container(5801).Listitem.mpaa,US:NC-17)| SubString(Container(5801).Listitem.mpaa,USA:NC-17)| SubString(Container(5801).Listitem.mpaa,Rated NC-17)">MPAA_NC-17_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,US:NC-17)| SubString(Container(5801).Listitem.mpaa,USA:NC-17)| SubString(Container(5801).Listitem.mpaa,Rated NC-17) | SubString(Container(5801).Listitem.mpaa,Rated NC - 17)">MPAA_NC-17_Certificate_US</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,UK:U)">BBFC_U_Certificate_UK</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,UK:PG)">BBFC_PG_Certificate_UK</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,UK:12A)">BBFC_12A_Certificate_UK</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,UK:12)">BBFC_12_Certificate_UK</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,UK:15)">BBFC_15_Certificate_UK</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,UK:18)">BBFC_18_Certificate_UK</value>
-		<value condition="SubString(Container(5801).Listitem.mpaa,Germany:6)| SubString(Container(5801).Listitem.mpaa,ab 6) | StringCompare(Container(5801).Listitem.mpaa,6) | Substring(Container(5801).Listitem.mpaa,FSK 16) | SubString(Container(5801).Listitem.mpaa,Rated 6)">FSK-6</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Germany:6)| SubString(Container(5801).Listitem.mpaa,ab 6) | StringCompare(Container(5801).Listitem.mpaa,6) | Substring(Container(5801).Listitem.mpaa,FSK 6) | SubString(Container(5801).Listitem.mpaa,Rated 6)">FSK-6</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,Germany:12) | SubString(Container(5801).Listitem.mpaa,ab 12) | StringCompare(Container(5801).Listitem.mpaa,12) | Substring(Container(5801).Listitem.mpaa,FSK 12) | SubString(Container(5801).Listitem.mpaa,Rated 12)">FSK-12</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,Germany:16) | SubString(Container(5801).Listitem.mpaa,ab 16) | StringCompare(Container(5801).Listitem.mpaa,16) | Substring(Container(5801).Listitem.mpaa,FSK 16) | SubString(Container(5801).Listitem.mpaa,Rated 16)">FSK-16</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,Germany:18) | SubString(Container(5801).Listitem.mpaa,ab 18) | StringCompare(Container(5801).Listitem.mpaa,18) | Substring(Container(5801).Listitem.mpaa,FSK 18) | SubString(Container(5801).Listitem.mpaa,Rated 18)">FSK-18</value>
@@ -4171,23 +4223,23 @@
 		<value condition="SubString(Container(5801).Listitem.mpaa,12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">HU_12</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,16 éven aluliak számára nem ajánlott)">HU_16</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,18 éven aluliak számára nem ajánlott)">HU_18</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,France:U) | Substring(Container(5801).Listitem.mpaa,partir de 3 ans) | Substring(Container(5801).Listitem.mpaa,partir de 6 ans)">csaU</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,France:-10) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 10 ans) | Substring(Container(5801).Listitem.mpaa,des propos ou des images peuvent heurter)">csa10</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,France:-12) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 12 ans)">csa12</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,France:-16) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 16 ans)">csa16</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,France:-18) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 18 ans)">csa18</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,??)">KR_Certificate_All</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,12?)">KR_Certificate_12</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,15?)">KR_Certificate_15</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,??)">KR_Certificate_18</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,??)">KR_Certificate_R</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Brazil:Livre) | substring(Container(5801).Listitem.mpaa,Livre)">MPAA_Brazil_Livre</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Brazil:10) | substring(Container(5801).Listitem.mpaa,10 anos)">MPAA_Brazil_10</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Brazil:12) | substring(Container(5801).Listitem.mpaa,12 anos)">MPAA_Brazil_12</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Brazil:14) | substring(Container(5801).Listitem.mpaa,14 anos)">MPAA_Brazil_14</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Brazil:16) | substring(Container(5801).Listitem.mpaa,16 anos)">MPAA_Brazil_16</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Brazil:18) | substring(Container(5801).Listitem.mpaa,18 anos)">MPAA_Brazil_18</value>
-		<value condition="substring(Container(5801).Listitem.mpaa,Rated X)">MPAA_X_Certificate_US</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,France:U) | Substring(Container(5801).Listitem.mpaa,partir de 3 ans) | Substring(Container(5801).Listitem.mpaa,partir de 6 ans)">csaU</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,France:-10) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 10 ans) | Substring(Container(5801).Listitem.mpaa,des propos ou des images peuvent heurter)">csa10</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,France:-12) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 12 ans)">csa12</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,France:-16) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 16 ans)">csa16</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,France:-18) | Substring(Container(5801).Listitem.mpaa,Interdit aux moins de 18 ans)">csa18</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,??)">KR_Certificate_All</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,12?)">KR_Certificate_12</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,15?)">KR_Certificate_15</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,??)">KR_Certificate_18</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,??)">KR_Certificate_R</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Brazil:Livre) | SubString(Container(5801).Listitem.mpaa,Livre)">MPAA_Brazil_Livre</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Brazil:10) | SubString(Container(5801).Listitem.mpaa,10 anos)">MPAA_Brazil_10</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Brazil:12) | SubString(Container(5801).Listitem.mpaa,12 anos)">MPAA_Brazil_12</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Brazil:14) | SubString(Container(5801).Listitem.mpaa,14 anos)">MPAA_Brazil_14</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Brazil:16) | SubString(Container(5801).Listitem.mpaa,16 anos)">MPAA_Brazil_16</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Brazil:18) | SubString(Container(5801).Listitem.mpaa,18 anos)">MPAA_Brazil_18</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Rated X)">MPAA_X_Certificate_US</value>
 	</variable>
 	<variable name="FakeDiscArtOverlay">
 		<value condition="[Container.Content(tvshows) | Container.Content(seasons)]">common/discart/tvepisodes.png</value>
@@ -4195,6 +4247,8 @@
 		<value condition="SubString(ListItem.Filename, 3D.) | SubString(ListItem.Filename, 3d.)">common/discart/3d.png</value>
 		<value condition="SubString(ListItem.Filename,.3DBD.) | SubString(ListItem.Filename,.3dbd.)">common/discart/3d.png</value>
 		<value condition="SubString(ListItem.Filename, 3DBD.) | SubString(ListItem.Filename, 3dbd.)">common/discart/3d.png</value>
+		<value condition="SubString(ListItem.Filename,.SDTV.) | SubString(ListItem.Filename,.sdtv.)">common/discart/sdtv.png</value>
+		<value condition="SubString(ListItem.Filename, SDTV.) | SubString(ListItem.Filename, sdtv.)">common/discart/sdtv.png</value>
 		<value condition="SubString(ListItem.Filename,.HDTV.) | SubString(ListItem.Filename,.hdtv.)">common/discart/hdtv.png</value>
 		<value condition="SubString(ListItem.Filename, HDTV.) | SubString(ListItem.Filename, hdtv.)">common/discart/hdtv.png</value>
 		<value condition="SubString(ListItem.Filename,.HDDVD.) | SubString(ListItem.Filename,.hddvd)">common/discart/hddvd.png</value>
@@ -4212,6 +4266,8 @@
 		<value condition="SubString(ListItem.Filename, 3D.) | SubString(ListItem.Filename, 3d.)">common/discart/3dhand.png</value>
 		<value condition="SubString(ListItem.Filename,.3DBD.) | SubString(ListItem.Filename,.3dbd.)">common/discart/3dhand.png</value>
 		<value condition="SubString(ListItem.Filename, 3DBD.) | SubString(ListItem.Filename, 3dbd.)">common/discart/3dhand.png</value>
+		<value condition="SubString(ListItem.Filename,.SDTV.) | SubString(ListItem.Filename,.sdtv.)">common/discart/sdtvhand.png</value>
+		<value condition="SubString(ListItem.Filename, SDTV.) | SubString(ListItem.Filename, sdtv.)">common/discart/sdtvhand.png</value>
 		<value condition="SubString(ListItem.Filename,.HDTV.) | SubString(ListItem.Filename,.hdtv.)">common/discart/hdtvhand.png</value>
 		<value condition="SubString(ListItem.Filename, HDTV.) | SubString(ListItem.Filename, hdtv.)">common/discart/hdtvhand.png</value>
 		<value condition="SubString(ListItem.Filename,.HDDVD.) | SubString(ListItem.Filename,.hddvd)">common/discart/hddvdhand.png</value>
@@ -4229,6 +4285,8 @@
 		<value condition="SubString(ListItem.Filename, 3D.) | SubString(ListItem.Filename, 3d.)">common/discart/3dhandcolor.png</value>
 		<value condition="SubString(ListItem.Filename,.3DBD.) | SubString(ListItem.Filename,.3dbd.)">common/discart/3dhandcolor.png</value>
 		<value condition="SubString(ListItem.Filename, 3DBD.) | SubString(ListItem.Filename, 3dbd.)">common/discart/3dhandcolor.png</value>
+		<value condition="SubString(ListItem.Filename,.SDTV.) | SubString(ListItem.Filename,.sdtv.)">common/discart/sdtvhandcolor.png</value>
+		<value condition="SubString(ListItem.Filename, SDTV.) | SubString(ListItem.Filename, sdtv.)">common/discart/sdtvhandcolor.png</value>
 		<value condition="SubString(ListItem.Filename,.HDTV.) | SubString(ListItem.Filename,.hdtv.)">common/discart/hdtvhandcolor.png</value>
 		<value condition="SubString(ListItem.Filename, HDTV.) | SubString(ListItem.Filename, hdtv.)">common/discart/hdtvhandcolor.png</value>
 		<value condition="SubString(ListItem.Filename,.HDDVD.) | SubString(ListItem.Filename,.hddvd)">common/discart/hddvdhandcolor.png</value>
@@ -4252,6 +4310,8 @@
 		<value condition="SubString(ListItem.Filename, 3D.) | SubString(ListItem.Filename, 3d.)">common/discart/3d.png</value>
 		<value condition="SubString(ListItem.Filename,.3DBD.) | SubString(ListItem.Filename,.3dbd.)">common/discart/3d.png</value>
 		<value condition="SubString(ListItem.Filename, 3DBD.) | SubString(ListItem.Filename, 3dbd.)">common/discart/3d.png</value>
+		<value condition="SubString(ListItem.Filename,.SDTV.) | SubString(ListItem.Filename,.sdtv.)">common/discart/sdtv.png</value>
+		<value condition="SubString(ListItem.Filename, SDTV.) | SubString(ListItem.Filename, sdtv.)">common/discart/sdtv.png</value>
 		<value condition="SubString(ListItem.Filename,.HDTV.) | SubString(ListItem.Filename,.hdtv.)">common/discart/hdtv.png</value>
 		<value condition="SubString(ListItem.Filename, HDTV.) | SubString(ListItem.Filename, hdtv.)">common/discart/hdtv.png</value>
 		<value condition="SubString(ListItem.Filename,.HDDVD.) | SubString(ListItem.Filename,.hddvd)">common/discart/hddvd.png</value>
@@ -4278,6 +4338,7 @@
     </variable>
 	<variable name="KodiFlix.Label">
 		<value condition="ListItem.IsPlaying">[COLOR=$VAR[FocusTextureColorVar]]$INFO[ListItem.Label][/COLOR]</value>
+		<value condition="Container.Content(episodes)">$INFO[ListItem.Title]</value>
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
 	<variable name="KodiFlixSeasonLandscapeSettingsVar">
@@ -4306,7 +4367,7 @@
 	</variable>
 	<variable name="InfoPanelLayoutTextVar">
 		<value>views/fanart_layout.png</value>
-	</variable>	
+	</variable>
 	<!--Extendend Info-->
 	<variable name="ExtendedInfo.FavLabelVar">
 		<value condition="!IsEmpty(Window.Property(movie.favorite))"></value>
@@ -4337,4 +4398,379 @@
 		<value condition="ControlGroup(9001).HasFocus(650)">[COLOR $VAR[FocusTextureColorVar]]$ADDON[script.extendedinfo 32123][/COLOR] $INFO[Container(650).NumItems,(,)]</value>
 		<value condition="ControlGroup(9001).HasFocus(750)">[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[20445][/COLOR] $INFO[Container(750).NumItems,(,)]</value>
 	</variable>
+	<variable name="MusicPlotVar">
+		<value condition="Container.Content(albums) + !IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
+		<value condition="Container.Content(albums)">$LOCALIZE[414]</value>
+		<value condition="Container.Content(artists) + !IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description)]</value>
+		<value condition="Container.Content(artists)">$LOCALIZE[547]</value>
+	</variable>
+	<variable name="KodiFlixDimValueVar">
+		<value condition="Skin.HasSetting(KodiFlixDimValueVar_50)">50 %</value>
+		<value condition="Skin.HasSetting(KodiFlixDimValueVar_60)">60 %</value>
+		<value condition="Skin.HasSetting(KodiFlixDimValueVar_70)">70 %</value>
+		<value condition="Skin.HasSetting(KodiFlixDimValueVar_80)">80 %</value>
+	</variable>
+	<variable name="KodiFlixViewLayout">
+		<value condition="Skin.HasSetting(KodiFlixViewLayoutDefault)">Default</value>
+		<value condition="Skin.HasSetting(KodiFlixLandscapeView)">Landscape</value>
+		<value condition="Skin.HasSetting(KodiFlixClearArtView)">ClearArt</value>
+		<value condition="Skin.HasSetting(KodiFlixDiscArtView)">DiscArt</value>
+		<value>default</value>
+	</variable>
+	<variable name="PlayerTimeRemainingVar">
+		<value condition="IntegerGreaterThan(Player.TimeRemaining(h),1) + IntegerGreaterThan(Player.TimeRemaining(mm),09)">$INFO[Player.TimeRemaining(h)] $LOCALIZE[12392][CR]$INFO[Player.TimeRemaining(mm)] $LOCALIZE[32035]</value>
+		<value condition="IntegerGreaterThan(Player.TimeRemaining(h),1) + !IntegerGreaterThan(Player.TimeRemaining(mm),09) + StringCompare(Player.TimeRemaining(mm),09)">$INFO[Player.TimeRemaining(h)] $LOCALIZE[12392][CR]$LOCALIZE[12319] $LOCALIZE[32035]</value>
+		<value condition="IntegerGreaterThan(Player.TimeRemaining(h),1) + !IntegerGreaterThan(Player.TimeRemaining(mm),09) + StringCompare(Player.TimeRemaining(mm),08)">$INFO[Player.TimeRemaining(h)] $LOCALIZE[12392][CR]$LOCALIZE[12318] $LOCALIZE[32035]</value>
+		<value condition="IntegerGreaterThan(Player.TimeRemaining(h),1) + !IntegerGreaterThan(Player.TimeRemaining(mm),09) + StringCompare(Player.TimeRemaining(mm),07)">$INFO[Player.TimeRemaining(h)] $LOCALIZE[12392][CR]$LOCALIZE[12317] $LOCALIZE[32035]</value>
+		<value condition="IntegerGreaterThan(Player.TimeRemaining(h),1) + !IntegerGreaterThan(Player.TimeRemaining(mm),09) + StringCompare(Player.TimeRemaining(mm),06)">$INFO[Player.TimeRemaining(h)] $LOCALIZE[12392][CR]$LOCALIZE[12316] $LOCALIZE[32035]</value>
+		<value condition="IntegerGreaterThan(Player.TimeRemaining(h),1) + !IntegerGreaterThan(Player.TimeRemaining(mm),09) + StringCompare(Player.TimeRemaining(mm),05)">$INFO[Player.TimeRemaining(h)] $LOCALIZE[12392][CR]$LOCALIZE[12315] $LOCALIZE[32035]</value>
+		<value condition="IntegerGreaterThan(Player.TimeRemaining(h),1) + !IntegerGreaterThan(Player.TimeRemaining(mm),09) + StringCompare(Player.TimeRemaining(mm),04)">$INFO[Player.TimeRemaining(h)] $LOCALIZE[12392][CR]$LOCALIZE[12314] $LOCALIZE[32035]</value>
+		<value condition="IntegerGreaterThan(Player.TimeRemaining(h),1) + !IntegerGreaterThan(Player.TimeRemaining(mm),09) + StringCompare(Player.TimeRemaining(mm),03)">$INFO[Player.TimeRemaining(h)] $LOCALIZE[12392][CR]$LOCALIZE[12313] $LOCALIZE[32035]</value>
+		<value condition="IntegerGreaterThan(Player.TimeRemaining(h),1) + !IntegerGreaterThan(Player.TimeRemaining(mm),09) + StringCompare(Player.TimeRemaining(mm),02)">$INFO[Player.TimeRemaining(h)] $LOCALIZE[12392][CR]$LOCALIZE[12312] $LOCALIZE[32035]</value>
+		<value condition="IntegerGreaterThan(Player.TimeRemaining(h),1) + !IntegerGreaterThan(Player.TimeRemaining(mm),09) + StringCompare(Player.TimeRemaining(mm),01)">$INFO[Player.TimeRemaining(h)] $LOCALIZE[12392][CR]$LOCALIZE[12311] $LOCALIZE[32035]</value>
+		<value condition="!IntegerGreaterThan(Player.TimeRemaining(h),1) + IntegerGreaterThan(Player.TimeRemaining(h),0) + IntegerGreaterThan(Player.TimeRemaining(mm),09)">$INFO[Player.TimeRemaining(h)] $LOCALIZE[32036][CR]$INFO[Player.TimeRemaining(mm)] $LOCALIZE[32035]</value>
+		<value condition="StringCompare(Player.TimeRemaining(h),2) + StringCompare(Player.TimeRemaining(mm),00)">$INFO[Player.TimeRemaining(h)][CR]$LOCALIZE[32040]</value>
+		<value condition="!IntegerGreaterThan(Player.TimeRemaining(h),1) + !IntegerGreaterThan(Player.TimeRemaining(mm),09) + IntegerGreaterThan(Player.TimeRemaining(h),0) + StringCompare(Player.TimeRemaining(mm),09)">$INFO[Player.TimeRemaining(h)] $LOCALIZE[32036][CR]$LOCALIZE[12319] $LOCALIZE[32035]</value>
+		<value condition="!IntegerGreaterThan(Player.TimeRemaining(h),1) + !IntegerGreaterThan(Player.TimeRemaining(mm),09) + IntegerGreaterThan(Player.TimeRemaining(h),0) + StringCompare(Player.TimeRemaining(mm),08)">$INFO[Player.TimeRemaining(h)] $LOCALIZE[32036][CR]$LOCALIZE[12318] $LOCALIZE[32035]</value>
+		<value condition="!IntegerGreaterThan(Player.TimeRemaining(h),1) + !IntegerGreaterThan(Player.TimeRemaining(mm),09) + IntegerGreaterThan(Player.TimeRemaining(h),0) + StringCompare(Player.TimeRemaining(mm),07)">$INFO[Player.TimeRemaining(h)] $LOCALIZE[32036][CR]$LOCALIZE[12317] $LOCALIZE[32035]</value>
+		<value condition="!IntegerGreaterThan(Player.TimeRemaining(h),1) + !IntegerGreaterThan(Player.TimeRemaining(mm),09) + IntegerGreaterThan(Player.TimeRemaining(h),0) + StringCompare(Player.TimeRemaining(mm),06)">$INFO[Player.TimeRemaining(h)] $LOCALIZE[32036][CR]$LOCALIZE[12316] $LOCALIZE[32035]</value>
+		<value condition="!IntegerGreaterThan(Player.TimeRemaining(h),1) + !IntegerGreaterThan(Player.TimeRemaining(mm),09) + IntegerGreaterThan(Player.TimeRemaining(h),0) + StringCompare(Player.TimeRemaining(mm),05)">$INFO[Player.TimeRemaining(h)] $LOCALIZE[32036][CR]$LOCALIZE[12315] $LOCALIZE[32035]</value>
+		<value condition="!IntegerGreaterThan(Player.TimeRemaining(h),1) + !IntegerGreaterThan(Player.TimeRemaining(mm),09) + IntegerGreaterThan(Player.TimeRemaining(h),0) + StringCompare(Player.TimeRemaining(mm),04)">$INFO[Player.TimeRemaining(h)] $LOCALIZE[32036][CR]$LOCALIZE[12314] $LOCALIZE[32035]</value>
+		<value condition="!IntegerGreaterThan(Player.TimeRemaining(h),1) + !IntegerGreaterThan(Player.TimeRemaining(mm),09) + IntegerGreaterThan(Player.TimeRemaining(h),0) + StringCompare(Player.TimeRemaining(mm),03)">$INFO[Player.TimeRemaining(h)] $LOCALIZE[32036][CR]$LOCALIZE[12313] $LOCALIZE[32035]</value>
+		<value condition="!IntegerGreaterThan(Player.TimeRemaining(h),1) + !IntegerGreaterThan(Player.TimeRemaining(mm),09) + IntegerGreaterThan(Player.TimeRemaining(h),0) + StringCompare(Player.TimeRemaining(mm),02)">$INFO[Player.TimeRemaining(h)] $LOCALIZE[32036][CR]$LOCALIZE[12312] $LOCALIZE[32035]</value>
+		<value condition="!IntegerGreaterThan(Player.TimeRemaining(h),1) + !IntegerGreaterThan(Player.TimeRemaining(mm),09) + IntegerGreaterThan(Player.TimeRemaining(h),0) + StringCompare(Player.TimeRemaining(mm),01)">$INFO[Player.TimeRemaining(h)] $LOCALIZE[32036][CR]$LOCALIZE[12311] $LOCALIZE[32037]</value>
+		<value condition="StringCompare(Player.TimeRemaining(h),1) + StringCompare(Player.TimeRemaining(mm),00)">$INFO[Player.TimeRemaining(h)][CR]$LOCALIZE[32038]</value>
+		<value condition="IntegerGreaterThan(Player.TimeRemaining(mm),0) + !IntegerGreaterThan(Player.TimeRemaining(h),0) + IntegerGreaterThan(Player.TimeRemaining(mm),09)">$INFO[Player.TimeRemaining(mm)][CR]$LOCALIZE[32035]</value>
+		<value condition="!IntegerGreaterThan(Player.TimeRemaining(mm),09) + IntegerGreaterThan(Player.TimeRemaining(mm),0) + StringCompare(Player.TimeRemaining(mm),09)">$LOCALIZE[12319][CR]$LOCALIZE[32035]</value>
+		<value condition="!IntegerGreaterThan(Player.TimeRemaining(mm),09) + IntegerGreaterThan(Player.TimeRemaining(mm),0) + StringCompare(Player.TimeRemaining(mm),08)">$LOCALIZE[12318][CR]$LOCALIZE[32035]</value>
+		<value condition="!IntegerGreaterThan(Player.TimeRemaining(mm),09) + IntegerGreaterThan(Player.TimeRemaining(mm),0) + StringCompare(Player.TimeRemaining(mm),07)">$LOCALIZE[12317][CR]$LOCALIZE[32035]</value>
+		<value condition="!IntegerGreaterThan(Player.TimeRemaining(mm),09) + IntegerGreaterThan(Player.TimeRemaining(mm),0) + StringCompare(Player.TimeRemaining(mm),06)">$LOCALIZE[12316][CR]$LOCALIZE[32035]</value>
+		<value condition="!IntegerGreaterThan(Player.TimeRemaining(mm),09) + IntegerGreaterThan(Player.TimeRemaining(mm),0) + StringCompare(Player.TimeRemaining(mm),05)">$LOCALIZE[12315][CR]$LOCALIZE[32035]</value>
+		<value condition="!IntegerGreaterThan(Player.TimeRemaining(mm),09) + IntegerGreaterThan(Player.TimeRemaining(mm),0) + StringCompare(Player.TimeRemaining(mm),04)">$LOCALIZE[12314][CR]$LOCALIZE[32035]</value>
+		<value condition="!IntegerGreaterThan(Player.TimeRemaining(mm),09) + IntegerGreaterThan(Player.TimeRemaining(mm),0) + StringCompare(Player.TimeRemaining(mm),03)">$LOCALIZE[12313][CR]$LOCALIZE[32035]</value>
+		<value condition="!IntegerGreaterThan(Player.TimeRemaining(mm),09) + IntegerGreaterThan(Player.TimeRemaining(mm),0) + StringCompare(Player.TimeRemaining(mm),02)">$LOCALIZE[12312][CR]$LOCALIZE[32035]</value>
+		<value condition="!IntegerGreaterThan(Player.TimeRemaining(mm),09) + IntegerGreaterThan(Player.TimeRemaining(mm),0) + StringCompare(Player.TimeRemaining(mm),01)">$LOCALIZE[12311][CR]$LOCALIZE[32037]</value>
+		<value condition="!IntegerGreaterThan(Player.TimeRemaining(h),0) + !IntegerGreaterThan(Player.TimeRemaining(mm),01)">$INFO[Player.TimeRemaining(ss)][CR]$LOCALIZE[32039]</value>
+	</variable>
+
+	<variable name="RatingFlagVar_Description">
+        <value condition="SubString(ListItem.mpaa,TV-G) | SubString(ListItem.mpaa,TV - G)">Most parents would find this program suitable for all ages.</value>
+        <value condition="SubString(ListItem.mpaa,TV-PG) | SubString(ListItem.mpaa,TV - PG)">This program contains material that parents may find unsuitable for younger children.</value>
+        <value condition="SubString(ListItem.mpaa,TV-14) | SubString(ListItem.mpaa,TV - 14)">This program contains some material that many parents would find unsuitable for children under 14 years of age.</value>
+        <value condition="SubString(ListItem.mpaa,TV-MA) | SubString(ListItem.mpaa,TV - MA)">This program is specifically designed to be viewed by adults and therefore may be unsuitable for children under 17.</value>
+        <value condition="SubString(ListItem.mpaa,TV-Y7) | SubString(ListItem.mpaa,TV - Y7)">This program is designed for children age 7 and above.</value>
+        <value condition="SubString(ListItem.mpaa,TV-Y) | SubString(ListItem.mpaa,TV - Y)">This program is designed to be appropriate for all children.</value>
+
+        <value condition="SubString(ListItem.mpaa,US:G)">General audiences. All ages admitted.</value>
+        <value condition="SubString(ListItem.mpaa,PG-13) | SubString(ListItem.mpaa,PG - 13)">Parents strongly cautioned. Some material may be inappropriate for children under 13.</value>
+        <value condition="Substring(ListItem.mpaa,Rated PG)">Parental guidance suggested. Some material may not be suitable for children.</value>
+        <value condition="SubString(ListItem.mpaa,US:R)">Restricted. Under 17 requires accompanying parent or adult guardian.</value>
+        <value condition="SubString(ListItem.mpaa,US:NC-17) | SubString(ListItem.mpaa,US:NC - 17) | SubString(ListItem.mpaa,USA:NC-17) | SubString(ListItem.mpaa,Rated NC-17) | SubString(ListItem.mpaa,Rated NC - 17)">Adults only. No One 17 and Under Admitted.</value>
+
+        <value condition="SubString(ListItem.mpaa,UK:U)">Suitable for all.</value>
+        <value condition="SubString(ListItem.mpaa,UK:PG)">General viewing, but some scenes may be unsuitable for young children.</value>
+        <value condition="SubString(ListItem.mpaa,UK:12A)">Cinema release suitable for 12 years and over.</value>
+        <value condition="SubString(ListItem.mpaa,UK:12)">Video release suitable for 12 years and over.</value>
+        <value condition="SubString(ListItem.mpaa,UK:15)">Suitable only for 15 years and over.</value>
+        <value condition="SubString(ListItem.mpaa,UK:18)">Suitable only for adults.</value>
+
+        <value condition="SubString(ListItem.mpaa,Germany:6)">Freigegeben ab 6 jahren.</value>
+        <value condition="SubString(ListItem.mpaa,Germany:12)">Freigegeben ab 12 jahren.</value>
+        <value condition="SubString(ListItem.mpaa,Germany:16)">Freigegeben ab 16 jahren.</value>
+        <value condition="SubString(ListItem.mpaa,Germany:18)">Keine jugendfreigabe.</value>
+        <value condition="SubString(ListItem.mpaa,Germany)">Ohne altersbeschränkung.</value>
+
+        <value condition="SubString(ListItem.mpaa,France:U)">Tous publics.</value>
+        <value condition="SubString(ListItem.mpaa,France:-10)">Déconseillé aux moins de 10 ans.</value>
+        <value condition="SubString(ListItem.mpaa,France:-12)">Déconseillé aux moins de 12 ans.</value>
+        <value condition="SubString(ListItem.mpaa,France:-16)">Déconseillé aux moins de 16 ans.</value>
+        <value condition="SubString(ListItem.mpaa,France:-18)">Déconseillé aux moins de 18 ans.</value>
+
+        <value condition="SubString(ListItem.mpaa,Brazil:Livre)">Livre.</value>
+        <value condition="SubString(ListItem.mpaa,Brazil:10)">Não recomendado para menores de dez anos.</value>
+        <value condition="SubString(ListItem.mpaa,Brazil:12)">Não recomendado para menores de doze anos.</value>
+        <value condition="SubString(ListItem.mpaa,Brazil:14)">Não recomendado para menores de catorze anos.</value>
+        <value condition="SubString(ListItem.mpaa,Brazil:16)">Não recomendado para menores de dezesseis anos.</value>
+        <value condition="SubString(ListItem.mpaa,Brazil:18)">Não recomendado para menores de dezoito anos.</value>
+
+        <value condition="SubString(ListItem.mpaa,Rated X)">Rated X.</value>
+    </variable>
+	<variable name="KodiFlixExtrasDelayVar">
+		<value condition="Skin.HasSetting(KodiFlixExtrasDelay_5)">5 seconds</value>
+		<value condition="Skin.HasSetting(KodiFlixExtrasDelay_10)">10 seconds</value>
+		<value condition="Skin.HasSetting(KodiFlixExtrasDelay_20)">20 seconds</value>
+		<value condition="Skin.HasSetting(KodiFlixExtrasDelay_30)">30 seconds</value>
+	</variable>
+	<variable name="NowPlayingDiscVar">
+        <value condition="!IsEmpty(Player.Art(discart))">$INFO[Player.Art(discart)]</value>
+        <value condition="IntegerGreaterThan(VideoPlayer.VideoResolution,719)">common/cdart/bd.png</value>
+        <value condition="!IsEmpty(VideoPlayer.VideoResolution)">common/cdart/default.png</value>
+        <value condition="Player.HasAudio">$INFO[Player.FolderPath]cdart.png</value>
+    </variable>
+	<variable name="Shelf3DLabel1Var">
+		<value condition="[Container.Content(movies) | Container.Content(episodes) | Container.Content(sets)] + !IsEmpty(Window(home).Property(Set.Movies.Director))">[COLOR $VAR[FontColorVar]]$LOCALIZE[31156]:[/COLOR] $INFO[Window(home).Property(Set.Movies.Director)]</value>
+		<value condition="[Container.Content(movies) | Container.Content(episodes) | Container.Content(sets)]">[COLOR $VAR[FontColorVar]]$LOCALIZE[31156]:[/COLOR] $INFO[ListItem.Director]</value>
+		<value condition="[Container.Content(tvshows) | Container.Content(seasons)] + !IsEmpty(Window(Home).Property(NextAired.Status))">[COLOR $VAR[FontColorVar]]$LOCALIZE[126]:[/COLOR] $INFO[Window(Home).Property(NextAired.Status)]</value>
+		<value condition="[Container.Content(tvshows) | Container.Content(seasons)]">[COLOR $VAR[FontColorVar]]$LOCALIZE[515]:[/COLOR] $INFO[ListItem.Genre]</value>
+	</variable>
+	<variable name="Shelf3DLabel2Var">
+		<value condition="[Container.Content(movies) | Container.Content(episodes) | Container.Content(sets)] + !IsEmpty(Window(home).Property(Set.Movies.Writer))">[COLOR $VAR[FontColorVar]]$LOCALIZE[31157]:[/COLOR] $INFO[Window(home).Property(Set.Movies.Writer)]</value>
+		<value condition="[Container.Content(movies) | Container.Content(episodes) | Container.Content(sets)]">[COLOR $VAR[FontColorVar]]$LOCALIZE[31157]:[/COLOR] $INFO[ListItem.Writer]</value>
+		<value condition="[Container.Content(tvshows) | Container.Content(seasons)] + !IsEmpty(Window(Home).Property(NextAired.NextDate))">[COLOR $VAR[FontColorVar]]$LOCALIZE[31190]:[/COLOR] $INFO[Window(Home).Property(NextAired.NextDate),,: ]$INFO[Window(Home).Property(NextAired.NextTitle)]</value>
+		<value condition="[Container.Content(tvshows) | Container.Content(seasons)] + !IsEmpty(ListItem.Genre)">[COLOR $VAR[TitleColorVar]]$LOCALIZE[515]: [/COLOR][COLOR white]$INFO[ListItem.Genre][/COLOR]</value>
+		<value condition="[Container.Content(tvshows) | Container.Content(seasons)]">[COLOR $VAR[FontColorVar]]$LOCALIZE[31019]:[/COLOR] $INFO[ListItem.Studio]</value>
+	</variable>
+	<variable name="Shelf3DLabel3Var">
+		<value condition="[Container.Content(movies) | Container.Content(episodes) | Container.Content(sets)]">[COLOR $VAR[FontColorVar]]$LOCALIZE[563]:[/COLOR] $INFO[ListItem.RatingAndVotes]</value>
+		<value condition="Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.Status))">[COLOR $VAR[FontColorVar]]$INFO[ListItem.Property(TotalSeasons)]$VAR[OneOrMoreSeasonsVar, , / ]$INFO[ListItem.Property(TotalEpisodes),, ]$VAR[OneOrMoreEpisodesVar]:[/COLOR] $INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101]]</value>
+		<value condition="Container.Content(tvshows)">[COLOR $VAR[FontColorVar]]$LOCALIZE[20360]:[/COLOR] $INFO[ListItem.Property(TotalEpisodes)]$INFO[ListItem.Property(UnWatchedEpisodes), (,[LOWERCASE] $LOCALIZE[16101][/LOWERCASE])]</value>
+		<value condition="Container.Content(seasons)">[COLOR $VAR[FontColorVar]]$LOCALIZE[20360]:[/COLOR] $INFO[ListItem.Property(TotalEpisodes)]</value>
+	</variable>
+	<variable name="Shelf3DLabel4Var">
+		<value condition="[Container.Content(movies) | Container.Content(episodes) | Container.Content(sets)] + !IsEmpty(Window(home).Property(Set.Movies.Runtime))">[COLOR $VAR[FontColorVar]]$LOCALIZE[2050]:[/COLOR] $INFO[Window(home).Property(Set.Movies.Runtime),, $LOCALIZE[12391]]</value>
+		<value condition="[Container.Content(movies) | Container.Content(episodes) | Container.Content(sets)]">[COLOR $VAR[FontColorVar]]$LOCALIZE[2050]:[/COLOR] $VAR[MovieDuration]</value>
+		<value condition="Container.Content(tvshows)">[COLOR $VAR[FontColorVar]]$LOCALIZE[33054]:[/COLOR] $INFO[ListItem.Property(TotalSeasons)]</value>
+		<value condition="Container.Content(seasons)">[COLOR $VAR[FontColorVar]]$LOCALIZE[16101]:[/COLOR] $INFO[ListItem.Property(UnWatchedEpisodes)]</value>
+	</variable>
+	<variable name="Shelf3DLabel5Var">
+		<value condition="[Container.Content(movies) | Container.Content(sets)] + !IsEmpty(Window(home).Property(Set.Movies.Years))">[COLOR $VAR[FontColorVar]]$LOCALIZE[345]:[/COLOR] $INFO[Window(home).Property(Set.Movies.Years)]</value>
+		<value condition="[Container.Content(movies) | Container.Content(sets)]">[COLOR $VAR[FontColorVar]]$LOCALIZE[345]:[/COLOR] $INFO[ListItem.Year]</value>
+		<value condition="Container.Content(tvshows) | Container.Content(episodes) | Container.Content(seasons)">[COLOR $VAR[FontColorVar]]$LOCALIZE[20416]:[/COLOR] $INFO[ListItem.Premiered]</value>
+	</variable>
+	<variable name="CaseBackExtraThumb1Var">
+		<value condition="System.HasAddon(script.skin.helper.service) + [Container.Content(sets) | SubString(ListItem.Path,videodb://movies/sets/,left)]">$INFO[Window(Home).Property(SkinHelper.MovieSet.0.FanArt)]</value>
+		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + Container.Content(movies) + !Skin.HasSetting(ListUseThumbsOnBack)">$INFO[Window(Home).Property(SkinHelper.ExtraFanArt.0)]</value>
+		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + [Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(ListUseThumbsOnBack)">$INFO[Window(Home).Property(SkinHelper.ExtraFanArt.0)]</value>
+		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left) + !IsEmpty(Window(home).Property(Set.Movie.1.Art(clearlogo)))">$INFO[Window(home).Property(Set.Movie.1.Art(clearlogo))]</value>
+		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left)">$INFO[Window(home).Property(Set.Movie.1.Art(fanart))]</value>
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Path]/season01-landscape.jpg</value>
+		<value condition="!IsEmpty(ListItem.Art(extrathumb1))">$INFO[ListItem.Art(extrathumb1)]</value>
+		<value>$INFO[ListItem.Path,,extrathumbs/thumb1.jpg]</value>
+	</variable>
+	<variable name="CaseBackExtraThumb2Var">
+		<value condition="System.HasAddon(script.skin.helper.service) + [Container.Content(sets) | SubString(ListItem.Path,videodb://movies/sets/,left)]">$INFO[Window(Home).Property(SkinHelper.MovieSet.1.FanArt)]</value>
+		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + Container.Content(movies) + !Skin.HasSetting(ListUseThumbsOnBack)">$INFO[Window(Home).Property(SkinHelper.ExtraFanArt.1)]</value>
+		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + [Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(ListUseThumbsOnBack)">$INFO[Window(Home).Property(SkinHelper.ExtraFanArt.1)]</value>
+		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left) + !IsEmpty(Window(home).Property(Set.Movie.2.Art(clearlogo)))">$INFO[Window(home).Property(Set.Movie.2.Art(clearlogo))]</value>
+		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left)">$INFO[Window(home).Property(Set.Movie.2.Art(fanart))]</value>
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Path]/season02-landscape.jpg</value>
+		<value condition="!IsEmpty(ListItem.Art(extrathumb2))">$INFO[ListItem.Art(extrathumb2)]</value>
+		<value>$INFO[ListItem.Path,,extrathumbs/thumb2.jpg]</value>
+	</variable>
+	<variable name="CaseBackExtraThumb3Var">
+		<value condition="System.HasAddon(script.skin.helper.service) + [Container.Content(sets) | SubString(ListItem.Path,videodb://movies/sets/,left)]">$INFO[Window(Home).Property(SkinHelper.MovieSet.2.FanArt)]</value>
+		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + Container.Content(movies) + !Skin.HasSetting(ListUseThumbsOnBack)">$INFO[Window(Home).Property(SkinHelper.ExtraFanArt.2)]</value>
+		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + [Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(ListUseThumbsOnBack)">$INFO[Window(Home).Property(SkinHelper.ExtraFanArt.2)]</value>
+		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left) + !IsEmpty(Window(home).Property(Set.Movie.3.Art(clearlogo)))">$INFO[Window(home).Property(Set.Movie.3.Art(clearlogo))]</value>
+		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left)">$INFO[Window(home).Property(Set.Movie.3.Art(fanart))]</value>
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Path]/season03-landscape.jpg</value>
+		<value condition="!IsEmpty(ListItem.Art(extrathumb3))">$INFO[ListItem.Art(extrathumb3)]</value>
+		<value>$INFO[ListItem.Path,,extrathumbs/thumb3.jpg]</value>
+	</variable>
+	<variable name="CaseBackExtraThumb4Var">
+		<value condition="System.HasAddon(script.skin.helper.service) + [Container.Content(sets) | SubString(ListItem.Path,videodb://movies/sets/,left)]">$INFO[Window(Home).Property(SkinHelper.MovieSet.3.FanArt)]</value>
+		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + Container.Content(movies) + !Skin.HasSetting(ListUseThumbsOnBack)">$INFO[Window(Home).Property(SkinHelper.ExtraFanArt.3)]</value>
+		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + [Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(ListUseThumbsOnBack)">$INFO[Window(Home).Property(SkinHelper.ExtraFanArt.3)]</value>
+		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left) + !IsEmpty(Window(home).Property(Set.Movie.4.Art(clearlogo)))">$INFO[Window(home).Property(Set.Movie.4.Art(clearlogo))]</value>
+		<value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left)">$INFO[Window(home).Property(Set.Movie.4.Art(fanart))]</value>
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Path]/season04-landscape.jpg</value>
+		<value condition="!IsEmpty(ListItem.Art(extrathumb4))">$INFO[ListItem.Art(extrathumb4)]</value>
+		<value>$INFO[ListItem.Path,,extrathumbs/thumb4.jpg]</value>
+	</variable>
+	<variable name="JukeboxSelector">
+		<value condition="Container.Content(artists)">Please Choose an Artist</value>
+		<value condition="Container.Content(albums)">Please Choose an Album</value>
+		<value condition="Container.Content(songs)">Please Choose a Song</value>
+	</variable>
+
+	<variable name="MovieSetDisc1FakeDiscArtOverlay">
+		<value condition="[Container.Content(tvshows) | Container.Content(seasons)]">common/discart/tvepisodes.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.3D.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.3d.)">common/discart/3d.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), 3D.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), 3d.)">common/discart/3d.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.3DBD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.3dbd.)">common/discart/3d.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), 3DBD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), 3dbd.)">common/discart/3d.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.HDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.hdtv.)">common/discart/hdtv.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), HDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), hdtv.)">common/discart/hdtv.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.HDDVD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.hddvd)">common/discart/hddvd.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), HDDVD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), hddvd.)">common/discart/hddvd.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.WEBDL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.webdl.)">common/discart/webdl.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), WEBDL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), webdl.)">common/discart/webdl.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.WEB-DL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),web-dl.)">common/discart/webdl.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), WEB-DL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), web-dl.)">common/discart/webdl.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.4K.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.4k.)">common/discart/4k.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), 4K.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), 4k.)">common/discart/4k.png</value>
+		<value>common/discart/$INFO[Window(Home).Property(SkinHelper.MovieSet.0.Resolution]p.png</value>
+	</variable>
+	<variable name="MovieSetDisc1FakeDischand">
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.3D.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.3d.)">common/discart/3dhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), 3D.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), 3d.)">common/discart/3dhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.3DBD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.3dbd.)">common/discart/3dhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), 3DBD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), 3dbd.)">common/discart/3dhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.SDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.sdtv.)">common/discart/sdtvhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), SDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), sdtv.)">common/discart/sdtvhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.HDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.hdtv.)">common/discart/hdtvhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), HDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), hdtv.)">common/discart/hdtvhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.HDDVD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.hddvd)">common/discart/hddvdhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), HDDVD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), hddvd.)">common/discart/hddvdhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.WEBDL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.webdl.)">common/discart/webdlhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), WEBDL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), webdl.)">common/discart/webdlhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.WEB-DL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),web-dl.)">common/discart/webdlhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), WEB-DL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), web-dl.)">common/discart/webdlhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.4K.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.4k.)">common/discart/4khand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), 4K.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), 4k.)">common/discart/4khand.png</value>
+		<value>common/discart/$INFO[Window(Home).Property(SkinHelper.MovieSet.0.Resolution]phand.png</value>
+	</variable>
+	<variable name="MovieSetDisc1FakeDischandcolor">
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.3D.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.3d.)">common/discart/3dhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), 3D.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), 3d.)">common/discart/3dhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.3DBD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.3dbd.)">common/discart/3dhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), 3DBD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), 3dbd.)">common/discart/3dhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.SDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.sdtv.)">common/discart/sdtvhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), SDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), sdtv.)">common/discart/sdtvhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.HDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.hdtv.)">common/discart/hdtvhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), HDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), hdtv.)">common/discart/hdtvhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.HDDVD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.hddvd)">common/discart/hddvdhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), HDDVD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), hddvd.)">common/discart/hddvdhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.WEBDL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.webdl.)">common/discart/webdlhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), WEBDL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), webdl.)">common/discart/webdlhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.WEB-DL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),web-dl.)">common/discart/webdlhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), WEB-DL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), web-dl.)">common/discart/webdlhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.4K.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title),.4k.)">common/discart/4khandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), 4K.) | SubString(Window(Home).Property(SkinHelper.MovieSet.0.Title), 4k.)">common/discart/4khandcolor.png</value>
+		<value>common/discart/$INFO[Window(Home).Property(SkinHelper.MovieSet.0.Resolution]phandcolor.png</value>
+	</variable>
+
+	<variable name="MovieSetDisc2FakeDiscArtOverlay">
+		<value condition="[Container.Content(tvshows) | Container.Content(seasons)]">common/discart/tvepisodes.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.3D.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.3d.)">common/discart/3d.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), 3D.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), 3d.)">common/discart/3d.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.3DBD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.3dbd.)">common/discart/3d.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), 3DBD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), 3dbd.)">common/discart/3d.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.HDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.hdtv.)">common/discart/hdtv.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), HDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), hdtv.)">common/discart/hdtv.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.HDDVD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.hddvd)">common/discart/hddvd.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), HDDVD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), hddvd.)">common/discart/hddvd.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.WEBDL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.webdl.)">common/discart/webdl.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), WEBDL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), webdl.)">common/discart/webdl.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.WEB-DL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),web-dl.)">common/discart/webdl.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), WEB-DL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), web-dl.)">common/discart/webdl.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.4K.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.4k.)">common/discart/4k.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), 4K.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), 4k.)">common/discart/4k.png</value>
+		<value>common/discart/$INFO[Window(Home).Property(SkinHelper.MovieSet.1.Resolution]p.png</value>
+	</variable>
+	<variable name="MovieSetDisc2FakeDischand">
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.3D.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.3d.)">common/discart/3dhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), 3D.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), 3d.)">common/discart/3dhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.3DBD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.3dbd.)">common/discart/3dhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), 3DBD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), 3dbd.)">common/discart/3dhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.SDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.sdtv.)">common/discart/sdtvhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), SDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), sdtv.)">common/discart/sdtvhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.HDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.hdtv.)">common/discart/hdtvhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), HDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), hdtv.)">common/discart/hdtvhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.HDDVD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.hddvd)">common/discart/hddvdhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), HDDVD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), hddvd.)">common/discart/hddvdhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.WEBDL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.webdl.)">common/discart/webdlhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), WEBDL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), webdl.)">common/discart/webdlhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.WEB-DL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),web-dl.)">common/discart/webdlhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), WEB-DL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), web-dl.)">common/discart/webdlhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.4K.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.4k.)">common/discart/4khand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), 4K.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), 4k.)">common/discart/4khand.png</value>
+		<value>common/discart/$INFO[Window(Home).Property(SkinHelper.MovieSet.1.Resolution]]phand.png</value>
+	</variable>
+	<variable name="MovieSetDisc2FakeDischandcolor">
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.3D.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.3d.)">common/discart/3dhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), 3D.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), 3d.)">common/discart/3dhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.3DBD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.3dbd.)">common/discart/3dhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), 3DBD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), 3dbd.)">common/discart/3dhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.SDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.sdtv.)">common/discart/sdtvhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), SDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), sdtv.)">common/discart/sdtvhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.HDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.hdtv.)">common/discart/hdtvhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), HDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), hdtv.)">common/discart/hdtvhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.HDDVD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.hddvd)">common/discart/hddvdhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), HDDVD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), hddvd.)">common/discart/hddvdhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.WEBDL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.webdl.)">common/discart/webdlhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), WEBDL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), webdl.)">common/discart/webdlhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.WEB-DL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),web-dl.)">common/discart/webdlhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), WEB-DL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), web-dl.)">common/discart/webdlhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.4K.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title),.4k.)">common/discart/4khandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), 4K.) | SubString(Window(Home).Property(SkinHelper.MovieSet.1.Title), 4k.)">common/discart/4khandcolor.png</value>
+		<value>common/discart/$INFO[Window(Home).Property(SkinHelper.MovieSet.1.Resolution]phandcolor.png</value>
+	</variable>
+
+	<variable name="MovieSetDisc3FakeDiscArtOverlay">
+		<value condition="[Container.Content(tvshows) | Container.Content(seasons)]">common/discart/tvepisodes.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.3D.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.3d.)">common/discart/3d.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), 3D.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), 3d.)">common/discart/3d.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.3DBD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.3dbd.)">common/discart/3d.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), 3DBD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), 3dbd.)">common/discart/3d.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.HDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.hdtv.)">common/discart/hdtv.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), HDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), hdtv.)">common/discart/hdtv.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.HDDVD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.hddvd)">common/discart/hddvd.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), HDDVD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), hddvd.)">common/discart/hddvd.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.WEBDL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.webdl.)">common/discart/webdl.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), WEBDL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), webdl.)">common/discart/webdl.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.WEB-DL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),web-dl.)">common/discart/webdl.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), WEB-DL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), web-dl.)">common/discart/webdl.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.4K.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.4k.)">common/discart/4k.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), 4K.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), 4k.)">common/discart/4k.png</value>
+		<value>common/discart/$INFO[Window(Home).Property(SkinHelper.MovieSet.2.Resolution]p.png</value>
+	</variable>
+	<variable name="MovieSetDisc3FakeDischand">
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.3D.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.3d.)">common/discart/3dhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), 3D.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), 3d.)">common/discart/3dhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.3DBD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.3dbd.)">common/discart/3dhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), 3DBD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), 3dbd.)">common/discart/3dhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.SDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.sdtv.)">common/discart/sdtvhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), SDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), sdtv.)">common/discart/sdtvhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.HDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.hdtv.)">common/discart/hdtvhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), HDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), hdtv.)">common/discart/hdtvhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.HDDVD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.hddvd)">common/discart/hddvdhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), HDDVD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), hddvd.)">common/discart/hddvdhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.WEBDL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.webdl.)">common/discart/webdlhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), WEBDL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), webdl.)">common/discart/webdlhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.WEB-DL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),web-dl.)">common/discart/webdlhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), WEB-DL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), web-dl.)">common/discart/webdlhand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.4K.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.4k.)">common/discart/4khand.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), 4K.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), 4k.)">common/discart/4khand.png</value>
+		<value>common/discart/$INFO[Window(Home).Property(SkinHelper.MovieSet.2.Resolution]phand.png</value>
+	</variable>
+	<variable name="MovieSetDisc3FakeDischandcolor">
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.3D.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.3d.)">common/discart/3dhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), 3D.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), 3d.)">common/discart/3dhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.3DBD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.3dbd.)">common/discart/3dhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), 3DBD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), 3dbd.)">common/discart/3dhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.SDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.sdtv.)">common/discart/sdtvhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), SDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), sdtv.)">common/discart/sdtvhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.HDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.hdtv.)">common/discart/hdtvhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), HDTV.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), hdtv.)">common/discart/hdtvhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.HDDVD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.hddvd)">common/discart/hddvdhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), HDDVD.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), hddvd.)">common/discart/hddvdhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.WEBDL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.webdl.)">common/discart/webdlhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), WEBDL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), webdl.)">common/discart/webdlhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.WEB-DL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),web-dl.)">common/discart/webdlhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), WEB-DL.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), web-dl.)">common/discart/webdlhandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.4K.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title),.4k.)">common/discart/4khandcolor.png</value>
+		<value condition="SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), 4K.) | SubString(Window(Home).Property(SkinHelper.MovieSet.2.Title), 4k.)">common/discart/4khandcolor.png</value>
+		<value>common/discart/$INFO[Window(Home).Property(SkinHelper.MovieSet.2.Resolution]phandcolor.png</value>
+	</variable>
+	<variable name="FanartFloorSubLabelVar">
+		<value condition="Container.Content(episodes)">$INFO[ListItem.TvShowTitle]</value>
+		<value condition="Container.Content(addons)">$INFO[ListItem.Property(Addon.Summary)]</value>
+		<value condition="Container.Content(musicvideos)">$INFO[ListItem.Artist]</value>
+		<value condition="IsEmpty(ListItem.Genre)">$INFO[Window(Home).Property(Set.Movies.Genre)]</value>
+		<value>$INFO[ListItem.Genre]</value>
+	</variable>
+	<variable name="FanartLogoPosVar">
+		<value condition="Skin.HasSetting(FanartLogoPosLeft)">Left</value>
+		<value condition="Skin.HasSetting(FanartLogoPosRight)">Right</value>
+		<value condition="Skin.HasSetting(FanartLogoPosCenter)">Center</value>
+	</variable>
+	<variable name="FanartMovieInfoDelayVar">
+		<value condition="Skin.HasSetting(FanartMovieInfoDelay_5)">5 seconds</value>
+		<value condition="Skin.HasSetting(FanartMovieInfoDelay_10)">10 seconds</value>
+		<value condition="Skin.HasSetting(FanartMovieInfoDelay_20)">20 seconds</value>
+		<value condition="Skin.HasSetting(FanartMovieInfoDelay_30)">30 seconds</value>
+	</variable>
+
+
 </includes>

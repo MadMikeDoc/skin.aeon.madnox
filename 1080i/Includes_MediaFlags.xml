@@ -600,7 +600,7 @@
                 <animation effect="fade" time="200">VisibleChange</animation>
                 <visible>!IsEmpty(ListItem.Thumb)</visible>
                 <visible>![Control.IsVisible(50) + !Skin.HasSetting(slimlist)]</visible>
-                <visible>ContContainer.Content(tvshows) | [Container.Content(seasons) + ListItem.IsFolder]</visible>
+                <visible>Container.Content(tvshows) | [Container.Content(seasons) + ListItem.IsFolder]</visible>
             </control>
 			<control type="image">
                 <left>1915</left>
@@ -737,12 +737,13 @@
                 <visible>skin.hassetting(backendmode)</visible>
                 <animation effect="slide" time="560" start="0,300" end="0,0" tween="cubic">Visible</animation>
                 <animation effect="slide" time="250" end="0,400" tween="cubic" easing="in">Hidden</animation>
-                                    <animation effect="slide" end="30,-20" time="0" condition="Control.IsVisible(53) | Control.IsVisible(50)">Conditional</animation>
+                <animation effect="slide" end="30,-20" time="0" condition="Control.IsVisible(53) | Control.IsVisible(50)">Conditional</animation>
                 <control type="group">
-                                    <animation effect="slide" end="1190" time="0" condition="Control.IsVisible(53) | Control.IsVisible(50) | Control.IsVisible(57)">Conditional</animation>
+                    <animation effect="slide" end="1190" time="0" condition="Control.IsVisible(53) | Control.IsVisible(50) | Control.IsVisible(57) | Control.IsVisible(700)">Conditional</animation>
                 <control type="group">
                     <!--totals-->
                     <left>150</left>
+					<visible>!Stringcompare(Window(home).Property(actualViewtype),Video_RightList)</visible>
                     <control type="label">
                         <width>135</width>
                         <height>60</height>
@@ -764,7 +765,7 @@
                 <control type="group">
                     <!--playcount-->
                     <left>15</left>
-                    <visible>!Control.IsVisible(53)</visible>
+					<visible>!Control.IsVisible(53)</visible>
                     <control type="label">
                         <width>135</width>
                         <height>60</height>
@@ -772,7 +773,7 @@
                         <label>$INFO[Window(home).Property(Artist.Albums.Playcount)]</label>
                         <font>Font_Bold40</font>
                         <textcolor>floor</textcolor>
-                    </control>
+					</control>
                     <control type="label">
                         <top>42</top>
                         <width>135</width>
@@ -837,6 +838,7 @@
                 <!-- Rating -->
                 <control type="group">
                     <animation effect="slide" end="1210,0" time="0" condition="Control.IsVisible(53) | Control.IsVisible(50) | Control.IsVisible(57)">Conditional</animation>
+					<animation effect="slide" end="1080,0" time="0" condition="Control.IsVisible(700)">Conditional</animation>
                 <control type="image">
                     <left>0</left>
                     <width>135</width>
@@ -854,7 +856,7 @@
                 <control type="group">
                     <!-- Year -->
                     <left>285</left>
-                    <visible>!Control.IsVisible(50) + !Control.IsVisible(53)</visible>
+					<visible>!Control.IsVisible(50) + !Control.IsVisible(53)</visible>
                     <control type="label">
                         <width>135</width>
                         <height>65</height>
@@ -959,6 +961,7 @@
 					<!--visible>Control.Isvisible(57)</visible-->
 					<visible>!Stringcompare(ListItem.Label,..)</visible>
                     <left>15</left>
+					<animation effect="slide" end="1190" time="0" condition="Control.IsVisible(700)">Conditional</animation>
                     <control type="label">
                         <width>135</width>
                         <top>4</top>
@@ -973,7 +976,7 @@
                         <width>135</width>
                         <height>30</height>
                         <align>center</align>
-                        <label>567</label>
+                        <label>Duration</label>
                         <font>Font_Reg19_Caps</font>
                         <textcolor>floor</textcolor>
                     </control>
@@ -1011,6 +1014,7 @@
                     <fadetime>IconCrossfadeTime2</fadetime>
                     <colordiffuse>floor</colordiffuse>
 					<visible>!Control.Isvisible(57)</visible>
+					<animation effect="slide" end="1190" time="0" condition="Control.IsVisible(700)">Conditional</animation>
                 </control>
                 <control type="image">
                     <left>1330</left>

@@ -54,14 +54,13 @@
 			<onup>90200</onup>
 			<ondown>90200</ondown>
 			<control type="button" id="112">
-				<description>Cinema Experience button</description>
+				<description>Trailer Search</description>
+				<label>$LOCALIZE[31886]</label>
 				<include>Objects_CommonSettingsButton</include>
 				<onclick>Dialog.Close(1119)</onclick>
 				<onclick>Dialog.Close(MovieInformation)</onclick>
-				<onclick>RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
-				<label>$INFO[System.AddonTitle(script.cinema.experience)]</label>
-				<visible>System.HasAddon(script.cinema.experience)</visible>
-				<visible>Container.Content(movies) + !SubString(Window(10025).Property(CinemaExperienceRunning),True)</visible>
+				<onclick>ActivateWindow(videos,plugin://plugin.video.youtube/kodion/search/query/?q=$INFO[ListItem.OriginalTitle]+Trailer)</onclick>
+				<visible>Container.Content(movies) + ![substring(Container.FolderPath,plugin://) + substring(Container.FolderPath,trailer)]</visible>
 			</control>
 			<control type="button" id="113">
 				<description>Refresh button</description>
@@ -90,11 +89,11 @@
 				<visible>System.HasAddon(script.artwork.downloader) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 			</control>
 			<control type="button" id="116">
-				<description>Artwork downloader button choose art</description>
+				<description>Kodi choose art</description>
 				<include>Objects_CommonSettingsButton</include>
 				<onclick>Dialog.Close(1119)</onclick>
 				<onclick>SendClick(2003,10)</onclick>
-				<label>$INFO[System.AddonTitle(script.artwork.downloader),,: $LOCALIZE[13511]]</label>
+				<label>$LOCALIZE[13511]</label>
 				<visible>System.HasAddon(script.artwork.downloader) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(seasons)]</visible>
 			</control>
 			<control type="button" id="117">

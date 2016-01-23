@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
-    <zorder>5</zorder>
+    
     <coordinates>
         <left>0</left>
         <top>0</top>
@@ -37,6 +37,7 @@
             <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
             <animation effect="rotate" end="-360" center="auto" time="2000" loop="true" reversible="false" condition="true">Conditional</animation>
             <animation effect="fade" start="70" time="1200" condition="true" pulse="true">Conditional</animation>
-        </control>
+			<visible>IsEmpty(Window(Home).Property(script.cinemavision.running))</visible>
+		</control>
     </controls>
 </window>

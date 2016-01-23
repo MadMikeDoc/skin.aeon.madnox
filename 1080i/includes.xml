@@ -14,7 +14,12 @@
 	<include file="View_507_FanartList.xml" />
 	<include file="View_505_BannerInfo.xml" />
 	<include file="View_800_KodiFlix.xml" />
+	<include file="View_801_GamesFlix.xml" />
+    <include file="View_804_GamesFlixWide.xml" />
+    <include file="View_803_GamesFlixSquare.xml" />
+	<include file="View_810_MusicFlix.xml" />
 	<include file="View_900_ViewsSets.xml" />
+	<include file="View_750_Shelf.xml" />
 	<include file="View_950_Directory.xml" />
 	<include file="Viewtype_ShowcaseSquare.xml"/>
 	<include file="Viewtype_TriPanel.xml"/>
@@ -459,7 +464,7 @@
 		<focusedcolor>grey2</focusedcolor>
 	</include>
 	<include name="Objects_SingleKeyOff">
-		<width>102</width>
+		<width>85</width>
 		<height>102</height>
 		<texturefocus colordiffuse="$VAR[FocusTextureColorVar]">keyboard/keyboard_singlef.png</texturefocus>
 		<texturenofocus>keyboard/keyboard_singlenf.png</texturenofocus>
@@ -3545,7 +3550,7 @@ $INFO[Skin.String(OscarsHomeItem.Submenu)] $INFO[Skin.String(Top250HomeItem.Subm
 			</control>
 		</control>
 	</include>
-	<include name="autoratote_extendedinfo_fanart">
+<!-- 	<include name="autoratote_extendedinfo_fanart">
 		<onunfocus>CancelAlarm(MusicInfo5PanelsFanart,true)</onunfocus>
 		<onfocus>AlarmClock(MusicInfo5PanelsDiscography,SetFocus(6012),00:10,silent)</onfocus>
 	</include>
@@ -3564,7 +3569,7 @@ $INFO[Skin.String(OscarsHomeItem.Submenu)] $INFO[Skin.String(Top250HomeItem.Subm
 	<include name="autoratote_extendedinfo_Playlist">
 		<onunfocus>CancelAlarm(MusicInfo5PanelsPlaylist,true)</onunfocus>
 		<onfocus>AlarmClock(MusicInfo5PanelsArtists,SetFocus(5012),00:10,silent)</onfocus>
-	</include>
+	</include> -->
 	<include name="BigFontPlot">
 		<top>209</top>
 		<width>652</width>
@@ -3885,5 +3890,67 @@ $INFO[Skin.String(OscarsHomeItem.Submenu)] $INFO[Skin.String(Top250HomeItem.Subm
                 <textcolor>floor</textcolor>
             </control>
         </control>
+    </include>
+	<include name="dialogeffect">
+		<animation type="WindowOpen" reversible="false">
+			<effect type="zoom" start="150" end="100" center="960,540" time="300" tween="cubic" easing="out" />
+			<effect type="fade" end="100" time="150" />
+		</animation>
+		<animation type="WindowClose" reversible="false">
+			<effect type="fade" start="100" end="0" time="100" delay="100" />
+			<effect type="zoom" start="100" end="130" center="960,540" time="200" tween="cubic" easing="in" />
+		</animation>
+	</include>
+	<!-- Media Flags -->
+	<include name="MediaFlagVars">
+		<width>135</width>
+		<height>90</height>
+		<aspectratio>keep</aspectratio>
+		<fadetime>250</fadetime>
+		<colordiffuse>white</colordiffuse>
+		<animation effect="fade" time="200">VisibleChange</animation>
+	</include>
+	<include name="MediaFlagVarsShelf">
+		<width>120</width>
+		<height>65</height>
+		<aspectratio>keep</aspectratio>
+		<fadetime>250</fadetime>
+		<colordiffuse>white</colordiffuse>
+		<animation effect="fade" time="200">VisibleChange</animation>
+	</include>
+	<include name="Shelf3DInfoPanelButtonsValues">
+		<height>90</height>
+		<width>501</width>
+		<textoffsetx>15</textoffsetx>
+		<aligny>top</aligny>
+		<font>font14</font>
+		<textcolor>white</textcolor>
+		<focusedcolor>$VAR[FocusTextureColorVar]</focusedcolor>
+		<texturefocus border="1">separator5.png</texturefocus>
+		<texturenofocus border="1">separator5.png</texturenofocus>
+		<onclick>noop</onclick>
+	</include>
+	<!--GamesFlix Variables-->
+    <include name="GamesFlixButtonsValues">
+        <height>50</height>
+        <width>501</width>
+        <textoffsetx>15</textoffsetx>
+        <aligny>top</aligny>
+        <font>font14</font>
+        <textcolor>grey</textcolor>
+        <focusedcolor>$VAR[FocusTextureColorVar]</focusedcolor>
+        <onclick>noop</onclick>
+    </include>
+    <include name="GamesFlixShowCaseInfoPanelButtonsValues">
+        <height>90</height>
+        <width>501</width>
+        <textoffsetx>15</textoffsetx>
+        <aligny>top</aligny>
+        <font>font14</font>
+        <textcolor>grey2</textcolor>
+        <focusedcolor>$VAR[FocusTextureColorVar]</focusedcolor>
+        <texturefocus border="1">separator5.png</texturefocus>
+        <texturenofocus border="1">separator5.png</texturenofocus>
+        <onclick>noop</onclick>
     </include>
 </includes>

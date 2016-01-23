@@ -179,6 +179,30 @@
 						<onclick>Skin.ToggleSetting(ShowScrollLetter)</onclick>
 						<selected>Skin.HasSetting(ShowScrollLetter)</selected>
 					</control>
+					<control type="radiobutton" id="17072">
+						<label>Disable Intro</label>
+						<include>Default_SettingRadioButton</include>
+						<onclick>Skin.ToggleSetting(DisableIntro)</onclick>
+						<selected>Skin.HasSetting(DisableIntro)</selected>
+					</control>
+					<control type="radiobutton" id="17073">
+						<include>Default_SettingRadioButton</include>
+						<label>Use ExtendedInfo for Movies and Shows</label>
+						<onclick>Skin.ToggleSetting(UseExtendedInfo)</onclick>
+						<selected>Skin.HasSetting(UseExtendedInfo)</selected>
+					</control>
+					<control type="radiobutton" id="17102">
+						<include>Default_SettingRadioButton</include>
+						<label>Use Metdata Add-on for Actors</label>
+						<onclick>Skin.ToggleSetting(UseMetadataAddon)</onclick>
+						<selected>Skin.HasSetting(UseMetadataAddon)</selected>
+					</control>
+					<control type="radiobutton" id="17112">
+						<include>Default_SettingRadioButton</include>
+						<label>Enable Skin Helper Extra Fanart</label>
+						<onclick>Skin.ToggleSetting(SkinHelper.EnableExtraFanart)</onclick>
+						<selected>Skin.HasSetting(SkinHelper.EnableExtraFanart)</selected>
+					</control>
 				</control>
                 <control type="grouplist" id="9002">
                     <left>387</left>
@@ -272,14 +296,14 @@
 					<onup>9004</onup>
                     <onright>9009</onright>
                     <control type="button" id="401">
-                        <label>script.color.picker</label>
+                        <label>script.color.picker > Choose Skin Color</label>
                         <label2>[COLOR red]$LOCALIZE[106][/COLOR]</label2>
                         <include>Default_SettingRadioButtonShort</include>
                         <onclick>Notification($LOCALIZE[31902],$LOCALIZE[31871])</onclick>
                         <visible>!System.HasAddon(script.color.picker)</visible>
                     </control>
                     <control type="button" id="402">
-                        <label>script.color.picker</label>
+                        <label>script.color.picker > Choose Skin Color</label>
                         <label2>[COLOR green]$LOCALIZE[107][/COLOR]</label2>
                         <include>Default_SettingRadioButtonShort</include>
                         <onclick>Addon.OpenSettings(script.color.picker)</onclick>
@@ -300,46 +324,46 @@
                         <visible>System.HasAddon(service.skin.widgets)</visible>
                     </control>
                     <control type="button" id="405">
-                        <label>script.tvtunes</label>
+                        <label>script.tvtunes > TV/Movie Themes</label>
                         <label2>[COLOR red]$LOCALIZE[106][/COLOR]</label2>
                         <include>Default_SettingRadioButtonShort</include>
                         <onclick>noop</onclick>
                         <visible>!System.HasAddon(script.tvtunes)</visible>
                     </control>
                     <control type="button" id="406">
-                        <label>script.tvtunes</label>
+                        <label>script.tvtunes > TV/Movie Themes</label>
                         <label2>[COLOR green]$LOCALIZE[107][/COLOR]</label2>
                         <include>Default_SettingRadioButtonShort</include>
                         <onclick>Addon.OpenSettings(script.tvtunes)</onclick>
                         <visible>System.HasAddon(script.tvtunes)</visible>
                     </control>
                     <control type="button" id="407">
-                        <label>script.widget.weatherworld</label>
+                        <label>script.skin.helper.service</label>
                         <label2>[COLOR red]$LOCALIZE[106][/COLOR]</label2>
                         <include>Default_SettingRadioButtonShort</include>
                         <onclick>Notification($LOCALIZE[31902],$LOCALIZE[31871])</onclick>
-                        <visible>!System.HasAddon(script.widget.weatherworld)</visible>
+                        <visible>!System.HasAddon(script.skin.helper.service)</visible>
                     </control>
                     <control type="button" id="408">
-                        <label>script.widget.weatherworld</label>
+                        <label>script.skin.helper.service</label>
                         <label2>[COLOR green]$LOCALIZE[107][/COLOR]</label2>
                         <include>Default_SettingRadioButtonShort</include>
-                        <onclick>Addon.OpenSettings(script.widget.weatherworld)</onclick>
-                        <visible>System.HasAddon(script.widget.weatherworld)</visible>
+                        <onclick>Addon.OpenSettings(script.skin.helper.service)</onclick>
+                        <visible>System.HasAddon(script.skin.helper.service)</visible>
                     </control>
                     <control type="button" id="409">
-                        <label>script.metadata.actors</label>
+                        <label>script.playlists > Needed for Smartplaylists</label>
                         <label2>[COLOR red]$LOCALIZE[106][/COLOR]</label2>
                         <include>Default_SettingRadioButtonShort</include>
                         <onclick>noop</onclick>
-                        <visible>!System.HasAddon(script.metadata.actors)</visible>
+                        <visible>!System.HasAddon(script.playlists)</visible>
                     </control>
                     <control type="button" id="410">
-                        <label>script.metadata.actors</label>
+                        <label>script.playlists > Needed for Smartplaylists</label>
                         <label2>[COLOR green]$LOCALIZE[107][/COLOR]</label2>
                         <include>Default_SettingRadioButtonShort</include>
-                        <onclick>Addon.OpenSettings(script.metadata.actors)</onclick>
-                        <visible>System.HasAddon(script.metadata.actors)</visible>
+                        <onclick>Addon.OpenSettings(script.playlists)</onclick>
+                        <visible>System.HasAddon(script.playlists)</visible>
                     </control>
                     <control type="button" id="432">
                         <label>script.artistslideshow</label>
@@ -370,14 +394,14 @@
                         <visible>System.HasAddon(script.tv.show.next.aired)</visible>
                     </control>
 					<control type="button" id="436">
-                        <label>script.extendedinfo</label>
+                        <label>script.extendedinfo > Important</label>
                         <label2>[COLOR red]$LOCALIZE[106][/COLOR]</label2>
                         <include>Default_SettingRadioButtonShort</include>
                         <onclick>noop</onclick>
                         <visible>!System.HasAddon(script.extendedinfo)</visible>
                     </control>
                     <control type="button" id="437">
-                        <label>script.extendedinfo</label>
+                        <label>script.extendedinfo > Important</label>
                         <label2>[COLOR green]$LOCALIZE[107][/COLOR]</label2>
                         <include>Default_SettingRadioButtonShort</include>
                         <onclick>Addon.OpenSettings(script.extendedinfo)</onclick>
@@ -397,46 +421,46 @@
                     <onup>9009</onup>
                     <ondown>9009</ondown>
                     <control type="button" id="411">
-                        <label>script.moreinfo</label>
+                        <label>script.skin.info.service</label>
                         <label2>[COLOR red]$LOCALIZE[106][/COLOR]</label2>
                         <include>Default_SettingRadioButtonShort</include>
-                        <onclick>Notification($LOCALIZE[31902],$LOCALIZE[31871])</onclick>
-                        <visible>!System.HasAddon(script.moreinfo)</visible>
+                        <onclick>noop</onclick>
+                        <visible>!System.HasAddon(script.skin.info.service)</visible>
                     </control>
                     <control type="button" id="412">
-                        <label>script.moreinfo</label>
+                        <label>script.skin.info.service</label>
                         <label2>[COLOR green]$LOCALIZE[107][/COLOR]</label2>
                         <include>Default_SettingRadioButtonShort</include>
-                        <onclick>Addon.OpenSettings(script.moreinfo)</onclick>
-                        <visible>System.HasAddon(script.moreinfo)</visible>
+                        <onclick>Addon.OpenSettings(script.skin.info.service)</onclick>
+                        <visible>System.HasAddon(script.skin.info.service)</visible>
                     </control>
                     <control type="button" id="417">
-                        <label>script.cinema.experience</label>
+                        <label>script.cinemavision > trivia,intros and more</label>
                         <label2>[COLOR red]$LOCALIZE[106][/COLOR]</label2>
                         <include>Default_SettingRadioButtonShort</include>
                         <onclick>noop</onclick>
-                        <visible>!System.HasAddon(script.cinema.experience)</visible>
+                        <visible>!System.HasAddon(script.cinemavision)</visible>
                     </control>
                     <control type="button" id="418">
-                        <label>script.cinema.experience</label>
+                        <label>script.cinemavision > trivia,intros and more</label>
                         <label2>[COLOR green]$LOCALIZE[107][/COLOR]</label2>
                         <include>Default_SettingRadioButtonShort</include>
-                        <onclick>Addon.OpenSettings(script.cinema.experience)</onclick>
-                        <visible>System.HasAddon(script.cinema.experience)</visible>
+                        <onclick>Addon.OpenSettings(script.cinemavision)</onclick>
+                        <visible>System.HasAddon(script.cinemavision)</visible>
                     </control>
                     <control type="button" id="419">
-                        <label>script.randommovie</label>
+                        <label>script.moviesetart > Artwork for Moviesets</label>
                         <label2>[COLOR red]$LOCALIZE[106][/COLOR]</label2>
                         <include>Default_SettingRadioButtonShort</include>
                         <onclick>noop</onclick>
-                        <visible>!System.HasAddon(script.randommovie)</visible>
+                        <visible>!System.HasAddon(script.moviesetart)</visible>
                     </control>
                     <control type="button" id="420">
-                        <label>script.randommovie</label>
+                        <label>script.moviesetart > Artwork for Moviesets</label>
                         <label2>[COLOR green]$LOCALIZE[107][/COLOR]</label2>
                         <include>Default_SettingRadioButtonShort</include>
-                        <onclick>Addon.OpenSettings(script.randommovie)</onclick>
-                        <visible>System.HasAddon(script.randommovie)</visible>
+                        <onclick>Addon.OpenSettings(script.moviesetart)</onclick>
+                        <visible>System.HasAddon(script.moviesetart)</visible>
                     </control>
                     <control type="button" id="421">
                         <label>script.randomandlastitems</label>
@@ -453,45 +477,46 @@
                         <visible>System.HasAddon(script.randomandlastitems)</visible>
                     </control>
                     <control type="button" id="423">
-                        <label>script.artwork.downloader</label>
+                        <label>script.artwork.downloader > Fanart Downloader</label>
                         <label2>[COLOR red]$LOCALIZE[106][/COLOR]</label2>
                         <include>Default_SettingRadioButtonShort</include>
                         <onclick>noop</onclick>
                         <visible>!System.HasAddon(script.artwork.downloader)</visible>
                     </control>
                     <control type="button" id="424">
-                        <label>script.artwork.downloader</label>
+                        <label>script.artwork.downloader > Fanart Downloader</label>
                         <label2>[COLOR green]$LOCALIZE[107][/COLOR]</label2>
                         <include>Default_SettingRadioButtonShort</include>
                         <onclick>Addon.OpenSettings(script.artwork.downloader)</onclick>
                         <visible>System.HasAddon(script.artwork.downloader)</visible>
                     </control>
                     <control type="button" id="436">
-                        <label>script.videoextras</label>
+                        <label>script.videoextras > Shows TV/Movie Extras</label>
                         <label2>[COLOR red]$LOCALIZE[106][/COLOR]</label2>
                         <include>Default_SettingRadioButtonShort</include>
                         <onclick>noop</onclick>
                         <visible>!System.HasAddon(script.videoextras)</visible>
                     </control>
                     <control type="button" id="437">
-                        <label>script.videoextras</label>
+                        <label>script.videoextras > Shows TV/Movie Extras</label>
                         <label2>[COLOR green]$LOCALIZE[107][/COLOR]</label2>
                         <include>Default_SettingRadioButtonShort</include>
                         <onclick>Addon.OpenSettings(script.videoextras)</onclick>
                         <visible>System.HasAddon(script.videoextras)</visible>
                     </control>
                     <control type="button" id="438">
-                        <label>script.nox.coloricon.downloader</label>
+                        <label>script.videolanguage > Shows Languageflags</label>
                         <label2>[COLOR red]$LOCALIZE[106][/COLOR]</label2>
                         <include>Default_SettingRadioButtonShort</include>
                         <onclick>noop</onclick>
-                        <visible>!System.HasAddon(script.nox.coloricon.downloader)</visible>
+                        <visible>!System.HasAddon(script.videolanguage)</visible>
                     </control>
                     <control type="button" id="439">
-                        <label>script.nox.coloricon.downloader</label>
+                        <label>script.videolanguage > Shows Languageflags</label>
                         <label2>[COLOR green]$LOCALIZE[107][/COLOR]</label2>
                         <include>Default_SettingRadioButtonShort</include>
-                        <visible>System.HasAddon(script.nox.coloricon.downloader)</visible>
+						<onclick>Addon.OpenSettings(script.videolanguage)</onclick>
+                        <visible>System.HasAddon(script.videolanguage)</visible>
                     </control>
                 </control>
                 <control type="grouplist" id="9005">
@@ -511,7 +536,7 @@
                         <height>74</height>
                         <textoffsetx>70</textoffsetx>
                         <aligny>bottom</aligny>
-                        <label>Aeon MadnoX 1.0 - Helix / Isengard</label>
+                        <label>Aeon Madnox 0.0.7 - Helix / Isengard</label>
                         <font>Font_MainClassic3</font>
                         <textcolor>grey2</textcolor>
                     </control>

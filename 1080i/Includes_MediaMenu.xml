@@ -108,13 +108,6 @@
 			<usealttexture>library.isscanningvideo</usealttexture>
 			<onclick>UpdateLibrary(music)</onclick>
 		</control>
-        <control type="radiobutton" id="100">
-            <label>$LOCALIZE[29800]</label>
-            <include>Objects_MediaMenuButtonIcons</include>
-            <onclick>ReplaceWindow(MusicFiles)</onclick>
-            <selected>Window.IsVisible(MusicLibrary)</selected>
-            <visible>Window.IsActive(MusicLibrary)</visible>
-        </control>
         <control type="button" id="1666">
             <label>31715</label>
             <include>Objects_MediaMenuButtonIcons</include>
@@ -235,9 +228,14 @@
             <onclick condition="Control.IsVisible(501)">SetProperty(actualViewtype,ShowcaseMovies,home)</onclick>
 			<onclick condition="Control.IsVisible(499)">SetProperty(actualViewtype,Wall_Large,home)</onclick>
 			<onclick condition="Control.IsVisible(700)">SetProperty(actualViewtype,Video_RightList,home)</onclick>
+			<onclick condition="Control.IsVisible(750)">SetProperty(actualViewtype,Shelf,home)</onclick>
+			<onclick condition="Control.IsVisible(810)">SetProperty(actualViewtype,MusicFlixView,home)</onclick>
 			<onclick condition="Control.IsVisible(507)">SetProperty(actualViewtype,VideoFanartList,home)</onclick>
 			<onclick condition="Control.IsVisible(505)">SetProperty(actualViewtype,VideoBannerInfo,home)</onclick>
 			<onclick condition="Control.IsVisible(800)">SetProperty(actualViewtype,KodiFlixView,home)</onclick>
+			<onclick condition="Control.IsVisible(801)">SetProperty(actualViewtype,GamesFlix,home)</onclick>
+			<onclick condition="Control.IsVisible(804)">SetProperty(actualViewtype,GamesFlixWide,home)</onclick>
+			<onclick condition="Control.IsVisible(803)">SetProperty(actualViewtype,GamesFlixSquare,home)</onclick>
 			<onclick condition="Control.IsVisible(900)">SetProperty(actualViewtype,ViewSets,home)</onclick>
             <onclick condition="Control.IsVisible(950)">SetProperty(actualViewtype,DirectoryView,home)</onclick>
 			<onclick condition="Control.IsVisible(503)">SetProperty(actualViewtype,Landscape,home)</onclick>
@@ -332,7 +330,7 @@
             <animation type="Conditional" condition="Window.IsActive(1126)">
                 <effect type="slide" end="75" time="320" easing="in" tween="cubic" />
             </animation>
-            <animation type="Conditional" condition="Window.IsActive(1128) | Window.IsActive(1127) | Window.IsActive(1112)  | Window.IsActive(1166)">
+            <animation type="Conditional" condition="Window.IsActive(1128) | Window.IsActive(1127) | Window.IsActive(1112)  | Window.IsActive(1166)  | Window.IsActive(1174)">
                 <effect type="slide" end="-600" time="320" easing="in" tween="cubic" />
             </animation>
             <animation type="WindowClose">

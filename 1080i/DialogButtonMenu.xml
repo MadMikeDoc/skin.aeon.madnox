@@ -3,7 +3,7 @@
     <onload condition="Window.IsActive(1126)">Dialog.Close(1126)</onload>
     <onload condition="Window.IsActive(1121)">Dialog.Close(1121)</onload>
     <defaultcontrol always="true">800</defaultcontrol>
-    <zorder>7</zorder>
+    
     <coordinates>
         <left>0</left>
         <top>0</top>
@@ -167,6 +167,7 @@
                     <texture>special://skin/extras/BigIcons/AlarmClock.png</texture>
                     <animation effect="fade" start="100" end="55" time="0" condition="!Control.HasFocus(3) + !Control.HasFocus(15)">Conditional</animation>
                     <include>Objects_ShutdownMenuIcon</include>
+                    <visible>System.CanPowerDown</visible>
                 </control>
                 <control type="image">
                     <texture>special://skin/extras/BigIcons/Battery.png</texture>
