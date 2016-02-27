@@ -1,0 +1,3070 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<!-- ******* WIDGETS ******** -->
+	<include name="Widget1">
+		<control type="group" id="90010">
+			<animation effect="slide" tween="cubic" time="720" start="0,-1080" end="0,0">WindowOpen</animation>
+			<animation effect="slide" tween="cubic" time="720" end="0,-1080" start="0,0">WindowClose</animation>
+			<animation effect="fade" start="100" end="0" condition="Container(9000).OnNext | Container(9000).OnPrevious">Conditional</animation>
+			<animation effect="fade" start="0" end="100" time="400" delay="400" tween="quadratic" easing="out" condition="![Container(9000).OnNext | Container(9000).OnPrevious]">Conditional</animation>
+			<animation effect="slide" end="0,-349" condition="!Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="Window.IsVisible(1199) | Window.IsVisible(1115)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="Skin.HasSetting(Enable.WidgetHide) + !ControlGroup(90010).HasFocus">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="Skin.HasSetting(Enable.PanelInfo) + ControlGroup(90020).HasFocus + !SubString(Container(9000).ListItem.Property(widgetStyle.2),List)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="!Skin.HasSetting(Enable.PanelInfo) + StringCompare(Container(9000).ListItem.Property(widgetPanelInfo.2),Enabled) + ControlGroup(90020).HasFocus + !SubString(Container(9000).ListItem.Property(widgetStyle.2),List)">Conditional</animation>
+			<visible>!IsEmpty(Container(9000).ListItem.Property(widgetStyle))</visible>
+			<!-- Test Image
+			<control type="image">
+				<top>449</top>
+				<left></left>
+				<centerleft>50%</centerleft>
+				<width>1440</width>
+				<height>310</height>
+				<texture>grey.png</texture>
+			</control>-->
+			<!-- Widgets  -->
+			<include>skinshortcuts-template-widget1</include>
+		</control>
+	</include>
+	<include name="Widget2">
+		<control type="group" id="90020">
+			<animation effect="slide" tween="cubic" time="720" start="0,-1080" end="0,0" condition="Skin.HasSetting(lowermainmenu)">WindowOpen</animation>
+			<animation effect="slide" tween="cubic" time="720" end="0,-1080" start="0,0" condition="Skin.HasSetting(lowermainmenu)">WindowClose</animation>
+			<animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0" condition="!Skin.HasSetting(lowermainmenu)">WindowOpen</animation>
+			<animation effect="slide" tween="cubic" time="720" end="0,1080" start="0,0" condition="!Skin.HasSetting(lowermainmenu)">WindowClose</animation>
+			<animation effect="fade" start="100" end="0" condition="Container(9000).OnNext | Container(9000).OnPrevious">Conditional</animation>
+			<animation effect="fade" start="0" end="100" time="400" delay="400" tween="quadratic" easing="out" condition="![Container(9000).OnNext | Container(9000).OnPrevious]">Conditional</animation>
+			<animation effect="slide" end="0,601" condition="!Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="Window.IsVisible(1199) | Window.IsVisible(1115)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="Skin.HasSetting(Enable.WidgetHide) + !ControlGroup(90020).HasFocus">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="Skin.HasSetting(Enable.PanelInfo) + ControlGroup(90010).HasFocus + !SubString(Container(9000).ListItem.Property(widgetStyle),List)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="!Skin.HasSetting(Enable.PanelInfo) + StringCompare(Container(9000).ListItem.Property(widgetPanelInfo),Enabled) + ControlGroup(90010).HasFocus + !SubString(Container(9000).ListItem.Property(widgetStyle),List)">Conditional</animation>
+			<visible>!IsEmpty(Container(9000).ListItem.Property(widgetStyle.2))</visible>
+			<!-- Test Image
+			<control type="image">
+				<top>90</top>
+				<left></left>
+				<centerleft>50%</centerleft>
+				<width>1440</width>
+				<height>310</height>
+				<texture>grey.png</texture>
+			</control>-->
+			<!-- Widgets  -->
+			<include>skinshortcuts-template-widget2</include>
+		</control>
+	</include>
+	<!-- ******* ONINFO ******** -->
+	<include name="OnInfo">
+		<onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[id],home)</onfocus>
+		<onfocus>SetProperty(Widget.CaseHome,$VAR[HomeWidget$PARAM[id]InfoCaseVar])</onfocus>
+		<oninfo>SetProperty(Widget,$PARAM[Widget],home)</oninfo>
+		<oninfo>SetProperty(Widget.Type,$PARAM[widgetType],home)</oninfo>
+		<oninfo>SetProperty(Widget.Target,$PARAM[widgetTarget],home)</oninfo>
+		<oninfo>SetProperty(Widget.FilePath,$INFO[Container($PARAM[id]).ListItem.FileNameAndPath],home)</oninfo>
+		<oninfo>SetProperty(Widget.FolderPath,$INFO[Container($PARAM[id]).ListItem.FolderPath],home)</oninfo>
+		<oninfo>SetProperty(Widget.Resume,$INFO[Container($PARAM[id]).ListItem.PercentPlayed],home)</oninfo>
+		<oninfo>SetProperty(Widget.Trailer,$INFO[Container($PARAM[id]).ListItem.Trailer],home)</oninfo>
+		<oninfo>SetProperty(Widget.DBID,$INFO[Container($PARAM[id]).ListItem.Property(DBID)],home)</oninfo>
+		<!-- Art -->
+		<oninfo>SetProperty(Widget.Cover,$PARAM[Texture],home)</oninfo>
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(Label3)) + !IsEmpty(Container($PARAM[id]).ListItem.Property(isSystemInfo))">SetProperty(Widget.Cover,$INFO[Container($PARAM[id]).ListItem.Property(Fanart)],home)</oninfo>
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(Label3)) + !IsEmpty(Container($PARAM[id]).ListItem.Property(WeatherMultiFanart)) + Skin.HasSetting(WeatherFanartDir.multi)">SetProperty(Widget.Cover,$INFO[Container($PARAM[id]).ListItem.Property(WeatherMultiFanart)],home)</oninfo>
+		<oninfo>SetProperty(Widget.DiscArt,$INFO[Container($PARAM[id]).ListItem.Art(discart)],home)</oninfo>
+		<oninfo>SetProperty(Widget.Background,$PARAM[backTexture],home)</oninfo>
+		<oninfo>SetProperty(Widget.BackgroundColor,$PARAM[backColor],home)</oninfo>
+		<oninfo>SetProperty(Widget.StarRating,$INFO[Container($PARAM[id]).ListItem.StarRating],home)</oninfo>
+		<oninfo>SetProperty(Widget.Case,$VAR[HomeWidget$PARAM[id]OnInfoCaseVar])</oninfo>
+		<!-- Info -->
+		<oninfo>SetProperty(Widget.Title,$PARAM[Title],home)</oninfo>
+		<oninfo>SetProperty(Widget.SubTitle,$PARAM[subTitle],home)</oninfo>
+		<oninfo>SetProperty(Widget.Info1,$PARAM[Info1],home)</oninfo>
+		<oninfo>SetProperty(Widget.Info2,$PARAM[Info2],home)</oninfo>
+		<oninfo>SetProperty(Widget.Plot,$PARAM[Plot],home)</oninfo>
+		<!-- Year -->
+		<oninfo>SetProperty(Widget.Year,$INFO[Container($PARAM[id]).ListItem.Year],home)</oninfo>
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(Addon.Name))">SetProperty(Widget.Year,$INFO[Container($PARAM[id]).ListItem.Property(Addon.Version)],home)</oninfo>
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(Label3)) + !IsEmpty(Container($PARAM[id]).ListItem.Property(isSystemInfo))">SetProperty(Widget.Year,$INFO[System.FriendlyName],home)</oninfo>
+		<!-- MPAA -->
+		<oninfo>SetProperty(Widget.FlagsRating,$INFO[Container($PARAM[id]).ListItem.MPAA,$VAR[ColorFlagsRating]rating/,.png],home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,Rated X)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/MPAA_X_Certificate_US.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:18) | SubString(Container($PARAM[id]).ListItem.MPAA,18 anos)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/MPAA_Brazil_18.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:16) | SubString(Container($PARAM[id]).ListItem.MPAA,16 anos)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/MPAA_Brazil_16.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:14) | SubString(Container($PARAM[id]).ListItem.MPAA,14 anos)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/MPAA_Brazil_14.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:12) | SubString(Container($PARAM[id]).ListItem.MPAA,12 anos)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/MPAA_Brazil_12.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:10) | SubString(Container($PARAM[id]).ListItem.MPAA,10 anos)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/MPAA_Brazil_10.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:Livre) | SubString(Container($PARAM[id]).ListItem.MPAA,Livre)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/MPAA_Brazil_Livre.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,제한)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/KR_Certificate_R.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,불가)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/KR_Certificate_18.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,15세)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/KR_Certificate_15.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,12세)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/KR_Certificate_12.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,전체)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/KR_Certificate_All.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,France:-18) | Substring(Container($PARAM[id]).ListItem.MPAA,Interdit aux moins de 18 ans)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/csa18.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,France:-16) | Substring(Container($PARAM[id]).ListItem.MPAA,Interdit aux moins de 16 ans)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/csa16.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,France:-12) | Substring(Container($PARAM[id]).ListItem.MPAA,Interdit aux moins de 12 ans)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/csa12.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,France:-10) | Substring(Container($PARAM[id]).ListItem.MPAA,Interdit aux moins de 10 ans) | Substring(Container($PARAM[id]).ListItem.MPAA,des propos ou des images peuvent heurter)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/csa10.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,France:U) | Substring(Container($PARAM[id]).ListItem.MPAA,partir de 3 ans) | Substring(Container($PARAM[id]).ListItem.MPAA,partir de 6 ans)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/csaU.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,18 éven aluliak számára nem ajánlott)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/HU_18.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,16 éven aluliak számára nem ajánlott)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/HU_16.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/HU_12.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,korhatárra való tekintett nélkül megtekintetheto)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/HU_KN.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,besorolás alatt)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/HU_BA.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,Germany:18) | SubString(Container($PARAM[id]).ListItem.MPAA,ab 18) | StringCompare(Container($PARAM[id]).ListItem.MPAA,18) | Substring(Container($PARAM[id]).ListItem.MPAA,FSK 18) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK:18)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/FSK-18.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,Germany:16) | SubString(Container($PARAM[id]).ListItem.MPAA,ab 16) | StringCompare(Container($PARAM[id]).ListItem.MPAA,16) | Substring(Container($PARAM[id]).ListItem.MPAA,FSK 16) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK:16)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/FSK-16.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,Germany:12) | SubString(Container($PARAM[id]).ListItem.MPAA,ab 12) | StringCompare(Container($PARAM[id]).ListItem.MPAA,12) | Substring(Container($PARAM[id]).ListItem.MPAA,FSK 12) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK:12)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/FSK-12.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,Germany:6) | SubString(Container($PARAM[id]).ListItem.MPAA,ab 6) | StringCompare(Container($PARAM[id]).ListItem.MPAA,6) | Substring(Container($PARAM[id]).ListItem.MPAA,FSK 6) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK:6)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/FSK-6.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,Germany:0) | SubString(Container($PARAM[id]).ListItem.MPAA,ab 0)| SubString(Container($PARAM[id]).ListItem.MPAA,o.A)| SubString(Container($PARAM[id]).ListItem.MPAA,FSK 0)| StringCompare(Container($PARAM[id]).ListItem.MPAA,FSK:0)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/FSK-0.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,UK:18)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/BBFC_18_Certificate_UK.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,UK:15)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/BBFC_15_Certificate_UK.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,UK:12)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/BBFC_12_Certificate_UK.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,UK:12A)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/BBFC_12A_Certificate_UK.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,UK:PG)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/BBFC_PG_Certificate_UK.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,UK:U)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/BBFC_U_Certificate_UK.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,US:NC-17)| SubString(Container($PARAM[id]).ListItem.MPAA,USA:NC-17)| SubString(Container($PARAM[id]).ListItem.MPAA,Rated NC-17) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated NC - 17)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/MPAA_NC-17_Certificate_US.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,US:R) | SubString(Container($PARAM[id]).ListItem.MPAA,USA:R) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated R) | StringCompare(Container($PARAM[id]).ListItem.MPAA,R)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/MPAA_R_Certificate_US.png,home)</oninfo>
+		<oninfo condition="Substring(Container($PARAM[id]).ListItem.MPAA,Rated PG) | StringCompare(Container($PARAM[id]).ListItem.MPAA,PG)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/MPAA_PG_Certificate_US.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,PG-13) | SubString(Container($PARAM[id]).ListItem.MPAA,PG - 13)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/MPAA_PG-13_Certificate_US.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,US:G) | SubString(Container($PARAM[id]).ListItem.MPAA,USA:G) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated G)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/MPAA_G_Certificate_US.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,TV-Y) | SubString(Container($PARAM[id]).ListItem.MPAA,TV - Y)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/tv-y.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,TV-Y7) | SubString(Container($PARAM[id]).ListItem.MPAA,TV - Y7)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/tv-y7.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,TV-MA) | SubString(Container($PARAM[id]).ListItem.MPAA,TV - MA)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/TV-MA_Certificate_US.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,TV-14) | SubString(Container($PARAM[id]).ListItem.MPAA,TV - 14)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/TV-14_Certificate_US.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,TV-PG) | SubString(Container($PARAM[id]).ListItem.MPAA,TV - PG)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/TV-PG_Certificate_US.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,TV-G) | SubString(Container($PARAM[id]).ListItem.MPAA,TV - G)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/TV-G_Certificate_US.png,home)</oninfo>
+		<!-- Studio -->
+		<oninfo condition="Skin.HasSetting(StudiosColorFlag) + !IsEmpty(Container($PARAM[id]).ListItem.Studio)">SetProperty(Widget.FlagsStudio,$INFO[Container($PARAM[id]).ListItem.Studio,resource://resource.images.studios.coloured/,.png],home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(StudiosColorFlag) + !IsEmpty(Container($PARAM[id]).ListItem.Studio)">SetProperty(Widget.FlagsStudio,$INFO[Container($PARAM[id]).ListItem.Studio,resource://resource.images.studios.white/,.png],home)</oninfo>
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(Album_Label))">SetProperty(Widget.FlagsStudio,$INFO[Container($PARAM[id]).ListItem.Property(Album_Label),resource://resource.images.recordlabels.white/,.png],home)</oninfo>
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(Label3)) + !IsEmpty(Container($PARAM[id]).ListItem.Property(isSystemInfo))">SetProperty(Widget.FlagsStudio,homewidgets/systeminfo/square/system.png,home)</oninfo>
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(Label3)) + !IsEmpty(Container($PARAM[id]).ListItem.Property(WeatherMultiFanart))">SetProperty(Widget.FlagsStudio,$INFO[Container($PARAM[id]).ListItem.Icon],home)</oninfo>
+		<!-- VideoCodec -->
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.VideoCodec)">SetProperty(Widget.FlagsSource,$VAR[ColorFlagsSource,,source/]$INFO[Container($PARAM[id]).ListItem.VideoCodec,,.png])</oninfo>
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(VideoCodec))">SetProperty(Widget.FlagsSource,$VAR[ColorFlagsSource,,source/]$INFO[Container($PARAM[id]).ListItem.Property(VideoCodec),,.png])</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.filename,PDTV) | SubString(Container($PARAM[id]).ListItem.filename,sdtv) | SubString(Container($PARAM[id]).ListItem.filename,sd tv)">SetProperty(Widget.FlagsSource,$VAR[ColorFlagsSource]source/sdtv.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.filename,hdtv) | SubString(Container($PARAM[id]).ListItem.filename,hd tv)">SetProperty(Widget.FlagsSource,$VAR[ColorFlagsSource]source/hdtv.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.filename,hddvd) | SubString(Container($PARAM[id]).ListItem.filename,hd-dvd)">SetProperty(Widget.FlagsSource,$VAR[ColorFlagsSource]source/hddvd.png,home)</oninfo>
+		<oninfo condition="Container($PARAM[id]).ListItem.IsStereoscopic">SetProperty(Widget.FlagsSource,$VAR[ColorFlagsSource]source/bluray3d,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.filename,bluray) | SubString(Container($PARAM[id]).ListItem.filename,blu-ray) | SubString(Container($PARAM[id]).ListItem.filename,bdrip) | SubString(Container($PARAM[id]).ListItem.filename,brrip)">SetProperty(Widget.FlagsSource,$VAR[ColorFlagsSource]source/bluray.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.filename,dvb)">SetProperty(Widget.FlagsSource,$VAR[ColorFlagsSource]source/dvb.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.filename,web-dl)">SetProperty(Widget.FlagsSource,$VAR[ColorFlagsSource]source/web-dl.png,home)</oninfo>
+		<oninfo condition="SubString(Container($PARAM[id]).ListItem.filename,dvd) | StringCompare(Container($PARAM[id]).ListItem.FileExtension,iso) | StringCompare(Container($PARAM[id]).ListItem.FileExtension,ifo)">SetProperty(Widget.FlagsSource,$VAR[ColorFlagsSource]source/dvd.png,home)</oninfo>
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(Label3)) + !IsEmpty(Container($PARAM[id]).ListItem.Property(WeatherMultiFanart))">SetProperty(Widget.FlagsSource,$INFO[Window(weather).Property(WeatherProviderLogo)],home)</oninfo>
+		<!-- Resolution -->
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.VideoResolution)">SetProperty(Widget.FlagsResolution,$VAR[ColorFlagsResolution]resolution/$INFO[Container($PARAM[id]).ListItem.VideoResolution,,.png],home)</oninfo>
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(VideoResolution))">SetProperty(Widget.FlagsResolution,$VAR[ColorFlagsResolution]resolution/$INFO[Container($PARAM[id]).ListItem.Property(VideoResolution),,.png],home)</oninfo>
+		<!-- Aspect -->
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.VideoAspect)">SetProperty(Widget.FlagsAspect,$VAR[ColorFlagsAspectRatio]aspectratio/$INFO[Container($PARAM[id]).ListItem.VideoAspect,,.png],home)</oninfo>
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(VideoAspect))">SetProperty(Widget.FlagsAspect,$VAR[ColorFlagsAspectRatio]aspectratio/$INFO[Container($PARAM[id]).ListItem.Property(VideoAspect),,.png],home)</oninfo>
+		<!-- Audio Codec -->
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(AudioCodec))">SetProperty(Widget.FlagsAudio,$VAR[ColorFlagsAudio]audio/$INFO[Container($PARAM[id]).ListItem.Property(AudioCodec),,.png],home)</oninfo>
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(AudioCodec)) + !IsEmpty(Container($PARAM[id]).ListItem.Property(AudioChannels))">SetProperty(Widget.FlagsAudio,$VAR[ColorFlagsAudio]audio/$INFO[Container($PARAM[id]).ListItem.Property(AudioCodec)]$INFO[Container($PARAM[id]).ListItem.Property(AudioChannels),,.png],home)</oninfo>
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.AudioCodec)">SetProperty(Widget.FlagsAudio,$VAR[ColorFlagsAudio]audio/$INFO[Container($PARAM[id]).ListItem.AudioCodec,,.png],home)</oninfo>
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.AudioCodec) + !IsEmpty(Container($PARAM[id]).ListItem.AudioChannels)">SetProperty(Widget.FlagsAudio,$VAR[ColorFlagsAudio]audio/$INFO[Container($PARAM[id]).ListItem.AudioCodec]$INFO[Container($PARAM[id]).ListItem.AudioChannels,,.png],home)</oninfo>
+		<!-- Audio Channels -->
+		<!--oninfo condition="Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsAudioChannels,$INFO[Container($PARAM[id]).ListItem.AudioChannels,flags/colored/channels/,.png],home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsAudioChannels,$INFO[Container($PARAM[id]).ListItem.AudioChannels,flags/channels/,.png],home)</oninfo-->
+		<!-- Subtitle Language -->
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.SubtitleLanguage) | !IsEmpty(Container($PARAM[id]).ListItem.Property(SubtitleLanguage.1))">SetProperty(Widget.FlagsCC,$VAR[ColorFlags]cc.png,home)</oninfo>
+		<!--Audio Languages-->
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(AudioLanguage.1))">SetProperty(Widget.FlagsAL1,$VAR[ColorFlagsLanguage]$INFO[Container($PARAM[id]).ListItem.Property(AudioLanguage.1),,.png],home)</oninfo>
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(AudioLanguage.2))">SetProperty(Widget.FlagsAL2,$VAR[ColorFlagsLanguage]$INFO[Container($PARAM[id]).ListItem.Property(AudioLanguage.2),,.png],home)</oninfo>
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(AudioLanguage.3))">SetProperty(Widget.FlagsAL3,$VAR[ColorFlagsLanguage]$INFO[Container($PARAM[id]).ListItem.Property(AudioLanguage.3),,.png],home)</oninfo>
+		<!--Subtitle Languages-->
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(SubtitleLanguage.1))">SetProperty(Widget.FlagsSL1,$VAR[ColorFlagsLanguage]$INFO[Container($PARAM[id]).ListItem.Property(SubtitleLanguage.1),,.png],home)</oninfo>
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(SubtitleLanguage.2))">SetProperty(Widget.FlagsSL2,$VAR[ColorFlagsLanguage]$INFO[Container($PARAM[id]).ListItem.Property(SubtitleLanguage.2),,.png],home)</oninfo>
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(SubtitleLanguage.3))">SetProperty(Widget.FlagsSL3,$VAR[ColorFlagsLanguage]$INFO[Container($PARAM[id]).ListItem.Property(SubtitleLanguage.3),,.png],home)</oninfo>
+		<!-- Open Window -->
+		<oninfo>ActivateWindow(1199)</oninfo>
+	</include>
+	<!-- ******* ONINFO Silvo ********
+	<include name="OnInfo">
+		Year
+		<oninfo>SetProperty(Widget.Year,$INFO[Container($PARAM[id]).ListItem.Year],home)</oninfo>
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(Addon.Name))">SetProperty(Widget.Year,$INFO[Container($PARAM[id]).ListItem.Property(Addon.Version)],home)</oninfo>
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(Label3))">SetProperty(Widget.Year,$INFO[System.FriendlyName],home)</oninfo>
+		MPAA
+		<oninfo condition="Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsRating,$INFO[Container($PARAM[id]).ListItem.MPAA,flags/colored/rating/,.png],home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,US:G) | SubString(Container($PARAM[id]).ListItem.MPAA,USA:G) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated G) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated Approved) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated Passed)]">SetProperty(Widget.FlagsRating,flags/colored/rating/G.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,PG-13)">SetProperty(Widget.FlagsRating,flags/colored/rating/PG-13,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Rated PG) | StringCompare(ListItem.Mpaa,PG)]">SetProperty(Widget.FlagsRating,flags/colored/rating/PG.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,US:R) | SubString(Container($PARAM[id]).ListItem.MPAA,USA:R) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated R) | StringCompare(ListItem.MPAA,R)]">SetProperty(Widget.FlagsRating,flags/colored/rating/R.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,US:NC-17) | SubString(Container($PARAM[id]).ListItem.MPAA,USA:NC-17) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated NC-17)]">SetProperty(Widget.FlagsRating,flags/colored/rating/NC-17.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,UK:U)">SetProperty(Widget.FlagsRating,flags/colored/rating/BBFC_U_Certificate_UK.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,UK:PG)">SetProperty(Widget.FlagsRating,flags/colored/rating/BBFC_PG_Certificate_UK.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,UK:12A)">SetProperty(Widget.FlagsRating,flags/colored/rating/BBFC_12A_Certificate_UK.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,UK:12)">SetProperty(Widget.FlagsRating,flags/colored/rating/BBFC_12_Certificate_UK.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,UK:15)">SetProperty(Widget.FlagsRating,flags/colored/rating/BBFC_15_Certificate_UK.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,UK:18)">SetProperty(Widget.FlagsRating,flags/colored/rating/BBFC_18_Certificate_UK.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Germany:16) | SubString(Container($PARAM[id]).ListItem.MPAA,ab 16) | StringCompare(ListItem.MPAA,16) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK 16) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated 16)]">SetProperty(Widget.FlagsRating,flags/colored/rating/FSK-16.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Germany:0) | SubString(Container($PARAM[id]).ListItem.MPAA,ab 0) | StringCompare(ListItem.MPAA,0) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK 0) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated 0)]">SetProperty(Widget.FlagsRating,flags/colored/rating/FSK-0.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Germany:6) | SubString(Container($PARAM[id]).ListItem.MPAA,ab 6) | StringCompare(ListItem.MPAA,6) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK 6) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated 6)]">SetProperty(Widget.FlagsRating,flags/colored/rating/FSK-6.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Germany:12) | SubString(Container($PARAM[id]).ListItem.MPAA,ab 12) | StringCompare(ListItem.MPAA,12) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK 12) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated 12)]">SetProperty(Widget.FlagsRating,flags/colored/rating/FSK-12.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Germany:18) | SubString(Container($PARAM[id]).ListItem.MPAA,ab 18) | StringCompare(ListItem.MPAA,18) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK 18) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated 18)]">SetProperty(Widget.FlagsRating,flags/colored/rating/FSK-18.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Germany) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK) | SubString(Container($PARAM[id]).ListItem.MPAA,o.A) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated 0)]">SetProperty(Widget.FlagsRating,flags/colored/rating/FSK-0.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,besorolás alatt)">SetProperty(Widget.FlagsRating,flags/colored/rating/HU_BA.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,korhatárra való tekintett nélkül megtekintetheto)">SetProperty(Widget.FlagsRating,flags/colored/rating/HU_KN.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">SetProperty(Widget.FlagsRating,flags/colored/rating/HU_12.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,16 éven aluliak számára nem ajánlott)">SetProperty(Widget.FlagsRating,flags/colored/rating/HU_16.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,18 éven aluliak számára nem ajánlott)">SetProperty(Widget.FlagsRating,flags/colored/rating/HU_18.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,France:U) | SubString(Container($PARAM[id]).ListItem.MPAA,Tout public) | SubString(Container($PARAM[id]).ListItem.MPAA,partir de 3 ans) | SubString(Container($PARAM[id]).ListItem.MPAA,partir de 6 ans)]">SetProperty(Widget.FlagsRating,flags/colored/rating/csaU.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,France:-10) | SubString(Container($PARAM[id]).ListItem.MPAA,Interdit aux moins de 10 ans) | SubString(Container($PARAM[id]).ListItem.MPAA,des propos ou des images peuvent heurter)]">SetProperty(Widget.FlagsRating,flags/colored/rating/csa10.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,France:-12) | SubString(Container($PARAM[id]).ListItem.MPAA,Interdit aux moins de 12 ans)]">SetProperty(Widget.FlagsRating,flags/colored/rating/csa12.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,France:-16) | SubString(Container($PARAM[id]).ListItem.MPAA,Interdit aux moins de 16 ans)]">SetProperty(Widget.FlagsRating,flags/colored/rating/csa16.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,France:-18) | SubString(Container($PARAM[id]).ListItem.MPAA,Interdit aux moins de 18 ans)]">SetProperty(Widget.FlagsRating,flags/colored/rating/csa18.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,전체)">SetProperty(Widget.FlagsRating,flags/colored/rating/KR_Certificate_All.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,12세)">SetProperty(Widget.FlagsRating,flags/colored/rating/KR_Certificate_12.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,15세)">SetProperty(Widget.FlagsRating,flags/colored/rating/KR_Certificate_15.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,불가)">SetProperty(Widget.FlagsRating,flags/colored/rating/KR_Certificate_18.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,제한)">SetProperty(Widget.FlagsRating,flags/colored/rating/KR_Certificate_R.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:Livre) | SubString(Container($PARAM[id]).ListItem.MPAA,Livre)]">SetProperty(Widget.FlagsRating,flags/colored/rating/MPAA_Brazil_Livre.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:10) | SubString(Container($PARAM[id]).ListItem.MPAA,10 anos)]">SetProperty(Widget.FlagsRating,flags/colored/rating/MPAA_Brazil_10.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:12) | SubString(Container($PARAM[id]).ListItem.MPAA,12 anos)]">SetProperty(Widget.FlagsRating,flags/colored/rating/MPAA_Brazil_12.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:14) | SubString(Container($PARAM[id]).ListItem.MPAA,14 anos)]">SetProperty(Widget.FlagsRating,flags/colored/rating/MPAA_Brazil_14.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:16) | SubString(Container($PARAM[id]).ListItem.MPAA,16 anos)]">SetProperty(Widget.FlagsRating,flags/colored/rating/MPAA_Brazil_16.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:18) | SubString(Container($PARAM[id]).ListItem.MPAA,18 anos)]">SetProperty(Widget.FlagsRating,flags/colored/rating/MPAA_Brazil_18.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,Australia:)">SetProperty(Widget.FlagsRating,$INFO[Container($PARAM[id]).ListItem.MPAA,flags/colored/rating/australia_,.png],home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsRating,$INFO[Container($PARAM[id]).ListItem.MPAA,flags/mpaa/,.png],home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,US:G) | SubString(Container($PARAM[id]).ListItem.MPAA,USA:G) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated G) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated Approved) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated Passed)]">SetProperty(Widget.FlagsRating,flags/mpaa/G.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,PG-13)">SetProperty(Widget.FlagsRating,flags/mpaa/PG-13,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Rated PG) | StringCompare(ListItem.Mpaa,PG)]">SetProperty(Widget.FlagsRating,flags/mpaa/PG.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,US:R) | SubString(Container($PARAM[id]).ListItem.MPAA,USA:R) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated R) | StringCompare(ListItem.MPAA,R)]">SetProperty(Widget.FlagsRating,flags/mpaa/R.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,US:NC-17) | SubString(Container($PARAM[id]).ListItem.MPAA,USA:NC-17) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated NC-17)]">SetProperty(Widget.FlagsRating,flags/mpaa/NC-17.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,UK:U)">SetProperty(Widget.FlagsRating,flags/mpaa/BBFC_U_Certificate_UK.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,UK:PG)">SetProperty(Widget.FlagsRating,flags/mpaa/BBFC_PG_Certificate_UK.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,UK:12A)">SetProperty(Widget.FlagsRating,flags/mpaa/BBFC_12A_Certificate_UK.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,UK:12)">SetProperty(Widget.FlagsRating,flags/mpaa/BBFC_12_Certificate_UK.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,UK:15)">SetProperty(Widget.FlagsRating,flags/mpaa/BBFC_15_Certificate_UK.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,UK:18)">SetProperty(Widget.FlagsRating,flags/mpaa/BBFC_18_Certificate_UK.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Germany:16) | SubString(Container($PARAM[id]).ListItem.MPAA,ab 16) | StringCompare(ListItem.MPAA,16) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK 16) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated 16)]">SetProperty(Widget.FlagsRating,flags/mpaa/FSK-16.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Germany:0) | SubString(Container($PARAM[id]).ListItem.MPAA,ab 0) | StringCompare(ListItem.MPAA,0) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK 0) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated 0)]">SetProperty(Widget.FlagsRating,flags/mpaa/FSK-0.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Germany:6) | SubString(Container($PARAM[id]).ListItem.MPAA,ab 6) | StringCompare(ListItem.MPAA,6) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK 6) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated 6)]">SetProperty(Widget.FlagsRating,flags/mpaa/FSK-6.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Germany:12) | SubString(Container($PARAM[id]).ListItem.MPAA,ab 12) | StringCompare(ListItem.MPAA,12) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK 12) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated 12)]">SetProperty(Widget.FlagsRating,flags/mpaa/FSK-12.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Germany:18) | SubString(Container($PARAM[id]).ListItem.MPAA,ab 18) | StringCompare(ListItem.MPAA,18) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK 18) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated 18)]">SetProperty(Widget.FlagsRating,flags/mpaa/FSK-18.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Germany) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK) | SubString(Container($PARAM[id]).ListItem.MPAA,o.A) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated 0)]">SetProperty(Widget.FlagsRating,flags/mpaa/FSK-0.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,besorolás alatt)">SetProperty(Widget.FlagsRating,flags/mpaa/HU_BA.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,korhatárra való tekintett nélkül megtekintetheto)">SetProperty(Widget.FlagsRating,flags/mpaa/HU_KN.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">SetProperty(Widget.FlagsRating,flags/mpaa/HU_12.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,16 éven aluliak számára nem ajánlott)">SetProperty(Widget.FlagsRating,flags/mpaa/HU_16.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,18 éven aluliak számára nem ajánlott)">SetProperty(Widget.FlagsRating,flags/mpaa/HU_18.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,France:U) | SubString(Container($PARAM[id]).ListItem.MPAA,Tout public) | SubString(Container($PARAM[id]).ListItem.MPAA,partir de 3 ans) | SubString(Container($PARAM[id]).ListItem.MPAA,partir de 6 ans)]">SetProperty(Widget.FlagsRating,flags/mpaa/csaU.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,France:-10) | SubString(Container($PARAM[id]).ListItem.MPAA,Interdit aux moins de 10 ans) | SubString(Container($PARAM[id]).ListItem.MPAA,des propos ou des images peuvent heurter)]">SetProperty(Widget.FlagsRating,flags/mpaa/csa10.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,France:-12) | SubString(Container($PARAM[id]).ListItem.MPAA,Interdit aux moins de 12 ans)]">SetProperty(Widget.FlagsRating,flags/mpaa/csa12.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,France:-16) | SubString(Container($PARAM[id]).ListItem.MPAA,Interdit aux moins de 16 ans)]">SetProperty(Widget.FlagsRating,flags/mpaa/csa16.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,France:-18) | SubString(Container($PARAM[id]).ListItem.MPAA,Interdit aux moins de 18 ans)]">SetProperty(Widget.FlagsRating,flags/mpaa/csa18.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,전체)">SetProperty(Widget.FlagsRating,flags/mpaa/KR_Certificate_All.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,12세)">SetProperty(Widget.FlagsRating,flags/mpaa/KR_Certificate_12.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,15세)">SetProperty(Widget.FlagsRating,flags/mpaa/KR_Certificate_15.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,불가)">SetProperty(Widget.FlagsRating,flags/mpaa/KR_Certificate_18.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,제한)">SetProperty(Widget.FlagsRating,flags/mpaa/KR_Certificate_R.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:Livre) | SubString(Container($PARAM[id]).ListItem.MPAA,Livre)]">SetProperty(Widget.FlagsRating,flags/mpaa/MPAA_Brazil_Livre.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:10) | SubString(Container($PARAM[id]).ListItem.MPAA,10 anos)]">SetProperty(Widget.FlagsRating,flags/mpaa/MPAA_Brazil_10.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:12) | SubString(Container($PARAM[id]).ListItem.MPAA,12 anos)]">SetProperty(Widget.FlagsRating,flags/mpaa/MPAA_Brazil_12.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:14) | SubString(Container($PARAM[id]).ListItem.MPAA,14 anos)]">SetProperty(Widget.FlagsRating,flags/mpaa/MPAA_Brazil_14.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:16) | SubString(Container($PARAM[id]).ListItem.MPAA,16 anos)]">SetProperty(Widget.FlagsRating,flags/mpaa/MPAA_Brazil_16.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:18) | SubString(Container($PARAM[id]).ListItem.MPAA,18 anos)]">SetProperty(Widget.FlagsRating,flags/mpaa/MPAA_Brazil_18.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,Australia:)">SetProperty(Widget.FlagsRating,$INFO[Container($PARAM[id]).ListItem.MPAA,flags/mpaa/australia_,.png],home)</oninfo>
+		Studio
+		<oninfo condition="Skin.HasSetting(coloredflags) + !IsEmpty(Container($PARAM[id]).ListItem.Studio)">SetProperty(Widget.FlagsStudio,$INFO[Container($PARAM[id]).ListItem.Studio,resource://resource.images.studios.coloured/,.png],home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + !IsEmpty(Container($PARAM[id]).ListItem.Studio)">SetProperty(Widget.FlagsStudio,$INFO[Container($PARAM[id]).ListItem.Studio,resource://resource.images.studios.white/,.png],home)</oninfo>
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(Album_Label))">SetProperty(Widget.FlagsStudio,$INFO[Container($PARAM[id]).ListItem.Property(Album_Label)],home)</oninfo>
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(HighTemp))">SetProperty(Widget.FlagsStudio,$INFO[Window(weather).Property(WeatherProviderLogo)],home)</oninfo>
+		VideoCodec
+		<oninfo condition="Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsSource,$INFO[Container($PARAM[id]).ListItem.VideoCodec,flags/colored/source/,.png]</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.filename,PDTV) | SubString(Container($PARAM[id]).ListItem.filename,sdtv) | SubString(Container($PARAM[id]).ListItem.filename,sd tv)]">SetProperty(Widget.FlagsSource,flags/colored/source/sdtv.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.filename,hdtv) | SubString(Container($PARAM[id]).ListItem.filename,hd tv)]">SetProperty(Widget.FlagsSource,flags/colored/source/hdtv.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.filename,hddvd) | SubString(Container($PARAM[id]).ListItem.filename,hd-dvd)]">SetProperty(Widget.FlagsSource,flags/colored/source/hddvd.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + Container($PARAM[id]).ListItem.IsStereoscopic">SetProperty(Widget.FlagsSource,flags/colored/source/bluray3d,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.filename,bluray) | SubString(Container($PARAM[id]).ListItem.filename,blu-ray) | SubString(Container($PARAM[id]).ListItem.filename,bdrip) | SubString(Container($PARAM[id]).ListItem.filename,brrip)]">SetProperty(Widget.FlagsSource,flags/colored/source/bluray.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.filename,dvb)">SetProperty(Widget.FlagsSource,flags/colored/source/dvb.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.filename,web-dl)">SetProperty(Widget.FlagsSource,flags/colored/source/web-dl.png,home)</oninfo>
+		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.filename,dvd) | StringCompare(Container($PARAM[id]).ListItem.FileExtension,iso) | StringCompare(Container($PARAM[id]).ListItem.FileExtension,ifo)">SetProperty(Widget.FlagsSource,flags/colored/source/dvd.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsSource,$INFO[Container($PARAM[id]).ListItem.VideoCodec,flags/video/,.png]</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.filename,PDTV) | SubString(Container($PARAM[id]).ListItem.filename,sdtv) | SubString(Container($PARAM[id]).ListItem.filename,sd tv)]">SetProperty(Widget.FlagsSource,flags/video/sdtv.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.filename,hdtv) | SubString(Container($PARAM[id]).ListItem.filename,hd tv)]">SetProperty(Widget.FlagsSource,flags/video/hdtv.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.filename,hddvd) | SubString(Container($PARAM[id]).ListItem.filename,hd-dvd)]">SetProperty(Widget.FlagsSource,flags/video/hddvd.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + Container($PARAM[id]).ListItem.IsStereoscopic">SetProperty(Widget.FlagsSource,flags/video/bluray3d,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.filename,bluray) | SubString(Container($PARAM[id]).ListItem.filename,blu-ray) | SubString(Container($PARAM[id]).ListItem.filename,bdrip) | SubString(Container($PARAM[id]).ListItem.filename,brrip)]">SetProperty(Widget.FlagsSource,flags/video/bluray.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.filename,dvb)">SetProperty(Widget.FlagsSource,flags/video/dvb.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.filename,web-dl)">SetProperty(Widget.FlagsSource,flags/video/web-dl.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.filename,dvd) | StringCompare(Container($PARAM[id]).ListItem.FileExtension,iso) | StringCompare(Container($PARAM[id]).ListItem.FileExtension,ifo)">SetProperty(Widget.FlagsSource,flags/video/dvd.png,home)</oninfo>
+		Resolution
+		<oninfo condition="Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsResolution,$INFO[Container($PARAM[id]).ListItem.VideoResolution,flags/colored/resolution/,.png],home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsResolution,$INFO[Container($PARAM[id]).ListItem.VideoResolution,flags/resolution/,.png],home)</oninfo>
+		Aspect
+		<oninfo condition="Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsAspect,$INFO[Container($PARAM[id]).ListItem.VideoAspect,flags/colored/aspectratio/,.png],home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsAspect,$INFO[Container($PARAM[id]).ListItem.VideoAspect,flags/aspectratio/,.png],home)</oninfo>
+		Audio Codec
+		<oninfo condition="Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsAudio,$INFO[Container($PARAM[id]).ListItem.AudioCodec,flags/colored/audio/,.png],home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsAudio,$INFO[Container($PARAM[id]).ListItem.AudioCodec,flags/audio/,.png],home)</oninfo>
+		Audio Channels
+		<oninfo condition="Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsAudioChannels,$INFO[Container($PARAM[id]).ListItem.AudioChannels,flags/colored/channels/,.png],home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsAudioChannels,$INFO[Container($PARAM[id]).ListItem.AudioChannels,flags/channels/,.png],home)</oninfo>
+		Subtitle Language
+		<oninfo condition="Skin.HasSetting(coloredflags) + !IsEmpty(Container($PARAM[id]).ListItem.SubtitleLanguage)">SetProperty(Widget.FlagsCC,flags/colored/cc.png,home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(coloredflags) + !IsEmpty(Container($PARAM[id]).ListItem.SubtitleLanguage)">SetProperty(Widget.FlagsCC,flags/cc.png,home)</oninfo>
+	</include>  -->
+	<!-- ******* WIDGET INFO ******** -->
+	<include name="InfoVisible1">
+		<visible>[Skin.HasSetting(Enable.PanelInfo) + Control.HasFocus($PARAM[id])] | [!Skin.HasSetting(Enable.PanelInfo) + StringCompare(Container(9000).ListItem.Property(widgetPanelInfo),Enabled) + Control.HasFocus($PARAM[id])]</visible>
+		<animation effect="slide" end="0,950" condition="!Skin.HasSetting(lowermainmenu)">Conditional</animation>
+	</include>
+	<include name="InfoVisible2">
+		<visible>[Skin.HasSetting(Enable.PanelInfo) + Control.HasFocus($PARAM[id])] | [!Skin.HasSetting(Enable.PanelInfo) + StringCompare(Container(9000).ListItem.Property(widgetPanelInfo.2),Enabled) + Control.HasFocus($PARAM[id])]</visible>
+		<animation effect="slide" end="0,-950" condition="!Skin.HasSetting(lowermainmenu)">Conditional</animation>
+	</include>
+	<include name="Info">
+		<!-- Poster -->
+		<control type="group">
+			<visible>IsEmpty(Container($PARAM[id]).ListItem.Property(Label3)) + IsEmpty(Container($PARAM[id]).ListItem.ChannelName) + IsEmpty(Container($PARAM[id]).ListItem.Artist) + IsEmpty(Container($PARAM[id]).ListItem.AlbumArtist) + IsEmpty(Container($PARAM[id]).ListItem.Property(Addon.Name)) + !$PARAM[widgetSquare]</visible>
+			<include name="InfoContent">
+				<param name="id">$PARAM[id]</param>
+				<param name="Texture">$PARAM[Texture]</param>
+				<param name="Title">$PARAM[Title]</param>
+				<param name="SubTitle">$PARAM[SubTitle]</param>
+				<param name="Info1">$PARAM[Info1]</param>
+				<param name="Info2">$PARAM[Info2]</param>
+				<param name="Plot">$PARAM[Plot]</param>
+				<param name="widthBack">$PARAM[widthBack]</param>
+				<param name="isSquare">false</param>
+				<param name="Left">$PARAM[Left1]</param>
+				<param name="Width">$PARAM[Width1]</param>
+			</include>
+		</control>
+		<!-- Square -->
+		<control type="group">
+			<visible>!IsEmpty(Container($PARAM[id]).ListItem.Property(Label3)) | !IsEmpty(Container($PARAM[id]).ListItem.Artist) | !IsEmpty(Container($PARAM[id]).ListItem.AlbumArtist) | !IsEmpty(Container($PARAM[id]).ListItem.Property(Addon.Name)) | $PARAM[widgetSquare]</visible>
+			<include name="InfoContent">
+				<param name="id">$PARAM[id]</param>
+				<param name="Texture">$PARAM[Texture]</param>
+				<param name="Aspect">scale</param>
+				<param name="Align">center</param>
+				<param name="Title">$PARAM[Title]</param>
+				<param name="SubTitle">$PARAM[SubTitle]</param>
+				<param name="Info1">$PARAM[Info1]</param>
+				<param name="Info2">$PARAM[Info2]</param>
+				<param name="Plot">$PARAM[Plot]</param>
+				<param name="widthBack">$PARAM[widthBack]</param>
+				<param name="isSquare">true</param>
+				<param name="Left">$PARAM[Left2]</param>
+				<param name="Width">$PARAM[Width2]</param>
+			</include>
+		</control>
+		<!-- Square - Keep Aspect -->
+		<control type="group">
+			<visible>!IsEmpty(Container($PARAM[id]).ListItem.ChannelName)</visible>
+			<include name="InfoContent">
+				<param name="id">$PARAM[id]</param>
+				<param name="Texture">$PARAM[Texture]</param>
+				<param name="Aspect">keep</param>
+				<param name="Align">center</param>
+				<param name="Title">$PARAM[Title]</param>
+				<param name="SubTitle">$PARAM[SubTitle]</param>
+				<param name="Info1">$PARAM[Info1]</param>
+				<param name="Info2">$PARAM[Info2]</param>
+				<param name="Plot">$PARAM[Plot]</param>
+				<param name="widthBack">$PARAM[widthBack]</param>
+				<param name="isSquare">true</param>
+				<param name="Left">$PARAM[Left2]</param>
+				<param name="Width">$PARAM[Width2]</param>
+			</include>
+		</control>
+	</include>
+	<include name="InfoContent">
+		<control type="image">
+			<top>-40</top>
+			<width>$PARAM[widthBack]</width>
+			<height>390</height>
+			<texture>homewidgets/list_shadow.png</texture>
+			<animation effect="fade" time="300" tween="sine" easing="inout">VisibleChange</animation>
+		</control>
+		<!-- Poster Art -->
+		<control type="group">
+			<visible>!$PARAM[isSquare]</visible>
+			<control type="image">
+				<left>-20</left>
+				<top>-20</top>
+				<width>246</width>
+				<height>350</height>
+				<texture colordiffuse="11FFFFFF">back.png</texture>
+				<fadetime>400</fadetime>
+				<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
+				<bordersize>20</bordersize>
+				<visible>IsEmpty(Window(Home).Property(Widget.CaseHome)) | SubString(Window(Home).Property(Widget.CaseHome),-)</visible>
+			</control>
+			<control type="image">
+				<width>206</width>
+				<height>310</height>
+				<texture background="true">$PARAM[Texture]</texture>
+				<fadetime>400</fadetime>
+				<visible>IsEmpty(Window(Home).Property(Widget.CaseHome)) | SubString(Window(Home).Property(Widget.CaseHome),-)</visible>
+			</control>
+			<control type="image">
+				<left>5</left>
+				<top>6</top>
+				<width>196</width>
+				<height>298</height>
+				<texture background="true">$PARAM[Texture]</texture>
+				<fadetime>400</fadetime>
+				<visible>Substring(Window(Home).Property(Widget.CaseHome),glass)</visible>
+			</control>
+			<control type="image">
+				<left>5</left>
+				<top>26</top>
+				<width>196</width>
+				<height>279</height>
+				<texture background="true">$PARAM[Texture]</texture>
+				<fadetime>400</fadetime>
+				<visible>Substring(Window(Home).Property(Widget.CaseHome),/case)</visible>
+			</control>
+			<control type="image">
+				<left>2</left>
+				<top>27</top>
+				<width>197</width>
+				<height>276</height>
+				<texture background="true">$PARAM[Texture]</texture>
+				<fadetime>400</fadetime>
+				<visible>Substring(Window(Home).Property(Widget.CaseHome),bdcase)</visible>
+			</control>
+			<control type="image">
+				<left>7</left>
+				<top>6</top>
+				<width>192</width>
+				<height>298</height>
+				<texture background="true">$PARAM[Texture]</texture>
+				<fadetime>400</fadetime>
+				<visible>Substring(Window(Home).Property(Widget.CaseHome),clearcase)</visible>
+			</control>
+			<control type="image">
+				<width>206</width>
+				<height>310</height>
+				<texture background="true">$VAR[HomeWidget$PARAM[id]InfoCaseVar]</texture>
+				<fadetime>400</fadetime>
+				<visible>!IsEmpty(Window(Home).Property(Widget.CaseHome))</visible>
+			</control>
+		</control>
+		<!-- Square Art -->
+		<control type="group">
+			<visible>$PARAM[isSquare]</visible>
+			<control type="image">
+				<left>-20</left>
+				<top>-20</top>
+				<width>350</width>
+				<height>350</height>
+				<texture colordiffuse="11FFFFFF">back.png</texture>
+				<fadetime>400</fadetime>
+				<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
+				<bordersize>20</bordersize>
+				<visible>IsEmpty(Window(Home).Property(Widget.CaseHome)) | SubString(Window(Home).Property(Widget.CaseHome),-)</visible>
+			</control>
+			<control type="image">
+				<width>310</width>
+				<height>310</height>
+				<aspectratio aligny="$PARAM[Align]">$PARAM[Aspect]</aspectratio>
+				<texture background="true">$PARAM[Texture]</texture>
+				<fadetime>400</fadetime>
+				<visible>IsEmpty(Window(Home).Property(Widget.CaseHome)) | SubString(Window(Home).Property(Widget.CaseHome),-)</visible>
+			</control>
+			<control type="image">
+				<left>6</left>
+				<top>6</top>
+				<width>298</width>
+				<height>298</height>
+				<aspectratio aligny="$PARAM[Align]">$PARAM[Aspect]</aspectratio>
+				<texture background="true">$PARAM[Texture]</texture>
+				<fadetime>400</fadetime>
+				<visible>Substring(Window(Home).Property(Widget.CaseHome),glass)</visible>
+			</control>
+			<control type="image">
+				<left>28</left>
+				<top>4</top>
+				<width>278</width>
+				<height>302</height>
+				<aspectratio aligny="$PARAM[Align]">$PARAM[Aspect]</aspectratio>
+				<texture background="true">$PARAM[Texture]</texture>
+				<fadetime>400</fadetime>
+				<visible>Substring(Window(Home).Property(Widget.CaseHome),case)</visible>
+			</control>
+			<control type="image">
+				<width>310</width>
+				<height>310</height>
+				<texture background="true">$VAR[HomeWidget$PARAM[id]InfoCaseVar]</texture>
+				<fadetime>400</fadetime>
+				<visible>!IsEmpty(Window(Home).Property(Widget.CaseHome))</visible>
+			</control>
+		</control>
+		<control type="grouplist">
+			<left>$PARAM[Left]</left>
+			<top>-2</top>
+			<height>313</height>
+			<itemgap>10</itemgap>
+			<!-- Title -->
+			<control type="label">
+				<width>$PARAM[Width]</width>
+				<height>25</height>
+				<font>Font_Reg32_2</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<scroll>true</scroll>
+				<label>$PARAM[Title]</label>
+			</control>
+			<!-- SubTitle -->
+			<control type="label">
+				<width>$PARAM[Width]</width>
+				<height>25</height>
+				<font>Font_Reg33_Caps</font>
+				<textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<scroll>true</scroll>
+				<label>$PARAM[SubTitle]</label>
+			</control>
+			<control type="label">
+				<height>0.5</height>
+				<label>-</label>
+			</control>
+			<!-- Info 1 -->
+			<control type="label">
+				<width>$PARAM[Width]</width>
+				<height>25</height>
+				<font>Font_Reg32_2</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<label>$PARAM[Info1]</label>
+			</control>
+			<!-- Info 2 -->
+			<control type="label">
+				<width>$PARAM[Width]</width>
+				<height>25</height>
+				<font>Font_Reg32_2</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<label>$PARAM[Info2]</label>
+			</control>
+			<control type="label">
+				<height>0.5</height>
+				<label>-</label>
+			</control>
+			<!-- Plot -->
+			<control type="textbox">
+				<width>$PARAM[Width]</width>
+				<height>149</height>
+				<font>Font_Reg30</font>
+				<align>justify</align>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(AutoScroll)</autoscroll>
+				<label>$PARAM[Plot]</label>
+			</control>
+		</control>
+	</include>
+	<!-- ******* NAVIGATION ******** -->
+	<include name="HorizontalNavigation1">
+		<onup condition="Skin.HasSetting(lowermainmenu) + Control.IsVisible(90020)">90020</onup>
+		<onup condition="Skin.HasSetting(lowermainmenu) + !Control.IsVisible(90020)">9000</onup>
+		<onup condition="!Skin.HasSetting(lowermainmenu)">9000</onup>
+		<ondown>9000</ondown>
+	</include>
+	<include name="HorizontalNavigation2">
+		<onup>9000</onup>
+		<ondown condition="Skin.HasSetting(lowermainmenu) + Control.IsVisible(90010)">90010</ondown>
+		<ondown condition="Skin.HasSetting(lowermainmenu) + !Control.IsVisible(90010)">9000</ondown>
+		<ondown condition="!Skin.HasSetting(lowermainmenu) + Skin.HasSetting(bottomindicator)">9011</ondown>
+		<ondown condition="!Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(bottomindicator)">9000</ondown>
+	</include>
+	<include name="VerticalNavigation1">
+		<onleft>9000</onleft>
+		<onright condition="Skin.HasSetting(lowermainmenu) + Control.IsVisible(90020)">90020</onright>
+		<onright condition="Skin.HasSetting(lowermainmenu) + !Control.IsVisible(90020)">9000</onright>
+		<onright condition="!Skin.HasSetting(lowermainmenu)">9000</onright>
+	</include>
+	<include name="VerticalNavigation2">
+		<onleft condition="Skin.HasSetting(lowermainmenu) + Control.IsVisible(90010)">90010</onleft>
+		<onleft condition="Skin.HasSetting(lowermainmenu) + !Control.IsVisible(90010)">9000</onleft>
+		<onleft condition="!Skin.HasSetting(lowermainmenu)">9000</onleft>
+		<onright condition="Skin.HasSetting(lowermainmenu)">9000</onright>
+		<onright condition="!Skin.HasSetting(lowermainmenu) + Skin.HasSetting(bottomindicator)">SetFocus(9011)</onright>
+		<onright condition="!Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(bottomindicator)">9000</onright>
+	</include>
+	<include name="MixedLeftNavigation1">
+		<onleft>9000</onleft>
+	</include>
+	<include name="MixedRightNavigation1">
+		<onright condition="Control.IsVisible(90020)">90020</onright>
+		<onright condition="!Control.IsVisible(90020)">9000</onright>
+	</include>
+	<include name="MixedLeftNavigation2">
+		<onleft condition="Skin.HasSetting(lowermainmenu) + Control.IsVisible(90010)">90010</onleft>
+		<onleft condition="Skin.HasSetting(lowermainmenu) + !Control.IsVisible(90010)">9000</onleft>
+		<onleft condition="!Skin.HasSetting(lowermainmenu)">9000</onleft>
+	</include>
+	<include name="MixedRightNavigation2">
+		<onright condition="Skin.HasSetting(lowermainmenu)">9000</onright>
+		<onright condition="!Skin.HasSetting(lowermainmenu) + Skin.HasSetting(bottomindicator)">SetFocus(9011)</onright>
+		<onright condition="!Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(bottomindicator)">9000</onright>
+	</include>
+	<!-- ******* List WIDGETS ******** -->
+	<!-- List Artwork  -->
+	<include name="ListPortraitArt">
+		<control type="group">
+			<include>HomeWidgetTrans</include>
+			<control type="image">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[topArt]</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[heightArt]</height>
+				<aspectratio aligny="$PARAM[Aligny]">$PARAM[Aspect]</aspectratio>
+				<texture fallback="DefaultMovies.png">$PARAM[Texture]</texture>
+			</control>
+			<control type="image">
+				<left>$PARAM[leftCase]</left>
+				<top>$PARAM[topCase]</top>
+				<width>$PARAM[widthCase]</width>
+				<height>$PARAM[heightCase]</height>
+				<texture>$PARAM[Case]</texture>
+				<visible>$PARAM[caseVisible]</visible>
+			</control>
+		</control>
+	</include>
+	<include name="ListSquareArt">
+		<control type="group">
+			<include>HomeWidgetTrans</include>
+			<control type="image">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[topArt]</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[heightArt]</height>
+				<aspectratio aligny="$PARAM[Aligny]">$PARAM[Aspect]</aspectratio>
+				<texture fallback="DefaultMusicAlbums.png">$PARAM[Texture]</texture>
+				<visible>!$PARAM[fallbackVisible]</visible>
+			</control>
+			<control type="image">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[topFakeDiscArt]</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[widthArt]</height>
+				<aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
+				<texture diffuse="homewidgets/cdart-mask.png" fallback="DefaultMusicAlbums.png">$INFO[Container($PARAM[id]).ListItem.Art(thumb)]</texture>
+				<visible>$PARAM[fallbackVisible]</visible>
+			</control>
+			<control type="image">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[topArt]</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[heightArt]</height>
+				<aspectratio>$PARAM[Aspect]</aspectratio>
+				<texture>homewidgets/cdarttop.png</texture>
+				<visible>$PARAM[fallbackVisible]</visible>
+			</control>
+			<control type="image">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[topArt]</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[heightArt]</height>
+				<aspectratio>$PARAM[Aspect]</aspectratio>
+				<texture>$VAR[HomeWidgetFakeDiscArtVar]</texture>
+				<visible>$PARAM[fallbackVisible]</visible>
+			</control>
+			<control type="image">
+				<left>$PARAM[leftCase]</left>
+				<top>$PARAM[topCase]</top>
+				<width>$PARAM[widthCase]</width>
+				<height>$PARAM[heightCase]</height>
+				<texture>$PARAM[Case]</texture>
+			</control>
+		</control>
+	</include>
+	<include name="ListLandscapeArt">
+		<control type="group">
+			<include>HomeWidgetTrans</include>
+			<control type="image">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[topArt]</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[heightArt]</height>
+				<aspectratio aligny="$PARAM[Aligny]">$PARAM[Aspect]</aspectratio>
+				<texture fallback="DefaultMovies.png">$PARAM[Texture]</texture>
+				<visible>![$PARAM[fallbackVisible]]</visible>
+			</control>
+			<control type="label">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[topArt]</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[heightArt]</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textoffsetx>7</textoffsetx>
+				<font>$PARAM[fallbackFont]</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<label>$PARAM[Title2]</label>
+				<visible>$PARAM[fallbackVisible]</visible>
+			</control>
+			<control type="image">
+				<left>$PARAM[leftCase]</left>
+				<top>$PARAM[topCase]</top>
+				<width>$PARAM[widthCase]</width>
+				<height>$PARAM[heightCase]</height>
+				<texture>$PARAM[Case]</texture>
+				<visible>$PARAM[caseVisible]</visible>
+			</control>
+		</control>
+	</include>
+	<!-- List Container Content  -->
+	<include name="ListBannerArt">
+		<itemlayout width="300" height="61">
+			<control type="group">
+				<include>HomeWidgetTrans</include>
+				<control type="image">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[heightArt]</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>$VAR[HomeWidgetBannerVar]</texture>
+				</control>
+				<control type="image">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[heightArt]</height>
+					<aspectratio aligny="top">scale</aspectratio>
+					<texture fallback="DefaultMovies.png">$VAR[HomeWidgetFanArtVar]</texture>
+					<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner))</visible>
+				</control>
+				<control type="image">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[heightArt]</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$VAR[HomeWidgetClearLogoVar]</texture>
+					<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner))</visible>
+				</control>
+				<control type="label">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[heightArt]</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>7</textoffsetx>
+					<font>$PARAM[fallbackFont]</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>$VAR[HomeWidgetTitle2Var]</label>
+					<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner)) + IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))</visible>
+				</control>
+				<control type="image">
+					<left>$PARAM[leftCase]</left>
+					<top>$PARAM[topCase]</top>
+					<width>$PARAM[widthCase]</width>
+					<height>$PARAM[heightCase]</height>
+					<texture>$PARAM[Case]</texture>
+				</control>
+			</control>
+		</itemlayout>
+		<focusedlayout width="300" height="61">
+			<control type="group">
+				<animation type="Focus" reversible="false">
+					<effect type="zoom" start="95" end="100" time="300" tween="sine" easing="inout" center="auto" />
+				</animation>
+				<control type="image">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[heightArt]</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>$VAR[HomeWidgetBannerVar]</texture>
+				</control>
+				<control type="image">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[heightArt]</height>
+					<aspectratio aligny="top">scale</aspectratio>
+					<texture fallback="DefaultMovies.png">$VAR[HomeWidgetFanArtVar]</texture>
+					<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner))</visible>
+				</control>
+				<control type="image">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[heightArt]</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$VAR[HomeWidgetClearLogoVar]</texture>
+					<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner))</visible>
+				</control>
+				<control type="label">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[heightArt]</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>7</textoffsetx>
+					<font>$PARAM[fallbackFont]</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>$VAR[HomeWidgetTitle2Var]</label>
+					<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner)) + IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))</visible>
+				</control>
+				<control type="image">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[heightArt]</height>
+					<texture colordiffuse="$VAR[WidgetHighlightBarColor]" border="4">listselect_fo.png</texture>
+					<visible>Control.HasFocus($PARAM[id])</visible>
+				</control>
+				<control type="image">
+					<left>$PARAM[leftCase]</left>
+					<top>$PARAM[topCase]</top>
+					<width>$PARAM[widthCase]</width>
+					<height>$PARAM[heightCase]</height>
+					<texture>$PARAM[Case]</texture>
+				</control>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="List">
+		<itemlayout height="50" width="300">
+			<control type="group">
+				<include>HomeWidgetTrans</include>
+				<control type="image">
+					<width>300</width>
+					<height>50</height>
+					<texture border="1">separator2.png</texture>
+				</control>
+				<control type="label">
+					<width>300</width>
+					<height>50</height>
+					<font>Font_Bold26_Caps</font>
+					<textoffsetx>15</textoffsetx>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+			</control>
+		</itemlayout>
+		<focusedlayout height="50" width="300">
+			<control type="image">
+				<width>300</width>
+				<height>50</height>
+				<texture border="1">separator2.png</texture>
+				<visible>!Control.HasFocus($PARAM[id])</visible>
+			</control>
+			<control type="image">
+				<width>300</width>
+				<height>50</height>
+				<texture colordiffuse="$VAR[WidgetHighlightBarColor]" border="5">listselect_fo.png</texture>
+				<visible>Control.HasFocus($PARAM[id])</visible>
+			</control>
+			<control type="label">
+				<width>300</width>
+				<height>50</height>
+				<font>Font_Bold26_Caps</font>
+				<textoffsetx>15</textoffsetx>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="ListSystem">
+		<itemlayout height="50" width="300">
+			<control type="group">
+				<include>HomeWidgetTrans</include>
+				<control type="image">
+					<width>300</width>
+					<height>50</height>
+					<texture border="1">separator2.png</texture>
+				</control>
+				<control type="image">
+					<left>5</left>
+					<top>5</top>
+					<width>40</width>
+					<height>40</height>
+					<texture>$INFO[ListItem.Icon]</texture>
+				</control>
+				<control type="label">
+					<left>40</left>
+					<width>260</width>
+					<height>50</height>
+					<font>Font_Bold26_Caps</font>
+					<textoffsetx>15</textoffsetx>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>$INFO[ListItem.Label2]</label>
+				</control>
+			</control>
+		</itemlayout>
+		<focusedlayout height="50" width="300">
+			<control type="image">
+				<width>300</width>
+				<height>50</height>
+				<texture border="1">separator2.png</texture>
+				<visible>!Control.HasFocus($PARAM[id])</visible>
+			</control>
+			<control type="image">
+				<width>300</width>
+				<height>50</height>
+				<texture colordiffuse="$VAR[WidgetHighlightBarColor]" border="5">listselect_fo.png</texture>
+				<visible>Control.HasFocus($PARAM[id])</visible>
+			</control>
+			<control type="image">
+				<left>5</left>
+				<top>5</top>
+				<width>40</width>
+				<height>40</height>
+				<texture>$INFO[ListItem.Icon]</texture>
+			</control>
+			<control type="label">
+				<left>40</left>
+				<width>240</width>
+				<height>50</height>
+				<font>Font_Bold26_Caps</font>
+				<textoffsetx>15</textoffsetx>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<label>$INFO[ListItem.Label2]</label>
+			</control>
+		</focusedlayout>
+	</include>
+	<!-- ******* PANEL WIDGETS ******** -->
+	<!-- Panel Background -->
+	<include name="PanelBack">
+		<control type="image">
+			<left></left>
+			<centerleft>50%</centerleft>
+			<top>-21</top>
+			<width>$PARAM[backWidth]</width>
+			<height>$PARAM[backHeight]</height>
+			<visible>Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
+			<texture colordiffuse="$VAR[HomeWidgetBackColor]" border="40">$VAR[HomeWidgetBackgroundVar]</texture>
+			<include>HomeWidgetTrans</include>
+		</control>
+		<control type="image">
+			<left></left>
+			<centerleft>50%</centerleft>
+			<top>-21</top>
+			<width>$PARAM[backWidth]</width>
+			<height>$PARAM[backHeight]</height>
+			<visible>!Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
+			<texture colordiffuse="$PARAM[backColor]" border="40">$PARAM[Texture]</texture>
+			<include>HomeWidgetTrans</include>
+		</control>
+	</include>
+	<!-- Title Labels -->
+	<include name="PanelLabel">
+		<control type="label">
+			<top>$PARAM[labelBottom]</top>
+			<left></left>
+			<centerleft>50%</centerleft>
+			<width>$PARAM[labelWidth]</width>
+			<height>auto</height>
+			<align>center</align>
+			<font>$PARAM[labelFont]</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<label>$PARAM[Label]</label>
+			<visible>!$PARAM[labelTitle]</visible>
+		</control>
+		<control type="label">
+			<top>$PARAM[labelBottom]</top>
+			<left>$PARAM[labelLeft]</left>
+			<width>$PARAM[labelWidth]</width>
+			<height>auto</height>
+			<align>left</align>
+			<font>$PARAM[labelFont]</font>
+			<textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<label>$PARAM[Title]</label>
+			<visible>Control.HasFocus($PARAM[id]) + $PARAM[labelTitle]</visible>
+		</control>
+		<control type="label">
+			<top>$PARAM[labelBottom]</top>
+			<left>$PARAM[labelRight]</left>
+			<width>$PARAM[labelWidth]</width>
+			<height>auto</height>
+			<align>right</align>
+			<font>$PARAM[labelFont]</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<label>$PARAM[Label]</label>
+			<visible>$PARAM[labelTitle]</visible>
+		</control>
+	</include>
+	<!-- Mixed Title Labels -->
+	<include name="PanelLabelMixed">
+		<!-- Widget Label A -->
+		<control type="label">
+			<top>$PARAM[labelBottom]</top>
+			<left>$PARAM[Left.a]</left>
+			<width>$PARAM[Width.a]</width>
+			<height>auto</height>
+			<align>$PARAM[Align.a]</align>
+			<font>$PARAM[labelFont]</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<label>$PARAM[Label]</label>
+			<visible>!$PARAM[labelTitle] | [!Control.HasFocus($PARAM[id]) + !Control.HasFocus($PARAM[id.b]) + !Control.HasFocus($PARAM[id.c]) + !Control.HasFocus($PARAM[id.d])]</visible>
+		</control>
+		<!-- Widget Label B -->
+		<control type="label">
+			<top>$PARAM[labelBottom]</top>
+			<left>$PARAM[Left.b]</left>
+			<width>$PARAM[Width.b]</width>
+			<height>auto</height>
+			<align>$PARAM[Align.b]</align>
+			<font>$PARAM[labelFont]</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<label>$PARAM[Label.b]</label>
+			<visible>!$PARAM[labelTitle] | [!Control.HasFocus($PARAM[id]) + !Control.HasFocus($PARAM[id.b]) + !Control.HasFocus($PARAM[id.c]) + !Control.HasFocus($PARAM[id.d])]</visible>
+		</control>
+		<!-- Widget Label C -->
+		<control type="label">
+			<top>$PARAM[labelBottom]</top>
+			<left>$PARAM[Left.c]</left>
+			<width>$PARAM[Width.c]</width>
+			<height>auto</height>
+			<align>$PARAM[Align.c]</align>
+			<font>$PARAM[labelFont]</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<label>$PARAM[Label.c]</label>
+			<visible>!$PARAM[labelTitle] | [!Control.HasFocus($PARAM[id]) + !Control.HasFocus($PARAM[id.b]) + !Control.HasFocus($PARAM[id.c]) + !Control.HasFocus($PARAM[id.d])]</visible>
+		</control>
+		<!-- Widget Label D -->
+		<control type="label">
+			<top>$PARAM[labelBottom]</top>
+			<left>$PARAM[Left.d]</left>
+			<width>$PARAM[Width.d]</width>
+			<height>auto</height>
+			<align>$PARAM[Align.d]</align>
+			<font>$PARAM[labelFont]</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<label>$PARAM[Label.d]</label>
+			<visible>!$PARAM[labelTitle] | [!Control.HasFocus($PARAM[id]) + !Control.HasFocus($PARAM[id.b]) + !Control.HasFocus($PARAM[id.c]) + !Control.HasFocus($PARAM[id.d])]</visible>
+		</control>
+		<!-- Widget Label Title A -->
+		<control type="label">
+			<top>$PARAM[labelBottom]</top>
+			<left>$PARAM[Left.a]</left>
+			<width>$PARAM[Width]</width>
+			<height>auto</height>
+			<align>left</align>
+			<font>$PARAM[labelFont]</font>
+			<textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<label>$PARAM[Title]</label>
+			<visible>Control.HasFocus($PARAM[id]) + $PARAM[labelTitle]</visible>
+		</control>
+		<control type="label">
+			<top>$PARAM[labelBottom]</top>
+			<left>$PARAM[Right]</left>
+			<width>$PARAM[Width]</width>
+			<height>auto</height>
+			<align>right</align>
+			<font>$PARAM[labelFont]</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<label>$PARAM[Label]</label>
+			<visible>Control.HasFocus($PARAM[id]) + $PARAM[labelTitle]</visible>
+		</control>
+		<!-- Widget Label Title B -->
+		<control type="label">
+			<top>$PARAM[labelBottom]</top>
+			<left>$PARAM[Left.a]</left>
+			<width>$PARAM[Width]</width>
+			<height>auto</height>
+			<align>left</align>
+			<font>$PARAM[labelFont]</font>
+			<textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<label>$PARAM[Title.b]</label>
+			<visible>Control.HasFocus($PARAM[id.b]) + $PARAM[labelTitle]</visible>
+		</control>
+		<control type="label">
+			<top>$PARAM[labelBottom]</top>
+			<left>$PARAM[Right]</left>
+			<width>$PARAM[Width]</width>
+			<height>auto</height>
+			<align>right</align>
+			<font>$PARAM[labelFont]</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<label>$PARAM[Label.b]</label>
+			<visible>Control.HasFocus($PARAM[id.b]) + $PARAM[labelTitle]</visible>
+		</control>
+		<!-- Widget Label Title C -->
+		<control type="label">
+			<top>$PARAM[labelBottom]</top>
+			<left>$PARAM[Left.a]</left>
+			<width>$PARAM[Width]</width>
+			<height>auto</height>
+			<align>left</align>
+			<font>$PARAM[labelFont]</font>
+			<textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<label>$PARAM[Title.c]</label>
+			<visible>Control.HasFocus($PARAM[id.c]) + $PARAM[labelTitle]</visible>
+		</control>
+		<control type="label">
+			<top>$PARAM[labelBottom]</top>
+			<left>$PARAM[Right]</left>
+			<width>$PARAM[Width]</width>
+			<height>auto</height>
+			<align>right</align>
+			<font>$PARAM[labelFont]</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<label>$PARAM[Label.c]</label>
+			<visible>Control.HasFocus($PARAM[id.c]) + $PARAM[labelTitle]</visible>
+		</control>
+		<!-- Widget Label Title D -->
+		<control type="label">
+			<top>$PARAM[labelBottom]</top>
+			<left>$PARAM[Left.a]</left>
+			<width>$PARAM[Width]</width>
+			<height>auto</height>
+			<align>left</align>
+			<font>$PARAM[labelFont]</font>
+			<textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<label>$PARAM[Title.d]</label>
+			<visible>Control.HasFocus($PARAM[id.d]) + $PARAM[labelTitle]</visible>
+		</control>
+		<control type="label">
+			<top>$PARAM[labelBottom]</top>
+			<left>$PARAM[Right]</left>
+			<width>$PARAM[Width]</width>
+			<height>auto</height>
+			<align>right</align>
+			<font>$PARAM[labelFont]</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<label>$PARAM[Label.d]</label>
+			<visible>Control.HasFocus($PARAM[id.d]) + $PARAM[labelTitle]</visible>
+		</control>
+	</include>
+	<!-- Mixed Panel Labels -->
+	<include name="LabelMixed">
+		<!-- Textures -->
+		<control type="image">
+			<left>$PARAM[Left]</left>
+			<top>0</top>
+			<width>$PARAM[Width]</width>
+			<height>$PARAM[Height]</height>
+			<texture>homewidgets/label_back_mixed.png</texture>
+			<visible>[!Control.HasFocus($PARAM[id]) + $PARAM[labelVisible] + !$PARAM[isWeather]] | [!Control.HasFocus($PARAM[id]) + $PARAM[labelVisible] + $PARAM[isWeather] + $PARAM[weatherFanArt]]</visible>
+		</control>
+		<control type="image">
+			<left>$PARAM[Left]</left>
+			<top>0</top>
+			<width>$PARAM[Width]</width>
+			<height>$PARAM[Height]</height>
+			<texture>homewidgets/label_back_mixed.png</texture>
+			<visible>[Control.HasFocus($PARAM[id]) + $PARAM[labelFocusVisible] + !$PARAM[isWeather]] | [Control.HasFocus($PARAM[id]) + $PARAM[labelFocusVisible] + $PARAM[isWeather] + $PARAM[weatherFanArt]]</visible>
+		</control>
+		<control type="group">
+			<left>$PARAM[Left]</left>
+			<top>$PARAM[labelTop]</top>
+			<!-- Label Left -->
+			<control type="button">
+				<width>$PARAM[Width]</width>
+				<height>30</height>
+				<aligny>center</aligny>
+				<align>left</align>
+				<textoffsetx>7</textoffsetx>
+				<font>$PARAM[labelFont]</font>
+				<textcolor>white</textcolor>
+				<label>$PARAM[Title]</label>
+				<label2>$PARAM[titleRight]</label2>
+				<texturefocus>-</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<onclick>noop</onclick>
+				<visible>!Control.HasFocus($PARAM[id]) + $PARAM[labelVisible] + !$PARAM[isWeather]</visible>
+			</control>
+			<control type="button">
+				<width>$PARAM[Width]</width>
+				<height>30</height>
+				<aligny>center</aligny>
+				<align>left</align>
+				<textoffsetx>7</textoffsetx>
+				<font>$PARAM[labelFont]</font>
+				<textcolor>white</textcolor>
+				<label>$PARAM[Title]</label>
+				<label2>$PARAM[titleRight]</label2>
+				<texturefocus>-</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<onclick>noop</onclick>
+				<visible>Control.HasFocus($PARAM[id]) + $PARAM[labelFocusVisible] + !$PARAM[isWeather]</visible>
+			</control>
+			<control type="button">
+				<width>$PARAM[Width]</width>
+				<height>30</height>
+				<aligny>center</aligny>
+				<align>left</align>
+				<textoffsetx>7</textoffsetx>
+				<font>$PARAM[labelFont]</font>
+				<textcolor>white</textcolor>
+				<label>$PARAM[Title]</label>
+				<label2>$PARAM[titleRight]</label2>
+				<texturefocus>-</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<onclick>noop</onclick>
+				<visible>!Control.HasFocus($PARAM[id]) + $PARAM[labelVisible] + $PARAM[isWeather] + $PARAM[weatherFanArt]</visible>
+			</control>
+			<control type="button">
+				<width>$PARAM[Width]</width>
+				<height>30</height>
+				<aligny>center</aligny>
+				<align>left</align>
+				<textoffsetx>7</textoffsetx>
+				<font>$PARAM[labelFont]</font>
+				<textcolor>white</textcolor>
+				<label>$PARAM[Title]</label>
+				<label2>$PARAM[titleRight]</label2>
+				<texturefocus>-</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<onclick>noop</onclick>
+				<visible>Control.HasFocus($PARAM[id]) + $PARAM[labelFocusVisible] + $PARAM[isWeather] + $PARAM[weatherFanArt]</visible>
+			</control>
+		</control>
+	</include>
+	<!-- Panel Container Content -->
+	<include name="PortraitArt">
+		<itemlayout width="$PARAM[containerWidth]" height="$PARAM[containerHeight]">
+			<control type="image">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[topArt]</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[heightArt]</height>
+				<aspectratio aligny="$PARAM[Aligny]">$PARAM[Aspect]</aspectratio>
+				<texture fallback="DefaultMovies.png">$PARAM[Texture]</texture>
+				<include>HomeWidgetTrans</include>
+			</control>
+			<control type="image">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[topArt]</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[heightArt]</height>
+				<texture>homewidgets/label_back_poster.png</texture>
+				<visible>$PARAM[labelVisible]</visible>
+			</control>
+			<control type="label">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[topArt]r</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[labelHeight]</height>
+				<aligny>center</aligny>
+				<align>center</align>
+				<textoffsetx>7</textoffsetx>
+				<font>$PARAM[labelFont]</font>
+				<textcolor>white</textcolor>
+				<label>$VAR[HomeWidgetTitleVar]</label>
+				<visible>$PARAM[labelVisible]</visible>
+			</control>
+			<control type="image">
+				<left>$PARAM[leftCase]</left>
+				<top>$PARAM[topCase]</top>
+				<width>$PARAM[widthCase]</width>
+				<height>$PARAM[heightCase]</height>
+				<aspectratio aligny="$PARAM[caseAligny]">$PARAM[caseAspect]</aspectratio>
+				<texture>$PARAM[Case]</texture>
+				<include>HomeWidgetTrans</include>
+			</control>
+		</itemlayout>
+		<focusedlayout width="$PARAM[containerWidth]" height="$PARAM[containerHeight]">
+			<control type="group">
+				<animation  type="Focus" reversible="false">
+					<effect type="zoom" start="95" end="100" time="300" tween="sine" easing="inout" center="auto" />
+				</animation>
+				<control type="image">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[heightArt]</height>
+					<aspectratio aligny="$PARAM[Aligny]">$PARAM[Aspect]</aspectratio>
+					<texture fallback="DefaultMovies.png">$PARAM[Texture]</texture>
+				</control>
+				<control type="image">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[heightArt]</height>
+					<texture colordiffuse="$VAR[WidgetHighlightBarColor]" border="4">listselect_fo.png</texture>
+				</control>
+				<control type="image">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[heightArt]</height>
+					<texture>homewidgets/label_back_poster.png</texture>
+					<visible>$PARAM[labelFocusVisible]</visible>
+				</control>
+				<control type="label">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]r</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[labelHeight]</height>
+					<aligny>center</aligny>
+					<align>center</align>
+					<textoffsetx>7</textoffsetx>
+					<font>$PARAM[labelFont]</font>
+					<textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+					<label>$VAR[HomeWidgetTitleVar]</label>
+					<visible>$PARAM[labelFocusVisible]</visible>
+				</control>
+				<control type="image">
+					<left>$PARAM[leftCase]</left>
+					<top>$PARAM[topCase]</top>
+					<width>$PARAM[widthCase]</width>
+					<height>$PARAM[heightCase]</height>
+					<aspectratio aligny="$PARAM[caseAligny]">$PARAM[caseAspect]</aspectratio>
+					<texture>$PARAM[Case]</texture>
+				</control>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="SquareArt">
+		<itemlayout width="$PARAM[containerWidth]" height="$PARAM[containerHeight]">
+			<control type="image">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[topArt]</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[heightArt]</height>
+				<aspectratio aligny="$PARAM[Aligny]">$PARAM[Aspect]</aspectratio>
+				<texture fallback="DefaultMusicAlbums.png">$PARAM[Texture]</texture>
+				<visible>!$PARAM[fallbackVisible] + !$PARAM[isWeather]</visible>
+				<include>HomeWidgetTrans</include>
+			</control>
+			<control type="image">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[weatherTop]</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[weatherHeight]</height>
+				<aspectratio aligny="center">keep</aspectratio>
+				<texture>$PARAM[Texture]</texture>
+				<visible>$PARAM[isWeather]</visible>
+				<include>HomeWidgetTrans</include>
+			</control>
+			<control type="image">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[topFakeDiscArt]</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[widthArt]</height>
+				<aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
+				<texture diffuse="homewidgets/cdart-mask.png" fallback="DefaultMusicAlbums.png">$INFO[ListItem.Art(thumb)]</texture>
+				<visible>$PARAM[fallbackVisible]</visible>
+				<include>HomeWidgetTrans</include>
+			</control>
+			<control type="image">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[topFakeDiscArt]</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[widthArt]</height>
+				<aspectratio>$PARAM[Aspect]</aspectratio>
+				<texture>homewidgets/cdarttop.png</texture>
+				<visible>$PARAM[fallbackVisible]</visible>
+				<include>HomeWidgetTrans</include>
+			</control>
+			<control type="image">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[topArt]</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[heightArt]</height>
+				<aspectratio>$PARAM[Aspect]</aspectratio>
+				<texture>$VAR[HomeWidgetFakeDiscArtVar]</texture>
+				<visible>$PARAM[fallbackVisible]</visible>
+				<include>HomeWidgetTrans</include>
+			</control>
+			<control type="image">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[topArt]</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[heightArt]</height>
+				<texture>homewidgets/label_back_square.png</texture>
+				<visible>$PARAM[labelVisible] + !$PARAM[isWeather]</visible>
+				<include>HomeWidgetTrans</include>
+			</control>
+			<control type="label">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[topArt]r</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[labelHeight]</height>
+				<aligny>center</aligny>
+				<align>center</align>
+				<textoffsetx>7</textoffsetx>
+				<font>$PARAM[labelFont]</font>
+				<textcolor>white</textcolor>
+				<label>$VAR[HomeWidgetTitleVar]</label>
+				<visible>$PARAM[labelVisible] + !$PARAM[isWeather]</visible>
+			</control>
+			<control type="label">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[weatherTop1]</top>
+				<width>$PARAM[widthArt]</width>
+				<height>30</height>
+				<font>$PARAM[weatherFont]</font>
+				<align>center</align>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<textoffsetx>7</textoffsetx>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>$PARAM[isWeather]</visible>
+			</control>
+			<control type="label">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[weatherTop2]</top>
+				<width>$PARAM[widthArt]</width>
+				<height>30</height>
+				<font>$PARAM[weatherFont]</font>
+				<align>center</align>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<textoffsetx>7</textoffsetx>
+				<label>$INFO[ListItem.Label2]</label>
+				<visible>$PARAM[isWeather]</visible>
+			</control>
+			<control type="label">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[weatherTop3]</top>
+				<width>$PARAM[widthArt]</width>
+				<height>30</height>
+				<font>$PARAM[weatherFont]</font>
+				<align>center</align>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<textoffsetx>7</textoffsetx>
+				<label>$INFO[ListItem.Property(Label3)]$INFO[ListItem.Property(Label4), ]</label>
+				<visible>$PARAM[isWeather]</visible>
+			</control>
+			<control type="image">
+				<left>$PARAM[leftCase]</left>
+				<top>$PARAM[topCase]</top>
+				<width>$PARAM[widthCase]</width>
+				<height>$PARAM[heightCase]</height>
+				<texture>$PARAM[Case]</texture>
+				<include>HomeWidgetTrans</include>
+			</control>
+		</itemlayout>
+		<focusedlayout width="$PARAM[containerWidth]" height="$PARAM[containerHeight]">
+			<control type="group">
+				<animation type="Focus" reversible="false">
+					<effect type="zoom" start="95" end="100" time="300" tween="sine" easing="inout" center="auto" />
+				</animation>
+				<control type="image">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[heightArt]</height>
+					<aspectratio aligny="$PARAM[Aligny]">$PARAM[Aspect]</aspectratio>
+					<texture fallback="DefaultMusicAlbums.png">$PARAM[Texture]</texture>
+					<visible>!$PARAM[fallbackVisible] + !$PARAM[isWeather]</visible>
+				</control>
+				<control type="image">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[weatherTop]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[weatherHeight]</height>
+					<aspectratio aligny="center">keep</aspectratio>
+					<texture>$PARAM[Texture]</texture>
+					<visible>$PARAM[isWeather]</visible>
+				</control>
+				<control type="image">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topFakeDiscArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[widthArt]</height>
+					<aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
+					<texture diffuse="homewidgets/cdart-mask.png" fallback="DefaultMusicAlbums.png">$INFO[ListItem.Art(thumb)]</texture>
+					<visible>$PARAM[fallbackVisible]</visible>
+				</control>
+				<control type="image">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topFakeDiscArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[widthArt]</height>
+					<aspectratio>$PARAM[Aspect]</aspectratio>
+					<texture>homewidgets/cdarttop.png</texture>
+					<visible>$PARAM[fallbackVisible]</visible>
+				</control>
+				<control type="image">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[heightArt]</height>
+					<aspectratio>$PARAM[Aspect]</aspectratio>
+					<texture>$VAR[HomeWidgetFakeDiscArtVar]</texture>
+					<visible>$PARAM[fallbackVisible]</visible>
+				</control>
+				<control type="image">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[heightArt]</height>
+					<texture colordiffuse="$VAR[WidgetHighlightBarColor]" border="4">listselect_fo.png</texture>
+				</control>
+				<control type="image">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[heightArt]</height>
+					<texture>homewidgets/label_back_square.png</texture>
+					<visible>$PARAM[labelFocusVisible] + !$PARAM[isWeather]</visible>
+				</control>
+				<control type="label">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]r</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[labelHeight]</height>
+					<aligny>center</aligny>
+					<align>center</align>
+					<textoffsetx>7</textoffsetx>
+					<font>$PARAM[labelFont]</font>
+					<textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+					<label>$VAR[HomeWidgetTitleVar]</label>
+					<visible>$PARAM[labelFocusVisible] + !$PARAM[isWeather]</visible>
+				</control>
+				<control type="label">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[weatherTop1]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>30</height>
+					<font>$PARAM[weatherFont]</font>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<textoffsetx>7</textoffsetx>
+					<label>$INFO[ListItem.Label]</label>
+					<visible>$PARAM[isWeather]</visible>
+				</control>
+				<control type="label">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[weatherTop2]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>30</height>
+					<font>$PARAM[weatherFont]</font>
+					<align>center</align>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<scroll>true</scroll>
+					<textoffsetx>7</textoffsetx>
+					<label>$INFO[ListItem.Label2]</label>
+					<visible>$PARAM[isWeather]</visible>
+				</control>
+				<control type="label">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[weatherTop3]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>30</height>
+					<font>$PARAM[weatherFont]</font>
+					<align>center</align>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<textoffsetx>7</textoffsetx>
+					<label>$INFO[ListItem.Property(Label3)]$INFO[ListItem.Property(Label4), ]</label>
+					<visible>$PARAM[isWeather]</visible>
+				</control>
+				<control type="image">
+					<left>$PARAM[leftCase]</left>
+					<top>$PARAM[topCase]</top>
+					<width>$PARAM[widthCase]</width>
+					<height>$PARAM[heightCase]</height>
+					<colordiffuse>$VAR[HomeWidgetTransVar]</colordiffuse>
+					<texture>$PARAM[Case]</texture>
+				</control>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="LandscapeArt">
+		<itemlayout width="$PARAM[containerWidth]" height="$PARAM[containerHeight]">
+			<control type="image">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[topArt]</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[heightArt]</height>
+				<aspectratio aligny="$PARAM[Aligny]">$PARAM[Aspect]</aspectratio>
+				<texture fallback="DefaultMovies.png">$PARAM[Texture]</texture>
+				<visible>![$PARAM[fallbackVisible]]</visible>
+				<include>HomeWidgetTrans</include>
+			</control>
+			<control type="label">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[topArt]</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[heightArt]</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textoffsetx>7</textoffsetx>
+				<font>$PARAM[fallbackFont]</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<label>$VAR[HomeWidgetTitle2Var]</label>
+				<visible>$PARAM[fallbackVisible]</visible>
+				<include>HomeWidgetTrans</include>
+			</control>
+			<control type="image">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[topArt]</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[heightArt]</height>
+				<texture>homewidgets/label_back_landscape.png</texture>
+				<visible>$PARAM[labelVisible]</visible>
+			</control>
+			<control type="label">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[topArt]r</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[labelHeight]</height>
+				<aligny>center</aligny>
+				<align>center</align>
+				<textoffsetx>7</textoffsetx>
+				<font>$PARAM[labelFont]</font>
+				<textcolor>white</textcolor>
+				<label>$VAR[HomeWidgetTitleVar]</label>
+				<visible>$PARAM[labelVisible]</visible>
+			</control>
+			<control type="image">
+				<left>$PARAM[leftCase]</left>
+				<top>$PARAM[topCase]</top>
+				<width>$PARAM[widthCase]</width>
+				<height>$PARAM[heightCase]</height>
+				<texture>$PARAM[Case]</texture>
+				<include>HomeWidgetTrans</include>
+			</control>
+		</itemlayout>
+		<focusedlayout width="$PARAM[containerWidth]" height="$PARAM[containerHeight]">
+			<control type="group">
+				<animation type="Focus" reversible="false">
+					<effect type="zoom" start="95" end="100" time="300" tween="sine" easing="inout" center="auto" />
+				</animation>
+				<control type="image">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[heightArt]</height>
+					<aspectratio aligny="$PARAM[Aligny]">$PARAM[Aspect]</aspectratio>
+					<texture fallback="DefaultMovies.png">$PARAM[Texture]</texture>
+					<visible>![$PARAM[fallbackVisible]]</visible>
+				</control>
+				<control type="label">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[heightArt]</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>7</textoffsetx>
+					<font>$PARAM[fallbackFont]</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>$VAR[HomeWidgetTitle2Var]</label>
+					<visible>$PARAM[fallbackVisible]</visible>
+				</control>
+				<control type="image">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[heightArt]</height>
+					<texture colordiffuse="$VAR[WidgetHighlightBarColor]" border="4">listselect_fo.png</texture>
+				</control>
+				<control type="image">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[heightArt]</height>
+					<texture>homewidgets/label_back_landscape.png</texture>
+					<visible>$PARAM[labelFocusVisible]</visible>
+				</control>
+				<control type="label">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]r</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[labelHeight]</height>
+					<aligny>center</aligny>
+					<align>center</align>
+					<textoffsetx>7</textoffsetx>
+					<font>$PARAM[labelFont]</font>
+					<textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+					<label>$VAR[HomeWidgetTitleVar]</label>
+					<visible>$PARAM[labelFocusVisible]</visible>
+				</control>
+				<control type="image">
+					<left>$PARAM[leftCase]</left>
+					<top>$PARAM[topCase]</top>
+					<width>$PARAM[widthCase]</width>
+					<height>$PARAM[heightCase]</height>
+					<texture>$PARAM[Case]</texture>
+				</control>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="BannerArt">
+		<itemlayout width="$PARAM[containerWidth]" height="$PARAM[containerHeight]">
+			<control type="image">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[topArt]</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[heightArt]</height>
+				<aspectratio>$PARAM[Aspect]</aspectratio>
+				<texture>$PARAM[Texture]</texture>
+				<include>HomeWidgetTrans</include>
+			</control>
+			<control type="image">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[topArt]</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[heightArt]</height>
+				<aspectratio aligny="top">scale</aspectratio>
+				<texture fallback="DefaultMovies.png">$VAR[HomeWidgetFanArtVar]</texture>
+				<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner))</visible>
+				<include>HomeWidgetTrans</include>
+			</control>
+			<control type="image">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[topArt]</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[heightArt]</height>
+				<aspectratio>keep</aspectratio>
+				<texture>$VAR[HomeWidgetClearLogoVar]</texture>
+				<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner))</visible>
+				<include>HomeWidgetTrans</include>
+			</control>
+			<control type="label">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[topArt]</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[heightArt]</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textoffsetx>7</textoffsetx>
+				<font>$PARAM[fallbackFont]</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<label>$VAR[HomeWidgetTitle2Var]</label>
+				<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner)) + IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))</visible>
+				<include>HomeWidgetTrans</include>
+			</control>
+			<control type="image">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[topArt]</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[heightArt]</height>
+				<texture>homewidgets/label_back_banner.png</texture>
+				<visible>$PARAM[labelVisible]</visible>
+			</control>
+			<control type="label">
+				<left>$PARAM[leftArt]</left>
+				<top>$PARAM[topArt]r</top>
+				<width>$PARAM[widthArt]</width>
+				<height>$PARAM[labelHeight]</height>
+				<aligny>center</aligny>
+				<align>center</align>
+				<textoffsetx>7</textoffsetx>
+				<font>$PARAM[labelFont]</font>
+				<textcolor>white</textcolor>
+				<label>$VAR[HomeWidgetTitleVar]</label>
+				<visible>$PARAM[labelVisible]</visible>
+			</control>
+			<control type="image">
+				<left>$PARAM[leftCase]</left>
+				<top>$PARAM[topCase]</top>
+				<width>$PARAM[widthCase]</width>
+				<height>$PARAM[heightCase]</height>
+				<texture>$PARAM[Case]</texture>
+				<include>HomeWidgetTrans</include>
+			</control>
+		</itemlayout>
+		<focusedlayout width="$PARAM[containerWidth]" height="$PARAM[containerHeight]">
+			<control type="group">
+				<animation type="Focus" reversible="false">
+					<effect type="zoom" start="95" end="100" time="300" tween="sine" easing="inout" center="auto" />
+				</animation>
+				<control type="image">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[heightArt]</height>
+					<aspectratio>$PARAM[Aspect]</aspectratio>
+					<texture>$PARAM[Texture]</texture>
+				</control>
+				<control type="image">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[heightArt]</height>
+					<aspectratio aligny="top">scale</aspectratio>
+					<texture fallback="DefaultMovies.png">$VAR[HomeWidgetFanArtVar]</texture>
+					<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner))</visible>
+				</control>
+				<control type="image">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[heightArt]</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$VAR[HomeWidgetClearLogoVar]</texture>
+					<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner))</visible>
+				</control>
+				<control type="label">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[heightArt]</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textoffsetx>7</textoffsetx>
+					<font>$PARAM[fallbackFont]</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>$VAR[HomeWidgetTitle2Var]</label>
+					<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner)) + IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))</visible>
+				</control>
+				<control type="image">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[heightArt]</height>
+					<texture colordiffuse="$VAR[WidgetHighlightBarColor]" border="4">listselect_fo.png</texture>
+				</control>
+				<control type="image">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[heightArt]</height>
+					<texture>homewidgets/label_back_banner.png</texture>
+					<visible>$PARAM[labelFocusVisible]</visible>
+				</control>
+				<control type="label">
+					<left>$PARAM[leftArt]</left>
+					<top>$PARAM[topArt]r</top>
+					<width>$PARAM[widthArt]</width>
+					<height>$PARAM[labelHeight]</height>
+					<aligny>center</aligny>
+					<align>center</align>
+					<textoffsetx>7</textoffsetx>
+					<font>$PARAM[labelFont]</font>
+					<textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+					<label>$VAR[HomeWidgetTitleVar]</label>
+					<visible>$PARAM[labelFocusVisible]</visible>
+				</control>
+				<control type="image">
+					<left>$PARAM[leftCase]</left>
+					<top>$PARAM[topCase]</top>
+					<width>$PARAM[widthCase]</width>
+					<height>$PARAM[heightCase]</height>
+					<texture>$PARAM[Case]</texture>
+				</control>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="WeatherContentToday">
+		<item>
+			<label>$LOCALIZE[31006]</label>
+			<icon>-</icon>
+			<onclick>noop</onclick>
+			<visible>!Weather.IsFetched</visible>
+		</item>
+		<item>
+			<label>33006</label>
+			<label2>$INFO[Window(weather).Property(Day0.Outlook)]</label2>
+			<icon>$VAR[WeatherOverviewIcon0Var]</icon>
+			<property name="Label3">[COLOR red]$INFO[Window(weather).Property(Day0.HighTemp)]$INFO[System.TemperatureUnits][/COLOR]</property>
+			<property name="Label4">[COLOR blue]$INFO[Window(weather).Property(Day0.LowTemp)]$INFO[System.TemperatureUnits][/COLOR]</property>
+			<property name="Fanart">$INFO[Skin.String(WeatherFanartDir.path)]$INFO[Window(weather).Property(Day0.FanartCode),,.jpg]</property>
+			<property name="WeatherMultiFanart">$INFO[Skin.String(WeatherFanartDir.path)]$INFO[Window(weather).Property(Day0.FanartCode)]$INFO[Window(weather).Property(Day0.FanartCode),/weather-,-00.jpg]</property>
+			<onclick>ActivateWindow(weather)</onclick>
+			<visible>!IsEmpty(Window(Weather).Property(Day0.Title))</visible>
+		</item>
+	</include>
+	<include name="WeatherContentTomorrow">
+		<item>
+			<label>$LOCALIZE[31006]</label>
+			<icon>-</icon>
+			<onclick>noop</onclick>
+			<visible>!Weather.IsFetched</visible>
+		</item>
+		<item>
+			<label>33007</label>
+			<label2>$INFO[Window(weather).Property(Day1.Outlook)]</label2>
+			<icon>$VAR[WeatherOverviewIcon1Var]</icon>
+			<property name="Label3">[COLOR red]$INFO[Window(weather).Property(Day1.HighTemp)]$INFO[System.TemperatureUnits][/COLOR]</property>
+			<property name="Label4">[COLOR blue]$INFO[Window(weather).Property(Day1.LowTemp)]$INFO[System.TemperatureUnits][/COLOR]</property>
+			<property name="Fanart">$INFO[Skin.String(WeatherFanartDir.path)]$INFO[Window(weather).Property(Day1.FanartCode),,.jpg]</property>
+			<property name="WeatherMultiFanart">$INFO[Skin.String(WeatherFanartDir.path)]$INFO[Window(weather).Property(Day1.FanartCode)]$INFO[Window(weather).Property(Day1.FanartCode),/weather-,-01.jpg]</property>
+			<onclick>ActivateWindow(weather)</onclick>
+			<visible>!IsEmpty(Window(Weather).Property(Day1.Title))</visible>
+		</item>
+	</include>
+	<include name="WeatherContent">
+		<item>
+			<label>$LOCALIZE[31006]</label>
+			<icon>-</icon>
+			<onclick>noop</onclick>
+			<visible>!Weather.IsFetched</visible>
+		</item>
+		<item>
+			<label>$INFO[Window(weather).Property(Day0.Title)]</label>
+			<label2>$INFO[Window(weather).Property(Day0.Outlook)]</label2>
+			<icon>$VAR[WeatherOverviewIcon0Var]</icon>
+			<property name="Label3">[COLOR red]$INFO[Window(weather).Property(Day0.HighTemp)]$INFO[System.TemperatureUnits][/COLOR]</property>
+			<property name="Label4">[COLOR blue]$INFO[Window(weather).Property(Day0.LowTemp)]$INFO[System.TemperatureUnits][/COLOR]</property>
+			<property name="Fanart">$INFO[Skin.String(WeatherFanartDir.path)]$INFO[Window(weather).Property(Day0.FanartCode),,.jpg]</property>
+			<property name="WeatherMultiFanart">$INFO[Skin.String(WeatherFanartDir.path)]$INFO[Window(weather).Property(Day0.FanartCode)]$INFO[Window(weather).Property(Day0.FanartCode),/weather-,-00.jpg]</property>
+			<onclick>ActivateWindow(weather)</onclick>
+			<visible>!IsEmpty(Window(Weather).Property(Day0.Title))</visible>
+		</item>
+		<item>
+			<label>$INFO[Window(weather).Property(Day1.Title)]</label>
+			<label2>$INFO[Window(weather).Property(Day1.Outlook)]</label2>
+			<icon>$VAR[WeatherOverviewIcon1Var]</icon>
+			<property name="Label3">[COLOR red]$INFO[Window(weather).Property(Day1.HighTemp)]$INFO[System.TemperatureUnits][/COLOR]</property>
+			<property name="Label4">[COLOR blue]$INFO[Window(weather).Property(Day1.LowTemp)]$INFO[System.TemperatureUnits][/COLOR]</property>
+			<property name="Fanart">$INFO[Skin.String(WeatherFanartDir.path)]$INFO[Window(weather).Property(Day1.FanartCode),,.jpg]</property>
+			<property name="WeatherMultiFanart">$INFO[Skin.String(WeatherFanartDir.path)]$INFO[Window(weather).Property(Day1.FanartCode)]$INFO[Window(weather).Property(Day1.FanartCode),/weather-,-01.jpg]</property>
+			<onclick>ActivateWindow(weather)</onclick>
+			<visible>!IsEmpty(Window(Weather).Property(Day1.Title))</visible>
+		</item>
+		<item>
+			<label>$INFO[Window(weather).Property(Day2.Title)]</label>
+			<label2>$INFO[Window(weather).Property(Day2.Outlook)]</label2>
+			<icon>$VAR[WeatherOverviewIcon2Var]</icon>
+			<property name="Label3">[COLOR red]$INFO[Window(weather).Property(Day2.HighTemp)]$INFO[System.TemperatureUnits][/COLOR]</property>
+			<property name="Label4">[COLOR blue]$INFO[Window(weather).Property(Day2.LowTemp)]$INFO[System.TemperatureUnits][/COLOR]</property>
+			<property name="Fanart">$INFO[Skin.String(WeatherFanartDir.path)]$INFO[Window(weather).Property(Day2.FanartCode),,.jpg]</property>
+			<property name="WeatherMultiFanart">$INFO[Skin.String(WeatherFanartDir.path)]$INFO[Window(weather).Property(Day2.FanartCode)]$INFO[Window(weather).Property(Day2.FanartCode),/weather-,-02.jpg]</property>
+			<onclick>ActivateWindow(weather)</onclick>
+			<visible>!IsEmpty(Window(Weather).Property(Day2.Title))</visible>
+		</item>
+		<item>
+			<label>$INFO[Window(weather).Property(Day3.Title)]</label>
+			<label2>$INFO[Window(weather).Property(Day3.Outlook)]</label2>
+			<icon>$VAR[WeatherOverviewIcon3Var]</icon>
+			<property name="Label3">[COLOR red]$INFO[Window(weather).Property(Day3.HighTemp)]$INFO[System.TemperatureUnits][/COLOR]</property>
+			<property name="Label4">[COLOR blue]$INFO[Window(weather).Property(Day3.LowTemp)]$INFO[System.TemperatureUnits][/COLOR]</property>
+			<property name="Fanart">$INFO[Skin.String(WeatherFanartDir.path)]$INFO[Window(weather).Property(Day3.FanartCode),,.jpg]</property>
+			<property name="WeatherMultiFanart">$INFO[Skin.String(WeatherFanartDir.path)]$INFO[Window(weather).Property(Day3.FanartCode)]$INFO[Window(weather).Property(Day3.FanartCode),/weather-,-03.jpg]</property>
+			<onclick>ActivateWindow(weather)</onclick>
+			<visible>!IsEmpty(Window(Weather).Property(Day3.Title))</visible>
+		</item>
+		<item>
+			<label>$INFO[Window(weather).Property(Day4.Title)]</label>
+			<label2>$INFO[Window(weather).Property(Day4.Outlook)]</label2>
+			<icon>$VAR[WeatherOverviewIcon4Var]</icon>
+			<property name="Label3">[COLOR red]$INFO[Window(weather).Property(Day4.HighTemp)]$INFO[System.TemperatureUnits][/COLOR]</property>
+			<property name="Label4">[COLOR blue]$INFO[Window(weather).Property(Day4.LowTemp)]$INFO[System.TemperatureUnits][/COLOR]</property>
+			<property name="Fanart">$INFO[Skin.String(WeatherFanartDir.path)]$INFO[Window(weather).Property(Day4.FanartCode),,.jpg]</property>
+			<property name="WeatherMultiFanart">$INFO[Skin.String(WeatherFanartDir.path)]$INFO[Window(weather).Property(Day4.FanartCode)]$INFO[Window(weather).Property(Day4.FanartCode),/weather-,-01.jpg]</property>
+			<onclick>ActivateWindow(weather)</onclick>
+			<visible>!IsEmpty(Window(Weather).Property(Day4.Title))</visible>
+		</item>
+		<item>
+			<label>$INFO[Window(weather).Property(Day5.Title)]</label>
+			<label2>$INFO[Window(weather).Property(Day5.Outlook)]</label2>
+			<icon>$VAR[WeatherOverviewIcon5Var]</icon>
+			<property name="Label3">[COLOR red]$INFO[Window(weather).Property(Day5.HighTemp)]$INFO[System.TemperatureUnits][/COLOR]</property>
+			<property name="Label4">[COLOR blue]$INFO[Window(weather).Property(Day5.LowTemp)]$INFO[System.TemperatureUnits][/COLOR]</property>
+			<property name="Fanart">$INFO[Skin.String(WeatherFanartDir.path)]$INFO[Window(weather).Property(Day5.FanartCode),,.jpg]</property>
+			<property name="WeatherMultiFanart">$INFO[Skin.String(WeatherFanartDir.path)]$INFO[Window(weather).Property(Day5.FanartCode)]$INFO[Window(weather).Property(Day5.FanartCode),/weather-,-02.jpg]</property>
+			<onclick>ActivateWindow(weather)</onclick>
+			<visible>!IsEmpty(Window(Weather).Property(Day5.Title))</visible>
+		</item>
+		<item>
+			<label>$INFO[Window(weather).Property(Day6.Title)]</label>
+			<label2>$INFO[Window(weather).Property(Day6.Outlook)]</label2>
+			<icon>$VAR[WeatherOverviewIcon6Var]</icon>
+			<property name="Label3">[COLOR red]$INFO[Window(weather).Property(Day6.HighTemp)]$INFO[System.TemperatureUnits][/COLOR]</property>
+			<property name="Label4">[COLOR blue]$INFO[Window(weather).Property(Day6.LowTemp)]$INFO[System.TemperatureUnits][/COLOR]</property>
+			<property name="Fanart">$INFO[Skin.String(WeatherFanartDir.path)]$INFO[Window(weather).Property(Day6.FanartCode),,.jpg]</property>
+			<property name="WeatherMultiFanart">$INFO[Skin.String(WeatherFanartDir.path)]$INFO[Window(weather).Property(Day6.FanartCode)]$INFO[Window(weather).Property(Day6.FanartCode),/weather-,-03.jpg]</property>
+			<onclick>ActivateWindow(weather)</onclick>
+			<visible>!IsEmpty(Window(Weather).Property(Day6.Title))</visible>
+		</item>
+	</include>
+	<include name="SystemContent">
+		<item>
+			<label>12390</label>
+			<label2>$INFO[System.Uptime]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/uptime.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/uptime.jpg</property>
+			<property name="Label3">$LOCALIZE[20161]: $INFO[System.TotalUptime]</property>
+			<property name="isSystemInfo">true</property>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+		<item>
+			<label>12395</label>
+			<label2>$INFO[System.BatteryLevel]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/battery_100.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/battery_100.jpg</property>
+			<property name="Label3">Remains</property>
+			<property name="isSystemInfo">true</property>
+			<visible>IntegerGreaterThan(System.BatteryLevel,60)</visible>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+		<item>
+			<label>12395</label>
+			<label2>$INFO[System.BatteryLevel]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/battery_50.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/battery_50.jpg</property>
+			<property name="Label3">Remains</property>
+			<property name="isSystemInfo">true</property>
+			<visible>IntegerGreaterThan(System.BatteryLevel,20) + !IntegerGreaterThan(System.BatteryLevel,60)</visible>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+		<item>
+			<label>12395</label>
+			<label2>$INFO[System.BatteryLevel]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/battery_10.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/battery_10.jpg</property>
+			<property name="Label3">Remains</property>
+			<property name="isSystemInfo">true</property>
+			<visible>IntegerGreaterThan(System.BatteryLevel,5) + !IntegerGreaterThan(System.BatteryLevel,20)</visible>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+		<item>
+			<label>12395</label>
+			<label2>$INFO[System.BatteryLevel]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/battery_critical.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/battery_critical.jpg</property>
+			<property name="Label3">Remains</property>
+			<property name="isSystemInfo">true</property>
+			<visible>IntegerGreaterThan(System.BatteryLevel,0) + !IntegerGreaterThan(System.BatteryLevel,5)</visible>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+		<item>
+			<label>705</label>
+			<label2>$INFO[Network.LinkState]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/connected.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/connected.jpg</property>
+			<property name="Label3">$LOCALIZE[443]: $INFO[System.InternetState]</property>
+			<property name="isSystemInfo">true</property>
+			<visible>System.InternetState</visible>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+		<item>
+			<label>705</label>
+			<label2>Local Network: $INFO[Network.LinkState]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/disconnected.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/disconnected.jpg</property>
+			<property name="Label3">Internet: $INFO[System.InternetState]</property>
+			<property name="isSystemInfo">true</property>
+			<visible>!System.InternetState</visible>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+		<item>
+			<label>13280</label>
+			<label2>$INFO[System.ScreenWidth]x$INFO[System.ScreenHeight]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/video.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/video.jpg</property>
+			<property name="Label3">$INFO[System.fps] FPS</property>
+			<property name="isSystemInfo">true</property>
+			<visible>!IntegerGreaterThan(System.GPUTemperature,0)</visible>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+		<item>
+			<label>13280</label>
+			<label2>$INFO[System.ScreenWidth]x$INFO[System.ScreenHeight]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/video.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/video.jpg</property>
+			<property name="Label3">$INFO[System.fps] FPS $INFO[System.GPUTemperature]$INFO[System.TemperatureUnits]</property>
+			<property name="isSystemInfo">true</property>
+			<visible>IntegerGreaterThan(System.GPUTemperature,0)</visible>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+		<item>
+			<label>CPU</label>
+			<label2>$INFO[System.CPUUsage(used.percent)]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/cpu.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/cpu.jpg</property>
+			<property name="Label3">$INFO[System.CpuFrequency] $INFO[System.CPUTemperature]$INFO[System.TemperatureUnits]</property>
+			<property name="isSystemInfo">true</property>
+			<visible>IntegerGreaterThan(System.CPUTemperature,0)</visible>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+		<item>
+			<label>CPU</label>
+			<label2>$INFO[System.CPUUsage(used.percent)]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/cpu.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/cpu.jpg</property>
+			<property name="Label3">$INFO[System.CpuFrequency]</property>
+			<property name="isSystemInfo">true</property>
+			<visible>!IntegerGreaterThan(System.CPUTemperature,0)</visible>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+		<item>
+			<label>158</label>
+			<label2>$INFO[System.Memory(free.percent)] $LOCALIZE[156]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/memory.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/memory.jpg</property>
+			<property name="Label3">$INFO[System.Memory(total)] $LOCALIZE[20161]</property>
+			<property name="isSystemInfo">true</property>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+		<item>
+			<label>154</label>
+			<label2>$INFO[System.FreeSpacePercent]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/storage.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/storage.jpg</property>
+			<property name="Label3">$INFO[System.TotalSpace]</property>
+			<property name="isSystemInfo">true</property>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+		<item>
+			<label>19020</label>
+			<label2>$INFO[Pvr.BackendName]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/pvr.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/pvr.jpg</property>
+			<property name="Label3">$INFO[Pvr.BackendChannels] $LOCALIZE[19019]</property>
+			<property name="isSystemInfo">true</property>
+			<visible>PVR.HasTVChannels</visible>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+		<item>
+			<label>19114</label>
+			<label2>$INFO[System.BuildVersion]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/system.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/system.jpg</property>
+			<property name="Label3">$INFO[System.BuildDate]</property>
+			<property name="isSystemInfo">true</property>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+	</include>
+	<include name="SystemUptime">
+		<item>
+			<label>12390</label>
+			<label2>$INFO[System.Uptime]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/uptime.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/uptime.jpg</property>
+			<property name="Label3">$LOCALIZE[20161]: $INFO[System.TotalUptime]</property>
+			<property name="isSystemInfo">true</property>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+	</include>
+	<include name="SystemBattery">
+		<item>
+			<label>12395</label>
+			<label2>$INFO[System.BatteryLevel]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/battery_100.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/battery_100.jpg</property>
+			<property name="Label3">Remains</property>
+			<property name="isSystemInfo">true</property>
+			<visible>IntegerGreaterThan(System.BatteryLevel,60)</visible>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+		<item>
+			<label>12395</label>
+			<label2>$INFO[System.BatteryLevel]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/battery_50.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/battery_50.jpg</property>
+			<property name="Label3">Remains</property>
+			<property name="isSystemInfo">true</property>
+			<visible>IntegerGreaterThan(System.BatteryLevel,20) + !IntegerGreaterThan(System.BatteryLevel,60)</visible>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+		<item>
+			<label>12395</label>
+			<label2>$INFO[System.BatteryLevel]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/battery_10.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/battery_10.jpg</property>
+			<property name="Label3">Remains</property>
+			<property name="isSystemInfo">true</property>
+			<visible>IntegerGreaterThan(System.BatteryLevel,5) + !IntegerGreaterThan(System.BatteryLevel,20)</visible>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+		<item>
+			<label>12395</label>
+			<label2>$INFO[System.BatteryLevel]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/battery_critical.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/battery_critical.jpg</property>
+			<property name="Label3">Remains</property>
+			<property name="isSystemInfo">true</property>
+			<visible>IntegerGreaterThan(System.BatteryLevel,0) + !IntegerGreaterThan(System.BatteryLevel,5)</visible>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+	</include>
+	<include name="SystemNetwork">
+		<item>
+			<label>705</label>
+			<label2>$INFO[Network.LinkState]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/connected.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/connected.jpg</property>
+			<property name="Label3">$LOCALIZE[443]: $INFO[System.InternetState]</property>
+			<property name="isSystemInfo">true</property>
+			<visible>System.InternetState</visible>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+		<item>
+			<label>705</label>
+			<label2>Local Network: $INFO[Network.LinkState]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/disconnected.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/disconnected.jpg</property>
+			<property name="Label3">Internet: $INFO[System.InternetState]</property>
+			<property name="isSystemInfo">true</property>
+			<visible>!System.InternetState</visible>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+	</include>
+	<include name="SystemVideo">
+		<item>
+			<label>13280</label>
+			<label2>$INFO[System.ScreenWidth]x$INFO[System.ScreenHeight]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/video.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/video.jpg</property>
+			<property name="Label3">$INFO[System.fps] FPS</property>
+			<property name="isSystemInfo">true</property>
+			<visible>!IntegerGreaterThan(System.GPUTemperature,0)</visible>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+		<item>
+			<label>13280</label>
+			<label2>$INFO[System.ScreenWidth]x$INFO[System.ScreenHeight]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/video.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/video.jpg</property>
+			<property name="Label3">$INFO[System.fps] FPS $INFO[System.GPUTemperature]$INFO[System.TemperatureUnits]</property>
+			<property name="isSystemInfo">true</property>
+			<visible>IntegerGreaterThan(System.GPUTemperature,0)</visible>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+	</include>
+	<include name="SystemCPU">
+		<item>
+			<label>CPU</label>
+			<label2>$INFO[System.CPUUsage(used.percent)]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/cpu.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/cpu.jpg</property>
+			<property name="Label3">$INFO[System.CpuFrequency] $INFO[System.CPUTemperature]$INFO[System.TemperatureUnits]</property>
+			<property name="isSystemInfo">true</property>
+			<visible>IntegerGreaterThan(System.CPUTemperature,0)</visible>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+		<item>
+			<label>CPU</label>
+			<label2>$INFO[System.CPUUsage(used.percent)]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/cpu.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/cpu.jpg</property>
+			<property name="Label3">$INFO[System.CpuFrequency]</property>
+			<property name="isSystemInfo">true</property>
+			<visible>!IntegerGreaterThan(System.CPUTemperature,0)</visible>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+	</include>
+	<include name="SystemMemory">
+		<item>
+			<label>158</label>
+			<label2>$INFO[System.Memory(free.percent)] $LOCALIZE[156]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/memory.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/memory.jpg</property>
+			<property name="Label3">$INFO[System.Memory(total)] $LOCALIZE[20161]</property>
+			<property name="isSystemInfo">true</property>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+	</include>
+	<include name="SystemStorage">
+		<item>
+			<label>154</label>
+			<label2>$INFO[System.FreeSpacePercent]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/storage.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/storage.jpg</property>
+			<property name="Label3">$INFO[System.TotalSpace]</property>
+			<property name="isSystemInfo">true</property>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+	</include>
+	<include name="SystemPVR">
+		<item>
+			<label>19020</label>
+			<label2>$INFO[Pvr.BackendName]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/pvr.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/pvr.jpg</property>
+			<property name="Label3">$INFO[Pvr.BackendChannels] $LOCALIZE[19019]</property>
+			<property name="isSystemInfo">true</property>
+			<visible>PVR.HasTVChannels</visible>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+	</include>
+	<include name="SystemVersion">
+		<item>
+			<label>19114</label>
+			<label2>$INFO[System.BuildVersion]</label2>
+			<onclick>noop</onclick>
+			<icon>homewidgets/systeminfo/square/system.png</icon>
+			<property name="Fanart">homewidgets/systeminfo/fanart/system.jpg</property>
+			<property name="Label3">$INFO[System.BuildDate]</property>
+			<property name="isSystemInfo">true</property>
+			<onclick>ActivateWindow(systeminfo)</onclick>
+		</item>
+	</include>
+	<!-- Now Playing Widgets -->
+	<include name="Furniture_HomeNowPlaying">
+		<control type="group">
+			<top>14</top>
+			<visible>!Window.IsActive(1115) + !Window.IsActive(1154) + !Window.IsActive(1199)</visible>
+			<visible>[IsEmpty(Control.GetLabel(4325)) + !Skin.HasSetting(movenowplayingwidget)] | [IsEmpty(Control.GetLabel(4321)) + Skin.HasSetting(movenowplayingwidget)]</visible>
+			<visible>[Skin.HasSetting(lowermainmenu) + Skin.HasSetting(movenowplayingwidget) + !Control.IsVisible(90010) + ![ControlGroup(90020).HasFocus + Skin.HasSetting(Enable.PanelInfo) + !SubString(Container(9000).ListItem.Property(widgetStyle.2),List)]] |
+				[!Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(movenowplayingwidget) + !Control.IsVisible(90010) + ![ControlGroup(90020).HasFocus + Skin.HasSetting(Enable.PanelInfo) + !SubString(Container(9000).ListItem.Property(widgetStyle.2),List)]] |
+				[!Skin.HasSetting(lowermainmenu) + Skin.HasSetting(movenowplayingwidget) + !Control.IsVisible(90020) + ![ControlGroup(90010).HasFocus + Skin.HasSetting(Enable.PanelInfo) + !SubString(Container(9000).ListItem.Property(widgetStyle),List)]] |
+				[Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(movenowplayingwidget) + !Control.IsVisible(90020) + ![ControlGroup(90010).HasFocus + Skin.HasSetting(Enable.PanelInfo) + !SubString(Container(9000).ListItem.Property(widgetStyle),List)]]</visible>
+			<visible>[Skin.HasSetting(lowermainmenu) + Skin.HasSetting(movenowplayingwidget) + !Control.IsVisible(90010) + ![ControlGroup(90020).HasFocus + !Skin.HasSetting(Enable.PanelInfo) + StringCompare(Container(9000).ListItem.Property(widgetPanelInfo.2),Enabled) + !SubString(Container(9000).ListItem.Property(widgetStyle.2),List)]] |
+				[!Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(movenowplayingwidget) + !Control.IsVisible(90010) + ![ControlGroup(90020).HasFocus + !Skin.HasSetting(Enable.PanelInfo) + StringCompare(Container(9000).ListItem.Property(widgetPanelInfo.2),Enabled) + !SubString(Container(9000).ListItem.Property(widgetStyle.2),List)]] |
+				[!Skin.HasSetting(lowermainmenu) + Skin.HasSetting(movenowplayingwidget) + !Control.IsVisible(90020) + ![ControlGroup(90010).HasFocus + !Skin.HasSetting(Enable.PanelInfo) + StringCompare(Container(9000).ListItem.Property(widgetPanelInfo),Enabled) + !SubString(Container(9000).ListItem.Property(widgetStyle),List)]] |
+				[Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(movenowplayingwidget) + !Control.IsVisible(90020) + ![ControlGroup(90010).HasFocus + !Skin.HasSetting(Enable.PanelInfo) + StringCompare(Container(9000).ListItem.Property(widgetPanelInfo),Enabled) + !SubString(Container(9000).ListItem.Property(widgetStyle),List)]]</visible>
+			<animation effect="slide" end="0,35" time="320" tween="cubic" easing="inout" condition="!Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<include>Animation_Widgets</include>
+			<animation effect="slide" end="0,390" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(movenowplayingwidget) + Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="slide" end="0,210" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(movenowplayingwidget) + Skin.HasSetting(lowermainmenu) + Window.IsActive(1158)">Conditional</animation>
+			<animation effect="slide" end="0,600" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(movenowplayingwidget) + !Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="slide" end="0,11" time="320" tween="cubic" easing="inout" condition="[[Skin.HasSetting(totalshomehigh) + !Skin.HasSetting(DisableLibraryStats)] | [Skin.HasSetting(timehomehigh) + !Skin.HasSetting(DisableTimePanel)]] + Window.IsActive(home)">Conditional</animation>
+			<control type="group" id="8995">
+				<left>22</left>
+				<top>-650</top>
+				<width>1920</width>
+				<height>1080</height>
+				<animation type="Conditional" condition="Skin.HasSetting(rotationtimer) + Skin.HasSetting(rotatenowplayingpanel) + Skin.HasSetting(nowplayingpanel) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.1.SimilarName))" reversible="false">
+					<include>Animation_PanelFlipUp2</include>
+				</animation>
+				<animation type="Conditional" condition="!Skin.HasSetting(rotationtimer) + Skin.HasSetting(rotatenowplayingpanel) + Skin.HasSetting(nowplayingpanel) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.1.SimilarName))" reversible="false">
+					<include>Animation_PanelFlipUp1</include>
+				</animation>
+				<animation type="Visible">
+					<effect type="zoom" start="150" end="100" center="960,540" time="400" tween="cubic" />
+					<effect type="fade" end="100" time="240" />
+				</animation>
+				<animation type="Hidden">
+					<effect type="fade" start="100" end="0" time="240" />
+					<effect type="zoom" start="100" end="130" center="960,540" time="240" tween="cubic" easing="in" />
+				</animation>
+				<visible>[!Skin.HasSetting(nohomepageMusicinfo) + Player.HasAudio] | [!Skin.HasSetting(homepageVideoinfo) + Player.HasVideo]</visible>
+				<control type="group">
+					<visible>Skin.HasSetting(nowplayingpanel)</visible>
+					<animation effect="zoom" start="100" end="95" time="640" easing="inout" tween="circle" center="960,500" condition="true">Conditional</animation>
+					<animation effect="fade" time="320">VisibleChange</animation>
+					<control type="image">
+						<left>120</left>
+						<top>660</top>
+						<width>1650</width>
+						<height>402</height>
+						<texture border="50">featured/panel_featured_shadow.png</texture>
+						<animation effect="fade" start="100" end="80" time="2000" pulse="true" condition="true">conditional</animation>
+						<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+						<visible>!Skin.HasSetting(DisableGlowbar)</visible>
+						<include>Animation_VisibleChange400</include>
+					</control>
+					<control type="image">
+						<left>120</left>
+						<top>660</top>
+						<width>1650</width>
+						<height>402</height>
+						<texture border="50">featured/panel_featured.png</texture>
+						<animation effect="fade" start="100" end="55" time="0" condition="Skin.HasSetting(nowplayingpanel)">Conditional</animation>
+						<colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+					</control>
+				</control>
+				<control type="group">
+					<control type="group">
+						<animation effect="zoom" start="100" end="80" time="640" easing="inout" tween="circle" condition="Skin.HasSetting(nowplayingpanel)">Conditional</animation>
+						<animation effect="slide" end="230,190" time="640" easing="inout" tween="circle" condition="Skin.HasSetting(nowplayingpanel)">Conditional</animation>
+						<animation effect="zoom" start="100" end="90" time="320" easing="inout" tween="circle" condition="Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(nowplayingpanel)">Conditional</animation>
+						<animation effect="slide" end="0,70" time="320" easing="inout" tween="circle" condition="Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(nowplayingpanel)">Conditional</animation>
+						<include>Furniture_HomeNowPlayingAudio</include>
+						<include>Furniture_HomeNowPlayingVideo</include>
+					</control>
+					<control type="group">
+						<visible>Player.HasAudio</visible>
+						<include>Animation_VisibleChange400</include>
+						<animation effect="zoom" start="100" end="85" time="640" easing="inout" tween="circle" condition="Skin.HasSetting(nowplayingpanel)">Conditional</animation>
+						<animation effect="slide" end="240,125" time="640" easing="inout" tween="circle" condition="Skin.HasSetting(nowplayingpanel)">Conditional</animation>
+						<animation effect="zoom" start="100" end="90" time="320" easing="inout" tween="circle" condition="Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(nowplayingpanel)">Conditional</animation>
+						<animation effect="slide" end="200,70" time="320" easing="inout" tween="circle" condition="Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(nowplayingpanel)">Conditional</animation>
+						<include>NextTracksList</include>
+						<control type="group">
+							<visible>!Skin.HasSetting(nowplayingpanel) + Skin.HasSetting(homeartistslideshow)</visible>
+							<include>HomeArtistSlideShow</include>
+						</control>
+					</control>
+					<control type="group">
+						<visible>Player.HasVideo + Skin.HasSetting(nowplayingpanel)</visible>
+						<include>Animation_VisibleChange400</include>
+						<animation effect="zoom" start="100" end="75" time="640" easing="inout" tween="circle" condition="Skin.HasSetting(nowplayingpanel)">Conditional</animation>
+						<animation effect="slide" end="370,245" time="640" easing="inout" tween="circle" condition="Skin.HasSetting(nowplayingpanel)">Conditional</animation>
+						<animation effect="zoom" start="100" end="90" time="320" easing="inout" tween="circle" condition="Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(nowplayingpanel)">Conditional</animation>
+						<animation effect="slide" end="200,70" time="320" easing="inout" tween="circle" condition="Skin.HasSetting(lowermainmenu) + !Skin.HasSetting(nowplayingpanel)">Conditional</animation>
+						<control type="textbox">
+							<left>400</left>
+							<top>680</top>
+							<width>670</width>
+							<height>260</height>
+							<align>left</align>
+							<label fallback="31006">$INFO[VideoPlayer.CastAndRole]</label>
+							<font>Font_Reg30_2</font>
+							<autoscroll>false</autoscroll>
+							<animation effect="slide" time="320" tween="cubic" easing="inout" end="160" condition="Skin.HasSetting(ShowBackgroundVideo)">Conditional</animation>
+							<visible>!VideoPlayer.Content(episodes) + !VideoPlayer.Content(livetv)</visible>
+						</control>
+						<control type="textbox">
+							<left>630</left>
+							<top>680</top>
+							<width>450</width>
+							<height>260</height>
+							<align>left</align>
+							<label fallback="31006">$INFO[VideoPlayer.CastAndRole]</label>
+							<font>Font_Reg30_2</font>
+							<autoscroll>false</autoscroll>
+							<visible>VideoPlayer.Content(episodes)</visible>
+							<animation effect="slide" time="320" tween="cubic" easing="inout" end="-15" condition="Skin.HasSetting(ShowBackgroundVideo)">Conditional</animation>
+						</control>
+						<control type="textbox">
+							<left>1100</left>
+							<top>680</top>
+							<width>750</width>
+							<height>260</height>
+							<label fallback="31006">$INFO[VideoPlayer.Plot]</label>
+							<font>Font_Reg30_2</font>
+							<autoscroll delay="5000" time="AutoScrollTime" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
+						</control>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Skin.HasSetting(nowplayingpanel)</visible>
+					<animation effect="zoom" start="100" end="95" time="640" easing="inout" tween="circle" center="960,500" condition="true">Conditional</animation>
+					<animation effect="fade" time="320">VisibleChange</animation>
+					<control type="image">
+						<left>141</left>
+						<top>681</top>
+						<width>1608</width>
+						<height>360</height>
+						<texture border="50">featured/panel_featured_overlay.png</texture>
+						<colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<left>22</left>
+				<top>-680</top>
+				<visible>Skin.HasSetting(rotationtimer) + Skin.HasSetting(rotatenowplayingpanel) + Skin.HasSetting(nowplayingpanel) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.1.SimilarName))</visible>
+				<visible>[!Skin.HasSetting(nohomepageMusicinfo) + Player.HasAudio] | [!Skin.HasSetting(homepageVideoinfo) + Player.HasVideo]</visible>
+				<animation effect="fade" time="400">WindowOpen</animation>
+				<animation effect="fade" time="160">WindowClose</animation>
+				<animation effect="zoom" start="100" end="95" time="640" easing="inout" tween="circle" center="960,500" condition="true">Conditional</animation>
+				<animation type="Visible" reversible="false">
+					<include>Animation_PanelFlipUp1</include>
+				</animation>
+				<animation type="Hidden" reversible="false">
+					<include>Animation_PanelFlipUp2</include>
+				</animation>
+				<control type="image">
+					<left>120</left>
+					<top>660</top>
+					<width>1650</width>
+					<height>402</height>
+					<texture border="50">featured/panel_featured_shadow.png</texture>
+					<animation effect="fade" start="100" end="80" time="2000" pulse="true" condition="true">conditional</animation>
+					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+					<visible>!Skin.HasSetting(DisableGlowbar)</visible>
+					<include>Animation_VisibleChange400</include>
+				</control>
+				<control type="image">
+					<left>120</left>
+					<top>660</top>
+					<width>1650</width>
+					<height>402</height>
+					<texture border="50">featured/panel_featured.png</texture>
+					<animation effect="fade" start="100" end="60" time="0" condition="true">Conditional</animation>
+					<colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+				</control>
+				<control type="group">
+					<animation effect="zoom" start="100" end="85" time="640" easing="inout" tween="circle" center="960,500" condition="true">Conditional</animation>
+					<animation effect="slide" end="-1420,55" time="640" easing="inout" tween="circle" center="960,500" condition="true">Conditional</animation>
+					<include>HomeArtistSlideShow</include>
+				</control>
+				<control type="textbox">
+					<left>528</left>
+					<top>700</top>
+					<width>570</width>
+					<height>311</height>
+					<aligny>top</aligny>
+					<label>$VAR[NowPlayingTextBoxLabelVar]</label>
+					<font>Font_Reg26</font>
+					<textcolor>white6</textcolor>
+					<autoscroll delay="5000" time="AutoScrollTime" repeat="8000">Skin.HasSetting(AutoScroll)</autoscroll>
+				</control>
+				<control type="group">
+					<left>1450</left>
+					<top>125</top>
+					<animation effect="zoom" start="100" end="85" time="640" easing="inout" tween="circle" center="960,500" condition="true">Conditional</animation>
+					<control type="image">
+						<top>600</top>
+						<width>425</width>
+						<height>400</height>
+						<texture>thumbs/boxes/cd_shadow_light_shadow.png</texture>
+						<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+						<visible>!Skin.HasSetting(DisableGlowbar)</visible>
+						<animation effect="fade" start="100" end="80" time="2000" pulse="true" condition="true">conditional</animation>
+						<include>Animation_VisibleChange400</include>
+					</control>
+					<control type="multiimage">
+						<left>22</left>
+						<top>619</top>
+						<width>380</width>
+						<height>354</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<imagepath background="true" diffuse="thumbs/boxes/cdcover_mask.png">$INFO[Container(5222).ListItem.Icon]</imagepath>
+						<fadetime>750</fadetime>
+						<timeperimage>5000</timeperimage>
+					</control>
+					<control type="image">
+						<top>600</top>
+						<width>425</width>
+						<height>400</height>
+						<texture>thumbs/boxes/cd_shadow_light.png</texture>
+					</control>
+					<control type="list" id="5222">
+						<left>-543</left>
+						<top>623</top>
+						<width>800</width>
+						<height>440</height>
+						<onup>5011</onup>
+						<ondown>5011</ondown>
+						<onback>5011</onback>
+						<animation effect="zoom" start="100" end="85" time="640" easing="inout" tween="circle" center="960,500" condition="true">Conditional</animation>
+						<orientation>vertical</orientation>
+						<pagecontrol>60</pagecontrol>
+						<scrolltime tween="cubic" easing="inout">1200</scrolltime>
+						<preloaditems>2</preloaditems>
+						<itemlayout width="614" height="40">
+							<control type="label">
+								<left>5</left>
+								<width>375</width>
+								<height>34</height>
+								<align>right</align>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Font_Reg31_Caps</font>
+								<textcolor>grey2</textcolor>
+							</control>
+						</itemlayout>
+						<focusedlayout width="614" height="40">
+							<control type="label">
+								<left>5</left>
+								<width>375</width>
+								<height>34</height>
+								<align>right</align>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Font_Reg31_Caps</font>
+								<textcolor>$VAR[TitleColorVar]</textcolor>
+							</control>
+						</focusedlayout>
+						<content>
+							<include>SimilarArtistsItems</include>
+						</content>
+					</control>
+				</control>
+				<control type="image">
+					<left>141</left>
+					<top>681</top>
+					<width>1608</width>
+					<height>360</height>
+					<texture border="50">featured/panel_featured_overlay.png</texture>
+					<colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+				</control>
+			</control>
+		</control>
+	</include>
+	<include name="Furniture_HomeNowPlayingVideo">
+		<control type="group" id="8994">
+			<left>-8</left>
+			<top>-22</top>
+			<visible>!Skin.HasSetting(homepageVideoinfo) + Player.HasVideo</visible>
+			<include>Animation_CommonFade</include>
+			<control type="group">
+				<visible>Skin.HasSetting(ShowBackgroundVideo)</visible>
+				<include>Animation_VisibleChange400</include>
+				<control type="image">
+					<left>37</left>
+					<top>691</top>
+					<width>615</width>
+					<height>359</height>
+					<texture>common/black.png</texture>
+					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+					<bordertexture border="15">home/nowplaying/OverlayDialogBackground.png</bordertexture>
+					<bordersize>15</bordersize>
+				</control>
+				<control type="videowindow">
+					<left>52</left>
+					<top>706</top>
+					<width>585</width>
+					<height>329</height>
+					<visible>Player.HasVideo</visible>
+				</control>
+			</control>
+			<control type="group">
+				<visible>!Skin.HasSetting(ShowBackgroundVideo)</visible>
+				<control type="group">
+					<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(episodes)</visible>
+					<include>Animation_VisibleChange400</include>
+					<control type="image">
+						<left>108</left>
+						<top>693</top>
+						<width>300</width>
+						<height>300</height>
+						<aligny>top</aligny>
+						<aspectratio>keep</aspectratio>
+						<texture background="true" fallback="common/cdart/bd.png">$INFO[Player.Art(discart)]</texture>
+						<fadetime>300</fadetime>
+						<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+					</control>
+					<control type="image">
+						<left>30</left>
+						<top>686</top>
+						<width>260</width>
+						<height>390</height>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture diffuse="thumbs/movieposter_mask.png" background="true" fallback="DefaultVideoBigPoster.png">$VAR[PlayerPosterVar]</texture>
+						<fadetime>IconCrossfadeTime</fadetime>
+					</control>
+					<control type="image">
+						<left>10.5</left>
+						<top>666.5</top>
+						<width>299</width>
+						<height>429</height>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture diffuse="thumbs/movieposter_mask.png">thumbs/thumb_glass_noreflect.png</texture>
+						<bordertexture border="19.5">thumbs/poster_shadow.png</bordertexture>
+						<bordersize>19.5</bordersize>
+					</control>
+				</control>
+				<control type="group">
+					<visible>VideoPlayer.Content(files) | VideoPlayer.Content(livetv)</visible>
+					<animation effect="slide" end="0" time="640" easing="inout" tween="circle" condition="Skin.HasSetting(nowplayingpanel)">Conditional</animation>
+					<include>Animation_VisibleChange400</include>
+					<control type="image">
+						<left>15</left>
+						<top>723</top>
+						<width>498</width>
+						<height>318</height>
+						<aspectratio>scale</aspectratio>
+						<texture>common/black.png</texture>
+						<animation effect="fade" end="30" condition="true">conditional</animation>
+						<bordersize>9</bordersize>
+					</control>
+					<control type="image">
+						<left>24</left>
+						<top>732</top>
+						<width>480</width>
+						<height>300</height>
+						<aspectratio>keep</aspectratio>
+						<texture fallback="DefaultVideo.png">$INFO[VideoPlayer.Cover]</texture>
+						<fadetime>IconCrossfadeTime</fadetime>
+						<visible>!IsEmpty(VideoPlayer.Cover)</visible>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<left>-350</left>
+				<animation effect="slide" time="320" tween="cubic" easing="inout" end="218,-20" condition="!Skin.HasSetting(ShowBackgroundVideo) + [VideoPlayer.Content(files) | VideoPlayer.Content(livetv)]">Conditional</animation>
+				<animation effect="slide" time="640" tween="circle" easing="inout" end="354" condition="Skin.HasSetting(ShowBackgroundVideo)">Conditional</animation>
+				<control type="image">
+					<left>660</left>
+					<top>990</top>
+					<width>45</width>
+					<height>45</height>
+					<texture>$VAR[NowPlayingPlayIconVar]</texture>
+				</control>
+				<control type="label">
+					<left>720</left>
+					<top>978</top>
+					<label>$VAR[NowPlayingPlayLabelVar]</label>
+					<font>Font_Reg31_Caps</font>
+					<textcolor>$VAR[TitleColorVar]</textcolor>
+				</control>
+				<control type="label">
+					<left>720</left>
+					<top>988</top>
+					<width>850</width>
+					<height>50</height>
+					<aligny>top</aligny>
+					<label>$INFO[VideoPlayer.TVShowTitle,, - ]$INFO[VideoPlayer.ChannelName,, - ]$INFO[VideoPlayer.Title]$INFO[VideoPlayer.Year, (,)]</label>
+					<font>Font_Reg37_Caps</font>
+					<textcolor>white3</textcolor>
+					<scroll>true</scroll>
+				</control>
+			</control>
+		</control>
+	</include>
+	<include name="Furniture_HomeNowPlayingAudio">
+		<control type="group">
+			<visible>Player.HasAudio</visible>
+			<animation type="Visible">
+				<effect type="zoom" start="150" end="100" center="960,540" time="400" tween="cubic" />
+				<effect type="fade" end="100" time="240" />
+			</animation>
+			<animation type="Hidden">
+				<effect type="fade" start="100" end="0" time="240" />
+				<effect type="zoom" start="100" end="130" center="960,540" time="240" tween="cubic" easing="in" />
+			</animation>
+			<control type="group">
+				<visible>!Skin.HasSetting(disablecdart)</visible>
+				<control type="image">
+					<left>474</left>
+					<top>768</top>
+					<width>388</width>
+					<height>1</height>
+					<texture>home/nowplaying_line_gradient.png</texture>
+				</control>
+				<control type="image">
+					<left>474</left>
+					<top>977</top>
+					<width>388</width>
+					<height>1</height>
+					<texture>home/nowplaying_line_gradient.png</texture>
+				</control>
+				<control type="image">
+					<left>12</left>
+					<top>656</top>
+					<width>423</width>
+					<height>420</height>
+					<texture>thumbs/cd_shadow_glow.png</texture>
+					<animation effect="fade" start="100" end="80" time="2000" pulse="true" condition="true">conditional</animation>
+					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+					<visible>!Skin.HasSetting(DisableGlowbar)</visible>
+				</control>
+				<control type="group">
+					<visible>Skin.HasSetting(cdartinvis)</visible>
+					<animation effect="slide" start="-150" end="0" time="560" tween="cubic" delay="320">WindowOpen</animation>
+					<animation type="WindowClose">
+						<effect type="slide" end="-180" time="320" tween="cubic" easing="in" />
+						<effect type="fade" start="100" end="0" time="0" delay="320" />
+						<condition type="!Player.Playing" />
+					</animation>
+					<control type="image" id="298629">
+						<left>188</left>
+						<top>686</top>
+						<width>360</width>
+						<height>360</height>
+						<aligny>top</aligny>
+						<fadetime>300</fadetime>
+						<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+						<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[MusicPlayer.Cover]</texture>
+						<visible>!Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart) + Skin.HasSetting(MusicFakeDisc)</visible>
+					</control>
+					<control type="image" id="298629">
+						<left>188</left>
+						<top>686</top>
+						<width>360</width>
+						<height>360</height>
+						<aligny>top</aligny>
+						<aspectratio>keep</aspectratio>
+						<fadetime>300</fadetime>
+						<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+						<include>cdarthome</include>
+						<visible>!Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart)</visible>
+					</control>
+					<control type="image">
+						<left>188</left>
+						<top>686</top>
+						<width>360</width>
+						<height>360</height>
+						<aligny>top</aligny>
+						<aspectratio>keep</aspectratio>
+						<fadetime>300</fadetime>
+						<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+						<texture background="true">$VAR[mviscdARTVar]</texture>
+						<visible>IsEmpty(Control.GetLabel(298629)) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart) + !Skin.HasSetting(MusicFakeDisc)</visible>
+					</control>
+					<control type="label">
+						<left>258</left>
+						<top>711</top>
+						<width>220</width>
+						<height>300</height>
+						<align>center</align>
+						<font>Hand_32</font>
+						<aligny>top</aligny>
+						<label> $INFO[MusicPlayer.AlbumArtist]</label>
+						<visible>IsEmpty(Control.GetLabel(298629)) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart) + !Skin.HasSetting(MusicFakeDisc)</visible>
+						<textcolor>black</textcolor>
+						<wrapmultiline>true</wrapmultiline>
+						<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+					</control>
+					<control type="label">
+						<left>263</left>
+						<top>741</top>
+						<width>210</width>
+						<height>240</height>
+						<align>center</align>
+						<font>Hand_32</font>
+						<aligny>top</aligny>
+						<label>[CR][CR][CR][CR][CR] $INFO[MusicPlayer.Album]</label>
+						<visible>IsEmpty(Control.GetLabel(298629)) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart) + !Skin.HasSetting(MusicFakeDisc)</visible>
+						<textcolor>black</textcolor>
+						<wrapmultiline>true</wrapmultiline>
+						<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+					</control>
+					<control type="image">
+						<left>188</left>
+						<top>686</top>
+						<width>360</width>
+						<height>360</height>
+						<aligny>top</aligny>
+						<aspectratio>keep</aspectratio>
+						<fadetime>300</fadetime>
+						<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+						<include>vinylart</include>
+						<visible>Skin.HasSetting(vinylart)</visible>
+					</control>
+					<control type="image">
+						<left>188</left>
+						<top>686</top>
+						<width>360</width>
+						<height>360</height>
+						<aligny>top</aligny>
+						<aspectratio>keep</aspectratio>
+						<fadetime>300</fadetime>
+						<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+						<include>blurayart</include>
+						<visible>Skin.HasSetting(blurayart)</visible>
+					</control>
+				</control>
+				<control type="image">
+					<left>42</left>
+					<top>684</top>
+					<width>363</width>
+					<height>363</height>
+					<texture fallback="DefaultAlbumCover.png" diffuse="thumbs/cdcover_mask2.png">$INFO[MusicPlayer.Cover]</texture>
+					<bordertexture border="-90">thumbs/cd_shadow2.png</bordertexture>
+				</control>
+				<control type="image">
+					<left>42</left>
+					<top>684</top>
+					<width>363</width>
+					<height>363</height>
+					<aspectratio scalediffuse="false" align="right">scale</aspectratio>
+					<texture diffuse="thumbs/cdcover_mask2.png">thumbs/cdcover_glass_noreflect.png</texture>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Skin.HasSetting(disablecdart)</visible>
+				<control type="image">
+					<left>392</left>
+					<top>768</top>
+					<width>388</width>
+					<height>257</height>
+					<texture>home/nowplaying_info.png</texture>
+				</control>
+				<control type="image">
+					<left>42</left>
+					<top>684</top>
+					<width>363</width>
+					<height>363</height>
+					<texture fallback="DefaultAlbumCover.png" diffuse="thumbs/cdcover_mask.png">$INFO[MusicPlayer.Cover]</texture>
+				</control>
+				<control type="image">
+					<left>22</left>
+					<top>664</top>
+					<width>403</width>
+					<height>403</height>
+					<aspectratio scalediffuse="false" align="right">scale</aspectratio>
+					<texture diffuse="thumbs/cdcover_mask.png">thumbs/cdcover_glass_noreflect.png</texture>
+					<bordertexture border="20">thumbs/cd_shadow.png</bordertexture>
+					<bordersize>20</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<control type="label">
+					<top>725</top>
+					<label>$INFO[MusicPlayer.Artist]</label>
+					<font>Font_Reg36_Caps</font>
+					<include>Furniture_HomeNowPlayingMetrics</include>
+					<visible>Substring(Control.GetLabel(8308),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath))</visible>
+					<animation effect="slide" time="320" tween="cubic" easing="inout" end="82" condition="!Skin.HasSetting(disablecdart)">Conditional</animation>
+				</control>
+				<control type="label">
+					<top>768</top>
+					<label>$INFO[MusicPlayer.Album]</label>
+					<font>Font_Reg28_Caps</font>
+					<textcolor>white3</textcolor>
+					<include>Furniture_HomeNowPlayingMetrics</include>
+					<animation effect="slide" time="320" tween="cubic" easing="inout" end="98" condition="!Skin.HasSetting(disablecdart)">Conditional</animation>
+				</control>
+				<control type="image" id="8308">
+					<left>530</left>
+					<top>658</top>
+					<width>309</width>
+					<height>108</height>
+					<texture background="true" fallback="empty.png">$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/logo.png]</texture>
+					<fadetime>400</fadetime>
+					<animation effect="fade" start="100" end="0" time="0" condition="Substring(Control.GetLabel(8308),empty.png)">Conditional</animation>
+					<visible>!IsEmpty(Skin.String(ArtistsLogosPath))</visible>
+					<animation effect="slide" time="320" tween="cubic" easing="inout" end="-98" condition="Skin.HasSetting(disablecdart)">Conditional</animation>
+				</control>
+				<control type="label">
+					<top>940</top>
+					<label>$LOCALIZE[31040]</label>
+					<font>Font_Reg28_Caps</font>
+					<textcolor>$VAR[TitleColorVar]</textcolor>
+					<include>Furniture_HomeNowPlayingMetrics</include>
+					<visible>!Player.Paused</visible>
+					<animation effect="slide" time="320" tween="cubic" easing="inout" end="98" condition="!Skin.HasSetting(disablecdart)">Conditional</animation>
+				</control>
+				<control type="label">
+					<top>940</top>
+					<label>31043</label>
+					<font>Font_Info</font>
+					<textcolor>$VAR[TitleColorVar]</textcolor>
+					<include>Furniture_HomeNowPlayingMetrics</include>
+					<visible>Player.Paused</visible>
+					<animation effect="slide" time="320" tween="cubic" easing="inout" end="98" condition="!Skin.HasSetting(disablecdart)">Conditional</animation>
+				</control>
+				<control type="label">
+					<left>444</left>
+					<top>975</top>
+					<width>650</width>
+					<height>80</height>
+					<aligny>bottom</aligny>
+					<label>$INFO[MusicPlayer.Title]</label>
+					<font>Font_Reg37_Caps</font>
+					<textcolor>white3</textcolor>
+					<wrapmultiline>true</wrapmultiline>
+					<animation effect="slide" time="320" tween="cubic" easing="inout" end="82" condition="!Skin.HasSetting(disablecdart)">Conditional</animation>
+				</control>
+			</control>
+		</control>
+	</include>
+	<include name="Furniture_HomeNowPlayingMetrics">
+		<left>444</left>
+		<width>615</width>
+		<height>38</height>
+	</include>
+	<include name="HomeArtistSlideShow">
+		<control type="group">
+			<left>1436</left>
+			<top>672</top>
+			<animation effect="slide" start="575" end="0" time="560" tween="cubic" delay="320" condition="!Skin.HasSetting(nowplayingpanel)">WindowOpen</animation>
+			<visible>IsEmpty(Window(Visualisation).Property(ArtistSlideshowRefresh))</visible>
+			<animation effect="fade" time="320">VisibleChange</animation>
+			<control type="image">
+				<width>425</width>
+				<height>398</height>
+				<texture>thumbs/boxes/cd_shadow_light_shadow.png</texture>
+				<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+				<visible>!Skin.HasSetting(DisableGlowbar)</visible>
+				<animation effect="fade" start="100" end="80" time="2000" pulse="true" condition="true">conditional</animation>
+				<include>Animation_VisibleChange400</include>
+			</control>
+			<control type="multiimage">
+				<left>22</left>
+				<top>19</top>
+				<width>380</width>
+				<height>354</height>
+				<aspectratio scalediffuse="false">scale</aspectratio>
+				<imagepath background="true" diffuse="thumbs/boxes/cdcover_mask.png">$VAR[NowPlayingMultiImageVar]</imagepath>
+				<fadetime>750</fadetime>
+				<timeperimage>5000</timeperimage>
+			</control>
+			<control type="image">
+				<width>425</width>
+				<height>400</height>
+				<texture>thumbs/boxes/cd_shadow_light.png</texture>
+			</control>
+		</control>
+	</include>
+	<include name="AlternateTimeAndStats">
+		<control type="group">
+			<visible>Skin.HasSetting(AlternateTimeStats) + [!Skin.HasSetting(DisableLibraryStats) | !Skin.HasSetting(DisableTimePanel)]</visible>
+			<animation effect="slide" end="-1920,0" time="240">WindowClose</animation>
+			<animation effect="slide" start="-1920,0" end="0,0" delay="WidgetSlideDelay" time="240" condition="!Window.Previous(startup)">WindowOpen</animation>
+			<animation effect="slide" start="-1920" end="0" time="240">VisibleChange</animation>
+			<animation effect="slide" start="-1920,0" end="0,0" delay="800" time="480" condition="Window.Previous(startup)">WindowOpen</animation>
+			<animation effect="slide" end="0,338" time="320" tween="cubic" easing="inout" condition="[Skin.HasSetting(lowermainmenu)] + ![Skin.HasSetting(totalshomehigh) | Skin.HasSetting(timehomehigh)]">Conditional</animation>
+			<animation effect="slide" end="0,-472" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(totalshomehigh) | Skin.HasSetting(timehomehigh)">Conditional</animation>
+			<control type="image">
+				<width>1860</width>
+				<height>87</height>
+				<texture flipy="true" flipx="true" border="0,0,80,0">$VAR[TimePanelImageVar]</texture>
+				<colordiffuse>$VAR[ExtendedColorVar]</colordiffuse>
+				<animation effect="rotatex" end="180" time="320" center="20" tween="cubic" easing="inout" condition="![Skin.HasSetting(totalshomehigh) | Skin.HasSetting(timehomehigh)]">Conditional</animation>
+				<visible>!Skin.HasSetting(alternativerss)</visible>
+			</control>
+			<control type="image">
+				<width>1920</width>
+				<height>87</height>
+				<texture flipy="true" flipx="true">$VAR[NavBarImageVar]</texture>
+				<colordiffuse>$VAR[ExtendedColorVar]</colordiffuse>
+				<animation effect="rotatex" end="180" time="320" center="20" tween="cubic" easing="inout" condition="![Skin.HasSetting(totalshomehigh) | Skin.HasSetting(timehomehigh)]">Conditional</animation>
+				<visible>Skin.HasSetting(alternativerss)</visible>
+			</control>
+			<control type="label">
+				<left>15</left>
+				<top>-1</top>
+				<width>880</width>
+				<height>36</height>
+				<label>$VAR[LibraryStatsVar]</label>
+				<font>Font_Reg28_Caps</font>
+				<textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+				<scroll>true</scroll>
+				<visible>!Skin.HasSetting(DisableLibraryStats) + !StringCompare(Control.GetLabel(4326),mixed)</visible>
+			</control>
+			<control type="fadelabel">
+				<left>15</left>
+				<top>-1</top>
+				<width>880</width>
+				<height>36</height>
+				<label>$INFO[System.memory(used.percent),[COLOR grey]$LOCALIZE[31309][/COLOR] ]$INFO[System.CPUUsage(used.percent),[COLOR grey] • $LOCALIZE[13271][/COLOR] ]</label>
+				<label>$INFO[Window(Home).Property(favourite.count),[COLOR grey]$LOCALIZE[31509]:[/COLOR] ]</label>
+				<label>$INFO[Window(Home).Property(RandomAddon.Count),[COLOR grey]$LOCALIZE[20161] $LOCALIZE[24001]:[/COLOR] ]</label>
+				<label>$INFO[Window(Weather).Property(Location),[COLOR grey], • $LOCALIZE[402]: [/COLOR]]$INFO[Window(weather).Property(Current.FeelsLike)] $INFO[System.TemperatureUnits,,[COLOR grey] • $LOCALIZE[406]:[/COLOR] ]$INFO[Window(weather).Property(Current.Humidity)]</label>
+				<label>$INFO[PVR.NextRecordingDateTime,$LOCALIZE[19157]  [B][COLOR=white], [/COLOR][/B]$LOCALIZE[19126] -  • ]$INFO[PVR.NextRecordingTitle, [B][COLOR=white],[/COLOR][/B]]$INFO[PVR.NextRecordingChannel, - [B][COLOR=white],[/COLOR][/B]]</label>
+				<label>$INFO[PVR.NowRecordingDateTime,$LOCALIZE[19158]  [B][COLOR=white], [/COLOR][/B]$LOCALIZE[19126] - ]$INFO[PVR.NowRecordingTitle, • [B][COLOR=FF48D1CC],[/COLOR][/B] ]$INFO[PVR.NowRecordingChannel,[B][COLOR=white]( ,)[/COLOR][/B]]</label>
+				<label>[COLOR grey]$LOCALIZE[133]:[/COLOR] $INFO[Window(Home).Property(Music.ArtistsCount)][COLOR grey]  •  $LOCALIZE[132]:[/COLOR] $INFO[Window(Home).Property(Music.AlbumsCount)][COLOR grey]  •  $LOCALIZE[134]:[/COLOR] $INFO[Window(Home).Property(Music.SongsCount)]</label>
+				<label>[COLOR grey]$LOCALIZE[20343]:[/COLOR] $INFO[Window(Home).Property(TVShows.Count)][COLOR grey]  •  $LOCALIZE[20360]:[/COLOR] $INFO[Window(Home).Property(Episodes.Count)][COLOR grey]  •  $LOCALIZE[16101]:[/COLOR] $INFO[Window(Home).Property(Episodes.UnWatched)]</label>
+				<label>$INFO[Window(Home).Property(Movies.Count),[COLOR grey]$LOCALIZE[31502]:[/COLOR] ,[COLOR grey]  •  $LOCALIZE[16102]:[/COLOR] ]$INFO[Window(Home).Property(Movies.Watched),,[COLOR grey]  •  $LOCALIZE[16101]:[/COLOR] ]$INFO[Window(Home).Property(Movies.UnWatched)]</label>
+				<font>Font_Reg28_Caps</font>
+				<textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+				<pauseatend>10000</pauseatend>
+				<resetonlabelchange>false</resetonlabelchange>
+				<visible>!Skin.HasSetting(DisableLibraryStats) + StringCompare(Control.GetLabel(4326),mixed)</visible>
+			</control>
+			<control type="label">
+				<left>780</left>
+				<top>-1</top>
+				<width>1000</width>
+				<height>36</height>
+				<align>right</align>
+				<label>$VAR[AlternateTimeAndStatsLabelVar]</label>
+				<font>Font_Reg28_Caps</font>
+				<textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+				<visible>!Skin.HasSetting(DisableTimePanel)</visible>
+				<animation effect="slide" start="0" end="130" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(alternativerss)">Conditional</animation>
+			</control>
+		</control>
+	</include>
+</includes>

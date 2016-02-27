@@ -38,7 +38,7 @@
 			<top>205</top>
 			<width>600</width>
 			<height>60</height>
-			<label>$LOCALIZE[32001]</label>
+			<label>$LOCALIZE[31041]</label>
 			<font>Font_Bold33</font>
 			<textcolor>$VAR[TitleColorVar]</textcolor>
 		</control>
@@ -76,7 +76,7 @@
 				<onclick>Dialog.Close(1119)</onclick>
 				<onclick condition="Container.Content(movies)">RunScript(script.artwork.downloader, mediatype=movie, dbid=$INFO[ListItem.DBID])</onclick>
 				<onclick condition="Container.Content(tvshows)">RunScript(script.artwork.downloader, mediatype=tvshow, dbid=$INFO[ListItem.DBID])</onclick>
-				<label>$INFO[System.AddonTitle(script.artwork.downloader),,: $LOCALIZE[32002]]</label>
+				<label>$INFO[System.AddonTitle(script.artwork.downloader),,: $LOCALIZE[31002]]</label>
 				<visible>System.HasAddon(script.artwork.downloader) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 			</control>
 			<control type="button" id="115">
@@ -101,7 +101,7 @@
 				<include>Objects_CommonSettingsButton</include>
 				<onclick>Dialog.Close(1119)</onclick>
 				<onclick>RunScript(script.libraryeditor,DBID=$INFO[ListItem.DBID])</onclick>
-				<label>32003</label>
+				<label>31042</label>
 				<visible>System.HasAddon(script.libraryeditor)</visible>
 			</control>
 			<control type="button" id="118">
@@ -109,7 +109,7 @@
 				<include>Objects_CommonSettingsButton</include>
 				<onclick>Dialog.Close(1119)</onclick>
 				<onclick>RunScript(script.ratingupdate,Single=Movie)</onclick>
-				<label>32004</label>
+				<label>31049</label>
 				<visible>System.HasAddon(script.ratingupdate)</visible>
 				<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
 			</control>

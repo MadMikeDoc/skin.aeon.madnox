@@ -1,69 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="dialog" id="1120">
-    <defaultcontrol always="true">20</defaultcontrol>
-    <coordinates>
-        <left>0</left>
-        <top>0</top>
-        <system>1</system>
-    </coordinates>
-    <include>Animation_DialogPopup</include>
-    <onunload condition="!IsEmpty(Window(home).Property(ReturnToHome))">ActivateWindow(skinsettings)</onunload>
-    <onunload>ClearProperty(ReturnToHome,home)</onunload>
-    <controls>
-        <control type="image">
-            <left>356</left>
-            <top>180</top>
-            <width>1210</width>
-            <height>700</height>
-            <texture>osd/osd_settings_back_glow.png</texture>
-            <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-            <visible>!Skin.HasSetting(DisableGlowbar)</visible>
-            <include>PanelGlowFade</include>
-            <include>Animation_VisibleChange400</include>
-        </control>
-        <control type="image">
-            <left>356</left>
-            <top>180</top>
-            <width>1210</width>
-            <height>700</height>
-            <texture>osd/osd_settings_back.png</texture>
-            <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
-        </control>
-        <control type="image">
-            <left>375</left>
-            <top>232</top>
-            <width>1172</width>
-            <height>60</height>
-            <texture border="1">osd/osd_settings_buttonnf.png</texture>
-        </control>
-        <control type="label">
-            <left>630</left>
-            <top>215</top>
-            <width>572</width>
-            <height>60</height>
-            <textoffsety>10</textoffsety>
-            <align>center</align>
-            <label>$LOCALIZE[31176]</label>
-            <font>Font_Bold34</font>
-            <textcolor>$VAR[TitleColorVar]</textcolor>
-        </control>
-        <control type="grouplist" id="20">
-            <left>375</left>
-            <top>292</top>
-            <width>1172</width>
-            <height>540</height>
-            <aligny>center</aligny>
-            <scrolltime>0</scrolltime>
-            <onleft>450</onleft>
-            <onright>450</onright>
-            <orientation>vertical</orientation>
-            <control type="radiobutton" id="308">
-                <label>$LOCALIZE[31375]</label>
-                <include>Objects_CommonSettingsButton</include>
-                <onclick>Skin.ToggleSetting(animatedbghome)</onclick>
-                <selected>Skin.HasSetting(animatedbghome)</selected>
-            </control>
-            <control type="radiobutton" id="312">
+	<defaultcontrol always="true">20</defaultcontrol>
+	<coordinates>
+		<left>0</left>
+		<top>0</top>
+		<system>1</system>
+	</coordinates>
+	<include>Animation_DialogPopup</include>
+	<onunload condition="!IsEmpty(Window(home).Property(ReturnToHome))">ActivateWindow(skinsettings)</onunload>
+	<onunload>ClearProperty(ReturnToHome,home)</onunload>
+	<controls>
+		<control type="image">
+			<left>356</left>
+			<top>180</top>
+			<width>1210</width>
+			<height>700</height>
+			<texture>osd/osd_settings_back_glow.png</texture>
+			<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+			<visible>!Skin.HasSetting(DisableGlowbar)</visible>
+			<include>PanelGlowFade</include>
+			<include>Animation_VisibleChange400</include>
+		</control>
+		<control type="image">
+			<left>356</left>
+			<top>180</top>
+			<width>1210</width>
+			<height>700</height>
+			<texture>osd/osd_settings_back.png</texture>
+			<colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+		</control>
+		<control type="image">
+			<left>375</left>
+			<top>232</top>
+			<width>1172</width>
+			<height>60</height>
+			<texture border="1">osd/osd_settings_buttonnf.png</texture>
+		</control>
+		<control type="label">
+			<left>630</left>
+			<top>215</top>
+			<width>572</width>
+			<height>60</height>
+			<textoffsety>10</textoffsety>
+			<align>center</align>
+			<label>$LOCALIZE[31176]</label>
+			<font>Font_Bold34</font>
+			<textcolor>$VAR[TitleColorVar]</textcolor>
+		</control>
+		<control type="grouplist" id="20">
+			<left>375</left>
+			<top>292</top>
+			<width>1172</width>
+			<height>540</height>
+			<aligny>center</aligny>
+			<scrolltime>0</scrolltime>
+			<onleft>450</onleft>
+			<onright>450</onright>
+			<orientation>vertical</orientation>
+			<control type="radiobutton" id="308">
+				<label>$LOCALIZE[31375]</label>
+				<include>Objects_CommonSettingsButton</include>
+				<onclick>Skin.ToggleSetting(animatedbghome)</onclick>
+				<selected>Skin.HasSetting(animatedbghome)</selected>
+			</control>
+			<!-- <control type="radiobutton" id="312">
                 <label>31803</label>
                 <include>Objects_CommonSettingsButton</include>
                 <onclick>Skin.ToggleSetting(randomizehome)</onclick>
@@ -75,50 +75,177 @@
                 <onclick condition="!Skin.HasSetting(DisableWidgetToggle)">ClearProperty(DisableWidgets,home)</onclick>
                 <onclick>Skin.ToggleSetting(DisableWidgetToggle)</onclick>
                 <selected>Skin.HasSetting(DisableWidgetToggle)</selected>
-            </control>
-            <control type="radiobutton" id="317">
-                <label>31955</label>
-                <include>Objects_CommonSettingsButton</include>
-                <onclick>Skin.ToggleSetting(bottomindicator)</onclick>
-                <selected>Skin.HasSetting(bottomindicator)</selected>
-            </control>
-            <control type="radiobutton" id="417">
-                <label>32992</label>
-                <include>Objects_CommonSettingsButton</include>
-                <onclick>Skin.ToggleSetting(bottomMenu)</onclick>
-                <selected>Skin.HasSetting(bottomMenu)</selected>
-				<visible>Skin.HasSetting(bottomindicator)</visible>
-            </control>
-            <control type="radiobutton" id="17070">
-                <label>Oscars / Top250 On Main Menu</label>
-                <include>Objects_CommonSettingsButton</include>
-                <onclick>Skin.ToggleSetting(OscarsTop250MainMenu)</onclick>
-                <selected>Skin.HasSetting(OscarsTop250MainMenu)</selected>
+            </control> -->
+			<control type="radiobutton" id="317">
+				<label>31955</label>
+				<include>Objects_CommonSettingsButton</include>
+				<onclick>Skin.ToggleSetting(bottomindicator)</onclick>
+				<selected>Skin.HasSetting(bottomindicator)</selected>
 			</control>
-
+			<control type="radiobutton" id="417">
+				<label>31254</label>
+				<include>Objects_CommonSettingsButton</include>
+				<onclick>Skin.ToggleSetting(bottomMenu)</onclick>
+				<selected>Skin.HasSetting(bottomMenu)</selected>
+				<visible>Skin.HasSetting(bottomindicator)</visible>
+			</control>
 			<control type="button" id="314">
-                <label>$LOCALIZE[31613]</label>
-                <label2>[COLOR $VAR[FontColorVar]]$INFO[Skin.String(CustomFocusOffset)][/COLOR]</label2>
-                <include>Objects_CommonSettingsButton</include>
-                <onclick>SetProperty(StartupFocus,1,home)</onclick>
-                <onclick>ActivateWindow(1151)</onclick>
-            </control>
-            <control type="button" id="315">
-                <label>31644</label>
-                <include>Objects_CommonSettingsButton</include>
-                <onclick>ActivateWindow(1132)</onclick>
-            </control>
-            <control type="button" id="318">
-                <label>31715</label>
-                <include>Objects_CommonSettingsButton</include>
-                <onclick>ActivateWindow(1148)</onclick>
-                <visible>System.HasAddon(script.randomandlastitems)</visible>
-            </control>
-            <control type="button" id="319">
+				<label>31613</label>
+				<label2>[COLOR $VAR[FontColorVar]]$INFO[Skin.String(CustomFocusOffset)][/COLOR]</label2>
+				<include>Objects_CommonSettingsButton</include>
+				<onclick>SetProperty(StartupFocus,1,home)</onclick>
+				<onclick>ActivateWindow(1151)</onclick>
+			</control>
+			<!-- <control type="button" id="319">
                 <label>$LOCALIZE[31479]: $LOCALIZE[1045]</label>
                 <include>Objects_CommonSettingsButton</include>
                 <onclick>Addon.OpenSettings(service.skin.widgets)</onclick>
-            </control>
-        </control>
-    </controls>
+            </control> -->
+			<control type="label" id="320">
+				<label> Widgets</label>
+				<include>Objects_CommonSettingsButton</include>
+			</control>
+			<control type="button" id="321">
+				<label>31302</label>
+				<label2>$VAR[WidgetTransLabelVar]%</label2>
+				<include>Objects_CommonSettingsButton</include>
+				<onclick>SetProperty(Dialog.1.Label,100%)</onclick>
+				<onclick>SetProperty(Dialog.1.BuiltIn,Skin.Reset(Widget.Trans))</onclick>
+				<onclick>SetProperty(Dialog.2.Label,95%)</onclick>
+				<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(Widget.Trans,95))</onclick>
+				<onclick>SetProperty(Dialog.3.Label,90%)</onclick>
+				<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(Widget.Trans,90))</onclick>
+				<onclick>SetProperty(Dialog.4.Label,85%)</onclick>
+				<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(Widget.Trans,85))</onclick>
+				<onclick>SetProperty(Dialog.5.Label,80%)</onclick>
+				<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(Widget.Trans,80))</onclick>
+				<onclick>SetProperty(Dialog.6.Label,75%)</onclick>
+				<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(Widget.Trans,75))</onclick>
+				<onclick>SetProperty(Dialog.7.Label,70%)</onclick>
+				<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(Widget.Trans,70))</onclick>
+				<onclick>SetProperty(Dialog.8.Label,65%)</onclick>
+				<onclick>SetProperty(Dialog.8.BuiltIn,Skin.SetString(Widget.Trans,65))</onclick>
+				<onclick>SetProperty(Dialog.9.Label,60%)</onclick>
+				<onclick>SetProperty(Dialog.9.BuiltIn,Skin.SetString(Widget.Trans,60))</onclick>
+				<onclick>SetProperty(Dialog.10.Label,55%)</onclick>
+				<onclick>SetProperty(Dialog.10.BuiltIn,Skin.SetString(Widget.Trans,55))</onclick>
+				<onclick>SetProperty(Dialog.11.Label,50%)</onclick>
+				<onclick>SetProperty(Dialog.11.BuiltIn,Skin.SetString(Widget.Trans,50))</onclick>
+				<onclick>RunScript(script.toolbox,info=selectdialog,header=$LOCALIZE[31827])</onclick>
+			</control>
+			<control type="radiobutton" id="322">
+				<label>31297</label>
+				<onclick>Skin.ToggleSetting(Enable.GlobalWidgetBack)</onclick>
+				<selected>Skin.HasSetting(Enable.GlobalWidgetBack)</selected>
+				<include>Objects_CommonSettingsButton</include>
+			</control>
+			<control type="button" id="323">
+				<label>31300</label>
+				<label2>$VAR[WidgetBackLabelVar]</label2>
+				<include>Objects_CommonSettingsButton</include>
+				<visible>Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
+				<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[571])</onclick>
+				<onclick>SetProperty(Dialog.1.BuiltIn,Skin.Reset(Widget.Back))</onclick>
+				<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31770])</onclick>
+				<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(Widget.Back,Flat))</onclick>
+				<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[192])</onclick>
+				<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(Widget.Back,Clear))</onclick>
+				<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31771])</onclick>
+				<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(Widget.Back,Clear White))</onclick>
+				<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[31772])</onclick>
+				<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(Widget.Back,Colored Default))</onclick>
+				<onclick>SetProperty(Dialog.6.Label,$LOCALIZE[31773])</onclick>
+				<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(Widget.Back,Colored Flat))</onclick>
+				<onclick>SetProperty(Dialog.7.Label,$LOCALIZE[31774])</onclick>
+				<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(Widget.Back,Colored Clear))</onclick>
+				<onclick>SetProperty(Dialog.8.Label,$LOCALIZE[31775])</onclick>
+				<onclick>SetProperty(Dialog.8.BuiltIn,Skin.SetString(Widget.Back,Colored Clear White))</onclick>
+				<onclick>SetProperty(Dialog.9.Label,$LOCALIZE[231])</onclick>
+				<onclick>SetProperty(Dialog.9.BuiltIn,Skin.SetString(Widget.Back,-))</onclick>
+				<onclick>RunScript(script.toolbox,info=selectdialog,header=$LOCALIZE[31790])</onclick>
+			</control>			
+			<control type="radiobutton" id="324">
+				<label>31306</label>
+				<include>Objects_CommonSettingsButton</include>
+				<onclick>Skin.ToggleSetting(widgetautoscroll-list)</onclick>
+				<selected>Skin.HasSetting(widgetautoscroll-list)</selected>
+			</control>
+			<control type="radiobutton" id="325">
+				<include>Objects_CommonSettingsButton</include>
+				<label>31305</label>
+				<onclick>Skin.ToggleSetting(Enable.WidgetHide)</onclick>
+				<selected>Skin.HasSetting(Enable.WidgetHide)</selected>
+			</control>
+			<control type="label" id="330">
+				<label>Widget Info</label>				
+				<include>Objects_CommonSettingsButton</include>
+			</control>
+			<control type="button" id="331">
+				<label>31310</label>
+				<label2>$VAR[WidgetCaseInfoVar]</label2>
+				<include>Objects_CommonSettingsButton</include>
+				<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[231])</onclick>
+				<onclick>SetProperty(Dialog.1.BuiltIn,Skin.Reset(Widget.CaseInfo))</onclick>
+				<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31782])</onclick>
+				<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(Widget.CaseInfo,Glass))</onclick>
+				<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31781])</onclick>
+				<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(Widget.CaseInfo,Case))</onclick>
+				<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31785])</onclick>
+				<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(Widget.CaseInfo,BD Case))</onclick>
+				<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[31783])</onclick>
+				<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(Widget.CaseInfo,Clear Case))</onclick>
+				<onclick>SetProperty(Dialog.6.Label,$LOCALIZE[31822])</onclick>
+				<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(Widget.CaseInfo,Match widget panel))</onclick>
+				<onclick>RunScript(script.toolbox,info=selectdialog,header=$LOCALIZE[31859])</onclick>
+			</control>
+			<control type="button" id="332">
+				<label>31311</label>
+				<label2>$VAR[WidgetCaseOnInfoVar]</label2>
+				<include>Objects_CommonSettingsButton</include>
+				<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[231])</onclick>
+				<onclick>SetProperty(Dialog.1.BuiltIn,Skin.Reset(Widget.CaseOnInfo))</onclick>
+				<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31782])</onclick>
+				<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(Widget.CaseOnInfo,Glass))</onclick>
+				<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31781])</onclick>
+				<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(Widget.CaseOnInfo,Case))</onclick>
+				<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31785])</onclick>
+				<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(Widget.CaseOnInfo,BD Case))</onclick>
+				<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[31783])</onclick>
+				<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(Widget.CaseOnInfo,Clear Case))</onclick>
+				<onclick>SetProperty(Dialog.6.Label,$LOCALIZE[32822])</onclick>
+				<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(Widget.CaseOnInfo,Match widget panel))</onclick>
+				<onclick>RunScript(script.toolbox,info=selectdialog,header=$LOCALIZE[31849])</onclick>
+			</control>
+			<control type="button" id="333">
+				<label>31303</label>
+				<label2>$VAR[WidgetListInfoLabelVar]</label2>
+				<include>Objects_CommonSettingsButton</include>
+				<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31806])</onclick>
+				<onclick>SetProperty(Dialog.1.BuiltIn,Skin.Reset(Widget.ListInfo))</onclick>
+				<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31821])</onclick>
+				<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(Widget.ListInfo,Always On))</onclick>
+				<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[231])</onclick>
+				<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(Widget.ListInfo,None))</onclick>
+				<onclick>RunScript(script.toolbox,info=selectdialog,header=$LOCALIZE[31858])</onclick>
+			</control>
+			<control type="radiobutton" id="334">
+				<label>31308</label>
+				<include>Objects_CommonSettingsButton</include>
+				<onclick>Skin.ToggleSetting(CastonWidget)</onclick>
+				<selected>Skin.HasSetting(CastonWidget)</selected>
+			</control>
+			<control type="radiobutton" id="335">
+				<label>31301</label>
+				<onclick>Skin.ToggleSetting(Enable.OnInfoMatch)</onclick>
+				<selected>Skin.HasSetting(Enable.OnInfoMatch)</selected>
+				<include>Objects_CommonSettingsButton</include>
+			</control>			
+			<control type="radiobutton" id="336">
+				<label>31304</label>
+				<include>Objects_CommonSettingsButton</include>
+				<onclick>Skin.ToggleSetting(Enable.PanelInfo)</onclick>
+				<selected>Skin.HasSetting(Enable.PanelInfo)</selected>
+			</control>		
+		</control>
+	</controls>
 </window>

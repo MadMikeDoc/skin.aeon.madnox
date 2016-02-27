@@ -1,0 +1,773 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+	<defaultcontrol always="true">90001</defaultcontrol>
+	<backgroundcolor>backgroundcolor</backgroundcolor>
+	<onunload>ClearProperty(skinshortcuts-management-widget,10000)</onunload>
+	<controls>
+		<control type="group">
+			<visible>IsEmpty(Window.Property(additionalDialog))</visible>
+			<animation effect="zoom" end="91" center="960,360" time="320" tween="cubic" easing="inout" condition="true">Conditional</animation>
+			<control type="list" id="211">
+				<left>63</left>
+				<top>194</top>
+				<width>750</width>
+				<height>768</height>
+				<onright>90001</onright>
+				<onup>211</onup>
+				<ondown>211</ondown>
+				<scrolltime tween="sine">300</scrolltime>
+				<itemlayout height="74" width="570">
+					<control type="label">
+						<left>15</left>
+						<width>321</width>
+						<height>74</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>Font_Bold34_Caps</font>
+						<textcolor>grey2</textcolor>
+						<visible>!Skin.HasSetting(mainmenuicons) + !StringCompare(Window.Property(groupname),madnox-quicknav)</visible>
+					</control>
+					<control type="label">
+						<left>15</left>
+						<width>244</width>
+						<height>74</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>Font_Bold34_Caps</font>
+						<textcolor>grey2</textcolor>
+						<visible>Skin.HasSetting(mainmenuicons) | StringCompare(Window.Property(groupname),madnox-quicknav)</visible>
+					</control>
+					<control type="image">
+						<left>260</left>
+						<top>0</top>
+						<width>70</width>
+						<height>70</height>
+						<texture colordiffuse="grey2">$INFO[ListItem.Icon]</texture>
+						<visible>Skin.HasSetting(mainmenuicons) | StringCompare(Window.Property(groupname),madnox-quicknav)</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="74" width="570">
+					<control type="image">
+						<width>324</width>
+						<height>74</height>
+						<texture border="8">views/tripanel/listselect_fo.png</texture>
+						<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(9000)">Conditional</animation>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+					</control>
+					<control type="label">
+						<left>15</left>
+						<width>321</width>
+						<height>74</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>Font_Bold34_Caps</font>
+						<visible>!Skin.HasSetting(mainmenuicons) + !StringCompare(Window.Property(groupname),madnox-quicknav)</visible>
+					</control>
+					<control type="label">
+						<left>15</left>
+						<width>244</width>
+						<height>74</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>Font_Bold34_Caps</font>
+						<visible>Skin.HasSetting(mainmenuicons) | StringCompare(Window.Property(groupname),madnox-quicknav)</visible>
+					</control>
+					<control type="image">
+						<left>260</left>
+						<top>2</top>
+						<width>70</width>
+						<height>70</height>
+						<texture>$INFO[ListItem.Icon]</texture>
+						<visible>Skin.HasSetting(mainmenuicons) | StringCompare(Window.Property(groupname),madnox-quicknav)</visible>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="grouplist" id="90001">
+				<left>387</left>
+				<top>195</top>
+				<width>1469</width>
+				<height>732</height>
+				<itemgap>0</itemgap>
+				<onleft>211</onleft>
+				<onup>90001</onup>
+				<ondown>90001</ondown>
+				<control type="button" id="401">
+					<description>Choose shortcut</description>
+					<include>Default_SettingButton</include>
+					<label>$ADDON[script.skinshortcuts 32048]</label>
+				</control>
+				<control type="button" id="305">
+					<description>Change label</description>
+					<include>Default_SettingButton</include>
+					<label>$ADDON[script.skinshortcuts 32025]</label>
+					<label2>$INFO[Container(211).ListItem.Label]</label2>
+				</control>
+				<control type="button" id="307">
+					<description>Change action</description>
+					<include>Default_SettingButton</include>
+					<label>$ADDON[script.skinshortcuts 32027]</label>
+					<label2>$INFO[Container(211).ListItem.Property(displaypath)]</label2>
+				</control>
+				<control type="button" id="405">
+					<description>Edit submenu</description>
+					<include>Default_SettingButton</include>
+					<label>31742</label>
+					<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
+				</control>
+				<!-- Background -->
+				<control type="button" id="310">
+					<description>Change background</description>
+					<include>Default_SettingButton</include>
+					<label>$ADDON[script.skinshortcuts 32045]</label>
+					<label2>$INFO[Window.Property(backgroundName)]</label2>
+					<visible>!SubString(Window.Property(groupname),.1,right) + !StringCompare(Window.Property(groupname),madnox-quicknav)</visible>
+				</control>
+				<control type="button" id="602">
+					<description>Change live background image</description>
+					<include>Default_SettingButton</include>
+					<label>31743</label>
+					<label2>$INFO[Window.Property(backgroundLive)]</label2>
+					<visible>SubString(Window.Property(background),.Live,right)</visible>
+				</control>
+				<control type="button" id="601">
+					<description>Change live background case</description>
+					<include>Default_SettingButton</include>
+					<label>31744</label>
+					<label2>$VAR[backgroundCaseLabelVar]</label2>
+					<visible>SubString(Window.Property(background),.Live,right)</visible>
+				</control>
+				<control type="button" id="603">
+					<description>Change live background sort by</description>
+					<include>Default_SettingButton</include>
+					<label>31756</label>
+					<label2>$VAR[backgroundSortByLabelVar]</label2>
+					<visible>SubString(Window.Property(background),.Live,right) | SubString(Window.Property(background),.FanartList,right)</visible>
+				</control>
+				<control type="button" id="604">
+					<description>Change live background sort order</description>
+					<include>Default_SettingButton</include>
+					<label>31757</label>
+					<label2>$VAR[backgroundSortLabelVar]</label2>
+					<visible>SubString(Window.Property(background),.Live,right) | SubString(Window.Property(background),.FanartList,right)</visible>
+				</control>
+				<!-- End Background -->
+				<control type="button" id="500">
+					<description>Choose infoline</description>
+					<include>Default_SettingButton</include>
+					<label>31745</label>
+					<label2>$INFO[Window.Property(InfoLine)]</label2>
+					<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
+					<onclick>SetProperty(chooseProperty,InfoLine)</onclick>
+					<onclick>SendClick(404)</onclick>
+				</control>
+				<control type="button" id="306">
+					<description>Change icon</description>
+					<include>Default_SettingButton</include>
+					<label>31746</label>
+					<visible>Skin.HasSetting(mainmenuicons) | SubString(Window.Property(groupname),.1,right) | StringCompare(Window.Property(groupname),madnox-quicknav)</visible>
+				</control>
+
+				<control type="button" id="800">
+					<description>Widget 1</description>
+					<include>Default_SettingButton</include>
+					<label>31749</label>
+					<label2>$INFO[Window.Property(widgetStyle)]</label2>
+					<onclick>SetProperty(skinshortcuts-management-widget,1,10000)</onclick>
+					<onclick>Control.SetFocus(1001)</onclick>
+					<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
+				</control>
+				<control type="button" id="801">
+					<description>Widget 2</description>
+					<include>Default_SettingButton</include>
+					<label>31760</label>
+					<label2>$INFO[Window.Property(widgetStyle.2)]</label2>
+					<onclick>SetProperty(skinshortcuts-management-widget,2,10000)</onclick>
+					<onclick>Control.SetFocus(2001)</onclick>
+					<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
+				</control>
+				<control type="button" id="303">
+					<description>Move up</description>
+					<include>Default_SettingButton</include>
+				</control>
+				<control type="button" id="304">
+					<description>Move down</description>
+					<include>Default_SettingButton</include>
+				</control>
+				<control type="button" id="301">
+					<description>Add shortcut</description>
+					<include>Default_SettingButton</include>
+					<label>$ADDON[script.skinshortcuts 32000]</label>
+				</control>
+				<control type="button" id="302">
+					<description>Delete shortcut</description>
+					<include>Default_SettingButton</include>
+				</control>
+				<control type="button" id="308">
+					<description>Restore shortcuts</description>
+					<include>Default_SettingButton</include>
+					<label>$ADDON[script.skinshortcuts 32028]</label>
+				</control>
+			</control>
+		</control>
+		<!-- Widget 1 settings -->
+		<control type="group">
+			<left>579</left>
+			<top>130</top>
+			<width>764</width>
+			<visible>[ControlGroup(6000).HasFocus | Control.HasFocus(6001)] + IsEmpty(Window.Property(additionalDialog))</visible>
+			<control type="group">
+				<control type="image">
+					<left>-4</left>
+					<top>-24</top>
+					<width>776</width>
+					<height>700</height>
+					<texture border="22">dialogs/scan_backg_shadow.png</texture>
+					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+					<include>PanelGlowFade</include>
+					<visible>!Skin.HasSetting(DisableGlowbar)</visible>
+					<include>Animation_VisibleChange400</include>
+				</control>
+				<control type="image">
+					<left>-4</left>
+					<top>-24</top>
+					<width>776</width>
+					<height>700</height>
+					<texture border="22">dialogs/scan_backg.png</texture>
+					<colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+				</control>
+				<control type="label">
+					<left>138</left>
+					<width>603</width>
+					<height>45</height>
+					<textoffsetx>15</textoffsetx>
+					<textoffsety>0</textoffsety>
+					<texturenofocus border="3">settings/listselect_nf3.png</texturenofocus>
+					<label>31749</label>
+					<font>Font_Bold26_Caps</font>
+					<textcolor>$VAR[FontColorVar]</textcolor>
+					<disabledcolor>$VAR[FontColorVar]</disabledcolor>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+					<focusedcolor>white6</focusedcolor>
+					<include>Animation_CommonFade</include>
+					<enable>no</enable>
+				</control>
+			</control>
+			<include>Dialogs_Settings</include>
+			<control type="button" id="6001">
+				<left>-579</left>
+				<top>-130</top>
+				<width>1920</width>
+				<height>1080</height>
+				<onclick>noop</onclick>
+				<texturefocus>noop</texturefocus>
+				<texturenofocus>noop</texturenofocus>
+				<alttexturefocus>noop</alttexturefocus>
+				<alttexturenofocus>noop</alttexturenofocus>
+				<onleft>6000</onleft>
+				<onright>6000</onright>
+				<onup>6000</onup>
+				<ondown>6000</ondown>
+				<onback>noop</onback>
+			</control>
+			<control type="grouplist" id="6000">
+				<top>50</top>
+				<left>138</left>
+				<height>600</height>
+				<!-- Widget 1 -->
+				<control type="button" id="1001">
+					<description>Change widget style 1</description>
+					<include>ColorChooserButton</include>
+					<label>31750</label>
+					<label2>$VAR[WidgetStyleLabelVar]</label2>
+				</control>
+				<control type="button" id="1002">
+					<description>Change widget background 1</description>
+					<include>ColorChooserButton</include>
+					<label>31751</label>
+					<label2>$VAR[WidgetBackgroundLabelVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetStyle)) + !Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
+				</control>
+				<control type="button" id="1003">
+					<description>Change widget title 1</description>
+					<include>ColorChooserButton</include>
+					<label>31752</label>
+					<label2>$VAR[WidgetTitleLabelVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetStyle)) + !Substring(Window.Property(widgetStyle),List)</visible>
+				</control>
+				<control type="button" id="1020">
+					<description>Change list widget text 1</description>
+					<include>ColorChooserButton</include>
+					<label>31753</label>
+					<label2>$VAR[WidgetListLabelVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetStyle)) + Substring(Window.Property(widgetStyle),List) + !StringCompare(Window.Property(widgetArt),Banner) + !StringCompare(Window.Property(widgetType),system) + !StringCompare(Window.Property(widgetType),weather)</visible>
+				</control>
+				<control type="button" id="1021">
+					<description>Enable panel widget info 1</description>
+					<include>ColorChooserButton</include>
+					<label>Enable widget info</label>
+					<label2>$VAR[WidgetPanelInfoVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetStyle)) + !Substring(Window.Property(widgetStyle),List) + !Skin.HasSetting(Enable.PanelInfo)</visible>
+				</control>
+				<control type="button" id="312">
+					<description>Change widget 1</description>
+					<include>ColorChooserButton</include>
+					<label>$ADDON[script.skinshortcuts 32044]</label>
+					<label2>$INFO[Window.Property(widgetName)]</label2>
+					<onclick>SetProperty(customProperty,widgetArt)</onclick>
+					<onclick>SendClick(404)</onclick>
+					<visible>!IsEmpty(Window.Property(widgetStyle))</visible>
+				</control>
+				<control type="button" id="1004">
+					<description>Change widget art 1</description>
+					<include>ColorChooserButton</include>
+					<label>31754</label>
+					<label2>$VAR[WidgetArtLabelVar]</label2>
+					<visible>[!IsEmpty(Window.Property(widgetPath)) + !IsEmpty(Window.Property(widgetStyle))] + [!StringCompare(Window.Property(widgetType),system) | !Substring(Window.Property(widgetStyle),List)]</visible>
+				</control>
+				<control type="button" id="1008">
+					<description>Change widget case 1</description>
+					<include>ColorChooserButton</include>
+					<label>31755</label>
+					<label2>$VAR[WidgetCaseLabelVar]</label2>
+					<visible>[!IsEmpty(Window.Property(widgetPath)) + !IsEmpty(Window.Property(widgetStyle))] + [!StringCompare(Window.Property(widgetType),system) | !Substring(Window.Property(widgetStyle),List)]</visible>
+				</control>
+				<control type="button" id="1012">
+					<description>Change widget 1 sort by</description>
+					<include>ColorChooserButton</include>
+					<label>31756</label>
+					<label2>$VAR[WidgetSortbyLabelVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath)) + !IsEmpty(Window.Property(widgetStyle))</visible>
+				</control>
+				<control type="button" id="1016">
+					<description>Change widget 1 sort order</description>
+					<include>ColorChooserButton</include>
+					<label>31757</label>
+					<label2>[CAPITALIZE]$VAR[WidgetSortLabelVar][/CAPITALIZE]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath)) + !IsEmpty(Window.Property(widgetStyle))</visible>
+				</control>
+				<!-- Widget 1 - Mixed B-->
+				<control type="button" id="1052">
+					<description>Change widget 1b</description>
+					<include>ColorChooserButton</include>
+					<label>$ADDON[script.skinshortcuts 32044] 2</label>
+					<label2>$INFO[Window.Property(widgetName.b)]</label2>
+					<onclick>SetProperty(widgetID,b)</onclick>
+					<onclick>SendClick(312)</onclick>
+					<onclick>SetProperty(customProperty,widgetArt.b)</onclick>
+					<onclick>SendClick(404)</onclick>
+					<visible>StringCompare(Window.Property(widgetStyle),Mixed) | StringCompare(Window.Property(widgetStyle),Extended Mixed)</visible>
+				</control>
+				<control type="button" id="1005">
+					<description>Change widget art 1b</description>
+					<include>ColorChooserButton</include>
+					<label>31754</label>
+					<label2>$VAR[WidgetArtBLabelVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath.b))</visible>
+					<visible>StringCompare(Window.Property(widgetStyle),Mixed) | StringCompare(Window.Property(widgetStyle),Extended Mixed)</visible>
+				</control>
+				<control type="button" id="1009">
+					<description>Change widget case 1b</description>
+					<include>ColorChooserButton</include>
+					<label>31755</label>
+					<label2>$VAR[WidgetCaseBLabelVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath.b))</visible>
+					<visible>StringCompare(Window.Property(widgetStyle),Mixed) | StringCompare(Window.Property(widgetStyle),Extended Mixed)</visible>
+				</control>
+				<control type="button" id="1013">
+					<description>Change widget 1b sort by</description>
+					<include>ColorChooserButton</include>
+					<label>31756</label>
+					<label2>$VAR[WidgetSortbyBLabelVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath.b))</visible>
+					<visible>StringCompare(Window.Property(widgetStyle),Mixed) | StringCompare(Window.Property(widgetStyle),Extended Mixed)</visible>
+				</control>
+				<control type="button" id="1017">
+					<description>Change widget 1b sort order</description>
+					<include>ColorChooserButton</include>
+					<label>31757</label>
+					<label2>[CAPITALIZE]$VAR[WidgetSortBLabelVar][/CAPITALIZE]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath.b))</visible>
+					<visible>StringCompare(Window.Property(widgetStyle),Mixed) | StringCompare(Window.Property(widgetStyle),Extended Mixed)</visible>
+				</control>
+				<!-- Widget 1 - Mixed C-->
+				<control type="button" id="1053">
+					<description>Change widget 1c</description>
+					<include>ColorChooserButton</include>
+					<label>$ADDON[script.skinshortcuts 32044] 3</label>
+					<label2>$INFO[Window.Property(widgetName.c)]</label2>
+					<onclick>SetProperty(widgetID,c)</onclick>
+					<onclick>SendClick(312)</onclick>
+					<onclick>SetProperty(customProperty,widgetArt.c)</onclick>
+					<onclick>SendClick(404)</onclick>
+					<visible>StringCompare(Window.Property(widgetStyle),Mixed) | StringCompare(Window.Property(widgetStyle),Extended Mixed)</visible>
+				</control>
+				<control type="button" id="1006">
+					<description>Change widget art 1c</description>
+					<include>ColorChooserButton</include>
+					<label>31754</label>
+					<label2>$VAR[WidgetArtCLabelVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath.c))</visible>
+					<visible>StringCompare(Window.Property(widgetStyle),Mixed) | StringCompare(Window.Property(widgetStyle),Extended Mixed)</visible>
+				</control>
+				<control type="button" id="1010">
+					<description>Change widget case 1c</description>
+					<include>ColorChooserButton</include>
+					<label>31755</label>
+					<label2>$VAR[WidgetCaseCLabelVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath.c))</visible>
+					<visible>StringCompare(Window.Property(widgetStyle),Mixed) | StringCompare(Window.Property(widgetStyle),Extended Mixed)</visible>
+				</control>
+				<control type="button" id="1014">
+					<description>Change widget 1c sort by</description>
+					<include>ColorChooserButton</include>
+					<label>31756</label>
+					<label2>$VAR[WidgetSortbyCLabelVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath.c))</visible>
+					<visible>StringCompare(Window.Property(widgetStyle),Mixed) | StringCompare(Window.Property(widgetStyle),Extended Mixed)</visible>
+				</control>
+				<control type="button" id="1018">
+					<description>Change widget 1c sort order</description>
+					<include>ColorChooserButton</include>
+					<label>31757</label>
+					<label2>[CAPITALIZE]$VAR[WidgetSortCLabelVar][/CAPITALIZE]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath.c))</visible>
+					<visible>StringCompare(Window.Property(widgetStyle),Mixed) | StringCompare(Window.Property(widgetStyle),Extended Mixed)</visible>
+				</control>
+				<!-- Widget 1 - Mixed D-->
+				<control type="button" id="1054">
+					<description>Change widget 1d</description>
+					<include>ColorChooserButton</include>
+					<label>$ADDON[script.skinshortcuts 32044] 4</label>
+					<label2>$INFO[Window.Property(widgetName.d)]</label2>
+					<onclick>SetProperty(widgetID,d)</onclick>
+					<onclick>SendClick(312)</onclick>
+					<onclick>SetProperty(customProperty,widgetArt.d)</onclick>
+					<onclick>SendClick(404)</onclick>
+					<visible>StringCompare(Window.Property(widgetStyle),Extended Mixed)</visible>
+				</control>
+				<control type="button" id="1007">
+					<description>Change widget art 1d</description>
+					<include>ColorChooserButton</include>
+					<label>31754</label>
+					<label2>$VAR[WidgetArtDLabelVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath.d))</visible>
+					<visible>StringCompare(Window.Property(widgetStyle),Extended Mixed)</visible>
+				</control>
+				<control type="button" id="1011">
+					<description>Change widget case 1d</description>
+					<include>ColorChooserButton</include>
+					<label>31755</label>
+					<label2>$VAR[WidgetCaseDLabelVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath.d))</visible>
+					<visible>StringCompare(Window.Property(widgetStyle),Extended Mixed)</visible>
+				</control>
+				<control type="button" id="1015">
+					<description>Change widget 1d sort by</description>
+					<include>ColorChooserButton</include>
+					<label>31756</label>
+					<label2>$VAR[WidgetSortbyDLabelVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath.d))</visible>
+					<visible>StringCompare(Window.Property(widgetStyle),Extended Mixed)</visible>
+				</control>
+				<control type="button" id="1019">
+					<description>Change widget 1d sort order</description>
+					<include>ColorChooserButton</include>
+					<label>31757</label>
+					<label2>[CAPITALIZE]$VAR[WidgetSortDLabelVar][/CAPITALIZE]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath.d))</visible>
+					<visible>StringCompare(Window.Property(widgetStyle),Extended Mixed)</visible>
+				</control>
+				<!-- Custom list -->
+				<control type="button" id="406">
+					<description>Setup custom widget list</description>
+					<include>ColorChooserButton</include>
+					<label>31759</label>
+					<visible>StringCompare(Window.Property(widgetType),custom) | [SubString(Window.Property(widgetStyle),Mixed) + [StringCompare(Window.Property(widgetType.a),custom) | StringCompare(Window.Property(widgetType.b),custom) | StringCompare(Window.Property(widgetType.c),custom) | StringCompare(Window.Property(widgetType.d),custom)]]</visible>
+				</control>
+			</control>
+		</control>
+		<!-- Widget 2 settings -->
+		<control type="group">
+			<left>579</left>
+			<top>130</top>
+			<width>764</width>
+			<visible>[ControlGroup(7000).HasFocus | Control.HasFocus(7001)] + IsEmpty(Window.Property(additionalDialog))</visible>
+			<control type="group">
+				<control type="image">
+					<left>-4</left>
+					<top>-24</top>
+					<width>776</width>
+					<height>700</height>
+					<texture border="22">dialogs/scan_backg_shadow.png</texture>
+					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+					<include>PanelGlowFade</include>
+					<visible>!Skin.HasSetting(DisableGlowbar)</visible>
+					<include>Animation_VisibleChange400</include>
+				</control>
+				<control type="image">
+					<left>-4</left>
+					<top>-24</top>
+					<width>776</width>
+					<height>700</height>
+					<texture border="22">dialogs/scan_backg.png</texture>
+					<colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+				</control>
+				<control type="label">
+					<left>138</left>
+					<width>603</width>
+					<height>45</height>
+					<textoffsetx>15</textoffsetx>
+					<textoffsety>0</textoffsety>
+					<texturenofocus border="3">settings/listselect_nf3.png</texturenofocus>
+					<label>31760</label>
+					<font>Font_Bold26_Caps</font>
+					<textcolor>$VAR[FontColorVar]</textcolor>
+					<disabledcolor>$VAR[FontColorVar]</disabledcolor>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+					<focusedcolor>white6</focusedcolor>
+					<include>Animation_CommonFade</include>
+					<enable>no</enable>
+				</control>
+			</control>
+			<include>Dialogs_Settings</include>
+			<control type="button" id="7001">
+				<left>-579</left>
+				<top>-130</top>
+				<width>1920</width>
+				<height>1080</height>
+				<onclick>noop</onclick>
+				<texturefocus>noop</texturefocus>
+				<texturenofocus>noop</texturenofocus>
+				<alttexturefocus>noop</alttexturefocus>
+				<alttexturenofocus>noop</alttexturenofocus>
+				<onleft>7000</onleft>
+				<onright>7000</onright>
+				<onup>7000</onup>
+				<ondown>7000</ondown>
+			</control>
+			<control type="grouplist" id="7000">
+				<top>50</top>
+				<left>138</left>
+				<height>600</height>
+				<!-- Widget 2 -->
+				<control type="button" id="2001">
+					<description>Change widget style 2</description>
+					<include>ColorChooserButton</include>
+					<label>31750</label>
+					<label2>$VAR[WidgetStyle2LabelVar]</label2>
+				</control>
+				<control type="button" id="2002">
+					<description>Change widget background 2</description>
+					<include>ColorChooserButton</include>
+					<label>31751</label>
+					<label2>$VAR[WidgetBackground2LabelVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetStyle.2)) + !Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
+				</control>
+				<control type="button" id="2003">
+					<description>Change widget title 2</description>
+					<include>ColorChooserButton</include>
+					<label>31752</label>
+					<label2>$VAR[WidgetTitle2LabelVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetStyle.2)) + !Substring(Window.Property(widgetStyle.2),List)</visible>
+				</control>
+				<control type="button" id="2020">
+					<description>Change list widget text 2</description>
+					<include>ColorChooserButton</include>
+					<label>31753</label>
+					<label2>$VAR[WidgetList2LabelVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetStyle.2)) + Substring(Window.Property(widgetStyle.2),List) + !StringCompare(Window.Property(widgetArt.2),Banner) + !StringCompare(Window.Property(widgetType.2),system) + !StringCompare(Window.Property(widgetType.2),weather)</visible>
+				</control>
+				<control type="button" id="2021">
+					<description>Enable panel widget info 2</description>
+					<include>ColorChooserButton</include>
+					<label>Enable widget info</label>
+					<label2>$VAR[WidgetPanelInfo2Var]</label2>
+					<visible>!IsEmpty(Window.Property(widgetStyle.2)) + !Substring(Window.Property(widgetStyle.2),List) + !Skin.HasSetting(Enable.PanelInfo)</visible>
+				</control>
+				<control type="button" id="2051">
+					<description>Change widget 2</description>
+					<include>ColorChooserButton</include>
+					<label>$ADDON[script.skinshortcuts 32044]</label>
+					<label2>$INFO[Window.Property(widgetName.2)]</label2>
+					<onclick>SetProperty(widgetID,2)</onclick>
+					<onclick>SendClick(312)</onclick>
+					<onclick>SetProperty(customProperty,widgetArt.2)</onclick>
+					<onclick>SendClick(404)</onclick>
+					<visible>!IsEmpty(Window.Property(widgetStyle.2))</visible>
+				</control>
+				<control type="button" id="2004">
+					<description>Change widget art 2</description>
+					<include>ColorChooserButton</include>
+					<label>31754</label>
+					<label2>$VAR[WidgetArt2LabelVar]</label2>
+					<visible>[!IsEmpty(Window.Property(widgetPath.2)) + !IsEmpty(Window.Property(widgetStyle.2))] + [!StringCompare(Window.Property(widgetType.2),system) | !Substring(Window.Property(widgetStyle.2),List)]</visible>
+				</control>
+				<control type="button" id="2008">
+					<description>Change widget case 2</description>
+					<include>ColorChooserButton</include>
+					<label>31755</label>
+					<label2>$VAR[WidgetCase2LabelVar]</label2>
+					<visible>[!IsEmpty(Window.Property(widgetPath.2)) + !IsEmpty(Window.Property(widgetStyle.2))] + [!StringCompare(Window.Property(widgetType.2),system) | !Substring(Window.Property(widgetStyle.2),List)]</visible>
+				</control>
+				<control type="button" id="2012">
+					<description>Change widget 2 sort by</description>
+					<include>ColorChooserButton</include>
+					<label>31756</label>
+					<label2>$VAR[WidgetSortby2LabelVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath.2)) + !IsEmpty(Window.Property(widgetStyle.2))</visible>
+				</control>
+				<control type="button" id="2016">
+					<description>Change widget 2 sort order</description>
+					<include>ColorChooserButton</include>
+					<label>31757</label>
+					<label2>[CAPITALIZE]$VAR[WidgetSort2LabelVar][/CAPITALIZE]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath.2)) + !IsEmpty(Window.Property(widgetStyle.2))</visible>
+				</control>
+				<!-- Widget 2 - Mixed B-->
+				<control type="button" id="2052">
+					<description>Change widget 2b</description>
+					<include>ColorChooserButton</include>
+					<label>$ADDON[script.skinshortcuts 32044] 2</label>
+					<label2>$INFO[Window.Property(widgetName.2b)]</label2>
+					<onclick>SetProperty(widgetID,2b)</onclick>
+					<onclick>SendClick(312)</onclick>
+					<onclick>SetProperty(customProperty,widgetArt.2b)</onclick>
+					<onclick>SendClick(404)</onclick>
+					<visible>StringCompare(Window.Property(widgetStyle.2),Mixed) | StringCompare(Window.Property(widgetStyle.2),Extended Mixed)</visible>
+				</control>
+				<control type="button" id="2005">
+					<description>Change widget art 2b</description>
+					<include>ColorChooserButton</include>
+					<label>31754</label>
+					<label2>$VAR[WidgetArt2BLabelVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath.2b))</visible>
+					<visible>StringCompare(Window.Property(widgetStyle.2),Mixed) | StringCompare(Window.Property(widgetStyle.2),Extended Mixed)</visible>
+				</control>
+				<control type="button" id="2009">
+					<description>Change widget case 2b</description>
+					<include>ColorChooserButton</include>
+					<label>31755</label>
+					<label2>$VAR[WidgetCase2BLabelVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath.2b))</visible>
+					<visible>StringCompare(Window.Property(widgetStyle.2),Mixed) | StringCompare(Window.Property(widgetStyle.2),Extended Mixed)</visible>
+				</control>
+				<control type="button" id="2013">
+					<description>Change widget 2b sort by</description>
+					<include>ColorChooserButton</include>
+					<label>31756</label>
+					<label2>$VAR[WidgetSortby2BLabelVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath.2b))</visible>
+					<visible>StringCompare(Window.Property(widgetStyle.2),Mixed) | StringCompare(Window.Property(widgetStyle.2),Extended Mixed)</visible>
+				</control>
+				<control type="button" id="2017">
+					<description>Change widget 2b sort order</description>
+					<include>ColorChooserButton</include>
+					<label>31757</label>
+					<label2>[CAPITALIZE]$VAR[WidgetSort2BLabelVar][/CAPITALIZE]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath.2b))</visible>
+					<visible>StringCompare(Window.Property(widgetStyle.2),Mixed) | StringCompare(Window.Property(widgetStyle.2),Extended Mixed)</visible>
+				</control>
+				<!-- Widget 2 - Mixed C-->
+				<control type="button" id="2053">
+					<description>Change widget 2c</description>
+					<include>ColorChooserButton</include>
+					<label>$ADDON[script.skinshortcuts 32044] 3</label>
+					<label2>$INFO[Window.Property(widgetName.2c)]</label2>
+					<onclick>SetProperty(widgetID,2c)</onclick>
+					<onclick>SendClick(312)</onclick>
+					<onclick>SetProperty(customProperty,widgetArt.2c)</onclick>
+					<onclick>SendClick(404)</onclick>
+					<visible>StringCompare(Window.Property(widgetStyle.2),Mixed) | StringCompare(Window.Property(widgetStyle.2),Extended Mixed)</visible>
+				</control>
+				<control type="button" id="2006">
+					<description>Change widget art 2c</description>
+					<include>ColorChooserButton</include>
+					<label>31754</label>
+					<label2>$VAR[WidgetArt2CLabelVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath.2c))</visible>
+					<visible>StringCompare(Window.Property(widgetStyle.2),Mixed) | StringCompare(Window.Property(widgetStyle.2),Extended Mixed)</visible>
+				</control>
+				<control type="button" id="2010">
+					<description>Change widget case 2c</description>
+					<include>ColorChooserButton</include>
+					<label>31755</label>
+					<label2>$VAR[WidgetCase2CLabelVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath.2c))</visible>
+					<visible>StringCompare(Window.Property(widgetStyle.2),Mixed) | StringCompare(Window.Property(widgetStyle.2),Extended Mixed)</visible>
+				</control>
+				<control type="button" id="2014">
+					<description>Change widget 2c sort by</description>
+					<include>ColorChooserButton</include>
+					<label>31756</label>
+					<label2>$VAR[WidgetSortby2CLabelVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath.2c))</visible>
+					<visible>StringCompare(Window.Property(widgetStyle.2),Mixed) | StringCompare(Window.Property(widgetStyle.2),Extended Mixed)</visible>
+				</control>
+				<control type="button" id="2018">
+					<description>Change widget 2c sort order</description>
+					<include>ColorChooserButton</include>
+					<label>31757</label>
+					<label2>[CAPITALIZE]$VAR[WidgetSort2CLabelVar][/CAPITALIZE]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath.2c))</visible>
+					<visible>StringCompare(Window.Property(widgetStyle.2),Mixed) | StringCompare(Window.Property(widgetStyle.2),Extended Mixed)</visible>
+				</control>
+				<!-- Widget 2 - Mixed D-->
+				<control type="button" id="2054">
+					<description>Change widget 2d</description>
+					<include>ColorChooserButton</include>
+					<label>$ADDON[script.skinshortcuts 32044] 4</label>
+					<label2>$INFO[Window.Property(widgetName.2d)]</label2>
+					<onclick>SetProperty(widgetID,2d)</onclick>
+					<onclick>SendClick(312)</onclick>
+					<onclick>SetProperty(customProperty,widgetArt.2d)</onclick>
+					<onclick>SendClick(404)</onclick>
+					<visible>StringCompare(Window.Property(widgetStyle.2),Extended Mixed)</visible>
+				</control>
+				<control type="button" id="2007">
+					<description>Change widget art 2d</description>
+					<include>ColorChooserButton</include>
+					<label>31754</label>
+					<label2>$VAR[WidgetArt2DLabelVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath.2d))</visible>
+					<visible>StringCompare(Window.Property(widgetStyle.2),Extended Mixed)</visible>
+				</control>
+				<control type="button" id="2011">
+					<description>Change widget case 2d</description>
+					<include>ColorChooserButton</include>
+					<label>31755</label>
+					<label2>$VAR[WidgetCase2DLabelVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath.2d))</visible>
+					<visible>StringCompare(Window.Property(widgetStyle.2),Extended Mixed)</visible>
+				</control>
+				<control type="button" id="2015">
+					<description>Change widget 2d sort by</description>
+					<include>ColorChooserButton</include>
+					<label>31756</label>
+					<label2>$VAR[WidgetSortby2DLabelVar]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath.2d))</visible>
+					<visible>StringCompare(Window.Property(widgetStyle.2),Extended Mixed)</visible>
+				</control>
+				<control type="button" id="2019">
+					<description>Change widget 2d sort order</description>
+					<include>ColorChooserButton</include>
+					<label>31757</label>
+					<label2>[CAPITALIZE]$VAR[WidgetSort2DLabelVar][/CAPITALIZE]</label2>
+					<visible>!IsEmpty(Window.Property(widgetPath.2d))</visible>
+					<visible>StringCompare(Window.Property(widgetStyle.2),Extended Mixed)</visible>
+				</control>
+				<!-- Custom list -->
+				<control type="button" id="407">
+					<description>Setup custom widget list</description>
+					<include>ColorChooserButton</include>
+					<label>31759</label>
+					<visible>StringCompare(Window.Property(widgetType.2),custom) | [SubString(Window.Property(widgetStyle.2),Mixed) + [StringCompare(Window.Property(widgetType.2a),custom) | StringCompare(Window.Property(widgetType.2b),custom) | StringCompare(Window.Property(widgetType.2c),custom) | StringCompare(Window.Property(widgetType.2d),custom)]]</visible>
+				</control>
+			</control>
+		</control>
+		<!-- 404, for setting custom property -->
+		<control type="button" id="404">
+			<visible>False</visible>
+			<left>-100000</left>
+			<top>-100000</top>
+			<width>1</width>
+			<height>1</height>
+			<onclick>noop</onclick>
+		</control>
+	</controls>
+</window>

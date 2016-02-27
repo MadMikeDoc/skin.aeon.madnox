@@ -1,1102 +1,1102 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<includes>
-		<include name="TriPanel">
-			<control type="image">
-				<texture colordiffuse="base">diffuseoverlay_blue.png</texture>
-				<include>FullscreenDimensions</include>
+<includes>
+	<include name="TriPanel">
+		<control type="image">
+			<texture colordiffuse="base">diffuseoverlay_blue.png</texture>
+			<include>FullscreenDimensions</include>
+			<visible>Control.IsVisible(52)</visible>
+			<visible>Control.IsVisible(9900)</visible>
+			<visible>Skin.HasSetting(BlueOverlay)</visible>
+		</control>
+		<control type="group">
+			<top>86</top>
+			<control type="group" id="5201">
+				<left>1263</left>
+				<visible>[Stringcompare(Skin.String(TriPanelPosition),1) | Stringcompare(Skin.String(TriPanelPosition),3) | IsEmpty(Skin.String(TriPanelPosition))]</visible>
+				<animation effect="slide" end="-5,0" time="320" tween="cubic" easing="inout" condition="Stringcompare(Skin.String(TriPanelPosition),3)">Conditional</animation>
+				<include>Animation_TriPanelRight</include>
 				<visible>Control.IsVisible(52)</visible>
 				<visible>Control.IsVisible(9900)</visible>
-				<visible>Skin.HasSetting(BlueOverlay)</visible>
-			</control>
-			<control type="group">
-				<top>86</top>
-				<control type="group" id="5201">
-					<left>1263</left>
-					<visible>[Stringcompare(Skin.String(TriPanelPosition),1) | Stringcompare(Skin.String(TriPanelPosition),3) | IsEmpty(Skin.String(TriPanelPosition))]</visible>
-					<animation effect="slide" end="-5,0" time="320" tween="cubic" easing="inout" condition="Stringcompare(Skin.String(TriPanelPosition),3)">Conditional</animation>
-					<include>Animation_TriPanelRight</include>
-					<visible>Control.IsVisible(52)</visible>
-					<visible>Control.IsVisible(9900)</visible>
-					<control type="image">
-						<width>650</width>
-						<height>1080</height>
-						<texture>views/tripanel/info_panel_alt_glow.png</texture>
-						<include>PanelGlowFade</include>
-						<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-						<visible>!Skin.HasSetting(DisableGlowbar)</visible>
-					</control>
-					<control type="image">
-						<width>650</width>
-						<height>1080</height>
-						<texture>views/tripanel/info_panel_alt.png</texture>
-						<colordiffuse>$VAR[DialogColorVar]</colordiffuse>
-					</control>
-					<control type="image">
-						<top>140</top>
-						<left>145</left>
-						<texture>imdb.png</texture>
-						<width>444</width>
-						<height>120</height>
-						<visible>stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
+				<control type="image">
+					<width>650</width>
+					<height>1080</height>
+					<texture>views/tripanel/info_panel_alt_glow.png</texture>
+					<include>PanelGlowFade</include>
+					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+					<visible>!Skin.HasSetting(DisableGlowbar)</visible>
+				</control>
+				<control type="image">
+					<width>650</width>
+					<height>1080</height>
+					<texture>views/tripanel/info_panel_alt.png</texture>
+					<colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+				</control>
+				<control type="image">
+					<top>140</top>
+					<left>145</left>
+					<texture>imdb.png</texture>
+					<width>444</width>
+					<height>120</height>
+					<visible>stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
+				</control>
+				<control type="label">
+					<visible>stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
+					<left>105</left>
+					<top>122</top>
+					<width>350</width>
+					<height>150</height>
+					<font>Font_OscarTri</font>
+					<label>$VAR[TriPanelListValue1Var]</label>
+					<scroll>false</scroll>
+					<align>center</align>
+					<textcolor>ffe8b854</textcolor>
+				</control>
+				<control type="label">
+					<visible>stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
+					<left>408</left>
+					<top>128</top>
+					<width>200</width>
+					<height>100</height>
+					<font>Font_OscarTri2</font>
+					<label>BEST</label>
+					<scroll>false</scroll>
+					<align>center</align>
+					<textcolor>66e8b854</textcolor>
+					<shadowcolor>66000000</shadowcolor>
+				</control>
+				<control type="label">
+					<visible>stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
+					<left>410</left>
+					<top>183</top>
+					<width>200</width>
+					<height>100</height>
+					<font>Font_OscarTri3</font>
+					<label>PICTURE</label>
+					<scroll>false</scroll>
+					<align>center</align>
+					<textcolor>66e8b854</textcolor>
+					<shadowcolor>66000000</shadowcolor>
+				</control>
+				<control type="grouplist">
+					<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
+					<left>140</left>
+					<top>135</top>
+					<width>445</width>
+					<itemgap>10</itemgap>
+					<orientation>horizontal</orientation>
+					<control type="label">
+						<width min="50" max="400">auto</width>
+						<aligny>bottom</aligny>
+						<label>$VAR[TriPanelDetail1Var]</label>
+						<textcolor>$VAR[SubTitleColorVar]</textcolor>
 					</control>
 					<control type="label">
-						<visible>stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
-						<left>105</left>
-						<top>122</top>
 						<width>350</width>
-						<height>150</height>
-						<font>Font_OscarTri</font>
-						<label>$VAR[TriPanelListValue1Var]</label>
-						<scroll>false</scroll>
-						<align>center</align>
-						<textcolor>ffe8b854</textcolor>
+						<aligny>bottom</aligny>
+						<label fallback="N/A">$VAR[TriPanelValue1Var]</label>
+						<textcolor>white6</textcolor>
+						<scroll>true</scroll>
+					</control>
+				</control>
+				<control type="grouplist">
+					<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
+					<left>140</left>
+					<top>180</top>
+					<width>445</width>
+					<itemgap>10</itemgap>
+					<orientation>horizontal</orientation>
+					<control type="label">
+						<width min="50" max="400">auto</width>
+						<aligny>bottom</aligny>
+						<label>$VAR[TriPanelDetail2Var]</label>
+						<textcolor>$VAR[SubTitleColorVar]</textcolor>
 					</control>
 					<control type="label">
-						<visible>stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
-						<left>408</left>
-						<top>128</top>
-						<width>200</width>
-						<height>100</height>
-						<font>Font_OscarTri2</font>
-						<label>BEST</label>
-						<scroll>false</scroll>
-						<align>center</align>
-						<textcolor>66e8b854</textcolor>
-						<shadowcolor>66000000</shadowcolor>
+						<width>395</width>
+						<aligny>bottom</aligny>
+						<label fallback="N/A">$VAR[TriPanelValue2Var]</label>
+						<textcolor>white6</textcolor>
+						<scroll>true</scroll>
+					</control>
+				</control>
+				<control type="grouplist">
+					<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
+					<left>140</left>
+					<top>225</top>
+					<width>445</width>
+					<orientation>horizontal</orientation>
+					<itemgap>10</itemgap>
+					<control type="label">
+						<width min="50" max="400">auto</width>
+						<aligny>bottom</aligny>
+						<label>$VAR[TriPanelDetail3Var]</label>
+						<textcolor>$VAR[SubTitleColorVar]</textcolor>
 					</control>
 					<control type="label">
-						<visible>stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
-						<left>410</left>
-						<top>183</top>
-						<width>200</width>
-						<height>100</height>
-						<font>Font_OscarTri3</font>
-						<label>PICTURE</label>
-						<scroll>false</scroll>
-						<align>center</align>
-						<textcolor>66e8b854</textcolor>
-						<shadowcolor>66000000</shadowcolor>
-					</control>
-					<control type="grouplist">
-						<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
-						<left>140</left>
-						<top>135</top>
-						<width>445</width>
-						<itemgap>10</itemgap>
-						<orientation>horizontal</orientation>
-						<control type="label">
-							<width min="50" max="400">auto</width>
-							<aligny>bottom</aligny>
-							<label>$VAR[TriPanelDetail1Var]</label>
-							<textcolor>$VAR[SubTitleColorVar]</textcolor>
-						</control>
-						<control type="label">
-							<width>350</width>
-							<aligny>bottom</aligny>
-							<label fallback="N/A">$VAR[TriPanelValue1Var]</label>
-							<textcolor>white6</textcolor>
-							<scroll>true</scroll>
-						</control>
-					</control>
-					<control type="grouplist">
-						<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
-						<left>140</left>
-						<top>180</top>
-						<width>445</width>
-						<itemgap>10</itemgap>
-						<orientation>horizontal</orientation>
-						<control type="label">
-							<width min="50" max="400">auto</width>
-							<aligny>bottom</aligny>
-							<label>$VAR[TriPanelDetail2Var]</label>
-							<textcolor>$VAR[SubTitleColorVar]</textcolor>
-						</control>
-						<control type="label">
-							<width>395</width>
-							<aligny>bottom</aligny>
-							<label fallback="N/A">$VAR[TriPanelValue2Var]</label>
-							<textcolor>white6</textcolor>
-							<scroll>true</scroll>
-						</control>
-					</control>
-					<control type="grouplist">
-						<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
-						<left>140</left>
-						<top>225</top>
-						<width>445</width>
-						<orientation>horizontal</orientation>
-						<itemgap>10</itemgap>
-						<control type="label">
-							<width min="50" max="400">auto</width>
-							<aligny>bottom</aligny>
-							<label>$VAR[TriPanelDetail3Var]</label>
-							<textcolor>$VAR[SubTitleColorVar]</textcolor>
-						</control>
-						<control type="label">
-							<width>350</width>
-							<aligny>bottom</aligny>
-							<label fallback="N/A">$VAR[TriPanelValue3Var]</label>
-							<textcolor>white6</textcolor>
-							<scroll>true</scroll>
-						</control>
-					</control>
-					<control type="textbox">
-						<left>145</left>
-						<top>286</top>
-						<width>434</width>
-						<height>550</height>
-						<label>$VAR[GlobalPlotVar]</label>
-						<autoscroll delay="10000" time="AutoScrollTime" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
-						<visible>!Skin.HasSetting(tripanelextrafanart)</visible>
-					</control>
-					<control type="textbox">
-						<left>145</left>
-						<top>287</top>
-						<width>434</width>
-						<height>264</height>
-						<label>$VAR[GlobalPlotVar]</label>
-						<visible>Skin.HasSetting(tripanelextrafanart)</visible>
-						<autoscroll delay="10000" time="AutoScrollTime" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
-					</control>
-					<control type="group">
-						<left>65</left>
-						<top>490</top>
-						<visible>Skin.HasSetting(tripanelextrafanart)</visible>
-						<animation effect="zoom" start="100" end="92" time="640" easing="inout" tween="circle" center="960,500" condition="true">Conditional</animation>
-						<control type="image">
-							<left>-21</left>
-							<top>76</top>
-							<width>533</width>
-							<height>289</height>
-							<texture>thumbs/multiplex_tvmask_shadow.png</texture>
-							<include>PanelGlowFade</include>
-							<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-							<include>Animation_VisibleChange400</include>
-							<visible>!Skin.HasSetting(DisableGlowbar)</visible>
-						</control>
-						<control type="image">
-							<visible>stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
-							<texture background="true" diffuse="thumbs/multiplex_tvmask.png">oscars2.jpg</texture>
-							<animation effect="fade" start="100" end="90" time="50" condition="true">Conditional</animation>
-							<aspectratio scalediffuse="false">scale</aspectratio>
-							<bordersize>9</bordersize>
-							<left>-9</left>
-							<top>77</top>
-							<width>508</width>
-							<height>287</height>
-							<fadetime>IconCrossfadeTime</fadetime>
-						</control>
-						<control type="image">
-							<visible>!stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
-							<texture background="true" diffuse="thumbs/multiplex_tvmask.png" fallback="thumbs/fallback_episode_tp.png">$VAR[InfoWallPreviewTextureVar]</texture>
-							<aspectratio scalediffuse="false">scale</aspectratio>
-							<bordersize>9</bordersize>
-							<left>-9</left>
-							<top>77</top>
-							<width>508</width>
-							<height>287</height>
-							<fadetime>IconCrossfadeTime</fadetime>
-						</control>
-						<control type="image">
-							<left>-9</left>
-							<top>77</top>
-							<width>508</width>
-							<height>287</height>
-							<aspectratio scalediffuse="false">scale</aspectratio>
-							<texture diffuse="thumbs/multiplex_tvmask.png">thumbs/multiplex_tv_glass.png</texture>
-							<bordertexture border="9">thumbs/multiplex_tvborder.png</bordertexture>
-							<bordersize>9</bordersize>
-						</control>
+						<width>350</width>
+						<aligny>bottom</aligny>
+						<label fallback="N/A">$VAR[TriPanelValue3Var]</label>
+						<textcolor>white6</textcolor>
+						<scroll>true</scroll>
 					</control>
 				</control>
-				<control type="group" id="5202">
-					<left>800</left>
-					<top>50</top>
-					<width>640</width>
-					<height>980</height>
-					<include>Animation_TriPanelMid</include>
-					<visible>!StringCompare(ListItem.Label,..)</visible>
-					<visible>Control.IsVisible(52)</visible>
-					<visible>[Stringcompare(Skin.String(TriPanelPosition),1) | IsEmpty(Skin.String(TriPanelPosition))] + !Container.Content(years) + !Container.Content(countries)</visible>
-					<control type="image" id="3822">
-						<left>67</left>
-						<top>840</top>
-						<width>530</width>
-						<height>795</height>
-						<texture background="true" flipy="true" diffuse="views/tripanel/poster_diffuse_ref.png">$VAR[ListPosterVar]</texture>
-						<fadetime>400</fadetime>
-						<visible>Skin.HasSetting(genrethumbs)</visible>
-					</control>
-					<control type="image" id="3822">
-						<left>55</left>
-						<top>827</top>
-						<width>530</width>
-						<height>795</height>
-						<texture background="true" flipy="true" diffuse="views/tripanel/poster_diffuse_ref.png">$VAR[ListPosterVar1]</texture>
-						<fadetime>400</fadetime>
-						<visible>!Skin.HasSetting(genrethumbs)</visible>
-					</control>
-					<control type="image" id="3822">
-						<left>67</left>
-						<top>31</top>
-						<width>530</width>
-						<height>795</height>
-						<texture background="true" diffuse="views/tripanel/poster_diffuse.png">$VAR[ListPosterVar]</texture>
-						<fadetime>400</fadetime>
-						<visible>Skin.HasSetting(genrethumbs)</visible>
-					</control>
-					<control type="image" id="3822">
-						<left>67</left>
-						<top>31</top>
-						<width>530</width>
-						<height>795</height>
-						<texture background="true" diffuse="views/tripanel/poster_diffuse.png" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar1]</texture>
-						<fadetime>400</fadetime>
-						<visible>!Skin.HasSetting(genrethumbs)</visible>
-					</control>
-					<control type="image">
-						<left>67</left>
-						<top>31</top>
-						<width>530</width>
-						<height>795</height>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<texture background="true" diffuse="views/tripanel/poster_diffuse.png" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterBackupVar]</texture>
-						<visible>IsEmpty(Control.GetLabel(3822))</visible>
-					</control>
-					<control type="image">
-						<left>399</left>
-						<top>30</top>
-						<width>200</width>
-						<height>200</height>
-						<texture background="true" diffuse="thumbs/ExtraOverlayWatchedtripanel.png">$VAR[VideoextrasOverlay]</texture>
-						<visible>System.HasAddon(script.videoextras)</visible>
-					</control>
-					<control type="image">
-						<left>12</left>
-						<width>640</width>
-						<height>980</height>
-						<texture>views/tripanel/poster_overlay.png</texture>
-					</control>
-					<control type="image">
-						<left>27</left>
-						<top>-48</top>
-						<width>610</width>
-						<height>1080</height>
-						<texture>views/tripanel/info_panel_glow.png</texture>
-						<include>PanelGlowFade</include>
-						<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-						<visible>!Skin.HasSetting(DisableGlowbar)</visible>
-					</control>
+				<control type="textbox">
+					<left>145</left>
+					<top>286</top>
+					<width>434</width>
+					<height>550</height>
+					<label>$VAR[GlobalPlotVar]</label>
+					<autoscroll delay="10000" time="AutoScrollTime" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
+					<visible>!Skin.HasSetting(tripanelextrafanart)</visible>
 				</control>
-				<control type="group" id="5203">
-					<left>1335</left>
-					<top>85</top>
-					<width>590</width>
-					<height>903</height>
-					<visible>Control.IsVisible(52)</visible>
-					<include>Animation_TriPanelRight</include>
-					<visible>!StringCompare(ListItem.Label,..)</visible>
-					<animation effect="slide" end="-1320,0" time="320" tween="cubic" easing="inout" condition="Stringcompare(Skin.String(TriPanelPosition),3)">Conditional</animation>
-					<visible>[Stringcompare(Skin.String(TriPanelPosition),2) | Stringcompare(Skin.String(TriPanelPosition),3)] + !Container.Content(years) + !Container.Content(countries)</visible>
-					<animation effect="slide" end="-500,0" time="640" easing="inout" tween="circle" condition="IsEmpty(Container.FolderPath) + Stringcompare(Skin.String(TriPanelPosition),2)">Conditional</animation>
-					<control type="image">
-						<left>25</left>
-						<top>-44</top>
-						<width>562</width>
-						<height>995</height>
-						<texture>views/tripanel/info_panel_glow.png</texture>
-						<include>PanelGlowFade</include>
-						<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-						<visible>!Skin.HasSetting(DisableGlowbar)</visible>
-					</control>
-					<control type="image">
-						<left>62</left>
-						<top>770</top>
-						<width>487</width>
-						<height>732</height>
-						<texture background="true" flipy="true" diffuse="views/tripanel/poster_diffuse_ref.png" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar]</texture>
-						<fadetime>400</fadetime>
-						<visible>Skin.HasSetting(genrethumbs)</visible>
-					</control>
-					<control type="image">
-						<left>62</left>
-						<top>762</top>
-						<width>487</width>
-						<height>732</height>
-						<texture background="true" flipy="true" diffuse="views/tripanel/poster_diffuse_ref.png" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar1]</texture>
-						<fadetime>400</fadetime>
-						<visible>!Skin.HasSetting(genrethumbs)</visible>
-					</control>
-					<control type="image">
-						<left>62</left>
-						<top>29</top>
-						<width>487</width>
-						<height>732</height>
-						<texture background="true" diffuse="views/tripanel/poster_diffuse.png" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar]</texture>
-						<fadetime>400</fadetime>
-						<visible>Skin.HasSetting(genrethumbs)</visible>
-					</control>
-					<control type="image">
-						<left>62</left>
-						<top>29</top>
-						<width>487</width>
-						<height>732</height>
-						<texture background="true" diffuse="views/tripanel/poster_diffuse.png" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar1]</texture>
-						<fadetime>400</fadetime>
-						<visible>!Skin.HasSetting(genrethumbs)</visible>
-					</control>
-					<control type="image">
-						<left>352</left>
-						<top>28</top>
-						<width>200</width>
-						<height>200</height>
-						<texture background="true" diffuse="thumbs/ExtraOverlayWatchedtripanel.png">$VAR[VideoextrasOverlay]</texture>
-						<visible>System.HasAddon(script.videoextras)</visible>
-					</control>
-					<control type="image">
-						<left>10</left>
-						<width>590</width>
-						<height>903</height>
-						<aspectratio align="center" scalediffuse="false">stretch</aspectratio>
-						<texture>views/tripanel/poster_overlay.png</texture>
-						<visible>!Stringcompare(Skin.String(TriPanelPosition),3)</visible>
-					</control>
-					<control type="image">
-						<left>10</left>
-						<width>590</width>
-						<height>903</height>
-						<aspectratio align="center" scalediffuse="false">stretch</aspectratio>
-						<texture flipx="true">views/tripanel/poster_overlay.png</texture>
-						<visible>Stringcompare(Skin.String(TriPanelPosition),3)</visible>
-					</control>
-				</control>
-				<control type="group" id="5204">
-					<left>817</left>
-					<include>Animation_TriPanelMid</include>
-					<visible>Control.IsVisible(52)</visible>
-					<visible>Stringcompare(Skin.String(TriPanelPosition),2)</visible>
-					<visible>Control.IsVisible(9900)</visible>
-					<control type="image">
-						<width>650</width>
-						<height>1080</height>
-						<texture>views/tripanel/info_panel_glow.png</texture>
-						<include>PanelGlowFade</include>
-						<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-						<visible>!Skin.HasSetting(DisableGlowbar)</visible>
-					</control>
-					<control type="image">
-						<width>650</width>
-						<height>1080</height>
-						<texture>views/tripanel/info_panel.png</texture>
-						<colordiffuse>$VAR[DialogColorVar]</colordiffuse>
-					</control>
-					<!-- Runtime label -->
-					<control type="grouplist">
-						<left>100</left>
-						<top>121</top>
-						<width>480</width>
-						<itemgap>10</itemgap>
-						<orientation>horizontal</orientation>
-						<control type="label">
-							<width min="50" max="400">auto</width>
-							<aligny>bottom</aligny>
-							<label>$VAR[TriPanelDetail1Var]</label>
-							<textcolor>$VAR[SubTitleColorVar]</textcolor>
-						</control>
-						<control type="label">
-							<width>350</width>
-							<aligny>bottom</aligny>
-							<label fallback="N/A">$VAR[TriPanelValue1Var]</label>
-							<textcolor>white6</textcolor>
-							<scroll>true</scroll>
-						</control>
-					</control>
-					<control type="grouplist">
-						<left>100</left>
-						<top>170</top>
-						<width>485</width>
-						<itemgap>10</itemgap>
-						<orientation>horizontal</orientation>
-						<control type="label">
-							<width min="50" max="400">auto</width>
-							<aligny>bottom</aligny>
-							<label>$VAR[TriPanelDetail2Var]</label>
-							<textcolor>$VAR[SubTitleColorVar]</textcolor>
-						</control>
-						<control type="label">
-							<width>435</width>
-							<aligny>bottom</aligny>
-							<label fallback="N/A">$VAR[TriPanelValue2Var]</label>
-							<textcolor>white6</textcolor>
-							<scroll>true</scroll>
-						</control>
-					</control>
-					<control type="grouplist">
-						<left>100</left>
-						<top>219</top>
-						<width>485</width>
-						<itemgap>10</itemgap>
-						<orientation>horizontal</orientation>
-						<control type="label">
-							<width min="50" max="400">auto</width>
-							<aligny>bottom</aligny>
-							<label>$VAR[TriPanelDetail3Var]</label>
-							<textcolor>$VAR[SubTitleColorVar]</textcolor>
-						</control>
-						<control type="label">
-							<width>350</width>
-							<aligny>bottom</aligny>
-							<label fallback="N/A">$VAR[TriPanelValue3Var]</label>
-							<textcolor>white6</textcolor>
-							<scroll>true</scroll>
-						</control>
-					</control>
-					<control type="textbox">
-						<left>102</left>
-						<top>290</top>
-						<width>480</width>
-						<height>550</height>
-						<label>$VAR[GlobalPlotVar]</label>
-						<visible>!Skin.HasSetting(tripanelextrafanart)</visible>
-						<autoscroll delay="10000" time="AutoScrollTime" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
-					</control>
-					<control type="textbox">
-						<left>102</left>
-						<top>292</top>
-						<width>480</width>
-						<height>264</height>
-						<label>$VAR[GlobalPlotVar]</label>
-						<visible>Skin.HasSetting(tripanelextrafanart)</visible>
-						<autoscroll delay="10000" time="AutoScrollTime" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
-					</control>
-					<control type="group">
-						<left>97</left>
-						<top>490</top>
-						<visible>Skin.HasSetting(tripanelextrafanart)</visible>
-						<control type="image">
-							<left>-21</left>
-							<top>76</top>
-							<width>533</width>
-							<height>289</height>
-							<texture>thumbs/multiplex_tvmask_shadow.png</texture>
-							<include>PanelGlowFade</include>
-							<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-							<include>Animation_VisibleChange400</include>
-							<visible>!Skin.HasSetting(DisableGlowbar)</visible>
-						</control>
-						<control type="image">
-							<left>-9</left>
-							<top>77</top>
-							<width>508</width>
-							<height>287</height>
-							<aspectratio scalediffuse="false">scale</aspectratio>
-							<texture background="true" diffuse="thumbs/multiplex_tvmask.png" fallback="thumbs/fallback_episode_tp.png">$VAR[InfoWallPreviewTextureVar]</texture>
-							<fadetime>IconCrossfadeTime</fadetime>
-							<bordersize>9</bordersize>
-						</control>
-						<control type="image">
-							<left>-9</left>
-							<top>77</top>
-							<width>508</width>
-							<height>287</height>
-							<aspectratio scalediffuse="false">scale</aspectratio>
-							<texture diffuse="thumbs/multiplex_tvmask.png">thumbs/multiplex_tv_glass.png</texture>
-							<bordertexture border="9">thumbs/multiplex_tvborder.png</bordertexture>
-							<bordersize>9</bordersize>
-						</control>
-					</control>
-					<control type="image">
-						<width>650</width>
-						<height>1080</height>
-						<texture>views/tripanel/panel_info_shadow.png</texture>
-						<colordiffuse>white6</colordiffuse>
-					</control>
+				<control type="textbox">
+					<left>145</left>
+					<top>287</top>
+					<width>434</width>
+					<height>264</height>
+					<label>$VAR[GlobalPlotVar]</label>
+					<visible>Skin.HasSetting(tripanelextrafanart)</visible>
+					<autoscroll delay="10000" time="AutoScrollTime" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
 				</control>
 				<control type="group">
-					<animation effect="slide" end="485,0" time="320" tween="cubic" easing="inout" condition="Stringcompare(Skin.String(TriPanelPosition),3)">Conditional</animation>
-					<animation effect="slide" time="560" start="-1375,0" end="0,0" tween="cubic">WindowOpen</animation>
-					<animation effect="slide" time="240" end="-1375,0" tween="cubic" easing="in" delay="120">WindowClose</animation>
-					<visible>Control.IsVisible(52)</visible>
-					<animation effect="slide" time="560" start="-1275,0" end="0,0" tween="cubic">VisibleChange</animation>
-					<animation effect="fade" time="160" start="100" end="0">Hidden</animation>
+					<left>65</left>
+					<top>490</top>
+					<visible>Skin.HasSetting(tripanelextrafanart)</visible>
+					<animation effect="zoom" start="100" end="92" time="640" easing="inout" tween="circle" center="960,500" condition="true">Conditional</animation>
 					<control type="image">
-						<left>42</left>
-						<top>37</top>
-						<width>864</width>
-						<height>990</height>
-						<texture border="33,33,33,148">wall/wall_bg_glow.png</texture>
+						<left>-21</left>
+						<top>76</top>
+						<width>533</width>
+						<height>289</height>
+						<texture>thumbs/multiplex_tvmask_shadow.png</texture>
 						<include>PanelGlowFade</include>
 						<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+						<include>Animation_VisibleChange400</include>
 						<visible>!Skin.HasSetting(DisableGlowbar)</visible>
 					</control>
 					<control type="image">
-						<left>42</left>
-						<top>37</top>
-						<width>864</width>
-						<height>990</height>
-						<texture border="33,33,33,148">wall/wall_bg.png</texture>
-						<colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+						<visible>stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
+						<texture background="true" diffuse="thumbs/multiplex_tvmask.png">oscars2.jpg</texture>
+						<animation effect="fade" start="100" end="90" time="50" condition="true">Conditional</animation>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<bordersize>9</bordersize>
+						<left>-9</left>
+						<top>77</top>
+						<width>508</width>
+						<height>287</height>
+						<fadetime>IconCrossfadeTime</fadetime>
 					</control>
 					<control type="image">
-						<left>42</left>
-						<top>37</top>
-						<width>864</width>
-						<height>990</height>
-						<texture border="33,33,33,148">wall/wall_bg_reflection.png</texture>
+						<visible>!stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
+						<texture background="true" diffuse="thumbs/multiplex_tvmask.png" fallback="thumbs/fallback_episode_tp.png">$VAR[InfoWallPreviewTextureVar]</texture>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<bordersize>9</bordersize>
+						<left>-9</left>
+						<top>77</top>
+						<width>508</width>
+						<height>287</height>
+						<fadetime>IconCrossfadeTime</fadetime>
 					</control>
-					<control type="list" id="52">
-						<left>54</left>
-						<top>92</top>
-						<width>842</width>
-						<height>765</height>
-						<pagecontrol>70</pagecontrol>
-						<onright>5211</onright>
-						<onleft condition="!IntegerGreaterThan(Container.NumPages,1)">9000</onleft>
-						<onleft condition="IntegerGreaterThan(Container.NumPages,1)">70</onleft>
-						<onup>52</onup>
-						<ondown>52</ondown>
-						<viewtype label="31477">list</viewtype>
-						<preloaditems>2</preloaditems>
-						<visible>![!IsEmpty(Skin.String(DisableTriPanelVL)) + Window.IsActive(videos)]</visible>
-						<scrolltime tween="sine">200</scrolltime>
-						<itemlayout condition="[Container.Content(tvshows) + Skin.HasSetting(tripanelbannertv)] | [Container.Content(movies) + Skin.HasSetting(tripanelbannermovies)]" height="147">
-							<control type="group">
-								<left>23</left>
-								<control type="image">
-									<width>796</width>
-									<height>151</height>
-									<aspectratio align="center">scale</aspectratio>
-									<texture background="true">$VAR[BannerVar]</texture>
-									<bordersize>5</bordersize>
-								</control>
-								<control type="image">
-									<left>35</left>
-									<top>15</top>
-									<width>500</width>
-									<height>118</height>
-									<aspectratio align="left">keep</aspectratio>
-									<texture background="true">$VAR[LogoVarList]</texture>
-									<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner))</visible>
-								</control>
-								<control type="label">
-									<left>2</left>
-									<width>792</width>
-									<height>147</height>
-									<align>center</align>
-									<label>$INFO[ListItem.Label]</label>
-									<font>Font_Bold40</font>
-									<shadowcolor>black</shadowcolor>
-									<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner)) + IsEmpty(ListItem.Art(clearlogo))</visible>
-								</control>
-								<control type="image">
-									<left>702</left>
-									<top>5</top>
-									<width>90</width>
-									<height>90</height>
-									<texture>$VAR[VideoextrasOverlay]</texture>
-									<visible>System.HasAddon(script.videoextras)</visible>
-								</control>
-								<control type="image">
-									<left>701</left>
-									<top>5</top>
-									<width>90</width>
-									<height>90</height>
-									<include>OverlayVisibility0</include>
-								</control>
-								<control type="image">
-									<left>701</left>
-									<top>5</top>
-									<width>90</width>
-									<height>90</height>
-									<texture>overlayprogress.png</texture>
-									<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-								</control>
-								<include>UnwatchedIcon</include>
-								<control type="image">
-									<width>796</width>
-									<height>151</height>
-									<aspectratio align="center">stretch</aspectratio>
-									<texture>common/black.png</texture>
-									<bordersize>5</bordersize>
-									<colordiffuse>77FFFFFF</colordiffuse>
-								</control>
-								<control type="image">
-									<left>5</left>
-									<top>5</top>
-									<width>786</width>
-									<height>142</height>
-									<texture background="true">thumbs/banner_shadow_in.png</texture>
-									<!--<animation effect="fade" time="50" delay="150" start="50" end="0">Focus</animation>-->
-								</control>
-							</control>
-						</itemlayout>
-						<focusedlayout condition="[Container.Content(tvshows) + Skin.HasSetting(tripanelbannertv)] | [Container.Content(movies) + Skin.HasSetting(tripanelbannermovies)]" height="147">
-							<control type="group">
-								<left>23</left>
-								<animation effect="zoom" center="400,80" start="95" end="105" time="240" tween="back" reversible="false">Focus</animation>
-								<control type="image">
-									<left>-2</left>
-									<top>6</top>
-									<width>800</width>
-									<height>151</height>
-									<aspectratio align="center">scale</aspectratio>
-									<texture background="true">$VAR[BannerVar]</texture>
-									<bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
-									<bordersize>7</bordersize>
-								</control>
-								<control type="image">
-									<left>35</left>
-									<top>15</top>
-									<width>500</width>
-									<height>118</height>
-									<aspectratio align="left">keep</aspectratio>
-									<texture background="true">$VAR[LogoVarList]</texture>
-									<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner))</visible>
-								</control>
-								<control type="label">
-									<left>2</left>
-									<width>792</width>
-									<height>147</height>
-									<align>center</align>
-									<label>$INFO[ListItem.Label]</label>
-									<font>Font_Bold40</font>
-									<shadowcolor>black</shadowcolor>
-									<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner)) + IsEmpty(ListItem.Art(clearlogo))</visible>
-								</control>
-								<include>UnwatchedIcon</include>
-								<control type="image">
-									<left>702</left>
-									<top>12</top>
-									<width>90</width>
-									<height>90</height>
-									<texture>$VAR[VideoextrasOverlay]</texture>
-									<visible>System.HasAddon(script.videoextras)</visible>
-								</control>
-								<control type="image">
-									<left>701</left>
-									<top>12</top>
-									<width>90</width>
-									<height>90</height>
-									<include>OverlayVisibility0</include>
-								</control>
-								<control type="image">
-									<left>701</left>
-									<top>12</top>
-									<width>90</width>
-									<height>90</height>
-									<texture>overlayprogress.png</texture>
-									<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-								</control>
-								<control type="image">
-									<left>5</left>
-									<top>5</top>
-									<width>786</width>
-									<height>151</height>
-									<texture background="true">thumbs/banner_shadow_in.png</texture>
-									<animation effect="fade" time="40" delay="120" start="60" end="0">Focus</animation>
-									<visible>Control.HasFocus(52)</visible>
-								</control>
-							</control>
-						</focusedlayout>
-						<itemlayout condition="!Skin.HasSetting(tripanelbiglist) + ![[Container.Content(tvshows) + Skin.HasSetting(tripanelbannertv)] | [Container.Content(movies) + Skin.HasSetting(tripanelbannermovies)]]" height="51">
-							<control type="image">
-								<top>-9</top>
-								<width>842</width>
-								<height>60</height>
-								<texture border="1">settings/listselect_nf.png</texture>
-								<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-							</control>
-							<control type="group">
-								<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
-								<control type="image">
-									<left>24</left>
-									<width>2</width>
-									<height>51</height>
-									<texture>views/tripanel/upright.png</texture>
-									<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-								</control>
-								<control type="image">
-									<visible>stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
-									<left>94</left>
-									<height>51</height>
-									<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-									<width>2</width>
-									<texture>views/tripanel/upright.png</texture>
-								</control>
-								<control type="image">
-									<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
-									<left>109</left>
-									<height>51</height>
-									<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-									<width>2</width>
-									<texture>views/tripanel/upright.png</texture>
-								</control>
-							</control>
-							<control type="label">
-								<visible>stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
-								<left>22</left>
-								<width>75</width>
-								<height>51</height>
-								<font>Font_Reg19</font>
-								<label>$INFO[ListItem.Top250]</label>
-								<scroll>false</scroll>
-								<align>center</align>
-								<textcolor>$VAR[SubTitleColorVar]</textcolor>
-							</control>
-							<control type="label">
-								<visible>stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
-								<left>105</left>
-								<width>695</width>
-								<height>51</height>
-								<label>$VAR[ListLabel1Var]</label>
-								<font>Font_Reg19</font>
-								<textcolor>grey2</textcolor>
-							</control>
-							<control type="label">
-								<visible>stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
-								<left>745</left>
-								<width>100</width>
-								<height>51</height>
-								<align>center</align>
-								<font>Font_Reg19</font>
-								<scroll>false</scroll>
-								<label>$VAR[TriPanelListValue1Var]</label>
-							</control>
-							<control type="label">
-								<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
-								<left>18</left>
-								<width>100</width>
-								<height>51</height>
-								<font>Font_Reg19</font>
-								<label>$VAR[TriPanelListValue1Var]</label>
-								<scroll>false</scroll>
-								<align>center</align>
-								<textcolor>$VAR[SubTitleColorVar]</textcolor>
-							</control>
-							<control type="label">
-								<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
-								<left>120</left>
-								<width>695</width>
-								<height>51</height>
-								<label>$VAR[ListLabel1Var]</label>
-								<font>Font_Reg19</font>
-								<textcolor>grey2</textcolor>
-							</control>
-							<control type="label">
-								<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
-								<left>632</left>
-								<width>160</width>
-								<height>51</height>
-								<font>Font_Reg19</font>
-								<label>$INFO[ListItem.Label2]</label>
-								<scroll>false</scroll>
-								<align>right</align>
-								<textcolor>grey2</textcolor>
-							</control>
-							<control type="image">
-								<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
-								<left>800</left>
-								<top>7</top>
-								<width>35</width>
-								<height>35</height>
-								<texture>$VAR[WatchedIconVar]</texture>
-								<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-							</control>
-						</itemlayout>
-						<focusedlayout condition="!Skin.HasSetting(tripanelbiglist) + ![[Container.Content(tvshows) + Skin.HasSetting(tripanelbannertv)] | [Container.Content(movies) + Skin.HasSetting(tripanelbannermovies)]]" height="51">
-							<control type="image">
-								<top>-9</top>
-								<width>842</width>
-								<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-								<height>60</height>
-								<texture>settings/listselect_nf.png</texture>
-							</control>
-							<control type="group">
-								<animation effect="fade" start="100" end="50" time="50" condition="true">Conditional</animation>
-								<control type="image">
-									<left>24</left>
-									<height>51</height>
-									<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-									<width>2</width>
-									<texture>views/tripanel/upright.png</texture>
-								</control>
-								<control type="image">
-									<visible>stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
-									<left>94</left>
-									<height>51</height>
-									<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-									<width>2</width>
-									<texture>views/tripanel/upright.png</texture>
-								</control>
-								<control type="image">
-									<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
-									<left>109</left>
-									<height>51</height>
-									<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-									<width>2</width>
-									<texture>views/tripanel/upright.png</texture>
-								</control>
-							</control>
-							<control type="image">
-								<top>0</top>
-								<width>842</width>
-								<height>51</height>
-								<include>PanelGlowFade</include>
-								<texture>views/tripanel/listselect_fo.png</texture>
-								<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-								<animation effect="fade" start="100" end="25" tween="sine" easing="inout" time="300" condition="!Control.HasFocus(52)">Conditional</animation>
-							</control>
-							<control type="label">
-								<visible>stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
-								<left>22</left>
-								<width>75</width>
-								<height>51</height>
-								<font>Font_Reg19</font>
-								<label>$INFO[ListItem.Top250]</label>
-								<scroll>false</scroll>
-								<align>center</align>
-								<textcolor>$VAR[SubTitleColorVar]</textcolor>
-							</control>
-							<control type="label">
-								<visible>stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
-								<left>105</left>
-								<width>695</width>
-								<height>51</height>
-								<label>$VAR[ListLabel1Var]</label>
-								<font>Font_Reg19</font>
-								<textcolor>grey2</textcolor>
-							</control>
-							<control type="label">
-								<visible>stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
-								<left>745</left>
-								<width>100</width>
-								<height>51</height>
-								<align>center</align>
-								<font>Font_Reg19</font>
-								<scroll>false</scroll>
-								<label>$VAR[TriPanelListValue1Var]</label>
-							</control>
-							<control type="label">
-								<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
-								<left>18</left>
-								<width>100</width>
-								<height>51</height>
-								<font>Font_Reg19</font>
-								<label>$VAR[TriPanelListValue1Var]</label>
-								<scroll>false</scroll>
-								<align>center</align>
-								<textcolor>$VAR[SubTitleColorVar]</textcolor>
-							</control>
-							<control type="label">
-								<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
-								<left>120</left>
-								<width>695</width>
-								<height>51</height>
-								<label>$VAR[ListLabel1Var]</label>
-								<font>Font_Reg19</font>
-								<textcolor>grey2</textcolor>
-							</control>
-							<control type="label">
-								<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
-								<left>632</left>
-								<width>160</width>
-								<height>51</height>
-								<font>Font_Reg19</font>
-								<label>$INFO[ListItem.Label2]</label>
-								<scroll>false</scroll>
-								<align>right</align>
-								<textcolor>grey2</textcolor>
-							</control>
-							<control type="image">
-								<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
-								<left>800</left>
-								<top>7</top>
-								<width>35</width>
-								<height>35</height>
-								<texture>$VAR[WatchedIconVar]</texture>
-								<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-							</control>
-						</focusedlayout>
-						<itemlayout condition="Skin.HasSetting(tripanelbiglist) + ![[Container.Content(tvshows) + Skin.HasSetting(tripanelbannertv)] | [Container.Content(movies) + Skin.HasSetting(tripanelbannermovies)]]" height="96">
-							<control type="image">
-								<top>36</top>
-								<width>842</width>
-								<height>60</height>
-								<texture border="1">settings/listselect_nf.png</texture>
-								<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-							</control>
-							<control type="group">
-								<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
-								<control type="image">
-									<left>24</left>
-									<width>2</width>
-									<height>96</height>
-									<texture>views/tripanel/upright.png</texture>
-									<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-								</control>
-								<control type="image">
-									<left>109</left>
-									<width>2</width>
-									<height>96</height>
-									<texture>views/tripanel/upright.png</texture>
-									<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-								</control>
-							</control>
-							<control type="label">
-								<left>18</left>
-								<width>100</width>
-								<height>49</height>
-								<align>center</align>
-								<label>$VAR[TriPanelListValue1Var]</label>
-								<font>Font_Reg30_2</font>
-								<textcolor>$VAR[SubTitleColorVar]</textcolor>
-								<scroll>false</scroll>
-							</control>
-							<control type="label">
-								<left>120</left>
-								<width>680</width>
-								<height>49</height>
-								<label>$VAR[ListLabel1Var]</label>
-								<font>Font_Reg30_2</font>
-								<textcolor>white6</textcolor>
-							</control>
-							<control type="label">
-								<left>120</left>
-								<top>42</top>
-								<width>680</width>
-								<height>49</height>
-								<label>$VAR[TriPanelValue2Var]</label>
-								<font>Font_Reg30_2</font>
-								<textcolor>grey2</textcolor>
-							</control>
-							<control type="label">
-								<left>635</left>
-								<width>160</width>
-								<height>49</height>
-								<align>right</align>
-								<label>$INFO[ListItem.Label2]</label>
-								<font>Font_Reg30_2</font>
-								<textcolor>grey2</textcolor>
-								<scroll>false</scroll>
-								<visible>!Container.Content(albums)</visible>
-							</control>
-							<control type="image">
-								<left>49</left>
-								<top>46</top>
-								<width>40</width>
-								<height>40</height>
-								<texture>$VAR[WatchedIconVar]</texture>
-								<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-							</control>
-							<control type="image">
-								<left>32</left>
-								<top>12</top>
-								<width>70</width>
-								<height>70</height>
-								<texture>$VAR[Colortdefaulticons]$VAR[SmallListIconVar]</texture>
-								<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-								<visible>IsEmpty(ListItem.Year)</visible>
-							</control>
-						</itemlayout>
-						<focusedlayout condition="Skin.HasSetting(tripanelbiglist) + ![[Container.Content(tvshows) + Skin.HasSetting(tripanelbannertv)] | [Container.Content(movies) + Skin.HasSetting(tripanelbannermovies)]]" height="96">
-							<control type="image">
-								<top>36</top>
-								<width>842</width>
-								<height>60</height>
-								<texture border="1">settings/listselect_nf.png</texture>
-								<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-							</control>
-							<control type="group">
-								<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
-								<control type="image">
-									<left>24</left>
-									<width>2</width>
-									<height>96</height>
-									<texture>views/tripanel/upright.png</texture>
-									<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-								</control>
-								<control type="image">
-									<left>109</left>
-									<width>2</width>
-									<height>96</height>
-									<texture>views/tripanel/upright.png</texture>
-									<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-								</control>
-							</control>
-							<control type="image">
-								<top>0</top>
-								<width>842</width>
-								<height>96</height>
-								<texture border="8">views/tripanel/listselect_fo.png</texture>
-								<include>PanelGlowFade</include>
-								<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-								<animation effect="fade" start="100" end="25" tween="sine" easing="inout" time="240" condition="!Control.HasFocus(52)">Conditional</animation>
-							</control>
-							<control type="label">
-								<left>18</left>
-								<width>100</width>
-								<height>49</height>
-								<align>center</align>
-								<label>$VAR[TriPanelListValue1Var]</label>
-								<font>Font_Reg30_2</font>
-								<scroll>false</scroll>
-							</control>
-							<control type="label">
-								<left>120</left>
-								<width>680</width>
-								<height>49</height>
-								<label>$VAR[ListLabel1Var]</label>
-								<font>Font_Reg30_2</font>
-							</control>
-							<control type="label">
-								<left>120</left>
-								<top>42</top>
-								<width>680</width>
-								<height>49</height>
-								<label>$VAR[TriPanelValue2Var]</label>
-								<font>Font_Reg30_2</font>
-							</control>
-							<control type="label">
-								<left>635</left>
-								<width>160</width>
-								<height>49</height>
-								<align>right</align>
-								<label>$INFO[ListItem.Label2]</label>
-								<font>Font_Reg30_2</font>
-								<scroll>false</scroll>
-								<visible>!Container.Content(albums)</visible>
-							</control>
-							<control type="image">
-								<left>49</left>
-								<top>46</top>
-								<width>40</width>
-								<height>40</height>
-								<texture>$VAR[WatchedIconVar]</texture>
-							</control>
-							<control type="image">
-								<left>32</left>
-								<top>12</top>
-								<width>70</width>
-								<height>70</height>
-								<texture>$VAR[Colortdefaulticons]$VAR[SmallListIconVar]</texture>
-								<colordiffuse>white2</colordiffuse>
-								<visible>IsEmpty(ListItem.Year)</visible>
-							</control>
-						</focusedlayout>
-					</control>
-					<control type="scrollbar" id="70">
-						<left>30</left>
-						<top>126</top>
-						<width>46</width>
-						<height>725</height>
-						<include>Animation_VerticalScrollBar</include>
-						<onup>70</onup>
-						<ondown>70</ondown>
-						<onright>52</onright>
-						<onleft>9000</onleft>
-						<animation effect="fade" time="0" start="100" end="20" condition="!Control.HasFocus(70)">Conditional</animation>
+					<control type="image">
+						<left>-9</left>
+						<top>77</top>
+						<width>508</width>
+						<height>287</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture diffuse="thumbs/multiplex_tvmask.png">thumbs/multiplex_tv_glass.png</texture>
+						<bordertexture border="9">thumbs/multiplex_tvborder.png</bordertexture>
+						<bordersize>9</bordersize>
 					</control>
 				</control>
 			</control>
-		</include>
-	</includes>
+			<control type="group" id="5202">
+				<left>800</left>
+				<top>50</top>
+				<width>640</width>
+				<height>980</height>
+				<include>Animation_TriPanelMid</include>
+				<visible>!StringCompare(ListItem.Label,..)</visible>
+				<visible>Control.IsVisible(52)</visible>
+				<visible>[Stringcompare(Skin.String(TriPanelPosition),1) | IsEmpty(Skin.String(TriPanelPosition))] + !Container.Content(years) + !Container.Content(countries)</visible>
+				<control type="image" id="3822">
+					<left>67</left>
+					<top>840</top>
+					<width>530</width>
+					<height>795</height>
+					<texture background="true" flipy="true" diffuse="views/tripanel/poster_diffuse_ref.png">$VAR[ListPosterVar]</texture>
+					<fadetime>400</fadetime>
+					<visible>Skin.HasSetting(genrethumbs)</visible>
+				</control>
+				<control type="image" id="3822">
+					<left>55</left>
+					<top>827</top>
+					<width>530</width>
+					<height>795</height>
+					<texture background="true" flipy="true" diffuse="views/tripanel/poster_diffuse_ref.png">$VAR[ListPosterVar1]</texture>
+					<fadetime>400</fadetime>
+					<visible>!Skin.HasSetting(genrethumbs)</visible>
+				</control>
+				<control type="image" id="3822">
+					<left>67</left>
+					<top>31</top>
+					<width>530</width>
+					<height>795</height>
+					<texture background="true" diffuse="views/tripanel/poster_diffuse.png">$VAR[ListPosterVar]</texture>
+					<fadetime>400</fadetime>
+					<visible>Skin.HasSetting(genrethumbs)</visible>
+				</control>
+				<control type="image" id="3822">
+					<left>67</left>
+					<top>31</top>
+					<width>530</width>
+					<height>795</height>
+					<texture background="true" diffuse="views/tripanel/poster_diffuse.png" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar1]</texture>
+					<fadetime>400</fadetime>
+					<visible>!Skin.HasSetting(genrethumbs)</visible>
+				</control>
+				<control type="image">
+					<left>67</left>
+					<top>31</top>
+					<width>530</width>
+					<height>795</height>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<texture background="true" diffuse="views/tripanel/poster_diffuse.png" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterBackupVar]</texture>
+					<visible>IsEmpty(Control.GetLabel(3822))</visible>
+				</control>
+				<control type="image">
+					<left>399</left>
+					<top>30</top>
+					<width>200</width>
+					<height>200</height>
+					<texture background="true" diffuse="thumbs/ExtraOverlayWatchedtripanel.png">$VAR[VideoextrasOverlay]</texture>
+					<visible>System.HasAddon(script.videoextras)</visible>
+				</control>
+				<control type="image">
+					<left>12</left>
+					<width>640</width>
+					<height>980</height>
+					<texture>views/tripanel/poster_overlay.png</texture>
+				</control>
+				<control type="image">
+					<left>27</left>
+					<top>-48</top>
+					<width>610</width>
+					<height>1080</height>
+					<texture>views/tripanel/info_panel_glow.png</texture>
+					<include>PanelGlowFade</include>
+					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+					<visible>!Skin.HasSetting(DisableGlowbar)</visible>
+				</control>
+			</control>
+			<control type="group" id="5203">
+				<left>1335</left>
+				<top>85</top>
+				<width>590</width>
+				<height>903</height>
+				<visible>Control.IsVisible(52)</visible>
+				<include>Animation_TriPanelRight</include>
+				<visible>!StringCompare(ListItem.Label,..)</visible>
+				<animation effect="slide" end="-1320,0" time="320" tween="cubic" easing="inout" condition="Stringcompare(Skin.String(TriPanelPosition),3)">Conditional</animation>
+				<visible>[Stringcompare(Skin.String(TriPanelPosition),2) | Stringcompare(Skin.String(TriPanelPosition),3)] + !Container.Content(years) + !Container.Content(countries)</visible>
+				<animation effect="slide" end="-500,0" time="640" easing="inout" tween="circle" condition="IsEmpty(Container.FolderPath) + Stringcompare(Skin.String(TriPanelPosition),2)">Conditional</animation>
+				<control type="image">
+					<left>25</left>
+					<top>-44</top>
+					<width>562</width>
+					<height>995</height>
+					<texture>views/tripanel/info_panel_glow.png</texture>
+					<include>PanelGlowFade</include>
+					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+					<visible>!Skin.HasSetting(DisableGlowbar)</visible>
+				</control>
+				<control type="image">
+					<left>62</left>
+					<top>770</top>
+					<width>487</width>
+					<height>732</height>
+					<texture background="true" flipy="true" diffuse="views/tripanel/poster_diffuse_ref.png" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar]</texture>
+					<fadetime>400</fadetime>
+					<visible>Skin.HasSetting(genrethumbs)</visible>
+				</control>
+				<control type="image">
+					<left>62</left>
+					<top>762</top>
+					<width>487</width>
+					<height>732</height>
+					<texture background="true" flipy="true" diffuse="views/tripanel/poster_diffuse_ref.png" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar1]</texture>
+					<fadetime>400</fadetime>
+					<visible>!Skin.HasSetting(genrethumbs)</visible>
+				</control>
+				<control type="image">
+					<left>62</left>
+					<top>29</top>
+					<width>487</width>
+					<height>732</height>
+					<texture background="true" diffuse="views/tripanel/poster_diffuse.png" fallback="thumbs/fallback_poster_tp_solid.jpg">$VAR[ListPosterVar]</texture>
+					<fadetime>400</fadetime>
+					<visible>Skin.HasSetting(genrethumbs)</visible>
+				</control>
+				<control type="image">
+					<left>62</left>
+					<top>29</top>
+					<width>487</width>
+					<height>732</height>
+					<texture background="true" diffuse="views/tripanel/poster_diffuse.png" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar1]</texture>
+					<fadetime>400</fadetime>
+					<visible>!Skin.HasSetting(genrethumbs)</visible>
+				</control>
+				<control type="image">
+					<left>352</left>
+					<top>28</top>
+					<width>200</width>
+					<height>200</height>
+					<texture background="true" diffuse="thumbs/ExtraOverlayWatchedtripanel.png">$VAR[VideoextrasOverlay]</texture>
+					<visible>System.HasAddon(script.videoextras)</visible>
+				</control>
+				<control type="image">
+					<left>10</left>
+					<width>590</width>
+					<height>903</height>
+					<aspectratio align="center" scalediffuse="false">stretch</aspectratio>
+					<texture>views/tripanel/poster_overlay.png</texture>
+					<visible>!Stringcompare(Skin.String(TriPanelPosition),3)</visible>
+				</control>
+				<control type="image">
+					<left>10</left>
+					<width>590</width>
+					<height>903</height>
+					<aspectratio align="center" scalediffuse="false">stretch</aspectratio>
+					<texture flipx="true">views/tripanel/poster_overlay.png</texture>
+					<visible>Stringcompare(Skin.String(TriPanelPosition),3)</visible>
+				</control>
+			</control>
+			<control type="group" id="5204">
+				<left>817</left>
+				<include>Animation_TriPanelMid</include>
+				<visible>Control.IsVisible(52)</visible>
+				<visible>Stringcompare(Skin.String(TriPanelPosition),2)</visible>
+				<visible>Control.IsVisible(9900)</visible>
+				<control type="image">
+					<width>650</width>
+					<height>1080</height>
+					<texture>views/tripanel/info_panel_glow.png</texture>
+					<include>PanelGlowFade</include>
+					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+					<visible>!Skin.HasSetting(DisableGlowbar)</visible>
+				</control>
+				<control type="image">
+					<width>650</width>
+					<height>1080</height>
+					<texture>views/tripanel/info_panel.png</texture>
+					<colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+				</control>
+				<!-- Runtime label -->
+				<control type="grouplist">
+					<left>100</left>
+					<top>121</top>
+					<width>480</width>
+					<itemgap>10</itemgap>
+					<orientation>horizontal</orientation>
+					<control type="label">
+						<width min="50" max="400">auto</width>
+						<aligny>bottom</aligny>
+						<label>$VAR[TriPanelDetail1Var]</label>
+						<textcolor>$VAR[SubTitleColorVar]</textcolor>
+					</control>
+					<control type="label">
+						<width>350</width>
+						<aligny>bottom</aligny>
+						<label fallback="N/A">$VAR[TriPanelValue1Var]</label>
+						<textcolor>white6</textcolor>
+						<scroll>true</scroll>
+					</control>
+				</control>
+				<control type="grouplist">
+					<left>100</left>
+					<top>170</top>
+					<width>485</width>
+					<itemgap>10</itemgap>
+					<orientation>horizontal</orientation>
+					<control type="label">
+						<width min="50" max="400">auto</width>
+						<aligny>bottom</aligny>
+						<label>$VAR[TriPanelDetail2Var]</label>
+						<textcolor>$VAR[SubTitleColorVar]</textcolor>
+					</control>
+					<control type="label">
+						<width>435</width>
+						<aligny>bottom</aligny>
+						<label fallback="N/A">$VAR[TriPanelValue2Var]</label>
+						<textcolor>white6</textcolor>
+						<scroll>true</scroll>
+					</control>
+				</control>
+				<control type="grouplist">
+					<left>100</left>
+					<top>219</top>
+					<width>485</width>
+					<itemgap>10</itemgap>
+					<orientation>horizontal</orientation>
+					<control type="label">
+						<width min="50" max="400">auto</width>
+						<aligny>bottom</aligny>
+						<label>$VAR[TriPanelDetail3Var]</label>
+						<textcolor>$VAR[SubTitleColorVar]</textcolor>
+					</control>
+					<control type="label">
+						<width>350</width>
+						<aligny>bottom</aligny>
+						<label fallback="N/A">$VAR[TriPanelValue3Var]</label>
+						<textcolor>white6</textcolor>
+						<scroll>true</scroll>
+					</control>
+				</control>
+				<control type="textbox">
+					<left>102</left>
+					<top>290</top>
+					<width>480</width>
+					<height>550</height>
+					<label>$VAR[GlobalPlotVar]</label>
+					<visible>!Skin.HasSetting(tripanelextrafanart)</visible>
+					<autoscroll delay="10000" time="AutoScrollTime" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
+				</control>
+				<control type="textbox">
+					<left>102</left>
+					<top>292</top>
+					<width>480</width>
+					<height>264</height>
+					<label>$VAR[GlobalPlotVar]</label>
+					<visible>Skin.HasSetting(tripanelextrafanart)</visible>
+					<autoscroll delay="10000" time="AutoScrollTime" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
+				</control>
+				<control type="group">
+					<left>97</left>
+					<top>490</top>
+					<visible>Skin.HasSetting(tripanelextrafanart)</visible>
+					<control type="image">
+						<left>-21</left>
+						<top>76</top>
+						<width>533</width>
+						<height>289</height>
+						<texture>thumbs/multiplex_tvmask_shadow.png</texture>
+						<include>PanelGlowFade</include>
+						<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+						<include>Animation_VisibleChange400</include>
+						<visible>!Skin.HasSetting(DisableGlowbar)</visible>
+					</control>
+					<control type="image">
+						<left>-9</left>
+						<top>77</top>
+						<width>508</width>
+						<height>287</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture background="true" diffuse="thumbs/multiplex_tvmask.png" fallback="thumbs/fallback_episode_tp.png">$VAR[InfoWallPreviewTextureVar]</texture>
+						<fadetime>IconCrossfadeTime</fadetime>
+						<bordersize>9</bordersize>
+					</control>
+					<control type="image">
+						<left>-9</left>
+						<top>77</top>
+						<width>508</width>
+						<height>287</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture diffuse="thumbs/multiplex_tvmask.png">thumbs/multiplex_tv_glass.png</texture>
+						<bordertexture border="9">thumbs/multiplex_tvborder.png</bordertexture>
+						<bordersize>9</bordersize>
+					</control>
+				</control>
+				<control type="image">
+					<width>650</width>
+					<height>1080</height>
+					<texture>views/tripanel/panel_info_shadow.png</texture>
+					<colordiffuse>white6</colordiffuse>
+				</control>
+			</control>
+			<control type="group">
+				<animation effect="slide" end="485,0" time="320" tween="cubic" easing="inout" condition="Stringcompare(Skin.String(TriPanelPosition),3)">Conditional</animation>
+				<animation effect="slide" time="560" start="-1375,0" end="0,0" tween="cubic">WindowOpen</animation>
+				<animation effect="slide" time="240" end="-1375,0" tween="cubic" easing="in" delay="120">WindowClose</animation>
+				<visible>Control.IsVisible(52)</visible>
+				<animation effect="slide" time="560" start="-1275,0" end="0,0" tween="cubic">VisibleChange</animation>
+				<animation effect="fade" time="160" start="100" end="0">Hidden</animation>
+				<control type="image">
+					<left>42</left>
+					<top>37</top>
+					<width>864</width>
+					<height>990</height>
+					<texture border="33,33,33,148">wall/wall_bg_glow.png</texture>
+					<include>PanelGlowFade</include>
+					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+					<visible>!Skin.HasSetting(DisableGlowbar)</visible>
+				</control>
+				<control type="image">
+					<left>42</left>
+					<top>37</top>
+					<width>864</width>
+					<height>990</height>
+					<texture border="33,33,33,148">wall/wall_bg.png</texture>
+					<colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+				</control>
+				<control type="image">
+					<left>42</left>
+					<top>37</top>
+					<width>864</width>
+					<height>990</height>
+					<texture border="33,33,33,148">wall/wall_bg_reflection.png</texture>
+				</control>
+				<control type="list" id="52">
+					<left>54</left>
+					<top>92</top>
+					<width>842</width>
+					<height>765</height>
+					<pagecontrol>70</pagecontrol>
+					<onright>5211</onright>
+					<onleft condition="!IntegerGreaterThan(Container.NumPages,1)">9000</onleft>
+					<onleft condition="IntegerGreaterThan(Container.NumPages,1)">70</onleft>
+					<onup>52</onup>
+					<ondown>52</ondown>
+					<viewtype label="31477">list</viewtype>
+					<preloaditems>2</preloaditems>
+					<visible>![!IsEmpty(Skin.String(DisableTriPanelVL)) + Window.IsActive(videos)]</visible>
+					<scrolltime tween="sine">200</scrolltime>
+					<itemlayout condition="[Container.Content(tvshows) + Skin.HasSetting(tripanelbannertv)] | [Container.Content(movies) + Skin.HasSetting(tripanelbannermovies)]" height="147">
+						<control type="group">
+							<left>23</left>
+							<control type="image">
+								<width>796</width>
+								<height>151</height>
+								<aspectratio align="center">scale</aspectratio>
+								<texture background="true">$VAR[BannerVar]</texture>
+								<bordersize>5</bordersize>
+							</control>
+							<control type="image">
+								<left>35</left>
+								<top>15</top>
+								<width>500</width>
+								<height>118</height>
+								<aspectratio align="left">keep</aspectratio>
+								<texture background="true">$VAR[LogoVarList]</texture>
+								<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner))</visible>
+							</control>
+							<control type="label">
+								<left>2</left>
+								<width>792</width>
+								<height>147</height>
+								<align>center</align>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Font_Bold40</font>
+								<shadowcolor>black</shadowcolor>
+								<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner)) + IsEmpty(ListItem.Art(clearlogo))</visible>
+							</control>
+							<control type="image">
+								<left>702</left>
+								<top>5</top>
+								<width>90</width>
+								<height>90</height>
+								<texture>$VAR[VideoextrasOverlay]</texture>
+								<visible>System.HasAddon(script.videoextras)</visible>
+							</control>
+							<control type="image">
+								<left>701</left>
+								<top>5</top>
+								<width>90</width>
+								<height>90</height>
+								<include>OverlayVisibility0</include>
+							</control>
+							<control type="image">
+								<left>701</left>
+								<top>5</top>
+								<width>90</width>
+								<height>90</height>
+								<texture>overlayprogress.png</texture>
+								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+							</control>
+							<include>UnwatchedIcon</include>
+							<control type="image">
+								<width>796</width>
+								<height>151</height>
+								<aspectratio align="center">stretch</aspectratio>
+								<texture>common/black.png</texture>
+								<bordersize>5</bordersize>
+								<colordiffuse>77FFFFFF</colordiffuse>
+							</control>
+							<control type="image">
+								<left>5</left>
+								<top>5</top>
+								<width>786</width>
+								<height>142</height>
+								<texture background="true">thumbs/banner_shadow_in.png</texture>
+								<!--<animation effect="fade" time="50" delay="150" start="50" end="0">Focus</animation>-->
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout condition="[Container.Content(tvshows) + Skin.HasSetting(tripanelbannertv)] | [Container.Content(movies) + Skin.HasSetting(tripanelbannermovies)]" height="147">
+						<control type="group">
+							<left>23</left>
+							<animation effect="zoom" center="400,80" start="95" end="105" time="240" tween="back" reversible="false">Focus</animation>
+							<control type="image">
+								<left>-2</left>
+								<top>6</top>
+								<width>800</width>
+								<height>151</height>
+								<aspectratio align="center">scale</aspectratio>
+								<texture background="true">$VAR[BannerVar]</texture>
+								<bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
+								<bordersize>7</bordersize>
+							</control>
+							<control type="image">
+								<left>35</left>
+								<top>15</top>
+								<width>500</width>
+								<height>118</height>
+								<aspectratio align="left">keep</aspectratio>
+								<texture background="true">$VAR[LogoVarList]</texture>
+								<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner))</visible>
+							</control>
+							<control type="label">
+								<left>2</left>
+								<width>792</width>
+								<height>147</height>
+								<align>center</align>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Font_Bold40</font>
+								<shadowcolor>black</shadowcolor>
+								<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner)) + IsEmpty(ListItem.Art(clearlogo))</visible>
+							</control>
+							<include>UnwatchedIcon</include>
+							<control type="image">
+								<left>702</left>
+								<top>12</top>
+								<width>90</width>
+								<height>90</height>
+								<texture>$VAR[VideoextrasOverlay]</texture>
+								<visible>System.HasAddon(script.videoextras)</visible>
+							</control>
+							<control type="image">
+								<left>701</left>
+								<top>12</top>
+								<width>90</width>
+								<height>90</height>
+								<include>OverlayVisibility0</include>
+							</control>
+							<control type="image">
+								<left>701</left>
+								<top>12</top>
+								<width>90</width>
+								<height>90</height>
+								<texture>overlayprogress.png</texture>
+								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+							</control>
+							<control type="image">
+								<left>5</left>
+								<top>5</top>
+								<width>786</width>
+								<height>151</height>
+								<texture background="true">thumbs/banner_shadow_in.png</texture>
+								<animation effect="fade" time="40" delay="120" start="60" end="0">Focus</animation>
+								<visible>Control.HasFocus(52)</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<itemlayout condition="!Skin.HasSetting(tripanelbiglist) + ![[Container.Content(tvshows) + Skin.HasSetting(tripanelbannertv)] | [Container.Content(movies) + Skin.HasSetting(tripanelbannermovies)]]" height="51">
+						<control type="image">
+							<top>-9</top>
+							<width>842</width>
+							<height>60</height>
+							<texture border="1">settings/listselect_nf.png</texture>
+							<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+						</control>
+						<control type="group">
+							<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+							<control type="image">
+								<left>24</left>
+								<width>2</width>
+								<height>51</height>
+								<texture>views/tripanel/upright.png</texture>
+								<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+							</control>
+							<control type="image">
+								<visible>stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
+								<left>94</left>
+								<height>51</height>
+								<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+								<width>2</width>
+								<texture>views/tripanel/upright.png</texture>
+							</control>
+							<control type="image">
+								<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
+								<left>109</left>
+								<height>51</height>
+								<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+								<width>2</width>
+								<texture>views/tripanel/upright.png</texture>
+							</control>
+						</control>
+						<control type="label">
+							<visible>stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
+							<left>22</left>
+							<width>75</width>
+							<height>51</height>
+							<font>Font_Reg19</font>
+							<label>$INFO[ListItem.Top250]</label>
+							<scroll>false</scroll>
+							<align>center</align>
+							<textcolor>$VAR[SubTitleColorVar]</textcolor>
+						</control>
+						<control type="label">
+							<visible>stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
+							<left>105</left>
+							<width>695</width>
+							<height>51</height>
+							<label>$VAR[ListLabel1Var]</label>
+							<font>Font_Reg19</font>
+							<textcolor>grey2</textcolor>
+						</control>
+						<control type="label">
+							<visible>stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
+							<left>745</left>
+							<width>100</width>
+							<height>51</height>
+							<align>center</align>
+							<font>Font_Reg19</font>
+							<scroll>false</scroll>
+							<label>$VAR[TriPanelListValue1Var]</label>
+						</control>
+						<control type="label">
+							<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
+							<left>18</left>
+							<width>100</width>
+							<height>51</height>
+							<font>Font_Reg19</font>
+							<label>$VAR[TriPanelListValue1Var]</label>
+							<scroll>false</scroll>
+							<align>center</align>
+							<textcolor>$VAR[SubTitleColorVar]</textcolor>
+						</control>
+						<control type="label">
+							<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
+							<left>120</left>
+							<width>695</width>
+							<height>51</height>
+							<label>$VAR[ListLabel1Var]</label>
+							<font>Font_Reg19</font>
+							<textcolor>grey2</textcolor>
+						</control>
+						<control type="label">
+							<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
+							<left>632</left>
+							<width>160</width>
+							<height>51</height>
+							<font>Font_Reg19</font>
+							<label>$INFO[ListItem.Label2]</label>
+							<scroll>false</scroll>
+							<align>right</align>
+							<textcolor>grey2</textcolor>
+						</control>
+						<control type="image">
+							<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
+							<left>800</left>
+							<top>7</top>
+							<width>35</width>
+							<height>35</height>
+							<texture>$VAR[WatchedIconVar]</texture>
+							<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+						</control>
+					</itemlayout>
+					<focusedlayout condition="!Skin.HasSetting(tripanelbiglist) + ![[Container.Content(tvshows) + Skin.HasSetting(tripanelbannertv)] | [Container.Content(movies) + Skin.HasSetting(tripanelbannermovies)]]" height="51">
+						<control type="image">
+							<top>-9</top>
+							<width>842</width>
+							<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+							<height>60</height>
+							<texture>settings/listselect_nf.png</texture>
+						</control>
+						<control type="group">
+							<animation effect="fade" start="100" end="50" time="50" condition="true">Conditional</animation>
+							<control type="image">
+								<left>24</left>
+								<height>51</height>
+								<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+								<width>2</width>
+								<texture>views/tripanel/upright.png</texture>
+							</control>
+							<control type="image">
+								<visible>stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
+								<left>94</left>
+								<height>51</height>
+								<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+								<width>2</width>
+								<texture>views/tripanel/upright.png</texture>
+							</control>
+							<control type="image">
+								<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
+								<left>109</left>
+								<height>51</height>
+								<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+								<width>2</width>
+								<texture>views/tripanel/upright.png</texture>
+							</control>
+						</control>
+						<control type="image">
+							<top>0</top>
+							<width>842</width>
+							<height>51</height>
+							<include>PanelGlowFade</include>
+							<texture>views/tripanel/listselect_fo.png</texture>
+							<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+							<animation effect="fade" start="100" end="25" tween="sine" easing="inout" time="300" condition="!Control.HasFocus(52)">Conditional</animation>
+						</control>
+						<control type="label">
+							<visible>stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
+							<left>22</left>
+							<width>75</width>
+							<height>51</height>
+							<font>Font_Reg19</font>
+							<label>$INFO[ListItem.Top250]</label>
+							<scroll>false</scroll>
+							<align>center</align>
+							<textcolor>$VAR[SubTitleColorVar]</textcolor>
+						</control>
+						<control type="label">
+							<visible>stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
+							<left>105</left>
+							<width>695</width>
+							<height>51</height>
+							<label>$VAR[ListLabel1Var]</label>
+							<font>Font_Reg19</font>
+							<textcolor>grey2</textcolor>
+						</control>
+						<control type="label">
+							<visible>stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
+							<left>745</left>
+							<width>100</width>
+							<height>51</height>
+							<align>center</align>
+							<font>Font_Reg19</font>
+							<scroll>false</scroll>
+							<label>$VAR[TriPanelListValue1Var]</label>
+						</control>
+						<control type="label">
+							<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
+							<left>18</left>
+							<width>100</width>
+							<height>51</height>
+							<font>Font_Reg19</font>
+							<label>$VAR[TriPanelListValue1Var]</label>
+							<scroll>false</scroll>
+							<align>center</align>
+							<textcolor>$VAR[SubTitleColorVar]</textcolor>
+						</control>
+						<control type="label">
+							<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
+							<left>120</left>
+							<width>695</width>
+							<height>51</height>
+							<label>$VAR[ListLabel1Var]</label>
+							<font>Font_Reg19</font>
+							<textcolor>grey2</textcolor>
+						</control>
+						<control type="label">
+							<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
+							<left>632</left>
+							<width>160</width>
+							<height>51</height>
+							<font>Font_Reg19</font>
+							<label>$INFO[ListItem.Label2]</label>
+							<scroll>false</scroll>
+							<align>right</align>
+							<textcolor>grey2</textcolor>
+						</control>
+						<control type="image">
+							<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
+							<left>800</left>
+							<top>7</top>
+							<width>35</width>
+							<height>35</height>
+							<texture>$VAR[WatchedIconVar]</texture>
+							<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+						</control>
+					</focusedlayout>
+					<itemlayout condition="Skin.HasSetting(tripanelbiglist) + ![[Container.Content(tvshows) + Skin.HasSetting(tripanelbannertv)] | [Container.Content(movies) + Skin.HasSetting(tripanelbannermovies)]]" height="96">
+						<control type="image">
+							<top>36</top>
+							<width>842</width>
+							<height>60</height>
+							<texture border="1">settings/listselect_nf.png</texture>
+							<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+						</control>
+						<control type="group">
+							<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+							<control type="image">
+								<left>24</left>
+								<width>2</width>
+								<height>96</height>
+								<texture>views/tripanel/upright.png</texture>
+								<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+							</control>
+							<control type="image">
+								<left>109</left>
+								<width>2</width>
+								<height>96</height>
+								<texture>views/tripanel/upright.png</texture>
+								<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+							</control>
+						</control>
+						<control type="label">
+							<left>18</left>
+							<width>100</width>
+							<height>49</height>
+							<align>center</align>
+							<label>$VAR[TriPanelListValue1Var]</label>
+							<font>Font_Reg30_2</font>
+							<textcolor>$VAR[SubTitleColorVar]</textcolor>
+							<scroll>false</scroll>
+						</control>
+						<control type="label">
+							<left>120</left>
+							<width>680</width>
+							<height>49</height>
+							<label>$VAR[ListLabel1Var]</label>
+							<font>Font_Reg30_2</font>
+							<textcolor>white6</textcolor>
+						</control>
+						<control type="label">
+							<left>120</left>
+							<top>42</top>
+							<width>680</width>
+							<height>49</height>
+							<label>$VAR[TriPanelValue2Var]</label>
+							<font>Font_Reg30_2</font>
+							<textcolor>grey2</textcolor>
+						</control>
+						<control type="label">
+							<left>635</left>
+							<width>160</width>
+							<height>49</height>
+							<align>right</align>
+							<label>$INFO[ListItem.Label2]</label>
+							<font>Font_Reg30_2</font>
+							<textcolor>grey2</textcolor>
+							<scroll>false</scroll>
+							<visible>!Container.Content(albums)</visible>
+						</control>
+						<control type="image">
+							<left>49</left>
+							<top>46</top>
+							<width>40</width>
+							<height>40</height>
+							<texture>$VAR[WatchedIconVar]</texture>
+							<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+						</control>
+						<control type="image">
+							<left>32</left>
+							<top>12</top>
+							<width>70</width>
+							<height>70</height>
+							<texture>$VAR[Colortdefaulticons]$VAR[SmallListIconVar]</texture>
+							<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+							<visible>IsEmpty(ListItem.Year)</visible>
+						</control>
+					</itemlayout>
+					<focusedlayout condition="Skin.HasSetting(tripanelbiglist) + ![[Container.Content(tvshows) + Skin.HasSetting(tripanelbannertv)] | [Container.Content(movies) + Skin.HasSetting(tripanelbannermovies)]]" height="96">
+						<control type="image">
+							<top>36</top>
+							<width>842</width>
+							<height>60</height>
+							<texture border="1">settings/listselect_nf.png</texture>
+							<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+						</control>
+						<control type="group">
+							<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+							<control type="image">
+								<left>24</left>
+								<width>2</width>
+								<height>96</height>
+								<texture>views/tripanel/upright.png</texture>
+								<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+							</control>
+							<control type="image">
+								<left>109</left>
+								<width>2</width>
+								<height>96</height>
+								<texture>views/tripanel/upright.png</texture>
+								<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+							</control>
+						</control>
+						<control type="image">
+							<top>0</top>
+							<width>842</width>
+							<height>96</height>
+							<texture border="8">views/tripanel/listselect_fo.png</texture>
+							<include>PanelGlowFade</include>
+							<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+							<animation effect="fade" start="100" end="25" tween="sine" easing="inout" time="240" condition="!Control.HasFocus(52)">Conditional</animation>
+						</control>
+						<control type="label">
+							<left>18</left>
+							<width>100</width>
+							<height>49</height>
+							<align>center</align>
+							<label>$VAR[TriPanelListValue1Var]</label>
+							<font>Font_Reg30_2</font>
+							<scroll>false</scroll>
+						</control>
+						<control type="label">
+							<left>120</left>
+							<width>680</width>
+							<height>49</height>
+							<label>$VAR[ListLabel1Var]</label>
+							<font>Font_Reg30_2</font>
+						</control>
+						<control type="label">
+							<left>120</left>
+							<top>42</top>
+							<width>680</width>
+							<height>49</height>
+							<label>$VAR[TriPanelValue2Var]</label>
+							<font>Font_Reg30_2</font>
+						</control>
+						<control type="label">
+							<left>635</left>
+							<width>160</width>
+							<height>49</height>
+							<align>right</align>
+							<label>$INFO[ListItem.Label2]</label>
+							<font>Font_Reg30_2</font>
+							<scroll>false</scroll>
+							<visible>!Container.Content(albums)</visible>
+						</control>
+						<control type="image">
+							<left>49</left>
+							<top>46</top>
+							<width>40</width>
+							<height>40</height>
+							<texture>$VAR[WatchedIconVar]</texture>
+						</control>
+						<control type="image">
+							<left>32</left>
+							<top>12</top>
+							<width>70</width>
+							<height>70</height>
+							<texture>$VAR[Colortdefaulticons]$VAR[SmallListIconVar]</texture>
+							<colordiffuse>white2</colordiffuse>
+							<visible>IsEmpty(ListItem.Year)</visible>
+						</control>
+					</focusedlayout>
+				</control>
+				<control type="scrollbar" id="70">
+					<left>30</left>
+					<top>126</top>
+					<width>46</width>
+					<height>725</height>
+					<include>Animation_VerticalScrollBar</include>
+					<onup>70</onup>
+					<ondown>70</ondown>
+					<onright>52</onright>
+					<onleft>9000</onleft>
+					<animation effect="fade" time="0" start="100" end="20" condition="!Control.HasFocus(70)">Conditional</animation>
+				</control>
+			</control>
+		</control>
+	</include>
+</includes>

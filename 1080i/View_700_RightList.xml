@@ -20,9 +20,9 @@
 				<height>164</height>
 				<aspectratio aligny="bottom">keep</aspectratio>
 				<visible>[Skin.HasSetting(rightlistlogomovie) + Container.Content(movies) | Container.Content(sets)] | [Skin.HasSetting(rightlistlogotv) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]]</visible>
-				<visible>!IsEmpty(ListItem.Art(clearlogo))</visible>
+				<visible>!IsEmpty(Container.ListItem.Art(clearlogo))</visible>
 				<control type="image">
-					<texture background="true" fallback="empty.png">$VAR[LogoVarList]</texture>
+					<texture background="true" fallback="empty.png">$VAR[LogoVar]</texture>
 				</control>
 			</control>
 			<!-- MAD - Fake Logos -->
@@ -37,7 +37,7 @@
 				<shadowcolor>black</shadowcolor>
 				<font>font_SimplerE3D_bold</font>
 				<label>[B]$VAR[FirstLabelVar][/B]</label>
-				<visible>IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(rightlistfakelogo)</visible>
+				<visible>IsEmpty(Container.ListItem.Art(clearlogo)) + Skin.HasSetting(rightlistfakelogo)</visible>
 				<visible>SubString(ListItem.Title,a,Left) | SubString(ListItem.Title,b,Left) | SubString(ListItem.Title,c,Left) | SubString(ListItem.Title,d,Left)</visible>
 			</control>
 			<control type="textbox">
@@ -51,7 +51,7 @@
 				<shadowcolor>black</shadowcolor>
 				<font>font_armyofdarkness</font>
 				<label>[B]$VAR[FirstLabelVar][/B]</label>
-				<visible>IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(rightlistfakelogo)</visible>
+				<visible>IsEmpty(Container.ListItem.Art(clearlogo)) + Skin.HasSetting(rightlistfakelogo)</visible>
 				<visible>SubString(ListItem.Title,e,Left) | SubString(ListItem.Title,f,Left) | SubString(ListItem.Title,g,Left) | SubString(ListItem.Title,h,Left)</visible>
 			</control>
 			<control type="textbox">
@@ -65,7 +65,7 @@
 				<shadowcolor>black</shadowcolor>
 				<font>font_babylon5</font>
 				<label>[B]$VAR[FirstLabelVar][/B]</label>
-				<visible>IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(rightlistfakelogo)</visible>
+				<visible>IsEmpty(Container.ListItem.Art(clearlogo)) + Skin.HasSetting(rightlistfakelogo)</visible>
 				<visible>SubString(ListItem.Title,i,Left) | SubString(ListItem.Title,j,Left) | SubString(ListItem.Title,k,Left) | SubString(ListItem.Title,l,Left)</visible>
 			</control>
 			<control type="textbox">
@@ -79,7 +79,7 @@
 				<shadowcolor>black</shadowcolor>
 				<font>font_bachelorpad</font>
 				<label>[B]$VAR[FirstLabelVar][/B]</label>
-				<visible>IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(rightlistfakelogo)</visible>
+				<visible>IsEmpty(Container.ListItem.Art(clearlogo)) + Skin.HasSetting(rightlistfakelogo)</visible>
 				<visible>SubString(ListItem.Title,m,Left) | SubString(ListItem.Title,n,Left) | SubString(ListItem.Title,o,Left) | SubString(ListItem.Title,p,Left)</visible>
 			</control>
 			<control type="textbox">
@@ -93,7 +93,7 @@
 				<shadowcolor>black</shadowcolor>
 				<font>font_bullpen3d</font>
 				<label>[B]$VAR[FirstLabelVar][/B]</label>
-				<visible>IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(rightlistfakelogo)</visible>
+				<visible>IsEmpty(Container.ListItem.Art(clearlogo)) + Skin.HasSetting(rightlistfakelogo)</visible>
 				<visible>SubString(ListItem.Title,q,Left) | SubString(ListItem.Title,r,Left) | SubString(ListItem.Title,s,Left) | SubString(ListItem.Title,t,Left)</visible>
 			</control>
 			<control type="textbox">
@@ -107,7 +107,7 @@
 				<shadowcolor>black</shadowcolor>
 				<font>font_terminator</font>
 				<label>[B]$VAR[FirstLabelVar][/B]</label>
-				<visible>IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(rightlistfakelogo)</visible>
+				<visible>IsEmpty(Container.ListItem.Art(clearlogo)) + Skin.HasSetting(rightlistfakelogo)</visible>
 				<visible>SubString(ListItem.Title,u,Left) | SubString(ListItem.Title,v,Left) | SubString(ListItem.Title,w,Left) | SubString(ListItem.Title,x,Left) | SubString(ListItem.Title,y,Left) | SubString(ListItem.Title,z,Left)</visible>
 			</control>
 			<!--MAD - End of Fake Logo -->
@@ -120,7 +120,7 @@
 					<width>380</width>
 					<height>380</height>
 					<aspectratio align="right">keep</aspectratio>
-					<texture background="true">$INFO[ListItem.Art(discart)]</texture>
+					<texture background="true">$INFO[Container.ListItem.Art(discart)]</texture>
 					<fadetime>IconCrossfadeTime</fadetime>
 					<visible>Container.Content(movies)</visible>
 					<animation type="WindowOpen" reversible="false">
@@ -138,7 +138,7 @@
 					<width>380</width>
 					<height>380</height>
 					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[ListItem.Art(poster)]</texture>
+					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[Container.ListItem.Art(poster)]</texture>
 					<animation type="WindowOpen" reversible="false">
 						<effect type="slide" tween="cubic" easing="inout" time="1500" delay="100" start="-800" end="0" />
 						<effect type="rotate" end="-360" center="auto" time="2000" delay="0" loop="false" tween="cubic" easing="inout" />
@@ -146,7 +146,7 @@
 					<animation type="Conditional" reversible="false" condition="!Container.OnNext + !Container.OnPrevious">
 						<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" loop="false" tween="cubic" easing="inout" />
 					</animation>
-					<visible>Skin.Hassetting(discrightlist) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Container.Content(movies) + Skin.HasSetting(Fakediscart) + !SubString(ListItem.Path,videodb://movies/sets)</visible>
+					<visible>Skin.Hassetting(discrightlist) + IsEmpty(Container.ListItem.Art(discart)) + !IsEmpty(Container.ListItem.Art(poster)) + Container.Content(movies) + Skin.HasSetting(Fakediscart) + !SubString(ListItem.Path,videodb://movies/sets)</visible>
 				</control>
 				<control type="image">
 					<top>-205</top>
@@ -162,7 +162,7 @@
 					<animation type="Conditional" reversible="false" condition="!Container.OnNext + !Container.OnPrevious">
 						<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" loop="false" tween="cubic" easing="inout" />
 					</animation>
-					<visible>Skin.Hassetting(discrightlist) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Container.Content(movies) + Skin.HasSetting(Fakediscart) + !SubString(ListItem.Path,videodb://movies/sets)</visible>
+					<visible>Skin.Hassetting(discrightlist) + IsEmpty(Container.ListItem.Art(discart)) + !IsEmpty(Container.ListItem.Art(poster)) + Container.Content(movies) + Skin.HasSetting(Fakediscart) + !SubString(ListItem.Path,videodb://movies/sets)</visible>
 				</control>
 				<control type="image">
 					<top>-205</top>
@@ -178,7 +178,7 @@
 					<animation type="Conditional" reversible="false" condition="!Container.OnNext + !Container.OnPrevious">
 						<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" loop="false" tween="cubic" easing="inout" />
 					</animation>
-					<visible>Skin.Hassetting(discrightlist) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Container.Content(movies) + Skin.HasSetting(Fakedischandwriting) + !SubString(ListItem.Path,videodb://movies/sets) + !Skin.Hassetting(Fakehanddisccolor)</visible>
+					<visible>Skin.Hassetting(discrightlist) + IsEmpty(Container.ListItem.Art(discart)) + !IsEmpty(Container.ListItem.Art(poster)) + Container.Content(movies) + Skin.HasSetting(Fakedischandwriting) + !SubString(ListItem.Path,videodb://movies/sets) + !Skin.Hassetting(Fakehanddisccolor)</visible>
 				</control>
 				<control type="image">
 					<top>-205</top>
@@ -194,7 +194,7 @@
 					<animation type="Conditional" reversible="false" condition="!Container.OnNext + !Container.OnPrevious">
 						<effect type="rotate" end="-360" center="auto" time="6400" delay="1200" loop="false" tween="cubic" easing="inout" />
 					</animation>
-					<visible>Skin.Hassetting(discrightlist) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + Container.Content(movies) + Skin.HasSetting(Fakedischandwriting) + !SubString(ListItem.Path,videodb://movies/sets) + Skin.Hassetting(Fakehanddisccolor)</visible>
+					<visible>Skin.Hassetting(discrightlist) + IsEmpty(Container.ListItem.Art(discart)) + !IsEmpty(Container.ListItem.Art(poster)) + Container.Content(movies) + Skin.HasSetting(Fakedischandwriting) + !SubString(ListItem.Path,videodb://movies/sets) + Skin.Hassetting(Fakehanddisccolor)</visible>
 				</control>
 				<control type="textbox">
 					<animation effect="rotate" end="-360" center="216,-8" time="6400" delay="1200" loop="false" reversible="false" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
@@ -204,7 +204,7 @@
 					<height>170</height>
 					<align>center</align>
 					<font>Hand_28</font>
-					<visible>Skin.Hassetting(discrightlist) + IsEmpty(ListItem.Art(discart)) + Container.Content(movies) + Skin.HasSetting(Fakedischandwriting) + !SubString(ListItem.Path,videodb://movies/sets) + IsEmpty(ListItem.Art(clearlogo))</visible>
+					<visible>Skin.Hassetting(discrightlist) + IsEmpty(Container.ListItem.Art(discart)) + Container.Content(movies) + Skin.HasSetting(Fakedischandwriting) + !SubString(ListItem.Path,videodb://movies/sets) + IsEmpty(Container.ListItem.Art(clearlogo))</visible>
 					<label> $INFO[ListItem.Label]</label>
 					<textcolor>black</textcolor>
 				</control>
@@ -215,9 +215,9 @@
 					<width>230</width>
 					<height>70</height>
 					<aspectratio aligny="bottom">keep</aspectratio>
-					<visible>Skin.HasSetting(rightlistlogomovie) + Container.Content(movies) + !IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(discart)) + !SubString(ListItem.Path,videodb://movies/sets) + Skin.HasSetting(Fakedischandwriting)</visible>
+					<visible>Skin.HasSetting(rightlistlogomovie) + Container.Content(movies) + !IsEmpty(Container.ListItem.Art(clearlogo)) + IsEmpty(Container.ListItem.Art(discart)) + !SubString(ListItem.Path,videodb://movies/sets) + Skin.HasSetting(Fakedischandwriting)</visible>
 					<control type="image">
-						<texture background="true" fallback="empty.png">$INFO[ListItem.Art(clearlogo)]</texture>
+						<texture background="true" fallback="empty.png">$VAR[LogoVar]</texture>
 					</control>
 				</control>
 				<control type="image" id="3822">
@@ -269,8 +269,6 @@
 					<bordersize>20</bordersize>
 					<visible>!Skin.HasSetting(usecases) | SubString(ListItem.Path,videodb://movies/sets)</visible>
 				</control>
-
-				
 				<control type="image">
 					<left>-50</left>
 					<top>-25</top>
@@ -279,7 +277,7 @@
 					<texture background="true">thumbs/boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
 					<aspectratio align="center" aligny="top">keep</aspectratio>
 					<bordersize>2</bordersize>
-					<visible>Container.Content(movies) + Skin.HasSetting(togglerightlistcovers) + [Skin.Hassetting(usecases) | Skin.Hassetting(clearcases)] + !SubString(ListItem.Path,videodb://movies/sets)</visible>
+					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + Skin.HasSetting(togglerightlistcovers) + [Skin.Hassetting(usecases) | Skin.Hassetting(clearcases)] + !SubString(ListItem.Path,videodb://movies/sets)</visible>
 				</control>
 			</control>
 			<control type="group">
@@ -659,7 +657,7 @@
 						<top>2</top>
 						<width>64</width>
 						<height>64</height>
-						<font>font12_title</font>
+						<font>Font_Reg26</font>
 						<align>center</align>
 						<aligny>center</aligny>
 						<label>$INFO[Window(home).Property(Set.Movie.Count)]</label>
@@ -791,263 +789,263 @@
 						<include>VisibleFadeEffect</include>
 					</control>
 				-->
-				<control type="label">
-					<top>-12</top>
-					<left>30</left>
-					<width>700</width>
-					<height>68</height>
-					<font>font16</font>
-					<align>right</align>
-					<textcolor>$VAR[TitleColorVar]</textcolor>
-					<selectedcolor>selected</selectedcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-					<visible>![SubString(ListItem.Path,videodb://movies/sets) + !Stringcompare(ListItem.Label,..)]</visible>
-				</control>
-				<control type="label">
-					<top>7</top>
-					<left>30</left>
-					<width>700</width>
-					<height>68</height>
-					<font>font16</font>
-					<align>right</align>
-					<textcolor>$VAR[TitleColorVar]</textcolor>
-					<selectedcolor>selected</selectedcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-					<visible>[SubString(ListItem.Path,videodb://movies/sets) + !Stringcompare(ListItem.Label,..)]</visible>
-				</control>
-				<control type="label">
-					<left>130</left>
-					<top>27</top>
-					<width>600</width>
-					<height>68</height>
-					<font>font13</font>
-					<align>right</align>
-					<selectedcolor>selected</selectedcolor>
-					<label>$VAR[FloorSubLabelVar]</label>
-					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-					<visible>![SubString(ListItem.Path,videodb://movies/sets) + !Stringcompare(ListItem.Label,..)]</visible>
-				</control>
-				<control type="image">
-					<left>742</left>
-					<top>12</top>
-					<width>64</width>
-					<height>64</height>
-					<aspectratio>keep</aspectratio>
-					<texture>$VAR[ListItem.Overlay]</texture>
-					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-				</control>
-				<control type="image">
-					<top>28</top>
-					<left>20</left>
-					<width>810</width>
-					<height>60</height>
-					<texture border="1">separator2.png</texture>
-				</control>
-			</focusedlayout>
-			<itemlayout height="69" width="806" condition="!Skin.HasSetting(rightlistalternatetv) + Container.Content(tvshows)">
-				<control type="image">
-					<left>20</left>
-					<top>8</top>
-					<width>810</width>
-					<height>60</height>
-					<texture border="1">separator2.png</texture>
-				</control>
-				<control type="label">
-					<left>30</left>
-					<width>600</width>
-					<height>68</height>
-					<font>font15</font>
-					<align>right</align>
-					<textcolor>grey</textcolor>
-					<selectedcolor>selected</selectedcolor>
-					<label>$INFO[ListItem.Label]</label>
-				</control>
-				<control type="label">
-					<left>630</left>
-					<width>100</width>
-					<height>68</height>
-					<font>font15</font>
-					<align>right</align>
-					<textcolor>grey</textcolor>
-					<label>$INFO[ListItem.Year]</label>
-				</control>
-				<control type="image">
-					<left>742</left>
-					<top>1</top>
-					<width>68</width>
-					<height>68</height>
-					<aspectratio>keep</aspectratio>
-					<texture>$VAR[ListItem.Overlay]</texture>
-					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-				</control>
-				<control type="group">
-					<description>Unwatched episodes</description>
-					<left>736</left>
-					<top>-1</top>
-					<control type="image">
-						<left>0</left>
-						<top>3</top>
-						<width>64</width>
-						<height>64</height>
-						<texture>overlays/list/OverlayUnWatched.png</texture>
-						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
-					</control>
 					<control type="label">
-						<left>-18</left>
-						<top>0</top>
-						<width>116</width>
+						<top>-12</top>
+						<left>30</left>
+						<width>700</width>
 						<height>68</height>
-						<font>font12_title</font>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$VAR[ListOverlayEpisodesVar]</label>
-						<textcolor>grey3</textcolor>
-						<textoffsetx>18</textoffsetx>
-						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
-					</control>
-				</control>
-			</itemlayout>
-			<focusedlayout height="85" width="806" condition="!Skin.HasSetting(rightlistalternatetv) + Container.Content(tvshows)">
-				<control type="image">
-					<top>0</top>
-					<left>20</left>
-					<width>825</width>
-					<height>85</height>
-					<texture border="4">listselect_fo_clear.png</texture>
-					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-					<visible>Control.HasFocus(700)</visible>
-					<include>VisibleFadeEffect</include>
-				</control>
-				<control type="label">
-					<top>-12</top>
-					<left>30</left>
-					<width>600</width>
-					<height>68</height>
-					<font>font16</font>
-					<align>right</align>
-					<selectedcolor>selected</selectedcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-				</control>
-				<control type="label">
-					<left>30</left>
-					<top>27</top>
-					<width>600</width>
-					<height>68</height>
-					<font>font13</font>
-					<align>right</align>
-					<selectedcolor>selected</selectedcolor>
-					<label>$INFO[ListItem.RatingAndVotes]</label>
-					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-				</control>
-				<control type="label">
-					<left>630</left>
-					<top>8</top>
-					<width>100</width>
-					<height>68</height>
-					<font>font15</font>
-					<align>right</align>
-					<textcolor>$VAR[TitleColorVar]</textcolor>
-					<selectedcolor>selected</selectedcolor>
-					<label>$INFO[ListItem.Year]</label>
-					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-				</control>
-				<control type="image">
-					<left>741</left>
-					<top>10</top>
-					<width>72</width>
-					<height>72</height>
-					<aspectratio>keep</aspectratio>
-					<texture>$VAR[ListItem.Overlay]</texture>
-					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-				</control>
-				<control type="group">
-					<description>Unwatched episodes</description>
-					<left>736</left>
-					<top>10</top>
-					<control type="image">
-						<left>0</left>
-						<top>3</top>
-						<width>64</width>
-						<height>64</height>
-						<texture>overlays/list/OverlayUnWatched.png</texture>
-						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
+						<font>font16</font>
+						<align>right</align>
+						<textcolor>$VAR[TitleColorVar]</textcolor>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+						<visible>![SubString(ListItem.Path,videodb://movies/sets) + !Stringcompare(ListItem.Label,..)]</visible>
 					</control>
 					<control type="label">
-						<left>-18</left>
-						<top>0</top>
-						<width>116</width>
+						<top>7</top>
+						<left>30</left>
+						<width>700</width>
 						<height>68</height>
-						<font>font12_title</font>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$VAR[ListOverlayEpisodesVar]</label>
-						<textcolor>white</textcolor>
-						<textoffsetx>18</textoffsetx>
-						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
-					</control>
-				</control>
-				<control type="image">
-					<top>28</top>
-					<left>20</left>
-					<width>810</width>
-					<height>60</height>
-					<texture border="1">separator2.png</texture>
-				</control>
-			</focusedlayout>
-			<itemlayout height="68" width="806" condition="Skin.HasSetting(rightlistalternatetv) + Container.Content(tvshows)">
-				<control type="label">
-					<left>30</left>
-					<width>700</width>
-					<height>68</height>
-					<font>font15</font>
-					<align>right</align>
-					<textcolor>grey</textcolor>
-					<selectedcolor>selected</selectedcolor>
-					<label>$INFO[ListItem.Label]</label>
-				</control>
-				<control type="image">
-					<left>742</left>
-					<top>2</top>
-					<width>64</width>
-					<height>64</height>
-					<aspectratio>keep</aspectratio>
-					<texture>$VAR[ListItem.Overlay]</texture>
-					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-				</control>
-				<control type="group">
-					<description>Unwatched episodes</description>
-					<left>742</left>
-					<top>-1</top>
-					<control type="image">
-						<left>0</left>
-						<top>3</top>
-						<width>64</width>
-						<height>64</height>
-						<texture>overlays/list/OverlayUnWatched.png</texture>
-						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
+						<font>font16</font>
+						<align>right</align>
+						<textcolor>$VAR[TitleColorVar]</textcolor>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+						<visible>[SubString(ListItem.Path,videodb://movies/sets) + !Stringcompare(ListItem.Label,..)]</visible>
 					</control>
 					<control type="label">
-						<left>-18</left>
-						<top>0</top>
+						<left>130</left>
+						<top>27</top>
+						<width>600</width>
+						<height>68</height>
+						<font>font13</font>
+						<align>right</align>
+						<selectedcolor>selected</selectedcolor>
+						<label>$VAR[FloorSubLabelVar]</label>
+						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+						<visible>![SubString(ListItem.Path,videodb://movies/sets) + !Stringcompare(ListItem.Label,..)]</visible>
+					</control>
+					<control type="image">
+						<left>742</left>
+						<top>12</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture>$VAR[ListItem.Overlay]</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+					</control>
+					<control type="image">
+						<top>28</top>
+						<left>20</left>
+						<width>810</width>
+						<height>60</height>
+						<texture border="1">separator2.png</texture>
+					</control>
+				</focusedlayout>
+				<itemlayout height="69" width="806" condition="!Skin.HasSetting(rightlistalternatetv) + Container.Content(tvshows)">
+					<control type="image">
+						<left>20</left>
+						<top>8</top>
+						<width>810</width>
+						<height>60</height>
+						<texture border="1">separator2.png</texture>
+					</control>
+					<control type="label">
+						<left>30</left>
+						<width>600</width>
+						<height>68</height>
+						<font>font15</font>
+						<align>right</align>
+						<textcolor>grey</textcolor>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="label">
+						<left>630</left>
 						<width>100</width>
 						<height>68</height>
-						<font>font12_title</font>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$VAR[ListOverlayEpisodesVar]</label>
-						<textcolor>grey3</textcolor>
-						<textoffsetx>18</textoffsetx>
-						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
+						<font>font15</font>
+						<align>right</align>
+						<textcolor>grey</textcolor>
+						<label>$INFO[ListItem.Year]</label>
 					</control>
-				</control>
-			</itemlayout>
-			<focusedlayout height="85" width="806" condition="Skin.HasSetting(rightlistalternatetv) + Container.Content(tvshows)">
+					<control type="image">
+						<left>742</left>
+						<top>1</top>
+						<width>68</width>
+						<height>68</height>
+						<aspectratio>keep</aspectratio>
+						<texture>$VAR[ListItem.Overlay]</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+					</control>
+					<control type="group">
+						<description>Unwatched episodes</description>
+						<left>736</left>
+						<top>-1</top>
+						<control type="image">
+							<left>0</left>
+							<top>3</top>
+							<width>64</width>
+							<height>64</height>
+							<texture>overlays/list/OverlayUnWatched.png</texture>
+							<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
+						</control>
+						<control type="label">
+							<left>-18</left>
+							<top>0</top>
+							<width>116</width>
+							<height>68</height>
+							<font>Font_Reg26</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$VAR[ListOverlayEpisodesVar]</label>
+							<textcolor>grey3</textcolor>
+							<textoffsetx>18</textoffsetx>
+							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout height="85" width="806" condition="!Skin.HasSetting(rightlistalternatetv) + Container.Content(tvshows)">
+					<control type="image">
+						<top>0</top>
+						<left>20</left>
+						<width>825</width>
+						<height>85</height>
+						<texture border="4">listselect_fo_clear.png</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<visible>Control.HasFocus(700)</visible>
+						<include>VisibleFadeEffect</include>
+					</control>
+					<control type="label">
+						<top>-12</top>
+						<left>30</left>
+						<width>600</width>
+						<height>68</height>
+						<font>font16</font>
+						<align>right</align>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+					</control>
+					<control type="label">
+						<left>30</left>
+						<top>27</top>
+						<width>600</width>
+						<height>68</height>
+						<font>font13</font>
+						<align>right</align>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.RatingAndVotes]</label>
+						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+					</control>
+					<control type="label">
+						<left>630</left>
+						<top>8</top>
+						<width>100</width>
+						<height>68</height>
+						<font>font15</font>
+						<align>right</align>
+						<textcolor>$VAR[TitleColorVar]</textcolor>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.Year]</label>
+						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+					</control>
+					<control type="image">
+						<left>741</left>
+						<top>10</top>
+						<width>72</width>
+						<height>72</height>
+						<aspectratio>keep</aspectratio>
+						<texture>$VAR[ListItem.Overlay]</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+					</control>
+					<control type="group">
+						<description>Unwatched episodes</description>
+						<left>736</left>
+						<top>10</top>
+						<control type="image">
+							<left>0</left>
+							<top>3</top>
+							<width>64</width>
+							<height>64</height>
+							<texture>overlays/list/OverlayUnWatched.png</texture>
+							<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
+						</control>
+						<control type="label">
+							<left>-18</left>
+							<top>0</top>
+							<width>116</width>
+							<height>68</height>
+							<font>Font_Reg26</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$VAR[ListOverlayEpisodesVar]</label>
+							<textcolor>white</textcolor>
+							<textoffsetx>18</textoffsetx>
+							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
+						</control>
+					</control>
+					<control type="image">
+						<top>28</top>
+						<left>20</left>
+						<width>810</width>
+						<height>60</height>
+						<texture border="1">separator2.png</texture>
+					</control>
+				</focusedlayout>
+				<itemlayout height="68" width="806" condition="Skin.HasSetting(rightlistalternatetv) + Container.Content(tvshows)">
+					<control type="label">
+						<left>30</left>
+						<width>700</width>
+						<height>68</height>
+						<font>font15</font>
+						<align>right</align>
+						<textcolor>grey</textcolor>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="image">
+						<left>742</left>
+						<top>2</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture>$VAR[ListItem.Overlay]</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+					</control>
+					<control type="group">
+						<description>Unwatched episodes</description>
+						<left>742</left>
+						<top>-1</top>
+						<control type="image">
+							<left>0</left>
+							<top>3</top>
+							<width>64</width>
+							<height>64</height>
+							<texture>overlays/list/OverlayUnWatched.png</texture>
+							<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
+						</control>
+						<control type="label">
+							<left>-18</left>
+							<top>0</top>
+							<width>100</width>
+							<height>68</height>
+							<font>Font_Reg26</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$VAR[ListOverlayEpisodesVar]</label>
+							<textcolor>grey3</textcolor>
+							<textoffsetx>18</textoffsetx>
+							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout height="85" width="806" condition="Skin.HasSetting(rightlistalternatetv) + Container.Content(tvshows)">
 					<!--
 					<control type="image">
 						<top>0</top>
@@ -1059,667 +1057,667 @@
 						<include>VisibleFadeEffect</include>
 					</control>
 				-->
-				<control type="label">
-					<top>-12</top>
-					<left>30</left>
-					<width>700</width>
-					<height>68</height>
-					<font>font16</font>
-					<align>right</align>
-					<textcolor>$VAR[TitleColorVar]</textcolor>
-					<selectedcolor>selected</selectedcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-				</control>
-				<control type="label">
-					<left>130</left>
-					<top>27</top>
-					<width>600</width>
-					<height>68</height>
-					<font>font13</font>
-					<align>right</align>
-					<selectedcolor>selected</selectedcolor>
-					<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.RatingAndVotes]</label>
-					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-				</control>
-				<control type="image">
-					<left>742</left>
-					<top>12</top>
-					<width>64</width>
-					<height>64</height>
-					<aspectratio>keep</aspectratio>
-					<texture>$VAR[ListItem.Overlay]</texture>
-					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-				</control>
-				<control type="group">
-					<description>Unwatched episodes</description>
-					<left>742</left>
-					<top>10</top>
+					<control type="label">
+						<top>-12</top>
+						<left>30</left>
+						<width>700</width>
+						<height>68</height>
+						<font>font16</font>
+						<align>right</align>
+						<textcolor>$VAR[TitleColorVar]</textcolor>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+					</control>
+					<control type="label">
+						<left>130</left>
+						<top>27</top>
+						<width>600</width>
+						<height>68</height>
+						<font>font13</font>
+						<align>right</align>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.RatingAndVotes]</label>
+						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+					</control>
 					<control type="image">
-						<left>0</left>
-						<top>3</top>
+						<left>742</left>
+						<top>12</top>
 						<width>64</width>
 						<height>64</height>
-						<texture>overlays/list/OverlayUnWatched.png</texture>
+						<aspectratio>keep</aspectratio>
+						<texture>$VAR[ListItem.Overlay]</texture>
 						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
+					</control>
+					<control type="group">
+						<description>Unwatched episodes</description>
+						<left>742</left>
+						<top>10</top>
+						<control type="image">
+							<left>0</left>
+							<top>3</top>
+							<width>64</width>
+							<height>64</height>
+							<texture>overlays/list/OverlayUnWatched.png</texture>
+							<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
+						</control>
+						<control type="label">
+							<left>-18</left>
+							<top>0</top>
+							<width>100</width>
+							<height>68</height>
+							<font>Font_Reg26</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$VAR[ListOverlayEpisodesVar]</label>
+							<textcolor>white</textcolor>
+							<textoffsetx>18</textoffsetx>
+							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
+						</control>
+					</control>
+				</focusedlayout>
+				<itemlayout height="68" width="806" condition="Container.Content(seasons) + !Skin.HasSetting(rightlistalternateseasons)">
+					<control type="image">
+						<top>8</top>
+						<left>20</left>
+						<width>800</width>
+						<height>60</height>
+						<texture border="1">separator2.png</texture>
 					</control>
 					<control type="label">
-						<left>-18</left>
-						<top>0</top>
-						<width>100</width>
+						<left>30</left>
+						<width>700</width>
 						<height>68</height>
-						<font>font12_title</font>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$VAR[ListOverlayEpisodesVar]</label>
-						<textcolor>white</textcolor>
-						<textoffsetx>18</textoffsetx>
-						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
+						<font>font15</font>
+						<align>right</align>
+						<textcolor>grey</textcolor>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
 					</control>
-				</control>
-			</focusedlayout>
-			<itemlayout height="68" width="806" condition="Container.Content(seasons) + !Skin.HasSetting(rightlistalternateseasons)">
-				<control type="image">
-					<top>8</top>
-					<left>20</left>
-					<width>800</width>
-					<height>60</height>
-					<texture border="1">separator2.png</texture>
-				</control>
-				<control type="label">
-					<left>30</left>
-					<width>700</width>
-					<height>68</height>
-					<font>font15</font>
-					<align>right</align>
-					<textcolor>grey</textcolor>
-					<selectedcolor>selected</selectedcolor>
-					<label>$INFO[ListItem.Label]</label>
-				</control>
-				<control type="image">
-					<left>742</left>
-					<top>2</top>
-					<width>72</width>
-					<height>72</height>
-					<aspectratio>keep</aspectratio>
-					<texture>$VAR[ListItem.Overlay]</texture>
-					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-				</control>
-				<control type="group">
-					<description>Unwatched episodes</description>
-					<left>742</left>
-					<top>-1</top>
 					<control type="image">
-						<left>0</left>
-						<top>1</top>
+						<left>742</left>
+						<top>2</top>
 						<width>72</width>
 						<height>72</height>
-						<texture>overlays/list/OverlayUnWatched.png</texture>
+						<aspectratio>keep</aspectratio>
+						<texture>$VAR[ListItem.Overlay]</texture>
 						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
+					</control>
+					<control type="group">
+						<description>Unwatched episodes</description>
+						<left>742</left>
+						<top>-1</top>
+						<control type="image">
+							<left>0</left>
+							<top>1</top>
+							<width>72</width>
+							<height>72</height>
+							<texture>overlays/list/OverlayUnWatched.png</texture>
+							<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
+						</control>
+						<control type="label">
+							<left>-22</left>
+							<top>2</top>
+							<width>116</width>
+							<height>68</height>
+							<font>Font_Reg26</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$VAR[ListOverlayEpisodesVar]</label>
+							<textcolor>grey3</textcolor>
+							<textoffsetx>18</textoffsetx>
+							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout height="68" width="806" condition="Container.Content(seasons) + !Skin.HasSetting(rightlistalternateseasons)">
+					<control type="image">
+						<top>10</top>
+						<left>20</left>
+						<width>800</width>
+						<height>60</height>
+						<texture border="1">separator2.png</texture>
+					</control>
+					<control type="image">
+						<top>0</top>
+						<left>20</left>
+						<width>825</width>
+						<height>68</height>
+						<texture border="4">listselect_fo_clear.png</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<visible>Control.HasFocus(700)</visible>
+						<include>VisibleFadeEffect</include>
 					</control>
 					<control type="label">
-						<left>-22</left>
-						<top>2</top>
-						<width>116</width>
+						<left>30</left>
+						<width>700</width>
 						<height>68</height>
-						<font>font12_title</font>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$VAR[ListOverlayEpisodesVar]</label>
-						<textcolor>grey3</textcolor>
-						<textoffsetx>18</textoffsetx>
-						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
+						<font>font15</font>
+						<align>right</align>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
 					</control>
-				</control>
-			</itemlayout>
-			<focusedlayout height="68" width="806" condition="Container.Content(seasons) + !Skin.HasSetting(rightlistalternateseasons)">
-				<control type="image">
-					<top>10</top>
-					<left>20</left>
-					<width>800</width>
-					<height>60</height>
-					<texture border="1">separator2.png</texture>
-				</control>
-				<control type="image">
-					<top>0</top>
-					<left>20</left>
-					<width>825</width>
-					<height>68</height>
-					<texture border="4">listselect_fo_clear.png</texture>
-					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-					<visible>Control.HasFocus(700)</visible>
-					<include>VisibleFadeEffect</include>
-				</control>
-				<control type="label">
-					<left>30</left>
-					<width>700</width>
-					<height>68</height>
-					<font>font15</font>
-					<align>right</align>
-					<selectedcolor>selected</selectedcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-				</control>
-				<control type="image">
-					<left>742</left>
-					<top>-1</top>
-					<width>72</width>
-					<height>72</height>
-					<aspectratio>keep</aspectratio>
-					<texture>$VAR[ListItem.Overlay]</texture>
-					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-				</control>
-				<control type="group">
-					<description>Unwatched episodes</description>
-					<left>742</left>
-					<top>-1</top>
 					<control type="image">
-						<left>0</left>
+						<left>742</left>
 						<top>-1</top>
 						<width>72</width>
 						<height>72</height>
-						<texture>overlays/list/OverlayUnWatched.png</texture>
+						<aspectratio>keep</aspectratio>
+						<texture>$VAR[ListItem.Overlay]</texture>
 						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
 					</control>
+					<control type="group">
+						<description>Unwatched episodes</description>
+						<left>742</left>
+						<top>-1</top>
+						<control type="image">
+							<left>0</left>
+							<top>-1</top>
+							<width>72</width>
+							<height>72</height>
+							<texture>overlays/list/OverlayUnWatched.png</texture>
+							<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
+						</control>
+						<control type="label">
+							<left>-22</left>
+							<top>2</top>
+							<width>116</width>
+							<height>68</height>
+							<font>Font_Reg26</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$VAR[ListOverlayEpisodesVar]</label>
+							<textcolor>white</textcolor>
+							<textoffsetx>18</textoffsetx>
+							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
+						</control>
+					</control>
+				</focusedlayout>
+				<itemlayout height="68" width="806" condition="Container.Content(seasons) + Skin.HasSetting(rightlistalternateseasons)">
 					<control type="label">
-						<left>-22</left>
+						<left>30</left>
+						<width>700</width>
+						<height>68</height>
+						<font>font15</font>
+						<align>right</align>
+						<textcolor>grey</textcolor>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="image">
+						<left>742</left>
 						<top>2</top>
-						<width>116</width>
-						<height>68</height>
-						<font>font12_title</font>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$VAR[ListOverlayEpisodesVar]</label>
-						<textcolor>white</textcolor>
-						<textoffsetx>18</textoffsetx>
-						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture>$VAR[ListItem.Overlay]</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
 					</control>
-				</control>
-			</focusedlayout>
-			<itemlayout height="68" width="806" condition="Container.Content(seasons) + Skin.HasSetting(rightlistalternateseasons)">
-				<control type="label">
-					<left>30</left>
-					<width>700</width>
-					<height>68</height>
-					<font>font15</font>
-					<align>right</align>
-					<textcolor>grey</textcolor>
-					<selectedcolor>selected</selectedcolor>
-					<label>$INFO[ListItem.Label]</label>
-				</control>
-				<control type="image">
-					<left>742</left>
-					<top>2</top>
-					<width>64</width>
-					<height>64</height>
-					<aspectratio>keep</aspectratio>
-					<texture>$VAR[ListItem.Overlay]</texture>
-					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-				</control>
-				<control type="group">
-					<description>Unwatched episodes</description>
-					<left>742</left>
-					<top>-1</top>
+					<control type="group">
+						<description>Unwatched episodes</description>
+						<left>742</left>
+						<top>-1</top>
+						<control type="image">
+							<left>0</left>
+							<top>3</top>
+							<width>64</width>
+							<height>64</height>
+							<texture>overlays/list/OverlayUnWatched.png</texture>
+							<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
+						</control>
+						<control type="label">
+							<left>-18</left>
+							<top>0</top>
+							<width>100</width>
+							<height>68</height>
+							<font>Font_Reg26</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$VAR[ListOverlayEpisodesVar]</label>
+							<textcolor>grey3</textcolor>
+							<textoffsetx>18</textoffsetx>
+							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout height="68" width="806" condition="Container.Content(seasons) + Skin.HasSetting(rightlistalternateseasons)">
+					<control type="label">
+						<left>30</left>
+						<width>700</width>
+						<height>68</height>
+						<font>font15</font>
+						<align>right</align>
+						<textcolor>$VAR[TitleColorVar]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+					</control>
 					<control type="image">
-						<left>0</left>
-						<top>3</top>
+						<left>742</left>
+						<top>2</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture>$VAR[ListItem.Overlay]</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+					</control>
+					<control type="group">
+						<description>Unwatched episodes</description>
+						<left>742</left>
+						<top>-1</top>
+						<control type="image">
+							<left>0</left>
+							<top>3</top>
+							<width>64</width>
+							<height>64</height>
+							<texture>overlays/list/OverlayUnWatched.png</texture>
+							<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
+						</control>
+						<control type="label">
+							<left>-18</left>
+							<top>0</top>
+							<width>100</width>
+							<height>68</height>
+							<font>Font_Reg26</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$VAR[ListOverlayEpisodesVar]</label>
+							<textcolor>white</textcolor>
+							<textoffsetx>18</textoffsetx>
+							<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
+						</control>
+					</control>
+				</focusedlayout>
+				<itemlayout height="68" width="806" condition="Container.Content(episodes) + !Skin.HasSetting(rightlistalternateepisode)">
+					<control type="image">
+						<left>20</left>
+						<top>8</top>
+						<width>810</width>
+						<height>60</height>
+						<texture border="1">separator2.png</texture>
+					</control>
+					<control type="label">
+						<left>30</left>
+						<width>700</width>
+						<height>68</height>
+						<font>font15</font>
+						<align>right</align>
+						<textcolor>grey</textcolor>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="image">
+						<left>742</left>
+						<top>2</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture>$VAR[ListItem.Overlay]</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+					</control>
+					<control type="image">
+						<left>742</left>
+						<top>2</top>
 						<width>64</width>
 						<height>64</height>
 						<texture>overlays/list/OverlayUnWatched.png</texture>
 						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
 						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
 					</control>
-					<control type="label">
-						<left>-18</left>
-						<top>0</top>
-						<width>100</width>
-						<height>68</height>
-						<font>font12_title</font>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$VAR[ListOverlayEpisodesVar]</label>
-						<textcolor>grey3</textcolor>
-						<textoffsetx>18</textoffsetx>
-						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
-					</control>
-				</control>
-			</itemlayout>
-			<focusedlayout height="68" width="806" condition="Container.Content(seasons) + Skin.HasSetting(rightlistalternateseasons)">
-				<control type="label">
-					<left>30</left>
-					<width>700</width>
-					<height>68</height>
-					<font>font15</font>
-					<align>right</align>
-					<textcolor>$VAR[TitleColorVar]</textcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-				</control>
-				<control type="image">
-					<left>742</left>
-					<top>2</top>
-					<width>64</width>
-					<height>64</height>
-					<aspectratio>keep</aspectratio>
-					<texture>$VAR[ListItem.Overlay]</texture>
-					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-				</control>
-				<control type="group">
-					<description>Unwatched episodes</description>
-					<left>742</left>
-					<top>-1</top>
+				</itemlayout>
+				<focusedlayout height="85" width="806" condition="Container.Content(episodes) + !Skin.HasSetting(rightlistalternateepisode)">
 					<control type="image">
-						<left>0</left>
-						<top>3</top>
+						<top>0</top>
+						<left>20</left>
+						<width>825</width>
+						<height>85</height>
+						<texture border="4">listselect_fo_clear.png</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<visible>Control.HasFocus(700)</visible>
+						<include>VisibleFadeEffect</include>
+					</control>
+					<control type="label">
+						<top>-12</top>
+						<left>30</left>
+						<width>700</width>
+						<height>68</height>
+						<font>font16</font>
+						<align>right</align>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+						<visible>!IsEmpty(ListItem.RatingAndVotes)</visible>
+					</control>
+					<control type="label">
+						<top>8</top>
+						<left>30</left>
+						<width>700</width>
+						<height>68</height>
+						<font>font16</font>
+						<align>right</align>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+						<visible>IsEmpty(ListItem.RatingAndVotes)</visible>
+					</control>
+					<control type="label">
+						<left>30</left>
+						<top>27</top>
+						<width>700</width>
+						<height>68</height>
+						<font>font13</font>
+						<align>right</align>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.RatingAndVotes]</label>
+						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+					</control>
+					<control type="image">
+						<left>742</left>
+						<top>12</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture>$VAR[ListItem.Overlay]</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+					</control>
+					<control type="image">
+						<left>742</left>
+						<top>13</top>
 						<width>64</width>
 						<height>64</height>
 						<texture>overlays/list/OverlayUnWatched.png</texture>
 						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
 						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
 					</control>
-					<control type="label">
-						<left>-18</left>
-						<top>0</top>
-						<width>100</width>
-						<height>68</height>
-						<font>font12_title</font>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$VAR[ListOverlayEpisodesVar]</label>
-						<textcolor>white</textcolor>
-						<textoffsetx>18</textoffsetx>
-						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)</visible>
+					<control type="image">
+						<top>28</top>
+						<left>20</left>
+						<width>810</width>
+						<height>60</height>
+						<texture border="1">separator2.png</texture>
 					</control>
-				</control>
-			</focusedlayout>
-			<itemlayout height="68" width="806" condition="Container.Content(episodes) + !Skin.HasSetting(rightlistalternateepisode)">
-				<control type="image">
-					<left>20</left>
-					<top>8</top>
-					<width>810</width>
-					<height>60</height>
-					<texture border="1">separator2.png</texture>
-				</control>
-				<control type="label">
-					<left>30</left>
-					<width>700</width>
-					<height>68</height>
-					<font>font15</font>
-					<align>right</align>
-					<textcolor>grey</textcolor>
-					<selectedcolor>selected</selectedcolor>
-					<label>$INFO[ListItem.Label]</label>
-				</control>
-				<control type="image">
-					<left>742</left>
-					<top>2</top>
-					<width>64</width>
-					<height>64</height>
-					<aspectratio>keep</aspectratio>
-					<texture>$VAR[ListItem.Overlay]</texture>
-					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-				</control>
-				<control type="image">
-					<left>742</left>
-					<top>2</top>
-					<width>64</width>
-					<height>64</height>
-					<texture>overlays/list/OverlayUnWatched.png</texture>
-					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-					<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
-				</control>
-			</itemlayout>
-			<focusedlayout height="85" width="806" condition="Container.Content(episodes) + !Skin.HasSetting(rightlistalternateepisode)">
-				<control type="image">
-					<top>0</top>
-					<left>20</left>
-					<width>825</width>
-					<height>85</height>
-					<texture border="4">listselect_fo_clear.png</texture>
-					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-					<visible>Control.HasFocus(700)</visible>
-					<include>VisibleFadeEffect</include>
-				</control>
-				<control type="label">
-					<top>-12</top>
-					<left>30</left>
-					<width>700</width>
-					<height>68</height>
-					<font>font16</font>
-					<align>right</align>
-					<selectedcolor>selected</selectedcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-					<visible>!IsEmpty(ListItem.RatingAndVotes)</visible>
-				</control>
-				<control type="label">
-					<top>8</top>
-					<left>30</left>
-					<width>700</width>
-					<height>68</height>
-					<font>font16</font>
-					<align>right</align>
-					<selectedcolor>selected</selectedcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-					<visible>IsEmpty(ListItem.RatingAndVotes)</visible>
-				</control>
-				<control type="label">
-					<left>30</left>
-					<top>27</top>
-					<width>700</width>
-					<height>68</height>
-					<font>font13</font>
-					<align>right</align>
-					<selectedcolor>selected</selectedcolor>
-					<label>$INFO[ListItem.RatingAndVotes]</label>
-					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-				</control>
-				<control type="image">
-					<left>742</left>
-					<top>12</top>
-					<width>64</width>
-					<height>64</height>
-					<aspectratio>keep</aspectratio>
-					<texture>$VAR[ListItem.Overlay]</texture>
-					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-				</control>
-				<control type="image">
-					<left>742</left>
-					<top>13</top>
-					<width>64</width>
-					<height>64</height>
-					<texture>overlays/list/OverlayUnWatched.png</texture>
-					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-					<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
-				</control>
-				<control type="image">
-					<top>28</top>
-					<left>20</left>
-					<width>810</width>
-					<height>60</height>
-					<texture border="1">separator2.png</texture>
-				</control>
-			</focusedlayout>
-			<itemlayout height="68" width="806" condition="Container.Content(episodes) + Skin.HasSetting(rightlistalternateepisode)">
-				<control type="label">
-					<left>30</left>
-					<width>700</width>
-					<height>68</height>
-					<font>font15</font>
-					<align>right</align>
-					<selectedcolor>selected</selectedcolor>
-					<label>$INFO[ListItem.Label]</label>
-				</control>
-				<control type="image">
-					<left>742</left>
-					<top>2</top>
-					<width>64</width>
-					<height>64</height>
-					<aspectratio>keep</aspectratio>
-					<texture>$VAR[ListItem.Overlay]</texture>
-					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-				</control>
-				<control type="image">
-					<left>742</left>
-					<top>2</top>
-					<width>64</width>
-					<height>64</height>
-					<texture>overlays/list/OverlayUnWatched.png</texture>
-					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-					<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
-				</control>
-			</itemlayout>
-			<focusedlayout height="85" width="806" condition="Container.Content(episodes) + Skin.HasSetting(rightlistalternateepisode)">
-				<control type="label">
-					<top>-12</top>
-					<left>30</left>
-					<width>700</width>
-					<height>68</height>
-					<font>font16</font>
-					<align>right</align>
-					<textcolor>$VAR[TitleColorVar]</textcolor>
-					<selectedcolor>selected</selectedcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-					<visible>!IsEmpty(ListItem.RatingAndVotes)</visible>
-				</control>
-				<control type="label">
-					<top>8</top>
-					<left>30</left>
-					<width>700</width>
-					<height>68</height>
-					<font>font16</font>
-					<align>right</align>
-					<textcolor>$VAR[TitleColorVar]</textcolor>
-					<selectedcolor>selected</selectedcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-					<visible>IsEmpty(ListItem.RatingAndVotes)</visible>
-				</control>
-				<control type="label">
-					<left>30</left>
-					<top>27</top>
-					<width>700</width>
-					<height>68</height>
-					<font>font13</font>
-					<align>right</align>
-					<selectedcolor>selected</selectedcolor>
-					<label>$INFO[ListItem.RatingAndVotes]</label>
-					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
-				</control>
-				<control type="image">
-					<left>742</left>
-					<top>12</top>
-					<width>64</width>
-					<height>64</height>
-					<aspectratio>keep</aspectratio>
-					<texture>$VAR[ListItem.Overlay]</texture>
-					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-				</control>
-				<control type="image">
-					<left>742</left>
-					<top>13</top>
-					<width>64</width>
-					<height>64</height>
-					<texture>overlays/list/OverlayUnWatched.png</texture>
-					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-					<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
-				</control>
-			</focusedlayout>
-		</control>
-		<control type="scrollbar" id="60">
-			<left>1894</left>
-			<top>40</top>
-			<width>17</width>
-			<height>920</height>
-			<onup>60</onup>
-			<ondown>60</ondown>
-			<onleft>700</onleft>
-			<onright>SetProperty(MediaMenu,True,home)</onright>
-			<onright>SetFocus(9000)</onright>
-			<texturesliderbackground border="1">-</texturesliderbackground>
-			<texturesliderbar border="6,0,6,0">scrollbar/texturesliderbar_hor.png</texturesliderbar>
-			<texturesliderbarfocus border="6,0,6,0">scrollbar/texturesliderbarfocus_hor.png</texturesliderbarfocus>
-			<!-- <textureslidernib>-</textureslidernib>
+				</focusedlayout>
+				<itemlayout height="68" width="806" condition="Container.Content(episodes) + Skin.HasSetting(rightlistalternateepisode)">
+					<control type="label">
+						<left>30</left>
+						<width>700</width>
+						<height>68</height>
+						<font>font15</font>
+						<align>right</align>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="image">
+						<left>742</left>
+						<top>2</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture>$VAR[ListItem.Overlay]</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+					</control>
+					<control type="image">
+						<left>742</left>
+						<top>2</top>
+						<width>64</width>
+						<height>64</height>
+						<texture>overlays/list/OverlayUnWatched.png</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="85" width="806" condition="Container.Content(episodes) + Skin.HasSetting(rightlistalternateepisode)">
+					<control type="label">
+						<top>-12</top>
+						<left>30</left>
+						<width>700</width>
+						<height>68</height>
+						<font>font16</font>
+						<align>right</align>
+						<textcolor>$VAR[TitleColorVar]</textcolor>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+						<visible>!IsEmpty(ListItem.RatingAndVotes)</visible>
+					</control>
+					<control type="label">
+						<top>8</top>
+						<left>30</left>
+						<width>700</width>
+						<height>68</height>
+						<font>font16</font>
+						<align>right</align>
+						<textcolor>$VAR[TitleColorVar]</textcolor>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+						<visible>IsEmpty(ListItem.RatingAndVotes)</visible>
+					</control>
+					<control type="label">
+						<left>30</left>
+						<top>27</top>
+						<width>700</width>
+						<height>68</height>
+						<font>font13</font>
+						<align>right</align>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.RatingAndVotes]</label>
+						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(700)">Conditional</animation>
+					</control>
+					<control type="image">
+						<left>742</left>
+						<top>12</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture>$VAR[ListItem.Overlay]</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+					</control>
+					<control type="image">
+						<left>742</left>
+						<top>13</top>
+						<width>64</width>
+						<height>64</height>
+						<texture>overlays/list/OverlayUnWatched.png</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<visible>IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0) + IsEmpty(ListItem.Overlay)</visible>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="scrollbar" id="60">
+				<left>1894</left>
+				<top>40</top>
+				<width>17</width>
+				<height>920</height>
+				<onup>60</onup>
+				<ondown>60</ondown>
+				<onleft>700</onleft>
+				<onright>SetProperty(MediaMenu,True,home)</onright>
+				<onright>SetFocus(9000)</onright>
+				<texturesliderbackground border="1">-</texturesliderbackground>
+				<texturesliderbar border="6,0,6,0">scrollbar/texturesliderbar_hor.png</texturesliderbar>
+				<texturesliderbarfocus border="6,0,6,0">scrollbar/texturesliderbarfocus_hor.png</texturesliderbarfocus>
+				<!-- <textureslidernib>-</textureslidernib>
 			<textureslidernibfocus>-</textureslidernibfocus> -->
-			<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
-			<showonepage>false</showonepage>
-			<orientation>vertical</orientation>
+				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
+			</control>
 		</control>
-	</control>
-</include>
-<!-- Music RightList -->
-    <include name="Music_RightList">
-        <control type="group">
-            <visible>Control.IsVisible(700) + !Window.IsActive(addoninformation)</visible>
-            <include>ViewAnimation</include>
-            <control type="image">
-                <texture>views/episodebgoverlay.png</texture>
-                <include>FullscreenDimensions</include>
-                <include>Animation_WindowFade200</include>
+	</include>
+	<!-- Music RightList -->
+	<include name="Music_RightList">
+		<control type="group">
+			<visible>Control.IsVisible(700) + !Window.IsActive(addoninformation)</visible>
+			<include>ViewAnimation</include>
+			<control type="image">
+				<texture>views/episodebgoverlay.png</texture>
+				<include>FullscreenDimensions</include>
+				<include>Animation_WindowFade200</include>
 				<visible>Skin.HasSetting(RightListShowBG)</visible>
-                </control>
-            <control type="group">
-                <left>0</left>
-                <top>50</top>
-                <width>590</width>
-                <height>264</height>
-                <aspectratio>keep</aspectratio>
-                <include>Animation_ListSlideLeft</include>
-                <visible>Skin.HasSetting(rightlistlogoartist)</visible>
-                <control type="image">
-                <texture background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist,,/logo.png]</texture>
-                </control>
-            </control>
-            <control type="image">
-                <top>380</top>
-                <left>65</left>
-                <width>380</width>
-                <height>380</height>
-                <include>Animation_ListSlideLeft</include>
-                <aspectratio align="right">keep</aspectratio>
-                <texture background="true">$VAR[colorcdARTVar]</texture>
-                <visible>Skin.HasSetting(rightlistCD) + IsEmpty(Control.GetLabel(4172914)) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart) + !Skin.HasSetting(MusicFakeDisc) + !Container.Content(Artists)</visible>
-                <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
-				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
-            </control>
-            <control type="label">
-                <left>120</left>
-                <top>430</top>
-                <width>260</width>
-                <height>320</height>
-                <include>Animation_ListSlideLeft</include>
-                <align>center</align>
-                    <font>Hand_28</font>
-                    <aligny>top</aligny>
-                    <label>[CR] $INFO[ListItem.AlbumArtist]</label>
-                    <visible>Skin.HasSetting(rightlistCD) + IsEmpty(Control.GetLabel(4172914)) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart) + !Skin.HasSetting(MusicFakeDisc) + !Container.Content(Artists)</visible>
-                    <textcolor>black</textcolor>
-                    <wrapmultiline>true</wrapmultiline>
-                    <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
-					<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
-            </control>
-            <control type="label">
-                <left>120</left>
-                <top>380</top>
-                <width>260</width>
-                <height>380</height>
-                <include>Animation_ListSlideLeft</include>
-                <align>center</align>
-                    <font>Hand_28</font>
-                    <aligny>top</aligny>
-                    <label>[CR][CR][CR][CR][CR][CR][CR][CR] $INFO[ListItem.Album]</label>
-                    <visible>Skin.HasSetting(rightlistCD) + IsEmpty(Control.GetLabel(4172914)) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart) + !Skin.HasSetting(MusicFakeDisc) + !Container.Content(Artists)</visible>
-                    <textcolor>black</textcolor>
-                    <wrapmultiline>true</wrapmultiline>
-                <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
-				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
-            </control>
-            <control type="image">
-                <top>380</top>
-                <left>65</left>
-                <width>380</width>
-                <height>380</height>
-                <include>Animation_ListSlideLeft</include>
-                <texture background="true" diffuse="thumbs/sets/cdart-mask.png">$VAR[ListAlbumVar]</texture>
-                <visible>Skin.HasSetting(rightlistCD) + IsEmpty(Control.GetLabel(4172914)) + Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart) + Skin.HasSetting(MusicFakeDisc)</visible>
-                <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
-				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
-            </control>
+			</control>
+			<control type="group">
+				<left>0</left>
+				<top>50</top>
+				<width>590</width>
+				<height>264</height>
+				<aspectratio>keep</aspectratio>
+				<include>Animation_ListSlideLeft</include>
+				<visible>Skin.HasSetting(rightlistlogoartist)</visible>
+				<control type="image">
+					<texture background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist,,/logo.png]</texture>
+				</control>
+			</control>
 			<control type="image">
-                <top>380</top>
-                <left>65</left>
-                <width>380</width>
-                <height>380</height>
-                <include>Animation_ListSlideLeft</include>
-                <texture background="true" diffuse="thumbs/sets/cdart-mask.png">$VAR[ListAlbumVar]</texture>
-                <visible>Skin.HasSetting(rightlistCD) + IsEmpty(Control.GetLabel(4172914)) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart) + Skin.HasSetting(MusicFakeDisc)</visible>
-                <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
+				<top>380</top>
+				<left>65</left>
+				<width>380</width>
+				<height>380</height>
+				<include>Animation_ListSlideLeft</include>
+				<aspectratio align="right">keep</aspectratio>
+				<texture background="true">$VAR[colorcdARTVar]</texture>
+				<visible>Skin.HasSetting(rightlistCD) + IsEmpty(Control.GetLabel(4172914)) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart) + !Skin.HasSetting(MusicFakeDisc) + !Container.Content(Artists)</visible>
+				<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
 				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
-            </control>
+			</control>
+			<control type="label">
+				<left>120</left>
+				<top>430</top>
+				<width>260</width>
+				<height>320</height>
+				<include>Animation_ListSlideLeft</include>
+				<align>center</align>
+				<font>Hand_28</font>
+				<aligny>top</aligny>
+				<label>[CR] $INFO[ListItem.AlbumArtist]</label>
+				<visible>Skin.HasSetting(rightlistCD) + IsEmpty(Control.GetLabel(4172914)) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart) + !Skin.HasSetting(MusicFakeDisc) + !Container.Content(Artists)</visible>
+				<textcolor>black</textcolor>
+				<wrapmultiline>true</wrapmultiline>
+				<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
+				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
+			</control>
+			<control type="label">
+				<left>120</left>
+				<top>380</top>
+				<width>260</width>
+				<height>380</height>
+				<include>Animation_ListSlideLeft</include>
+				<align>center</align>
+				<font>Hand_28</font>
+				<aligny>top</aligny>
+				<label>[CR][CR][CR][CR][CR][CR][CR][CR] $INFO[ListItem.Album]</label>
+				<visible>Skin.HasSetting(rightlistCD) + IsEmpty(Control.GetLabel(4172914)) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart) + !Skin.HasSetting(MusicFakeDisc) + !Container.Content(Artists)</visible>
+				<textcolor>black</textcolor>
+				<wrapmultiline>true</wrapmultiline>
+				<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
+				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
+			</control>
 			<control type="image">
-                <top>380</top>
-                <left>65</left>
-                <width>380</width>
-                <height>380</height>
-                <include>Animation_ListSlideLeft</include>
-                <aspectratio align="right">keep</aspectratio>
-                <fadetime>400</fadetime>
-                <texture background="true">$INFO[Window(Home).Property(SkinHelper.Music.DiscArt)]</texture>
+				<top>380</top>
+				<left>65</left>
+				<width>380</width>
+				<height>380</height>
+				<include>Animation_ListSlideLeft</include>
+				<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$VAR[ListAlbumVar]</texture>
+				<visible>Skin.HasSetting(rightlistCD) + IsEmpty(Control.GetLabel(4172914)) + Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart) + Skin.HasSetting(MusicFakeDisc)</visible>
+				<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
+				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
+			</control>
+			<control type="image">
+				<top>380</top>
+				<left>65</left>
+				<width>380</width>
+				<height>380</height>
+				<include>Animation_ListSlideLeft</include>
+				<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$VAR[ListAlbumVar]</texture>
+				<visible>Skin.HasSetting(rightlistCD) + IsEmpty(Control.GetLabel(4172914)) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart) + Skin.HasSetting(MusicFakeDisc)</visible>
+				<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
+				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
+			</control>
+			<control type="image">
+				<top>380</top>
+				<left>65</left>
+				<width>380</width>
+				<height>380</height>
+				<include>Animation_ListSlideLeft</include>
+				<aspectratio align="right">keep</aspectratio>
+				<fadetime>400</fadetime>
+				<texture background="true">$INFO[Window(Home).Property(SkinHelper.Music.DiscArt)]</texture>
 				<visible>Skin.HasSetting(rightlistCD) + Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart)</visible>
-                <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
+				<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
 				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
-            </control>
-            <control type="image" id="4172914">
-                <top>380</top>
-                <left>65</left>
-                <width>380</width>
-                <height>380</height>
-                <include>Animation_ListSlideLeft</include>
-                <aspectratio align="right">keep</aspectratio>
-                <fadetime>400</fadetime>
-                <texture background="true">$VAR[cdARTVar]</texture>
-                <visible>Skin.HasSetting(rightlistCD) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart)</visible>
-                <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
+			</control>
+			<control type="image" id="4172914">
+				<top>380</top>
+				<left>65</left>
+				<width>380</width>
+				<height>380</height>
+				<include>Animation_ListSlideLeft</include>
+				<aspectratio align="right">keep</aspectratio>
+				<fadetime>400</fadetime>
+				<texture background="true">$VAR[cdARTVar]</texture>
+				<visible>Skin.HasSetting(rightlistCD) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart)</visible>
+				<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
 				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
-            </control>
-            <control type="image">
-                <top>380</top>
-                <left>65</left>
-                <width>380</width>
-                <height>380</height>
-                <include>Animation_ListSlideLeft</include>
-                <aspectratio align="right">keep</aspectratio>
-                <include condition="Skin.HasSetting(vinylart)">vinylartlibrary</include>
-                <include condition="Skin.HasSetting(blurayart)">blurayartlibrary</include>
-                <visible>IsEmpty(Window(Home).Property(SkinHelper.Music.DiscArt)) + Skin.HasSetting(rightlistCD) + !Skin.HasSetting(MusicFakeDisc) + !Skin.HasSetting(RightListSlideLeft) + !Stringcompare(ListItem.Label,..) + [Container.Content(albums) | Container.Content(songs)]</visible>
-                <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
+			</control>
+			<control type="image">
+				<top>380</top>
+				<left>65</left>
+				<width>380</width>
+				<height>380</height>
+				<include>Animation_ListSlideLeft</include>
+				<aspectratio align="right">keep</aspectratio>
+				<include condition="Skin.HasSetting(vinylart)">vinylartlibrary</include>
+				<include condition="Skin.HasSetting(blurayart)">blurayartlibrary</include>
+				<visible>IsEmpty(Window(Home).Property(SkinHelper.Music.DiscArt)) + Skin.HasSetting(rightlistCD) + !Skin.HasSetting(MusicFakeDisc) + !Skin.HasSetting(RightListSlideLeft) + !Stringcompare(ListItem.Label,..) + [Container.Content(albums) | Container.Content(songs)]</visible>
+				<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
 				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
-            </control>
-            <control type="image">
-                <top>380</top>
-                <left>65</left>
-                <width>380</width>
-                <height>380</height>
-                <include>Animation_ListSlideLeft</include>
-                <aspectratio align="right">keep</aspectratio>
-                <include condition="Skin.HasSetting(vinylart)">vinylartlibrary</include>
-                <include condition="Skin.HasSetting(blurayart)">blurayartlibrary</include>
-                <visible>IsEmpty(Window(Home).Property(SkinHelper.Music.DiscArt)) + Skin.HasSetting(rightlistCD) + !Skin.HasSetting(MusicFakeDisc) + Skin.HasSetting(RightListSlideLeft) + !Stringcompare(ListItem.Label,..) + [Container.Content(albums) | Container.Content(songs)]</visible>
-                <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
+			</control>
+			<control type="image">
+				<top>380</top>
+				<left>65</left>
+				<width>380</width>
+				<height>380</height>
+				<include>Animation_ListSlideLeft</include>
+				<aspectratio align="right">keep</aspectratio>
+				<include condition="Skin.HasSetting(vinylart)">vinylartlibrary</include>
+				<include condition="Skin.HasSetting(blurayart)">blurayartlibrary</include>
+				<visible>IsEmpty(Window(Home).Property(SkinHelper.Music.DiscArt)) + Skin.HasSetting(rightlistCD) + !Skin.HasSetting(MusicFakeDisc) + Skin.HasSetting(RightListSlideLeft) + !Stringcompare(ListItem.Label,..) + [Container.Content(albums) | Container.Content(songs)]</visible>
+				<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
 				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
-            </control>
-            <control type="image">
-                <top>380</top>
-                <left>65</left>
-                <width>380</width>
-                <height>380</height>
-                <include>Animation_ListSlideLeft</include>
-                <aspectratio align="right">keep</aspectratio>
-                <texture background="true">$VAR[cdARTVar]</texture>
-                <fadetime>IconCrossfadeTime</fadetime>
+			</control>
+			<control type="image">
+				<top>380</top>
+				<left>65</left>
+				<width>380</width>
+				<height>380</height>
+				<include>Animation_ListSlideLeft</include>
+				<aspectratio align="right">keep</aspectratio>
+				<texture background="true">$VAR[cdARTVar]</texture>
+				<fadetime>IconCrossfadeTime</fadetime>
 				<visible>Skin.HasSetting(rightlistCD) + Skin.HasSetting(RightListSlideLeft) + !Stringcompare(ListItem.Label,..) + [Container.Content(albums) | Container.Content(songs)]</visible>
-                <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
+				<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
 				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
-            </control>
+			</control>
 			<control type="multiimage">
 				<top>380</top>
-                <left>65</left>
-                <width>380</width>
-                <height>380</height>
-                <include>Animation_ListSlideLeft</include>
-                <aspectratio aligny="bottom">keep</aspectratio>
-                <imagepath background="true" fallback="empty.png">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist]/cdart/</imagepath>
-                <fadetime>300</fadetime>
-                <animation effect="fade" time="100">Visible</animation>
-                <animation effect="fade" time="100">Hidden</animation>
+				<left>65</left>
+				<width>380</width>
+				<height>380</height>
+				<include>Animation_ListSlideLeft</include>
+				<aspectratio aligny="bottom">keep</aspectratio>
+				<imagepath background="true" fallback="empty.png">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist]/cdart/</imagepath>
+				<fadetime>300</fadetime>
+				<animation effect="fade" time="100">Visible</animation>
+				<animation effect="fade" time="100">Hidden</animation>
 				<visible>Container.Content(Artists)</visible>
 			</control>
-            <!--control type="image">
+			<!--control type="image">
                 <top>380</top>
                 <left>65</left>
                 <width>380</width>
@@ -1731,66 +1729,66 @@
                 <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
                 <visible>Skin.HasSetting(rightlistCD) + !Skin.HasSetting(RightListSlideLeft) + !Stringcompare(ListItem.Label,..) + [Container.Content(albums) | Container.Content(songs)]</visible>
             </control-->
-            <control type="group">
-                <left>50</left>
-                <top>300</top>
-                <include>Animation_ListSlideLeft</include>
-                <visible>Skin.HasSetting(RightListroundedcovers)</visible>
-                <control type="image">
-                    <left>-36</left>
-                    <top>225</top>
-                    <width>350</width>
-                    <height>550</height>
-                    <align>center</align>
-                    <texture background="true">thumbs/cd_shadow_light_shadow.png</texture>
-                    <bordersize>18</bordersize>
-                    <include>PanelGlowFade</include>
-                    <include>Animation_VisibleChange400</include>
-                    <visible>!Skin.HasSetting(DisableGlowbar)</visible>
-                    <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-                </control>
-                <control type="image">
-                    <top>255</top>
-                    <width>410</width>
-                    <height>410</height>
-                    <aspectratio scalediffuse="false">scale</aspectratio>
-                    <texture background="true" diffuse="thumbs/cdcover_mask.png">common/bgcolor.png</texture>
-                    <fadetime>0</fadetime>
-                </control>
-                <control type="image">
-                    <top>255</top>
-                    <width>410</width>
-                    <height>410</height>
-                    <aspectratio scalediffuse="false">scale</aspectratio>
-                    <texture background="true" diffuse="thumbs/cdcover_mask.png" fallback="DefaultAlbumCover.png">$VAR[ListAlbumVar]</texture>
-                    <fadetime>IconCrossfadeTime2</fadetime>
-                </control>
-                <control type="image">
-                    <top>686</top>
-                    <width>410</width>
-                    <height>410</height>>
-                    <aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-                    <texture diffuse="thumbs/cdcover_mask_reflect.png" flipy="true" background="true" fallback="DefaultAlbumCover.png">$VAR[ListAlbumVar]</texture>
-                    <fadetime>IconCrossfadeTime2</fadetime>
-                    <colordiffuse>d0FFFFFF</colordiffuse>
-                </control>
-                <control type="image">
-                    <left>-20</left>
-                    <top>235</top>
-                    <width>450</width>
-                    <height>450</height>
-                    <aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-                    <texture diffuse="thumbs/cdcover_mask.png">thumbs/cdcover_glass_aa.png</texture>
-                    <bordertexture border="20">thumbs/cd_shadow.png</bordertexture>
-                    <bordersize>20</bordersize>
-                </control>
-            </control>        
-            <control type="group">
-                <left>50</left>
-                <top>300</top>
-                <include>Animation_ListSlideLeft</include>
-                <visible>!Skin.HasSetting(RightListroundedcovers)</visible>
-                <!--control type="image">
+			<control type="group">
+				<left>50</left>
+				<top>300</top>
+				<include>Animation_ListSlideLeft</include>
+				<visible>Skin.HasSetting(RightListroundedcovers)</visible>
+				<control type="image">
+					<left>-36</left>
+					<top>225</top>
+					<width>350</width>
+					<height>550</height>
+					<align>center</align>
+					<texture background="true">thumbs/cd_shadow_light_shadow.png</texture>
+					<bordersize>18</bordersize>
+					<include>PanelGlowFade</include>
+					<include>Animation_VisibleChange400</include>
+					<visible>!Skin.HasSetting(DisableGlowbar)</visible>
+					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+				</control>
+				<control type="image">
+					<top>255</top>
+					<width>410</width>
+					<height>410</height>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<texture background="true" diffuse="thumbs/cdcover_mask.png">common/bgcolor.png</texture>
+					<fadetime>0</fadetime>
+				</control>
+				<control type="image">
+					<top>255</top>
+					<width>410</width>
+					<height>410</height>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<texture background="true" diffuse="thumbs/cdcover_mask.png" fallback="DefaultAlbumCover.png">$VAR[ListAlbumVar]</texture>
+					<fadetime>IconCrossfadeTime2</fadetime>
+				</control>
+				<control type="image">
+					<top>686</top>
+					<width>410</width>
+					<height>410</height>
+					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+					<texture diffuse="thumbs/cdcover_mask_reflect.png" flipy="true" background="true" fallback="DefaultAlbumCover.png">$VAR[ListAlbumVar]</texture>
+					<fadetime>IconCrossfadeTime2</fadetime>
+					<colordiffuse>d0FFFFFF</colordiffuse>
+				</control>
+				<control type="image">
+					<left>-20</left>
+					<top>235</top>
+					<width>450</width>
+					<height>450</height>
+					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+					<texture diffuse="thumbs/cdcover_mask.png">thumbs/cdcover_glass_aa.png</texture>
+					<bordertexture border="20">thumbs/cd_shadow.png</bordertexture>
+					<bordersize>20</bordersize>
+				</control>
+			</control>        
+			<control type="group">
+				<left>50</left>
+				<top>300</top>
+				<include>Animation_ListSlideLeft</include>
+				<visible>!Skin.HasSetting(RightListroundedcovers)</visible>
+				<!--control type="image">
                     <left>-36</left>
                     <top>225</top>
                     <width>350</width>
@@ -1803,32 +1801,32 @@
                     <visible>!Skin.HasSetting(DisableGlowbar)</visible>
                     <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                 </control-->
-                <control type="image">
-                    <top>255</top>
-                    <width>410</width>
-                    <height>410</height>
-                    <aspectratio scalediffuse="false">scale</aspectratio>
-                    <texture background="true">common/bgcolor.png</texture>
-                    <fadetime>0</fadetime>
-                </control>
-                <control type="image">
-                    <top>255</top>
-                    <width>410</width>
-                    <height>410</height>
-                    <aspectratio scalediffuse="false">scale</aspectratio>
-                    <texture background="true" fallback="DefaultAlbumCover.png">$VAR[ListAlbumVar]</texture>
-                    <fadetime>IconCrossfadeTime2</fadetime>
-                </control>
-                <control type="image">
-                    <top>686</top>
-                    <width>410</width>
-                    <height>410</height>>
-                    <aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-                    <texture flipy="true" background="true" fallback="DefaultAlbumCover.png">$VAR[ListAlbumVar]</texture>
-                    <fadetime>IconCrossfadeTime2</fadetime>
-                    <colordiffuse>d0FFFFFF</colordiffuse>
-                </control>
-                <!--control type="image">
+				<control type="image">
+					<top>255</top>
+					<width>410</width>
+					<height>410</height>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<texture background="true">common/bgcolor.png</texture>
+					<fadetime>0</fadetime>
+				</control>
+				<control type="image">
+					<top>255</top>
+					<width>410</width>
+					<height>410</height>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<texture background="true" fallback="DefaultAlbumCover.png">$VAR[ListAlbumVar]</texture>
+					<fadetime>IconCrossfadeTime2</fadetime>
+				</control>
+				<control type="image">
+					<top>686</top>
+					<width>410</width>
+					<height>410</height>
+					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+					<texture flipy="true" background="true" fallback="DefaultAlbumCover.png">$VAR[ListAlbumVar]</texture>
+					<fadetime>IconCrossfadeTime2</fadetime>
+					<colordiffuse>d0FFFFFF</colordiffuse>
+				</control>
+				<!--control type="image">
                     <left>-20</left>
                     <top>235</top>
                     <width>450</width>
@@ -1838,26 +1836,26 @@
                     <bordertexture border="20">thumbs/cd_shadow.png</bordertexture>
                     <bordersize>20</bordersize>
                 </control-->
-            </control>
+			</control>
 			<!-- Track/cdlist -->
 			<control type="image">
-                <left>460</left>
-                <top>555</top>
-                <width>500</width>
-                <height>415</height>
-                <texture>mooviz/track.bg.png</texture>
-                <animation effect="fade" end="65" condition="true">Conditional</animation>
-                <visible>Container.Content(albums) + [Skin.HasSetting(RightListShowTracks) | Skin.HasSetting(RightListShowInfo)]</visible>
-            </control>
+				<left>460</left>
+				<top>555</top>
+				<width>500</width>
+				<height>415</height>
+				<texture>mooviz/track.bg.png</texture>
+				<animation effect="fade" end="65" condition="true">Conditional</animation>
+				<visible>Container.Content(albums) + [Skin.HasSetting(RightListShowTracks) | Skin.HasSetting(RightListShowInfo)]</visible>
+			</control>
 			<control type="image">
-                <left>460</left>
-                <top>555</top>
-                <width>500</width>
-                <height>415</height>
-                <texture>mooviz/track.bg.png</texture>
-                <animation effect="fade" end="65" condition="true">Conditional</animation>
-                <visible>Container.Content(artists) + [Skin.HasSetting(RightListShowCDs) | Skin.HasSetting(RightListShowInfo)]</visible>
-            </control>
+				<left>460</left>
+				<top>555</top>
+				<width>500</width>
+				<height>415</height>
+				<texture>mooviz/track.bg.png</texture>
+				<animation effect="fade" end="65" condition="true">Conditional</animation>
+				<visible>Container.Content(artists) + [Skin.HasSetting(RightListShowCDs) | Skin.HasSetting(RightListShowInfo)]</visible>
+			</control>
 			<control type="textbox">
 				<label>[COLOR white]$INFO[Window(Home).Property(SkinHelper.Music.TrackList)][/COLOR]</label>
 				<top>568</top>
@@ -1883,236 +1881,236 @@
 				<visible>Skin.HasSetting(RightListShowCDs) + Container.Content(artists)</visible>
 			</control>
 			<!--Info-->
-            <control type="grouplist">
-                <left>470</left>
-                <top>568</top>
-                <width>650</width>
-                <height>385</height>
-                <visible>Skin.HasSetting(RightListShowInfo)</visible>
+			<control type="grouplist">
+				<left>470</left>
+				<top>568</top>
+				<width>650</width>
+				<height>385</height>
+				<visible>Skin.HasSetting(RightListShowInfo)</visible>
 				<usecontrolcoords>true</usecontrolcoords>
-                <control type="label">
-                    <label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[557]: [/COLOR] [COLOR white]$INFO[ListItem.Artist][/COLOR]</label>
-                    <width>650</width>
-                    <include>KodiFlixButtonsValues</include>
-                    <visible>!IsEmpty(ListItem.Artist)</visible>
-                </control>
-                <control type="label">
-                    <label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[515]: [/COLOR] [COLOR white]$INFO[ListItem.Genre][/COLOR]</label>
-                    <width>650</width>
-                    <include>KodiFlixButtonsValues</include>
-                    <visible>!IsEmpty(ListItem.Genre)</visible>
-                </control>
-                <control type="label">
-                    <label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[180]: [/COLOR] [COLOR white]$INFO[ListItem.Duration][/COLOR]</label>
-                    <width>650</width>
-                    <include>KodiFlixButtonsValues</include>
-                    <visible>!IsEmpty(ListItem.Duration)</visible>
-                </control>
-                <control type="label">
-                    <label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[21894]: [/COLOR][COLOR white]$INFO[ListItem.Property(Artist_Formed)][/COLOR]</label>
-                    <width>650</width>
-                    <include>KodiFlixButtonsValues</include>
-                    <visible>!IsEmpty(ListItem.Property(Artist_Formed)) + IsEmpty(ListItem.Property(Artist_Genre)) + IsEmpty(ListItem.Property(Artist_Born))</visible>
-                </control>
-                <control type="label">
-                    <label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[21893]: [/COLOR][COLOR white]$INFO[ListItem.Property(Artist_Born)][/COLOR]</label>
-                    <width>650</width>
-                    <include>KodiFlixButtonsValues</include>
-                    <visible>!IsEmpty(ListItem.Property(Artist_Born)) + IsEmpty(ListItem.Property(Artist_Genre))</visible>
-                </control>
-                <control type="label">
-                    <label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[515]: [/COLOR][COLOR white]$INFO[ListItem.Property(Artist_Genre)][/COLOR]</label>
-                    <width>650</width>
-                    <include>KodiFlixButtonsValues</include>
-                    <visible>!IsEmpty(ListItem.Property(Artist_Genre))</visible>
-                </control>
-                <control type="textbox">
-                    <label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[569]: [/COLOR][COLOR white]$INFO[Window(Home).Property(SkinHelper.Music.Info)][/COLOR]</label>
-                    <left>15</left>
-                    <top>0</top>
-                    <width>615</width>
-                    <height>180</height>
-                    <font>font14_textbox</font>
-                    <pagecontrol>62</pagecontrol>
-                    <include>KodiFlixButtonsValues</include>
-                    <autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll) + !Control.HasFocus(62)</autoscroll>
-                    <visible>!IsEmpty(ListItem.Comment)</visible>
-                </control>
-                <control type="textbox" id="70">
-                    <label>$VAR[MusicPlotVar]</label>
-                    <left>15</left>
-                    <top>0</top>
-                    <width>615</width>
-                    <height>245</height>
-                    <font>font14_textbox</font>
-                    <pagecontrol>63</pagecontrol>
-                    <textcolor>white</textcolor>
-                    <autoscroll time="3000" delay="4000" repeat="5000">!Control.HasFocus(63)</autoscroll>
-                </control>
-            </control>
-            <control type="group">
-                <left>454</left>
-                <top>740</top>
-                <control type="scrollbar" id="63">
-                    <left>636</left>
-                    <top>0</top>
-                    <width>14</width>
-                    <height>245</height>
-                    <onup>PageUp(70)</onup>
-                    <ondown>PageUp(70)</ondown>
-                    <onleft>SetProperty(MediaMenu,True,home)</onleft>
-                    <onleft>SetFocus(9000)</onleft>
-                    <onright>700</onright>
-                    <texturesliderbackground>scrollbar/texturesliderbackground2.png</texturesliderbackground>
-                    <texturesliderbar>scrollbar/texturesliderbar2.png</texturesliderbar>
-                    <texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
-                    <showonepage>false</showonepage>
-                    <orientation>vertical</orientation>
-                    <animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(63) + !Container.Scrolling">Conditional</animation>
-                </control>
-            </control>
-            <control type="list" id="700">
+				<control type="label">
+					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[557]: [/COLOR] [COLOR white]$INFO[ListItem.Artist][/COLOR]</label>
+					<width>650</width>
+					<include>KodiFlixButtonsValues</include>
+					<visible>!IsEmpty(ListItem.Artist)</visible>
+				</control>
+				<control type="label">
+					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[515]: [/COLOR] [COLOR white]$INFO[ListItem.Genre][/COLOR]</label>
+					<width>650</width>
+					<include>KodiFlixButtonsValues</include>
+					<visible>!IsEmpty(ListItem.Genre)</visible>
+				</control>
+				<control type="label">
+					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[180]: [/COLOR] [COLOR white]$INFO[ListItem.Duration][/COLOR]</label>
+					<width>650</width>
+					<include>KodiFlixButtonsValues</include>
+					<visible>!IsEmpty(ListItem.Duration)</visible>
+				</control>
+				<control type="label">
+					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[21894]: [/COLOR][COLOR white]$INFO[ListItem.Property(Artist_Formed)][/COLOR]</label>
+					<width>650</width>
+					<include>KodiFlixButtonsValues</include>
+					<visible>!IsEmpty(ListItem.Property(Artist_Formed)) + IsEmpty(ListItem.Property(Artist_Genre)) + IsEmpty(ListItem.Property(Artist_Born))</visible>
+				</control>
+				<control type="label">
+					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[21893]: [/COLOR][COLOR white]$INFO[ListItem.Property(Artist_Born)][/COLOR]</label>
+					<width>650</width>
+					<include>KodiFlixButtonsValues</include>
+					<visible>!IsEmpty(ListItem.Property(Artist_Born)) + IsEmpty(ListItem.Property(Artist_Genre))</visible>
+				</control>
+				<control type="label">
+					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[515]: [/COLOR][COLOR white]$INFO[ListItem.Property(Artist_Genre)][/COLOR]</label>
+					<width>650</width>
+					<include>KodiFlixButtonsValues</include>
+					<visible>!IsEmpty(ListItem.Property(Artist_Genre))</visible>
+				</control>
+				<control type="textbox">
+					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[569]: [/COLOR][COLOR white]$INFO[Window(Home).Property(SkinHelper.Music.Info)][/COLOR]</label>
+					<left>15</left>
+					<top>0</top>
+					<width>615</width>
+					<height>180</height>
+					<font>font14_textbox</font>
+					<pagecontrol>62</pagecontrol>
+					<include>KodiFlixButtonsValues</include>
+					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll) + !Control.HasFocus(62)</autoscroll>
+					<visible>!IsEmpty(ListItem.Comment)</visible>
+				</control>
+				<control type="textbox" id="70">
+					<label>$VAR[MusicPlotVar]</label>
+					<left>15</left>
+					<top>0</top>
+					<width>615</width>
+					<height>245</height>
+					<font>font14_textbox</font>
+					<pagecontrol>63</pagecontrol>
+					<textcolor>white</textcolor>
+					<autoscroll time="3000" delay="4000" repeat="5000">!Control.HasFocus(63)</autoscroll>
+				</control>
+			</control>
+			<control type="group">
+				<left>454</left>
+				<top>740</top>
+				<control type="scrollbar" id="63">
+					<left>636</left>
+					<top>0</top>
+					<width>14</width>
+					<height>245</height>
+					<onup>PageUp(70)</onup>
+					<ondown>PageUp(70)</ondown>
+					<onleft>SetProperty(MediaMenu,True,home)</onleft>
+					<onleft>SetFocus(9000)</onleft>
+					<onright>700</onright>
+					<texturesliderbackground>scrollbar/texturesliderbackground2.png</texturesliderbackground>
+					<texturesliderbar>scrollbar/texturesliderbar2.png</texturesliderbar>
+					<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
+					<showonepage>false</showonepage>
+					<orientation>vertical</orientation>
+					<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(63) + !Container.Scrolling">Conditional</animation>
+				</control>
+			</control>
+			<control type="list" id="700">
 				<include>Animation_OpenCloseZoom</include>
-                <left>1090</left>
-                <top>95</top>
-                <width>1000</width>
-                <height>830</height>
-                <onleft condition="Control.IsVisible(63)">63</onleft>
-                <onleft condition="!Control.IsVisible(63)">SetProperty(MediaMenu,True,home)</onleft>
-                <onleft condition="!Control.IsVisible(63)">SetFocus(9000)</onleft>
-                <onright>60</onright>
-                <onup>700</onup>
-                <ondown>700</ondown>
-                <pagecontrol>60</pagecontrol>
-                <viewtype label="RightList">list</viewtype>
-                <visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs)</visible>
-                <scrolltime tween="quadratic" easing="out">200</scrolltime>
-                <itemlayout height="68" width="806">
-                    <control type="image">
-                        <top>8</top>
-                        <left>20</left>
-                        <width>800</width>
-                        <height>60</height>
-                        <texture border="1">separator2.png</texture>
-                    </control>
-                    <control type="label">
-                        <left>30</left>
-                        <width>775</width>
-                        <height>68</height>
-                        <font>font15</font>
-                        <align>right</align>
-                        <textcolor>grey</textcolor>
-                        <selectedcolor>selected</selectedcolor>
-                        <label>$INFO[ListItem.Label]</label>
-                        <visible>[!Container.Content(songs) | Stringcompare(ListItem.Label,..)]</visible>
-                    </control>
-                    <control type="label">
-                        <left>30</left>
-                        <width>775</width>
-                        <height>68</height>
-                        <font>font15</font>
-                        <align>right</align>
-                        <textcolor>grey</textcolor>
-                        <selectedcolor>selected</selectedcolor>
-                        <label>$INFO[ListItem.Tracknumber]: $INFO[ListItem.Title]</label>
-                        <visible>Container.Content(songs) + !Stringcompare(ListItem.Label,..)</visible>
-                    </control>
-                </itemlayout>
-                <focusedlayout height="68" width="806">
-                    <control type="image">
-                        <top>10</top>
-                        <left>20</left>
-                        <width>800</width>
-                        <height>60</height>
-                        <texture border="1">separator2.png</texture>
-                    </control>
-                    <control type="image">
-                        <left>20</left>
-                        <width>825</width>
-                        <height>68</height>
-                        <texture border="4">listselect_fo_clear.png</texture>
-                        <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-                        <visible>Control.HasFocus(700) + !Skin.HasSetting(RightListNewTex)</visible>
-                        <include>VisibleFadeEffect</include>
-                    </control>
+				<left>1090</left>
+				<top>95</top>
+				<width>1000</width>
+				<height>830</height>
+				<onleft condition="Control.IsVisible(63)">63</onleft>
+				<onleft condition="!Control.IsVisible(63)">SetProperty(MediaMenu,True,home)</onleft>
+				<onleft condition="!Control.IsVisible(63)">SetFocus(9000)</onleft>
+				<onright>60</onright>
+				<onup>700</onup>
+				<ondown>700</ondown>
+				<pagecontrol>60</pagecontrol>
+				<viewtype label="RightList">list</viewtype>
+				<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs)</visible>
+				<scrolltime tween="quadratic" easing="out">200</scrolltime>
+				<itemlayout height="68" width="806">
+					<control type="image">
+						<top>8</top>
+						<left>20</left>
+						<width>800</width>
+						<height>60</height>
+						<texture border="1">separator2.png</texture>
+					</control>
+					<control type="label">
+						<left>30</left>
+						<width>775</width>
+						<height>68</height>
+						<font>font15</font>
+						<align>right</align>
+						<textcolor>grey</textcolor>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>[!Container.Content(songs) | Stringcompare(ListItem.Label,..)]</visible>
+					</control>
+					<control type="label">
+						<left>30</left>
+						<width>775</width>
+						<height>68</height>
+						<font>font15</font>
+						<align>right</align>
+						<textcolor>grey</textcolor>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.Tracknumber]: $INFO[ListItem.Title]</label>
+						<visible>Container.Content(songs) + !Stringcompare(ListItem.Label,..)</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="68" width="806">
+					<control type="image">
+						<top>10</top>
+						<left>20</left>
+						<width>800</width>
+						<height>60</height>
+						<texture border="1">separator2.png</texture>
+					</control>
+					<control type="image">
+						<left>20</left>
+						<width>825</width>
+						<height>68</height>
+						<texture border="4">listselect_fo_clear.png</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<visible>Control.HasFocus(700) + !Skin.HasSetting(RightListNewTex)</visible>
+						<include>VisibleFadeEffect</include>
+					</control>
 					<control type="image">
 						<top>-11</top>
-                        <left>0</left>
-                        <width>840</width>
-                        <height>90</height>
+						<left>0</left>
+						<width>840</width>
+						<height>90</height>
 						<texture border="0" colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo2.png</texture>
-                        <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-                        <visible>Control.HasFocus(700) + Skin.HasSetting(RightListNewTex)</visible>
-                        <include>VisibleFadeEffect</include>
-                    </control>
-                    <control type="label">
-                        <left>10</left>
-                        <width>775</width>
-                        <height>68</height>
-                        <font>font15</font>
-                        <align>right</align>
-                        <selectedcolor>selected</selectedcolor>
-                        <label>$INFO[ListItem.Label]</label>
-                        <animation effect="slide" start="0" end="-20" time="150" tween="Back" easing="out">Focus</animation>
-                        <visible>[!Container.Content(songs) | Stringcompare(ListItem.Label,..)]</visible>
-                    </control>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<visible>Control.HasFocus(700) + Skin.HasSetting(RightListNewTex)</visible>
+						<include>VisibleFadeEffect</include>
+					</control>
 					<control type="label">
-                        <left>10</left>
+						<left>10</left>
+						<width>775</width>
+						<height>68</height>
+						<font>font15</font>
+						<align>right</align>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<animation effect="slide" start="0" end="-20" time="150" tween="Back" easing="out">Focus</animation>
+						<visible>[!Container.Content(songs) | Stringcompare(ListItem.Label,..)]</visible>
+					</control>
+					<control type="label">
+						<left>10</left>
 						<top>0</top>
-                        <width>775</width>
-                        <height>68</height>
-                        <font>font15</font>
-                        <align>right</align>
-                        <selectedcolor>selected</selectedcolor>
-                        <label>$INFO[ListItem.Tracknumber]: $INFO[ListItem.Title]</label>
-                        <animation effect="slide" start="0" end="-20" time="150" tween="Back" easing="out">Focus</animation>
-                        <visible>Container.Content(songs) + !Stringcompare(ListItem.Label,..) + !Stringcompare(ListItem.AlbumArtist,Various Artists)</visible>
-                    </control>
-                    <control type="label">
-                        <left>5</left>
-						<top>15</top>
-                        <width>775</width>
-                        <height>68</height>
-                        <font>font9</font>
-                        <align>right</align>
-                        <selectedcolor>selected</selectedcolor>
-                        <label>$INFO[ListItem.Artist]</label>
-                        <animation effect="slide" start="0" end="-20" time="150" tween="Back" easing="out">Focus</animation>
-                        <visible>Container.Content(songs) + !Stringcompare(ListItem.Label,..) + Stringcompare(ListItem.AlbumArtist,Various Artists)</visible>
-                    </control>
+						<width>775</width>
+						<height>68</height>
+						<font>font15</font>
+						<align>right</align>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.Tracknumber]: $INFO[ListItem.Title]</label>
+						<animation effect="slide" start="0" end="-20" time="150" tween="Back" easing="out">Focus</animation>
+						<visible>Container.Content(songs) + !Stringcompare(ListItem.Label,..) + !Stringcompare(ListItem.AlbumArtist,Various Artists)</visible>
+					</control>
 					<control type="label">
-                        <left>10</left>
+						<left>5</left>
+						<top>15</top>
+						<width>775</width>
+						<height>68</height>
+						<font>font9</font>
+						<align>right</align>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.Artist]</label>
+						<animation effect="slide" start="0" end="-20" time="150" tween="Back" easing="out">Focus</animation>
+						<visible>Container.Content(songs) + !Stringcompare(ListItem.Label,..) + Stringcompare(ListItem.AlbumArtist,Various Artists)</visible>
+					</control>
+					<control type="label">
+						<left>10</left>
 						<top>-12</top>
-                        <width>775</width>
-                        <height>68</height>
-                        <font>font15</font>
-                        <align>right</align>
-                        <selectedcolor>selected</selectedcolor>
-                        <label>$INFO[ListItem.Tracknumber]: $INFO[ListItem.Title]</label>
-                        <animation effect="slide" start="0" end="-20" time="150" tween="Back" easing="out">Focus</animation>
-                        <visible>Container.Content(songs) + !Stringcompare(ListItem.Label,..) + Stringcompare(ListItem.AlbumArtist,Various Artists)</visible>
-                    </control>
-                </focusedlayout>
-            </control>
-            <control type="scrollbar" id="60">
-                <left>1904</left>
-                <top>40</top>
-                <width>14</width>
-                <height>920</height>
-                <onup>60</onup>
-                <ondown>60</ondown>
-                <onleft>700</onleft>
-                <onright>SetProperty(MediaMenu,True,home)</onright>
-                <onright>SetFocus(9000)</onright>
-                <texturesliderbackground border="1">-</texturesliderbackground>
-                <texturesliderbar border="6,0,6,0">scrollbar/texturesliderbar_hor.png</texturesliderbar>
-                <texturesliderbarfocus border="6,0,6,0">scrollbar/texturesliderbarfocus_hor.png</texturesliderbarfocus>
-                <textureslidernib>-</textureslidernib>
-                <textureslidernibfocus>-</textureslidernibfocus>
-                <animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
-                <showonepage>false</showonepage>
-                <orientation>vertical</orientation>
-            </control>
-        </control>
-    </include>
+						<width>775</width>
+						<height>68</height>
+						<font>font15</font>
+						<align>right</align>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.Tracknumber]: $INFO[ListItem.Title]</label>
+						<animation effect="slide" start="0" end="-20" time="150" tween="Back" easing="out">Focus</animation>
+						<visible>Container.Content(songs) + !Stringcompare(ListItem.Label,..) + Stringcompare(ListItem.AlbumArtist,Various Artists)</visible>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="scrollbar" id="60">
+				<left>1904</left>
+				<top>40</top>
+				<width>14</width>
+				<height>920</height>
+				<onup>60</onup>
+				<ondown>60</ondown>
+				<onleft>700</onleft>
+				<onright>SetProperty(MediaMenu,True,home)</onright>
+				<onright>SetFocus(9000)</onright>
+				<texturesliderbackground border="1">-</texturesliderbackground>
+				<texturesliderbar border="6,0,6,0">scrollbar/texturesliderbar_hor.png</texturesliderbar>
+				<texturesliderbarfocus border="6,0,6,0">scrollbar/texturesliderbarfocus_hor.png</texturesliderbarfocus>
+				<textureslidernib>-</textureslidernib>
+				<textureslidernibfocus>-</textureslidernibfocus>
+				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
+			</control>
+		</control>
+	</include>
 </includes>

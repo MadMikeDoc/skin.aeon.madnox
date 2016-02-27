@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window type="dialog" id="1151">
+	<defaultcontrol always="true">4</defaultcontrol>
+	<controls>
+		<control type="group">
+			<left>280</left>
+			<include>Animation_OpenCloseZoom</include>
+			<control type="image">
+				<left>380</left>
+				<top>60</top>
+				<width>340</width>
+				<height>880</height>
+				<texture border="20">osd/osd_settings_back_glow.png</texture>
+				<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+				<visible>!Skin.HasSetting(DisableGlowbar)</visible>
+				<include>PanelGlowFade</include>
+			</control>
+			<control type="image">
+				<left>380</left>
+				<top>60</top>
+				<width>340</width>
+				<height>880</height>
+				<texture border="20">osd/osd_settings_back.png</texture>
+				<colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+			</control>
+			<control type="panel" id="4">
+				<left>400</left>
+				<top>100</top>
+				<width>300</width>
+				<height>800</height>
+				<scrolltime>0</scrolltime>
+				<orientation>vertical</orientation>
+				<onright>20</onright>
+				<itemlayout height="40" width="300">
+					<control type="image">
+						<width>300</width>
+						<height>40</height>
+						<texture>button-nofocus.png</texture>
+						<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+					</control>
+					<control type="label">
+						<left></left>
+						<width>300</width>
+						<height>40</height>
+						<textoffsetx>10</textoffsetx>
+						<align>center</align>
+						<label>$INFO[ListItem.Label]</label>
+						<font>Font_Reg26_Caps</font>
+					</control>
+				</itemlayout>
+				<focusedlayout height="40" width="300">
+					<control type="group">
+						<control type="image">
+							<width>300</width>
+							<height>40</height>
+							<texture border="8">views/tripanel/listselect_fo.png</texture>
+							<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+						</control>
+						<control type="label">
+							<left></left>
+							<width>300</width>
+							<height>40</height>
+							<textoffsetx>10</textoffsetx>
+							<align>center</align>
+							<label>$INFO[ListItem.Label]</label>
+							<font>Font_Reg26_Caps</font>
+							<scroll>true</scroll>
+						</control>
+					</control>
+				</focusedlayout>
+				<onclick>Skin.SetString(MainMenuFocus,$INFO[ListItem.Property(id)])</onclick>
+				<onclick>Dialog.Close(1151)</onclick>
+				<content>
+					<include>skinshortcuts-mainmenu</include>
+				</content>
+			</control>
+		</control>
+	</controls>
+</window>

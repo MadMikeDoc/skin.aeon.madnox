@@ -2,25 +2,25 @@
 <includes>
 	<include name="MovieWallIcons">
 		<control type="image"><!-- inactive extra badge -->
-            <left>171</left>
-            <top>31</top>
-            <width>81</width>
-            <height>81</height>
+			<left>171</left>
+			<top>31</top>
+			<width>81</width>
+			<height>81</height>
 			<texture background="true" diffuse="thumbs/ExtraOverlayWatched.png">$VAR[VideoextrasOverlay]</texture>
 			<visible>System.HasAddon(script.videoextras)</visible>
 		</control>
 		<control type="image"><!-- inactive watch badge -->
-            <left>171</left>
-            <top>31</top>
-            <width>80</width>
-            <height>80</height>
-            <include>OverlayVisibility0</include>
-        </control>
+			<left>171</left>
+			<top>31</top>
+			<width>80</width>
+			<height>80</height>
+			<include>OverlayVisibility0</include>
+		</control>
 		<control type="image"><!-- inactive resume badge -->
-            <left>171</left>
-            <top>31</top>
-            <width>80</width>
-            <height>80</height>
+			<left>171</left>
+			<top>31</top>
+			<width>80</width>
+			<height>80</height>
 			<texture>overlayprogress.png</texture>
 			<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
 		</control>
@@ -66,7 +66,7 @@
 		</control>
 		<control type="image">
 			<posx>12</posx>
-            <posy>11</posy>
+			<posy>11</posy>
 			<height>185</height>
 			<width>185</width>
 			<aspectratio align="left">keep</aspectratio>
@@ -98,34 +98,34 @@
 			<visible>!Container.Content(artists) + Skin.HasSetting(MusicWallCase) + Skin.HasSetting(MusicWallCaseAlt)</visible>
 		</control>
 		<control type="image">
-            <left>148</left>
-            <top>11</top>
-            <width>50</width>
-            <height>50</height>
+			<left>148</left>
+			<top>11</top>
+			<width>50</width>
+			<height>50</height>
 			<texture background="true" diffuse="thumbs/ExtraOverlayWatched.png">$VAR[VideoextrasOverlay]</texture>
 			<visible>System.HasAddon(script.videoextras)</visible>
 		</control>
 		<control type="image">
-            <left>148</left>
-            <top>11</top>
-            <width>50</width>
-            <height>50</height>
-            <include>OverlayVisibility0</include>
-        </control>
+			<left>148</left>
+			<top>11</top>
+			<width>50</width>
+			<height>50</height>
+			<include>OverlayVisibility0</include>
+		</control>
 		<control type="image">
-            <left>148</left>
-            <top>11</top>
-            <width>50</width>
-            <height>50</height>
+			<left>148</left>
+			<top>11</top>
+			<width>50</width>
+			<height>50</height>
 			<texture>overlayprogress.png</texture>
 			<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
 		</control>
 
-    </include>
+	</include>
 
 	<include name="WallContent">
-		<itemlayout height="268" width="275" condition="[!Container.Content(studios) + !Container.Content(years)] + ![Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos) | [Window.IsActive(videolibrary) + Container.Content(genres)] | [Window.IsActive(pictures) + Substring(Container.FolderPath,\comics\)]] + [Skin.HasSetting(titlewall) | StringCompare(Container.FolderName,youtube)] + !Container.Content(episodes)">
-		<control type="group">
+		<itemlayout height="268" width="275" condition="[!Container.Content(studios) + !Container.Content(directors) + !Container.Content(actors) + !Container.Content(years)] + ![Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos) | [Window.IsActive(videolibrary) + Container.Content(genres)] | [Window.IsActive(pictures) + Substring(Container.FolderPath,\comics\)]] + [Skin.HasSetting(titlewall) | StringCompare(Container.FolderName,youtube)] + !Container.Content(episodes)">
+			<control type="group">
 				<posx>20</posx>
 				<posy>23</posy>
 				<control type="image">
@@ -138,8 +138,8 @@
 					<bordersize>9</bordersize>
 				</control>
 				<control type="image">
-				    <left>14</left>
-				    <posy>191</posy>
+					<left>14</left>
+					<posy>191</posy>
 					<width>217</width>
 					<height>35</height>
 					<align>center</align>
@@ -148,68 +148,68 @@
 					<visible>Skin.HasSetting(iconlabel)</visible>
 				</control>
 				<control type="group">
-                    <visible>!Container.Content(artists)</visible>
-				<control type="image">
-				    <left>14</left>
-				    <posy>191</posy>
-					<width>217</width>
-					<height>35</height>
-					<align>center</align>
-					<texture>common/bgcolor.png</texture>
-					<animation effect="fade" start="100" end="70" time="40" condition="true">Conditional</animation>
-					<visible>!Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs) + !Container.Content(genres)</visible>
+					<visible>!Container.Content(artists)</visible>
+					<control type="image">
+						<left>14</left>
+						<posy>191</posy>
+						<width>217</width>
+						<height>35</height>
+						<align>center</align>
+						<texture>common/bgcolor.png</texture>
+						<animation effect="fade" start="100" end="70" time="40" condition="true">Conditional</animation>
+						<visible>!Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs) + !Container.Content(genres)</visible>
+					</control>
+					<!-- disable rating -->
+					<control type="label">   <!-- version number -->
+						<top>172</top>
+						<width>235</width>
+						<textoffsetx>15</textoffsetx>
+						<align>center</align>
+						<label>$INFO[ListItem.Label2]</label>
+						<font>Font_Reg22</font>
+						<textcolor>grey2</textcolor>
+						<visible>!Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs) + !Skin.HasSetting(iconlabel)</visible>
+					</control>
+					<!--  disable rating end -->
+					<control type="image">
+						<left>156</left>
+						<top>9</top>
+						<width>75</width>
+						<height>75</height>
+						<include>OverlayVisibility0</include>
+					</control>
+					<control type="image">
+						<left>156</left>
+						<top>9</top>
+						<width>75</width>
+						<height>75</height>
+						<texture>overlayprogress.png</texture>
+						<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+					</control>
+					<control type="label">
+						<top>170</top>
+						<left>15</left>
+						<width>214</width>
+						<align>center</align>
+						<label>$INFO[ListItem.Label]</label>
+						<font>Font_Reg22</font>
+						<visible>Skin.HasSetting(iconlabel)</visible>
+					</control>
 				</control>
-				<!-- disable rating -->
-				<control type="label">   <!-- version number -->
-                    <top>172</top>
-                    <width>235</width>
-                    <textoffsetx>15</textoffsetx>
-					<align>center</align>
-                    <label>$INFO[ListItem.Label2]</label>
-                     <font>Font_Reg22</font>
-                    <textcolor>grey2</textcolor>
-					<visible>!Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs) + !Skin.HasSetting(iconlabel)</visible>
-                </control>
-			  <!--  disable rating end -->
-			    <control type="image">
-                    <left>156</left>
-                    <top>9</top>
-                    <width>75</width>
-                    <height>75</height>
-                    <include>OverlayVisibility0</include>
-                </control>
-		        <control type="image">
-                    <left>156</left>
-                    <top>9</top>
-                    <width>75</width>
-                    <height>75</height>
-		            <texture>overlayprogress.png</texture>
-		            <visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-	            </control>
-		        <control type="label">
-                    <top>170</top>
-                    <left>15</left>
+				<control type="label">
+					<top>172</top>
+					<left>15</left>
 					<width>214</width>
 					<align>center</align>
-                    <label>$INFO[ListItem.Label]</label>
-                    <font>Font_Reg22</font>
-					<visible>Skin.HasSetting(iconlabel)</visible>
-                </control>
-            </control>
-		        <control type="label">
-                    <top>172</top>
-                    <left>15</left>
-				    <width>214</width>
-				    <align>center</align>
-                    <label>$INFO[ListItem.Label]</label>
-                    <font>Font_Reg22</font>
-                    <textcolor>grey2</textcolor>
-                    <visible>Container.Content(artists) + Skin.HasSetting(iconlabel)</visible>
-                 </control>
-		    </control>
-        </itemlayout>
+					<label>$INFO[ListItem.Label]</label>
+					<font>Font_Reg22</font>
+					<textcolor>grey2</textcolor>
+					<visible>Container.Content(artists) + Skin.HasSetting(iconlabel)</visible>
+				</control>
+			</control>
+		</itemlayout>
 
-		<focusedlayout height="268" width="275" condition="[!Container.Content(studios) + !Container.Content(years)] + ![Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos) | [Window.IsActive(videolibrary) + Container.Content(genres)] | [Window.IsActive(pictures) + Substring(Container.FolderPath,\comics\)]] + [Skin.HasSetting(titlewall) | StringCompare(Container.FolderName,youtube)] + !Container.Content(episodes)">
+		<focusedlayout height="268" width="275" condition="[!Container.Content(studios) + !Container.Content(directors) + !Container.Content(actors) + !Container.Content(years)] + ![Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos) | [Window.IsActive(videolibrary) + Container.Content(genres)] | [Window.IsActive(pictures) + Substring(Container.FolderPath,\comics\)]] + [Skin.HasSetting(titlewall) | StringCompare(Container.FolderName,youtube)] + !Container.Content(episodes)">
 			<control type="group">
 				<posx>20</posx>
 				<posy>23</posy>
@@ -228,17 +228,17 @@
 					<texture background="true">$VAR[ListAlbumVar]</texture>
 				</control>
 				<control type="image">
-                    <left>5</left>
+					<left>5</left>
 					<width>235</width>
 					<height>235</height>
 					<aspectratio align="center" aligny="center">stretch</aspectratio>
 					<texture border="15">views/addonwall_select.png</texture>
 					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
 					<visible>!Skin.HasSetting(InfoWallZoom)</visible>
-                </control>
+				</control>
 				<control type="image">
-				    <left>5</left>
-				    <posy>191</posy>
+					<left>5</left>
+					<posy>191</posy>
 					<width>235</width>
 					<height>35</height>
 					<align>center</align>
@@ -247,72 +247,72 @@
 					<visible>Skin.HasSetting(iconlabel)</visible>
 				</control>
 				<control type="group">
-                <visible>!Container.Content(artists)</visible>
-				<control type="image">
-				    <left>5</left>
-				    <posy>191</posy>
-					<width>235</width>
-					<height>35</height>
-					<align>center</align>
-					<texture>common/bgcolor.png</texture>
-					<animation effect="fade" start="100" end="90" time="40" condition="true">Conditional</animation>
-					<visible>!Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs) + !Container.Content(genres)</visible>
-				</control>
+					<visible>!Container.Content(artists)</visible>
+					<control type="image">
+						<left>5</left>
+						<posy>191</posy>
+						<width>235</width>
+						<height>35</height>
+						<align>center</align>
+						<texture>common/bgcolor.png</texture>
+						<animation effect="fade" start="100" end="90" time="40" condition="true">Conditional</animation>
+						<visible>!Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs) + !Container.Content(genres)</visible>
+					</control>
 					<!-- disable rating -->
-                <control type="label">
-                    <top>172</top>
-                    <width>235</width>
-                    <textoffsetx>15</textoffsetx>
-					<align>center</align>
-                    <label>$INFO[ListItem.Label2]</label>
-                    <font>Font_Reg22</font>
-					<visible>!Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs) + !Skin.HasSetting(iconlabel)</visible>
-                </control>
+					<control type="label">
+						<top>172</top>
+						<width>235</width>
+						<textoffsetx>15</textoffsetx>
+						<align>center</align>
+						<label>$INFO[ListItem.Label2]</label>
+						<font>Font_Reg22</font>
+						<visible>!Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs) + !Skin.HasSetting(iconlabel)</visible>
+					</control>
 					<!--  disable rating end -->
-			        <control type="image">
-                       <left>156</left>
-                       <top>9</top>
-                       <width>75</width>
-                       <height>75</height>
-                       <include>OverlayVisibility0</include>
-                    </control>
-	            	<control type="image">
-                       <left>156</left>
-                       <top>9</top>
-                       <width>75</width>
-                       <height>75</height>
-		               <texture>overlayprogress.png</texture>
-		               <visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-		            </control>
-		            <control type="label">
-                      <top>170</top>
-                      <left>15</left>
-					  <width>214</width>
-					  <align>center</align>
-                      <label>$INFO[ListItem.Label]</label>
-                      <font>Font_Reg22</font>
-					  <textcolor>$VAR[FontColorVar]</textcolor>
-                      <scroll>true</scroll>
-					  <visible>Skin.HasSetting(iconlabel)</visible>
-                </control>
-            </control>
-                    <control type="label">
-                      <top>172</top>
-                      <left>15</left>
-					  <width>214</width>
-					  <align>center</align>
-                      <label>$INFO[ListItem.Label]</label>
-                      <font>Font_Reg22</font>
-                      <textcolor>$VAR[FontColorVar]</textcolor>
-					  <scroll>true</scroll>
-                      <visible>Container.Content(artists) + Skin.HasSetting(iconlabel)</visible>
-                </control>
-		    </control>
-        </focusedlayout>
+					<control type="image">
+						<left>156</left>
+						<top>9</top>
+						<width>75</width>
+						<height>75</height>
+						<include>OverlayVisibility0</include>
+					</control>
+					<control type="image">
+						<left>156</left>
+						<top>9</top>
+						<width>75</width>
+						<height>75</height>
+						<texture>overlayprogress.png</texture>
+						<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+					</control>
+					<control type="label">
+						<top>170</top>
+						<left>15</left>
+						<width>214</width>
+						<align>center</align>
+						<label>$INFO[ListItem.Label]</label>
+						<font>Font_Reg22</font>
+						<textcolor>$VAR[FontColorVar]</textcolor>
+						<scroll>true</scroll>
+						<visible>Skin.HasSetting(iconlabel)</visible>
+					</control>
+				</control>
+				<control type="label">
+					<top>172</top>
+					<left>15</left>
+					<width>214</width>
+					<align>center</align>
+					<label>$INFO[ListItem.Label]</label>
+					<font>Font_Reg22</font>
+					<textcolor>$VAR[FontColorVar]</textcolor>
+					<scroll>true</scroll>
+					<visible>Container.Content(artists) + Skin.HasSetting(iconlabel)</visible>
+				</control>
+			</control>
+		</focusedlayout>
 
 		<!--MAD - New Studios Layout-->
 		<itemlayout height="164" width="242" condition="Container.Content(studios)">
-				<control type="group">
+			<control type="group">
 				<posx>10</posx>
 				<posy>5</posy>
 				<control type="image">
@@ -321,23 +321,11 @@
 					<width>200</width>
 					<height>135</height>
 					<aspectratio>keep</aspectratio>
-					<texture fallback="special://skin/extras/Alticons/color studios/studios/Default-Studio.png">special://skin/extras/Alticons/color studios/studios/$INFO[ListItem.Label,,.png]</texture>
-					<visible>Container.Content(studios) + !StringCompare(ListItem.Label,..)</visible>
-					<bordersize>5</bordersize>
-				</control>
-				<control type="image">
-					<left>-2</left>
-					<top>4</top>
-					<width>200</width>
-					<height>135</height>
-					<aspectratio>keep</aspectratio>
-					<texture fallback="DefaultStudios.png">special://skin/extras/Alticons/color studios/studios/$INFO[ListItem.Label,,.png]</texture>
-					<visible>Container.Content(studios) + StringCompare(ListItem.Label,..)</visible>
+					<texture fallback="special://skin/extras/Alticons/color studios/studios/Default-Studio.png">$VAR[StudioImageVar]</texture>
 					<bordersize>5</bordersize>
 				</control>
 			</control>
-        </itemlayout>
-
+		</itemlayout>
 		<focusedlayout height="164" width="242" condition="Container.Content(studios)">
 			<control type="group">
 				<posx>20</posx>
@@ -351,8 +339,7 @@
 					<width>200</width>
 					<height>135</height>
 					<aspectratio>keep</aspectratio>
-					<texture fallback="special://skin/extras/Alticons/color studios/studios/Default-Studio.png">special://skin/extras/Alticons/color studios/studios/$INFO[ListItem.Label,,.png]</texture>
-					<visible>Container.Content(studios) + !StringCompare(ListItem.Label,..)</visible>
+					<texture fallback="special://skin/extras/Alticons/color studios/studios/Default-Studio.png">$VAR[StudioImageVar]</texture>
 				</control>
 				<control type="image">
 					<left>-6</left>
@@ -364,7 +351,7 @@
 					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
 				</control>
 			</control>
-        </focusedlayout>
+		</focusedlayout>
 
 		<!--MAD - New Years Layout-->
 		<itemlayout height="120" width="120" condition="Container.Content(years)">
@@ -386,10 +373,10 @@
 				<height>115</height>
 				<align>center</align>
 				<aligny>center</aligny>
-                <label>$INFO[ListItem.Label]</label>
+				<label>$INFO[ListItem.Label]</label>
 				<font>Font_Reg32_Caps</font>
-            </control>
-        </itemlayout>
+			</control>
+		</itemlayout>
 
 		<focusedlayout height="120" width="120" condition="Container.Content(years)">
 			<control type="image">
@@ -399,21 +386,152 @@
 				<height>75</height>
 				<texture>icons/calendar.png</texture>
 			</control>
-            <control type="label">
+			<control type="label">
 				<top>7</top>
 				<width>115</width>
 				<height>115</height>
 				<align>center</align>
 				<aligny>center</aligny>
-                <label>$INFO[ListItem.Label]</label>
+				<label>$INFO[ListItem.Label]</label>
 				<font>Font_Reg32_Caps</font>
-            </control>
+			</control>
 			<control type="image">
-            	<width>115</width>
+				<width>115</width>
 				<height>115</height>
 				<aspectratio align="center" aligny="center">stretch</aspectratio>
 				<texture border="15">views/addonwall_select.png</texture>
 				<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+			</control>
+		</focusedlayout>
+		<!--MAD - New Directors Layout-->
+		<itemlayout height="164" width="242" condition="Container.Content(directors)">
+			<control type="group">
+				<posx>10</posx>
+				<posy>5</posy>
+				<control type="image">
+					<left>-2</left>
+					<top>4</top>
+					<width>150</width>
+					<height>150</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true">http://localhost:52307/getthumb&amp;title=$INFO[Listitem.Label]</texture>
+					<visible>Container.Content(directors) + !StringCompare(ListItem.Label,..)</visible>
+					<bordersize>5</bordersize>
+				</control>
+				<control type="image">
+					<left>-2</left>
+					<top>4</top>
+					<width>150</width>
+					<height>150</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true">$INFO[Listitem.Icon]</texture>
+					<visible>StringCompare(ListItem.Label,..)</visible>
+					<bordersize>5</bordersize>
+				</control>
+			</control>
+		</itemlayout>
+
+		<focusedlayout height="164" width="242" condition="Container.Content(directors)">
+			<control type="group">
+				<posx>20</posx>
+				<posy>23</posy>
+				<animation type="Focus" reversible="false">
+					<effect type="zoom" center="auto" start="100" end="108" time="400" tween="cubic" />
+				</animation>
+				<control type="image">
+					<left>-2</left>
+					<top>-8</top>
+					<width>150</width>
+					<height>150</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true">http://localhost:52307/getthumb&amp;title=$INFO[Listitem.Label]</texture>
+					<visible>Container.Content(directors) + !StringCompare(ListItem.Label,..)</visible>
+				</control>
+				<control type="image">
+					<left>-2</left>
+					<top>-8</top>
+					<width>150</width>
+					<height>150</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true">$INFO[Listitem.Icon]</texture>
+					<visible>StringCompare(ListItem.Label,..)</visible>
+					<bordersize>5</bordersize>
+				</control>
+				<control type="image">
+					<left>-6</left>
+					<top>-13</top>
+					<width>155</width>
+					<height>155</height>
+					<aspectratio align="center">stretch</aspectratio>
+					<texture border="15">views/addonwall_select.png</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				</control>
+			</control>
+		</focusedlayout>
+
+		<!--MAD - New Actors Layout-->
+		<itemlayout height="164" width="242" condition="Container.Content(actors)">
+			<control type="group">
+				<posx>10</posx>
+				<posy>5</posy>
+				<control type="image">
+					<left>-2</left>
+					<top>4</top>
+					<width>150</width>
+					<height>150</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true">http://localhost:52307/getthumb&amp;title=$INFO[Listitem.Label]</texture>
+					<visible>!StringCompare(ListItem.Label,..)</visible>
+					<bordersize>5</bordersize>
+				</control>
+				<control type="image">
+					<left>-2</left>
+					<top>4</top>
+					<width>150</width>
+					<height>150</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true">$INFO[Listitem.Icon]</texture>
+					<visible>StringCompare(ListItem.Label,..)</visible>
+					<bordersize>5</bordersize>
+				</control>
+			</control>
+		</itemlayout>
+
+		<focusedlayout height="164" width="242" condition="Container.Content(actors)">
+			<control type="group">
+				<posx>20</posx>
+				<posy>23</posy>
+				<animation type="Focus" reversible="false">
+					<effect type="zoom" center="auto" start="100" end="108" time="400" tween="cubic" />
+				</animation>
+				<control type="image">
+					<left>-2</left>
+					<top>-8</top>
+					<width>150</width>
+					<height>150</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true">http://localhost:52307/getthumb&amp;title=$INFO[Listitem.Label]</texture>
+					<visible>!StringCompare(ListItem.Label,..)</visible>
+				</control>
+				<control type="image">
+					<left>-2</left>
+					<top>-8</top>
+					<width>150</width>
+					<height>150</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true">$INFO[Listitem.Icon]</texture>
+					<visible>StringCompare(ListItem.Label,..)</visible>
+					<bordersize>5</bordersize>
+				</control>
+				<control type="image">
+					<left>-6</left>
+					<top>-13</top>
+					<width>155</width>
+					<height>155</height>
+					<aspectratio align="center">stretch</aspectratio>
+					<texture border="15">views/addonwall_select.png</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				</control>
 			</control>
 		</focusedlayout>
 
@@ -451,23 +569,23 @@
 					<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner)) + IsEmpty(ListItem.Art(clearlogo))</visible>
 				</control>
 				<control type="image">
-                    <left>717</left>
-                    <top>15</top>
-                    <width>90</width>
-                    <height>90</height>
+					<left>717</left>
+					<top>15</top>
+					<width>90</width>
+					<height>90</height>
 					<texture>$VAR[VideoextrasOverlay]</texture>
 					<visible>System.HasAddon(script.videoextras)</visible>
 				</control>
 				<control type="image">
-                    <left>716</left>
-                    <top>15</top>
-                    <width>90</width>
-                    <height>90</height>
-                    <include>OverlayVisibility0</include>
-                </control>
+					<left>716</left>
+					<top>15</top>
+					<width>90</width>
+					<height>90</height>
+					<include>OverlayVisibility0</include>
+				</control>
 				<control type="image">
 					<left>716</left>
-                    <top>15</top>
+					<top>15</top>
 					<width>90</width>
 					<height>90</height>
 					<texture>overlayprogress.png</texture>
@@ -478,7 +596,7 @@
 					<animation effect="fade" end="70" time="0" condition="true">Conditional</animation>
 					<include>UnwatchedIcon</include>
 				</control>
-         	</control>
+			</control>
 		</itemlayout>
 		<focusedlayout height="197" width="841" condition="[Container.Content(movies) + Skin.HasSetting(MovieWallBanner)] | [Container.Content(tvshows) + Skin.HasSetting(TVWallBanner)]">
 			<control type="group">
@@ -521,25 +639,25 @@
 					<include>UnwatchedIcon</include>
 				</control>
 				<control type="image">
-                    <left>717</left>
-                    <top>15</top>
-                    <width>90</width>
-                    <height>90</height>
+					<left>717</left>
+					<top>15</top>
+					<width>90</width>
+					<height>90</height>
 					<texture>$VAR[VideoextrasOverlay]</texture>
 					<visible>System.HasAddon(script.videoextras)</visible>
 				</control>
-			    <control type="image">
-                    <left>716</left>
-                    <top>15</top>
-                    <width>90</width>
-                    <height>90</height>
-                    <include>OverlayVisibility0</include>
-                </control>
 				<control type="image">
-		            <left>716</left>
-                    <top>15</top>
-                    <width>90</width>
-                    <height>90</height>
+					<left>716</left>
+					<top>15</top>
+					<width>90</width>
+					<height>90</height>
+					<include>OverlayVisibility0</include>
+				</control>
+				<control type="image">
+					<left>716</left>
+					<top>15</top>
+					<width>90</width>
+					<height>90</height>
 					<texture>overlayprogress.png</texture>
 					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
 				</control>
@@ -610,12 +728,12 @@
 
 			</control>
 			<control type="group">
-                <top>20</top>
+				<top>20</top>
 				<left>25</left>
-                <animation effect="fade" end="70" time="0" condition="true">Conditional</animation>
-                <include>UnwatchedIcon</include>
+				<animation effect="fade" end="70" time="0" condition="true">Conditional</animation>
+				<include>UnwatchedIcon</include>
 			</control>
-			</itemlayout>
+		</itemlayout>
 		<focusedlayout width="275" height="400" condition="[[Container.Content(movies) + !Skin.HasSetting(MovieWallBanner)] | [Container.Content(tvshows) + !Skin.HasSetting(TVWallBanner)] | Container.Content(seasons) | Container.Content(sets) | Container.Content(musicvideos) | [Window.IsActive(videolibrary) + Container.Content(genres)] | [Window.IsActive(pictures) + Substring(Container.FolderPath,\comics\)]]">
 			<control type="group">
 				<animation type="Focus" reversible="false">
@@ -671,182 +789,182 @@
 					<bordersize>15</bordersize>
 					<visible>Skin.HasSetting(squarethumbs) + !Skin.HasSetting(genrethumbs)</visible>
 				</control>
-					<control type="group">
+				<control type="group">
 					<top>18</top>
 					<left>20</left>
 					<include>UnwatchedIcon</include>
 				</control>
-	        	<control type="image">
-                    <left>180</left>
-                    <top>26</top>
-                    <width>81</width>
-                    <height>81</height>
-		        	<texture background="true" diffuse="thumbs/ExtraOverlayWatched.png">$VAR[VideoextrasOverlay]</texture>
-		        	<visible>System.HasAddon(script.videoextras)</visible>
-					<visible>Skin.HasSetting(squarethumbs)</visible>
-	        	</control>
-			    <control type="image">
-                    <left>179</left>
-                    <top>25</top>
-                    <width>81</width>
-                    <height>81</height>
-                    <include>OverlayVisibility0</include>
-					<visible>Skin.HasSetting(squarethumbs)</visible>
-                </control>
-		        <control type="image">
-                    <left>179</left>
-                    <top>25</top>
-                    <width>81</width>
-                    <height>81</height>
-			        <texture>overlayprogress.png</texture>
-			        <visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-					<visible>Skin.HasSetting(squarethumbs)</visible>
-		        </control>
-	        	<control type="image">
-                    <left>177</left>
-                    <top>28</top>
-                    <width>80</width>
-                    <height>80</height>
-		        	<texture background="true" diffuse="thumbs/ExtraOverlayWatched.png">$VAR[VideoextrasOverlay]</texture>
-		        	<visible>System.HasAddon(script.videoextras)</visible>
-					<visible>!Skin.HasSetting(squarethumbs)</visible>
-	        	</control>
 				<control type="image">
-                    <left>177</left>
-                    <top>28</top>
-                    <width>80</width>
-                    <height>80</height>
-                    <include>OverlayVisibility0</include>
+					<left>180</left>
+					<top>26</top>
+					<width>81</width>
+					<height>81</height>
+					<texture background="true" diffuse="thumbs/ExtraOverlayWatched.png">$VAR[VideoextrasOverlay]</texture>
+					<visible>System.HasAddon(script.videoextras)</visible>
+					<visible>Skin.HasSetting(squarethumbs)</visible>
+				</control>
+				<control type="image">
+					<left>179</left>
+					<top>25</top>
+					<width>81</width>
+					<height>81</height>
+					<include>OverlayVisibility0</include>
+					<visible>Skin.HasSetting(squarethumbs)</visible>
+				</control>
+				<control type="image">
+					<left>179</left>
+					<top>25</top>
+					<width>81</width>
+					<height>81</height>
+					<texture>overlayprogress.png</texture>
+					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+					<visible>Skin.HasSetting(squarethumbs)</visible>
+				</control>
+				<control type="image">
+					<left>177</left>
+					<top>28</top>
+					<width>80</width>
+					<height>80</height>
+					<texture background="true" diffuse="thumbs/ExtraOverlayWatched.png">$VAR[VideoextrasOverlay]</texture>
+					<visible>System.HasAddon(script.videoextras)</visible>
 					<visible>!Skin.HasSetting(squarethumbs)</visible>
-                </control>
-		        <control type="image">
-                    <left>177</left>
-                    <top>28</top>
-                    <width>80</width>
-                    <height>80</height>
-			        <texture>overlayprogress.png</texture>
-			        <visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+				</control>
+				<control type="image">
+					<left>177</left>
+					<top>28</top>
+					<width>80</width>
+					<height>80</height>
+					<include>OverlayVisibility0</include>
 					<visible>!Skin.HasSetting(squarethumbs)</visible>
-		        </control>
+				</control>
+				<control type="image">
+					<left>177</left>
+					<top>28</top>
+					<width>80</width>
+					<height>80</height>
+					<texture>overlayprogress.png</texture>
+					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+					<visible>!Skin.HasSetting(squarethumbs)</visible>
+				</control>
 			</control>
 		</focusedlayout>
 
 		<!-- TV EPISODES -->
-        <itemlayout height="200" width="331" condition="Container.Content(episodes)"> <!-- TV EPISODES LANDSCAPE INACTIVE-->
-                        <control type="group">
-                            <top>13</top>
-							<left>10</left>
-                            <control type="group">
-                                <visible>Container.Content(episodes)</visible>
-                                <control type="image">
-                                    <width>320</width>
-                                    <height>180</height>
-                                    <aspectratio scalediffuse="false">scale</aspectratio>
-                                    <texture background="true">$INFO[ListItem.Icon]</texture>
-                                    <bordertexture border="5">thumbs/bordershadow4.png</bordertexture>
-									<bordersize>5</bordersize>
-                                </control>
-                                <control type="image">
-                                    <top>130</top>
-                                    <width>320</width>
-                                    <height>45</height>
-                                    <texture>common/bgcolor.png</texture>
-                                    <animation effect="fade" start="100" end="70" time="40" condition="true">Conditional</animation>
-                                    <bordersize>5</bordersize>
-                                </control>
-                                <control type="label">
-                                    <left>0</left>
-                                    <top>125</top>
-                                    <width>310</width>
-                                    <height>51</height>
-                                    <textoffsetx>5</textoffsetx>
-                                    <align>center</align>
-									<scroll>true</scroll>
-                                    <label fallback="..">$INFO[ListItem.Season,$LOCALIZE[20359] ]$INFO[ListItem.Episode,.]</label>
-                                    <font>Font_Info</font>
-                                    <textcolor>grey2</textcolor>
-                                </control>
-                            </control>
-                            <control type="image">
-                                <left>240</left>
-                                <top>5</top>
-                                <width>75</width>
-                                <height>75</height>
-                                <include>OverlayVisibility0</include>
-                            </control>
-							<control type="image">
-                                <left>240</left>
-                                <top>5</top>
-                                <width>75</width>
-                                <height>75</height>
-								<texture>overlayprogress.png</texture>
-								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-							</control>
-                        </control>
-                    </itemlayout>
+		<itemlayout height="200" width="331" condition="Container.Content(episodes)"> <!-- TV EPISODES LANDSCAPE INACTIVE-->
+			<control type="group">
+				<top>13</top>
+				<left>10</left>
+				<control type="group">
+					<visible>Container.Content(episodes)</visible>
+					<control type="image">
+						<width>320</width>
+						<height>180</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<bordertexture border="5">thumbs/bordershadow4.png</bordertexture>
+						<bordersize>5</bordersize>
+					</control>
+					<control type="image">
+						<top>130</top>
+						<width>320</width>
+						<height>45</height>
+						<texture>common/bgcolor.png</texture>
+						<animation effect="fade" start="100" end="70" time="40" condition="true">Conditional</animation>
+						<bordersize>5</bordersize>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>125</top>
+						<width>310</width>
+						<height>51</height>
+						<textoffsetx>5</textoffsetx>
+						<align>center</align>
+						<scroll>true</scroll>
+						<label fallback="..">$INFO[ListItem.Season,$LOCALIZE[20359] ]$INFO[ListItem.Episode,.]</label>
+						<font>Font_Info</font>
+						<textcolor>grey2</textcolor>
+					</control>
+				</control>
+				<control type="image">
+					<left>240</left>
+					<top>5</top>
+					<width>75</width>
+					<height>75</height>
+					<include>OverlayVisibility0</include>
+				</control>
+				<control type="image">
+					<left>240</left>
+					<top>5</top>
+					<width>75</width>
+					<height>75</height>
+					<texture>overlayprogress.png</texture>
+					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+				</control>
+			</control>
+		</itemlayout>
 		<focusedlayout height="200" width="331" condition="Container.Content(episodes)"><!-- TV EPISODES LANDSCAPE ACTIVE-->
-                      <control type="group">
-                            <top>13</top>
-							<left>10</left>
-							<animation type="Focus" reversible="false">
-								<effect type="zoom" center="auto" start="100" end="108" time="400" tween="cubic" />
-							</animation>
-                            <control type="group">
-                                <visible>Container.Content(episodes)</visible>
-                                <control type="image">
-                                    <width>320</width>
-                                    <height>180</height>
-                                    <aspectratio scalediffuse="false">scale</aspectratio>
-                                    <texture background="true">$INFO[ListItem.Icon]</texture>
-                                    <bordertexture border="5">thumbs/bordershadow4.png</bordertexture>
-									<bordersize>5</bordersize>
-                                </control>
-                                <control type="image">
-                                    <top>130</top>
-                                    <width>320</width>
-                                    <height>45</height>
-                                    <texture>common/bgcolor.png</texture>
-                                    <animation effect="fade" start="100" end="90" time="40" condition="true">Conditional</animation>
-                                    <bordersize>5</bordersize>
-                                </control>
-                                <control type="label">
-                                    <left>0</left>
-                                    <top>125</top>
-                                    <width>310</width>
-                                    <height>51</height>
-                                    <textoffsetx>5</textoffsetx>
-                                    <align>center</align>
-									<scroll>true</scroll>
-                                    <label fallback="..">$INFO[ListItem.Season,$LOCALIZE[20359] ]$INFO[ListItem.Episode,.]</label>
-                                    <font>Font_Info</font>
-                                    <textcolor>$VAR[FontColorVar]</textcolor>
-                                </control>
-                            </control>
-                            <control type="image">
-                                <left>240</left>
-                                <top>5</top>
-                                <width>75</width>
-                                <height>75</height>
-                                <include>OverlayVisibility0</include>
-                            </control>
-							<control type="image">
-                                <left>240</left>
-                                <top>5</top>
-                                <width>75</width>
-                                <height>75</height>
-								<texture>overlayprogress.png</texture>
-								<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
-							</control>
-							<control type="image">
-                                <width>320</width>
-                                <height>180</height>
-                                <aspectratio align="center" aligny="center">stretch</aspectratio>
-								<texture border="15">views/addonwall_select.png</texture>
-								<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-								<visible>!Skin.HasSetting(InfoWallZoom)</visible>
-			                </control>
-                        </control>
-                    </focusedlayout>
+			<control type="group">
+				<top>13</top>
+				<left>10</left>
+				<animation type="Focus" reversible="false">
+					<effect type="zoom" center="auto" start="100" end="108" time="400" tween="cubic" />
+				</animation>
+				<control type="group">
+					<visible>Container.Content(episodes)</visible>
+					<control type="image">
+						<width>320</width>
+						<height>180</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<bordertexture border="5">thumbs/bordershadow4.png</bordertexture>
+						<bordersize>5</bordersize>
+					</control>
+					<control type="image">
+						<top>130</top>
+						<width>320</width>
+						<height>45</height>
+						<texture>common/bgcolor.png</texture>
+						<animation effect="fade" start="100" end="90" time="40" condition="true">Conditional</animation>
+						<bordersize>5</bordersize>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>125</top>
+						<width>310</width>
+						<height>51</height>
+						<textoffsetx>5</textoffsetx>
+						<align>center</align>
+						<scroll>true</scroll>
+						<label fallback="..">$INFO[ListItem.Season,$LOCALIZE[20359] ]$INFO[ListItem.Episode,.]</label>
+						<font>Font_Info</font>
+						<textcolor>$VAR[FontColorVar]</textcolor>
+					</control>
+				</control>
+				<control type="image">
+					<left>240</left>
+					<top>5</top>
+					<width>75</width>
+					<height>75</height>
+					<include>OverlayVisibility0</include>
+				</control>
+				<control type="image">
+					<left>240</left>
+					<top>5</top>
+					<width>75</width>
+					<height>75</height>
+					<texture>overlayprogress.png</texture>
+					<visible>Container.ListItem(0).IsResumable + Skin.HasSetting(InProgressFlag)</visible>
+				</control>
+				<control type="image">
+					<width>320</width>
+					<height>180</height>
+					<aspectratio align="center" aligny="center">stretch</aspectratio>
+					<texture border="15">views/addonwall_select.png</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+					<visible>!Skin.HasSetting(InfoWallZoom)</visible>
+				</control>
+			</control>
+		</focusedlayout>
 
 		<itemlayout width="208" height="201" condition="![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(musicvideos) | [Window.IsActive(videolibrary) + Container.Content(genres)] | [Window.IsActive(pictures) + Substring(Container.FolderPath,\comics\)]] + ![Skin.HasSetting(titlewall) | StringCompare(Container.FolderName,youtube)]">
 			<include>WallIcons</include>

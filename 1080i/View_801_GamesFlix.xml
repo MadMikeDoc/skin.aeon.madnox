@@ -4,139 +4,139 @@
 		<control type="group">
 			<include>ViewAnimation</include>
 			<visible>Control.IsVisible(801) + Window.IsActive(programs)</visible>
-		<!-- Games Logo -->
+			<!-- Games Logo -->
 			<control type="image" id="4292">
-			<left>50</left>
-			<top>25</top>
-			<width>490</width>
-			<height>210</height>
-			<fadetime>100</fadetime>
-			<aspectratio align="left" aligny="bottom">keep</aspectratio>
-			<texture background="true">special://skin/extras/games/logos/$INFO[ListItem.Label].png</texture>
-			<visible>!IsEmpty(ListItem.Art(fanart))</visible>
+				<left>50</left>
+				<top>25</top>
+				<width>490</width>
+				<height>210</height>
+				<fadetime>100</fadetime>
+				<aspectratio align="left" aligny="bottom">keep</aspectratio>
+				<texture background="true">special://skin/extras/games/logos/$INFO[ListItem.Label].png</texture>
+				<visible>!IsEmpty(Container.ListItem.Art(fanart))</visible>
 			</control>
-		<!-- End Games Logo -->
-		<!-- MAD - Fake Logos -->
-		<control type="textbox">
-			<left>50</left>
-			<top>25</top>
-			<width>510</width>
-			<height>220</height>
-			<align>center</align>
-			<aligny>center</aligny>
-			<textcolor>$VAR[TitleColorVar]</textcolor>
-			<shadowcolor>black</shadowcolor>
-			<font>font_SimplerE3D_bold</font>
-			<!--font>unique</font-->
-			<label>[B]$VAR[FirstLabelVar][/B]</label>
-			<visible>IsEmpty(Control.GetLabel(4292))</visible>
-		</control>
-		<!-- Multiple Fanart -->
-		<control type="multiimage" id="5900">
-			<description>extrafanart</description>
-			<left>300</left>
-			<top>-2</top>
-			<width>1870</width>
-			<height>770</height>
-			<aspectratio>keep</aspectratio>
-			<randomize>true</randomize>
-			<fadetime>500</fadetime>
-			<include condition="Window.IsActive(pictures)">Aspectratio_Keep</include>
-			<include condition="!Window.IsActive(pictures)">Aspectratio_Scale</include>
-			<timeperimage>3000</timeperimage>
-			<imagepath background="true" diffuse="views/KodiFlix/fanart_diffuse.png" fallback="$INFO[ListItem.Art(fanart)]">special://skin/extras/games/extrafanart/$INFO[ListItem.Label]/</imagepath>
-			<visible>Control.IsVisible(801) + Window.IsActive(programs)</visible>
-			<include>Animation_VisibleChange200</include>
-		</control>
-		<control type="multiimage">
-			<description>GamesFlix Fanart extrafanart</description>
-			<left>0</left>
-			<top>0</top>
-			<width>1920</width>
-			<height>1080</height>
-			<aspectratio>scale</aspectratio>
-			<randomize>true</randomize>
-			<fadetime>500</fadetime>
-			<timeperimage>3000</timeperimage>
-			<imagepath background="true" diffuse="views/KodiFlix/fanart_diffuse2.png">special://skin/backgrounds/games/</imagepath>
-			<visible>IsEmpty(Control.GetLabel(5900)) + IsEmpty(ListItem.Art(fanart)) + !Stringcompare(ListItem.Label,..)</visible>
-			<include>Animation_VisibleChange200</include>
-		</control>
-		<!-- End Multiple Fanart -->
-		<!-- Games Information -->
-		<control type="group">
-			<left>40</left>
-			<top>240</top>
-			<width>650</width>
-			<height>270</height>
-			<textcolor>$VAR[TitleColorVar]</textcolor>
-			<control type="grouplist">
-				<visible>Control.IsVisible(801) + SubString(Container.FolderPath,plugin.program.advanced.launcher)</visible>
-				<control type="label">
-					<label>[COLOR labelheader]Studio: [/COLOR]$INFO[ListItem.Studio]</label>
+			<!-- End Games Logo -->
+			<!-- MAD - Fake Logos -->
+			<control type="textbox">
+				<left>50</left>
+				<top>25</top>
+				<width>510</width>
+				<height>220</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textcolor>$VAR[TitleColorVar]</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<font>font_SimplerE3D_bold</font>
+				<!--font>unique</font-->
+				<label>[B]$VAR[FirstLabelVar][/B]</label>
+				<visible>IsEmpty(Control.GetLabel(4292))</visible>
+			</control>
+			<!-- Multiple Fanart -->
+			<control type="multiimage" id="5900">
+				<description>extrafanart</description>
+				<left>300</left>
+				<top>-2</top>
+				<width>1870</width>
+				<height>770</height>
+				<aspectratio>keep</aspectratio>
+				<randomize>true</randomize>
+				<fadetime>500</fadetime>
+				<include condition="Window.IsActive(pictures)">Aspectratio_Keep</include>
+				<include condition="!Window.IsActive(pictures)">Aspectratio_Scale</include>
+				<timeperimage>3000</timeperimage>
+				<imagepath background="true" diffuse="views/KodiFlix/fanart_diffuse.png" fallback="$INFO[Container.ListItem.Art(fanart)]">special://skin/extras/games/extrafanart/$INFO[ListItem.Label]/</imagepath>
+				<visible>Control.IsVisible(801) + Window.IsActive(programs)</visible>
+				<include>Animation_VisibleChange200</include>
+			</control>
+			<control type="multiimage">
+				<description>GamesFlix Fanart extrafanart</description>
+				<left>0</left>
+				<top>0</top>
+				<width>1920</width>
+				<height>1080</height>
+				<aspectratio>scale</aspectratio>
+				<randomize>true</randomize>
+				<fadetime>500</fadetime>
+				<timeperimage>3000</timeperimage>
+				<imagepath background="true" diffuse="views/KodiFlix/fanart_diffuse2.png">special://skin/backgrounds/games/</imagepath>
+				<visible>IsEmpty(Control.GetLabel(5900)) + IsEmpty(Container.ListItem.Art(fanart)) + !Stringcompare(ListItem.Label,..)</visible>
+				<include>Animation_VisibleChange200</include>
+			</control>
+			<!-- End Multiple Fanart -->
+			<!-- Games Information -->
+			<control type="group">
+				<left>40</left>
+				<top>240</top>
+				<width>650</width>
+				<height>270</height>
+				<textcolor>$VAR[TitleColorVar]</textcolor>
+				<control type="grouplist">
+					<visible>Control.IsVisible(801) + SubString(Container.FolderPath,plugin.program.advanced.launcher)</visible>
+					<control type="label">
+						<label>[COLOR $VAR[TitleColorVar]]Studio: [/COLOR]$INFO[ListItem.Studio]</label>
+						<width>580</width>
+						<textcolor>white</textcolor>
+						<include>GamesFlixButtonsValues</include>
+						<visible>!IsEmpty(ListItem.Studio)</visible>
+					</control>
+					<control type="label">
+						<label>[COLOR $VAR[TitleColorVar]]Genre: [/COLOR][COLOR white]$INFO[ListItem.Genre][/COLOR]</label>
+						<width>650</width>
+						<include>GamesFlixButtonsValues</include>
+						<visible>!IsEmpty(ListItem.Genre)</visible>
+					</control>
+					<control type="label">
+						<label>[COLOR $VAR[TitleColorVar]]Released: [/COLOR][COLOR white]$INFO[ListItem.Year][/COLOR]</label>
+						<width>650</width>
+						<include>GamesFlixButtonsValues</include>
+						<visible>!IsEmpty(ListItem.Year)</visible>
+					</control>
+				</control>
+			</control>
+			<!--End Games Information -->
+
+			<!-- Games Plot -->
+			<control type="group">
+				<left>40</left>
+				<top>304</top>
+				<visible>Control.IsVisible(801) + SubString(Container.FolderPath,plugin.program.advanced.launcher) + !Skin.HasSetting(smallgamesflixview)</visible>
+				<include>VisibleFadeEffect</include>
+				<control type="textbox" id="70">
+					<label>$VAR[VideoPlotVar3]</label>
+					<left>15</left>
+					<top>110</top>
 					<width>580</width>
+					<height>138</height>
 					<textcolor>white</textcolor>
-					<include>GamesFlixButtonsValues</include>
-					<visible>!IsEmpty(ListItem.Studio)</visible>
-				</control>
-				<control type="label">
-					<label>[COLOR labelheader]Genre: [/COLOR][COLOR white]$INFO[ListItem.Genre][/COLOR]</label>
-					<width>650</width>
-					<include>GamesFlixButtonsValues</include>
-					<visible>!IsEmpty(ListItem.Genre)</visible>
-				</control>
-				<control type="label">
-					<label>[COLOR labelheader]Released: [/COLOR][COLOR white]$INFO[ListItem.Year][/COLOR]</label>
-					<width>650</width>
-					<include>GamesFlixButtonsValues</include>
-					<visible>!IsEmpty(ListItem.Year)</visible>
+					<font>font12_textbox</font>
+					<pagecontrol>63</pagecontrol>
+					<include>GamesFlixShowCaseInfoPanelButtonsValues</include>
+					<autoscroll time="3000" delay="4000" repeat="5000"></autoscroll>
 				</control>
 			</control>
-		</control>
-		<!--End Games Information -->
+			<!-- End Games Plot -->
+			<!-- Small Games Plot -->
+			<control type="group">
+				<left>40</left>
+				<top>304</top>
+				<visible>Control.IsVisible(801) + SubString(Container.FolderPath,plugin.program.advanced.launcher) + Skin.HasSetting(smallgamesflixview)</visible>
+				<include>VisibleFadeEffect</include>
+				<control type="textbox" id="70">
+					<label>$VAR[VideoPlotVar3]</label>
+					<left>15</left>
+					<top>110</top>
+					<width>580</width>
+					<height>238</height>
+					<textcolor>white</textcolor>
+					<font>font12_textbox</font>
+					<pagecontrol>63</pagecontrol>
+					<include>GamesFlixShowCaseInfoPanelButtonsValues</include>
+					<autoscroll time="3000" delay="4000" repeat="5000"></autoscroll>
+				</control>
+			</control>
+			<!-- End Small Games Plot -->
 
-		<!-- Games Plot -->
-		<control type="group">
-			<left>40</left>
-			<top>304</top>
-			<visible>Control.IsVisible(801) + SubString(Container.FolderPath,plugin.program.advanced.launcher) + !Skin.HasSetting(smallgamesflixview)</visible>
-			<include>VisibleFadeEffect</include>
-			<control type="textbox" id="70">
-				<label>$VAR[VideoPlotVar3]</label>
-				<left>15</left>
-				<top>110</top>
-				<width>580</width>
-				<height>138</height>
-				<textcolor>white</textcolor>
-				<font>font12_textbox</font>
-				<pagecontrol>63</pagecontrol>
-				<include>GamesFlixShowCaseInfoPanelButtonsValues</include>
-				<autoscroll time="3000" delay="4000" repeat="5000"></autoscroll>
-			</control>
-		</control>
-		<!-- End Games Plot -->
-		<!-- Small Games Plot -->
-		<control type="group">
-			<left>40</left>
-			<top>304</top>
-			<visible>Control.IsVisible(801) + SubString(Container.FolderPath,plugin.program.advanced.launcher) + Skin.HasSetting(smallgamesflixview)</visible>
-			<include>VisibleFadeEffect</include>
-			<control type="textbox" id="70">
-				<label>$VAR[VideoPlotVar3]</label>
-				<left>15</left>
-				<top>110</top>
-				<width>580</width>
-				<height>238</height>
-				<textcolor>white</textcolor>
-				<font>font12_textbox</font>
-				<pagecontrol>63</pagecontrol>
-				<include>GamesFlixShowCaseInfoPanelButtonsValues</include>
-				<autoscroll time="3000" delay="4000" repeat="5000"></autoscroll>
-			</control>
-		</control>
-		<!-- End Small Games Plot -->
-
-		<!-- Games List -->
+			<!-- Games List -->
 			<control type="fixedlist" id="801">
 				<left>-130</left>
 				<top>300</top>
@@ -154,154 +154,154 @@
 				<scrolltime tween="quadratic">400</scrolltime>
 				<focusposition>1</focusposition>
 				<visible>SubString(Container.FolderPath,plugin.program.advanced.launcher)</visible>
-		<!-- Portrait Orientation Thumbs -->
+				<!-- Portrait Orientation Thumbs -->
 				<itemlayout width="300" height="400" condition="!Skin.HasSetting(smallgamesflixview)">
-				<control type="image">
-					<top>260</top>
-					<width>303</width>
-					<height>404</height>
-					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture border="30">views/other/panel.png</texture>
-				</control>
-				<control type="image">
-					<top>560</top>
-					<width>300</width>
-					<height>404</height>
-					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture border="30" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/other/panel2.png</texture>
-				</control>
-				<control type="image">
-					<left>1</left>
-					<top>262</top>
-					<width>297</width>
-					<height>399</height>
-					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture background="true" fallback="thumbs/fallback_episode_tp.png">$VAR[ListPosterVar]</texture>
-					<bordertexture border="15">thumbs/thumb_border.png</bordertexture>
-					<bordersize>6</bordersize>
-				</control>
-				<control type="image">
-					<left>1</left>
-					<top>664</top>
-					<width>297</width>
-					<height>399</height>
-					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_episode_tp.png">$VAR[ListPosterVar]</texture>
-					<bordertexture border="15">thumbs/thumb_border_fade.png</bordertexture>
-					<bordersize>6</bordersize>
-				</control>
+					<control type="image">
+						<top>260</top>
+						<width>303</width>
+						<height>404</height>
+						<aspectratio align="center" aligny="center">stretch</aspectratio>
+						<texture border="30">views/other/panel.png</texture>
+					</control>
+					<control type="image">
+						<top>560</top>
+						<width>300</width>
+						<height>404</height>
+						<aspectratio align="center" aligny="center">stretch</aspectratio>
+						<texture border="30" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/other/panel2.png</texture>
+					</control>
+					<control type="image">
+						<left>1</left>
+						<top>262</top>
+						<width>297</width>
+						<height>399</height>
+						<aspectratio align="center" aligny="center">stretch</aspectratio>
+						<texture background="true" fallback="thumbs/fallback_episode_tp.png">$VAR[ListPosterVar]</texture>
+						<bordertexture border="15">thumbs/thumb_border.png</bordertexture>
+						<bordersize>6</bordersize>
+					</control>
+					<control type="image">
+						<left>1</left>
+						<top>664</top>
+						<width>297</width>
+						<height>399</height>
+						<aspectratio align="center" aligny="center">stretch</aspectratio>
+						<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_episode_tp.png">$VAR[ListPosterVar]</texture>
+						<bordertexture border="15">thumbs/thumb_border_fade.png</bordertexture>
+						<bordersize>6</bordersize>
+					</control>
 				</itemlayout>
-		<!-- Portrait Orientation Thumbs Focus-->
+				<!-- Portrait Orientation Thumbs Focus-->
 				<focusedlayout width="300" height="400" condition="!Skin.HasSetting(smallgamesflixview)">
-				<control type="image">
-					<top>260</top>
-					<width>300</width>
-					<height>404</height>
-					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture border="30">views/other/panel.png</texture>
-				</control>
-				<control type="image">
-					<top>560</top>
-					<width>303</width>
-					<height>3404</height>
-					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture border="30" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/other/panel2.png</texture>
-				</control>
-				<control type="image">
-					<left>0</left>
-					<top>262</top>
-					<width>298</width>
-					<height>399</height>
-					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture background="true" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar]</texture>
-					<bordertexture border="15">thumbs/thumb_border.png</bordertexture>
-					<bordersize>8</bordersize>
-				</control>
-				<control type="image">
-					<left>0</left>
-					<top>664</top>
-					<width>298</width>
-					<height>399</height>
-					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar]</texture>
-					<bordersize>8</bordersize>
-				</control>
+					<control type="image">
+						<top>260</top>
+						<width>300</width>
+						<height>404</height>
+						<aspectratio align="center" aligny="center">stretch</aspectratio>
+						<texture border="30">views/other/panel.png</texture>
+					</control>
+					<control type="image">
+						<top>560</top>
+						<width>303</width>
+						<height>3404</height>
+						<aspectratio align="center" aligny="center">stretch</aspectratio>
+						<texture border="30" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/other/panel2.png</texture>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<top>262</top>
+						<width>298</width>
+						<height>399</height>
+						<aspectratio align="center" aligny="center">stretch</aspectratio>
+						<texture background="true" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar]</texture>
+						<bordertexture border="15">thumbs/thumb_border.png</bordertexture>
+						<bordersize>8</bordersize>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<top>664</top>
+						<width>298</width>
+						<height>399</height>
+						<aspectratio align="center" aligny="center">stretch</aspectratio>
+						<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar]</texture>
+						<bordersize>8</bordersize>
+					</control>
 				</focusedlayout>
-			<!-- End of Portrait Orientation Thumbs-->
-			<!-- Small Portrait Orientation Thumbs -->
+				<!-- End of Portrait Orientation Thumbs-->
+				<!-- Small Portrait Orientation Thumbs -->
 				<itemlayout width="200" height="300" condition="Skin.HasSetting(smallgamesflixview)">
-				<control type="image">
-					<top>360</top>
-					<width>200</width>
-					<height>303</height>
-					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture border="30">views/other/panel.png</texture>
-				</control>
-				<control type="image">
-					<top>660</top>
-					<width>200</width>
-					<height>203</height>
-					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture border="30" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/other/panel2.png</texture>
-				</control>
-				<control type="image">
-					<left>1</left>
-					<top>362</top>
-					<width>198</width>
-					<height>299</height>
-					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture background="true" fallback="thumbs/fallback_episode_tp.png">$VAR[ListPosterVar]</texture>
-					<bordertexture border="15">thumbs/thumb_border.png</bordertexture>
-					<bordersize>6</bordersize>
-				</control>
-				<control type="image">
-					<left>1</left>
-					<top>664</top>
-					<width>198</width>
-					<height>299</height>
-					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_episode_tp.png">$VAR[ListPosterVar]</texture>
-					<bordertexture border="15">thumbs/thumb_border_fade.png</bordertexture>
-					<bordersize>6</bordersize>
-				</control>
+					<control type="image">
+						<top>360</top>
+						<width>200</width>
+						<height>303</height>
+						<aspectratio align="center" aligny="center">stretch</aspectratio>
+						<texture border="30">views/other/panel.png</texture>
+					</control>
+					<control type="image">
+						<top>660</top>
+						<width>200</width>
+						<height>203</height>
+						<aspectratio align="center" aligny="center">stretch</aspectratio>
+						<texture border="30" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/other/panel2.png</texture>
+					</control>
+					<control type="image">
+						<left>1</left>
+						<top>362</top>
+						<width>198</width>
+						<height>299</height>
+						<aspectratio align="center" aligny="center">stretch</aspectratio>
+						<texture background="true" fallback="thumbs/fallback_episode_tp.png">$VAR[ListPosterVar]</texture>
+						<bordertexture border="15">thumbs/thumb_border.png</bordertexture>
+						<bordersize>6</bordersize>
+					</control>
+					<control type="image">
+						<left>1</left>
+						<top>664</top>
+						<width>198</width>
+						<height>299</height>
+						<aspectratio align="center" aligny="center">stretch</aspectratio>
+						<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_episode_tp.png">$VAR[ListPosterVar]</texture>
+						<bordertexture border="15">thumbs/thumb_border_fade.png</bordertexture>
+						<bordersize>6</bordersize>
+					</control>
 				</itemlayout>
-		<!-- Small Portrait Orientation Thumbs Focus-->
+				<!-- Small Portrait Orientation Thumbs Focus-->
 				<focusedlayout width="200" height="300" condition="Skin.HasSetting(smallgamesflixview)">
-				<control type="image">
-					<top>360</top>
-					<width>200</width>
-					<height>303</height>
-					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture border="30">views/other/panel.png</texture>
-				</control>
-				<control type="image">
-					<top>660</top>
-					<width>202</width>
-					<height>303</height>
-					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture border="30" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/other/panel2.png</texture>
-				</control>
-				<control type="image">
-					<left>0</left>
-					<top>362</top>
-					<width>198</width>
-					<height>299</height>
-					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture background="true" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar]</texture>
-					<bordertexture border="15">thumbs/thumb_border.png</bordertexture>
-					<bordersize>8</bordersize>
-				</control>
-				<control type="image">
-					<left>0</left>
-					<top>664</top>
-					<width>198</width>
-					<height>299</height>
-					<aspectratio align="center" aligny="center">stretch</aspectratio>
-					<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar]</texture>
-					<bordersize>8</bordersize>
-				</control>
+					<control type="image">
+						<top>360</top>
+						<width>200</width>
+						<height>303</height>
+						<aspectratio align="center" aligny="center">stretch</aspectratio>
+						<texture border="30">views/other/panel.png</texture>
+					</control>
+					<control type="image">
+						<top>660</top>
+						<width>202</width>
+						<height>303</height>
+						<aspectratio align="center" aligny="center">stretch</aspectratio>
+						<texture border="30" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png">views/other/panel2.png</texture>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<top>362</top>
+						<width>198</width>
+						<height>299</height>
+						<aspectratio align="center" aligny="center">stretch</aspectratio>
+						<texture background="true" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar]</texture>
+						<bordertexture border="15">thumbs/thumb_border.png</bordertexture>
+						<bordersize>8</bordersize>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<top>664</top>
+						<width>198</width>
+						<height>299</height>
+						<aspectratio align="center" aligny="center">stretch</aspectratio>
+						<texture background="true" flipy="true" diffuse="thumbs/reflection_diffuse_sq.png" fallback="thumbs/fallback_poster_tp.png">$VAR[ListPosterVar]</texture>
+						<bordersize>8</bordersize>
+					</control>
 				</focusedlayout>
-			<!-- End of Small Portrait Orientation Thumbs-->
+				<!-- End of Small Portrait Orientation Thumbs-->
 			</control>
 			<control type="scrollbar" id="75">
 				<left>0</left>
@@ -320,7 +320,7 @@
 				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(75) + !Container.Scrolling">Conditional</animation>
 			</control>
 		</control>
-	<!-- Item Highlight-->
+		<!-- Item Highlight-->
 		<control type="image">
 			<left>168</left>
 			<top>560</top>
@@ -328,11 +328,11 @@
 			<height>400</height>
 			<aspectratio align="center" aligny="center">stretch</aspectratio>
 			<texture border="15">views/addonwall_select.png</texture>
-            <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+			<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
 			<visible>Control.IsVisible(801) + Window.IsActive(programs) + !Skin.HasSetting(smallgamesflixview)</visible>
 		</control>
-	<!-- End Item Highlight -->
-	<!-- Small Item Highlight-->
+		<!-- End Item Highlight -->
+		<!-- Small Item Highlight-->
 		<control type="image">
 			<left>68</left>
 			<top>660</top>
@@ -340,10 +340,10 @@
 			<height>300</height>
 			<aspectratio align="center" aligny="center">stretch</aspectratio>
 			<texture border="15">views/addonwall_select.png</texture>
-            <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+			<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
 			<visible>Control.IsVisible(801) + Window.IsActive(programs) + Skin.HasSetting(smallgamesflixview)</visible>
 		</control>
-	<!-- End Small Item Highlight -->
+		<!-- End Small Item Highlight -->
 	</include>
 	<!-- GamesFlix Advanced Launcher view by UsefulG -->
 	<!-- Credit and Thanks to MikeSilve164 for his Aeon Nox Silvo skin on which this is based-->

@@ -1,0 +1,602 @@
+<template>
+	<other include="widget">
+		<condition tag="property" attribute="name|widgetPath"/>
+		<!-- Classic layout -->
+		<property name="widgetName" tag="property" attribute="name|widgetName" />
+		<property name="widgetStyle" tag="property" attribute="name|widgetStyle" />
+		<property name="widgetTarget" tag="property" attribute="name|widgetTarget" />
+		<property name="widgetPath" tag="property" attribute="name|widgetPath" />
+
+		<property name="widgetBackTexture" tag="property" attribute="name|widgetStyle" value="Glass">keyboard/keyboard_back_classic.png</property>
+		<property name="widgetBackTexture" tag="property" attribute="name|widgetStyle" value="Classic">keyboard/keyboard_back.png</property>
+
+		<property name="artFallback" tag="property" attribute="name|widgetType" value="albums">DefaultAlbumCover.png</property>
+		<property name="artFallback">special://skin/backgrounds/videos/videos.jpg</property>
+
+		<property name="art">$INFO[Container(7000).ListItem.Icon]</property>
+
+		<controls>
+			<control type="group" id="7998">
+				<left>1542</left>
+				<top>13</top>
+				<animation effect="slide" end="0,40" time="320" tween="cubic" easing="inout" condition="!Skin.HasSetting(lowermainmenu)">Conditional</animation>
+				<visible>IsEmpty(Window(home).Property(DisableWidgets))</visible>
+				<animation effect="slide" end="0,25" time="320" tween="cubic" easing="inout" condition="[[Skin.HasSetting(totalshomehigh) + !Skin.HasSetting(DisableLibraryStats)] | [Skin.HasSetting(timehomehigh) + !Skin.HasSetting(DisableTimePanel)]]">Conditional</animation>
+				<skinshortcuts>visibility</skinshortcuts>
+				<include>Animation_Widgets</include>
+				<!--Unfocused widget-->
+				<control type="group">
+					<visible>![Control.HasFocus(7000) | Control.HasFocus(7020)]</visible>
+					<animation effect="slide" start="450" end="0" time="240" delay="240" tween="quadratic">Visible</animation>
+					<control type="group">
+						<visible>!Substring($SKINSHORTCUTS[widgetStyle],None)</visible>
+						<include>Animation_VisibleChange200</include>
+						<control type="image">
+							<left>-12</left>
+							<top>-4</top>
+							<width>385</width>
+							<height>370</height>
+							<texture border="50">keyboard/keyboard_back_shadow.png</texture>
+							<include>PanelGlowFade</include>
+							<visible>Substring($SKINSHORTCUTS[widgetStyle],Classic)</visible>
+							<visible>!Skin.HasSetting(DisableGlowbar)</visible>
+							<include>Animation_VisibleChange400</include>
+							<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+						</control>
+						<control type="image">
+							<left>-12</left>
+							<top>-5</top>
+							<width>385</width>
+							<height>370</height>
+							<texture border="20">$SKINSHORTCUTS[widgetBackTexture]</texture>
+							<colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+						</control>
+					</control>
+					<control type="label">
+						<left>15</left>
+						<top>8</top>
+						<width>335</width>
+						<height>60</height>
+						<align>center</align>
+						<label>$SKINSHORTCUTS[widgetName]</label>
+						<font>Font_Reg33_Caps</font>
+						<textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+						<include>Animation_HomeWidget</include>
+					</control>
+					<control type="image">
+						<left>105</left>
+						<top>264</top>
+						<width>150</width>
+						<height>30</height>
+						<texture>$INFO[Container(7000).ListItem.Rating,stars/,.png]</texture>
+						<colordiffuse>grey</colordiffuse>
+						<visible>!IsEmpty(Container(7000).ListItem.TVShowTitle)</visible>
+						<include>Animation_HomeWidget</include>
+					</control>
+					<control type="label">
+						<left>15</left>
+						<top>264</top>
+						<width>330</width>
+						<height>30</height>
+						<align>center</align>
+						<label>$INFO[Container(7000).ListItem.TVShowTitle]</label>
+						<font>Font_Reg26_Caps</font>
+						<textcolor>grey</textcolor>
+						<scrollspeed>30</scrollspeed>
+						<scroll>true</scroll>
+						<include>Animation_HomeWidget</include>
+						<visible>!IsEmpty(Container(7000).ListItem.TVShowTitle)</visible>
+					</control>
+					<control type="image">
+						<left>7</left>
+						<top>63</top>
+						<width>345</width>
+						<height>240</height>
+						<aspectratio aligny="top" align="center">keep</aspectratio>
+						<texture background="true" fallback="$SKINSHORTCUTS[artFallback]">$SKINSHORTCUTS[art]</texture>
+						<bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
+						<bordersize>7</bordersize>
+						<animation effect="fade" time="240">Visible</animation>
+						<animation effect="fade" time="40">Hidden</animation>
+					</control>
+					<control type="group">
+						<visible>Substring(Control.GetLabel(4325),systemclassic)</visible>
+						<include condition="Substring(Skin.String(widget2list),systemclassic)">HomeSystemWidget</include>
+					</control>
+					<control type="label">
+						<left>15</left>
+						<top>308</top>
+						<width>330</width>
+						<height>30</height>
+						<align>center</align>
+						<label>$INFO[Container(7000).ListItem.Label]</label>
+						<font>Font_Reg33_Caps</font>
+						<textcolor>grey</textcolor>
+						<scrollspeed>30</scrollspeed>
+						<scroll>true</scroll>
+					</control>
+				</control>
+
+				<!--Actual list-->
+				<control type="group">
+					<left>513</left>
+					<top>-18</top>
+					<animation effect="slide" end="-570,0" time="400" easing="inout" tween="cubic" condition="Control.HasFocus(7000) | Control.HasFocus(7020)">Conditional</animation>
+					<animation type="Conditional" condition="true">
+						<effect type="zoom" start="100" end="97" center="960,540" time="240" tween="cubic" />
+					</animation>
+					<control type="image">
+						<left>-2</left>
+						<top>-2</top>
+						<width>412</width>
+						<height>407</height>
+						<texture>keyboard/keyboard_back_shadow.png</texture>
+						<visible>!Skin.HasSetting(DisableGlowbar)</visible>
+						<include>PanelGlowFade</include>
+						<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+					</control>
+					<control type="image">
+						<left>-2</left>
+						<top>-4</top>
+						<width>412</width>
+						<height>412</height>
+						<texture>$VAR[Widget2BackVar]</texture>
+						<colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+					</control>
+					<control type="label">
+						<left>15</left>
+						<top>10</top>
+						<width>382</width>
+						<height>60</height>
+						<align>center</align>
+						<label>$VAR[Widget2TypeLabelVar]</label>
+						<font>Font_Reg33_Caps</font>
+						<textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+						<include>Animation_HomeWidget</include>
+						<visible>!SubString(Control.GetLabel(4325),panel)</visible>
+					</control>
+					<control type="image">
+						<left>116</left>
+						<top>348</top>
+						<width>180</width>
+						<height>45</height>
+						<aspectratio align="center">keep</aspectratio>
+						<texture>$INFO[Container(7000).ListItem.Property(Rating),stars/,.png]</texture>
+						<colordiffuse>grey</colordiffuse>
+						<animation effect="fade" end="100" time="480">WindowOpen</animation>
+						<animation effect="fade" start="100" end="0" time="160">WindowClose</animation>
+						<visible>Substring(Control.GetLabel(4325),movie) | Substring(Control.GetLabel(4325),tv)</visible>
+					</control>
+					<control type="image">
+						<left>116</left>
+						<top>348</top>
+						<width>180</width>
+						<height>45</height>
+						<aspectratio align="center">keep</aspectratio>
+						<texture fallback="rating0.png">$INFO[Container(7000).ListItem.Property(Rating),rating,.png]</texture>
+						<colordiffuse>$VAR[HomeMenuWidgetTextVar]</colordiffuse>
+						<animation effect="fade" end="100" time="480">WindowOpen</animation>
+						<animation effect="fade" start="100" end="0" time="160">WindowClose</animation>
+						<visible>Substring(Control.GetLabel(4325),albums)</visible>
+					</control>
+					<control type="label">
+						<left>15</left>
+						<top>348</top>
+						<width>382</width>
+						<height>30</height>
+						<align>center</align>
+						<label>$LOCALIZE[20161] $LOCALIZE[24001]: $INFO[Window(Home).Property(RandomAddon.Count)]</label>
+						<font>Font_Reg33_Caps</font>
+						<textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+						<scrollspeed>30</scrollspeed>
+						<scroll>true</scroll>
+						<include>Animation_HomeWidget</include>
+						<visible>Stringcompare(Control.GetLabel(4325),randomaddons)</visible>
+					</control>
+					<control type="list" id="7000">
+						<left>8</left>
+						<top>64</top>
+						<width>450</width>
+						<height>280</height>
+						<onleft>7993</onleft>
+						<onright>7993</onright>
+						<include>NavigationWidget2</include>
+						<preloaditems>2</preloaditems>
+						<animation effect="fade" time="160" start="100" end="0" condition="Control.HasFocus(7020)">Conditional</animation>
+						<skinshortcuts>visibility</skinshortcuts>
+						<scrolltime tween="quadratic">200</scrolltime>
+						<itemlayout height="34" width="450">
+							<control type="image">
+								<left>-15</left>
+								<width>424</width>
+								<height>34</height>
+								<texture>dialogs/context_nofocus.png</texture>
+							</control>
+							<control type="label">
+								<left>15</left>
+								<width>375</width>
+								<height>34</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Font_Reg28_Caps</font>
+							</control>
+						</itemlayout>
+						<focusedlayout height="34" width="450">
+							<control type="image">
+								<left>1</left>
+								<width>390</width>
+								<height>34</height>
+								<texture border="8">views/tripanel/listselect_fo.png</texture>
+								<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+								<animation effect="fade" start="100" end="70" time="800" pulse="true" condition="!IsEmpty(Container(7000).ListItem.Property(Trailer))">Conditional</animation>
+							</control>
+							<control type="label">
+								<left>15</left>
+								<width>368</width>
+								<height>34</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Font_Reg28_Caps</font>
+							</control>
+						</focusedlayout>
+						<content target="$SKINSHORTCUTS[widgetTarget]">$SKINSHORTCUTS[widgetPath]</content>
+					</control>
+					<control type="list" id="7020">
+						<left>8</left>
+						<top>64</top>
+						<width>450</width>
+						<height>280</height>
+						<onup>7020</onup>
+						<ondown>7020</ondown>
+						<onback>SetFocus(7000)</onback>
+						<onleft>SetFocus(7000)</onleft>
+						<onright>SetFocus(7000)</onright>
+						<preloaditems>2</preloaditems>
+						<scrolltime tween="quadratic">200</scrolltime>
+						<visible allowhiddenfocus="true">Control.HasFocus(7020)</visible>
+						<skinshortcuts>visibility</skinshortcuts>
+						<animation type="VisibleChange">
+							<effect type="fade" delay="160" end="100" time="160" />
+						</animation>
+						<itemlayout height="68" width="450">
+							<control type="image">
+								<left>-15</left>
+								<width>424</width>
+								<height>68</height>
+								<texture>dialogs/context_nofocus.png</texture>
+							</control>
+							<control type="label">
+								<left>15</left>
+								<width>375</width>
+								<height>68</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Font_Reg33_Caps</font>
+								<textcolor>grey2</textcolor>
+							</control>
+						</itemlayout>
+						<focusedlayout height="68" width="450">
+							<control type="image">
+								<left>1</left>
+								<width>390</width>
+								<height>68</height>
+								<texture border="8">views/tripanel/listselect_fo.png</texture>
+								<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+							</control>
+							<control type="label">
+								<left>15</left>
+								<width>368</width>
+								<height>68</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Font_Reg33_Caps</font>
+							</control>
+						</focusedlayout>
+						<content>
+							<include>ClassicWidgetPlayItems</include>
+						</content>
+					</control>
+				</control>
+			</control>
+		</controls>
+	</other>
+
+
+	<!-- Second widget -->
+	<other include="widget-1">
+		<condition tag="property" attribute="name|widgetPath"/>
+		<!-- Classic layout -->
+		<property name="widgetName" tag="property" attribute="name|widgetName.1" />
+		<property name="widgetStyle" tag="property" attribute="name|widgetStyle.1" />
+		<property name="widgetTarget" tag="property" attribute="name|widgetTarget.1" />
+		<property name="widgetPath" tag="property" attribute="name|widgetPath.1" />
+
+		<property name="widgetBackTexture" tag="property" attribute="name|widgetStyle.1" value="Glass">keyboard/keyboard_back_classic.png</property>
+		<property name="widgetBackTexture" tag="property" attribute="name|widgetStyle.1" value="Classic">keyboard/keyboard_back.png</property>
+
+		<property name="artFallback" tag="property" attribute="name|widgetType.1" value="albums">DefaultAlbumCover.png</property>
+		<property name="artFallback">special://skin/backgrounds/videos/videos.jpg</property>
+
+		<property name="art">$INFO[Container(8000).ListItem.Icon]</property>
+
+		<controls>
+			<control type="group" id="8998">
+				<left>1542</left>
+				<top>678</top>
+				<visible>IsEmpty(Window(home).Property(DisableWidgets))</visible>
+				<skinshortcuts>visibility</skinshortcuts>
+				<include>Animation_Widgets</include>
+				<animation effect="slide" end="0,-258" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
+				<animation effect="slide" time="160" end="0,-38" condition="!Skin.HasSetting(lowermainmenu) + Skin.HasSetting(rsshomelow)">Conditional</animation>
+				<!--Unfocused widget-->
+				<control type="group">
+					<visible>![Control.HasFocus(8000) | Control.HasFocus(8020)]</visible>
+					<animation effect="slide" start="450" end="0" time="240" delay="240" tween="quadratic">Visible</animation>
+					<control type="group">
+						<visible>!Substring($SKINSHORTCUTS[widgetStyle],None)</visible>
+						<include>Animation_VisibleChange200</include>
+						<control type="image">
+							<left>-12</left>
+							<top>-4</top>
+							<width>385</width>
+							<height>370</height>
+							<texture border="50">keyboard/keyboard_back_shadow.png</texture>
+							<include>PanelGlowFade</include>
+							<visible>!Skin.HasSetting(DisableGlowbar)</visible>
+							<visible>Substring($SKINSHORTCUTS[widgetStyle],Classic)</visible>
+							<include>Animation_VisibleChange400</include>
+							<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+						</control>
+						<control type="image">
+							<left>-12</left>
+							<top>-5</top>
+							<width>385</width>
+							<height>370</height>
+							<texture border="20">$SKINSHORTCUTS[widgetBackTexture]</texture>
+							<colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+						</control>
+					</control>
+					<control type="label">
+						<left>15</left>
+						<top>8</top>
+						<width>335</width>
+						<height>60</height>
+						<align>center</align>
+						<label>$SKINSHORTCUTS[widgetName]</label>
+						<font>Font_Reg33_Caps</font>
+						<textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+						<include>Animation_HomeWidget</include>
+					</control>
+					<control type="image">
+						<left>105</left>
+						<top>264</top>
+						<width>150</width>
+						<height>30</height>
+						<texture>$INFO[Container(8000).ListItem.Rating,stars/,.png]</texture>
+						<colordiffuse>grey</colordiffuse>
+						<visible>!IsEmpty(Container(7000).ListItem.TVShowTitle)</visible>
+						<include>Animation_HomeWidget</include>
+					</control>
+					<control type="label">
+						<left>15</left>
+						<top>264</top>
+						<width>330</width>
+						<height>30</height>
+						<align>center</align>
+						<label>$INFO[Container(8000).ListItem.TVShowTitle]</label>
+						<font>Font_Reg26_Caps</font>
+						<textcolor>grey</textcolor>
+						<scrollspeed>30</scrollspeed>
+						<scroll>true</scroll>
+						<include>Animation_HomeWidget</include>
+						<visible>!IsEmpty(Container(8000).ListItem.TVShowTitle)</visible>
+					</control>
+					<control type="group">
+						<left>7</left>
+						<top>63</top>
+						<control type="image">
+							<width>345</width>
+							<height>240</height>
+							<aspectratio aligny="top" align="center">keep</aspectratio>
+							<texture background="true" fallback="$SKINSHORTCUTS[artFallback]">$SKINSHORTCUTS[art]</texture>
+							<bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
+							<bordersize>7</bordersize>
+							<animation effect="fade" time="240">Visible</animation>
+							<animation effect="fade" time="40">Hidden</animation>
+						</control>
+					</control>
+					<control type="group">
+						<visible>Substring(Control.GetLabel(4321),systemclassic)</visible>
+						<include condition="Substring(Skin.String(widgetlist),systemclassic)">HomeSystemWidget</include>
+					</control>
+					<control type="label">
+						<left>15</left>
+						<top>308</top>
+						<width>330</width>
+						<height>30</height>
+						<align>center</align>
+						<label>$INFO[Container(8000).ListItem.Label]</label>
+						<font>Font_Reg33_Caps</font>
+						<textcolor>grey</textcolor>
+						<scrollspeed>30</scrollspeed>
+						<scroll>true</scroll>
+					</control>
+				</control>
+
+				<!--Actual list-->
+				<control type="group">
+					<left>513</left>
+					<top>-20</top>
+					<animation effect="slide" end="-570,0" time="400" easing="inout" tween="cubic" condition="Control.HasFocus(8000) | Control.HasFocus(8020)">Conditional</animation>
+					<animation type="Conditional" condition="true">
+						<effect type="zoom" start="100" end="97" center="960,540" time="240" tween="cubic" />
+					</animation>
+					<control type="image">
+						<left>-2</left>
+						<top>-2</top>
+						<width>412</width>
+						<height>407</height>
+						<texture>keyboard/keyboard_back_shadow.png</texture>
+						<visible>!Skin.HasSetting(DisableGlowbar)</visible>
+						<include>PanelGlowFade</include>
+						<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+					</control>
+					<control type="image">
+						<left>-2</left>
+						<top>-4</top>
+						<width>412</width>
+						<height>412</height>
+						<texture>$VAR[WidgetBackVar]</texture>
+						<colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+					</control>
+					<control type="label">
+						<left>15</left>
+						<top>10</top>
+						<width>382</width>
+						<height>60</height>
+						<align>center</align>
+						<label>$VAR[WidgetTypeLabelVar]</label>
+						<font>Font_Reg33_Caps</font>
+						<textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+						<include>Animation_HomeWidget</include>
+						<visible>!SubString(Control.GetLabel(4321),panel)</visible>
+					</control>
+					<control type="image">
+						<left>116</left>
+						<top>348</top>
+						<width>180</width>
+						<height>45</height>
+						<aspectratio align="center">keep</aspectratio>
+						<texture>$INFO[Container(8000).ListItem.Property(Rating),stars/,.png]</texture>
+						<colordiffuse>grey</colordiffuse>
+						<animation effect="fade" end="100" time="480">WindowOpen</animation>
+						<animation effect="fade" start="100" end="0" time="160">WindowClose</animation>
+						<visible>Substring(Control.GetLabel(4321),movie) | Substring(Control.GetLabel(4321),tv)</visible>
+					</control>
+					<control type="image">
+						<left>116</left>
+						<top>348</top>
+						<width>180</width>
+						<height>45</height>
+						<aspectratio align="center">keep</aspectratio>
+						<texture fallback="rating0.png">$INFO[Container(8000).ListItem.Property(Rating),rating,.png]</texture>
+						<colordiffuse>$VAR[HomeMenuWidgetTextVar]</colordiffuse>
+						<animation effect="fade" end="100" time="480">WindowOpen</animation>
+						<animation effect="fade" start="100" end="0" time="160">WindowClose</animation>
+						<visible>Substring(Control.GetLabel(4321),albums)</visible>
+					</control>
+					<control type="label">
+						<left>15</left>
+						<top>348</top>
+						<width>382</width>
+						<height>30</height>
+						<align>center</align>
+						<label>$LOCALIZE[20161] $LOCALIZE[24001]: $INFO[Window(Home).Property(RandomAddon.Count)]</label>
+						<font>Font_Reg33_Caps</font>
+						<textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+						<scrollspeed>30</scrollspeed>
+						<scroll>true</scroll>
+						<include>Animation_HomeWidget</include>
+						<visible>Stringcompare(Control.GetLabel(4321),randomaddons)</visible>
+					</control>
+					<control type="list" id="8000">
+						<left>8</left>
+						<top>64</top>
+						<width>450</width>
+						<height>280</height>
+						<onleft>8993</onleft>
+						<onright>8993</onright>
+						<include>NavigationWidget1</include>
+						<preloaditems>2</preloaditems>
+						<scrolltime tween="quadratic">200</scrolltime>
+						<animation effect="fade" time="160" start="100" end="0" condition="Control.HasFocus(8020)">Conditional</animation>
+						<skinshortcuts>visibility</skinshortcuts>
+						<itemlayout height="34" width="450">
+							<control type="image">
+								<left>-15</left>
+								<width>424</width>
+								<height>34</height>
+								<texture>dialogs/context_nofocus.png</texture>
+							</control>
+							<control type="label">
+								<left>15</left>
+								<width>375</width>
+								<height>34</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Font_Reg28_Caps</font>
+								<textcolor>grey2</textcolor>
+							</control>
+						</itemlayout>
+						<focusedlayout height="34" width="450">
+							<control type="image">
+								<left>1</left>
+								<width>390</width>
+								<height>34</height>
+								<texture border="8">views/tripanel/listselect_fo.png</texture>
+								<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+								<animation effect="fade" start="100" end="70" time="800" pulse="true" condition="!IsEmpty(Container(8000).ListItem.Property(Trailer))">Conditional</animation>
+							</control>
+							<control type="label">
+								<left>15</left>
+								<width>368</width>
+								<height>34</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Font_Reg28_Caps</font>
+							</control>
+						</focusedlayout>
+						<content target="$SKINSHORTCUTS[widgetTarget]">$SKINSHORTCUTS[widgetPath]</content>
+					</control>
+					<control type="list" id="8020">
+						<left>8</left>
+						<top>64</top>
+						<width>450</width>
+						<height>280</height>
+						<onup>8020</onup>
+						<ondown>8020</ondown>
+						<onback>SetFocus(8000)</onback>
+						<onleft>SetFocus(8000)</onleft>
+						<onright>SetFocus(8000)</onright>
+						<preloaditems>2</preloaditems>
+						<scrolltime tween="quadratic">200</scrolltime>
+						<visible allowhiddenfocus="true">Control.HasFocus(8020)</visible>
+						<skinshortcuts>visibility</skinshortcuts>
+						<animation type="VisibleChange">
+							<effect type="fade" delay="160" end="100" time="160" />
+						</animation>
+						<itemlayout height="68" width="450">
+							<control type="image">
+								<left>-15</left>
+								<width>424</width>
+								<height>68</height>
+								<texture>dialogs/context_nofocus.png</texture>
+							</control>
+							<control type="label">
+								<left>15</left>
+								<width>375</width>
+								<height>68</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Font_Reg33_Caps</font>
+								<textcolor>grey2</textcolor>
+							</control>
+						</itemlayout>
+						<focusedlayout height="68" width="450">
+							<control type="image">
+								<left>1</left>
+								<width>390</width>
+								<height>68</height>
+								<texture border="8">views/tripanel/listselect_fo.png</texture>
+								<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+							</control>
+							<control type="label">
+								<left>15</left>
+								<width>368</width>
+								<height>68</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Font_Reg33_Caps</font>
+							</control>
+						</focusedlayout>
+						<content>
+							<include>ClassicWidgetPlayItems</include>
+						</content>
+					</control>
+				</control>
+			</control>
+		</controls>
+	</other>
+</template>

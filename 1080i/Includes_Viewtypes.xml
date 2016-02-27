@@ -73,17 +73,17 @@
 			</control>
 			<include>Neon_Floor</include>
 		</control>
-			<control type="image" id="8858">
-				<top>105</top>
-				<width>2040</width>
-				<texture>views/logo_back.png</texture>
-				<visible>!Skin.HasSetting(Nofloor) + [Control.IsVisible(503) + [Container.Content(tvshows) | Container.Content(movies) | Container.Content(artists)] + [Skin.HasSetting(landscapelogo) | Skin.HasSetting(landscapeonelogo)] + Skin.HasSetting(altfloor)]</visible>
-				<include>Animation_CommonFade</include>
-				<animation effect="slide" time="160" end="0,100" tween="cubic" condition="Skin.HasSetting(landscapeonelogo)">Conditional</animation>
-				<include>FullscreenDimensions</include>
-				<animation effect="fade" start="100" end="80" time="40" condition="Substring(Skin.CurrentTheme,whit)">Conditional</animation>
-            <colordiffuse>black</colordiffuse>
-        </control>
+		<control type="image" id="8858">
+			<top>105</top>
+			<width>2040</width>
+			<texture>views/logo_back.png</texture>
+			<visible>!Skin.HasSetting(Nofloor) + [Control.IsVisible(503) + [Container.Content(tvshows) | Container.Content(movies) | Container.Content(artists)] + [Skin.HasSetting(landscapelogo) | Skin.HasSetting(landscapeonelogo)] + Skin.HasSetting(altfloor)]</visible>
+			<include>Animation_CommonFade</include>
+			<animation effect="slide" time="160" end="0,100" tween="cubic" condition="Skin.HasSetting(landscapeonelogo)">Conditional</animation>
+			<include>FullscreenDimensions</include>
+			<animation effect="fade" start="100" end="80" time="40" condition="Substring(Skin.CurrentTheme,whit)">Conditional</animation>
+			<colordiffuse>black</colordiffuse>
+		</control>
 	</include>
 	<include name="PanelSpot">
 		<control type="image">
@@ -99,7 +99,7 @@
 			<animation effect="fade" end="100" time="80" delay="80" reversible="false">Visible</animation>
 			<animation effect="fade" start="100" end="0" time="0" reversible="false">Hidden</animation>
 			<!-- MikeBZH44 : Add NoFloorLabel for Movies in Showcase view -->
-			<visible>[Control.IsVisible(503) + Skin.HasSetting(landscapeonelogo) + !Container.Content(episodes) + !Container.Content(seasons)] | Control.IsVisible(509) | Control.IsVisible(499) | [Control.IsVisible(500) + !StringCompare(Container.FolderName,youtube)] | Control.IsVisible(508) | [Control.IsVisible(501) + [[Container.Content(movies) + !Skin.HasSetting(NoFloorLabelMovies)] | [Container.Content(sets) + !Skin.HasSetting(NoFloorLabelMovies) | [IsEmpty(ListItem.Art(clearlogo)) + !Skin.HasSetting(NoFloorLabelMovies)]] | [[Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(NoFloorLabelTVshows)]]]</visible>
+			<visible>[Control.IsVisible(503) + Skin.HasSetting(landscapeonelogo) + !Container.Content(episodes) + !Container.Content(seasons)] | Control.IsVisible(509) | Control.IsVisible(499) | [Control.IsVisible(500) + !StringCompare(Container.FolderName,youtube)] | Control.IsVisible(508) | [Control.IsVisible(501) + [[Container.Content(movies) + !Skin.HasSetting(NoFloorLabelMovies)] | [Container.Content(sets) + !Skin.HasSetting(NoFloorLabelMovies) | [IsEmpty(Container.ListItem.Art(clearlogo)) + !Skin.HasSetting(NoFloorLabelMovies)]] | [[Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(NoFloorLabelTVshows)]]]</visible>
 			<include>Animation_WindowFade200</include>
 			<visible>[Control.IsVisible(8822) + !Container.OnNext + !Container.OnPrevious + Stringcompare(Control.GetLabel(8822),empty.png)] | !Control.IsVisible(8822) | Container.Content(seasons) | Container.Content(albums)</visible>
 			<left>410</left>
@@ -143,7 +143,7 @@
 				<scrollspeed>30</scrollspeed>
 				<visible>Container.Content(seasons)+ !Skin.HasSetting(ShowcaseBanner)</visible>
 			</control>
-			 <control type="label">
+			<control type="label">
 				<top>932</top>
 				<width>1100</width>
 				<align>center</align>
@@ -182,7 +182,7 @@
 				<height>96</height>
 				<aspectratio scalediffuse="false" align="left">keep</aspectratio>
 				<texture background="true" diffuse="thumbs/banner_mask.png">$VAR[LogoVarList]</texture>
-				<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner))</visible>
+				<visible>IsEmpty(Container.ListItem.Art(banner)) + IsEmpty(Container.ListItem.Art(tvshow.banner))</visible>
 			</control>
 			<control type="label">
 				<left>236</left>
@@ -193,13 +193,13 @@
 				<label>$INFO[ListItem.Label]</label>
 				<font>Font_Bold40</font>
 				<shadowcolor>black</shadowcolor>
-				<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(tvshow.banner)) + IsEmpty(ListItem.Art(clearlogo))</visible>
+				<visible>IsEmpty(Container.ListItem.Art(banner)) + IsEmpty(Container.ListItem.Art(tvshow.banner)) + IsEmpty(Container.ListItem.Art(clearlogo))</visible>
 			</control>
 		</control>
 	</include>
 	<include name="Furniture_DarkGradient">
 
-		 <!--gradient start-->
+		<!--gradient start-->
 		<control type="image">
 			<left>-17</left>
 			<top>1012</top>
@@ -222,7 +222,7 @@
 			<animation effect="slide" time="160" end="1440" tween="cubic" condition="Control.IsVisible(510)">Conditional</animation>
 			<animation effect="slide" time="160" end="-750" tween="cubic" condition="Control.IsVisible(512)">Conditional</animation>
 		</control>
-		 <!--gradient end-->
+		<!--gradient end-->
 		<control type="image" id="4050">
 			<visible>Container.Scrolling</visible>
 			<animation effect="fade" end="100" time="0" delay="2400">Visible</animation>
@@ -845,20 +845,20 @@
 				</animation>
 			</control>
 			<!-- BEGIN Extra Fanart by ShadowTek - Replaces above single image if switch on(MAD)-->
-            <control type="multiimage">   <!-- fanart center -->
-                <left>588</left>
-                <top>127</top>
-                <width>730</width>
-                <height>411</height>
-                <aspectratio align="center">scale</aspectratio>
-                <fadetime>FanartCrossfadeTime</fadetime>
-                <include condition="Window.IsActive(pictures)">Aspectratio_Keep</include>
-                <include condition="!Window.IsActive(pictures)">Aspectratio_Scale</include>
-                <timeperimage>3000</timeperimage>
-                <imagepath background="true">$VAR[VideoExtraFanartVar]</imagepath>
-                <visible>StringCompare(Control.GetLabel(4420),fanart) + Skin.HasSetting(infopanel_extrafanart)</visible>
-                <include>Animation_VisibleChange200</include>
-             </control>
+			<control type="multiimage">   <!-- fanart center -->
+				<left>588</left>
+				<top>127</top>
+				<width>730</width>
+				<height>411</height>
+				<aspectratio align="center">scale</aspectratio>
+				<fadetime>FanartCrossfadeTime</fadetime>
+				<include condition="Window.IsActive(pictures)">Aspectratio_Keep</include>
+				<include condition="!Window.IsActive(pictures)">Aspectratio_Scale</include>
+				<timeperimage>3000</timeperimage>
+				<imagepath background="true">$VAR[VideoExtraFanartVar]</imagepath>
+				<visible>StringCompare(Control.GetLabel(4420),fanart) + Skin.HasSetting(infopanel_extrafanart)</visible>
+				<include>Animation_VisibleChange200</include>
+			</control>
 			<!-- END Extra Fanart by ShadowTek -->
 			<control type="image">      <!-- ?????? -->
 				<left>588</left>
@@ -1007,7 +1007,7 @@
 					<visible>!StringCompare(Control.GetLabel(4420),fanart) + Skin.HasSetting(NoFlow)</visible>
 				</control>
 			</control>
-				<control type="group">  <!-- PANEL posters tv and movies !!! -->
+			<control type="group">  <!-- PANEL posters tv and movies !!! -->
 				<animation type="VisibleChange">
 					<effect type="fade" end="108" delay="320" time="160"/>
 				</animation>
@@ -1048,7 +1048,7 @@
 					<texture background="true" diffuse="thumbs/movieposter_mask.png">$VAR[ListPosterVar]</texture>
 					<fadetime>200</fadetime>
 					<bordertexture border="-50">thumbs/poster_shadow.png</bordertexture>
- 					<bordersize>0</bordersize>
+					<bordersize>0</bordersize>
 					<animation effect="rotatey" center="auto" start="-45" end="45" time="0" condition="true">Conditional</animation>
 					<camera x="1250" y="370"/>
 					<animation effect="zoom" end="112" time="0" delay="0" reversible="false" condition="true">Conditional</animation>
@@ -1101,7 +1101,7 @@
 						<top>358</top>
 						<width>750</width>
 						<height>152</height>
-						<texture background="true" diffuse="thumbs/banner_mask.png">$INFO[ListItem.Art(banner)]</texture>
+						<texture background="true" diffuse="thumbs/banner_mask.png">$INFO[Container.ListItem.Art(banner)]</texture>
 						<bordertexture border="12">thumbs/banner_shadow_b.png</bordertexture>
 						<bordersize>12</bordersize>
 						<visible>!StringCompare(Control.GetLabel(4420),fanart)</visible>
@@ -1203,7 +1203,7 @@
 						<top>90</top>
 						<width>200</width>
 						<height>173</height>
-						<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+						<texture background="true">$INFO[Container.ListItem.Art(fanart)]</texture>
 						<fadetime>400</fadetime>
 						<bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
 						<bordersize>7</bordersize>
@@ -1214,7 +1214,7 @@
 						<top>272</top>
 						<width>200</width>
 						<height>173</height>
-						<texture background="true">$INFO[ListItem.Art(landscape)]</texture>
+						<texture background="true">$INFO[Container.ListItem.Art(landscape)]</texture>
 						<fadetime>400</fadetime>
 						<bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
 						<bordersize>7</bordersize>
@@ -1237,7 +1237,7 @@
 						<top>109</top>
 						<width>190</width>
 						<height>160</height>
-						<texture background="true">$INFO[ListItem.Art(tvshow.clearart)]</texture>
+						<texture background="true">$INFO[Container.ListItem.Art(tvshow.clearart)]</texture>
 						<fadetime>400</fadetime>
 						<visible>StringCompare(Control.GetLabel(4420),fanart)</visible>
 					</control>
@@ -1246,7 +1246,7 @@
 						<top>102</top>
 						<width>204</width>
 						<height>174</height>
-						<texture background="true">$INFO[ListItem.Art(clearart)]</texture>
+						<texture background="true">$INFO[Container.ListItem.Art(clearart)]</texture>
 						<fadetime>400</fadetime>
 						<bordersize>7</bordersize>
 						<visible>StringCompare(Control.GetLabel(4420),fanart)</visible>
@@ -1261,7 +1261,7 @@
 						<width>391</width>
 						<height>220</height>
 						<aspectratio aligny="center">keep</aspectratio>
-						<texture background="true">$INFO[ListItem.Art(clearart)]</texture>
+						<texture background="true">$INFO[Container.ListItem.Art(clearart)]</texture>
 						<fadetime>400</fadetime>
 						<bordersize>7</bordersize>
 						<visible>!StringCompare(Control.GetLabel(4420),fanart)</visible>
@@ -1271,7 +1271,7 @@
 						<top>358</top>
 						<width>750</width>
 						<height>152</height>
-						<texture background="true" diffuse="thumbs/banner_mask.png">$INFO[ListItem.Art(banner)]</texture>
+						<texture background="true" diffuse="thumbs/banner_mask.png">$INFO[Container.ListItem.Art(banner)]</texture>
 						<bordertexture border="12">thumbs/banner_shadow_b.png</bordertexture>
 						<bordersize>12</bordersize>
 						<visible>!StringCompare(Control.GetLabel(4420),fanart)</visible>
@@ -1362,9 +1362,9 @@
 			<animation effect="slide" end="0,45" time="320" easing="inout" tween="cubic" condition="Control.IsVisible(503) | Control.IsVisible(508)">Conditional</animation>
 			<animation effect="fade" time="200">WindowOpen</animation>
 			<animation effect="slide" end="0,-1000" time="240" easing="in" tween="cubic">WindowClose</animation>
-			<animation effect="slide" end="0,35" time="400" easing="in" tween="cubic" condition="!Skin.HasSetting(no_infopane_panel) + Control.IsVisible(503)">Conditional</animation>
+			<!--animation effect="slide" end="0,35" time="400" easing="in" tween="cubic" condition="!Skin.HasSetting(no_infopane_panel) + Control.IsVisible(503)">Conditional</animation-->
 			<animation effect="slide" end="0,60" time="400" easing="in" tween="cubic" condition="[Control.IsVisible(57) + Skin.HasSetting(smallshiftview)]">Conditional</animation>
-			<animation effect="slide" end="0,65" time="400" easing="in" tween="cubic" condition="!Skin.HasSetting(no_infopane_panel) + Control.IsVisible(503) + [Skin.HasSetting(landscapelogo) | Skin.HasSetting(landscapeonelogo)] + [Container.Content(tvshows) | Container.Content(movies)]">Conditional</animation>
+			<!--animation effect="slide" end="0,65" time="400" easing="in" tween="cubic" condition="!Skin.HasSetting(no_infopane_panel) + Control.IsVisible(503) + [Skin.HasSetting(landscapelogo) | Skin.HasSetting(landscapeonelogo)] + [Container.Content(tvshows) | Container.Content(movies)]">Conditional</animation-->
 			<animation effect="zoom" end="113" center="960,500" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(no_infopane_panel)">Conditional</animation>
 			<control type="group">
 				<visible>!Skin.HasSetting(no_infopane_panel)</visible>
@@ -1475,21 +1475,21 @@
 				</animation>
 			</control>
 			<!-- BEGIN Extra Fanart by ShadowTek -->
-            <control type="multiimage">
-                <left>909</left>
-                <posy>69</posy>
-                <width>798</width>
-                <height>454</height>
-                <aspectratio>stretch</aspectratio>
-                <fadetime>FanartCrossfadeTime</fadetime>
-                <include condition="Window.IsActive(pictures)">Aspectratio_Keep</include>
-                <include condition="!Window.IsActive(pictures)">Aspectratio_Scale</include>
-                <timeperimage>3000</timeperimage>
-                <imagepath background="true">$VAR[VideoExtraFanartVar]</imagepath>
-                <visible>StringCompare(Control.GetLabel(4420),fanart) + Skin.Hassetting(infopanel_extrafanart)</visible>
-                <include>Animation_VisibleChange200</include>
-             </control>
-			 <!-- END Extra Fanart by ShadowTek -->
+			<control type="multiimage">
+				<left>909</left>
+				<posy>69</posy>
+				<width>798</width>
+				<height>454</height>
+				<aspectratio>stretch</aspectratio>
+				<fadetime>FanartCrossfadeTime</fadetime>
+				<include condition="Window.IsActive(pictures)">Aspectratio_Keep</include>
+				<include condition="!Window.IsActive(pictures)">Aspectratio_Scale</include>
+				<timeperimage>3000</timeperimage>
+				<imagepath background="true">$VAR[VideoExtraFanartVar]</imagepath>
+				<visible>StringCompare(Control.GetLabel(4420),fanart) + Skin.Hassetting(infopanel_extrafanart)</visible>
+				<include>Animation_VisibleChange200</include>
+			</control>
+			<!-- END Extra Fanart by ShadowTek -->
 			<control type="image">
 				<left>909</left>
 				<top>69</top>
@@ -1875,7 +1875,7 @@
 						<width>391</width>
 						<height>220</height>
 						<aspectratio aligny="top">scale</aspectratio>
-						<texture fallback="fallback.png" background="true">$INFO[ListItem.Art(fanart)]</texture>
+						<texture fallback="fallback.png" background="true">$INFO[Container.ListItem.Art(fanart)]</texture>
 						<fadetime>400</fadetime>
 						<bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
 						<bordersize>7</bordersize>
@@ -1888,7 +1888,7 @@
 						<width>391</width>
 						<height>220</height>
 						<aspectratio aligny="top">keep</aspectratio>
-						<texture fallback="fallback.png" background="true">$INFO[ListItem.Art(clearart)]</texture>
+						<texture fallback="fallback.png" background="true">$INFO[Container.ListItem.Art(clearart)]</texture>
 						<fadetime>400</fadetime>
 						<bordersize>7</bordersize>
 					</control>
@@ -1897,7 +1897,7 @@
 						<width>391</width>
 						<height>220</height>
 						<aspectratio aligny="top">keep</aspectratio>
-						<texture fallback="fallback.png" background="true">$INFO[ListItem.Art(landscape)]</texture>
+						<texture fallback="fallback.png" background="true">$INFO[Container.ListItem.Art(landscape)]</texture>
 						<fadetime>400</fadetime>
 						<bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
 						<bordersize>7</bordersize>

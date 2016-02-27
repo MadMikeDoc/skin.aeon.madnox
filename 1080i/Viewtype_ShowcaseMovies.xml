@@ -2686,7 +2686,7 @@
 			<fadetime>4000</fadetime>
 			<!-- MikeBZH44 Add !Skin.HasSetting(OpenCase) condition -->
 			<animation type="Conditional" condition="Control.IsVisible(961) + !Control.IsVisible(6000) + Skin.HasSetting(OpenCase)" reversible="true">
-			<effect type="rotate" start="0" center="auto" end="720" delay="2500" time="4300" tween="cubic" easing="inout"/>
+				<effect type="rotate" start="0" center="auto" end="720" delay="2500" time="4300" tween="cubic" easing="inout"/>
 			</animation>
 			<visible>Skin.HasSetting(noflow)</visible>
 		</control>
@@ -2759,8 +2759,8 @@
 			<aligny>top</aligny>
 			<textcolor>black</textcolor>
 			<visible>Skin.Hassetting(noflow) + IsEmpty(ListItem.Art(discart)) + Skin.HasSetting(OpenCase) + Container.Content(movies) + Skin.HasSetting(Fakedischandwriting) + !SubString(ListItem.Path,videodb://movies/sets) + IsEmpty(ListItem.Art(clearlogo))</visible>
-            <label>[CR][CR][CR][CR][CR] $INFO[ListItem.Title]</label>
-        </control>
+			<label>[CR][CR][CR][CR][CR] $INFO[ListItem.Title]</label>
+		</control>
 		<control type="group">
 			<animation type="Conditional" condition="Skin.HasSetting(OpenCase)" reversible="true">
 				<effect type="rotate" start="0" center="146,191" end="720" delay="2500" time="4300" tween="cubic" easing="inout"/>
@@ -2774,7 +2774,7 @@
 			<aspectratio aligny="bottom">keep</aspectratio>
 			<visible>Skin.HasSetting(noflow) + Container.Content(movies) + !IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(discart)) + !SubString(ListItem.Path,videodb://movies/sets) + Skin.HasSetting(Fakedischandwriting)</visible>
 			<control type="image">
-			<texture background="true" fallback="empty.png">$INFO[ListItem.Art(clearlogo)]</texture>
+				<texture background="true" fallback="empty.png">$INFO[ListItem.Art(clearlogo)]</texture>
 			</control>
 		</control>
 		<!--MAD Fake Disc End -->
@@ -3548,4 +3548,4 @@
 			</control>
 		</control>
 	</include>
-	</includes>
+</includes>
