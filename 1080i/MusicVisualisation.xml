@@ -6,7 +6,6 @@
 	<onunload>Skin.Reset(vispanelrotate)</onunload>
 	<onload>RunScript(script.artistslideshow)</onload>
 	<onload condition="!Skin.HasSetting(AltMusicVizLayout) + !Skin.HasSetting(ThirdMusicVizLayout)">RunScript(script.cu.lrclyrics)</onload>
-	<onload>RunScript(script.artistslideshow)</onload>
 	<controls>
 		<control type="label" id="4322">
 			<label>$INFO[Skin.String(MusicViz.MultiFanart)]</label>
@@ -1288,39 +1287,43 @@
 				<height>4</height>
 				<texture>views/list_divider.png</texture>
 			</control>
-			<!-- Progress -->
+	<!-- Progress/buttons -->
 			<control type="image">
-				<visible>!Skin.HasSetting(AltMusicVizLayoutProgress)</visible>
-				<left>1550</left>
-				<top>150</top>
-				<width>55</width>
-				<height>55</height>
-				<texture>$VAR[MusicOSDRepeatButtonVar]</texture>
-				<colordiffuse>white3</colordiffuse>
-				<aspectratio>keep</aspectratio>
-				<visible>Player.HasDuration</visible>
-			</control>
-			<control type="togglebutton">
-				<visible>!Skin.HasSetting(AltMusicVizLayoutProgress)</visible>
-				<left>1610</left>
-				<top>150</top>
-				<width>55</width>
-				<height>55</height>
-				<texturenofocus>special://skin/extras/BigIcons/ArrowRight.png</texturenofocus>
-				<alttexturenofocus>special://skin/extras/BigIcons/ButtonShuffle.png</alttexturenofocus>
-				<usealttexture>Playlist.IsRandom</usealttexture>
-				<colordiffuse>white3</colordiffuse>
-				<visible>Player.HasDuration</visible>
-			</control>
-			<control type="group">
-				<visible>!Skin.HasSetting(AltMusicVizLayoutProgress)</visible>
-				<left>970</left>
-				<top>153</top>
-				<width>520</width>
-				<height>150</height>
-				<itemgap>10</itemgap>
-				<orientation>horizontal</orientation>
-				<control type="label">
+				<visible>!Skin.HasSetting(AltMusicVizLayoutShuffle) + Player.HasDuration</visible>
+					<animation effect="slide" start="0,0" end="-50,0" time="200" tween="cubic" condition="Skin.HasSetting(AltMusicVizLayoutProgress) + !Skin.HasSetting(AltMusicVizLayoutNext)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="100,0" time="200" tween="cubic" condition="Skin.HasSetting(AltMusicVizLayoutNext)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-125,35" time="200" tween="cubic" condition="Skin.HasSetting(AltMusicVizLayoutProgress) + Skin.HasSetting(AltMusicVizLayoutNext) + Skin.HasSetting(AltMusicVizLayoutInfo)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-650,20" time="200" tween="cubic" condition="Skin.HasSetting(AltMusicVizLayoutProgress) + Skin.HasSetting(AltMusicVizLayoutNext) + !Skin.HasSetting(AltMusicVizLayoutInfo)">Conditional</animation>
+					<left>1535</left>
+					<top>145</top>
+					<width>50</width>
+					<height>50</height>
+					<texture>$VAR[MusicVizOSDRepeatButtonVar]</texture>
+					<!--colordiffuse>$VAR[TitleColorVar]</colordiffuse-->
+					<aspectratio>keep</aspectratio>
+                </control>
+				<control type="image">
+					<visible>!Skin.HasSetting(AltMusicVizLayoutShuffle) + Player.HasDuration</visible>
+					<animation effect="slide" start="0,0" end="-30,0" time="200" tween="cubic" condition="Skin.HasSetting(AltMusicVizLayoutProgress) + !Skin.HasSetting(AltMusicVizLayoutNext)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="130,0" time="200" tween="cubic" condition="Skin.HasSetting(AltMusicVizLayoutNext)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-80,35" time="200" tween="cubic" condition="Skin.HasSetting(AltMusicVizLayoutProgress) + Skin.HasSetting(AltMusicVizLayoutNext) + Skin.HasSetting(AltMusicVizLayoutInfo)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-950,20" time="200" tween="cubic" condition="Skin.HasSetting(AltMusicVizLayoutProgress) + Skin.HasSetting(AltMusicVizLayoutNext) + !Skin.HasSetting(AltMusicVizLayoutInfo)">Conditional</animation>
+					<left>1610</left>
+					<top>145</top>
+					<width>50</width>
+					<height>50</height>
+					<texture>$VAR[MusicVizOSDShuffleButtonVar]</texture>
+					<colordiffuse>$VAR[TitleColorVar]</colordiffuse>
+				</control>
+				 <control type="group">
+					<animation effect="slide" start="0,0" end="155,0" time="200" tween="cubic" condition="Skin.HasSetting(AltMusicVizLayoutNext + Skin.HasSetting(AltMusicVizLayoutShuffle)">Conditional</animation>
+					<left>970</left>
+					<top>153</top>
+					<width>520</width>
+					<height>150</height>
+					<itemgap>10</itemgap>
+					<orientation>horizontal</orientation>
+					<control type="label">
 					<width min="10" max="550">auto</width>
 					<height>70</height>
 					<font>Font_MainClassic22</font>
