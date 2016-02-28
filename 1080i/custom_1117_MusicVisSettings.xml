@@ -160,6 +160,7 @@
 					<include>Objects_CommonSettingsButton</include>
 					<onclick>Skin.SetAddon(LyricScript_Path,xbmc.python.lyrics)</onclick>
 				</control>
+				<!--Layout 2 -->
 				<control type="label" id="4366">
 					<width>600</width>
 					<height>60</height>
@@ -196,6 +197,14 @@
 					<include>Objects_CommonSettingsButton</include>
 					<onclick>Skin.ToggleSetting(AltMusicVizLayoutProgress)</onclick>
 					<selected>Skin.HasSetting(AltMusicVizLayoutProgress)</selected>
+					<enable>Skin.HasSetting(AltMusicVizLayout)</enable>
+					<visible>Skin.HasSetting(AltMusicVizLayout)</visible>
+				</control>
+				<control type="radiobutton" id="17107">
+					<label>  - Hide Repeat/Shuffle</label>
+					<include>Objects_CommonSettingsButton</include>
+					<onclick>Skin.ToggleSetting(AltMusicVizLayoutShuffle)</onclick>
+					<selected>Skin.HasSetting(AltMusicVizLayoutShuffle)</selected>
 					<enable>Skin.HasSetting(AltMusicVizLayout)</enable>
 					<visible>Skin.HasSetting(AltMusicVizLayout)</visible>
 				</control>

@@ -84,6 +84,16 @@
 				<height>495</height>
 				<aspectratio align="center">keep</aspectratio>
 				<fadetime>400</fadetime>
+				<texture background="true">$INFO[Window(Home).Property(SkinHelper.Music.DiscArt)]</texture>
+				<visible>Skin.HasSetting(rightlistCD) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart)</visible>
+				<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
+				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
+			</control>
+			<control type="image">
+				<width>495</width>
+				<height>495</height>
+				<aspectratio align="center">keep</aspectratio>
+				<fadetime>400</fadetime>
 				<include condition="Skin.HasSetting(vinylart)">vinylartlibrary</include>
 				<include condition="Skin.HasSetting(blurayart)">blurayartlibrary</include>
 				<visible>IsEmpty(Window(Home).Property(SkinHelper.Music.DiscArt))</visible>
