@@ -833,7 +833,7 @@
 		<value condition="Container.Content(movies) + IsEmpty(ListItem.Art(fanart)) + IsEmpty(Container.ListItem.Art(fanart))">special://skin/backgrounds/fallback_movies.jpg</value>
 		<value condition="[Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !Skin.HasSetting(LandscapeThumb)]] + IsEmpty(ListItem.Art(fanart)) + IsEmpty(Container.ListItem.Art(fanart))">special://skin/backgrounds/fallback_tvshows.jpg</value>
 		<value condition="Container.Content(episodes) + Skin.HasSetting(LandscapeThumb) + IsEmpty(ListItem.Thumb) + IsEmpty(Container.ListItem.Thumb)">special://skin/backgrounds/fallback_tvshows.jpg</value>
-		<value condition="Container.Content(episodes) + Skin.HasSetting(LandscapeThumb) + !IsEmpty(ListItem.Thumb)">white.png</value>
+		<value condition="Container.Content(episodes) + Skin.HasSetting(LandscapeThumb) + !IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
 		<value condition="Container.Content(episodes) + Skin.HasSetting(LandscapeThumb)">$INFO[Container.ListItem.Thumb]</value>
 		<value condition="[[Container.Content(tvshows) | Container.Content(seasons)] + Skin.HasSetting(TVLandscapeThumb)]">$INFO[ListItem.Path,,landscape.jpg]</value>
 		<value condition="[[Container.Content(seasons)] + Skin.HasSetting(TVLandscapeThumb)]">$VAR[SeasonLandscape]</value>
