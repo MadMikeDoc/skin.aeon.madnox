@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window id="1166" type="dialog">
 	<defaultcontrol always="true">451</defaultcontrol>
-
 	<coordinates>
 		<left>0</left>
 		<top>-500</top>
@@ -309,21 +308,22 @@
 				</control>
 				<control type="radiobutton" id="1204">
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>No case for movieset</label>
+					<textwidth>300</textwidth>
+					<label>31430</label>
 					<onclick>Skin.ToggleSetting(NoCaseForMovieset)</onclick>
 					<selected>Skin.HasSetting(NoCaseForMovieset)</selected>
 					<visible>Skin.HasSetting(MikeCasesMod) + [[Container.Content(movies) | Container.Content(sets)] + Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies)]</visible>
 				</control>
 				<control type="radiobutton" id="1207">
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Open Set as BoxCase</label>
+					<label>31431</label>
 					<onclick>Skin.ToggleSetting(OpenBoxSet)</onclick>
 					<selected>Skin.HasSetting(OpenBoxSet)</selected>
 					<visible>Skin.HasSetting(NoCaseForMovieset) + [[Container.Content(movies) | Container.Content(sets)] + Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies)]</visible>
 				</control>
 				<control type="radiobutton" id="1205">
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Open case</label>
+					<label>31416</label>
 					<onclick>Skin.ToggleSetting(OpenCase)</onclick>
 					<onclick>Skin.SetBool(showcasecdart)</onclick>
 					<selected>Skin.HasSetting(OpenCase)</selected>
@@ -334,7 +334,8 @@
 				<control type="radiobutton" id="17015">
 					<description>Fake CD/DiscArt</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Fake Disc Art</label>
+					<label>31432</label>
+					<textwidth>300</textwidth>
 					<onclick>Skin.ToggleSetting(Fakediscart)</onclick>
 					<onclick>Skin.Reset(Fakedischandwriting)</onclick>
 					<onclick>Skin.Reset(Fakehandbottom)</onclick>
@@ -345,7 +346,8 @@
 				<control type="radiobutton" id="17016">
 					<description>Fake CD/DiscArt Handwriting</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Fake Disc Handwriting</label>
+					<label>31433</label>
+					<textwidth>300</textwidth>
 					<onclick>Skin.ToggleSetting(Fakedischandwriting)</onclick>
 					<onclick>Skin.Reset(Fakediscart)</onclick>
 					<selected>Skin.HasSetting(Fakedischandwriting)</selected>
@@ -354,7 +356,7 @@
 				<control type="radiobutton" id="17029">
 					<description>Fake CD/DiscArt Handwriting Disc Type - Color</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>         Colored Disc</label>
+					<label>31434</label>
 					<onclick>Skin.ToggleSetting(Fakehanddisccolor)</onclick>
 					<selected>Skin.HasSetting(Fakehanddisccolor)</selected>
 					<visible>[Container.Content(movies) | Container.Content(sets)] + !Stringcompare(Window(home).Property(actualViewtype),AddonWall) + Skin.HasSetting(Fakedischandwriting)+ !Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)</visible>
@@ -362,7 +364,7 @@
 				<control type="radiobutton" id="17025">
 					<description>Fake CD/DiscArt Handwriting position - Top</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>         Handwriting Top</label>
+					<label>31435</label>
 					<onclick>Skin.ToggleSetting(Fakehandtop)</onclick>
 					<selected>Skin.HasSetting(Fakehandtop)</selected>
 					<visible>[Container.Content(movies) | Container.Content(sets)] + !Stringcompare(Window(home).Property(actualViewtype),AddonWall) + Skin.HasSetting(Fakedischandwriting) + Stringcompare(Window(home).Property(actualViewtype),LowList)</visible>
