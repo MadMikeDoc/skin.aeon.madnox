@@ -598,9 +598,25 @@
 					<description>Disable Black Overlay</description>
 					<include>Objects_MediaMenuButtonAlt2</include>
 					<label>31371</label>
-					<onclick>Skin.ToggleSetting(RightListShowBG)</onclick>
-					<selected>!Skin.HasSetting(RightListShowBG)</selected>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList)</visible>
+					<onclick>Skin.ToggleSetting(RightListShowBGMusic)</onclick>
+					<selected>!Skin.HasSetting(RightListShowBGMusic)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + [Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]</visible>
+				</control>
+				<control type="radiobutton" id="179911">
+					<description>Disable Black Overlay</description>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>31371</label>
+					<onclick>Skin.ToggleSetting(RightListShowBGTV)</onclick>
+					<selected>!Skin.HasSetting(RightListShowBGTV)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + [Container.Content(seasons) | Container.Content(tvshows) | Container.Content(episodes)]</visible>
+				</control>
+				<control type="radiobutton" id="179912">
+					<description>Disable Black Overlay</description>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>31371</label>
+					<onclick>Skin.ToggleSetting(RightListShowBGMovie)</onclick>
+					<selected>!Skin.HasSetting(RightListShowBGMovie)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + Container.Content(movies)</visible>
 				</control>
 				<control type="radiobutton" id="17092">
 					<description>Show New Texture</description>
@@ -634,7 +650,7 @@
 					<label>31382</label>
 					<onclick>Skin.ToggleSetting(rightlistCD)</onclick>
 					<selected>Skin.HasSetting(rightlistCD)</selected>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + [Container.Content(Artists) | Container.Content(Albums) | Container.Content(songs)]</visible>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + Container.Content(Albums) | Container.Content(songs)]</visible>
 				</control>
 
 				<!--MAD - End of Right List options -->
@@ -999,14 +1015,14 @@
 					<include>Objects_MediaMenuButtonAlt2</include>
 					<onclick>Skin.ToggleSetting(ListNoCaseBadge)</onclick>
 					<selected>Skin.HasSetting(ListNoCaseBadge)</selected>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),List) + Skin.HasSetting(ListCase)</visible>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),List) + Skin.HasSetting(ListCase) + Container.Content(movies)</visible>
 				</control>
 				<control type="radiobutton" id="17113">
 					<label>31419</label>
 					<include>Objects_MediaMenuButtonAlt2</include>
 					<onclick>Skin.ToggleSetting(ListUseThumbsOnBack)</onclick>
 					<selected>Skin.HasSetting(ListUseThumbsOnBack)</selected>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),List) + Skin.HasSetting(ListCase)</visible>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),List) + Skin.HasSetting(ListCase) + Container.Content(movies)</visible>
 				</control>
 				<control type="radiobutton" id="1663">
 					<label>$LOCALIZE[31812]</label>
@@ -1248,6 +1264,47 @@
 					<onclick>Skin.ToggleSetting(tripanelsquarebiglist)</onclick>
 					<selected>Skin.HasSetting(tripanelsquarebiglist)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),TriPanelSquare)</visible>
+				</control>
+				<!--control type="radiobutton" id="16471">
+					<label>Show Info</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(TriPanelSquareShowInfo)</onclick>
+					<onclick>Skin.Reset(TriPanelSquareShowTracks)</onclick>
+					<onclick>Skin.Reset(TriPanelSquareShowCDs)</onclick>
+					<selected>Skin.HasSetting(TriPanelSquareShowInfo)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),TriPanelSquare) + [Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]</visible>
+				</control-->
+				<control type="radiobutton" id="16472">
+					<label>Toggle Info | Track List</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(TriPanelSquareShowTracks)</onclick>
+					<onclick>Skin.Reset(TriPanelSquareShowInfo)</onclick>
+					<selected>Skin.HasSetting(TriPanelSquareShowTracks)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),TriPanelSquare) + [Container.Content(albums)]</visible>
+				</control>
+				<control type="radiobutton" id="16473">
+					<label>Toggle Info | CD List </label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(TriPanelSquareShowCDs)</onclick>
+					<onclick>Skin.Reset(TriPanelSquareShowInfo)</onclick>
+					<selected>Skin.HasSetting(TriPanelSquareShowCDs)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),TriPanelSquare) + [Container.Content(artists)]</visible>
+				</control>
+				<!--control type="radiobutton" id="16474">
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>Show Banner</label>
+					<onclick>Skin.ToggleSetting(TriPanelSquareBanner)</onclick>
+					<onclick>Skin.Reset(TriPanelSquareClearArt)</onclick>
+					<selected>Skin.HasSetting(TriPanelSquareBanner)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),TriPanelSquare) + [Container.Content(Artists) | Container.Content(Albums) | Container.Content(songs)]</visible>
+				</control-->
+				<control type="radiobutton" id="16475">
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>Toggle ClearArt | Banner</label>
+					<onclick>Skin.ToggleSetting(TriPanelSquareClearArt)</onclick>
+					<!--onclick>Skin.Reset(TriPanelSquareBanner)</onclick-->
+					<selected>Skin.HasSetting(TriPanelSquareClearArt)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),TriPanelSquare) + [Container.Content(Artists) | Container.Content(Albums) | Container.Content(songs)]</visible>
 				</control>
 				<control type="button" id="1603">
 					<label>$LOCALIZE[31176]</label>
