@@ -47,7 +47,7 @@
 							<top>-20</top>
 							<width>276</width>
 							<height>380</height>
-							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG2Resolution]p.png</texture>
+							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG2Resolution].png</texture>
 						</control>
 					</control>
 					<control type="group">
@@ -70,7 +70,7 @@
 							<top>-20</top>
 							<width>276</width>
 							<height>380</height>
-							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG3Resolution]p.png</texture>
+							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG3Resolution].png</texture>
 						</control>
 					</control>
 					<control type="group">
@@ -93,7 +93,7 @@
 							<top>-20</top>
 							<width>276</width>
 							<height>380</height>
-							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG5Resolution]p.png</texture>
+							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG5Resolution].png</texture>
 						</control>
 					</control>
 					<control type="group">
@@ -116,7 +116,7 @@
 							<top>-20</top>
 							<width>276</width>
 							<height>380</height>
-							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG6Resolution]p.png</texture>
+							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG6Resolution].png</texture>
 						</control>
 					</control>
 					<control type="group">
@@ -139,7 +139,7 @@
 							<top>-20</top>
 							<width>276</width>
 							<height>380</height>
-							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG4Resolution]p.png</texture>
+							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG4Resolution].png</texture>
 						</control>
 					</control>
 					<control type="group">
@@ -162,7 +162,7 @@
 							<top>-20</top>
 							<width>276</width>
 							<height>380</height>
-							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG8Resolution]p.png</texture>
+							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG8Resolution].png</texture>
 						</control>
 					</control>
 					<control type="group">
@@ -185,7 +185,7 @@
 							<top>-20</top>
 							<width>276</width>
 							<height>380</height>
-							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG7Resolution]p.png</texture>
+							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG7Resolution].png</texture>
 						</control>
 					</control>
 					<control type="group">
@@ -208,7 +208,7 @@
 							<top>-20</top>
 							<width>276</width>
 							<height>380</height>
-							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG9Resolution]p.png</texture>
+							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG9Resolution].png</texture>
 						</control>
 					</control>
 					<control type="group">
@@ -231,7 +231,7 @@
 							<top>-20</top>
 							<width>276</width>
 							<height>380</height>
-							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG10Resolution]p.png</texture>
+							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG10Resolution].png</texture>
 						</control>
 					</control>
 					<control type="group">
@@ -254,7 +254,7 @@
 							<top>-20</top>
 							<width>276</width>
 							<height>380</height>
-							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG1Resolution]p.png</texture>
+							<texture background="true" fallback="thumbs/boxes/movies/p.png">thumbs/boxes/$VAR[LiveBGCases]/$VAR[LiveBG1Resolution].png</texture>
 						</control>
 					</control>
 				</control>
@@ -927,46 +927,488 @@
 	</variable>
 
 	<variable name="LiveBG1Resolution">
-		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(0).VideoResolution]</value>
-		<value>$INFO[Container(8020).ListItem(0).VideoResolution]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$VAR[LiveBG1Resolution8011]</value>
+		<value>$VAR[LiveBG1Resolution8020]</value>
 	</variable>
 	<variable name="LiveBG2Resolution">
-		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(1).VideoResolution]</value>
-		<value>$INFO[Container(8020).ListItem(1).VideoResolution]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$VAR[LiveBG2Resolution8011]</value>
+		<value>$VAR[LiveBG2Resolution8020]</value>
 	</variable>
 	<variable name="LiveBG3Resolution">
-		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(2).VideoResolution]</value>
-		<value>$INFO[Container(8020).ListItem(2).VideoResolution]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$VAR[LiveBG3Resolution8011]</value>
+		<value>$VAR[LiveBG3Resolution8020]</value>
 	</variable>
 	<variable name="LiveBG4Resolution">
-		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(3).VideoResolution]</value>
-		<value>$INFO[Container(8020).ListItem(3).VideoResolution]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$VAR[LiveBG4Resolution8011]</value>
+		<value>$VAR[LiveBG4Resolution8020]</value>
 	</variable>
 	<variable name="LiveBG5Resolution">
-		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(4).VideoResolution]</value>
-		<value>$INFO[Container(8020).ListItem(4).VideoResolution]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$VAR[LiveBG5Resolution8011]</value>
+		<value>$VAR[LiveBG5Resolution8020]</value>
 	</variable>
 	<variable name="LiveBG6Resolution">
-		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(5).VideoResolution]</value>
-		<value>$INFO[Container(8020).ListItem(5).VideoResolution]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$VAR[LiveBG6Resolution8011]</value>
+		<value>$VAR[LiveBG6Resolution8020]</value>
 	</variable>
 	<variable name="LiveBG7Resolution">
-		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(6).VideoResolution]</value>
-		<value>$INFO[Container(8020).ListItem(6).VideoResolution]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$VAR[LiveBG7Resolution8011]</value>
+		<value>$VAR[LiveBG7Resolution8020]</value>
 	</variable>
 	<variable name="LiveBG8Resolution">
-		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(7).VideoResolution]</value>
-		<value>$INFO[Container(8020).ListItem(7).VideoResolution]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$VAR[LiveBG8Resolution8011]</value>
+		<value>$VAR[LiveBG8Resolution8020]</value>
 	</variable>
 	<variable name="LiveBG9Resolution">
-		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(8).VideoResolution]</value>
-		<value>$INFO[Container(8020).ListItem(8).VideoResolution]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$VAR[LiveBG9Resolution8011]</value>
+		<value>$VAR[LiveBG9Resolution8020]</value>
 	</variable>
 	<variable name="LiveBG10Resolution">
-		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$INFO[Container(8011).ListItem(9).VideoResolution]</value>
-		<value>$INFO[Container(8020).ListItem(9).VideoResolution]</value>
+		<value condition="Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right)">$VAR[LiveBG10Resolution8011]</value>
+		<value>$VAR[LiveBG10Resolution8020]</value>
 	</variable>
-		
+
+	<variable name="LiveBG1Resolution8011">
+		<!--value condition="[Container.Content(tvshows) | Container.Content(seasons)]">tvseries.png</value-->
+		<value condition="SubString(Container(8011).ListItem(0).Filename,.3D.) | SubString(Container(8011).ListItem(0).Filename,.3d.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(0).Filename, 3D.) | SubString(Container(8011).ListItem(0).Filename, 3d.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(0).Filename,.3DBD.) | SubString(Container(8011).ListItem(0).Filename,.3dbd.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(0).Filename, 3DBD.) | SubString(Container(8011).ListItem(0).Filename, 3dbd.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(0).Filename,.HDDVD.) | SubString(Container(8011).ListItem(0).Filename,.hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8011).ListItem(0).Filename, HDDVD.) | SubString(Container(8011).ListItem(0).Filename, hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8011).ListItem(0).Filename,.SDTV.) | SubString(Container(8011).ListItem(0).Filename,.sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8011).ListItem(0).Filename, SDTV.) | SubString(Container(8011).ListItem(0).Filename, sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8011).ListItem(0).Filename,.HDTV.) | SubString(Container(8011).ListItem(0).Filename,.hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8011).ListItem(0).Filename, HDTV.) | SubString(Container(8011).ListItem(0).Filename, hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8011).ListItem(0).Filename,.WEBDL.) | SubString(Container(8011).ListItem(0).Filename,.webdl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(0).Filename, WEBDL.) | SubString(Container(8011).ListItem(0).Filename, webdl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(0).Filename,.WEB-DL.) | SubString(Container(8011).ListItem(0).Filename,.web-dl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(0).Filename, WEB-DL.) | SubString(Container(8011).ListItem(0).Filename, web-dl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(0).Filename,.4K.) | SubString(Container(8011).ListItem(0).Filename,.4k.)">4k</value>
+		<value condition="SubString(Container(8011).ListItem(0).Filename, 4K.) | SubString(Container(8011).ListItem(0).Filename, 4k.)">4k</value>
+		<!--value condition="SubString(Container(8011).ListItem(0).Filename,hdtv)">hdtv</value-->
+		<value>$INFO[Container(8011).ListItem(0).VideoResolution]p</value>
+	</variable>
+	
+	<variable name="LiveBG2Resolution8011">
+		<!--value condition="[Container.Content(tvshows) | Container.Content(seasons)]">tvseries.png</value-->
+		<value condition="SubString(Container(8011).ListItem(1).Filename,.3D.) | SubString(Container(8011).ListItem(1).Filename,.3d.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(1).Filename, 3D.) | SubString(Container(8011).ListItem(1).Filename, 3d.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(1).Filename,.3DBD.) | SubString(Container(8011).ListItem(1).Filename,.3dbd.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(1).Filename, 3DBD.) | SubString(Container(8011).ListItem(1).Filename, 3dbd.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(1).Filename,.HDDVD.) | SubString(Container(8011).ListItem(1).Filename,.hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8011).ListItem(1).Filename, HDDVD.) | SubString(Container(8011).ListItem(1).Filename, hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8011).ListItem(1).Filename,.SDTV.) | SubString(Container(8011).ListItem(1).Filename,.sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8011).ListItem(1).Filename, SDTV.) | SubString(Container(8011).ListItem(1).Filename, sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8011).ListItem(1).Filename,.HDTV.) | SubString(Container(8011).ListItem(1).Filename,.hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8011).ListItem(1).Filename, HDTV.) | SubString(Container(8011).ListItem(1).Filename, hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8011).ListItem(1).Filename,.WEBDL.) | SubString(Container(8011).ListItem(1).Filename,.webdl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(1).Filename, WEBDL.) | SubString(Container(8011).ListItem(1).Filename, webdl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(1).Filename,.WEB-DL.) | SubString(Container(8011).ListItem(1).Filename,.web-dl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(1).Filename, WEB-DL.) | SubString(Container(8011).ListItem(1).Filename, web-dl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(1).Filename,.4K.) | SubString(Container(8011).ListItem(1).Filename,.4k.)">4k</value>
+		<value condition="SubString(Container(8011).ListItem(1).Filename, 4K.) | SubString(Container(8011).ListItem(1).Filename, 4k.)">4k</value>
+		<!--value condition="SubString(Container(8011).ListItem(1).Filename,hdtv)">hdtv</value-->
+		<value>$INFO[Container(8011).ListItem(1).VideoResolution]p</value>
+	</variable>
+	
+	<variable name="LiveBG3Resolution8011">
+		<!--value condition="[Container.Content(tvshows) | Container.Content(seasons)]">tvseries.png</value-->
+		<value condition="SubString(Container(8011).ListItem(2).Filename,.3D.) | SubString(Container(8011).ListItem(2).Filename,.3d.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(2).Filename, 3D.) | SubString(Container(8011).ListItem(2).Filename, 3d.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(2).Filename,.3DBD.) | SubString(Container(8011).ListItem(2).Filename,.3dbd.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(2).Filename, 3DBD.) | SubString(Container(8011).ListItem(2).Filename, 3dbd.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(2).Filename,.HDDVD.) | SubString(Container(8011).ListItem(2).Filename,.hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8011).ListItem(2).Filename, HDDVD.) | SubString(Container(8011).ListItem(2).Filename, hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8011).ListItem(2).Filename,.SDTV.) | SubString(Container(8011).ListItem(2).Filename,.sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8011).ListItem(2).Filename, SDTV.) | SubString(Container(8011).ListItem(2).Filename, sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8011).ListItem(2).Filename,.HDTV.) | SubString(Container(8011).ListItem(2).Filename,.hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8011).ListItem(2).Filename, HDTV.) | SubString(Container(8011).ListItem(2).Filename, hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8011).ListItem(2).Filename,.WEBDL.) | SubString(Container(8011).ListItem(2).Filename,.webdl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(2).Filename, WEBDL.) | SubString(Container(8011).ListItem(2).Filename, webdl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(2).Filename,.WEB-DL.) | SubString(Container(8011).ListItem(2).Filename,.web-dl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(2).Filename, WEB-DL.) | SubString(Container(8011).ListItem(2).Filename, web-dl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(2).Filename,.4K.) | SubString(Container(8011).ListItem(2).Filename,.4k.)">4k</value>
+		<value condition="SubString(Container(8011).ListItem(2).Filename, 4K.) | SubString(Container(8011).ListItem(2).Filename, 4k.)">4k</value>
+		<!--value condition="SubString(Container(8011).ListItem(2).Filename,hdtv)">hdtv</value-->
+		<value>$INFO[Container(8011).ListItem(2).VideoResolution]p</value>
+	</variable>
+	
+	<variable name="LiveBG4Resolution8011">
+		<!--value condition="[Container.Content(tvshows) | Container.Content(seasons)]">tvseries.png</value-->
+		<value condition="SubString(Container(8011).ListItem(3).Filename,.3D.) | SubString(Container(8011).ListItem(3).Filename,.3d.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(3).Filename, 3D.) | SubString(Container(8011).ListItem(3).Filename, 3d.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(3).Filename,.3DBD.) | SubString(Container(8011).ListItem(3).Filename,.3dbd.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(3).Filename, 3DBD.) | SubString(Container(8011).ListItem(3).Filename, 3dbd.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(3).Filename,.HDDVD.) | SubString(Container(8011).ListItem(3).Filename,.hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8011).ListItem(3).Filename, HDDVD.) | SubString(Container(8011).ListItem(3).Filename, hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8011).ListItem(3).Filename,.SDTV.) | SubString(Container(8011).ListItem(3).Filename,.sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8011).ListItem(3).Filename, SDTV.) | SubString(Container(8011).ListItem(3).Filename, sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8011).ListItem(3).Filename,.HDTV.) | SubString(Container(8011).ListItem(3).Filename,.hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8011).ListItem(3).Filename, HDTV.) | SubString(Container(8011).ListItem(3).Filename, hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8011).ListItem(3).Filename,.WEBDL.) | SubString(Container(8011).ListItem(3).Filename,.webdl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(3).Filename, WEBDL.) | SubString(Container(8011).ListItem(3).Filename, webdl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(3).Filename,.WEB-DL.) | SubString(Container(8011).ListItem(3).Filename,.web-dl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(3).Filename, WEB-DL.) | SubString(Container(8011).ListItem(3).Filename, web-dl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(3).Filename,.4K.) | SubString(Container(8011).ListItem(3).Filename,.4k.)">4k</value>
+		<value condition="SubString(Container(8011).ListItem(3).Filename, 4K.) | SubString(Container(8011).ListItem(3).Filename, 4k.)">4k</value>
+		<!--value condition="SubString(Container(8011).ListItem(3).Filename,hdtv)">hdtv</value-->
+		<value>$INFO[Container(8011).ListItem(3).VideoResolution]p</value>
+	</variable>
+	
+	<variable name="LiveBG5Resolution8011">
+		<!--value condition="[Container.Content(tvshows) | Container.Content(seasons)]">tvseries.png</value-->
+		<value condition="SubString(Container(8011).ListItem(4).Filename,.3D.) | SubString(Container(8011).ListItem(4).Filename,.3d.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(4).Filename, 3D.) | SubString(Container(8011).ListItem(4).Filename, 3d.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(4).Filename,.3DBD.) | SubString(Container(8011).ListItem(4).Filename,.3dbd.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(4).Filename, 3DBD.) | SubString(Container(8011).ListItem(4).Filename, 3dbd.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(4).Filename,.HDDVD.) | SubString(Container(8011).ListItem(4).Filename,.hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8011).ListItem(4).Filename, HDDVD.) | SubString(Container(8011).ListItem(4).Filename, hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8011).ListItem(4).Filename,.SDTV.) | SubString(Container(8011).ListItem(4).Filename,.sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8011).ListItem(4).Filename, SDTV.) | SubString(Container(8011).ListItem(4).Filename, sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8011).ListItem(4).Filename,.HDTV.) | SubString(Container(8011).ListItem(4).Filename,.hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8011).ListItem(4).Filename, HDTV.) | SubString(Container(8011).ListItem(4).Filename, hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8011).ListItem(4).Filename,.WEBDL.) | SubString(Container(8011).ListItem(4).Filename,.webdl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(4).Filename, WEBDL.) | SubString(Container(8011).ListItem(4).Filename, webdl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(4).Filename,.WEB-DL.) | SubString(Container(8011).ListItem(4).Filename,.web-dl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(4).Filename, WEB-DL.) | SubString(Container(8011).ListItem(4).Filename, web-dl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(4).Filename,.4K.) | SubString(Container(8011).ListItem(4).Filename,.4k.)">4k</value>
+		<value condition="SubString(Container(8011).ListItem(4).Filename, 4K.) | SubString(Container(8011).ListItem(4).Filename, 4k.)">4k</value>
+		<!--value condition="SubString(Container(8011).ListItem(4).Filename,hdtv)">hdtv</value-->
+		<value>$INFO[Container(8011).ListItem(4).VideoResolution]p</value>
+	</variable>
+	
+	<variable name="LiveBG6Resolution8011">
+		<!--value condition="[Container.Content(tvshows) | Container.Content(seasons)]">tvseries.png</value-->
+		<value condition="SubString(Container(8011).ListItem(5).Filename,.3D.) | SubString(Container(8011).ListItem(5).Filename,.3d.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(5).Filename, 3D.) | SubString(Container(8011).ListItem(5).Filename, 3d.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(5).Filename,.3DBD.) | SubString(Container(8011).ListItem(5).Filename,.3dbd.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(5).Filename, 3DBD.) | SubString(Container(8011).ListItem(5).Filename, 3dbd.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(5).Filename,.HDDVD.) | SubString(Container(8011).ListItem(5).Filename,.hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8011).ListItem(5).Filename, HDDVD.) | SubString(Container(8011).ListItem(5).Filename, hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8011).ListItem(5).Filename,.SDTV.) | SubString(Container(8011).ListItem(5).Filename,.sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8011).ListItem(5).Filename, SDTV.) | SubString(Container(8011).ListItem(5).Filename, sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8011).ListItem(5).Filename,.HDTV.) | SubString(Container(8011).ListItem(5).Filename,.hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8011).ListItem(5).Filename, HDTV.) | SubString(Container(8011).ListItem(5).Filename, hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8011).ListItem(5).Filename,.WEBDL.) | SubString(Container(8011).ListItem(5).Filename,.webdl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(5).Filename, WEBDL.) | SubString(Container(8011).ListItem(5).Filename, webdl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(5).Filename,.WEB-DL.) | SubString(Container(8011).ListItem(5).Filename,.web-dl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(5).Filename, WEB-DL.) | SubString(Container(8011).ListItem(5).Filename, web-dl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(5).Filename,.4K.) | SubString(Container(8011).ListItem(5).Filename,.4k.)">4k</value>
+		<value condition="SubString(Container(8011).ListItem(5).Filename, 4K.) | SubString(Container(8011).ListItem(5).Filename, 4k.)">4k</value>
+		<!--value condition="SubString(Container(8011).ListItem(5).Filename,hdtv)">hdtv</value-->
+		<value>$INFO[Container(8011).ListItem(5).VideoResolution]p</value>
+	</variable>
+	
+	<variable name="LiveBG7Resolution8011">
+		<!--value condition="[Container.Content(tvshows) | Container.Content(seasons)]">tvseries.png</value-->
+		<value condition="SubString(Container(8011).ListItem(6).Filename,.3D.) | SubString(Container(8011).ListItem(6).Filename,.3d.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(6).Filename, 3D.) | SubString(Container(8011).ListItem(6).Filename, 3d.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(6).Filename,.3DBD.) | SubString(Container(8011).ListItem(6).Filename,.3dbd.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(6).Filename, 3DBD.) | SubString(Container(8011).ListItem(6).Filename, 3dbd.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(6).Filename,.HDDVD.) | SubString(Container(8011).ListItem(6).Filename,.hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8011).ListItem(6).Filename, HDDVD.) | SubString(Container(8011).ListItem(6).Filename, hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8011).ListItem(6).Filename,.SDTV.) | SubString(Container(8011).ListItem(6).Filename,.sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8011).ListItem(6).Filename, SDTV.) | SubString(Container(8011).ListItem(6).Filename, sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8011).ListItem(6).Filename,.HDTV.) | SubString(Container(8011).ListItem(6).Filename,.hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8011).ListItem(6).Filename, HDTV.) | SubString(Container(8011).ListItem(6).Filename, hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8011).ListItem(6).Filename,.WEBDL.) | SubString(Container(8011).ListItem(6).Filename,.webdl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(6).Filename, WEBDL.) | SubString(Container(8011).ListItem(6).Filename, webdl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(6).Filename,.WEB-DL.) | SubString(Container(8011).ListItem(6).Filename,.web-dl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(6).Filename, WEB-DL.) | SubString(Container(8011).ListItem(6).Filename, web-dl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(6).Filename,.4K.) | SubString(Container(8011).ListItem(6).Filename,.4k.)">4k</value>
+		<value condition="SubString(Container(8011).ListItem(6).Filename, 4K.) | SubString(Container(8011).ListItem(6).Filename, 4k.)">4k</value>
+		<!--value condition="SubString(Container(8011).ListItem(6).Filename,hdtv)">hdtv</value-->
+		<value>$INFO[Container(8011).ListItem(6).VideoResolution]p</value>
+	</variable>
+	
+	<variable name="LiveBG8Resolution8011">
+		<!--value condition="[Container.Content(tvshows) | Container.Content(seasons)]">tvseries.png</value-->
+		<value condition="SubString(Container(8011).ListItem(7).Filename,.3D.) | SubString(Container(8011).ListItem(7).Filename,.3d.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(7).Filename, 3D.) | SubString(Container(8011).ListItem(7).Filename, 3d.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(7).Filename,.3DBD.) | SubString(Container(8011).ListItem(7).Filename,.3dbd.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(7).Filename, 3DBD.) | SubString(Container(8011).ListItem(7).Filename, 3dbd.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(7).Filename,.HDDVD.) | SubString(Container(8011).ListItem(7).Filename,.hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8011).ListItem(7).Filename, HDDVD.) | SubString(Container(8011).ListItem(7).Filename, hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8011).ListItem(7).Filename,.SDTV.) | SubString(Container(8011).ListItem(7).Filename,.sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8011).ListItem(7).Filename, SDTV.) | SubString(Container(8011).ListItem(7).Filename, sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8011).ListItem(7).Filename,.HDTV.) | SubString(Container(8011).ListItem(7).Filename,.hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8011).ListItem(7).Filename, HDTV.) | SubString(Container(8011).ListItem(7).Filename, hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8011).ListItem(7).Filename,.WEBDL.) | SubString(Container(8011).ListItem(7).Filename,.webdl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(7).Filename, WEBDL.) | SubString(Container(8011).ListItem(7).Filename, webdl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(7).Filename,.WEB-DL.) | SubString(Container(8011).ListItem(7).Filename,.web-dl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(7).Filename, WEB-DL.) | SubString(Container(8011).ListItem(7).Filename, web-dl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(7).Filename,.4K.) | SubString(Container(8011).ListItem(7).Filename,.4k.)">4k</value>
+		<value condition="SubString(Container(8011).ListItem(7).Filename, 4K.) | SubString(Container(8011).ListItem(7).Filename, 4k.)">4k</value>
+		<!--value condition="SubString(Container(8011).ListItem(7).Filename,hdtv)">hdtv</value-->
+		<value>$INFO[Container(8011).ListItem(7).VideoResolution]p</value>
+	</variable>
+	
+	<variable name="LiveBG9Resolution8011">
+		<!--value condition="[Container.Content(tvshows) | Container.Content(seasons)]">tvseries.png</value-->
+		<value condition="SubString(Container(8011).ListItem(8).Filename,.3D.) | SubString(Container(8011).ListItem(8).Filename,.3d.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(8).Filename, 3D.) | SubString(Container(8011).ListItem(8).Filename, 3d.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(8).Filename,.3DBD.) | SubString(Container(8011).ListItem(8).Filename,.3dbd.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(8).Filename, 3DBD.) | SubString(Container(8011).ListItem(8).Filename, 3dbd.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(8).Filename,.HDDVD.) | SubString(Container(8011).ListItem(8).Filename,.hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8011).ListItem(8).Filename, HDDVD.) | SubString(Container(8011).ListItem(8).Filename, hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8011).ListItem(8).Filename,.SDTV.) | SubString(Container(8011).ListItem(8).Filename,.sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8011).ListItem(8).Filename, SDTV.) | SubString(Container(8011).ListItem(8).Filename, sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8011).ListItem(8).Filename,.HDTV.) | SubString(Container(8011).ListItem(8).Filename,.hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8011).ListItem(8).Filename, HDTV.) | SubString(Container(8011).ListItem(8).Filename, hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8011).ListItem(8).Filename,.WEBDL.) | SubString(Container(8011).ListItem(8).Filename,.webdl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(8).Filename, WEBDL.) | SubString(Container(8011).ListItem(8).Filename, webdl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(8).Filename,.WEB-DL.) | SubString(Container(8011).ListItem(8).Filename,.web-dl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(8).Filename, WEB-DL.) | SubString(Container(8011).ListItem(8).Filename, web-dl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(8).Filename,.4K.) | SubString(Container(8011).ListItem(8).Filename,.4k.)">4k</value>
+		<value condition="SubString(Container(8011).ListItem(8).Filename, 4K.) | SubString(Container(8011).ListItem(8).Filename, 4k.)">4k</value>
+		<!--value condition="SubString(Container(8011).ListItem(8).Filename,hdtv)">hdtv</value-->
+		<value>$INFO[Container(8011).ListItem(8).VideoResolution]p</value>
+	</variable>
+	
+	<variable name="LiveBG10Resolution8011">
+		<!--value condition="[Container.Content(tvshows) | Container.Content(seasons)]">tvseries.png</value-->
+		<value condition="SubString(Container(8011).ListItem(9).Filename,.3D.) | SubString(Container(8011).ListItem(9).Filename,.3d.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(9).Filename, 3D.) | SubString(Container(8011).ListItem(9).Filename, 3d.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(9).Filename,.3DBD.) | SubString(Container(8011).ListItem(9).Filename,.3dbd.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(9).Filename, 3DBD.) | SubString(Container(8011).ListItem(9).Filename, 3dbd.)">3d</value>
+		<value condition="SubString(Container(8011).ListItem(9).Filename,.HDDVD.) | SubString(Container(8011).ListItem(9).Filename,.hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8011).ListItem(9).Filename, HDDVD.) | SubString(Container(8011).ListItem(9).Filename, hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8011).ListItem(9).Filename,.SDTV.) | SubString(Container(8011).ListItem(9).Filename,.sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8011).ListItem(9).Filename, SDTV.) | SubString(Container(8011).ListItem(9).Filename, sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8011).ListItem(9).Filename,.HDTV.) | SubString(Container(8011).ListItem(9).Filename,.hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8011).ListItem(9).Filename, HDTV.) | SubString(Container(8011).ListItem(9).Filename, hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8011).ListItem(9).Filename,.WEBDL.) | SubString(Container(8011).ListItem(9).Filename,.webdl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(9).Filename, WEBDL.) | SubString(Container(8011).ListItem(9).Filename, webdl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(9).Filename,.WEB-DL.) | SubString(Container(8011).ListItem(9).Filename,.web-dl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(9).Filename, WEB-DL.) | SubString(Container(8011).ListItem(9).Filename, web-dl.)">webdl</value>
+		<value condition="SubString(Container(8011).ListItem(9).Filename,.4K.) | SubString(Container(8011).ListItem(9).Filename,.4k.)">4k</value>
+		<value condition="SubString(Container(8011).ListItem(9).Filename, 4K.) | SubString(Container(8011).ListItem(9).Filename, 4k.)">4k</value>
+		<!--value condition="SubString(Container(8011).ListItem(9).Filename,hdtv)">hdtv</value-->
+		<value>$INFO[Container(8011).ListItem(9).VideoResolution]p</value>
+	</variable>
+	
+
+
+	<variable name="LiveBG1Resolution8020">
+		<!--value condition="[Container.Content(tvshows) | Container.Content(seasons)]">tvseries.png</value-->
+		<value condition="SubString(Container(8020).ListItem(0).Filename,.3D.) | SubString(Container(8020).ListItem(0).Filename,.3d.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(0).Filename, 3D.) | SubString(Container(8020).ListItem(0).Filename, 3d.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(0).Filename,.3DBD.) | SubString(Container(8020).ListItem(0).Filename,.3dbd.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(0).Filename, 3DBD.) | SubString(Container(8020).ListItem(0).Filename, 3dbd.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(0).Filename,.HDDVD.) | SubString(Container(8020).ListItem(0).Filename,.hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8020).ListItem(0).Filename, HDDVD.) | SubString(Container(8020).ListItem(0).Filename, hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8020).ListItem(0).Filename,.SDTV.) | SubString(Container(8020).ListItem(0).Filename,.sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8020).ListItem(0).Filename, SDTV.) | SubString(Container(8020).ListItem(0).Filename, sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8020).ListItem(0).Filename,.HDTV.) | SubString(Container(8020).ListItem(0).Filename,.hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8020).ListItem(0).Filename, HDTV.) | SubString(Container(8020).ListItem(0).Filename, hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8020).ListItem(0).Filename,.WEBDL.) | SubString(Container(8020).ListItem(0).Filename,.webdl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(0).Filename, WEBDL.) | SubString(Container(8020).ListItem(0).Filename, webdl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(0).Filename,.WEB-DL.) | SubString(Container(8020).ListItem(0).Filename,.web-dl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(0).Filename, WEB-DL.) | SubString(Container(8020).ListItem(0).Filename, web-dl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(0).Filename,.4K.) | SubString(Container(8020).ListItem(0).Filename,.4k.)">4k</value>
+		<value condition="SubString(Container(8020).ListItem(0).Filename, 4K.) | SubString(Container(8020).ListItem(0).Filename, 4k.)">4k</value>
+		<!--value condition="SubString(Container(8020).ListItem(0).Filename,hdtv)">hdtv</value-->
+		<value>$INFO[Container(8020).ListItem(0).VideoResolution]p</value>
+	</variable>
+	
+	<variable name="LiveBG2Resolution8020">
+		<!--value condition="[Container.Content(tvshows) | Container.Content(seasons)]">tvseries.png</value-->
+		<value condition="SubString(Container(8020).ListItem(1).Filename,.3D.) | SubString(Container(8020).ListItem(1).Filename,.3d.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(1).Filename, 3D.) | SubString(Container(8020).ListItem(1).Filename, 3d.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(1).Filename,.3DBD.) | SubString(Container(8020).ListItem(1).Filename,.3dbd.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(1).Filename, 3DBD.) | SubString(Container(8020).ListItem(1).Filename, 3dbd.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(1).Filename,.HDDVD.) | SubString(Container(8020).ListItem(1).Filename,.hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8020).ListItem(1).Filename, HDDVD.) | SubString(Container(8020).ListItem(1).Filename, hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8020).ListItem(1).Filename,.SDTV.) | SubString(Container(8020).ListItem(1).Filename,.sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8020).ListItem(1).Filename, SDTV.) | SubString(Container(8020).ListItem(1).Filename, sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8020).ListItem(1).Filename,.HDTV.) | SubString(Container(8020).ListItem(1).Filename,.hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8020).ListItem(1).Filename, HDTV.) | SubString(Container(8020).ListItem(1).Filename, hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8020).ListItem(1).Filename,.WEBDL.) | SubString(Container(8020).ListItem(1).Filename,.webdl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(1).Filename, WEBDL.) | SubString(Container(8020).ListItem(1).Filename, webdl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(1).Filename,.WEB-DL.) | SubString(Container(8020).ListItem(1).Filename,.web-dl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(1).Filename, WEB-DL.) | SubString(Container(8020).ListItem(1).Filename, web-dl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(1).Filename,.4K.) | SubString(Container(8020).ListItem(1).Filename,.4k.)">4k</value>
+		<value condition="SubString(Container(8020).ListItem(1).Filename, 4K.) | SubString(Container(8020).ListItem(1).Filename, 4k.)">4k</value>
+		<!--value condition="SubString(Container(8020).ListItem(1).Filename,hdtv)">hdtv</value-->
+		<value>$INFO[Container(8020).ListItem(1).VideoResolution]p</value>
+	</variable>
+	
+	<variable name="LiveBG3Resolution8020">
+		<!--value condition="[Container.Content(tvshows) | Container.Content(seasons)]">tvseries.png</value-->
+		<value condition="SubString(Container(8020).ListItem(2).Filename,.3D.) | SubString(Container(8020).ListItem(2).Filename,.3d.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(2).Filename, 3D.) | SubString(Container(8020).ListItem(2).Filename, 3d.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(2).Filename,.3DBD.) | SubString(Container(8020).ListItem(2).Filename,.3dbd.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(2).Filename, 3DBD.) | SubString(Container(8020).ListItem(2).Filename, 3dbd.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(2).Filename,.HDDVD.) | SubString(Container(8020).ListItem(2).Filename,.hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8020).ListItem(2).Filename, HDDVD.) | SubString(Container(8020).ListItem(2).Filename, hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8020).ListItem(2).Filename,.SDTV.) | SubString(Container(8020).ListItem(2).Filename,.sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8020).ListItem(2).Filename, SDTV.) | SubString(Container(8020).ListItem(2).Filename, sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8020).ListItem(2).Filename,.HDTV.) | SubString(Container(8020).ListItem(2).Filename,.hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8020).ListItem(2).Filename, HDTV.) | SubString(Container(8020).ListItem(2).Filename, hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8020).ListItem(2).Filename,.WEBDL.) | SubString(Container(8020).ListItem(2).Filename,.webdl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(2).Filename, WEBDL.) | SubString(Container(8020).ListItem(2).Filename, webdl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(2).Filename,.WEB-DL.) | SubString(Container(8020).ListItem(2).Filename,.web-dl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(2).Filename, WEB-DL.) | SubString(Container(8020).ListItem(2).Filename, web-dl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(2).Filename,.4K.) | SubString(Container(8020).ListItem(2).Filename,.4k.)">4k</value>
+		<value condition="SubString(Container(8020).ListItem(2).Filename, 4K.) | SubString(Container(8020).ListItem(2).Filename, 4k.)">4k</value>
+		<!--value condition="SubString(Container(8020).ListItem(2).Filename,hdtv)">hdtv</value-->
+		<value>$INFO[Container(8020).ListItem(2).VideoResolution]p</value>
+	</variable>
+	
+	<variable name="LiveBG4Resolution8020">
+		<!--value condition="[Container.Content(tvshows) | Container.Content(seasons)]">tvseries.png</value-->
+		<value condition="SubString(Container(8020).ListItem(3).Filename,.3D.) | SubString(Container(8020).ListItem(3).Filename,.3d.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(3).Filename, 3D.) | SubString(Container(8020).ListItem(3).Filename, 3d.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(3).Filename,.3DBD.) | SubString(Container(8020).ListItem(3).Filename,.3dbd.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(3).Filename, 3DBD.) | SubString(Container(8020).ListItem(3).Filename, 3dbd.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(3).Filename,.HDDVD.) | SubString(Container(8020).ListItem(3).Filename,.hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8020).ListItem(3).Filename, HDDVD.) | SubString(Container(8020).ListItem(3).Filename, hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8020).ListItem(3).Filename,.SDTV.) | SubString(Container(8020).ListItem(3).Filename,.sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8020).ListItem(3).Filename, SDTV.) | SubString(Container(8020).ListItem(3).Filename, sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8020).ListItem(3).Filename,.HDTV.) | SubString(Container(8020).ListItem(3).Filename,.hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8020).ListItem(3).Filename, HDTV.) | SubString(Container(8020).ListItem(3).Filename, hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8020).ListItem(3).Filename,.WEBDL.) | SubString(Container(8020).ListItem(3).Filename,.webdl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(3).Filename, WEBDL.) | SubString(Container(8020).ListItem(3).Filename, webdl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(3).Filename,.WEB-DL.) | SubString(Container(8020).ListItem(3).Filename,.web-dl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(3).Filename, WEB-DL.) | SubString(Container(8020).ListItem(3).Filename, web-dl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(3).Filename,.4K.) | SubString(Container(8020).ListItem(3).Filename,.4k.)">4k</value>
+		<value condition="SubString(Container(8020).ListItem(3).Filename, 4K.) | SubString(Container(8020).ListItem(3).Filename, 4k.)">4k</value>
+		<!--value condition="SubString(Container(8020).ListItem(3).Filename,hdtv)">hdtv</value-->
+		<value>$INFO[Container(8020).ListItem(3).VideoResolution]p</value>
+	</variable>
+	
+	<variable name="LiveBG5Resolution8020">
+		<!--value condition="[Container.Content(tvshows) | Container.Content(seasons)]">tvseries.png</value-->
+		<value condition="SubString(Container(8020).ListItem(4).Filename,.3D.) | SubString(Container(8020).ListItem(4).Filename,.3d.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(4).Filename, 3D.) | SubString(Container(8020).ListItem(4).Filename, 3d.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(4).Filename,.3DBD.) | SubString(Container(8020).ListItem(4).Filename,.3dbd.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(4).Filename, 3DBD.) | SubString(Container(8020).ListItem(4).Filename, 3dbd.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(4).Filename,.HDDVD.) | SubString(Container(8020).ListItem(4).Filename,.hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8020).ListItem(4).Filename, HDDVD.) | SubString(Container(8020).ListItem(4).Filename, hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8020).ListItem(4).Filename,.SDTV.) | SubString(Container(8020).ListItem(4).Filename,.sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8020).ListItem(4).Filename, SDTV.) | SubString(Container(8020).ListItem(4).Filename, sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8020).ListItem(4).Filename,.HDTV.) | SubString(Container(8020).ListItem(4).Filename,.hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8020).ListItem(4).Filename, HDTV.) | SubString(Container(8020).ListItem(4).Filename, hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8020).ListItem(4).Filename,.WEBDL.) | SubString(Container(8020).ListItem(4).Filename,.webdl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(4).Filename, WEBDL.) | SubString(Container(8020).ListItem(4).Filename, webdl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(4).Filename,.WEB-DL.) | SubString(Container(8020).ListItem(4).Filename,.web-dl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(4).Filename, WEB-DL.) | SubString(Container(8020).ListItem(4).Filename, web-dl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(4).Filename,.4K.) | SubString(Container(8020).ListItem(4).Filename,.4k.)">4k</value>
+		<value condition="SubString(Container(8020).ListItem(4).Filename, 4K.) | SubString(Container(8020).ListItem(4).Filename, 4k.)">4k</value>
+		<!--value condition="SubString(Container(8020).ListItem(4).Filename,hdtv)">hdtv</value-->
+		<value>$INFO[Container(8020).ListItem(4).VideoResolution]p</value>
+	</variable>
+	
+	<variable name="LiveBG6Resolution8020">
+		<!--value condition="[Container.Content(tvshows) | Container.Content(seasons)]">tvseries.png</value-->
+		<value condition="SubString(Container(8020).ListItem(5).Filename,.3D.) | SubString(Container(8020).ListItem(5).Filename,.3d.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(5).Filename, 3D.) | SubString(Container(8020).ListItem(5).Filename, 3d.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(5).Filename,.3DBD.) | SubString(Container(8020).ListItem(5).Filename,.3dbd.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(5).Filename, 3DBD.) | SubString(Container(8020).ListItem(5).Filename, 3dbd.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(5).Filename,.HDDVD.) | SubString(Container(8020).ListItem(5).Filename,.hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8020).ListItem(5).Filename, HDDVD.) | SubString(Container(8020).ListItem(5).Filename, hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8020).ListItem(5).Filename,.SDTV.) | SubString(Container(8020).ListItem(5).Filename,.sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8020).ListItem(5).Filename, SDTV.) | SubString(Container(8020).ListItem(5).Filename, sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8020).ListItem(5).Filename,.HDTV.) | SubString(Container(8020).ListItem(5).Filename,.hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8020).ListItem(5).Filename, HDTV.) | SubString(Container(8020).ListItem(5).Filename, hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8020).ListItem(5).Filename,.WEBDL.) | SubString(Container(8020).ListItem(5).Filename,.webdl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(5).Filename, WEBDL.) | SubString(Container(8020).ListItem(5).Filename, webdl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(5).Filename,.WEB-DL.) | SubString(Container(8020).ListItem(5).Filename,.web-dl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(5).Filename, WEB-DL.) | SubString(Container(8020).ListItem(5).Filename, web-dl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(5).Filename,.4K.) | SubString(Container(8020).ListItem(5).Filename,.4k.)">4k</value>
+		<value condition="SubString(Container(8020).ListItem(5).Filename, 4K.) | SubString(Container(8020).ListItem(5).Filename, 4k.)">4k</value>
+		<!--value condition="SubString(Container(8020).ListItem(5).Filename,hdtv)">hdtv</value-->
+		<value>$INFO[Container(8020).ListItem(5).VideoResolution]p</value>
+	</variable>
+	
+	<variable name="LiveBG7Resolution8020">
+		<!--value condition="[Container.Content(tvshows) | Container.Content(seasons)]">tvseries.png</value-->
+		<value condition="SubString(Container(8020).ListItem(6).Filename,.3D.) | SubString(Container(8020).ListItem(6).Filename,.3d.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(6).Filename, 3D.) | SubString(Container(8020).ListItem(6).Filename, 3d.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(6).Filename,.3DBD.) | SubString(Container(8020).ListItem(6).Filename,.3dbd.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(6).Filename, 3DBD.) | SubString(Container(8020).ListItem(6).Filename, 3dbd.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(6).Filename,.HDDVD.) | SubString(Container(8020).ListItem(6).Filename,.hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8020).ListItem(6).Filename, HDDVD.) | SubString(Container(8020).ListItem(6).Filename, hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8020).ListItem(6).Filename,.SDTV.) | SubString(Container(8020).ListItem(6).Filename,.sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8020).ListItem(6).Filename, SDTV.) | SubString(Container(8020).ListItem(6).Filename, sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8020).ListItem(6).Filename,.HDTV.) | SubString(Container(8020).ListItem(6).Filename,.hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8020).ListItem(6).Filename, HDTV.) | SubString(Container(8020).ListItem(6).Filename, hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8020).ListItem(6).Filename,.WEBDL.) | SubString(Container(8020).ListItem(6).Filename,.webdl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(6).Filename, WEBDL.) | SubString(Container(8020).ListItem(6).Filename, webdl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(6).Filename,.WEB-DL.) | SubString(Container(8020).ListItem(6).Filename,.web-dl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(6).Filename, WEB-DL.) | SubString(Container(8020).ListItem(6).Filename, web-dl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(6).Filename,.4K.) | SubString(Container(8020).ListItem(6).Filename,.4k.)">4k</value>
+		<value condition="SubString(Container(8020).ListItem(6).Filename, 4K.) | SubString(Container(8020).ListItem(6).Filename, 4k.)">4k</value>
+		<!--value condition="SubString(Container(8020).ListItem(6).Filename,hdtv)">hdtv</value-->
+		<value>$INFO[Container(8020).ListItem(6).VideoResolution]p</value>
+	</variable>
+	
+	<variable name="LiveBG8Resolution8020">
+		<!--value condition="[Container.Content(tvshows) | Container.Content(seasons)]">tvseries.png</value-->
+		<value condition="SubString(Container(8020).ListItem(7).Filename,.3D.) | SubString(Container(8020).ListItem(7).Filename,.3d.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(7).Filename, 3D.) | SubString(Container(8020).ListItem(7).Filename, 3d.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(7).Filename,.3DBD.) | SubString(Container(8020).ListItem(7).Filename,.3dbd.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(7).Filename, 3DBD.) | SubString(Container(8020).ListItem(7).Filename, 3dbd.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(7).Filename,.HDDVD.) | SubString(Container(8020).ListItem(7).Filename,.hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8020).ListItem(7).Filename, HDDVD.) | SubString(Container(8020).ListItem(7).Filename, hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8020).ListItem(7).Filename,.SDTV.) | SubString(Container(8020).ListItem(7).Filename,.sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8020).ListItem(7).Filename, SDTV.) | SubString(Container(8020).ListItem(7).Filename, sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8020).ListItem(7).Filename,.HDTV.) | SubString(Container(8020).ListItem(7).Filename,.hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8020).ListItem(7).Filename, HDTV.) | SubString(Container(8020).ListItem(7).Filename, hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8020).ListItem(7).Filename,.WEBDL.) | SubString(Container(8020).ListItem(7).Filename,.webdl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(7).Filename, WEBDL.) | SubString(Container(8020).ListItem(7).Filename, webdl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(7).Filename,.WEB-DL.) | SubString(Container(8020).ListItem(7).Filename,.web-dl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(7).Filename, WEB-DL.) | SubString(Container(8020).ListItem(7).Filename, web-dl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(7).Filename,.4K.) | SubString(Container(8020).ListItem(7).Filename,.4k.)">4k</value>
+		<value condition="SubString(Container(8020).ListItem(7).Filename, 4K.) | SubString(Container(8020).ListItem(7).Filename, 4k.)">4k</value>
+		<!--value condition="SubString(Container(8020).ListItem(7).Filename,hdtv)">hdtv</value-->
+		<value>$INFO[Container(8020).ListItem(7).VideoResolution]p</value>
+	</variable>
+	
+	<variable name="LiveBG9Resolution8020">
+		<!--value condition="[Container.Content(tvshows) | Container.Content(seasons)]">tvseries.png</value-->
+		<value condition="SubString(Container(8020).ListItem(8).Filename,.3D.) | SubString(Container(8020).ListItem(8).Filename,.3d.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(8).Filename, 3D.) | SubString(Container(8020).ListItem(8).Filename, 3d.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(8).Filename,.3DBD.) | SubString(Container(8020).ListItem(8).Filename,.3dbd.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(8).Filename, 3DBD.) | SubString(Container(8020).ListItem(8).Filename, 3dbd.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(8).Filename,.HDDVD.) | SubString(Container(8020).ListItem(8).Filename,.hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8020).ListItem(8).Filename, HDDVD.) | SubString(Container(8020).ListItem(8).Filename, hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8020).ListItem(8).Filename,.SDTV.) | SubString(Container(8020).ListItem(8).Filename,.sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8020).ListItem(8).Filename, SDTV.) | SubString(Container(8020).ListItem(8).Filename, sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8020).ListItem(8).Filename,.HDTV.) | SubString(Container(8020).ListItem(8).Filename,.hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8020).ListItem(8).Filename, HDTV.) | SubString(Container(8020).ListItem(8).Filename, hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8020).ListItem(8).Filename,.WEBDL.) | SubString(Container(8020).ListItem(8).Filename,.webdl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(8).Filename, WEBDL.) | SubString(Container(8020).ListItem(8).Filename, webdl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(8).Filename,.WEB-DL.) | SubString(Container(8020).ListItem(8).Filename,.web-dl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(8).Filename, WEB-DL.) | SubString(Container(8020).ListItem(8).Filename, web-dl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(8).Filename,.4K.) | SubString(Container(8020).ListItem(8).Filename,.4k.)">4k</value>
+		<value condition="SubString(Container(8020).ListItem(8).Filename, 4K.) | SubString(Container(8020).ListItem(8).Filename, 4k.)">4k</value>
+		<!--value condition="SubString(Container(8020).ListItem(8).Filename,hdtv)">hdtv</value-->
+		<value>$INFO[Container(8020).ListItem(8).VideoResolution]p</value>
+	</variable>
+	
+	<variable name="LiveBG10Resolution8020">
+		<!--value condition="[Container.Content(tvshows) | Container.Content(seasons)]">tvseries.png</value-->
+		<value condition="SubString(Container(8020).ListItem(9).Filename,.3D.) | SubString(Container(8020).ListItem(9).Filename,.3d.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(9).Filename, 3D.) | SubString(Container(8020).ListItem(9).Filename, 3d.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(9).Filename,.3DBD.) | SubString(Container(8020).ListItem(9).Filename,.3dbd.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(9).Filename, 3DBD.) | SubString(Container(8020).ListItem(9).Filename, 3dbd.)">3d</value>
+		<value condition="SubString(Container(8020).ListItem(9).Filename,.HDDVD.) | SubString(Container(8020).ListItem(9).Filename,.hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8020).ListItem(9).Filename, HDDVD.) | SubString(Container(8020).ListItem(9).Filename, hddvd.)">hddvd</value>
+		<value condition="SubString(Container(8020).ListItem(9).Filename,.SDTV.) | SubString(Container(8020).ListItem(9).Filename,.sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8020).ListItem(9).Filename, SDTV.) | SubString(Container(8020).ListItem(9).Filename, sdtv.)">sdtv</value>
+		<value condition="SubString(Container(8020).ListItem(9).Filename,.HDTV.) | SubString(Container(8020).ListItem(9).Filename,.hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8020).ListItem(9).Filename, HDTV.) | SubString(Container(8020).ListItem(9).Filename, hdtv.)">hdtv</value>
+		<value condition="SubString(Container(8020).ListItem(9).Filename,.WEBDL.) | SubString(Container(8020).ListItem(9).Filename,.webdl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(9).Filename, WEBDL.) | SubString(Container(8020).ListItem(9).Filename, webdl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(9).Filename,.WEB-DL.) | SubString(Container(8020).ListItem(9).Filename,.web-dl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(9).Filename, WEB-DL.) | SubString(Container(8020).ListItem(9).Filename, web-dl.)">webdl</value>
+		<value condition="SubString(Container(8020).ListItem(9).Filename,.4K.) | SubString(Container(8020).ListItem(9).Filename,.4k.)">4k</value>
+		<value condition="SubString(Container(8020).ListItem(9).Filename, 4K.) | SubString(Container(8020).ListItem(9).Filename, 4k.)">4k</value>
+		<!--value condition="SubString(Container(8020).ListItem(9).Filename,hdtv)">hdtv</value-->
+		<value>$INFO[Container(8020).ListItem(9).VideoResolution]p</value>
+	</variable>
+	
 
 	<variable name="LiveBGCases">
 		<value condition="Window.IsVisible(Home) + Substring(Container(9000).ListItem.Property(backgroundCase),Clear,right)">movies</value>
