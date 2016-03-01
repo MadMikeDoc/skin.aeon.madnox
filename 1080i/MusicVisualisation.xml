@@ -783,6 +783,20 @@
 						<aligny>bottom</aligny>
 						<visible>!Player.HasDuration</visible>
 					</control>
+					<control type="progress">
+						<left>900</left>
+						<top>90</top>
+						<width>400</width>
+						<height>10</height>
+						<reveal>true</reveal>
+						<texturebg border="3">mooviz/progress.border.png</texturebg>
+						<midtexture>mooviz/progress.png</midtexture>
+						<lefttexture>-</lefttexture>
+						<righttexture>-</righttexture>
+						<info>Player.Progress</info>
+						<animation effect="fade" end="80" condition="true">Conditional</animation>
+						<visible>Player.HasDuration</visible>
+					</control>
 				</control>
 				<control type="label">
 					<posx>650</posx>
@@ -1301,7 +1315,7 @@
 					<texture>$VAR[MusicVizOSDRepeatButtonVar]</texture>
 					<!--colordiffuse>$VAR[TitleColorVar]</colordiffuse-->
 					<aspectratio>keep</aspectratio>
-                </control>
+				</control>
 				<control type="image">
 					<visible>!Skin.HasSetting(AltMusicVizLayoutShuffle) + Player.HasDuration</visible>
 					<animation effect="slide" start="0,0" end="-30,0" time="200" tween="cubic" condition="Skin.HasSetting(AltMusicVizLayoutProgress) + !Skin.HasSetting(AltMusicVizLayoutNext)">Conditional</animation>
