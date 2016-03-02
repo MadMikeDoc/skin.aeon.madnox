@@ -9764,6 +9764,8 @@
 	<other include="backgroundFanart">
 		<condition tag="property" attribute="name|background">Playlist.FanartList</condition>
 		<property name="content" tag="property" attribute="name|backgroundPlaylist" />
+		<property name="sortby" tag="property" attribute="name|backgroundSortby" />
+		<property name="sort" tag="property" attribute="name|backgroundSort" />
 		<controls>
 			<control type="wraplist" id="8010">
 				<left>-1000</left>
@@ -9772,7 +9774,7 @@
 				<height>100</height>
 				<itemlayout height="100" width="100" />
 				<focusedlayout height="100" width="100" />
-				<content>$SKINSHORTCUTS[content]</content>
+				<content sortby="$SKINSHORTCUTS[sortby]" sortorder="$SKINSHORTCUTS[sort]">$SKINSHORTCUTS[content]</content>
 				<autoscroll time="7000" delay="7000" repeat="7000">True</autoscroll>
 				<skinshortcuts>visibility</skinshortcuts>
 			</control>
