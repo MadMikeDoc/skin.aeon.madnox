@@ -897,7 +897,7 @@
 	<variable name="LogoVar">
 		<value condition="Container.Content(albums) + Substring(Container.FolderPath,musicdb://artists/,left)">$INFO[Skin.String(ArtistsLogosPath)]$INFO[Container.FolderName,,/logo.png]</value>
 		<value condition="Container.Content(artists) | Container.Content(albums) | Container.Content(songs)">$INFO[Skin.String(ArtistsLogosPath)]$INFO[Container.ListItem.Artist,,\logo.png]</value>
-		<value>$INFO[Window(Home).Property(SkinHelper.Music.ClearLogo)]</value>
+		<!--value>$INFO[Window(Home).Property(SkinHelper.Music.ClearLogo)]</value-->
 		<!--         <value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left)">$INFO[Control.GetLabel(4211)]</value> 		-->
 		<value>$VAR[LogoVarList]</value>
 	</variable>
