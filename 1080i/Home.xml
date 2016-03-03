@@ -84,24 +84,6 @@
 			</animation>
 			<control type="group">
 				<include>Animation_WindowFade200</include>
-				<!--control type="image">
-					<animation effect="slide" start="-150" end="0" time="560" tween="cubic" delay="720">WindowOpen</animation>
-					<animation type="WindowClose">
-						<effect type="slide" end="-180" time="220" tween="cubic" easing="in" />
-						<effect type="fade" start="100" end="0" time="200" />
-						<condition type="!Player.Playing" />
-					</animation>
-					<posx>-110</posx>
-					<posy>920</posy>
-					<width>360</width>
-					<height>360</height>
-					<aligny>top</aligny>
-					<aspectratio>keep</aspectratio>
-					<fadetime>300</fadetime>
-					<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
-					<texture background="true" fallback="common/cdart/vinyl.png">$VAR[NowPlayingDiscVar]</texture>
-					<visible>Player.HasMedia + Skin.HasSetting(NowPlayingBelowBar) + !Skin.HasSetting(BelowMidCD)</visible>
-					<include>Animation_CommonFade</include-->
 				<control type="image">
 					<visible>Skin.HasSetting(cdartinvis)</visible>
 					<animation effect="slide" start="0,200" end="0" time="560" tween="cubic" delay="720">WindowOpen</animation>
@@ -117,7 +99,7 @@
 					<posx>-110</posx>
 					<posy>920</posy>
 					<fadetime>300</fadetime>
-					<visible>Player.HasMedia + Skin.HasSetting(NowPlayingBelowBar) + !Skin.HasSetting(BelowMidCD) +!Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart)</visible>
+					<visible>Player.HasAudio + Skin.HasSetting(NowPlayingBelowBar) + !Skin.HasSetting(BelowMidCD) +!Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart)</visible>
 					<include>cdart</include>
 					<aspectratio>keep</aspectratio>
 				</control>
@@ -137,7 +119,7 @@
 					<posy>920</posy>
 					<fadetime>300</fadetime>
 					<include>vinylart</include>
-					<visible>Player.HasMedia + Skin.HasSetting(NowPlayingBelowBar) + !Skin.HasSetting(BelowMidCD) + Skin.HasSetting(vinylart)</visible>
+					<visible>Player.HasAudio + Skin.HasSetting(NowPlayingBelowBar) + !Skin.HasSetting(BelowMidCD) + Skin.HasSetting(vinylart)</visible>
 					<aspectratio>keep</aspectratio>
 				</control>
 				<control type="image">
@@ -156,7 +138,7 @@
 					<posy>920</posy>
 					<fadetime>300</fadetime>
 					<include>blurayart</include>
-					<visible>Player.HasMedia + Skin.HasSetting(NowPlayingBelowBar) + !Skin.HasSetting(BelowMidCD) + Skin.HasSetting(blurayart)</visible>
+					<visible>Player.HasAudio + Skin.HasSetting(NowPlayingBelowBar) + !Skin.HasSetting(BelowMidCD) + Skin.HasSetting(blurayart)</visible>
 					<aspectratio>keep</aspectratio>
 				</control>
 				<control type="image" id="3333">
@@ -174,7 +156,7 @@
 					<posx>-110</posx>
 					<posy>920</posy>
 					<fadetime>300</fadetime>
-					<visible>Player.HasMedia + Skin.HasSetting(NowPlayingBelowBar) + !Skin.HasSetting(BelowMidCD) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart)</visible>
+					<visible>Player.HasAudio + Skin.HasSetting(NowPlayingBelowBar) + !Skin.HasSetting(BelowMidCD) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart)</visible>
 					<texture background="true" fallback="common/cdart/blank.png">$INFO[Player.FolderPath]cdart.png</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
@@ -240,25 +222,6 @@
 					<animation effect="fade" time="700">Hidden</animation>
 					<visible>Player.HasMedia + Skin.HasSetting(NowPlayingBelowBar)</visible>
 				</control>
-				<!--control type="image">
-					<animation effect="slide" start="0,200" end="0" time="560" tween="cubic" delay="720">WindowOpen</animation>
-					<animation type="WindowClose">
-						<effect type="slide" end="-180" time="220" tween="cubic" easing="in" />
-						<effect type="fade" start="100" end="0" time="200" />
-						<condition type="!Player.Playing" />
-					</animation>
-					<posx>780</posx>
-					<posy>920</posy>
-					<width>360</width>
-					<height>360</height>
-					<aligny>top</aligny>
-					<aspectratio>keep</aspectratio>
-					<fadetime>300</fadetime>
-					<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
-					<texture background="true" fallback="common/cdart/vinyl.png">$VAR[NowPlayingDiscVar]</texture>
-					<visible>Player.HasMedia + Skin.HasSetting(NowPlayingBelowBar) + Skin.HasSetting(BelowMidCD)</visible>
-					<include>Animation_CommonFade</include>
-				</control-->
 				<control type="image">
 					<visible>Skin.HasSetting(cdartinvis)</visible>
 					<animation effect="slide" start="0,200" end="0" time="560" tween="cubic" delay="720">WindowOpen</animation>
@@ -274,7 +237,7 @@
 					<posx>780</posx>
 					<posy>920</posy>
 					<fadetime>300</fadetime>
-					<visible>Player.HasMedia + Skin.HasSetting(NowPlayingBelowBar) + Skin.HasSetting(BelowMidCD) +!Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart)</visible>
+					<visible>Player.HasAudio + Skin.HasSetting(NowPlayingBelowBar) + Skin.HasSetting(BelowMidCD) +!Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart)</visible>
 					<include>cdart</include>
 					<aspectratio aligny="bottom">keep</aspectratio>
 				</control>
@@ -294,7 +257,7 @@
 					<posy>920</posy>
 					<fadetime>300</fadetime>
 					<include>vinylart</include>
-					<visible>Player.HasMedia + Skin.HasSetting(NowPlayingBelowBar) + Skin.HasSetting(BelowMidCD) + Skin.HasSetting(vinylart)</visible>
+					<visible>Player.HasAudio + Skin.HasSetting(NowPlayingBelowBar) + Skin.HasSetting(BelowMidCD) + Skin.HasSetting(vinylart)</visible>
 					<aspectratio aligny="bottom">keep</aspectratio>
 				</control>
 				<control type="image">
@@ -313,7 +276,7 @@
 					<posy>920</posy>
 					<fadetime>300</fadetime>
 					<include>blurayart</include>
-					<visible>Player.HasMedia + Skin.HasSetting(NowPlayingBelowBar) + Skin.HasSetting(BelowMidCD) + Skin.HasSetting(blurayart)</visible>
+					<visible>Player.HasAudio + Skin.HasSetting(NowPlayingBelowBar) + Skin.HasSetting(BelowMidCD) + Skin.HasSetting(blurayart)</visible>
 					<aspectratio aligny="bottom">keep</aspectratio>
 				</control>
 				<control type="image" id="3334">
@@ -331,7 +294,7 @@
 					<posx>780</posx>
 					<posy>920</posy>
 					<fadetime>300</fadetime>
-					<visible>Player.HasMedia + Skin.HasSetting(NowPlayingBelowBar) + Skin.HasSetting(BelowMidCD) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart)</visible>
+					<visible>Player.HasAudio + Skin.HasSetting(NowPlayingBelowBar) + Skin.HasSetting(BelowMidCD) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart)</visible>
 					<texture background="true" fallback="common/cdart/blank.png">$INFO[Player.FolderPath]cdart.png</texture>
 					<aspectratio aligny="bottom">keep</aspectratio>
 				</control>
@@ -378,6 +341,26 @@
 					<label> $INFO[MusicPlayer.Album]</label>
 					<textcolor>black</textcolor>
 					<wrapmultiline>true</wrapmultiline>
+				</control>
+				<control type="image">
+					<visible>Skin.HasSetting(cdartinvis)</visible>
+					<animation effect="slide" start="0,200" end="0" time="560" tween="cubic" delay="720">WindowOpen</animation>
+					<animation type="WindowClose">
+						<effect type="slide" end="-180" time="220" tween="cubic" easing="in" />
+						<effect type="fade" start="100" end="0" time="200" />
+						<condition type="!Player.Playing" />
+					</animation>
+					<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+					<!--animation effect="slide" start="0,0" end="830,0" time="560" tween="cubic" delay="780"condition="Skin.HasSetting(BelowMidCD)">Conditional</animation-->
+					<aspectratio>keep</aspectratio>
+					<width>360</width>
+					<height>360</height>
+					<posx>780</posx>
+					<posy>920</posy>
+					<fadetime>300</fadetime>
+					<texture background="true" fallback="common/cdart/bd.png">$INFO[Player.Art(discart)]</texture>
+					<visible>Player.HasVideo + Skin.HasSetting(NowPlayingBelowBar)</visible>
+					<aspectratio>keep</aspectratio>
 				</control>
 			</control>
 		</control>
@@ -913,6 +896,75 @@
 						<scroll>true</scroll>
 						<include>Animation_VisibleChange400</include>
 					</control>
+				</control>
+			</control>
+			<!--Video-->
+			<control type="group">
+				<posx>0</posx>
+				<posy>695</posy>
+				<visible>Player.HasVideo + Skin.HasSetting(NowPlayingBelowBar)</visible>
+				<animation effect="slide" start="0,200" end="0" time="560" tween="cubic" easing="inout" delay="350">WindowOpen</animation>
+				<animation type="WindowClose" reversible="false">
+					<effect type="fade" start="100" end="0" time="240" />
+					<effect type="zoom" start="100" end="130" center="960,540" time="240" tween="cubic" easing="in" />
+				</animation>
+				<!--ClearLogo-->
+				<control type="image" id="9966">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>250</width>
+					<fadetime>400</fadetime>
+					<texture background="true">$VAR[HomeNowPlayingArtworkVar]</texture>
+					<aspectratio aligny="center" align="left">keep</aspectratio>
+					<!--visible>Skin.HasSetting(BelowMidLogo)</visible-->
+					<animation effect="slide" time="560" start="-270,15" end="0,0" tween="back" easing="inout">VisibleChange</animation>
+				</control>
+				<!--control type="image">
+					<animation effect="slide" start="-1250" end="-150" time="700" tween="cubic" delay="1100">WindowOpen</animation>
+					<posx>-100</posx>
+					<posy>30</posy>
+					<width>500</width>
+					<height>4</height>
+					<texture>views/list_divider.png</texture>
+					<visible>!Skin.HasSetting(BelowMidLogo)</visible>
+				</control>
+				<control type="image">
+					<animation effect="slide" start="-1250" end="-150" time="700" tween="cubic" delay="1100">WindowOpen</animation>
+					<posx>-100</posx>
+					<posy>73</posy>
+					<width>500</width>
+					<height>4</height>
+					<texture>views/list_divider.png</texture>
+					<visible>!Skin.HasSetting(BelowMidLogo)</visible>
+				</control-->
+				<!--Title-->
+				<control type="label">
+					<animation effect="slide" time="250" start="0,0" end="150,0" tween="Back" easing="out" condition="Skin.HasSetting(BelowMidLogo)">Conditional</animation>
+					<posx>-150</posx>
+					<posy>35</posy>
+					<width>790</width>
+					<height>38</height>
+					<align>left</align>
+					<scroll>true</scroll>
+					<font>font13</font>
+					<label>$VAR[HomeNowPlayingVideoTitleVar]</label>
+					<textcolor>$VAR[TitleColorVar]</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<visible>IsEmpty(Control.GetLabel(9966))</visible>
+				</control>
+				<control type="label">
+					<animation effect="slide" time="250" start="0,0" end="150,0" tween="Back" easing="out" condition="Skin.HasSetting(BelowMidLogo)">Conditional</animation>
+					<posx>1730</posx>
+					<posy>-35</posy>
+					<width>700</width>
+					<height>200</height>
+					<align>right</align>
+					<font>font13</font>
+					<textcolor>$VAR[TitleColorVar]</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<scroll>true</scroll>
+					<label>$VAR[HomeNowPlayingVideoEpisodeVar]</label>
+					<visible>Skin.HasSetting(BelowMidLogo)</visible>
 				</control>
 			</control>
 		</control>

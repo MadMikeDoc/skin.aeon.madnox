@@ -5380,13 +5380,18 @@
 		<value>$LOCALIZE[231]</value>
 	</variable>
 	<!--Now Playing Home Var-->
+	<variable name="HomeNowPlayingArtworkVar">
+		<value condition="VideoPlayer.Content(episodes)">$INFO[Player.Art(tvshow.clearlogo)]</value>
+		<value>$INFO[Player.Art(clearlogo)]</value>
+	</variable>
 	<variable name="HomeNowPlayingVideoTitleVar">
 		<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.Title] ($INFO[VideoPlayer.Year])</value>
 		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.TVShowTitle]</value>
 	</variable>
 	<variable name="HomeNowPlayingVideoEpisodeVar">
-		<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.Rating]</value>
-		<value condition="VideoPlayer.Content(episodes)">S$INFO[VideoPlayer.Season] E$INFO[VideoPlayer.Episode] - $INFO[VideoPlayer.Title]</value>
+		<!--value condition="VideoPlayer.Content(movies) + Skin.HasSetting(BelowMidLogo)">$INFO[Player.TimeRemaining]</value-->
+		<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.Tagline]</value>
+		<value condition="VideoPlayer.Content(episodes)">S$VAR[VideoSeasonVar]E$VAR[VideoEpisodeVar] - $INFO[VideoPlayer.Title]</value>
 	</variable>
 
 </includes>
