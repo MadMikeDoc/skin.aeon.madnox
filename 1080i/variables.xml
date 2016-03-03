@@ -444,7 +444,7 @@
 		<value condition="SubString(ListItem.mpaa,UK:12)">BBFC_12_Certificate_UK</value>
 		<value condition="SubString(ListItem.mpaa,UK:15)">BBFC_15_Certificate_UK</value>
 		<value condition="SubString(ListItem.mpaa,UK:18)">BBFC_18_Certificate_UK</value>
-		<value condition="SubString(ListItem.mpaa,Germany:0) | SubString(ListItem.mpaa,ab 0) | SubString(ListItem.mpaa,o.A) | SubString(ListItem.mpaa,FSK 0) | StringCompare(ListItem.mpaa,FSK:0)">FSK-0</value>
+		<value condition="SubString(ListItem.mpaa,Germany:0) | SubString(ListItem.mpaa,ab 0) | SubString(ListItem.mpaa,o.A) | SubString(ListItem.mpaa,FSK 0) | StringCompare(ListItem.mpaa,FSK:0) | StringCompare(ListItem.mpaa,rated 0">FSK-0</value>
 		<value condition="SubString(ListItem.mpaa,Germany:6) |  SubString(ListItem.mpaa,ab 6) | !SubString(ListItem.mpaa,16) + SubString(ListItem.mpaa,6) | SubString(ListItem.mpaa,FSK 6) | StringCompare(ListItem.mpaa,FSK:6)">FSK-6</value>
 		<value condition="SubString(ListItem.mpaa,Germany:12) | SubString(ListItem.mpaa,ab 12) | SubString(ListItem.mpaa,12) | SubString(ListItem.mpaa,FSK 12) | StringCompare(ListItem.mpaa,FSK:12)">FSK-12</value>
 		<value condition="SubString(ListItem.mpaa,Germany:16) | SubString(ListItem.mpaa,ab 16) | SubString(ListItem.mpaa,16) | SubString(ListItem.mpaa,FSK 16) | StringCompare(ListItem.mpaa,FSK:16)">FSK-16</value>
@@ -897,6 +897,7 @@
 	<variable name="LogoVar">
 		<value condition="Container.Content(albums) + Substring(Container.FolderPath,musicdb://artists/,left)">$INFO[Skin.String(ArtistsLogosPath)]$INFO[Container.FolderName,,/logo.png]</value>
 		<value condition="Container.Content(artists) | Container.Content(albums) | Container.Content(songs)">$INFO[Skin.String(ArtistsLogosPath)]$INFO[Container.ListItem.Artist,,\logo.png]</value>
+		<value>$INFO[Window(Home).Property(SkinHelper.Music.ClearLogo)]</value>
 		<!--         <value condition="skin.hassetting(backendmode) + SubString(ListItem.Path,videodb://movies/sets/,left)">$INFO[Control.GetLabel(4211)]</value> 		-->
 		<value>$VAR[LogoVarList]</value>
 	</variable>
@@ -2987,7 +2988,7 @@
 	</variable>
 	<variable name="VisPanelLabelVar">
 		<value condition="Skin.HasSetting(activatepanelrotation)">$LOCALIZE[31636]</value>
-		<value condition="Skin.HasSetting(DisablePanelWidgetVis)">$LOCALIZE[106]</value> 
+		<value condition="Skin.HasSetting(DisablePanelWidgetVis)">$LOCALIZE[106]</value>
 		<value>$LOCALIZE[571]</value>
 	</variable>
 	<variable name="HomePanelVar">
@@ -5378,4 +5379,14 @@
 		<value condition="StringCompare(Window.Property(backgroundSort),descending)">$LOCALIZE[585]</value>
 		<value>$LOCALIZE[231]</value>
 	</variable>
+	<!--Now Playing Home Var-->
+	<variable name="HomeNowPlayingVideoTitleVar">
+		<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.Title] ($INFO[VideoPlayer.Year])</value>
+		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.TVShowTitle]</value>
+	</variable>
+	<variable name="HomeNowPlayingVideoEpisodeVar">
+		<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.Rating]</value>
+		<value condition="VideoPlayer.Content(episodes)">S$INFO[VideoPlayer.Season] E$INFO[VideoPlayer.Episode] - $INFO[VideoPlayer.Title]</value>
+	</variable>
+
 </includes>
