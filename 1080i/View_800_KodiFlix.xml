@@ -23,8 +23,8 @@
 				<description>KodiFlix Fanart</description>
 				<include condition="!Skin.HasSetting(KodiFlixSmallFanart)">KodiFlixSmallFanartFullScreenDimensions</include>
 				<include condition="Skin.HasSetting(KodiFlixSmallFanart)">KodiFlixSmallFanartDimensions</include>
-				<aspectratio>scale</aspectratio>
-				<texture background="true" diffuse="views/KodiFlix/fanart_diffuse3.png">$INFO[Container.ListItem.Art(fanart)]</texture>
+				<aspectratio>strech</aspectratio>
+				<texture background="true" diffuse="views/KodiFlix/fanart_diffuse3_orig.png">$INFO[Container.ListItem.Art(fanart)]</texture>
 				<include>FanartFade</include>
 				<visible>!Player.HasVideo + Control.IsVisible(800) + !SubString(ListItem.Path,videodb://movies/sets) + [!Skin.HasSetting(NetFiixExtraFanart) | IsEmpty(Control.GetLabel(5900))]</visible>
 				<fadetime>250</fadetime>

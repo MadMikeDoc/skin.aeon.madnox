@@ -586,7 +586,7 @@
 			<visible>Control.IsVisible(9900) + ![SubString(Container.FolderPath,addons://) | SubString(Container.FolderPath,plugin.video)]</visible>
 			<animation effect="slide" end="-1220" condition="Control.IsVisible(514)">Conditional</animation>
 			<animation effect="slide" end="0,-30" time="240" tween="cubic" easing="inout" condition="Control.IsVisible(50)">Conditional</animation>
-			<animation effect="slide" end="-50,0" time="240" tween="cubic" easing="inout" condition="Control.IsVisible(50) + !Skin.HasSetting(slimlist)">Conditional</animation>
+			<animation effect="slide" end="-50,0" time="240" tween="cubic" easing="inout" condition="Control.IsVisible(50) + [!Skin.HasSetting(slimlist) | Container.Content(episodes)]">Conditional</animation>
 			<top>1004</top>
 			<control type="image">
 				<left>1255</left>
