@@ -60,16 +60,17 @@
 		<oninfo>SetProperty(Widget,$PARAM[Widget],home)</oninfo>
 		<oninfo>SetProperty(Widget.Type,$PARAM[widgetType],home)</oninfo>
 		<oninfo>SetProperty(Widget.Target,$PARAM[widgetTarget],home)</oninfo>
-		<oninfo>SetProperty(Widget.FilePath,$INFO[Container($PARAM[id]).ListItem.FileNameAndPath],home)</oninfo>
-		<oninfo>SetProperty(Widget.FolderPath,$INFO[Container($PARAM[id]).ListItem.FolderPath],home)</oninfo>
+		<oninfo>SetProperty(Widget.FilePath,$ESCINFO[Container($PARAM[id]).ListItem.FileNameAndPath],home)</oninfo>
+		<oninfo>SetProperty(Widget.FolderPath,$ESCINFO[Container($PARAM[id]).ListItem.FolderPath],home)</oninfo>
 		<oninfo>SetProperty(Widget.Resume,$INFO[Container($PARAM[id]).ListItem.PercentPlayed],home)</oninfo>
-		<oninfo>SetProperty(Widget.Trailer,$INFO[Container($PARAM[id]).ListItem.Trailer],home)</oninfo>
-		<oninfo>SetProperty(Widget.DBID,$INFO[Container($PARAM[id]).ListItem.Property(DBID)],home)</oninfo>
+		<oninfo>SetProperty(Widget.Trailer,$ESCINFO[Container($PARAM[id]).ListItem.Trailer],home)</oninfo>
+		<oninfo>SetProperty(Widget.EIDBID,$INFO[Container($PARAM[id]).ListItem.Property(EIDBID)],home)</oninfo>
+		<oninfo>SetProperty(Widget.DBID,$INFO[Container($PARAM[id]).ListItem.DBID],home)</oninfo>
 		<!-- Art -->
-		<oninfo>SetProperty(Widget.Cover,$PARAM[Texture],home)</oninfo>
+		<oninfo>SetProperty(Widget.Cover,$ESCVAR[HomeWidget$PARAM[id]PosterVar],home)</oninfo>
 		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(Label3)) + !IsEmpty(Container($PARAM[id]).ListItem.Property(isSystemInfo))">SetProperty(Widget.Cover,$INFO[Container($PARAM[id]).ListItem.Property(Fanart)],home)</oninfo>
 		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(Label3)) + !IsEmpty(Container($PARAM[id]).ListItem.Property(WeatherMultiFanart)) + Skin.HasSetting(WeatherFanartDir.multi)">SetProperty(Widget.Cover,$INFO[Container($PARAM[id]).ListItem.Property(WeatherMultiFanart)],home)</oninfo>
-		<oninfo>SetProperty(Widget.DiscArt,$INFO[Container($PARAM[id]).ListItem.Art(discart)],home)</oninfo>
+		<oninfo>SetProperty(Widget.DiscArt,$ESCINFO[Container($PARAM[id]).ListItem.Art(discart)],home)</oninfo>
 		<oninfo>SetProperty(Widget.Background,$PARAM[backTexture],home)</oninfo>
 		<oninfo>SetProperty(Widget.BackgroundColor,$PARAM[backColor],home)</oninfo>
 		<oninfo>SetProperty(Widget.StarRating,$INFO[Container($PARAM[id]).ListItem.StarRating],home)</oninfo>
@@ -159,9 +160,6 @@
 		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(AudioCodec)) + !IsEmpty(Container($PARAM[id]).ListItem.Property(AudioChannels))">SetProperty(Widget.FlagsAudio,$VAR[ColorFlagsAudio]audio/$INFO[Container($PARAM[id]).ListItem.Property(AudioCodec)]$INFO[Container($PARAM[id]).ListItem.Property(AudioChannels),,.png],home)</oninfo>
 		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.AudioCodec)">SetProperty(Widget.FlagsAudio,$VAR[ColorFlagsAudio]audio/$INFO[Container($PARAM[id]).ListItem.AudioCodec,,.png],home)</oninfo>
 		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.AudioCodec) + !IsEmpty(Container($PARAM[id]).ListItem.AudioChannels)">SetProperty(Widget.FlagsAudio,$VAR[ColorFlagsAudio]audio/$INFO[Container($PARAM[id]).ListItem.AudioCodec]$INFO[Container($PARAM[id]).ListItem.AudioChannels,,.png],home)</oninfo>
-		<!-- Audio Channels -->
-		<!--oninfo condition="Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsAudioChannels,$INFO[Container($PARAM[id]).ListItem.AudioChannels,flags/colored/channels/,.png],home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsAudioChannels,$INFO[Container($PARAM[id]).ListItem.AudioChannels,flags/channels/,.png],home)</oninfo-->
 		<!-- Subtitle Language -->
 		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.SubtitleLanguage) | !IsEmpty(Container($PARAM[id]).ListItem.Property(SubtitleLanguage.1))">SetProperty(Widget.FlagsCC,$VAR[ColorFlags]cc.png,home)</oninfo>
 		<!--Audio Languages-->
@@ -175,133 +173,6 @@
 		<!-- Open Window -->
 		<oninfo>ActivateWindow(1199)</oninfo>
 	</include>
-	<!-- ******* ONINFO Silvo ********
-	<include name="OnInfo">
-		Year
-		<oninfo>SetProperty(Widget.Year,$INFO[Container($PARAM[id]).ListItem.Year],home)</oninfo>
-		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(Addon.Name))">SetProperty(Widget.Year,$INFO[Container($PARAM[id]).ListItem.Property(Addon.Version)],home)</oninfo>
-		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(Label3))">SetProperty(Widget.Year,$INFO[System.FriendlyName],home)</oninfo>
-		MPAA
-		<oninfo condition="Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsRating,$INFO[Container($PARAM[id]).ListItem.MPAA,flags/colored/rating/,.png],home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,US:G) | SubString(Container($PARAM[id]).ListItem.MPAA,USA:G) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated G) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated Approved) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated Passed)]">SetProperty(Widget.FlagsRating,flags/colored/rating/G.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,PG-13)">SetProperty(Widget.FlagsRating,flags/colored/rating/PG-13,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Rated PG) | StringCompare(ListItem.Mpaa,PG)]">SetProperty(Widget.FlagsRating,flags/colored/rating/PG.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,US:R) | SubString(Container($PARAM[id]).ListItem.MPAA,USA:R) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated R) | StringCompare(ListItem.MPAA,R)]">SetProperty(Widget.FlagsRating,flags/colored/rating/R.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,US:NC-17) | SubString(Container($PARAM[id]).ListItem.MPAA,USA:NC-17) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated NC-17)]">SetProperty(Widget.FlagsRating,flags/colored/rating/NC-17.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,UK:U)">SetProperty(Widget.FlagsRating,flags/colored/rating/BBFC_U_Certificate_UK.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,UK:PG)">SetProperty(Widget.FlagsRating,flags/colored/rating/BBFC_PG_Certificate_UK.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,UK:12A)">SetProperty(Widget.FlagsRating,flags/colored/rating/BBFC_12A_Certificate_UK.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,UK:12)">SetProperty(Widget.FlagsRating,flags/colored/rating/BBFC_12_Certificate_UK.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,UK:15)">SetProperty(Widget.FlagsRating,flags/colored/rating/BBFC_15_Certificate_UK.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,UK:18)">SetProperty(Widget.FlagsRating,flags/colored/rating/BBFC_18_Certificate_UK.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Germany:16) | SubString(Container($PARAM[id]).ListItem.MPAA,ab 16) | StringCompare(ListItem.MPAA,16) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK 16) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated 16)]">SetProperty(Widget.FlagsRating,flags/colored/rating/FSK-16.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Germany:0) | SubString(Container($PARAM[id]).ListItem.MPAA,ab 0) | StringCompare(ListItem.MPAA,0) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK 0) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated 0)]">SetProperty(Widget.FlagsRating,flags/colored/rating/FSK-0.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Germany:6) | SubString(Container($PARAM[id]).ListItem.MPAA,ab 6) | StringCompare(ListItem.MPAA,6) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK 6) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated 6)]">SetProperty(Widget.FlagsRating,flags/colored/rating/FSK-6.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Germany:12) | SubString(Container($PARAM[id]).ListItem.MPAA,ab 12) | StringCompare(ListItem.MPAA,12) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK 12) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated 12)]">SetProperty(Widget.FlagsRating,flags/colored/rating/FSK-12.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Germany:18) | SubString(Container($PARAM[id]).ListItem.MPAA,ab 18) | StringCompare(ListItem.MPAA,18) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK 18) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated 18)]">SetProperty(Widget.FlagsRating,flags/colored/rating/FSK-18.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Germany) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK) | SubString(Container($PARAM[id]).ListItem.MPAA,o.A) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated 0)]">SetProperty(Widget.FlagsRating,flags/colored/rating/FSK-0.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,besorolás alatt)">SetProperty(Widget.FlagsRating,flags/colored/rating/HU_BA.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,korhatárra való tekintett nélkül megtekintetheto)">SetProperty(Widget.FlagsRating,flags/colored/rating/HU_KN.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">SetProperty(Widget.FlagsRating,flags/colored/rating/HU_12.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,16 éven aluliak számára nem ajánlott)">SetProperty(Widget.FlagsRating,flags/colored/rating/HU_16.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,18 éven aluliak számára nem ajánlott)">SetProperty(Widget.FlagsRating,flags/colored/rating/HU_18.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,France:U) | SubString(Container($PARAM[id]).ListItem.MPAA,Tout public) | SubString(Container($PARAM[id]).ListItem.MPAA,partir de 3 ans) | SubString(Container($PARAM[id]).ListItem.MPAA,partir de 6 ans)]">SetProperty(Widget.FlagsRating,flags/colored/rating/csaU.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,France:-10) | SubString(Container($PARAM[id]).ListItem.MPAA,Interdit aux moins de 10 ans) | SubString(Container($PARAM[id]).ListItem.MPAA,des propos ou des images peuvent heurter)]">SetProperty(Widget.FlagsRating,flags/colored/rating/csa10.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,France:-12) | SubString(Container($PARAM[id]).ListItem.MPAA,Interdit aux moins de 12 ans)]">SetProperty(Widget.FlagsRating,flags/colored/rating/csa12.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,France:-16) | SubString(Container($PARAM[id]).ListItem.MPAA,Interdit aux moins de 16 ans)]">SetProperty(Widget.FlagsRating,flags/colored/rating/csa16.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,France:-18) | SubString(Container($PARAM[id]).ListItem.MPAA,Interdit aux moins de 18 ans)]">SetProperty(Widget.FlagsRating,flags/colored/rating/csa18.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,전체)">SetProperty(Widget.FlagsRating,flags/colored/rating/KR_Certificate_All.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,12세)">SetProperty(Widget.FlagsRating,flags/colored/rating/KR_Certificate_12.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,15세)">SetProperty(Widget.FlagsRating,flags/colored/rating/KR_Certificate_15.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,불가)">SetProperty(Widget.FlagsRating,flags/colored/rating/KR_Certificate_18.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,제한)">SetProperty(Widget.FlagsRating,flags/colored/rating/KR_Certificate_R.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:Livre) | SubString(Container($PARAM[id]).ListItem.MPAA,Livre)]">SetProperty(Widget.FlagsRating,flags/colored/rating/MPAA_Brazil_Livre.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:10) | SubString(Container($PARAM[id]).ListItem.MPAA,10 anos)]">SetProperty(Widget.FlagsRating,flags/colored/rating/MPAA_Brazil_10.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:12) | SubString(Container($PARAM[id]).ListItem.MPAA,12 anos)]">SetProperty(Widget.FlagsRating,flags/colored/rating/MPAA_Brazil_12.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:14) | SubString(Container($PARAM[id]).ListItem.MPAA,14 anos)]">SetProperty(Widget.FlagsRating,flags/colored/rating/MPAA_Brazil_14.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:16) | SubString(Container($PARAM[id]).ListItem.MPAA,16 anos)]">SetProperty(Widget.FlagsRating,flags/colored/rating/MPAA_Brazil_16.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:18) | SubString(Container($PARAM[id]).ListItem.MPAA,18 anos)]">SetProperty(Widget.FlagsRating,flags/colored/rating/MPAA_Brazil_18.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,Australia:)">SetProperty(Widget.FlagsRating,$INFO[Container($PARAM[id]).ListItem.MPAA,flags/colored/rating/australia_,.png],home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsRating,$INFO[Container($PARAM[id]).ListItem.MPAA,flags/mpaa/,.png],home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,US:G) | SubString(Container($PARAM[id]).ListItem.MPAA,USA:G) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated G) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated Approved) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated Passed)]">SetProperty(Widget.FlagsRating,flags/mpaa/G.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,PG-13)">SetProperty(Widget.FlagsRating,flags/mpaa/PG-13,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Rated PG) | StringCompare(ListItem.Mpaa,PG)]">SetProperty(Widget.FlagsRating,flags/mpaa/PG.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,US:R) | SubString(Container($PARAM[id]).ListItem.MPAA,USA:R) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated R) | StringCompare(ListItem.MPAA,R)]">SetProperty(Widget.FlagsRating,flags/mpaa/R.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,US:NC-17) | SubString(Container($PARAM[id]).ListItem.MPAA,USA:NC-17) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated NC-17)]">SetProperty(Widget.FlagsRating,flags/mpaa/NC-17.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,UK:U)">SetProperty(Widget.FlagsRating,flags/mpaa/BBFC_U_Certificate_UK.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,UK:PG)">SetProperty(Widget.FlagsRating,flags/mpaa/BBFC_PG_Certificate_UK.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,UK:12A)">SetProperty(Widget.FlagsRating,flags/mpaa/BBFC_12A_Certificate_UK.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,UK:12)">SetProperty(Widget.FlagsRating,flags/mpaa/BBFC_12_Certificate_UK.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,UK:15)">SetProperty(Widget.FlagsRating,flags/mpaa/BBFC_15_Certificate_UK.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,UK:18)">SetProperty(Widget.FlagsRating,flags/mpaa/BBFC_18_Certificate_UK.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Germany:16) | SubString(Container($PARAM[id]).ListItem.MPAA,ab 16) | StringCompare(ListItem.MPAA,16) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK 16) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated 16)]">SetProperty(Widget.FlagsRating,flags/mpaa/FSK-16.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Germany:0) | SubString(Container($PARAM[id]).ListItem.MPAA,ab 0) | StringCompare(ListItem.MPAA,0) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK 0) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated 0)]">SetProperty(Widget.FlagsRating,flags/mpaa/FSK-0.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Germany:6) | SubString(Container($PARAM[id]).ListItem.MPAA,ab 6) | StringCompare(ListItem.MPAA,6) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK 6) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated 6)]">SetProperty(Widget.FlagsRating,flags/mpaa/FSK-6.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Germany:12) | SubString(Container($PARAM[id]).ListItem.MPAA,ab 12) | StringCompare(ListItem.MPAA,12) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK 12) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated 12)]">SetProperty(Widget.FlagsRating,flags/mpaa/FSK-12.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Germany:18) | SubString(Container($PARAM[id]).ListItem.MPAA,ab 18) | StringCompare(ListItem.MPAA,18) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK 18) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated 18)]">SetProperty(Widget.FlagsRating,flags/mpaa/FSK-18.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Germany) | SubString(Container($PARAM[id]).ListItem.MPAA,FSK) | SubString(Container($PARAM[id]).ListItem.MPAA,o.A) | SubString(Container($PARAM[id]).ListItem.MPAA,Rated 0)]">SetProperty(Widget.FlagsRating,flags/mpaa/FSK-0.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,besorolás alatt)">SetProperty(Widget.FlagsRating,flags/mpaa/HU_BA.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,korhatárra való tekintett nélkül megtekintetheto)">SetProperty(Widget.FlagsRating,flags/mpaa/HU_KN.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">SetProperty(Widget.FlagsRating,flags/mpaa/HU_12.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,16 éven aluliak számára nem ajánlott)">SetProperty(Widget.FlagsRating,flags/mpaa/HU_16.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,18 éven aluliak számára nem ajánlott)">SetProperty(Widget.FlagsRating,flags/mpaa/HU_18.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,France:U) | SubString(Container($PARAM[id]).ListItem.MPAA,Tout public) | SubString(Container($PARAM[id]).ListItem.MPAA,partir de 3 ans) | SubString(Container($PARAM[id]).ListItem.MPAA,partir de 6 ans)]">SetProperty(Widget.FlagsRating,flags/mpaa/csaU.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,France:-10) | SubString(Container($PARAM[id]).ListItem.MPAA,Interdit aux moins de 10 ans) | SubString(Container($PARAM[id]).ListItem.MPAA,des propos ou des images peuvent heurter)]">SetProperty(Widget.FlagsRating,flags/mpaa/csa10.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,France:-12) | SubString(Container($PARAM[id]).ListItem.MPAA,Interdit aux moins de 12 ans)]">SetProperty(Widget.FlagsRating,flags/mpaa/csa12.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,France:-16) | SubString(Container($PARAM[id]).ListItem.MPAA,Interdit aux moins de 16 ans)]">SetProperty(Widget.FlagsRating,flags/mpaa/csa16.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,France:-18) | SubString(Container($PARAM[id]).ListItem.MPAA,Interdit aux moins de 18 ans)]">SetProperty(Widget.FlagsRating,flags/mpaa/csa18.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,전체)">SetProperty(Widget.FlagsRating,flags/mpaa/KR_Certificate_All.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,12세)">SetProperty(Widget.FlagsRating,flags/mpaa/KR_Certificate_12.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,15세)">SetProperty(Widget.FlagsRating,flags/mpaa/KR_Certificate_15.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,불가)">SetProperty(Widget.FlagsRating,flags/mpaa/KR_Certificate_18.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,제한)">SetProperty(Widget.FlagsRating,flags/mpaa/KR_Certificate_R.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:Livre) | SubString(Container($PARAM[id]).ListItem.MPAA,Livre)]">SetProperty(Widget.FlagsRating,flags/mpaa/MPAA_Brazil_Livre.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:10) | SubString(Container($PARAM[id]).ListItem.MPAA,10 anos)]">SetProperty(Widget.FlagsRating,flags/mpaa/MPAA_Brazil_10.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:12) | SubString(Container($PARAM[id]).ListItem.MPAA,12 anos)]">SetProperty(Widget.FlagsRating,flags/mpaa/MPAA_Brazil_12.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:14) | SubString(Container($PARAM[id]).ListItem.MPAA,14 anos)]">SetProperty(Widget.FlagsRating,flags/mpaa/MPAA_Brazil_14.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:16) | SubString(Container($PARAM[id]).ListItem.MPAA,16 anos)]">SetProperty(Widget.FlagsRating,flags/mpaa/MPAA_Brazil_16.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.MPAA,Brazil:18) | SubString(Container($PARAM[id]).ListItem.MPAA,18 anos)]">SetProperty(Widget.FlagsRating,flags/mpaa/MPAA_Brazil_18.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.MPAA,Australia:)">SetProperty(Widget.FlagsRating,$INFO[Container($PARAM[id]).ListItem.MPAA,flags/mpaa/australia_,.png],home)</oninfo>
-		Studio
-		<oninfo condition="Skin.HasSetting(coloredflags) + !IsEmpty(Container($PARAM[id]).ListItem.Studio)">SetProperty(Widget.FlagsStudio,$INFO[Container($PARAM[id]).ListItem.Studio,resource://resource.images.studios.coloured/,.png],home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + !IsEmpty(Container($PARAM[id]).ListItem.Studio)">SetProperty(Widget.FlagsStudio,$INFO[Container($PARAM[id]).ListItem.Studio,resource://resource.images.studios.white/,.png],home)</oninfo>
-		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(Album_Label))">SetProperty(Widget.FlagsStudio,$INFO[Container($PARAM[id]).ListItem.Property(Album_Label)],home)</oninfo>
-		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(HighTemp))">SetProperty(Widget.FlagsStudio,$INFO[Window(weather).Property(WeatherProviderLogo)],home)</oninfo>
-		VideoCodec
-		<oninfo condition="Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsSource,$INFO[Container($PARAM[id]).ListItem.VideoCodec,flags/colored/source/,.png]</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.filename,PDTV) | SubString(Container($PARAM[id]).ListItem.filename,sdtv) | SubString(Container($PARAM[id]).ListItem.filename,sd tv)]">SetProperty(Widget.FlagsSource,flags/colored/source/sdtv.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.filename,hdtv) | SubString(Container($PARAM[id]).ListItem.filename,hd tv)]">SetProperty(Widget.FlagsSource,flags/colored/source/hdtv.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.filename,hddvd) | SubString(Container($PARAM[id]).ListItem.filename,hd-dvd)]">SetProperty(Widget.FlagsSource,flags/colored/source/hddvd.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + Container($PARAM[id]).ListItem.IsStereoscopic">SetProperty(Widget.FlagsSource,flags/colored/source/bluray3d,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.filename,bluray) | SubString(Container($PARAM[id]).ListItem.filename,blu-ray) | SubString(Container($PARAM[id]).ListItem.filename,bdrip) | SubString(Container($PARAM[id]).ListItem.filename,brrip)]">SetProperty(Widget.FlagsSource,flags/colored/source/bluray.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.filename,dvb)">SetProperty(Widget.FlagsSource,flags/colored/source/dvb.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.filename,web-dl)">SetProperty(Widget.FlagsSource,flags/colored/source/web-dl.png,home)</oninfo>
-		<oninfo condition="Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.filename,dvd) | StringCompare(Container($PARAM[id]).ListItem.FileExtension,iso) | StringCompare(Container($PARAM[id]).ListItem.FileExtension,ifo)">SetProperty(Widget.FlagsSource,flags/colored/source/dvd.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsSource,$INFO[Container($PARAM[id]).ListItem.VideoCodec,flags/video/,.png]</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.filename,PDTV) | SubString(Container($PARAM[id]).ListItem.filename,sdtv) | SubString(Container($PARAM[id]).ListItem.filename,sd tv)]">SetProperty(Widget.FlagsSource,flags/video/sdtv.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.filename,hdtv) | SubString(Container($PARAM[id]).ListItem.filename,hd tv)]">SetProperty(Widget.FlagsSource,flags/video/hdtv.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.filename,hddvd) | SubString(Container($PARAM[id]).ListItem.filename,hd-dvd)]">SetProperty(Widget.FlagsSource,flags/video/hddvd.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + Container($PARAM[id]).ListItem.IsStereoscopic">SetProperty(Widget.FlagsSource,flags/video/bluray3d,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + [SubString(Container($PARAM[id]).ListItem.filename,bluray) | SubString(Container($PARAM[id]).ListItem.filename,blu-ray) | SubString(Container($PARAM[id]).ListItem.filename,bdrip) | SubString(Container($PARAM[id]).ListItem.filename,brrip)]">SetProperty(Widget.FlagsSource,flags/video/bluray.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.filename,dvb)">SetProperty(Widget.FlagsSource,flags/video/dvb.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.filename,web-dl)">SetProperty(Widget.FlagsSource,flags/video/web-dl.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + SubString(Container($PARAM[id]).ListItem.filename,dvd) | StringCompare(Container($PARAM[id]).ListItem.FileExtension,iso) | StringCompare(Container($PARAM[id]).ListItem.FileExtension,ifo)">SetProperty(Widget.FlagsSource,flags/video/dvd.png,home)</oninfo>
-		Resolution
-		<oninfo condition="Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsResolution,$INFO[Container($PARAM[id]).ListItem.VideoResolution,flags/colored/resolution/,.png],home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsResolution,$INFO[Container($PARAM[id]).ListItem.VideoResolution,flags/resolution/,.png],home)</oninfo>
-		Aspect
-		<oninfo condition="Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsAspect,$INFO[Container($PARAM[id]).ListItem.VideoAspect,flags/colored/aspectratio/,.png],home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsAspect,$INFO[Container($PARAM[id]).ListItem.VideoAspect,flags/aspectratio/,.png],home)</oninfo>
-		Audio Codec
-		<oninfo condition="Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsAudio,$INFO[Container($PARAM[id]).ListItem.AudioCodec,flags/colored/audio/,.png],home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsAudio,$INFO[Container($PARAM[id]).ListItem.AudioCodec,flags/audio/,.png],home)</oninfo>
-		Audio Channels
-		<oninfo condition="Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsAudioChannels,$INFO[Container($PARAM[id]).ListItem.AudioChannels,flags/colored/channels/,.png],home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags)">SetProperty(Widget.FlagsAudioChannels,$INFO[Container($PARAM[id]).ListItem.AudioChannels,flags/channels/,.png],home)</oninfo>
-		Subtitle Language
-		<oninfo condition="Skin.HasSetting(coloredflags) + !IsEmpty(Container($PARAM[id]).ListItem.SubtitleLanguage)">SetProperty(Widget.FlagsCC,flags/colored/cc.png,home)</oninfo>
-		<oninfo condition="!Skin.HasSetting(coloredflags) + !IsEmpty(Container($PARAM[id]).ListItem.SubtitleLanguage)">SetProperty(Widget.FlagsCC,flags/cc.png,home)</oninfo>
-	</include>  -->
 	<!-- ******* WIDGET INFO ******** -->
 	<include name="InfoVisible1">
 		<visible>[Skin.HasSetting(Enable.PanelInfo) + Control.HasFocus($PARAM[id])] | [!Skin.HasSetting(Enable.PanelInfo) + StringCompare(Container(9000).ListItem.Property(widgetPanelInfo),Enabled) + Control.HasFocus($PARAM[id])]</visible>

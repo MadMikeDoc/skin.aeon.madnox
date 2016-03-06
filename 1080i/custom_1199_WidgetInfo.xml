@@ -36,7 +36,6 @@
 	<onunload>ClearProperty(Widget.FlagsResolution,Home)</onunload>
 	<onunload>ClearProperty(Widget.FlagsAspect,Home)</onunload>
 	<onunload>ClearProperty(Widget.FlagsAudio,Home)</onunload>
-	<onunload>ClearProperty(Widget.FlagsAudioChannels,Home)</onunload>
 	<onunload>ClearProperty(Widget.FlagsCC,Home)</onunload>
 	<onunload>ClearProperty(Widget.Info1,Home)</onunload>
 	<onunload>ClearProperty(Widget.Info2,Home)</onunload>
@@ -45,6 +44,7 @@
 	<onunload>ClearProperty(Widget.FolderPath,Home)</onunload>
 	<onunload>ClearProperty(Widget.Resume,Home)</onunload>
 	<onunload>ClearProperty(Widget.Trailer,Home)</onunload>
+	<onunload>ClearProperty(Widget.EIDBID,Home)</onunload>
 	<onunload>ClearProperty(Widget.DBID,Home)</onunload>
 	<onunload>ClearProperty(Widget.FlagsAL1,Home)</onunload>
 	<onunload>ClearProperty(Widget.FlagsAL2,Home)</onunload>
@@ -204,6 +204,7 @@
 							<aspectratio>scale</aspectratio>
 							<texture fallback="DefaultActor.png" background="true">$INFO[ListItem.Icon]</texture>
 							<bordertexture border="-2">black.png</bordertexture>
+							<include>Animation_VisibleChange400</include>
 							<colordiffuse>FF909090</colordiffuse>
 						</control>
 						<control type="image">
@@ -216,6 +217,7 @@
 							<aspectratio>keep</aspectratio>
 							<texture>spinner.png</texture>
 							<visible>Container(1000).IsUpdating</visible>
+							<include>Animation_VisibleChange400</include>
 							<animation effect="rotate" end="-360" center="auto" time="2000" loop="true" reversible="false" condition="true">Conditional</animation>
 						</control>
 					</itemlayout>
@@ -257,6 +259,7 @@
 							<aspectratio>keep</aspectratio>
 							<texture>spinner.png</texture>
 							<visible>Container(1000).IsUpdating</visible>
+							<include>Animation_VisibleChange400</include>
 							<animation effect="rotate" end="-360" center="auto" time="2000" loop="true" reversible="false" condition="true">Conditional</animation>
 						</control>
 					</focusedlayout>
@@ -285,6 +288,7 @@
 							<aspectratio>scale</aspectratio>
 							<texture fallback="DefaultActor.png" background="true">$INFO[ListItem.Icon]</texture>
 							<bordertexture border="-2">black.png</bordertexture>
+							<include>Animation_VisibleChange400</include>
 							<colordiffuse>FF909090</colordiffuse>
 						</control>
 						<control type="image">
@@ -297,6 +301,7 @@
 							<aspectratio>keep</aspectratio>
 							<texture>spinner.png</texture>
 							<visible>Container(1000).IsUpdating</visible>
+							<include>Animation_VisibleChange400</include>
 							<animation effect="rotate" end="-360" center="auto" time="2000" loop="true" reversible="false" condition="true">Conditional</animation>
 						</control>
 					</itemlayout>
@@ -338,6 +343,7 @@
 							<aspectratio>keep</aspectratio>
 							<texture>spinner.png</texture>
 							<visible>Container(1000).IsUpdating</visible>
+							<include>Animation_VisibleChange400</include>
 							<animation effect="rotate" end="-360" center="auto" time="2000" loop="true" reversible="false" condition="true">Conditional</animation>
 						</control>
 					</focusedlayout>
@@ -352,6 +358,7 @@
 						<aligny>center</aligny>
 						<align>center</align>
 						<aspectratio>scale</aspectratio>
+						<fadetime>400</fadetime>
 						<texture fallback="DefaultActor.png">$INFO[Container(1000).ListItem.Icon]</texture>
 					</control>
 					<control type="image">
@@ -531,23 +538,6 @@
 					<texture colordiffuse="$VAR[HomeWidgetInfoSepColor]">homewidgets/separator3.png</texture>
 					<visible>!IsEmpty(Control.GetLabel(1007))</visible>
 				</control>
-				<!-- SILVO
-				<control type="image" id="1008">
-					<width>130</width>
-					<height>90</height>
-					<aspectratio>keep</aspectratio>
-					<colordiffuse>$VAR[HomeWidgetInfoIconColor]</colordiffuse>
-					<align>center</align>
-					<aligny>center</aligny>
-					<texture>$INFO[Window(Home).Property(Widget.FlagsAudioChannels)]</texture>
-					<visible>!IsEmpty(Control.GetLabel(1008))</visible>
-				</control>
-				<control type="image">
-					<width>2</width>
-					<height>90</height>
-					<texture>homewidgets/separator3.png</texture>
-					<visible>!IsEmpty(Control.GetLabel(1008))</visible>
-				</control> -->
 				<control type="image" id="1009">
 					<width>130</width>
 					<height>90</height>
@@ -755,7 +745,7 @@
 					<description>Play Button</description>
 					<include>WidgetInfoButtonsValues</include>
 					<label>208</label>
-					<onclick>PlayMedia($INFO[Window(Home).Property(Widget.FolderPath)],isdir)</onclick>
+					<onclick>PlayMedia($ESCINFO[Window(Home).Property(Widget.FolderPath)],isdir)</onclick>
 					<onclick>Dialog.Close(1199)</onclick>
 					<oninfo>Dialog.Close(1199)</oninfo>
 					<visible>IsEmpty(Window(Home).Property(Widget.FilePath)) + [StringCompare(Window(Home).Property(Widget.Target),video) | StringCompare(Window(Home).Property(Widget.Target),music)]</visible>
@@ -769,11 +759,11 @@
 				<control type="button" id="8057">
 					<description>Resume Button</description>
 					<include>WidgetInfoButtonsValues</include>
-					<label>$LOCALIZE[13404] $INFO[Window(Home).Property(Widget.Resume),(,%)]</label>
+					<label>$LOCALIZE[13404] $ESCINFO[Window(Home).Property(Widget.Resume),(,%)]</label>
 					<onclick>PlayMedia($INFO[Window(Home).Property(Widget.FilePath)],resume)</onclick>
 					<onclick>Dialog.Close(1199)</onclick>
 					<oninfo>Dialog.Close(1199)</oninfo>
-					<visible>IntegerGreaterThan(Window(Home).Property(Widget.Resume),1)</visible>
+					<visible>IntegerGreaterThan(Window(Home).Property(Widget.Resume),1) + [StringCompare(Window(Home).Property(Widget),library) | StringCompare(Window(Home).Property(Widget),playlist)]</visible>
 				</control>
 				<control type="image" id="8058">
 					<width>2</width>
@@ -785,7 +775,7 @@
 					<description>Play Trailer</description>
 					<include>WidgetInfoButtonsValues</include>
 					<label>$LOCALIZE[20410]</label>
-					<onclick>PlayMedia($INFO[Window(Home).Property(Widget.Trailer)])</onclick>
+					<onclick>PlayMedia($ESCINFO[Window(Home).Property(Widget.Trailer)])</onclick>
 					<onclick>Dialog.Close(1199)</onclick>
 					<oninfo>Dialog.Close(1199)</oninfo>
 					<visible>!IsEmpty(Window(Home).Property(Widget.Trailer))</visible>
@@ -801,6 +791,7 @@
 					<include>WidgetInfoButtonsValues</include>
 					<label>$ADDON[script.extendedinfo 32165]</label>
 					<onclick>RunPlugin(plugin://plugin.video.couchpotato_manager/movies/add?title=$INFO[Window(Home).Property(Widget.Title)])</onclick>
+					<onclick>Dialog.Close(1199)</onclick>
 					<oninfo>Dialog.Close(1199)</oninfo>
 					<visible>System.HasAddon(plugin.video.couchpotato_manager) + IsEmpty(Window(Home).Property(Widget.DBID)) + StringCompare(Window(Home).Property(Widget.Type),movies) + [StringCompare(Window(Home).Property(Widget),trakt) | StringCompare(Window(Home).Property(Widget),rt) | StringCompare(Window(Home).Property(Widget),tmdb)]</visible>
 				</control>
@@ -809,6 +800,7 @@
 					<include>WidgetInfoButtonsValues</include>
 					<label>$ADDON[script.extendedinfo 32166]</label>
 					<onclick>RunPlugin(plugin://plugin.video.sickrage?action=addshow&amp;show_name=$INFO[Window(Home).Property(Widget.Title)])</onclick>
+					<onclick>Dialog.Close(1199)</onclick>
 					<oninfo>Dialog.Close(1199)</oninfo>
 					<visible>System.HasAddon(plugin.video.sickrage) + IsEmpty(Window(Home).Property(Widget.DBID)) + StringCompare(Window(Home).Property(Widget.Type),tvshows) + [StringCompare(Window(Home).Property(Widget),trakt) | StringCompare(Window(Home).Property(Widget),tmdb)]</visible>
 				</control>
@@ -822,17 +814,19 @@
 					<description>Youtube Search</description>
 					<include>WidgetInfoButtonsValues</include>
 					<label>YouTube $ADDON[plugin.video.youtube 30102]</label>
-					<onclick>RunScript(script.skin.helper.service,action=searchyoutube,title=$INFO[Window(Home).Property(Widget.Title)],header=$INFO[Window(Home).Property(Widget.Title)] YouTube Search)</onclick>
+					<onclick>RunScript(script.skin.helper.service,action=searchyoutube,title=$INFO[Window(Home).Property(Widget.Title)],header=$ESCINFO[Window(Home).Property(Widget.Title)] YouTube Search)</onclick>
 					<onclick>Dialog.Close(1199)</onclick>
-					<visible>System.HasAddon(script.skin.helper.service) + System.HasAddon(plugin.video.youtube) + StringCompare(Window(Home).Property(Widget.Type),movies) + StringCompare(Window(Home).Property(Widget.Target),video)</visible>
+					<oninfo>Dialog.Close(1199)</oninfo>
+					<visible>System.HasAddon(script.skin.helper.service) + System.HasAddon(plugin.video.youtube) + [StringCompare(Window(Home).Property(Widget),library) | StringCompare(Window(Home).Property(Widget),playlist)] + !StringCompare(Window(Home).Property(Widget.Type),episodes) + StringCompare(Window(Home).Property(Widget.Target),video)</visible>
 				</control>
 				<control type="button" id="8065">
 					<description>Youtube Search</description>
 					<include>WidgetInfoButtonsValues</include>
 					<label>YouTube $ADDON[plugin.video.youtube 30102]</label>
-					<onclick>RunScript(script.skin.helper.service,action=searchyoutube,title=$INFO[Window(Home).Property(Widget.SubTitle)],header=$INFO[Window(Home).Property(Widget.SubTitle)] YouTube Search)</onclick>
+					<onclick>RunScript(script.skin.helper.service,action=searchyoutube,title=$INFO[Window(Home).Property(Widget.SubTitle)],header=$ESCINFO[Window(Home).Property(Widget.SubTitle)] YouTube Search)</onclick>
 					<onclick>Dialog.Close(1199)</onclick>
-					<visible>System.HasAddon(script.skin.helper.service) + System.HasAddon(plugin.video.youtube) + !StringCompare(Window(Home).Property(Widget.Type),movies) + [StringCompare(Window(Home).Property(Widget.Target),video) | StringCompare(Window(Home).Property(Widget.Target),music)]</visible>
+					<oninfo>Dialog.Close(1199)</oninfo>
+					<visible>System.HasAddon(script.skin.helper.service) + System.HasAddon(plugin.video.youtube) + [StringCompare(Window(Home).Property(Widget),library) | StringCompare(Window(Home).Property(Widget),playlist)] + StringCompare(Window(Home).Property(Widget.Type),episodes)</visible>
 				</control>
 				<control type="image" id="8068">
 					<width>2</width>
@@ -1021,17 +1015,7 @@
 					<height>90</height>
 					<texture colordiffuse="$VAR[HomeWidgetInfoSepColor]">homewidgets/separator3.png</texture>
 					<visible>!IsEmpty(Control.GetLabel(1026))</visible>
-				</control>
-				<control type="image" id="1027">
-					<width>140</width>
-					<height>90</height>
-					<aspectratio>keep</aspectratio>
-					<colordiffuse>$VAR[HomeWidgetInfoIconColor]</colordiffuse>
-					<align>center</align>
-					<aligny>center</aligny>
-					<texture>$INFO[Window(Home).Property(Widget.FlagsAudioChannels)]</texture>
-					<visible>!IsEmpty(Control.GetLabel(1027))</visible>
-				</control>
+				</control>				
 				<control type="image">
 					<width>2</width>
 					<height>90</height>
@@ -1160,19 +1144,19 @@
 					<description>Play Button</description>
 					<include>WidgetInfoButtonsValues</include>
 					<label>208</label>
-					<onclick>PlayMedia($INFO[Window(Home).Property(Widget.FilePath)],noresume)</onclick>
+					<onclick>PlayMedia($ESCINFO[Window(Home).Property(Widget.FilePath)],noresume)</onclick>
 					<onclick>Dialog.Close(1199)</onclick>
 					<oninfo>Dialog.Close(1199)</oninfo>
-					<visible>!IsEmpty(Window(Home).Property(Widget.FilePath)) + [StringCompare(Window(Home).Property(Widget.Target),video) | StringCompare(Window(Home).Property(Widget.Target),music)]</visible>
+					<visible>!IsEmpty(Window(Home).Property(Widget.FilePath)) + [StringCompare(Window(Home).Property(Widget),library) | StringCompare(Window(Home).Property(Widget),playlist)] + [StringCompare(Window(Home).Property(Widget.Target),video) | StringCompare(Window(Home).Property(Widget.Target),music)]</visible>
 				</control>
 				<control type="button" id="8074">
 					<description>Play Button</description>
 					<include>WidgetInfoButtonsValues</include>
 					<label>208</label>
-					<onclick>PlayMedia($INFO[Window(Home).Property(Widget.FolderPath)],isdir)</onclick>
+					<onclick>PlayMedia($ESCINFO[Window(Home).Property(Widget.FolderPath)],isdir)</onclick>
 					<onclick>Dialog.Close(1199)</onclick>
 					<oninfo>Dialog.Close(1199)</oninfo>
-					<visible>IsEmpty(Window(Home).Property(Widget.FilePath)) + [StringCompare(Window(Home).Property(Widget.Target),video) | StringCompare(Window(Home).Property(Widget.Target),music)]</visible>
+					<visible>IsEmpty(Window(Home).Property(Widget.FilePath)) + [StringCompare(Window(Home).Property(Widget),library) | StringCompare(Window(Home).Property(Widget),playlist)] + [StringCompare(Window(Home).Property(Widget.Target),video) | StringCompare(Window(Home).Property(Widget.Target),music)]</visible>
 				</control>
 				<control type="image" id="8075">
 					<width>2</width>
@@ -1184,10 +1168,10 @@
 					<description>Resume Button</description>
 					<include>WidgetInfoButtonsValues</include>
 					<label>$LOCALIZE[13404] $INFO[Window(Home).Property(Widget.Resume),(,%)]</label>
-					<onclick>PlayMedia($INFO[Window(Home).Property(Widget.FilePath)],resume)</onclick>
+					<onclick>PlayMedia($ESCINFO[Window(Home).Property(Widget.FilePath)],resume)</onclick>
 					<onclick>Dialog.Close(1199)</onclick>
 					<oninfo>Dialog.Close(1199)</oninfo>
-					<visible>IntegerGreaterThan(Window(Home).Property(Widget.Resume),1)</visible>
+					<visible>IntegerGreaterThan(Window(Home).Property(Widget.Resume),1) + [StringCompare(Window(Home).Property(Widget),library) | StringCompare(Window(Home).Property(Widget),playlist)]</visible>
 				</control>
 				<control type="image" id="8077">
 					<width>2</width>
@@ -1199,15 +1183,25 @@
 					<description>Youtube Search</description>
 					<include>WidgetInfoButtonsValues</include>
 					<label>YouTube $ADDON[plugin.video.youtube 30102]</label>
-					<onclick>RunScript(script.skin.helper.service,action=searchyoutube,title=$INFO[Window(Home).Property(Widget.SubTitle)] official,header=$INFO[Window(Home).Property(Widget.SubTitle)] YouTube Search)</onclick>
+					<onclick>RunScript(script.skin.helper.service,action=searchyoutube,title=$INFO[Window(Home).Property(Widget.SubTitle)] official,header=$ESCINFO[Window(Home).Property(Widget.SubTitle)] YouTube Search)</onclick>
 					<onclick>Dialog.Close(1199)</onclick>
-					<visible>System.HasAddon(script.skin.helper.service) + System.HasAddon(plugin.video.youtube) + !StringCompare(Window(Home).Property(Widget.Type),movies) + [StringCompare(Window(Home).Property(Widget.Target),video) | StringCompare(Window(Home).Property(Widget.Target),music)]</visible>
+					<oninfo>Dialog.Close(1199)</oninfo>
+					<visible>System.HasAddon(script.skin.helper.service) + System.HasAddon(plugin.video.youtube) + [StringCompare(Window(Home).Property(Widget),library) | StringCompare(Window(Home).Property(Widget),playlist)] + !StringCompare(Window(Home).Property(Widget.Type),artists) + [StringCompare(Window(Home).Property(Widget.Target),video) | StringCompare(Window(Home).Property(Widget.Target),music)]</visible>
 				</control>
-				<control type="image" id="8079">
+				<control type="button" id="8079">
+					<description>Youtube Search</description>
+					<include>WidgetInfoButtonsValues</include>
+					<label>YouTube $ADDON[plugin.video.youtube 30102]</label>
+					<onclick>RunScript(script.skin.helper.service,action=searchyoutube,title=$INFO[Window(Home).Property(Widget.Title)] official,header=$ESCINFO[Window(Home).Property(Widget.Title)] YouTube Search)</onclick>
+					<onclick>Dialog.Close(1199)</onclick>
+					<oninfo>Dialog.Close(1199)</oninfo>
+					<visible>System.HasAddon(script.skin.helper.service) + System.HasAddon(plugin.video.youtube) + [StringCompare(Window(Home).Property(Widget),library) | StringCompare(Window(Home).Property(Widget),playlist)] + StringCompare(Window(Home).Property(Widget.Type),artists) + [StringCompare(Window(Home).Property(Widget.Target),video) | StringCompare(Window(Home).Property(Widget.Target),music)]</visible>
+				</control>
+				<control type="image" id="8080">
 					<width>2</width>
 					<height>90</height>
 					<texture colordiffuse="$VAR[HomeWidgetInfoSepColor]">homewidgets/separator3.png</texture>
-					<visible>Control.IsVisible(8078)</visible>
+					<visible>Control.IsVisible(8078) | Control.IsVisible(8079)</visible>
 				</control>
 			</control>
 		</control>
