@@ -35,6 +35,7 @@
 	</variable>
 	<variable name="GlobalCaseVar">
 		<value condition="[Container.Content(tvshows) | Container.Content(seasons)]">tvseries.png</value>
+		<value condition="SubString(ListItem.Filename,3D) | SubString(ListItem.Filename,3d)">3d.png</value>	<!-- added by s2k -->
 		<value condition="SubString(ListItem.Filename,.3D.) | SubString(ListItem.Filename,.3d.)">3d.png</value>
 		<value condition="SubString(ListItem.Filename, 3D.) | SubString(ListItem.Filename, 3d.)">3d.png</value>
 		<value condition="SubString(ListItem.Filename,.3DBD.) | SubString(ListItem.Filename,.3dbd.)">3d.png</value>
@@ -191,7 +192,7 @@
 		<value condition="[SubString(ListItem.filename,PDTV) | SubString(ListItem.filename,sdtv) | SubString(ListItem.filename,sd tv)]">sdtv</value>
 		<value condition="[SubString(ListItem.Filename,hdtv) | SubString(ListItem.Filename,hd tv)]">hdtv</value>
 		<value condition="[SubString(ListItem.Filename,hddvd) | SubString(ListItem.Filename,hd-dvd)]">hddvd</value>
-		<value condition="[SubString(ListItem.Filename,bluray) | SubString(ListItem.Filename,blu-ray) | SubString(ListItem.Filename,bdrip) | SubString(ListItem.Filename,brrip)] + [SubString(ListItem.Filename,.3D.) | SubString(ListItem.Filename,3DBD)]">bluray3d</value>
+		<value condition="[ListItem.IsStereoscopic | SubString(ListItem.Filename,3D) | SubString(ListItem.Filename,3d) | SubString(ListItem.Filename,3dbd) | SubString(ListItem.Filename,3DBD)]">bluray3d</value>	<!-- changed by s2k -->
 		<value condition="[SubString(ListItem.Filename,bluray) | SubString(ListItem.Filename,blu-ray) | SubString(ListItem.Filename,bdrip) | SubString(ListItem.Filename,brrip)]">bluray</value>
 		<value condition="SubString(ListItem.Filename,dvb)">dvb</value>
 		<value condition="SubString(ListItem.Filename,web-dl)">web-dl</value>
@@ -202,7 +203,7 @@
 		<value condition="[SubString(Player.Filenameandpath,PDTV) | SubString(Player.Filenameandpath,sdtv)]">sdtv</value>
 		<value condition="SubString(Player.Filenameandpath,hdtv)">hdtv</value>
 		<value condition="[SubString(Player.Filenameandpath,hddvd) | SubString(Player.Filenameandpath,hd-dvd)]">hddvd</value>
-		<value condition="[SubString(Player.Filenameandpath,bluray) | SubString(Player.Filenameandpath,blu-ray) | SubString(Player.Filenameandpath,bdrip) | SubString(Player.Filenameandpath,brrip)] + [SubString(Player.Filenameandpath,.3D.) | SubString(Player.Filenameandpath,3DBD)]">bluray3d</value>
+		<value condition="[ListItem.IsStereoscopic | SubString(ListItem.Filename,3D) | SubString(ListItem.Filename,3d) | SubString(ListItem.Filename,3dbd) | SubString(ListItem.Filename,3DBD)]">bluray3d</value>   <!-- changed by s2k -->
 		<value condition="[SubString(Player.Filenameandpath,bluray) | SubString(Player.Filenameandpath,blu-ray) | SubString(Player.Filenameandpath,bdrip) | SubString(Player.Filenameandpath,brrip)]">bluray</value>
 		<value condition="SubString(Player.Filenameandpath,dvb)">dvb</value>
 		<value condition="SubString(Player.Filenameandpath,web-dl)">web-dl</value>
@@ -3594,7 +3595,7 @@
 		<value condition="[SubString(Container(5801).ListItem.filename,PDTV) | SubString(Container(5801).ListItem.filename,sdtv) | SubString(Container(5801).ListItem.filename,sd tv)]">sdtv</value>
 		<value condition="[SubString(Container(5801).ListItem.Filename,hdtv) | SubString(Container(5801).ListItem.Filename,hd tv)]">hdtv</value>
 		<value condition="[SubString(Container(5801).ListItem.Filename,hddvd) | SubString(Container(5801).ListItem.Filename,hd-dvd)]">hddvd</value>
-		<value condition="[SubString(Container(5801).ListItem.Filename,bluray) | SubString(Container(5801).ListItem.Filename,blu-ray) | SubString(Container(5801).ListItem.Filename,bdrip) | SubString(Container(5801).ListItem.Filename,brrip)] + [SubString(Container(5801).ListItem.Filename,.3D.) | SubString(Container(5801).ListItem.Filename,3DBD)]">bluray3d</value>
+		<value condition="[SubString(Container(5801).ListItem.Filename,bluray) | SubString(Container(5801).ListItem.Filename,blu-ray) | SubString(Container(5801).ListItem.Filename,bdrip) | SubString(Container(5801).ListItem.Filename,brrip)] + [SubString(Container(5801).ListItem.Filename,.3D.) | SubString(Container(5801).ListItem.Filename,3DBD) | SubString(Container(5801).ListItem.Filename,3d)]">bluray3d</value>
 		<value condition="[SubString(Container(5801).ListItem.Filename,bluray) | SubString(Container(5801).ListItem.Filename,blu-ray) | SubString(Container(5801).ListItem.Filename,bdrip) | SubString(Container(5801).ListItem.Filename,brrip)]">bluray</value>
 		<value condition="SubString(Container(5801).ListItem.Filename,dvb)">dvb</value>
 		<value condition="SubString(Container(5801).ListItem.Filename,web-dl)">web-dl</value>
@@ -3725,6 +3726,7 @@
 	</variable> -->
 	<variable name="FakeDiscArtOverlay">
 		<value condition="[Container.Content(tvshows) | Container.Content(seasons)]">common/discart/tvepisodes.png</value>
+		<value condition="SubString(ListItem.Filename,3D) | SubString(ListItem.Filename,3d)">common/discart/3d.png</value>
 		<value condition="SubString(ListItem.Filename,.3D.) | SubString(ListItem.Filename,.3d.)">common/discart/3d.png</value>
 		<value condition="SubString(ListItem.Filename, 3D.) | SubString(ListItem.Filename, 3d.)">common/discart/3d.png</value>
 		<value condition="SubString(ListItem.Filename,.3DBD.) | SubString(ListItem.Filename,.3dbd.)">common/discart/3d.png</value>
@@ -3744,6 +3746,7 @@
 		<value>common/discart/$INFO[ListItem.VideoResolution]p.png</value>
 	</variable>
 	<variable name="FakeDischand">
+		<value condition="SubString(ListItem.Filename,3D) | SubString(ListItem.Filename,3d)">common/discart/3dhand.png</value>
 		<value condition="SubString(ListItem.Filename,.3D.) | SubString(ListItem.Filename,.3d.)">common/discart/3dhand.png</value>
 		<value condition="SubString(ListItem.Filename, 3D.) | SubString(ListItem.Filename, 3d.)">common/discart/3dhand.png</value>
 		<value condition="SubString(ListItem.Filename,.3DBD.) | SubString(ListItem.Filename,.3dbd.)">common/discart/3dhand.png</value>
@@ -3763,6 +3766,7 @@
 		<value>common/discart/$INFO[ListItem.VideoResolution]phand.png</value>
 	</variable>
 	<variable name="FakeDischandcolor">
+		<value condition="SubString(ListItem.Filename,3D) | SubString(ListItem.Filename,3d)">common/discart/3dhandcolor.png</value>
 		<value condition="SubString(ListItem.Filename,.3D.) | SubString(ListItem.Filename,.3d.)">common/discart/3dhandcolor.png</value>
 		<value condition="SubString(ListItem.Filename, 3D.) | SubString(ListItem.Filename, 3d.)">common/discart/3dhandcolor.png</value>
 		<value condition="SubString(ListItem.Filename,.3DBD.) | SubString(ListItem.Filename,.3dbd.)">common/discart/3dhandcolor.png</value>
@@ -3788,6 +3792,7 @@
 		<value condition="Skin.HasSetting(WallLargeMovieInfoDelay_30)">30 seconds</value>
 	</variable>
 	<variable name="BoxSetFakeDiscArtOverlay">
+		<value condition="SubString(ListItem.Filename,3D) | SubString(ListItem.Filename,3d)">common/discart/3d.png</value>
 		<value condition="SubString(ListItem.Filename,.3D.) | SubString(ListItem.Filename,.3d.)">common/discart/3d.png</value>
 		<value condition="SubString(ListItem.Filename, 3D.) | SubString(ListItem.Filename, 3d.)">common/discart/3d.png</value>
 		<value condition="SubString(ListItem.Filename,.3DBD.) | SubString(ListItem.Filename,.3dbd.)">common/discart/3d.png</value>
@@ -4739,6 +4744,7 @@
 	<!-- Widget Artwork -->
 	<variable name="HomeWidgetPortraitCaseVar">
 		<value condition="ListItem.IsStereoscopic | SubString(ListItem.Filename,.3D.) | SubString(ListItem.Filename,.3d.)">3d.png</value>
+		<value condition="SubString(ListItem.Filename,3D) | SubString(ListItem.Filename,3d)">3d.png</value>	<!-- added by s2k -->
 		<value condition="SubString(ListItem.Filename, 3D.) | SubString(ListItem.Filename, 3d.)">3d.png</value>
 		<value condition="SubString(ListItem.Filename,.3DBD.) | SubString(ListItem.Filename,.3dbd.)">3d.png</value>
 		<value condition="SubString(ListItem.Filename, 3DBD.) | SubString(ListItem.Filename, 3dbd.)">3d.png</value>
@@ -4795,6 +4801,7 @@
 	</variable>
 	<variable name="HomeWidgetFakeDiscArtVar">
 		<value condition="ListItem.IsStereoscopic | SubString(ListItem.Filename,.3D.) | SubString(ListItem.Filename,.3d.)">3d.png</value>
+		<value condition="SubString(ListItem.Filename,3D) | SubString(ListItem.Filename,3d)">3d.png</value>	<!-- added by s2k -->
 		<value condition="SubString(ListItem.Filename, 3D.) | SubString(ListItem.Filename, 3d.)">3d.png</value>
 		<value condition="SubString(ListItem.Filename,.3DBD.) | SubString(ListItem.Filename,.3dbd.)">3d.png</value>
 		<value condition="SubString(ListItem.Filename, 3DBD.) | SubString(ListItem.Filename, 3dbd.)">3d.png</value>
