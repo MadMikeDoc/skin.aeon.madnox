@@ -46,6 +46,7 @@
 	<onunload>ClearProperty(Widget.Trailer,Home)</onunload>
 	<onunload>ClearProperty(Widget.EIDBID,Home)</onunload>
 	<onunload>ClearProperty(Widget.DBID,Home)</onunload>
+	<onunload>ClearProperty(Widget.Poster,Home)</onunload>
 	<onunload>ClearProperty(Widget.FlagsAL1,Home)</onunload>
 	<onunload>ClearProperty(Widget.FlagsAL2,Home)</onunload>
 	<onunload>ClearProperty(Widget.FlagsAL3,Home)</onunload>
@@ -82,7 +83,7 @@
 		</control>
 		<!-- Portrait -->
 		<control type="group">
-			<visible>StringCompare(Window(Home).Property(Widget.Type),movies) | StringCompare(Window(Home).Property(Widget.Type),tvshows) | StringCompare(Window(Home).Property(Widget.Type),episodes)</visible>
+			<visible>!IsEmpty(Window(Home).Property(Widget.Poster))</visible>
 			<control type="image">
 				<left></left>
 				<centerleft>50%</centerleft>
@@ -759,8 +760,8 @@
 				<control type="button" id="8057">
 					<description>Resume Button</description>
 					<include>WidgetInfoButtonsValues</include>
-					<label>$LOCALIZE[13404] $ESCINFO[Window(Home).Property(Widget.Resume),(,%)]</label>
-					<onclick>PlayMedia($INFO[Window(Home).Property(Widget.FilePath)],resume)</onclick>
+					<label>$LOCALIZE[13404] $INFO[Window(Home).Property(Widget.Resume),(,%)]</label>
+					<onclick>PlayMedia($ESCINFO[Window(Home).Property(Widget.FilePath)],resume)</onclick>
 					<onclick>Dialog.Close(1199)</onclick>
 					<oninfo>Dialog.Close(1199)</oninfo>
 					<visible>IntegerGreaterThan(Window(Home).Property(Widget.Resume),1) + [StringCompare(Window(Home).Property(Widget),library) | StringCompare(Window(Home).Property(Widget),playlist)]</visible>
@@ -838,7 +839,7 @@
 		</control>
 		<!-- Square -->
 		<control type="group">
-			<visible>!StringCompare(Window(Home).Property(Widget.Type),movies) + !StringCompare(Window(Home).Property(Widget.Type),tvshows) + !StringCompare(Window(Home).Property(Widget.Type),episodes)</visible>
+			<visible>IsEmpty(Window(Home).Property(Widget.Poster))</visible>
 			<control type="image">
 				<left></left>
 				<centerleft>50%</centerleft>
@@ -1015,7 +1016,7 @@
 					<height>90</height>
 					<texture colordiffuse="$VAR[HomeWidgetInfoSepColor]">homewidgets/separator3.png</texture>
 					<visible>!IsEmpty(Control.GetLabel(1026))</visible>
-				</control>				
+				</control>
 				<control type="image">
 					<width>2</width>
 					<height>90</height>
