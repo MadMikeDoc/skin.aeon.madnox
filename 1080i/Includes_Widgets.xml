@@ -76,11 +76,11 @@
 		<oninfo>SetProperty(Widget.StarRating,$INFO[Container($PARAM[id]).ListItem.StarRating],home)</oninfo>
 		<oninfo>SetProperty(Widget.Case,$VAR[HomeWidget$PARAM[id]OnInfoCaseVar])</oninfo>
 		<!-- Info -->
-		<oninfo>SetProperty(Widget.Title,$PARAM[Title],home)</oninfo>
-		<oninfo>SetProperty(Widget.SubTitle,$PARAM[subTitle],home)</oninfo>
-		<oninfo>SetProperty(Widget.Info1,$PARAM[Info1],home)</oninfo>
-		<oninfo>SetProperty(Widget.Info2,$PARAM[Info2],home)</oninfo>
-		<oninfo>SetProperty(Widget.Plot,$PARAM[Plot],home)</oninfo>
+		<oninfo>SetProperty(Widget.Title,$ESCVAR[HomeWidget$PARAM[id]TitleVar],home)</oninfo>
+		<oninfo>SetProperty(Widget.SubTitle,$ESCVAR[HomeWidget$PARAM[id]SubTitleVar],home)</oninfo>
+		<oninfo>SetProperty(Widget.Info1,$ESCVAR[HomeWidget$PARAM[id]Info1Var],home)</oninfo>
+		<oninfo>SetProperty(Widget.Info2,$ESCVAR[HomeWidget$PARAM[id]Info2Var],home)</oninfo>
+		<oninfo>SetProperty(Widget.Plot,$ESCVAR[HomeWidget$PARAM[id]PlotVar],home)</oninfo>
 		<!-- Year -->
 		<oninfo>SetProperty(Widget.Year,$INFO[Container($PARAM[id]).ListItem.Year],home)</oninfo>
 		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(Addon.Name))">SetProperty(Widget.Year,$INFO[Container($PARAM[id]).ListItem.Property(Addon.Version)],home)</oninfo>
@@ -188,12 +188,12 @@
 			<visible>IsEmpty(Container($PARAM[id]).ListItem.Property(Label3)) + IsEmpty(Container($PARAM[id]).ListItem.ChannelName) + IsEmpty(Container($PARAM[id]).ListItem.Artist) + IsEmpty(Container($PARAM[id]).ListItem.AlbumArtist) + IsEmpty(Container($PARAM[id]).ListItem.Property(Addon.Name)) + !$PARAM[widgetSquare]</visible>
 			<include name="InfoContent">
 				<param name="id">$PARAM[id]</param>
-				<param name="Texture">$PARAM[Texture]</param>
-				<param name="Title">$PARAM[Title]</param>
-				<param name="SubTitle">$PARAM[SubTitle]</param>
-				<param name="Info1">$PARAM[Info1]</param>
-				<param name="Info2">$PARAM[Info2]</param>
-				<param name="Plot">$PARAM[Plot]</param>
+				<param name="Texture">$VAR[HomeWidget$PARAM[id]PosterVar]</param>
+				<param name="Title">$VAR[HomeWidget$PARAM[id]TitleVar]</param>
+				<param name="SubTitle">$VAR[HomeWidget$PARAM[id]SubTitleVar]</param>
+				<param name="Info1">$VAR[HomeWidget$PARAM[id]Info1Var]</param>
+				<param name="Info2">$VAR[HomeWidget$PARAM[id]Info2Var]</param>
+				<param name="Plot">$VAR[HomeWidget$PARAM[id]PlotVar]</param>
 				<param name="widthBack">$PARAM[widthBack]</param>
 				<param name="isSquare">false</param>
 				<param name="Left">$PARAM[Left1]</param>
@@ -205,14 +205,14 @@
 			<visible>!IsEmpty(Container($PARAM[id]).ListItem.Property(Label3)) | !IsEmpty(Container($PARAM[id]).ListItem.Artist) | !IsEmpty(Container($PARAM[id]).ListItem.AlbumArtist) | !IsEmpty(Container($PARAM[id]).ListItem.Property(Addon.Name)) | $PARAM[widgetSquare]</visible>
 			<include name="InfoContent">
 				<param name="id">$PARAM[id]</param>
-				<param name="Texture">$PARAM[Texture]</param>
+				<param name="Texture">$VAR[HomeWidget$PARAM[id]PosterVar]</param>
 				<param name="Aspect">scale</param>
 				<param name="Align">center</param>
-				<param name="Title">$PARAM[Title]</param>
-				<param name="SubTitle">$PARAM[SubTitle]</param>
-				<param name="Info1">$PARAM[Info1]</param>
-				<param name="Info2">$PARAM[Info2]</param>
-				<param name="Plot">$PARAM[Plot]</param>
+				<param name="Title">$VAR[HomeWidget$PARAM[id]TitleVar]</param>
+				<param name="SubTitle">$VAR[HomeWidget$PARAM[id]SubTitleVar]</param>
+				<param name="Info1">$VAR[HomeWidget$PARAM[id]Info1Var]</param>
+				<param name="Info2">$VAR[HomeWidget$PARAM[id]Info2Var]</param>
+				<param name="Plot">$VAR[HomeWidget$PARAM[id]PlotVar]</param>
 				<param name="widthBack">$PARAM[widthBack]</param>
 				<param name="isSquare">true</param>
 				<param name="Left">$PARAM[Left2]</param>
@@ -224,14 +224,14 @@
 			<visible>!IsEmpty(Container($PARAM[id]).ListItem.ChannelName)</visible>
 			<include name="InfoContent">
 				<param name="id">$PARAM[id]</param>
-				<param name="Texture">$PARAM[Texture]</param>
+				<param name="Texture">$VAR[HomeWidget$PARAM[id]PosterVar]</param>
 				<param name="Aspect">keep</param>
 				<param name="Align">center</param>
-				<param name="Title">$PARAM[Title]</param>
-				<param name="SubTitle">$PARAM[SubTitle]</param>
-				<param name="Info1">$PARAM[Info1]</param>
-				<param name="Info2">$PARAM[Info2]</param>
-				<param name="Plot">$PARAM[Plot]</param>
+				<param name="Title">$VAR[HomeWidget$PARAM[id]TitleVar]</param>
+				<param name="SubTitle">$VAR[HomeWidget$PARAM[id]SubTitleVar]</param>
+				<param name="Info1">$VAR[HomeWidget$PARAM[id]Info1Var]</param>
+				<param name="Info2">$VAR[HomeWidget$PARAM[id]Info2Var]</param>
+				<param name="Plot">$VAR[HomeWidget$PARAM[id]PlotVar]</param>
 				<param name="widthBack">$PARAM[widthBack]</param>
 				<param name="isSquare">true</param>
 				<param name="Left">$PARAM[Left2]</param>
