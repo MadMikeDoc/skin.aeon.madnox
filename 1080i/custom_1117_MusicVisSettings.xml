@@ -271,6 +271,23 @@
 					<enable>Skin.HasSetting(ThirdMusicVizLayout)</enable>
 					<visible>Skin.HasSetting(ThirdMusicVizLayout)</visible>
 				</control>
+				<control type="radiobutton" id="18203">
+					<label>  •  Record Player</label>
+					<include>Objects_CommonSettingsButton</include>
+					<onclick>Skin.ToggleSetting(ThirdMusicVizRecordPlayer)</onclick>
+					<selected>Skin.HasSetting(ThirdMusicVizRecordPlayer)</selected>
+					<enable>Skin.HasSetting(ThirdMusicVizLayout)</enable>
+					<visible>Skin.HasSetting(ThirdMusicVizLayout)</visible>
+				</control>
+				<control type="radiobutton" id="18205">
+					<label>  •  Show Visualisation</label>
+					<include>Objects_CommonSettingsButton</include>
+					<onclick>Skin.ToggleSetting(ThirdMusicVizShowViz)</onclick>
+					<selected>Skin.HasSetting(ThirdMusicVizShowViz)</selected>
+					<enable>Skin.HasSetting(ThirdMusicVizLayout) + Skin.HasSetting(HideVizBG)</enable>
+					<visible>Skin.HasSetting(ThirdMusicVizLayout)</visible>
+				</control>
+				
 				<control type="label" id="430">
 					<width>600</width>
 					<height>60</height>
