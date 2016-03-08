@@ -1841,15 +1841,16 @@
 						</control>
 					</control>
 					<control type="image">
-						<description>Tonearm</description>
-						<animation effect="rotate" center="auto" start="-30" end="-30" time="0" condition="true">Conditional</animation>
-						<posx>1475</posx>
-						<posy>100</posy>
-						<width>53</width>
-						<height>207</height>
-						<texture>recordplayer/tonearm.png</texture>
-						<aspectratio align="bottom">keep</aspectratio>
-					</control>
+                        <description>Tonearm</description>
+                        <animation effect="rotate" center="auto" start="-25" end="-46" time="200000" loop="true" condition="Player.Playing">Conditional</animation>
+						<animation effect="rotate" center="auto" end="20" time="1000" condition="Player.Paused">Conditional</animation>
+                        <posx>1493</posx>
+                        <posy>-123</posy>
+                        <width>90</width>
+                        <height>540</height>
+                        <texture>recordplayer/tonearm.png</texture>
+                        <aspectratio align="bottom">keep</aspectratio>
+                    </control>
 				</control>
 			</control>
 		</control>
