@@ -83,7 +83,7 @@
 		</control>
 		<!-- Portrait -->
 		<control type="group">
-			<visible>!IsEmpty(Window(Home).Property(Widget.Poster))</visible>
+			<visible>StringCompare(Window(Home).Property(Widget.Poster),movies) | StringCompare(Window(Home).Property(Widget.Poster),tvshows) | StringCompare(Window(Home).Property(Widget.Poster),episodes)</visible>
 			<control type="image">
 				<left></left>
 				<centerleft>50%</centerleft>
@@ -794,7 +794,7 @@
 					<onclick>RunPlugin(plugin://plugin.video.couchpotato_manager/movies/add?title=$INFO[Window(Home).Property(Widget.Title)])</onclick>
 					<onclick>Dialog.Close(1199)</onclick>
 					<oninfo>Dialog.Close(1199)</oninfo>
-					<visible>System.HasAddon(plugin.video.couchpotato_manager) + IsEmpty(Window(Home).Property(Widget.DBID)) + StringCompare(Window(Home).Property(Widget.Type),movies) + [StringCompare(Window(Home).Property(Widget),trakt) | StringCompare(Window(Home).Property(Widget),rt) | StringCompare(Window(Home).Property(Widget),tmdb)]</visible>
+					<visible>System.HasAddon(plugin.video.couchpotato_manager) + !IntegerGreaterThan(Window(Home).Property(Widget.EIDBID),1) + StringCompare(Window(Home).Property(Widget.Type),movies) + [StringCompare(Window(Home).Property(Widget),trakt) | StringCompare(Window(Home).Property(Widget),rt) | StringCompare(Window(Home).Property(Widget),tmdb)]</visible>
 				</control>
 				<control type="button" id="8062">
 					<description>Add to SickRage</description>
@@ -803,7 +803,7 @@
 					<onclick>RunPlugin(plugin://plugin.video.sickrage?action=addshow&amp;show_name=$INFO[Window(Home).Property(Widget.Title)])</onclick>
 					<onclick>Dialog.Close(1199)</onclick>
 					<oninfo>Dialog.Close(1199)</oninfo>
-					<visible>System.HasAddon(plugin.video.sickrage) + IsEmpty(Window(Home).Property(Widget.DBID)) + StringCompare(Window(Home).Property(Widget.Type),tvshows) + [StringCompare(Window(Home).Property(Widget),trakt) | StringCompare(Window(Home).Property(Widget),tmdb)]</visible>
+					<visible>System.HasAddon(plugin.video.sickrage) + !IntegerGreaterThan(Window(Home).Property(Widget.EIDBID),1) + StringCompare(Window(Home).Property(Widget.Type),tvshows) + [StringCompare(Window(Home).Property(Widget),trakt) | StringCompare(Window(Home).Property(Widget),tmdb)]</visible>
 				</control>
 				<control type="image" id="8063">
 					<width>2</width>
