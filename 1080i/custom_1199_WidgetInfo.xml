@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window id="1199" type="dialog">
-	<defaultcontrol always="true">8052</defaultcontrol>
+	<defaultcontrol always="true">8050</defaultcontrol>
 	<animation type="WindowOpen" reversible="false" condition="Skin.HasSetting(lowermainmenu)">
 		<effect type="rotatex" start="-180" end="0" center="425,0" time="400" tween="sine" easing="inout" />
 		<effect type="fade" start="0" end="100" time="10" delay="200" />
@@ -714,48 +714,57 @@
 				</control>
 			</control>
 			<!-- Info Buttons-->
-			<control type="grouplist" id="8052">
+			<control type="grouplist" id="8050">
 				<left>547</left>
 				<width>1266</width>
 				<top>285</top>
 				<height>60</height>
 				<orientation>horizontal</orientation>
 				<ondown>1000</ondown>
-				<control type="button" id="8053">
+				<control type="button" id="8051">
 					<description>Close</description>
 					<include>WidgetInfoButtonsValues</include>
 					<label>15067</label>
 					<onclick>Dialog.Close(1199)</onclick>
 					<oninfo>Dialog.Close(1199)</oninfo>
 				</control>
-				<control type="image" id="8054">
+				<control type="image" id="8052">
 					<width>2</width>
 					<height>90</height>
 					<texture colordiffuse="$VAR[HomeWidgetInfoSepColor]">homewidgets/separator3.png</texture>
 				</control>
-				<control type="button" id="8055">
+				<control type="button" id="8053">
 					<description>Play Button</description>
 					<include>WidgetInfoButtonsValues</include>
 					<label>208</label>
 					<onclick>PlayMedia($INFO[Window(Home).Property(Widget.FilePath)],noresume)</onclick>
 					<onclick>Dialog.Close(1199)</onclick>
 					<oninfo>Dialog.Close(1199)</oninfo>
-					<visible>!IsEmpty(Window(Home).Property(Widget.FilePath)) + [StringCompare(Window(Home).Property(Widget.Target),video) | StringCompare(Window(Home).Property(Widget.Target),music)]</visible>
+					<visible>[!IsEmpty(Window(Home).Property(Widget.FilePath)) + !StringCompare(Window(Home).Property(Widget),trakt) + !StringCompare(Window(Home).Property(Widget),rt) + !StringCompare(Window(Home).Property(Widget),tmdb)] | SubString(Window(Home).Property(Widget.FilePath),playmovie)</visible>
 				</control>
-				<control type="button" id="8069">
+				<control type="button" id="8054">
 					<description>Play Button</description>
 					<include>WidgetInfoButtonsValues</include>
 					<label>208</label>
 					<onclick>PlayMedia($ESCINFO[Window(Home).Property(Widget.FolderPath)],isdir)</onclick>
 					<onclick>Dialog.Close(1199)</onclick>
 					<oninfo>Dialog.Close(1199)</oninfo>
-					<visible>IsEmpty(Window(Home).Property(Widget.FilePath)) + [StringCompare(Window(Home).Property(Widget.Target),video) | StringCompare(Window(Home).Property(Widget.Target),music)]</visible>
+					<visible>IsEmpty(Window(Home).Property(Widget.FilePath)) + !StringCompare(Window(Home).Property(Widget),trakt) + !StringCompare(Window(Home).Property(Widget),rt) + !StringCompare(Window(Home).Property(Widget),tmdb)</visible>
+				</control>
+				<control type="button" id="8055">
+					<description>Extended Info Open Button</description>
+					<include>WidgetInfoButtonsValues</include>
+					<label>Open</label>
+					<onclick>PlayMedia($ESCINFO[Window(Home).Property(Widget.FolderPath)],noresume)</onclick>
+					<onclick>Dialog.Close(1199)</onclick>
+					<oninfo>Dialog.Close(1199)</oninfo>
+					<visible>!SubString(Window(Home).Property(Widget.FilePath),playtrailer) + !SubString(Window(Home).Property(Widget.FilePath),playmovie) + [StringCompare(Window(Home).Property(Widget),trakt) | StringCompare(Window(Home).Property(Widget),rt) | StringCompare(Window(Home).Property(Widget),tmdb) | SubString(Window(Home).Property(Widget.FilePath),extendedtvinfo)]</visible>
 				</control>
 				<control type="image" id="8056">
 					<width>2</width>
 					<height>90</height>
 					<texture colordiffuse="$VAR[HomeWidgetInfoSepColor]">homewidgets/separator3.png</texture>
-					<visible>Control.IsVisible(8055) | Control.IsVisible(8069)</visible>
+					<visible>Control.IsVisible(8053) | Control.IsVisible(8054) | Control.IsVisible(8055)</visible>
 				</control>
 				<control type="button" id="8057">
 					<description>Resume Button</description>
@@ -781,13 +790,22 @@
 					<oninfo>Dialog.Close(1199)</oninfo>
 					<visible>[!IsEmpty(Window(Home).Property(Widget.Trailer)) + !StringCompare(Window(Home).Property(Widget),trakt) + !StringCompare(Window(Home).Property(Widget),rt) + !StringCompare(Window(Home).Property(Widget),tmdb)] | [!IsEmpty(Window(Home).Property(Widget.Trailer)) + IntegerGreaterThan(Window(Home).Property(Widget.EIDBID),0)]</visible>
 				</control>
-				<control type="image" id="8060">
+				<control type="button" id="8060">
+					<description>Extended Info Trailer Button</description>
+					<include>WidgetInfoButtonsValues</include>
+					<label>Trailer</label>
+					<onclick>PlayMedia($ESCINFO[Window(Home).Property(Widget.FolderPath)],noresume)</onclick>
+					<onclick>Dialog.Close(1199)</onclick>
+					<oninfo>Dialog.Close(1199)</oninfo>
+					<visible>SubString(Window(Home).Property(Widget.FilePath),playtrailer) + [StringCompare(Window(Home).Property(Widget),trakt) | StringCompare(Window(Home).Property(Widget),rt) | StringCompare(Window(Home).Property(Widget),tmdb) | SubString(Window(Home).Property(Widget.FilePath),extendedtvinfo)]</visible>
+				</control>
+				<control type="image" id="8061">
 					<width>2</width>
 					<height>90</height>
 					<texture colordiffuse="$VAR[HomeWidgetInfoSepColor]">homewidgets/separator3.png</texture>
-					<visible>Control.IsVisible(8059)</visible>
+					<visible>Control.IsVisible(8059) | Control.IsVisible(8060)</visible>
 				</control>
-				<control type="button" id="8061">
+				<control type="button" id="8062">
 					<description>Add to Couch Potato</description>
 					<include>WidgetInfoButtonsValues</include>
 					<label>$ADDON[script.extendedinfo 32165]</label>
@@ -796,7 +814,7 @@
 					<oninfo>Dialog.Close(1199)</oninfo>
 					<visible>System.HasAddon(plugin.video.couchpotato_manager) + IsEmpty(Window(Home).Property(Widget.EIDBID)) + StringCompare(Window(Home).Property(Widget.Type),movies) + [StringCompare(Window(Home).Property(Widget),trakt) | StringCompare(Window(Home).Property(Widget),rt) | StringCompare(Window(Home).Property(Widget),tmdb)]</visible>
 				</control>
-				<control type="button" id="8062">
+				<control type="button" id="8063">
 					<description>Add to SickRage</description>
 					<include>WidgetInfoButtonsValues</include>
 					<label>$ADDON[script.extendedinfo 32166]</label>
@@ -805,13 +823,13 @@
 					<oninfo>Dialog.Close(1199)</oninfo>
 					<visible>System.HasAddon(plugin.video.sickrage) + IsEmpty(Window(Home).Property(Widget.EIDBID)) + StringCompare(Window(Home).Property(Widget.Type),tvshows) + [StringCompare(Window(Home).Property(Widget),trakt) | StringCompare(Window(Home).Property(Widget),tmdb)]</visible>
 				</control>
-				<control type="image" id="8063">
+				<control type="image" id="8064">
 					<width>2</width>
 					<height>90</height>
 					<texture colordiffuse="$VAR[HomeWidgetInfoSepColor]">homewidgets/separator3.png</texture>
-					<visible>Control.IsVisible(8061) | Control.IsVisible(8062)</visible>
+					<visible>Control.IsVisible(8062) | Control.IsVisible(8063)</visible>
 				</control>
-				<control type="button" id="8064">
+				<control type="button" id="8065">
 					<description>Youtube Search</description>
 					<include>WidgetInfoButtonsValues</include>
 					<label>YouTube $ADDON[plugin.video.youtube 30102]</label>
@@ -820,7 +838,7 @@
 					<oninfo>Dialog.Close(1199)</oninfo>
 					<visible>System.HasAddon(script.skin.helper.service) + System.HasAddon(plugin.video.youtube) + !StringCompare(Window(Home).Property(Widget.Type),episodes) + StringCompare(Window(Home).Property(Widget.Target),video)</visible>
 				</control>
-				<control type="button" id="8065">
+				<control type="button" id="8066">
 					<description>Youtube Search</description>
 					<include>WidgetInfoButtonsValues</include>
 					<label>YouTube $ADDON[plugin.video.youtube 30102]</label>
@@ -829,11 +847,11 @@
 					<oninfo>Dialog.Close(1199)</oninfo>
 					<visible>System.HasAddon(script.skin.helper.service) + System.HasAddon(plugin.video.youtube) + StringCompare(Window(Home).Property(Widget.Type),episodes)</visible>
 				</control>
-				<control type="image" id="8068">
+				<control type="image" id="8067">
 					<width>2</width>
 					<height>90</height>
 					<texture colordiffuse="$VAR[HomeWidgetInfoSepColor]">homewidgets/separator3.png</texture>
-					<visible>Control.IsVisible(8064) | Control.IsVisible(8065)</visible>
+					<visible>Control.IsVisible(8065) | Control.IsVisible(8066)</visible>
 				</control>
 			</control>
 		</control>
@@ -1123,7 +1141,7 @@
 				<visible>!IsEmpty(Control.GetLabel(8021))</visible>
 			</control>
 			<!-- Info Buttons -->
-			<control type="grouplist" id="8052">
+			<control type="grouplist" id="8050">
 				<left>750</left>
 				<width>1063</width>
 				<top>285</top>
