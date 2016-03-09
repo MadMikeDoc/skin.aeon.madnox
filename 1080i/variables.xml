@@ -4763,7 +4763,7 @@
 		<value condition="!IsEmpty(ListItem.VideoResolution)">$INFO[ListItem.VideoResolution]p.png</value>
 		<value condition="!IsEmpty(ListItem.Property(VideoResolution))">$INFO[ListItem.Property(VideoResolution)]p.png</value>
 		<value condition="IsEmpty(ListItem.VideoResolution) + !IsEmpty(ListItem.TVShowTitle)">tvseries.png</value>
-		<value condition="IsEmpty(ListItem.Property(VideoResolution)) + IsEmpty(ListItem.TVShowTitle) + !IsEmpty(ListItem.Trailer)">trailers.png</value>
+		<value condition="IsEmpty(ListItem.Property(VideoResolution)) + IsEmpty(ListItem.TVShowTitle) + [!IsEmpty(ListItem.Trailer) | SubString(ListItem.FolderPath,extendedinfo)]">trailers.png</value>
 		<value>p.png</value>
 	</variable>
 	<variable name="HomeWidgetPosterVar">
