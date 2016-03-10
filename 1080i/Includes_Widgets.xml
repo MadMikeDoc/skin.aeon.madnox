@@ -178,12 +178,16 @@
 	</include>
 	<!-- ******* WIDGET INFO ******** -->
 	<include name="InfoVisible1">
+		<visible>!Window.IsVisible(shutdownmenu) + !Window.IsVisible(favourites) + !Window.IsVisible(numericinput) + !Window.IsVisible(busydialog)</visible>
 		<visible>[Skin.HasSetting(Enable.PanelInfo) + Control.HasFocus($PARAM[id])] | [!Skin.HasSetting(Enable.PanelInfo) + StringCompare(Container(9000).ListItem.Property(widgetPanelInfo),Enabled) + Control.HasFocus($PARAM[id])]</visible>
 		<animation effect="slide" end="0,950" condition="!Skin.HasSetting(lowermainmenu)">Conditional</animation>
+		<animation effect="fade" time="100" tween="sine" easing="inout">VisibleChange</animation>
 	</include>
 	<include name="InfoVisible2">
+		<visible>!Window.IsVisible(shutdownmenu) + !Window.IsVisible(favourites) + !Window.IsVisible(numericinput) + !Window.IsVisible(busydialog)</visible>
 		<visible>[Skin.HasSetting(Enable.PanelInfo) + Control.HasFocus($PARAM[id])] | [!Skin.HasSetting(Enable.PanelInfo) + StringCompare(Container(9000).ListItem.Property(widgetPanelInfo.2),Enabled) + Control.HasFocus($PARAM[id])]</visible>
 		<animation effect="slide" end="0,-950" condition="!Skin.HasSetting(lowermainmenu)">Conditional</animation>
+		<animation effect="fade" time="100" tween="sine" easing="inout">VisibleChange</animation>
 	</include>
 	<include name="Info">
 		<!-- Poster -->
@@ -248,7 +252,6 @@
 			<width>$PARAM[widthBack]</width>
 			<height>390</height>
 			<texture>homewidgets/list_shadow.png</texture>
-			<animation effect="fade" time="300" tween="sine" easing="inout">VisibleChange</animation>
 		</control>
 		<!-- Poster Art -->
 		<control type="group">
