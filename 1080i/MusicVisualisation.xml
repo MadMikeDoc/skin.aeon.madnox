@@ -1210,6 +1210,8 @@
 				<include>Animation_VisibleChange400</include>
 			</control>
 			<!-- Next track info -->
+			<control type="group">
+			<visible>!Skin.HasSetting(AltMusicVizLayoutPlaylistNext)</visible>
 			<control type="label">
 				<visible>!Skin.HasSetting(AltMusicVizLayoutNext) + !MusicPartyMode.Enabled</visible>
 				<posx>1658</posx>
@@ -1308,13 +1310,392 @@
 				<height>4</height>
 				<texture>views/list_divider.png</texture>
 			</control>
-	<!-- Progress/buttons -->
+			</control>
+			<!--PLAYLIST-->
+			<!--Backgorund 10 Tracks-->
+			<control type="image">
+				<animation effect="fade" start="50" time="100" condition="Skin.HasSetting(AltMusicVizLayoutPlaylistFadeBG)">Conditional</animation>
+				<left>1335</left>
+				<top>-850</top>
+				<width>515</width>
+				<height>370</height>
+				<texture border="40">listpanel_back.png</texture>
+				<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+				<visible>Skin.HasSetting(AltMusicVizLayoutPlaylist) + Skin.HasSetting(AltMusicVizLayoutPlaylistTen) + !MusicPartyMode.Enabled</visible>
+			</control>
+			<!--Backgorund 5 Tracks-->
+			<control type="image">
+			<animation effect="slide" start="0,0" end="0,870" time="200" tween="cubic" condition="Skin.HasSetting(AltMusicVizLayoutPlaylistNext)">Conditional</animation>
+			<animation effect="fade" start="50" time="100" condition="Skin.HasSetting(AltMusicVizLayoutPlaylistFadeBG)">Conditional</animation>
+			<left>1335</left>
+			<top>-850</top>
+			<width>515</width>
+			<height>225</height>
+			<texture border="40">listpanel_back.png</texture>
+			<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+			<visible>Skin.HasSetting(AltMusicVizLayoutPlaylist) + !Skin.HasSetting(AltMusicVizLayoutPlaylistNext) + !Skin.HasSetting(AltMusicVizLayoutPlaylistTen)</visible>
+			</control>
+			<!--Background Partymodus -->
+			<control type="image">
+				<animation effect="fade" start="50" time="100" condition="Skin.HasSetting(AltMusicVizLayoutPlaylistFadeBG)">Conditional</animation>
+				<left>1335</left>
+				<top>-850</top>
+				<width>515</width>
+				<height>345</height>
+				<texture border="40">listpanel_back.png</texture>
+				<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+				<visible>Skin.HasSetting(AltMusicVizLayoutPlaylist) + !Skin.HasSetting(AltMusicVizLayoutPlaylistNext) + Skin.HasSetting(AltMusicVizLayoutPlaylistTen) + MusicPartyMode.Enabled</visible>
+			</control>
+			<!--List-->
+			<control type="group">
+			<animation effect="slide" start="0,0" end="0,860" time="200" tween="cubic" condition="Skin.HasSetting(AltMusicVizLayoutPlaylistNext)">Conditional</animation>
+			<control type="grouplist">
+			<left>1200</left>
+			<top>-815</top>
+			<width>700</width>
+			<height>500</height>
+			<orientation>vertical</orientation>
+			<animation effect="fade" time="320">VisibleChange</animation>
+			<visible>Skin.HasSetting(AltMusicVizLayoutPlaylist)</visible>
+			<!--control type="label">
+				<align>right</align>
+				<width>600</width>
+				<height>45</height>
+				<label>$LOCALIZE[31889]</label>
+				<font>Font_Reg37_Caps</font>
+				<textcolor>$VAR[TitleColorVar]</textcolor>
+				<visible>!IsEmpty(MusicPlayer.Offset(1).Title)</visible>
+			</control-->
+			<control type="grouplist">
+				<align>right</align>
+				<top>694</top>
+				<width>610</width>
+				<height>30</height>
+				<itemgap>3</itemgap>
+				<scroll>true</scroll>
+				<visible>!IsEmpty(MusicPlayer.Offset(1).Title)</visible>
+				<orientation>horizontal</orientation>
+				<control type="label">
+					<width min="10" max="30">auto</width>
+					<height>26</height>
+					<label>1:</label>
+					<font>Font_Reg19_Caps</font>
+					<textcolor>white3</textcolor>
+				</control>
+				<control type="label">
+					<width min="30" max="200">auto</width>
+					<height>26</height>
+					<label>$INFO[MusicPlayer.Offset(1).Artist,,:]</label>
+					<font>Font_Reg19_Caps</font>
+					<textcolor>$VAR[TitleColorVar]</textcolor>
+					<scroll>true</scroll>
+				</control>
+				<control type="label">
+					<width min="50" max="235">auto</width>
+					<height>26</height>
+					<label>$INFO[MusicPlayer.Offset(1).Title]</label>
+					<font>Font_Reg19_Caps</font>
+					<scroll>true</scroll>
+				</control>
+			</control>
+			<control type="grouplist">
+				<align>right</align>
+				<top>694</top>
+				<width>610</width>
+				<height>30</height>
+				<itemgap>3</itemgap>
+				<visible>!IsEmpty(MusicPlayer.Offset(2).Title)</visible>
+				<orientation>horizontal</orientation>
+				<control type="label">
+					<width min="10" max="30">auto</width>
+					<height>26</height>
+					<label>2:</label>
+					<font>Font_Reg19_Caps</font>
+					<textcolor>white3</textcolor>
+				</control>
+				<control type="label">
+					<width min="30" max="200">auto</width>
+					<height>26</height>
+					<label>$INFO[MusicPlayer.Offset(2).Artist,,:]</label>
+					<font>Font_Reg19_Caps</font>
+					<textcolor>$VAR[TitleColorVar]</textcolor>
+					<scroll>true</scroll>
+				</control>
+				<control type="label">
+					<width min="50" max="235">auto</width>
+					<height>26</height>
+					<label>$INFO[MusicPlayer.Offset(2).Title]</label>
+					<font>Font_Reg19_Caps</font>
+					<scroll>true</scroll>
+				</control>
+			</control>
+			<control type="grouplist">
+				<align>right</align>
+				<top>694</top>
+				<width>610</width>
+				<height>30</height>
+				<visible>!IsEmpty(MusicPlayer.Offset(3).Title)</visible>
+				<itemgap>3</itemgap>
+				<orientation>horizontal</orientation>
+				<control type="label">
+					<width min="10" max="30">auto</width>
+					<height>26</height>
+					<label>3:</label>
+					<font>Font_Reg19_Caps</font>
+					<textcolor>white3</textcolor>
+				</control>
+				<control type="label">
+					<width min="30" max="200">auto</width>
+					<height>26</height>
+					<label>$INFO[MusicPlayer.Offset(3).Artist,,:]</label>
+					<font>Font_Reg19_Caps</font>
+					<textcolor>$VAR[TitleColorVar]</textcolor>
+					<scroll>true</scroll>
+				</control>
+				<control type="label">
+					<width min="50" max="235">auto</width>
+					<height>26</height>
+					<label>$INFO[MusicPlayer.Offset(3).Title]</label>
+					<font>Font_Reg19_Caps</font>
+					<scroll>true</scroll>
+				</control>
+			</control>
+			<control type="grouplist">
+				<align>right</align>
+				<top>694</top>
+				<width>610</width>
+				<height>30</height>
+				<visible>!IsEmpty(MusicPlayer.Offset(4).Title)</visible>
+				<itemgap>3</itemgap>
+				<orientation>horizontal</orientation>
+				<control type="label">
+					<width min="10" max="30">auto</width>
+					<height>26</height>
+					<label>4:</label>
+					<font>Font_Reg19_Caps</font>
+					<textcolor>white3</textcolor>
+				</control>
+				<control type="label">
+					<width min="30" max="200">auto</width>
+					<height>26</height>
+					<label>$INFO[MusicPlayer.Offset(4).Artist,,:]</label>
+					<font>Font_Reg19_Caps</font>
+					<textcolor>$VAR[TitleColorVar]</textcolor>
+					<scroll>true</scroll>
+				</control>
+				<control type="label">
+					<width min="50" max="235">auto</width>
+					<height>26</height>
+					<label>$INFO[MusicPlayer.Offset(4).Title]</label>
+					<font>Font_Reg19_Caps</font>
+					<scroll>true</scroll>
+				</control>
+			</control>
+			<control type="grouplist">
+				<align>right</align>
+				<top>694</top>
+				<width>610</width>
+				<height>30</height>
+				<itemgap>3</itemgap>
+				<visible>!IsEmpty(MusicPlayer.Offset(5).Title)</visible>
+				<orientation>horizontal</orientation>
+				<control type="label">
+					<width min="10" max="30">auto</width>
+					<height>26</height>
+					<label>5:</label>
+					<font>Font_Reg19_Caps</font>
+					<textcolor>white3</textcolor>
+				</control>
+				<control type="label">
+					<width min="30" max="200">auto</width>
+					<height>26</height>
+					<label>$INFO[MusicPlayer.Offset(5).Artist,,:]</label>
+					<font>Font_Reg19_Caps</font>
+					<textcolor>$VAR[TitleColorVar]</textcolor>
+					<scroll>true</scroll>
+				</control>
+				<control type="label">
+					<width min="50" max="235">auto</width>
+					<height>26</height>
+					<label>$INFO[MusicPlayer.Offset(5).Title]</label>
+					<font>Font_Reg19_Caps</font>
+					<scroll>true</scroll>
+					<scrollsuffix>     |     </scrollsuffix>
+				</control>
+			</control>
+			<control type="grouplist">
+				<align>right</align>
+				<top>694</top>
+				<width>610</width>
+				<height>30</height>
+				<visible>!IsEmpty(MusicPlayer.Offset(6).Title)</visible>
+				<itemgap>3</itemgap>
+				<orientation>horizontal</orientation>
+				<visible>Skin.HasSetting(AltMusicVizLayoutPlaylist) + Skin.HasSetting(AltMusicVizLayoutPlaylistTen)</visible>
+				<control type="label">
+					<width min="10" max="30">auto</width>
+					<height>26</height>
+					<label>6:</label>
+					<font>Font_Reg19_Caps</font>
+					<textcolor>white3</textcolor>
+				</control>
+				<control type="label">
+					<width min="30" max="200">auto</width>
+					<height>26</height>
+					<label>$INFO[MusicPlayer.Offset(6).Artist,,:]</label>
+					<font>Font_Reg19_Caps</font>
+					<textcolor>$VAR[TitleColorVar]</textcolor>
+					<scroll>true</scroll>
+				</control>
+				<control type="label">
+					<width min="50" max="235">auto</width>
+					<height>26</height>
+					<label>$INFO[MusicPlayer.Offset(6).Title]</label>
+					<font>Font_Reg19_Caps</font>
+					<scroll>true</scroll>
+				</control>
+			</control>
+			<control type="grouplist">
+				<align>right</align>
+				<top>694</top>
+				<width>610</width>
+				<height>30</height>
+				<visible>!IsEmpty(MusicPlayer.Offset(7).Title)</visible>
+				<itemgap>3</itemgap>
+				<orientation>horizontal</orientation>
+				<visible>Skin.HasSetting(AltMusicVizLayoutPlaylist) + Skin.HasSetting(AltMusicVizLayoutPlaylistTen)</visible>
+				<control type="label">
+					<width min="10" max="30">auto</width>
+					<height>26</height>
+					<label>7:</label>
+					<font>Font_Reg19_Caps</font>
+					<textcolor>white3</textcolor>
+				</control>
+				<control type="label">
+					<width min="30" max="200">auto</width>
+					<height>26</height>
+					<label>$INFO[MusicPlayer.Offset(7).Artist,,:]</label>
+					<font>Font_Reg19_Caps</font>
+					<textcolor>$VAR[TitleColorVar]</textcolor>
+					<scroll>true</scroll>
+				</control>
+				<control type="label">
+					<width min="50" max="235">auto</width>
+					<height>26</height>
+					<label>$INFO[MusicPlayer.Offset(7).Title]</label>
+					<font>Font_Reg19_Caps</font>
+					<scroll>true</scroll>
+				</control>
+			</control>
+			<control type="grouplist">
+				<align>right</align>
+				<top>694</top>
+				<width>610</width>
+				<height>30</height>
+				<visible>!IsEmpty(MusicPlayer.Offset(8).Title)</visible>
+				<itemgap>3</itemgap>
+				<orientation>horizontal</orientation>
+				<visible>Skin.HasSetting(AltMusicVizLayoutPlaylist) + Skin.HasSetting(AltMusicVizLayoutPlaylistTen)</visible>
+				<control type="label">
+					<width min="10" max="30">auto</width>
+					<height>26</height>
+					<label>8:</label>
+					<font>Font_Reg19_Caps</font>
+					<textcolor>white3</textcolor>
+				</control>
+				<control type="label">
+					<width min="30" max="200">auto</width>
+					<height>26</height>
+					<label>$INFO[MusicPlayer.Offset(8).Artist,,:]</label>
+					<font>Font_Reg19_Caps</font>
+					<textcolor>$VAR[TitleColorVar]</textcolor>
+					<scroll>true</scroll>
+				</control>
+				<control type="label">
+					<width min="50" max="235">auto</width>
+					<height>26</height>
+					<label>$INFO[MusicPlayer.Offset(8).Title]</label>
+					<font>Font_Reg19_Caps</font>
+					<scroll>true</scroll>
+				</control>
+			</control>
+			<control type="grouplist">
+				<align>right</align>
+				<top>694</top>
+				<width>610</width>
+				<height>30</height>
+				<visible>!IsEmpty(MusicPlayer.Offset(9).Title)</visible>
+				<itemgap>3</itemgap>
+				<orientation>horizontal</orientation>
+				<visible>Skin.HasSetting(AltMusicVizLayoutPlaylist) + Skin.HasSetting(AltMusicVizLayoutPlaylistTen)</visible>
+				<control type="label">
+					<width min="10" max="30">auto</width>
+					<height>26</height>
+					<label>9:</label>
+					<font>Font_Reg19_Caps</font>
+					<textcolor>white3</textcolor>
+				</control>
+				<control type="label">
+					<width min="30" max="200">auto</width>
+					<height>26</height>
+					<label>$INFO[MusicPlayer.Offset(9).Artist,,:]</label>
+					<font>Font_Reg19_Caps</font>
+					<textcolor>$VAR[TitleColorVar]</textcolor>
+					<scroll>true</scroll>
+				</control>
+				<control type="label">
+					<width min="50" max="235">auto</width>
+					<height>26</height>
+					<label>$INFO[MusicPlayer.Offset(9).Title]</label>
+					<font>Font_Reg19_Caps</font>
+					<scroll>true</scroll>
+				</control>
+			</control>
+			<control type="grouplist">
+				<align>right</align>
+				<top>694</top>
+				<width>610</width>
+				<height>30</height>
+				<visible>!IsEmpty(MusicPlayer.Offset(10).Title)</visible>
+				<itemgap>3</itemgap>
+				<visible>Skin.HasSetting(AltMusicVizLayoutPlaylist) + Skin.HasSetting(AltMusicVizLayoutPlaylistTen)</visible>
+				<orientation>horizontal</orientation>
+				<control type="label">
+					<width min="10" max="30">auto</width>
+					<height>26</height>
+					<label>10:</label>
+					<font>Font_Reg19_Caps</font>
+					<textcolor>white3</textcolor>
+					<font>Font_Reg19_Caps</font>
+					<textcolor>white3</textcolor>
+				</control>
+				<control type="label">
+					<width min="30" max="200">auto</width>
+					<height>26</height>
+					<label>$INFO[MusicPlayer.Offset(10).Artist,,:]</label>
+					<font>Font_Reg19_Caps</font>
+					<textcolor>$VAR[TitleColorVar]</textcolor>
+					<scroll>true</scroll>
+				</control>
+				<control type="label">
+					<width min="50" max="235">auto</width>
+					<height>26</height>
+					<label>$INFO[MusicPlayer.Offset(10).Title]</label>
+					<font>Font_Reg19_Caps</font>
+					<scroll>true</scroll>
+				</control>
+			</control>
+		</control>
+		</control>
+		<!-- Progress/buttons -->
 			<control type="image">
 				<visible>!Skin.HasSetting(AltMusicVizLayoutShuffle) + Player.HasDuration</visible>
 					<animation effect="slide" start="0,0" end="-50,0" time="200" tween="cubic" condition="Skin.HasSetting(AltMusicVizLayoutProgress) + !Skin.HasSetting(AltMusicVizLayoutNext)">Conditional</animation>
 					<animation effect="slide" start="0,0" end="100,0" time="200" tween="cubic" condition="Skin.HasSetting(AltMusicVizLayoutNext)">Conditional</animation>
 					<animation effect="slide" start="0,0" end="-125,35" time="200" tween="cubic" condition="Skin.HasSetting(AltMusicVizLayoutProgress) + Skin.HasSetting(AltMusicVizLayoutNext) + Skin.HasSetting(AltMusicVizLayoutInfo)">Conditional</animation>
 					<animation effect="slide" start="0,0" end="-650,20" time="200" tween="cubic" condition="Skin.HasSetting(AltMusicVizLayoutProgress) + Skin.HasSetting(AltMusicVizLayoutNext) + !Skin.HasSetting(AltMusicVizLayoutInfo)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-650,20" time="200" tween="cubic" condition="Skin.HasSetting(AltMusicVizLayoutPlaylistNext) + !Skin.HasSetting(AltMusicVizLayoutInfo)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-650,-120" time="200" tween="cubic" condition="Skin.HasSetting(AltMusicVizLayoutPlaylistNext) + Skin.HasSetting(AltMusicVizLayoutInfo)">Conditional</animation>
 					<left>1535</left>
 					<top>145</top>
 					<width>50</width>
@@ -1329,6 +1710,8 @@
 					<animation effect="slide" start="0,0" end="130,0" time="200" tween="cubic" condition="Skin.HasSetting(AltMusicVizLayoutNext)">Conditional</animation>
 					<animation effect="slide" start="0,0" end="-80,35" time="200" tween="cubic" condition="Skin.HasSetting(AltMusicVizLayoutProgress) + Skin.HasSetting(AltMusicVizLayoutNext) + Skin.HasSetting(AltMusicVizLayoutInfo)">Conditional</animation>
 					<animation effect="slide" start="0,0" end="-950,20" time="200" tween="cubic" condition="Skin.HasSetting(AltMusicVizLayoutProgress) + Skin.HasSetting(AltMusicVizLayoutNext) + !Skin.HasSetting(AltMusicVizLayoutInfo)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-650,20" time="200" tween="cubic" condition="Skin.HasSetting(AltMusicVizLayoutPlaylistNext) + !Skin.HasSetting(AltMusicVizLayoutInfo)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-650,-120" time="200" tween="cubic" condition="Skin.HasSetting(AltMusicVizLayoutPlaylistNext) + Skin.HasSetting(AltMusicVizLayoutInfo)">Conditional</animation>
 					<left>1610</left>
 					<top>145</top>
 					<width>50</width>
@@ -1338,6 +1721,7 @@
 				</control>
 				 <control type="group">
 					<animation effect="slide" start="0,0" end="155,0" time="200" tween="cubic" condition="Skin.HasSetting(AltMusicVizLayoutNext + Skin.HasSetting(AltMusicVizLayoutShuffle)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-170,35" time="200" tween="cubic" condition="Skin.HasSetting(AltMusicVizLayoutPlaylistNext) + !Skin.HasSetting(AltMusicVizLayoutProgress)">Conditional</animation>
 					<left>970</left>
 					<top>153</top>
 					<width>520</width>
