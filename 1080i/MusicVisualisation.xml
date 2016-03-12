@@ -887,54 +887,30 @@
 				<posx>262</posx>
 				<posy>-243</posy>
 				<fadetime>300</fadetime>
-				<visible>!Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart)</visible>
-				<include>cdart</include>
-				<aspectratio aligny="bottom">keep</aspectratio>
-			</control>
-			<control type="image">
-				<visible>Skin.HasSetting(cdartinvis)</visible>
-				<animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="750">Visible</animation>
-				<animation effect="slide" end="-180" time="400" tween="cubic">Hidden</animation>
-				<animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="400">WindowOpen</animation>
-				<animation type="WindowClose">
-					<effect type="slide" end="-180" time="400" tween="cubic" easing="in" delay="0" />
-					<effect type="fade" start="100" end="0" time="0" delay="400" />
-					<condition type="!Player.Playing" />
-				</animation>
-				<animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
-				<aspectratio>keep</aspectratio>
-				<width>387</width>
-				<height>381</height>
-				<posx>262</posx>
-				<posy>-243</posy>
-				<fadetime>300</fadetime>
 				<include>vinylart</include>
 				<visible>Skin.HasSetting(vinylart)</visible>
 				<aspectratio aligny="bottom">keep</aspectratio>
 			</control>
-			<control type="image">
-				<visible>Skin.HasSetting(cdartinvis)</visible>
+			<control type="image" id="2336">
 				<animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="750">Visible</animation>
 				<animation effect="slide" end="-180" time="400" tween="cubic">Hidden</animation>
 				<animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="400">WindowOpen</animation>
 				<animation type="WindowClose">
-					<effect type="slide" end="-180" time="400" tween="cubic" easing="in" delay="0" />
-					<effect type="fade" start="100" end="0" time="0" delay="400" />
-					<condition type="!Player.Playing" />
+					<effect type="slide" end="-180" time="400" tween="cubic" easing="in" delay="0"/>
+					<effect type="fade" start="100" end="0" time="0" delay="400"/>
+					<condition type="!Player.Playing"/>
 				</animation>
 				<animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
-				<aspectratio>keep</aspectratio>
-				<width>387</width>
-				<height>381</height>
-				<posx>262</posx>
-				<posy>-243</posy>
-				<fadetime>300</fadetime>
-				<include>blurayart</include>
-				<visible>Skin.HasSetting(blurayart)</visible>
-				<aspectratio aligny="bottom">keep</aspectratio>
-			</control>
-			<control type="image" id="3333">
-				<visible>Skin.HasSetting(cdartinvis)</visible>
+					<aspectratio>keep</aspectratio>
+					<width>387</width>
+					<height>381</height>
+					<posx>262</posx>
+					<posy>-243</posy>
+					<visible>Skin.HasSetting(cdartinvis) + !Skin.HasSetting(vinylart)</visible>
+					<texture background="true">$INFO[Player.FolderPath]cdart.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image" id="2337">
 				<animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="750">Visible</animation>
 				<animation effect="slide" end="-180" time="400" tween="cubic">Hidden</animation>
 				<animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="400">WindowOpen</animation>
@@ -949,78 +925,76 @@
 				<height>381</height>
 				<posx>262</posx>
 				<posy>-243</posy>
-				<fadetime>300</fadetime>
-				<visible>!Skin.HasSetting(vinylart) + !Skin.HasSetting(blurayart)</visible>
-				<texture background="true" fallback="common/cdart/blank.png">$INFO[Player.FolderPath]cdart.png</texture>
-				<aspectratio aligny="bottom">keep</aspectratio>
-			</control>
+				<visible>IsEmpty(Control.GetLabel(2336)) + Skin.HasSetting(cdartinvis) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(MusicFakeDisc)</visible>
+				<texture background="true">$VAR[mviscdARTVar]</texture>
+				<aspectratio>keep</aspectratio>
+				</control>
+			<!--handwriting-->
 			<control type="label">
-				<animation effect="slide" start="0" end="0" time="0" tween="cubic" delay="750">Visible</animation>
 				<animation effect="slide" end="-180" time="400" tween="cubic">Hidden</animation>
 				<animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="400">WindowOpen</animation>
 				<animation type="WindowClose">
-					<effect type="slide" end="-180" time="400" tween="cubic" easing="in" delay="0" />
-					<effect type="fade" start="100" end="0" time="0" delay="400" />
-					<condition type="!Player.Playing" />
+					<effect type="slide" end="-180" time="400" tween="cubic" easing="in" delay="0"/>
+					<effect type="fade" start="100" end="0" time="0" delay="400"/>
+					<condition type="!Player.Playing"/>
 				</animation>
 				<animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
-				<width>230</width>
+				<width>260</width>
 				<height>70</height>
 				<posx>335</posx>
 				<posy>-210</posy>
 				<align>center</align>
 				<aligny>center</aligny>
-				<font>Hand_26</font>
-				<visible>StringCompare(Control.GetLabel(3333),common/cdart/blank.png) + !Skin.HasSetting(AltMusicVizLayoutCDArtist)</visible>
-				<label> $INFO[MusicPlayer.Artist]</label>
-				<textcolor>black</textcolor>
-				<wrapmultiline>true</wrapmultiline>
-			</control>
-			<control type="label">
-				<animation effect="slide" start="0" end="0" time="0" tween="cubic" delay="750">Visible</animation>
-				<animation effect="slide" end="-180" time="400" tween="cubic">Hidden</animation>
-				<animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="400">WindowOpen</animation>
-				<animation type="WindowClose">
-					<effect type="slide" end="-180" time="400" tween="cubic" easing="in" delay="0" />
-					<effect type="fade" start="100" end="0" time="0" delay="400" />
-					<condition type="!Player.Playing" />
-				</animation>
-				<animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
-				<width>230</width>
-				<height>70</height>
-				<posx>335</posx>
-				<posy>-210</posy>
-				<align>center</align>
-				<aligny>center</aligny>
-				<font>Hand_26</font>
-				<visible>StringCompare(Control.GetLabel(3333),common/cdart/blank.png) + Skin.HasSetting(AltMusicVizLayoutCDArtist)</visible>
+				<font>Hand_34</font>
+				<visible>IsEmpty(Control.GetLabel(2336)) + Skin.HasSetting(cdartinvis) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(MusicFakeDisc) + Skin.HasSetting(AltMusicVizLayoutCDArtist)</visible>
 				<label> $INFO[MusicPlayer.AlbumArtist]</label>
 				<textcolor>black</textcolor>
 				<wrapmultiline>true</wrapmultiline>
 			</control>
 			<control type="label">
-				<animation effect="slide" start="0" end="0" time="0" tween="cubic" delay="750">Visible</animation>
 				<animation effect="slide" end="-180" time="400" tween="cubic">Hidden</animation>
 				<animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="400">WindowOpen</animation>
 				<animation type="WindowClose">
-					<effect type="slide" end="-180" time="400" tween="cubic" easing="in" delay="0" />
-					<effect type="fade" start="100" end="0" time="0" delay="400" />
-					<condition type="!Player.Playing" />
+					<effect type="slide" end="-180" time="400" tween="cubic" easing="in" delay="0"/>
+					<effect type="fade" start="100" end="0" time="0" delay="400"/>
+					<condition type="!Player.Playing"/>
 				</animation>
 				<animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
-				<width>230</width>
+				<width>260</width>
+				<height>70</height>
+				<posx>335</posx>
+				<posy>-210</posy>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>Hand_34</font>
+				<visible>IsEmpty(Control.GetLabel(2336)) + Skin.HasSetting(cdartinvis) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(MusicFakeDisc) + !Skin.HasSetting(AltMusicVizLayoutCDArtist)</visible>
+				<label>$INFO[MusicPlayer.Artist]</label>
+				<textcolor>black</textcolor>
+				<wrapmultiline>true</wrapmultiline>
+			</control>
+			<control type="label">
+				<animation effect="slide" end="-180" time="400" tween="cubic">Hidden</animation>
+				<animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="400">WindowOpen</animation>
+				<animation type="WindowClose">
+					<effect type="slide" end="-180" time="400" tween="cubic" easing="in" delay="0"/>
+					<effect type="fade" start="100" end="0" time="0" delay="400"/>
+					<condition type="!Player.Playing"/>
+				</animation>
+				<animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+					<width>230</width>
 				<height>75</height>
 				<posx>330</posx>
 				<posy>20</posy>
 				<align>center</align>
-				<font>Hand_26</font>
-				<visible>StringCompare(Control.GetLabel(3333),common/cdart/blank.png)</visible>
+				<font>Hand_34</font>
+				<visible>IsEmpty(Control.GetLabel(2336)) + Skin.HasSetting(cdartinvis) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(MusicFakeDisc)</visible>
 				<aligny>center</aligny>
 				<label> $INFO[MusicPlayer.Album]</label>
 				<textcolor>black</textcolor>
 				<wrapmultiline>true</wrapmultiline>
 			</control>
-			<control type="group"><!--Cover-->
+			<!--Cover-->
+			<control type="group">
 				<animation effect="fade" time="750">VisibleChange</animation>
 				<visible>Skin.HasSetting(AltMusicVizLayoutCover)</visible>
 				<posx>40</posx>
@@ -1086,7 +1060,7 @@
 				</control>
 			</control>
 		</control>
-		<!-- new layout info -->
+		<!--Logo/track/usw -->
 		<control type="group">
 			<posx>30</posx>
 			<posy>850</posy>
