@@ -870,16 +870,35 @@
 				<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
 				<visible>!Skin.HasSetting(DisableGlowbar) + Skin.HasSetting(vinylart)</visible>
 			</control>
-			<control type="image">
-				<visible>Skin.HasSetting(cdartinvis)</visible>
-				<animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="750">Visible</animation>
-				<animation effect="slide" end="-180" time="400" tween="cubic">Hidden</animation>
+			<control type="image" id="2336">
+				<animation effect="slide" start="180" end="0" time="500" tween="cubic" delay="50">VisibleChange</animation>
 				<animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="400">WindowOpen</animation>
 				<animation type="WindowClose">
-					<effect type="slide" end="-180" time="400" tween="cubic" easing="in" delay="0" />
-					<effect type="fade" start="100" end="0" time="0" delay="400" />
-					<condition type="!Player.Playing" />
+					<effect type="slide" end="-180" time="400" tween="cubic" easing="in" delay="0"/>
+					<effect type="fade" start="100" end="0" time="0" delay="400"/>
+					<condition type="!Player.Playing"/>
 				</animation>
+				<animation effect="slide" end="-180" time="400" tween="cubic">Hidden</animation>
+				<animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+					<aspectratio>keep</aspectratio>
+					<width>387</width>
+					<height>381</height>
+					<posx>262</posx>
+					<posy>-243</posy>
+					<visible>Skin.HasSetting(cdartinvis)</visible>
+					<texture background="true">$INFO[Player.FolderPath]cdart.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+				<visible>Skin.HasSetting(cdartinvis)</visible>
+				<animation effect="slide" start="-180" end="0" time="500" tween="cubic" delay="50">VisibleChange</animation>
+				<animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="400">WindowOpen</animation>
+				<animation type="WindowClose">
+					<effect type="slide" end="-180" time="400" tween="cubic" easing="in" delay="0"/>
+					<effect type="fade" start="100" end="0" time="0" delay="400"/>
+					<condition type="!Player.Playing"/>
+				</animation>
+				<animation effect="slide" end="-180" time="400" tween="cubic">Hidden</animation>
 				<animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
 				<aspectratio>keep</aspectratio>
 				<width>387</width>
@@ -888,31 +907,11 @@
 				<posy>-243</posy>
 				<fadetime>300</fadetime>
 				<include>vinylart</include>
-				<visible>Skin.HasSetting(vinylart)</visible>
+				<visible>Skin.HasSetting(vinylart) + IsEmpty(Control.GetLabel(2336))</visible>
 				<aspectratio aligny="bottom">keep</aspectratio>
 			</control>
-			<control type="image" id="2336">
-				<animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="750">Visible</animation>
-				<animation effect="slide" end="-180" time="400" tween="cubic">Hidden</animation>
-				<animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="400">WindowOpen</animation>
-				<animation type="WindowClose">
-					<effect type="slide" end="-180" time="400" tween="cubic" easing="in" delay="0"/>
-					<effect type="fade" start="100" end="0" time="0" delay="400"/>
-					<condition type="!Player.Playing"/>
-				</animation>
-				<animation effect="rotate" end="-360" center="455,-53" time="6000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
-					<aspectratio>keep</aspectratio>
-					<width>387</width>
-					<height>381</height>
-					<posx>262</posx>
-					<posy>-243</posy>
-					<visible>Skin.HasSetting(cdartinvis) + !Skin.HasSetting(vinylart)</visible>
-					<texture background="true">$INFO[Player.FolderPath]cdart.png</texture>
-					<aspectratio>keep</aspectratio>
-				</control>
 				<control type="image" id="2337">
 				<animation effect="slide" start="-180" end="0" time="500" tween="cubic" delay="50">VisibleChange</animation>
-				<!--animation effect="slide" start="-180" end="0" time="700" tween="cubic" delay="400">WindowOpen</animation-->
 				<animation type="WindowClose">
 					<effect type="slide" end="-180" time="400" tween="cubic" easing="in" delay="0"/>
 					<effect type="fade" start="100" end="0" time="0" delay="400"/>
