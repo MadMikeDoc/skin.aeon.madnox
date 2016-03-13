@@ -937,7 +937,7 @@
 				<posy>-210</posy>
 				<align>center</align>
 				<aligny>center</aligny>
-				<font>Hand_34</font>
+				<font>Hand_26</font>
 				<visible>IsEmpty(Control.GetLabel(2336)) + Skin.HasSetting(cdartinvis) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(MusicFakeDisc) + Skin.HasSetting(AltMusicVizLayoutCDArtist)</visible>
 				<label> $INFO[MusicPlayer.AlbumArtist]</label>
 				<textcolor>black</textcolor>
@@ -952,7 +952,7 @@
 				<posy>-210</posy>
 				<align>center</align>
 				<aligny>center</aligny>
-				<font>Hand_34</font>
+				<font>Hand_26</font>
 				<visible>IsEmpty(Control.GetLabel(2336)) + Skin.HasSetting(cdartinvis) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(MusicFakeDisc) + !Skin.HasSetting(AltMusicVizLayoutCDArtist)</visible>
 				<label>$INFO[MusicPlayer.Artist]</label>
 				<textcolor>black</textcolor>
@@ -966,7 +966,7 @@
 				<posx>330</posx>
 				<posy>20</posy>
 				<align>center</align>
-				<font>Hand_34</font>
+				<font>Hand_26</font>
 				<visible>IsEmpty(Control.GetLabel(2336)) + Skin.HasSetting(cdartinvis) + !Skin.HasSetting(vinylart) + !Skin.HasSetting(MusicFakeDisc)</visible>
 				<aligny>center</aligny>
 				<label> $INFO[MusicPlayer.Album]</label>
@@ -1195,7 +1195,7 @@
 				<include>Animation_VisibleChange400</include>
 			</control>
 			<control type="label">
-				<visible>!Skin.HasSetting(AltMusicVizLayoutNext)</visible>
+				<visible>!Skin.HasSetting(AltMusicVizLayoutNext) + Skin.HasSetting(AltMusicVizLayoutArtist)</visible>
 				<posx>1658</posx>
 				<posy>80</posy>
 				<width>800</width>
@@ -1204,6 +1204,20 @@
 				<font>Font_Reg19_Caps</font>
 				<label>$INFO[MusicPlayer.offset(1).Artist]</label>
 				<textcolor>$VAR[TitleColorVar]</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<scroll>true</scroll>
+				<include>Animation_VisibleChange400</include>
+			</control>
+			<control type="label">
+				<visible>!Skin.HasSetting(AltMusicVizLayoutNext) + !Skin.HasSetting(AltMusicVizLayoutArtist)</visible>
+				<posx>1658</posx>
+				<posy>80</posy>
+				<width>800</width>
+				<height>36</height>
+				<align>right</align>
+				<font>Font_Reg19_Caps</font>
+				<label>$INFO[MusicPlayer.offset(1).Artist]</label>
+				<textcolor>white</textcolor>
 				<shadowcolor>black</shadowcolor>
 				<scroll>true</scroll>
 				<include>Animation_VisibleChange400</include>
@@ -1292,7 +1306,7 @@
 			<!--Background Partymodus -->
 			<control type="image">
 				<animation effect="fade" start="50" time="100" condition="Skin.HasSetting(AltMusicVizLayoutPlaylistFadeBG)">Conditional</animation>
-				<left>1335</left>
+				<left>1280</left>
 				<top>-850</top>
 				<width>600</width>
 				<height>345</height>
@@ -1753,7 +1767,8 @@
 					<label>[COLOR=white]$INFO[MusicPlayer.Codec][/COLOR]</label>
 				</control>
 				<control type="image">
-					<posx>825</posx>
+					<visible>Skin.HasSetting(AltMusicVizLayoutRating)</visible>
+					<posx>845</posx>
 					<posy>137</posy>
 					<width>150</width>
 					<height>89</height>
@@ -1761,22 +1776,37 @@
 					<colordiffuse>white</colordiffuse>
 					<texture>flags/music/rating/$INFO[Player.StarRating]</texture>
 				</control>
-				<control type="image">
-					<posx>960</posx>
-					<posy>133</posy>
+				<control type="label">
+					<visible>!Skin.HasSetting(AltMusicVizLayoutRating)</visible>
+					<posx>860</posx>
+					<posy>140</posy>
 					<width>150</width>
+					<height>89</height>
+					<font>font10</font>
+					<align>left</align>
+					<textcolor>grey</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>$INFO[MusicPlayer.Bitrate][COLOR=$VAR[TitleColorVar]] kbps[/COLOR] $INFO[MusicPlayer.Samplerate][COLOR=$VAR[TitleColorVar]] kHz[/COLOR][CR]$INFO[MusicPlayer.BitsPerSample][COLOR=$VAR[TitleColorVar]] Bits[/COLOR] $INFO[MusicPlayer.Channels][COLOR=$VAR[TitleColorVar]] Ch[/COLOR]</label>
+				</control>
+				<control type="image">
+					<visible>Skin.HasSetting(AltMusicVizLayoutGenre)</visible>
+					<posx>1050</posx>
+					<posy>120</posy>
+					<width>99</width>
 					<height>99</height>
-					<colordiffuse>$VAR[TitleColorVar]</colordiffuse>
+					<aspectratio>keep</aspectratio>
 					<visible>!IsEmpty(MusicPlayer.Genre)</visible>
-					<texture>flags/music/genre/genre.png</texture>
+					<texture background="true" fallback="DefaultAudio.png">$INFO[MusicPlayer.Genre,special://skin/extras/genre/music/icons/,.jpg]</texture>
 				</control>
 				<control type="label">
-					<posx>1025</posx>
+					<visible>!Skin.HasSetting(AltMusicVizLayoutGenre)</visible>
+					<posx>1070</posx>
 					<posy>139</posy>
 					<width>210</width>
 					<height>86</height>
 					<scroll>false</scroll>
 					<font>Font_Reg19</font>
+					<align>left</align>
 					<shadowcolor>black</shadowcolor>
 					<wrapmultiline>true</wrapmultiline>
 					<label>[COLOR=white]$INFO[MusicPlayer.Genre][/COLOR]</label>
@@ -2093,7 +2123,6 @@
 						<textcolor>black</textcolor>
 						<wrapmultiline>true</wrapmultiline>
 					</control>
-					
 					<control type="image">
 						<left>16</left>
 						<top>17</top>
@@ -2119,7 +2148,6 @@
 						<texture background="true">$INFO[Window(Home).Property(SkinHelper.Player.Music.DiscArt)]</texture>
 						<aspectratio>keep</aspectratio>
 					</control>
-										
 					<control type="label">
 						<left>-226</left>
 						<top>235</top>
