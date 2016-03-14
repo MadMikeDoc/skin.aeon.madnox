@@ -1774,7 +1774,7 @@
 					<height>89</height>
 					<aspectratio>keep</aspectratio>
 					<colordiffuse>white</colordiffuse>
-					<texture>flags/music/rating/$INFO[Player.StarRating]</texture>
+					<texture fallback="rating0.png">$INFO[Player.StarRating]</texture>
 				</control>
 				<control type="label">
 					<visible>!Skin.HasSetting(AltMusicVizLayoutRating)</visible>
@@ -1796,7 +1796,8 @@
 					<height>99</height>
 					<aspectratio>keep</aspectratio>
 					<visible>!IsEmpty(MusicPlayer.Genre)</visible>
-					<texture background="true" fallback="DefaultAudio.png">$INFO[MusicPlayer.Genre,special://skin/extras/genre/music/icons/,.jpg]</texture>
+					<texture background="true" diffuse="thumbs/cdcover_mask.png" fallback="DefaultAudio.png">$INFO[MusicPlayer.Genre,special://skin/extras/genre/music/icons/,.jpg]</texture>
+					<bordertexture border="-10">thumbs/cd_shadow3.png</bordertexture>
 				</control>
 				<control type="label">
 					<visible>!Skin.HasSetting(AltMusicVizLayoutGenre)</visible>
@@ -1805,7 +1806,7 @@
 					<width>210</width>
 					<height>86</height>
 					<scroll>false</scroll>
-					<font>Font_Reg19</font>
+					<font>Font_Reg19_Caps</font>
 					<align>left</align>
 					<shadowcolor>black</shadowcolor>
 					<wrapmultiline>true</wrapmultiline>
@@ -1821,8 +1822,8 @@
 				</control>
 			</control>
 		</control>
-		<!-- New layout 1 end -->
-		<!-- Third Layout Start -->
+<!-- New layout 1 end -->
+<!-- Third Layout Start -->
 		<control type="group"> <!--OnScreen Info-->
 			<left>-20</left>
 			<top>540</top>
