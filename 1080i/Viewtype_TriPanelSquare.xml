@@ -67,7 +67,9 @@
 						<scroll>true</scroll>
 					</control>
 				</control>
+				<!--INFO-->
 				<control type="textbox">
+					<visible>!Skin.HasSetting(TriPanelSquareShowCDs) +  Container.Content(artists)</visible>
 					<left>145</left>
 					<top>220</top>
 					<width>432</width>
@@ -75,6 +77,38 @@
 					<label>$VAR[InfoWallTextboxVar]</label>
 					<font>Font_Reg28</font>
 					<autoscroll delay="10000" time="AutoScrollTime" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
+				</control>
+				<control type="textbox">
+					<visible>!Skin.HasSetting(TriPanelSquareShowTracks) +  Container.Content(albums)</visible>
+					<left>145</left>
+					<top>220</top>
+					<width>432</width>
+					<height>365</height>
+					<label>$VAR[InfoWallTextboxVar]</label>
+					<font>Font_Reg28</font>
+					<autoscroll delay="10000" time="AutoScrollTime" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
+				</control>
+				<control type="textbox">
+					<visible>Skin.HasSetting(TriPanelSquareShowCDs) + Container.Content(artists)</visible>
+					<left>145</left>
+					<top>220</top>
+					<width>432</width>
+					<height>365</height>
+					<aligny>center</aligny>
+					<label>$INFO[Window(Home).Property(SkinHelper.Music.Albums.Formatted)]</label>
+					<font>Font_Reg28</font>
+					<autoscroll delay="1000" time="AutoScrollTime" repeat="5000">Skin.HasSetting(AutoScroll)</autoscroll>
+				</control>
+				<control type="textbox">
+					<visible>Skin.HasSetting(TriPanelSquareShowTracks) + Container.Content(albums)</visible>
+					<left>145</left>
+					<top>220</top>
+					<width>432</width>
+					<height>365</height>
+					<aligny>center</aligny>
+					<label>$INFO[Window(Home).Property(SkinHelper.Music.TrackList)]</label>
+					<font>Font10</font>
+					<autoscroll delay="1000" time="AutoScrollTime" repeat="5000">Skin.HasSetting(AutoScroll)</autoscroll>
 				</control>
 			</control>
 			<control type="group" id="5302">
@@ -266,6 +300,7 @@
 					</control>
 				</control>
 				<control type="textbox">
+					<visible>!Skin.HasSetting(TriPanelSquareShowCDs) + Container.Content(artists)</visible>
 					<left>102</left>
 					<top>220</top>
 					<width>480</width>
@@ -273,6 +308,38 @@
 					<label>$VAR[InfoWallTextboxVar]</label>
 					<font>Font_Reg28</font>
 					<autoscroll delay="10000" time="AutoScrollTime" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
+				</control>
+				<control type="textbox">
+					<visible>!Skin.HasSetting(TriPanelSquareShowTracks) + Container.Content(albums)</visible>
+					<left>102</left>
+					<top>220</top>
+					<width>480</width>
+					<height>400</height>
+					<label>$VAR[InfoWallTextboxVar]</label>
+					<font>Font_Reg28</font>
+					<autoscroll delay="10000" time="AutoScrollTime" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
+				</control>
+				<control type="textbox">
+					<visible>Skin.HasSetting(TriPanelSquareShowCDs) + Container.Content(artists)</visible>
+					<left>102</left>
+					<top>220</top>
+					<width>480</width>
+					<height>400</height>
+					<aligny>center</aligny>
+					<label>$INFO[Window(Home).Property(SkinHelper.Music.Albums)]</label>
+					<font>Font_Reg28</font>
+					<autoscroll delay="10000" time="AutoScrollTime" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
+				</control>
+				<control type="textbox">
+					<visible>Skin.HasSetting(TriPanelSquareShowTracks) + Container.Content(albums)</visible>
+					<left>102</left>
+					<top>220</top>
+					<width>480</width>
+					<height>400</height>
+					<aligny>center</aligny>
+					<label>$INFO[Window(Home).Property(SkinHelper.Music.TrackList)]</label>
+					<font>Font10</font>
+					<autoscroll delay="1000" time="AutoScrollTime" repeat="5000">Skin.HasSetting(AutoScroll)</autoscroll>
 				</control>
 				<control type="image">
 					<width>650</width>
@@ -634,7 +701,8 @@
 				<animation type="WindowOpen">
 					<effect type="fade" start="0" end="100" time="320" delay="500" />
 				</animation>
-				<control type="image">
+				<!--Logo-->
+				<control type="image" id="65651">
 					<left>1420</left>
 					<top>170</top>
 					<width>400</width>
@@ -642,12 +710,57 @@
 					<aspectratio>keep</aspectratio>
 					<fadetime>300</fadetime>
 					<texture background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist,,/logo.png]</texture>
-					<visible>!IsEmpty(Skin.String(ArtistsLogosPath))</visible>
+					<visible>!IsEmpty(Skin.String(ArtistsLogosPath)) + !Skin.HasSetting(TriPanelSquareClearArt)</visible>
 					<visible>Control.IsVisible(53)</visible>
-					<visible>!Container.Content(Artists)</visible>
 					<animation effect="slide" end="0,0" time="300" condition=" Stringcompare(Skin.String(TriPanelSquarePosition),1)">Conditional</animation>
 					<animation effect="slide" end="-450,-50" time="300" condition=" Stringcompare(Skin.String(TriPanelSquarePosition),2)">Conditional</animation>
 				</control>
+				<control type="image">
+					<left>1420</left>
+					<top>170</top>
+					<width>400</width>
+					<height>250</height>
+					<aspectratio>keep</aspectratio>
+					<texture background="true">$INFO[Window(Home).Property(SkinHelper.Music.ClearLogo)]</texture>
+					<visible>Control.IsVisible(53) + Skin.HasSetting(TriPanelSquareClearArt) + IsEmpty(Control.GetLabel(65651))</visible><!--wehre is the Fucking Atist Logo code..-->
+					<animation effect="slide" end="0,0" time="300" condition=" Stringcompare(Skin.String(TriPanelSquarePosition),1)">Conditional</animation>
+					<animation effect="slide" end="-450,-50" time="300" condition=" Stringcompare(Skin.String(TriPanelSquarePosition),2)">Conditional</animation>
+				</control>
+				<!--Banner-->
+				<control type="image" id="65652">
+					<left>1420</left>
+					<top>190</top>
+					<width>400</width>
+					<height>250</height>
+					<aspectratio>keep</aspectratio>
+					<texture background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist,,/banner.png]</texture>
+					<visible>Control.IsVisible(53) + Skin.HasSetting(TriPanelSquareClearArt)</visible><!--wehre is the Fucking Atist Logo code..-->
+					<animation effect="slide" end="0,0" time="300" condition=" Stringcompare(Skin.String(TriPanelSquarePosition),1)">Conditional</animation>
+					<animation effect="slide" end="-450,-50" time="300" condition=" Stringcompare(Skin.String(TriPanelSquarePosition),2)">Conditional</animation>
+				</control>
+				<control type="image">
+					<left>1420</left>
+					<top>190</top>
+					<width>400</width>
+					<height>250</height>
+					<aspectratio>keep</aspectratio>
+					<texture background="true">$INFO[Window(Home).Property(SkinHelper.Music.Banner)]</texture>
+					<visible>Control.IsVisible(53) + Skin.HasSetting(TriPanelSquareClearArt) + IsEmpty(Control.GetLabel(65652))</visible><!--wehre is the Fucking Atist Logo code..-->
+					<animation effect="slide" end="0,0" time="300" condition=" Stringcompare(Skin.String(TriPanelSquarePosition),1)">Conditional</animation>
+					<animation effect="slide" end="-450,-50" time="300" condition=" Stringcompare(Skin.String(TriPanelSquarePosition),2)">Conditional</animation>
+				</control>
+				<control type="image">
+					<left>1415</left>
+					<top>275</top>
+					<width>410</width>
+					<height>80</height>
+					<aspectratio>strech</aspectratio>
+					<texture>homewidgets/case/banner/p.png</texture>
+					<visible>Control.IsVisible(53) + Skin.HasSetting(TriPanelSquareClearArt)  + [!IsEmpty(Control.GetLabel(65652)) | !IsEmpty(Window(Home).Property(SkinHelper.Music.Banner))]</visible>
+					<animation effect="slide" end="0,0" time="300" condition=" Stringcompare(Skin.String(TriPanelSquarePosition),1)">Conditional</animation>
+					<animation effect="slide" end="-450,-50" time="300" condition=" Stringcompare(Skin.String(TriPanelSquarePosition),2)">Conditional</animation>
+				</control>
+			
 			</control>
 		</control>
 	</include>
