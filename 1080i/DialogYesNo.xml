@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
 	<defaultcontrol>10</defaultcontrol>
-
+	<zorder>8</zorder>
 	<coordinates>
 		<left>0</left>
 		<top>0</top>
@@ -9,64 +9,64 @@
 	</coordinates>
 	<include>Animation_DialogPopup</include>
 	<controls>
+		<include>InvisibleIncludeLabels</include>
 		<include>DialogBackFade</include>
 		<control type="group">
-			<left>570</left>
-			<top>375</top>
+			<left>590</left>
+			<top>310</top>
 			<control type="image">
-				<width>780</width>
-				<height>330</height>
+				<width>740</width>
+				<height>350</height>
 				<texture>dialogs/dialog_back_shadow.png</texture>
 				<include>PanelGlowFade</include>
 				<visible>!Skin.HasSetting(DisableGlowbar)</visible>
 				<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
 			</control>
 			<control type="image">
-				<width>780</width>
-				<height>330</height>
+				<width>740</width>
+				<height>350</height>
 				<texture>dialogs/dialog_back.png</texture>
 				<colordiffuse>$VAR[DialogColorVar]</colordiffuse>
 			</control>
 			<control type="image">
 				<left>15</left>
-				<width>750</width>
-				<height>60</height>
+				<width>720</width>
+				<height>75</height>
 				<texture border="1">osd/osd_settings_buttonnf.png</texture>
 			</control>
 			<control type="label" id="1">
 				<width>750</width>
-				<height>78</height>
-				<align>center</align>
+				<height>102</height>
 				<textoffsetx>45</textoffsetx>
+				<align>center</align>
 				<textcolor>$VAR[FontColorVar]</textcolor>
-				<scroll>true</scroll>
+				<scroll>yes</scroll>
 			</control>
 			<control type="grouplist">
-				<top>68</top>
-				<width>750</width>
-				<height>330</height>
-				<posx>40</posx>
+				<top>82</top>
+				<width>710</width>
+				<height>170</height>
+				<left>50</left>
 				<control type="textbox" id="9">
 					<description>text</description>
-					<width>700</width>
-					<height>330</height>
+					<width>650</width>
+					<height>170</height>
 					<align>center</align>
 					<textcolor>white3</textcolor>
-					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(AutoScroll)</autoscroll>
+					<autoscroll time="2000" delay="2000" repeat="4000">Skin.HasSetting(AutoScroll)</autoscroll>
 				</control>
 			</control>
 			<control type="button" id="10">
 				<textoffsety></textoffsety>
 				<left>390</left>
-				<top>228</top>
-				<width>225</width>
-				<height>45</height>
-				<textoffsetx>30</textoffsetx>
+				<top>265</top>
+				<width>200</width>
+				<height>55</height>
 				<align>center</align>
+				<aligny>center</aligny>
 				<label>106</label>
-				<textcolor>grey2</textcolor>
-				<focusedcolor>white3</focusedcolor>
-				<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+				<texturefocus colordiffuse="$VAR[FocusTextureColorVar]">buttons/roundedbutton-focus.png</texturefocus>
+				<texturenofocus>buttons/roundedbutton-nofocus.png</texturenofocus>
 				<onup>10</onup>
 				<ondown>10</ondown>
 				<onleft>11</onleft>
@@ -75,15 +75,14 @@
 			<control type="button" id="11">
 				<textoffsety></textoffsety>
 				<left>165</left>
-				<top>228</top>
-				<width>225</width>
-				<height>45</height>
-				<textoffsetx>30</textoffsetx>
+				<top>265</top>
+				<width>200</width>
+				<height>55</height>
 				<align>center</align>
-				<label>107</label>
-				<textcolor>grey2</textcolor>
-				<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-				<focusedcolor>white3</focusedcolor>
+				<aligny>center</aligny>
+				<label>106</label>
+				<texturefocus colordiffuse="$VAR[FocusTextureColorVar]">buttons/roundedbutton-focus.png</texturefocus>
+				<texturenofocus>buttons/roundedbutton-nofocus.png</texturenofocus>
 				<onup>11</onup>
 				<ondown>11</ondown>
 				<onleft>10</onleft>
