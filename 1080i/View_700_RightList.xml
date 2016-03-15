@@ -1593,12 +1593,12 @@
 			<control type="group">
 			<include>Animation_ListSlideLeft</include>
 			<control type="image" id="6565">
-				<left>30</left>
+				<left>80</left>
 				<top>80</top>
 				<width>750</width>
 				<height>180</height>
 				<aspectratio>keep</aspectratio>
-				<texture background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist,,/banner.png]</texture>
+				<texture background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist,,/banner.jpg]</texture>
 				<visible>Skin.HasSetting(rightlistBannerartist)</visible>
 				<animation effect="slide" start="0,280" end="0" time="500" tween="cubic" delay="250" condition="!Container.Content(Artists)">Conditional</animation>
 			</control>
@@ -1618,7 +1618,17 @@
 				<width>763</width>
 				<height>150</height>
 				<aspectratio>strech</aspectratio>
-				<texture>homewidgets/case/banner/p.png</texture>
+				<texture>homewidgets/glass/banner.png</texture>
+				<visible>Skin.HasSetting(rightlistBannerartist) + [!IsEmpty(Control.GetLabel(6565)) | !IsEmpty(Window(Home).Property(SkinHelper.Music.Banner))]</visible>
+				<animation effect="slide" start="0,280" end="0" time="500" tween="cubic" delay="250" condition="!Container.Content(Artists)">Conditional</animation>
+			</control>
+			<control type="image">
+				<left>75</left>
+				<top>95</top>
+				<width>763</width>
+				<height>150</height>
+				<aspectratio>strech</aspectratio>
+				<texture>thumbs_square/banner_shadow_in.png</texture>
 				<visible>Skin.HasSetting(rightlistBannerartist) + [!IsEmpty(Control.GetLabel(6565)) | !IsEmpty(Window(Home).Property(SkinHelper.Music.Banner))]</visible>
 				<animation effect="slide" start="0,280" end="0" time="500" tween="cubic" delay="250" condition="!Container.Content(Artists)">Conditional</animation>
 			</control>

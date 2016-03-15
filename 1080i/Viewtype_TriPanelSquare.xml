@@ -69,23 +69,23 @@
 				</control>
 				<!--INFO-->
 				<control type="textbox">
-					<visible>!Skin.HasSetting(TriPanelSquareShowCDs) +  Container.Content(artists)</visible>
+					<visible>!Skin.HasSetting(TriPanelSquareShowCDs) + Container.Content(artists) | Container.Content(songs)</visible>
 					<left>145</left>
 					<top>220</top>
 					<width>432</width>
 					<height>365</height>
-					<label>$VAR[InfoWallTextboxVar]</label>
-					<font>Font_Reg28</font>
+					<label>$INFO[Window(Home).Property(SkinHelper.Music.Info)]</label>
+					<font>Font10</font>
 					<autoscroll delay="10000" time="AutoScrollTime" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
 				</control>
 				<control type="textbox">
-					<visible>!Skin.HasSetting(TriPanelSquareShowTracks) +  Container.Content(albums)</visible>
+					<visible>!Skin.HasSetting(TriPanelSquareShowTracks) + Container.Content(albums)</visible>
 					<left>145</left>
 					<top>220</top>
 					<width>432</width>
 					<height>365</height>
-					<label>$VAR[InfoWallTextboxVar]</label>
-					<font>Font_Reg28</font>
+					<label>$INFO[Window(Home).Property(SkinHelper.Music.Info)]</label>
+					<font>Font10</font>
 					<autoscroll delay="10000" time="AutoScrollTime" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
 				</control>
 				<control type="textbox">
@@ -733,7 +733,7 @@
 					<width>400</width>
 					<height>250</height>
 					<aspectratio>keep</aspectratio>
-					<texture background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist,,/banner.png]</texture>
+					<texture background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist,,/banner.jpg]</texture>
 					<visible>Control.IsVisible(53) + Skin.HasSetting(TriPanelSquareClearArt)</visible><!--wehre is the Fucking Atist Logo code..-->
 					<animation effect="slide" end="0,0" time="300" condition=" Stringcompare(Skin.String(TriPanelSquarePosition),1)">Conditional</animation>
 					<animation effect="slide" end="-450,-50" time="300" condition=" Stringcompare(Skin.String(TriPanelSquarePosition),2)">Conditional</animation>
@@ -755,12 +755,22 @@
 					<width>410</width>
 					<height>80</height>
 					<aspectratio>strech</aspectratio>
-					<texture>homewidgets/case/banner/p.png</texture>
+					<texture>homewidgets/glass/banner.png</texture>
 					<visible>Control.IsVisible(53) + Skin.HasSetting(TriPanelSquareClearArt)  + [!IsEmpty(Control.GetLabel(65652)) | !IsEmpty(Window(Home).Property(SkinHelper.Music.Banner))]</visible>
 					<animation effect="slide" end="0,0" time="300" condition=" Stringcompare(Skin.String(TriPanelSquarePosition),1)">Conditional</animation>
 					<animation effect="slide" end="-450,-50" time="300" condition=" Stringcompare(Skin.String(TriPanelSquarePosition),2)">Conditional</animation>
 				</control>
-			
+				<control type="image">
+					<left>1415</left>
+					<top>275</top>
+					<width>410</width>
+					<height>80</height>
+					<aspectratio>strech</aspectratio>
+					<texture>thumbs_square/banner_shadow_in.png</texture>
+					<visible>Control.IsVisible(53) + Skin.HasSetting(TriPanelSquareClearArt)  + [!IsEmpty(Control.GetLabel(65652)) | !IsEmpty(Window(Home).Property(SkinHelper.Music.Banner))]</visible>
+					<animation effect="slide" end="0,0" time="300" condition=" Stringcompare(Skin.String(TriPanelSquarePosition),1)">Conditional</animation>
+					<animation effect="slide" end="-450,-50" time="300" condition=" Stringcompare(Skin.String(TriPanelSquarePosition),2)">Conditional</animation>
+				</control>
 			</control>
 		</control>
 	</include>
