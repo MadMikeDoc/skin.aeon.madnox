@@ -5413,5 +5413,42 @@
 		<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.Tagline]</value>
 		<value condition="VideoPlayer.Content(episodes)">S$VAR[VideoSeasonVar]E$VAR[VideoEpisodeVar] - $INFO[VideoPlayer.Title]</value>
 	</variable>
-
+	<!-- Msuic Genre/Style/Mood/Playcount-->
+	<variable name="MusicInfoLabel1Var">
+		<value condition="Container.Content(songs)">$INFO[ListItem.Duration]</value>
+		<value condition="Container.Content(albums)">$INFO[ListItem.Property(Album_Genre)]</value>
+		<value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Genre)]</value>
+		<value condition="Container.Content(addons)">$INFO[ListItem.Property(Addon.Creator)]</value>
+		<value condition="[Window.IsActive(programs) + !Container.Content(addons)]">$INFO[ListItem.Writer]</value>
+	</variable>
+	<variable name="MusicInfoLabel2Var">
+		<value condition="Container.Content(songs) + IsEmpty(Container.ListItem.PlayCount)">0</value>
+		<value condition="Container.Content(songs)">$INFO[ListItem.PlayCount]</value>
+		<value condition="Container.Content(albums)">$INFO[ListItem.Property(Album_Style)]</value>
+		<value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Style)]</value>
+		<value condition="Container.Content(addons)">$INFO[ListItem.Property(Addon.Creator)]</value>
+		<value condition="[Window.IsActive(programs) + !Container.Content(addons)]">$INFO[ListItem.Writer]</value>
+	</variable>
+	<variable name="MusicInfoLabel3Var">
+		<value condition="Container.Content(songs)">$INFO[ListItem.LastPlayed]</value>
+		<value condition="Container.Content(albums)">$INFO[ListItem.Property(Album_Mood)]</value>
+		<value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Mood)]</value>
+		<value condition="Container.Content(addons)">$INFO[ListItem.Property(Addon.Creator)]</value>
+		<value condition="[Window.IsActive(programs) + !Container.Content(addons)]">$INFO[ListItem.Writer]</value><value condition="Container.Content(addons)">$LOCALIZE[21863]:</value>
+	</variable>
+	<variable name="MusicInfoTextLabel1Var">
+		<value condition="Container.Content(songs)">Duration: </value>
+		<value condition="Container.Content(addons)">$LOCALIZE[21863]:</value>
+		<value>$LOCALIZE[515]:</value>
+	</variable>
+	<variable name="MusicInfoTextLabel2Var">
+		<value condition="Container.Content(songs)">Playcount: </value>
+		<value condition="Container.Content(albums) | Container.Content(artists)">Style: </value>
+		<value>$LOCALIZE[515]:</value>
+	</variable>
+	<variable name="MusicInfoTextLabel3Var">
+		<value condition="Container.Content(songs)">Last Played: </value>
+		<value condition="Container.Content(albums) | Container.Content(artists)">Mood :</value>
+		<value>$LOCALIZE[515]:</value>
+	</variable>
 </includes>

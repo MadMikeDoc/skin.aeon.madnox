@@ -1571,7 +1571,7 @@
 			<!-- LOGO-->
 			<control type="image" id="656">
 				<left>10</left>
-				<top>50</top>
+				<top>30</top>
 				<width>590</width>
 				<height>264</height>
 				<aspectratio>keep</aspectratio>
@@ -1581,7 +1581,7 @@
 			</control>
 			<control type="image">
 				<left>10</left>
-				<top>50</top>
+				<top>30</top>
 				<width>590</width>
 				<height>264</height>
 				<aspectratio>keep</aspectratio>
@@ -1600,7 +1600,8 @@
 				<aspectratio>keep</aspectratio>
 				<texture background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist,,/banner.jpg]</texture>
 				<visible>Skin.HasSetting(rightlistBannerartist)</visible>
-				<animation effect="slide" start="0,280" end="0" time="500" tween="cubic" delay="250" condition="!Container.Content(Artists)">Conditional</animation>
+				<animation effect="slide" start="0,280" end="0" time="500" tween="cubic" delay="50" condition="!Container.Content(Artists)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-80" time="500" tween="cubic" delay="50" condition="Container.Content(Artists) + Skin.HasSetting(RightListShowMood)">Conditional</animation>
 			</control>
 			<control type="image">
 				<left>80</left>
@@ -1610,7 +1611,8 @@
 				<aspectratio>keep</aspectratio>
 				<texture background="true">$INFO[Window(Home).Property(SkinHelper.Music.Banner)]</texture>
 				<visible>Skin.HasSetting(rightlistBannerartist) + IsEmpty(Control.GetLabel(6565))</visible>
-				<animation effect="slide" start="0,280" end="0" time="500" tween="cubic" delay="250" condition="!Container.Content(Artists)">Conditional</animation>
+				<animation effect="slide" start="0,280" end="0" time="500" tween="cubic" delay="50" condition="!Container.Content(Artists)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-80" time="500" tween="cubic" delay="50" condition="Container.Content(Artists) + Skin.HasSetting(RightListShowMood)">Conditional</animation>
 			</control>
 			<control type="image">
 				<left>75</left>
@@ -1620,7 +1622,8 @@
 				<aspectratio>strech</aspectratio>
 				<texture>homewidgets/glass/banner.png</texture>
 				<visible>Skin.HasSetting(rightlistBannerartist) + [!IsEmpty(Control.GetLabel(6565)) | !IsEmpty(Window(Home).Property(SkinHelper.Music.Banner))]</visible>
-				<animation effect="slide" start="0,280" end="0" time="500" tween="cubic" delay="250" condition="!Container.Content(Artists)">Conditional</animation>
+				<animation effect="slide" start="0,280" end="0" time="500" tween="cubic" delay="50" condition="!Container.Content(Artists)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-80" time="500" tween="cubic" delay="50" condition="Container.Content(Artists) + Skin.HasSetting(RightListShowMood)">Conditional</animation>
 			</control>
 			<control type="image">
 				<left>75</left>
@@ -1630,7 +1633,8 @@
 				<aspectratio>strech</aspectratio>
 				<texture>thumbs_square/banner_shadow_in.png</texture>
 				<visible>Skin.HasSetting(rightlistBannerartist) + [!IsEmpty(Control.GetLabel(6565)) | !IsEmpty(Window(Home).Property(SkinHelper.Music.Banner))]</visible>
-				<animation effect="slide" start="0,280" end="0" time="500" tween="cubic" delay="250" condition="!Container.Content(Artists)">Conditional</animation>
+				<animation effect="slide" start="0,280" end="0" time="500" tween="cubic" delay="50" condition="!Container.Content(Artists)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-80" time="500" tween="cubic" delay="50" condition="Container.Content(Artists) + Skin.HasSetting(RightListShowMood)">Conditional</animation>
 			</control>
 			</control>
 			<!--CDArt-->
@@ -1831,22 +1835,22 @@
 				<top>555</top>
 				<include>Animation_ListSlideLeft</include>
 					<control type="image">
+						<animation effect="fade" time="400">VisibleChange</animation>
 						<left>-10</left>
 						<top>-15</top>
 						<width>450</width>
 						<height>450</height>
 						<texture border="40">listpanel_back.png</texture>
 						<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
-						<animation effect="fade" end="95" condition="true">Conditional</animation>
 						<visible>[Container.Content(albums) + Skin.HasSetting(RightListShowTracks)] | [Container.Content(artists) + Skin.HasSetting(RightListShowCDs)]</visible>
 					</control>
 					<control type="image">
+						<animation effect="fade" time="400">VisibleChange</animation>
 						<left>-10</left>
 						<top>-15</top>
 						<width>650</width>
 						<height>450</height>
 						<texture border="40">listpanel_back.png</texture>
-						<animation effect="fade" end="95" condition="true">Conditional</animation>
 						<visible>[Container.Content(albums) | Container.Content(artists) | Container.Content(songs)] + Skin.HasSetting(RightListShowInfo)</visible>
 				</control>
 			</control>
@@ -1892,6 +1896,119 @@
 				<visible>Skin.HasSetting(RightListShowInfo)</visible>
 			</control>
 			</control>
+			<!-- GENRE STYLE MOOD -->
+			<control type="group">
+				<include>Animation_ListSlideLeft</include>
+				<animation effect="slide" start="0,0" end="0,-180" time="500" tween="cubic" delay="50" condition="!Container.Content(Artists)">Conditional</animation>
+				<visible>Skin.HasSetting(RightListShowMood)</visible>
+				<left>50</left>
+				<top>450</top>
+				<width>900</width>
+				<height>100</height>
+				<control type="image"><!--MoodBG Songs-->
+						<animation effect="fade" time="400">VisibleChange</animation>
+						<left>400</left>
+						<top>510</top>
+						<width>400</width>
+						<height>200</height>
+						<texture border="40">listpanel_back.png</texture>
+						<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+						<visible>Container.Content(songs) + Skin.HasSetting(RightListShowMood) + !Skin.HasSetting(RightListShowInfo)</visible>
+					</control>
+				<control type="image">
+					<animation effect="fade" time="400">VisibleChange</animation>
+					<left>-10</left>
+					<top>-10</top>
+					<width>860</width>
+					<height>120</height>
+					<texture border="40">listpanel_back.png</texture>
+					<animation effect="fade" end="95" condition="true">Conditional</animation>
+					<visible>Container.Content(albums) | Container.Content(artists) | [Container.Content(songs) + Skin.HasSetting(RightListShowInfo)]</visible>
+				</control>
+				<control type="image">
+					<animation effect="fade" time="400">VisibleChange</animation>
+					<left>-22</left>
+					<top>45</top>
+					<width>445</width>
+					<height>4</height>
+					<texture>views/list_divider.png</texture>
+					<visible>Container.Content(albums) | Container.Content(artists) | [Container.Content(songs) + Skin.HasSetting(RightListShowInfo)]</visible>
+				</control>
+				<!--control type="image">
+					<left>50</left>
+					<top>180</top>
+					<width>445</width>
+					<height>4</height>
+					<texture>views/list_divider.png</texture>
+				</control-->
+				<control type="grouplist">
+					<animation effect="slide" start="0,0" end="400,550" time="500" tween="cubic" delay="50" condition="Container.Content(songs) + !Skin.HasSetting(RightListShowInfo)">Conditional</animation>
+					<left>30</left>
+					<top>20</top>
+					<width>445</width>
+					<orientation>horizontal</orientation>
+					<control type="label">
+						<width min="50" max="400">auto</width>
+						<aligny>bottom</aligny>
+						<font>font10</font>
+						<label>$VAR[MusicInfoTextLabel1Var] </label>
+						<textcolor>$VAR[SubTitleColorVar]</textcolor>
+					</control>
+					<control type="label">
+						<width>330</width>
+						<aligny>bottom</aligny>
+						<font>font10</font>
+						<label fallback="N/A">$VAR[MusicInfoLabel1Var]</label>
+						<textcolor>white6</textcolor>
+						<scroll>true</scroll>
+					</control>
+				</control>
+				<control type="grouplist">
+					<animation effect="slide" start="0,0" end="-20,565" time="500" tween="cubic" delay="50" condition="Container.Content(songs) + !Skin.HasSetting(RightListShowInfo)">Conditional</animation>
+					<left>450</left>
+					<top>35</top>
+					<width>445</width>
+					<orientation>horizontal</orientation>
+					<control type="label">
+						<width min="50" max="400">auto</width>
+						<aligny>bottom</aligny>
+						<font>font10</font>
+						<label>$VAR[MusicInfoTextLabel2Var] </label>
+						<textcolor>$VAR[SubTitleColorVar]</textcolor>
+					</control>
+					<control type="label">
+						<width>300</width>
+						<aligny>bottom</aligny>
+						<font>font10</font>
+						<label fallback="N/A">$VAR[MusicInfoLabel2Var]</label>
+						<textcolor>white6</textcolor>
+						<scroll>true</scroll>
+					</control>
+				</control>
+				<control type="grouplist">
+					<animation effect="slide" start="0,0" end="400,580" time="500" tween="cubic" delay="50" condition="Container.Content(songs) + !Skin.HasSetting(RightListShowInfo)">Conditional</animation>
+					<left>30</left>
+					<top>50</top>
+					<width>445</width>
+					<visible>!Container.Content(addons)</visible>
+					<orientation>horizontal</orientation>
+					<control type="label">
+						<width min="50" max="400">auto</width>
+						<aligny>bottom</aligny>
+						<font>font10</font>
+						<label>$VAR[MusicInfoTextLabel3Var] </label>
+						<textcolor>$VAR[SubTitleColorVar]</textcolor>
+					</control>
+					<control type="label">
+						<width>330</width>
+						<aligny>bottom</aligny>
+						<font>font10</font>
+						<label fallback="N/A">$VAR[MusicInfoLabel3Var]</label>
+						<textcolor>white6</textcolor>
+						<scroll>true</scroll>
+					</control>
+				</control>
+				</control>
 			<!--OLD Info-->
 			<!--control type="grouplist">
 				<left>470</left>

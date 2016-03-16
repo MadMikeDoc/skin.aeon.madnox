@@ -15,7 +15,6 @@
 					<top>33</top>
 					<width>650</width>
 					<height>717</height>
-
 					<texture border="0,100,0,200">views/tripanel/info_panel_alt_glow.png</texture>
 					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
 					<visible>!Skin.HasSetting(DisableGlowbar)</visible>
@@ -26,7 +25,88 @@
 					<texture border="0,100,0,200">views/tripanel/info_panel_alt.png</texture>
 					<colordiffuse>$VAR[DialogColorVar]</colordiffuse>
 				</control>
+				<!--Genre-->
+				<control type="group">
+				<visible>Container.Content(albums) | Container.Content(artists) | Container.Content(addons) | Container.Content(songs)</visible>
+				<control type="image">
+					<left>50</left>
+					<top>150</top>
+					<width>445</width>
+					<height>4</height>
+					<texture>views/list_divider.png</texture>
+				</control>
+				<control type="image">
+					<left>50</left>
+					<top>180</top>
+					<width>445</width>
+					<height>4</height>
+					<texture>views/list_divider.png</texture>
+				</control>
 				<control type="grouplist">
+					<left>140</left>
+					<top>125</top>
+					<width>445</width>
+					<orientation>horizontal</orientation>
+					<control type="label">
+						<width min="50" max="400">auto</width>
+						<aligny>bottom</aligny>
+						<font>font10</font>
+						<label>$VAR[MusicInfoTextLabel1Var] </label>
+						<textcolor>$VAR[SubTitleColorVar]</textcolor>
+					</control>
+					<control type="label">
+						<width>350</width>
+						<aligny>bottom</aligny>
+						<font>font10</font>
+						<label fallback="N/A">$VAR[MusicInfoLabel1Var]</label>
+						<textcolor>white6</textcolor>
+						<scroll>true</scroll>
+					</control>
+				</control>
+				<control type="grouplist">
+					<left>140</left>
+					<top>155</top>
+					<width>445</width>
+					<orientation>horizontal</orientation>
+					<control type="label">
+						<width min="50" max="400">auto</width>
+						<aligny>bottom</aligny>
+						<font>font10</font>
+						<label fallback="N/A">$VAR[MusicInfoTextLabel2Var]</label>
+						<textcolor>$VAR[SubTitleColorVar]</textcolor>
+					</control>
+					<control type="label">
+						<width>350</width>
+						<aligny>bottom</aligny>
+						<font>font10</font>
+						<label fallback="N/A">$VAR[MusicInfoLabel2Var]</label>
+						<textcolor>white6</textcolor>
+						<scroll>true</scroll>
+					</control>
+				</control>
+				<control type="grouplist">
+					<left>140</left>
+					<top>185</top>
+					<width>445</width>
+					<orientation>horizontal</orientation>
+					<control type="label">
+						<width min="50" max="400">auto</width>
+						<aligny>bottom</aligny>
+						<font>font10</font>
+						<label fallback="N/A">$VAR[MusicInfoTextLabel3Var]</label>
+						<textcolor>$VAR[SubTitleColorVar]</textcolor>
+					</control>
+					<control type="label">
+						<width>350</width>
+						<aligny>bottom</aligny>
+						<font>font10</font>
+						<label fallback="N/A">$VAR[MusicInfoLabel3Var]</label>
+						<textcolor>white6</textcolor>
+						<scroll>true</scroll>
+					</control>
+				</control>
+				</control>
+				<!--control type="grouplist">
 					<left>140</left>
 					<top>125</top>
 					<width>445</width>
@@ -66,7 +146,7 @@
 						<textcolor>white6</textcolor>
 						<scroll>true</scroll>
 					</control>
-				</control>
+				</control-->
 				<!--INFO-->
 				<control type="textbox">
 					<visible>!Skin.HasSetting(TriPanelSquareShowCDs) + Container.Content(artists) | Container.Content(songs)</visible>
