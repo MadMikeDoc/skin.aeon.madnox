@@ -404,6 +404,14 @@
 					<selected>Skin.HasSetting(InfoWallDisableAnimatedFanart)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),AddonWall) + [Container.Content(movies) | Container.Content(sets)]</visible>
 				</control>
+				<control type="radiobutton" id="17079">
+					<description>Disable Animated Fanart</description>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>Disable Animated Fanart</label>
+					<onclick>Skin.ToggleSetting(FanartListDisableAnimatedFanart)</onclick>
+					<selected>Skin.HasSetting(FanartListDisableAnimatedFanart)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),VideoFanartList) + [Container.Content(movies) | Container.Content(sets)]</visible>
+				</control>
 				<!-- MAD New settings for Wall Large -->
 				<control type="radiobutton" id="17001">
 					<label>$LOCALIZE[31135]</label>
