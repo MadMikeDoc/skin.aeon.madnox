@@ -818,8 +818,17 @@
 						<height>396</height>
 						<align>center</align>
 						<font>font_cdvv_20</font>
+						<label>$INFO[ListItem.Studio] [COLOR $VAR[FontColorVar]]$LOCALIZE[31151][/COLOR] "$INFO[ListItem.Title]"</label>
+						<visible>!ListItem.IsCollection + !Container.Content(seasons)</visible>
+						<scroll>true</scroll>
+					</control>
+					<control type="label">
+						<width>475</width>
+						<height>396</height>
+						<align>center</align>
+						<font>font_cdvv_20</font>
 						<label>$INFO[ListItem.Studio] [COLOR $VAR[FontColorVar]]$LOCALIZE[31151][/COLOR] "$INFO[ListItem.TVShowTitle] $INFO[ListItem.Title]"</label>
-						<visible>!ListItem.IsCollection</visible>
+						<visible>!ListItem.IsCollection + Container.Content(seasons)</visible>
 						<scroll>true</scroll>
 					</control>
 					<control type="label">

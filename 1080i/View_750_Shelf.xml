@@ -182,6 +182,17 @@
 					<bordertexture border="1,1,2,1">thumbs/panel_border.png</bordertexture>
 					<bordersize>1,1,2,1</bordersize>
 				</control>
+				<control type="image">
+					<left>1276</left>
+					<top>92</top>
+					<width>662</width>
+					<height>370</height>
+					<aspectratio aligny="top">scale</aspectratio>
+					<texture background="true">$INFO[Window(home).Property(SkinHelper.AnimatedFanart)]</texture>
+					<bordertexture border="1,1,2,1">thumbs/panel_border.png</bordertexture>
+					<bordersize>1,1,2,1</bordersize>
+					<visible>Skin.HasSetting(SkinHelperAnimations) + !IsEmpty(Window(home).Property(SkinHelper.AnimatedFanart)) + !Skin.HasSetting(Shelf3DDisableAnimatedFanart)</visible>
+				</control>
 			</control>
 			<control type="group">
 				<control type="scrollbar" id="88">
@@ -399,13 +410,16 @@
 					<include>VisibleFadeEffect</include>
 					<control type="image">
 						<animation type="Conditional" reversible="false" condition="Skin.HasSetting(Shelf3DNoInfoPanel)">
-							<effect type="slide" start="0,0" end="-280,0" time="350" tween="cubic" easing="out" />
+							<effect type="slide" start="0,0" end="30,30" time="350" tween="cubic" easing="out" />
 						</animation>
-						<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(Shelf3DNoInfoPanel)">
-							<effect type="slide" start="0,0" end="-520,0" time="350" tween="cubic" easing="out" />
+						<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(Shelf3DNoInfoPanel) + !Skin.HasSetting(Shelf3DFlatInfoPanel)">
+							<effect type="slide" start="0,0" end="-535,5" time="350" tween="cubic" easing="out" />
 						</animation>
-						<left>-220</left>
-						<top>4</top>
+						<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(Shelf3DNoInfoPanel) + Skin.HasSetting(Shelf3DFlatInfoPanel)">
+							<effect type="slide" start="0,0" end="-515,-5" time="350" tween="cubic" easing="out" />
+						</animation>
+						<left>-240</left>
+						<top>-35</top>
 						<width>65</width>
 						<height>60</height>
 						<texture>$VAR[Imdb_250]</texture>
@@ -413,13 +427,16 @@
 					</control>
 					<control type="Label">
 						<animation type="Conditional" reversible="false" condition="Skin.HasSetting(Shelf3DNoInfoPanel)">
-							<effect type="slide" start="0,0" end="-280,0" time="350" tween="cubic" easing="out" />
+							<effect type="slide" start="0,0" end="-150,35" time="350" tween="cubic" easing="out" />
 						</animation>
-						<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(Shelf3DNoInfoPanel)">
-							<effect type="slide" start="0,0" end="-520,0" time="350" tween="cubic" easing="out" />
+						<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(Shelf3DNoInfoPanel) + !Skin.HasSetting(Shelf3DFlatInfoPanel)">
+							<effect type="slide" start="0,0" end="-570,5" time="350" tween="cubic" easing="out" />
 						</animation>
-						<left>-165</left>
-						<top>10</top>
+						<animation type="Conditional" reversible="false" condition="!Skin.HasSetting(Shelf3DNoInfoPanel) + Skin.HasSetting(Shelf3DFlatInfoPanel)">
+							<effect type="slide" start="0,0" end="-530,0" time="350" tween="cubic" easing="out" />
+						</animation>
+						<left>15</left>
+						<top>-30</top>
 						<width>125</width>
 						<height>45</height>
 						<align>left</align>

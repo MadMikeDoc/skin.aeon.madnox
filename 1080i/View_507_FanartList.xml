@@ -318,6 +318,14 @@
 					<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
 					<bordersize>2</bordersize>
 				</control>
+				<control type="image">
+					<visible>Skin.HasSetting(SkinHelperAnimations) + !IsEmpty(Window(home).Property(SkinHelper.AnimatedFanart)) + !Skin.HasSetting(FanartListDisableAnimatedFanart)</visible>
+					<width>693</width>
+					<height>390</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true">$INFO[Window(home).Property(SkinHelper.AnimatedFanart)]</texture>
+					<fadetime>400</fadetime>
+				</control>	
 			</control>
 			<control type="group">
 				<posx>76</posx>

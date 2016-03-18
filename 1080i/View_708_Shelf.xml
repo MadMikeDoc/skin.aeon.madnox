@@ -137,6 +137,18 @@
 					<top>162</top>
 					<width>662</width>
 					<height>360</height>
+					<visible>!ListItem.IsCollection</visible>
+					<aspectratio aligny="top">scale</aspectratio>
+					<texture background="true">$INFO[Window(home).Property(SkinHelper.AnimatedFanart)]</texture>
+					<bordertexture border="1,1,2,1">thumbs/panel_border.png</bordertexture>
+					<bordersize>1,1,2,1</bordersize>
+					<visible>Skin.HasSetting(SkinHelperAnimations) + !IsEmpty(Window(home).Property(SkinHelper.AnimatedFanart)) + !Skin.HasSetting(Shelf3DRDisableAnimatedFanart)</visible>
+				</control>
+				<control type="image">
+					<left>1126</left>
+					<top>162</top>
+					<width>662</width>
+					<height>360</height>
 					<timeperimage>3250</timeperimage>
 					<fadetime>650</fadetime>
 					<visible>ListItem.IsCollection</visible>

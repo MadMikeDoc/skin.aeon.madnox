@@ -321,6 +321,16 @@
 					<visible>StringCompare(Control.GetLabel(4420),fanart) + !SubString(ListItem.Path,videodb://movies/sets)</visible>
 					<include>Animation_VisibleChange200</include>
 				</control>
+				<control type="image">
+					<posx>1113</posx>
+					<posy>182</posy>
+					<width>685</width>
+					<height>385</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true">$INFO[Window(home).Property(SkinHelper.AnimatedFanart)]</texture>
+					<visible>Skin.HasSetting(SkinHelperAnimations) + !IsEmpty(Window(home).Property(SkinHelper.AnimatedFanart)) + !Skin.HasSetting(BannerInfoDisableAnimatedFanart)</visible>
+				</control>
+				
 			</control>
 			<control type="label">
 				<posx>1113</posx>

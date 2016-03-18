@@ -1456,9 +1456,23 @@
 							<timeperimage>3000</timeperimage>
 							<imagepath background="true">$VAR[VideoExtraFanartVar]</imagepath>
 							<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
-							<visible>!SubString(ListItem.Label,*,left) + [Substring(Container.FolderPath,videodb://,left) | Substring(Container.FolderPath,special://profile/playlist,left)] + Skin.HasSetting(InfoWallEpisodeThumb)</visible>
+							<visible>!SubString(ListItem.Label,*,left) + [Substring(Container.FolderPath,videodb://,left) | Substring(Container.FolderPath,special://profile/playlist,left)] + !Skin.HasSetting(InfoWallEpisodeThumb)</visible>
 							<include>Animation_VisibleChange200</include>
 						</control>
+						
+						<control type="image">
+							<left>-7</left>
+							<top>-7</top>
+							<width>804</width>
+							<height>458</height>
+							<aspectratio>stretch</aspectratio>
+							<texture background="true">$INFO[Window(home).Property(SkinHelper.AnimatedFanart)]</texture>
+							<fadetime>400</fadetime>
+							<bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
+							<bordersize>7</bordersize>
+							<visible>Skin.HasSetting(SkinHelperAnimations) + !IsEmpty(Window(home).Property(SkinHelper.AnimatedFanart)) + !Skin.HasSetting(InfoWallDisableAnimatedFanart)</visible>			
+						</control>
+
 
 						<control type="image">
 							<width>790</width>

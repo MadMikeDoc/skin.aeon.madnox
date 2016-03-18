@@ -396,6 +396,14 @@
 					<visible>[[Stringcompare(Window(home).Property(actualViewtype),Shift) | Stringcompare(Window(home).Property(actualViewtype),Banners) | Stringcompare(Window(home).Property(actualViewtype),Wall) | Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies) | Stringcompare(Window(home).Property(actualViewtype),AddonWall)] + Container.Content(tvshows)]</visible>
 					<visible>!Skin.HasSetting(NoFloorLabelTVshows)</visible>
 				</control>
+				<control type="radiobutton" id="17075">
+					<description>Disable Animated Fanart</description>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>Disable Animated Fanart</label>
+					<onclick>Skin.ToggleSetting(InfoWallDisableAnimatedFanart)</onclick>
+					<selected>Skin.HasSetting(InfoWallDisableAnimatedFanart)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),AddonWall) + [Container.Content(movies) | Container.Content(sets)]</visible>
+				</control>
 				<!-- MAD New settings for Wall Large -->
 				<control type="radiobutton" id="17001">
 					<label>$LOCALIZE[31135]</label>
@@ -594,7 +602,7 @@
 					<selected>Skin.HasSetting(RightListShowInfo)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + [Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]</visible>
 				</control>
-				<control type="radiobutton" id="170951"><!--Last id-->
+				<control type="radiobutton" id="17073"><!--Last id-->
 					<description>Show Mood/style/genre</description>
 					<label>Show Genre, Style, Mood info</label>
 					<include>Objects_MediaMenuButtonAlt2</include>
@@ -764,6 +772,22 @@
 					<selected>Skin.HasSetting(Shelf3DFakeDiscs)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),Shelf) + [Container.Content(movies) | Container.Content(sets) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs)]</visible>
 				</control>
+				<control type="radiobutton" id="17076">
+					<description>Disable Animated Fanart</description>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>Disable Animated Fanart</label>
+					<onclick>Skin.ToggleSetting(Shelf3DDisableAnimatedFanart)</onclick>
+					<selected>Skin.HasSetting(Shelf3DDisableAnimatedFanart)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Shelf) + [Container.Content(movies) | Container.Content(sets)]</visible>
+				</control>
+				<!--Shelf 3D Right options - Not active no value in viewtype for Shelf 3D???-->
+				<!--control type="radiobutton" id="17077">
+					<description>Disable Animated Fanart</description>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>$INFO[Window(home).Property(actualViewtype)]</label>
+					<onclick>Skin.ToggleSetting(Shelf3DDisableAnimatedFanart)</onclick>
+					<selected>Skin.HasSetting(Shelf3DDisableAnimatedFanart)</selected>
+					</control-->
 				<!--GamesFlix options-->
 				<control type="radiobutton" id="17108">
 					<description>Small GamesFlix Wide View</description>
@@ -1112,6 +1136,14 @@
 					<selected>Skin.HasSetting(BannerInfoUseLogo)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),VideoBannerInfo) + [Container.Content(movies) | Container.Content(sets)]</visible>
 				</control>
+				<control type="radiobutton" id="17074">
+					<description>Disable Animated Fanart</description>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>Disable Animated Fanart</label>
+					<onclick>Skin.ToggleSetting(BannerInfoDisableAnimatedFanart)</onclick>
+					<selected>Skin.HasSetting(BannerInfoDisableAnimatedFanart)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),VideoBannerInfo) + [Container.Content(movies) | Container.Content(sets)]</visible>
+				</control>
 				<!-- Banner Info End -->
 				<!--Wall Options-->
 				<control type="button" id="1652">
@@ -1272,6 +1304,14 @@
 					<onclick>Skin.ToggleSetting(tripanelsquarebiglist)</onclick>
 					<selected>Skin.HasSetting(tripanelsquarebiglist)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),TriPanelSquare)</visible>
+				</control>
+				<control type="radiobutton" id="17078">
+					<description>Disable Animated Fanart</description>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<label>Disable Animated Fanart</label>
+					<onclick>Skin.ToggleSetting(TriPanelDisableAnimatedFanart)</onclick>
+					<selected>Skin.HasSetting(TriPanelDisableAnimatedFanart)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),TriPanel) + [Container.Content(movies) | Container.Content(sets)]</visible>
 				</control>
 				<!--control type="radiobutton" id="16471">
 					<label>Show Info</label>

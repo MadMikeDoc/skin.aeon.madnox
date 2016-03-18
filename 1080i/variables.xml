@@ -1747,6 +1747,7 @@
 		<value condition="Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/genre/video/icons/,.jpg]</value>
 		<value condition="Container.Content(years)">$INFO[ListItem.Label,special://skin/extras/year/video/icons/,.jpg]</value>
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Art(tvshow.poster)]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.AnimatedPoster)) + Skin.HasSetting(SkinHelperAnimations) + [Control.Isvisible(50) | Control.Isvisible(501) | Control.Isvisible(510) | Control.Isvisible(511) | Control.Isvisible(700)| Control.Isvisible(514) | Control.Isvisible(516)]">$INFO[Window(home).Property(SkinHelper.AnimatedPoster)]</value>
 		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
@@ -1866,6 +1867,7 @@
 		<value condition="Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/genre/video/iconsBW/,.jpg]</value>
 		<value condition="Container.Content(years)">$INFO[ListItem.Label,special://skin/extras/year/video/icons/,.jpg]</value>
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Art(tvshow.poster)]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.AnimatedPoster)) + Skin.HasSetting(SkinHelperAnimations) + [Control.Isvisible(50) | Control.Isvisible(501) | Control.Isvisible(510) | Control.Isvisible(511) | Control.Isvisible(700)| Control.Isvisible(514) | Control.Isvisible(516)]">$INFO[Window(home).Property(SkinHelper.AnimatedPoster)]</value>
 		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
@@ -2539,6 +2541,8 @@
 		<value condition="Container.Content(tags)">$INFO[ListItem.Label,special://skin/extras/tags/video/icons/,.jpg]</value>
 		<value condition="Stringcompare(ListItem.label,..)">DefaultFolderBack.png</value>
 		<value condition="Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/genre/video/icons/,.jpg]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.AnimatedPoster)) + Skin.HasSetting(SkinHelperAnimations) + [Control.Isvisible(50) | Control.Isvisible(52) | Control.Isvisible(511) | Control.Isvisible(550) | Control.Isvisible(700)| Control.Isvisible(514) | Control.Isvisible(516)]">$INFO[Window(home).Property(SkinHelper.AnimatedPoster)]</value>
+		<!--value condition="Skin.HasSetting(SkinHelperAnimations)">http://localhost:52307/getanimatedposter&amp;imdbid=$INFO[Listitem.IMDBNumber]&amp;fallback=$INFO[Listitem.Art(poster)]</value-->
 		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value condition="!IsEmpty(Container.ListItem.Art(poster))">$INFO[Container.ListItem.Art(poster)]</value>
 		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
@@ -2551,6 +2555,7 @@
 		<value condition="Container.Content(tags)">$INFO[ListItem.Label,special://skin/extras/tags/video/icons/,.jpg]</value>
 		<value condition="Stringcompare(ListItem.label,..)">DefaultFolderBack.png</value>
 		<value condition="Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/genre/video/iconsBW/,.jpg]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.AnimatedPoster)) + Skin.HasSetting(SkinHelperAnimations) + [Control.Isvisible(50) | Control.Isvisible(52) | Control.Isvisible(511) | Control.Isvisible(550) | Control.Isvisible(700)| Control.Isvisible(514) | Control.Isvisible(516)]">$INFO[Window(home).Property(SkinHelper.AnimatedPoster)]</value>
 		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value condition="!IsEmpty(Container.ListItem.Art(poster))">$INFO[Container.ListItem.Art(poster)]</value>
 		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
@@ -2562,6 +2567,7 @@
 	<variable name="ListPosterBackupVar">
 		<value condition="Stringcompare(ListItem.label,..)">DefaultFolderBack.png</value>
 		<value condition="Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/genre/video/icons/,.jpg]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.AnimatedPoster)) + Skin.HasSetting(SkinHelperAnimations) + [Control.Isvisible(50) | Control.Isvisible(52) | Control.Isvisible(511) | Control.Isvisible(550) | Control.Isvisible(700)| Control.Isvisible(514) | Control.Isvisible(516)]">$INFO[Window(home).Property(SkinHelper.AnimatedPoster)]</value>
 		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value condition="!IsEmpty(Container.ListItem.Art(poster))">$INFO[Container.ListItem.Art(poster)]</value>
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Art(tvshow.poster)]</value>
