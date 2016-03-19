@@ -40,7 +40,7 @@
 					<visible>stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp)</visible>
 				</control>
 				<control type="label">
-					<visible>stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
+					<visible>stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp) | stringcompare(container.folderpath,special://profile/playlists/video/BestDirector.xsp) | stringcompare(container.folderpath,special://profile/playlists/video/BestActor.xsp) | stringcompare(container.folderpath,special://profile/playlists/video/BestActress.xsp)</visible>
 					<left>105</left>
 					<top>122</top>
 					<width>350</width>
@@ -52,7 +52,7 @@
 					<textcolor>ffe8b854</textcolor>
 				</control>
 				<control type="label">
-					<visible>stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
+					<visible>stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp) | stringcompare(container.folderpath,special://profile/playlists/video/BestDirector.xsp) | stringcompare(container.folderpath,special://profile/playlists/video/BestActor.xsp) | stringcompare(container.folderpath,special://profile/playlists/video/BestActress.xsp)</visible>
 					<left>408</left>
 					<top>128</top>
 					<width>200</width>
@@ -65,20 +65,20 @@
 					<shadowcolor>66000000</shadowcolor>
 				</control>
 				<control type="label">
-					<visible>stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
+					<visible>stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp) | stringcompare(container.folderpath,special://profile/playlists/video/BestDirector.xsp) | stringcompare(container.folderpath,special://profile/playlists/video/BestActor.xsp) | stringcompare(container.folderpath,special://profile/playlists/video/BestActress.xsp)</visible>
 					<left>410</left>
 					<top>183</top>
 					<width>200</width>
 					<height>100</height>
 					<font>Font_OscarTri3</font>
-					<label>PICTURE</label>
+					<label>$VAR[AcademyAward]</label>
 					<scroll>false</scroll>
 					<align>center</align>
 					<textcolor>66e8b854</textcolor>
 					<shadowcolor>66000000</shadowcolor>
 				</control>
 				<control type="grouplist">
-					<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
+					<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestDirector.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestActor.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestActress.xsp)</visible>
 					<left>140</left>
 					<top>135</top>
 					<width>445</width>
@@ -99,7 +99,7 @@
 					</control>
 				</control>
 				<control type="grouplist">
-					<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
+					<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestDirector.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestActor.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestActress.xsp)</visible>
 					<left>140</left>
 					<top>180</top>
 					<width>445</width>
@@ -120,7 +120,7 @@
 					</control>
 				</control>
 				<control type="grouplist">
-					<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
+					<visible>!stringcompare(container.folderpath,special://profile/playlists/video/IMDBTop250.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestDirector.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestActor.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestActress.xsp)</visible>
 					<left>140</left>
 					<top>225</top>
 					<width>445</width>
@@ -175,7 +175,7 @@
 						<visible>!Skin.HasSetting(DisableGlowbar)</visible>
 					</control>
 					<control type="image">
-						<visible>stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
+						<visible>stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp) | stringcompare(container.folderpath,special://profile/playlists/video/BestDirector.xsp) | stringcompare(container.folderpath,special://profile/playlists/video/BestActor.xsp) | stringcompare(container.folderpath,special://profile/playlists/video/BestActress.xsp)</visible>
 						<texture background="true" diffuse="thumbs/multiplex_tvmask.png">oscars2.jpg</texture>
 						<animation effect="fade" start="100" end="90" time="50" condition="true">Conditional</animation>
 						<aspectratio scalediffuse="false">scale</aspectratio>
@@ -187,7 +187,7 @@
 						<fadetime>IconCrossfadeTime</fadetime>
 					</control>
 					<control type="image">
-						<visible>!stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp)</visible>
+						<visible>!stringcompare(container.folderpath,special://profile/playlists/video/BestPicture.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestDirector.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestActor.xsp) + !stringcompare(container.folderpath,special://profile/playlists/video/BestActress.xsp)</visible>
 						<texture background="true" diffuse="thumbs/multiplex_tvmask.png" fallback="thumbs/fallback_episode_tp.png">$VAR[InfoWallPreviewTextureVar]</texture>
 						<aspectratio scalediffuse="false">scale</aspectratio>
 						<bordersize>9</bordersize>
