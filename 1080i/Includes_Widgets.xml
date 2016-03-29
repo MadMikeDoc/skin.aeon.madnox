@@ -88,6 +88,8 @@
 		<oninfo>SetProperty(Widget.Year,$INFO[Container($PARAM[id]).ListItem.Year],home)</oninfo>
 		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(Addon.Name))">SetProperty(Widget.Year,$INFO[Container($PARAM[id]).ListItem.Property(Addon.Version)],home)</oninfo>
 		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(Label3)) + !IsEmpty(Container($PARAM[id]).ListItem.Property(isSystemInfo))">SetProperty(Widget.Year,$INFO[System.FriendlyName],home)</oninfo>
+		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(Artist_Formed))">SetProperty(Widget.Year,$INFO[Container($PARAM[id]).ListItem.Property(Artist_Formed)]$INFO[Container($PARAM[id]).ListItem.Property(Artist_Disbanded),-],home)</oninfo>
+		<oninfo condition="!IsEmpty(Window(Home).Property(SkinHelper.MovieSet.Year))">SetProperty(Widget.Year,$INFO[Window(Home).Property(SkinHelper.MovieSet.Year)],home)</oninfo>
 		<!-- MPAA -->
 		<oninfo>SetProperty(Widget.FlagsRating,$INFO[Container($PARAM[id]).ListItem.MPAA,$VAR[ColorFlagsRating]rating/,.png],home)</oninfo>
 		<oninfo condition="SubString(Container($PARAM[id]).ListItem.MPAA,Rated X)">SetProperty(Widget.FlagsRating,$VAR[ColorFlagsRating]rating/MPAA_X_Certificate_US.png,home)</oninfo>
@@ -137,6 +139,8 @@
 		<!-- Studio -->
 		<oninfo condition="Skin.HasSetting(StudiosColorFlag) + !IsEmpty(Container($PARAM[id]).ListItem.Studio)">SetProperty(Widget.FlagsStudio,$INFO[Container($PARAM[id]).ListItem.Studio,resource://resource.images.studios.coloured/,.png],home)</oninfo>
 		<oninfo condition="!Skin.HasSetting(StudiosColorFlag) + !IsEmpty(Container($PARAM[id]).ListItem.Studio)">SetProperty(Widget.FlagsStudio,$INFO[Container($PARAM[id]).ListItem.Studio,resource://resource.images.studios.white/,.png],home)</oninfo>
+		<oninfo condition="Skin.HasSetting(StudiosColorFlag) + !IsEmpty(Window(Home).Property(SkinHelper.MovieSet.Studio))">SetProperty(Widget.FlagsStudio,$INFO[Window(Home).Property(SkinHelper.MovieSet.Studio),resource://resource.images.studios.coloured/,.png],home)</oninfo>
+		<oninfo condition="!Skin.HasSetting(StudiosColorFlag) + !IsEmpty(Window(Home).Property(SkinHelper.MovieSet.Studio))">SetProperty(Widget.FlagsStudio,$INFO[Window(Home).Property(SkinHelper.MovieSet.Studio),resource://resource.images.studios.white/,.png],home)</oninfo>
 		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(Album_Label))">SetProperty(Widget.FlagsStudio,$INFO[Container($PARAM[id]).ListItem.Property(Album_Label),resource://resource.images.recordlabels.white/,.png],home)</oninfo>
 		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(Label3)) + !IsEmpty(Container($PARAM[id]).ListItem.Property(isSystemInfo))">SetProperty(Widget.FlagsStudio,homewidgets/systeminfo/square/system.png,home)</oninfo>
 		<oninfo condition="!IsEmpty(Container($PARAM[id]).ListItem.Property(Label3)) + !IsEmpty(Container($PARAM[id]).ListItem.Property(WeatherMultiFanart))">SetProperty(Widget.FlagsStudio,$INFO[Container($PARAM[id]).ListItem.Icon],home)</oninfo>
