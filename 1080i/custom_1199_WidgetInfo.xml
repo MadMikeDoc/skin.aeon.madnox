@@ -1199,7 +1199,7 @@
 					<onclick>Dialog.Close(1199)</onclick>
 					<onclick>ActivateWindow(Music,$ESCINFO[Window(Home).Property(Widget.FolderPath)])</onclick>
 					<oninfo>Dialog.Close(1199)</oninfo>
-					<visible>[StringCompare(Window(Home).Property(Widget),library) | StringCompare(Window(Home).Property(Widget),playlist)] + StringCompare(Window(Home).Property(Widget.Target),music) + !SubString(Window(Home).Property(Widget.FolderPath),skin.helper)</visible>
+					<visible>[StringCompare(Window(Home).Property(Widget),library) | StringCompare(Window(Home).Property(Widget),playlist)] + StringCompare(Window(Home).Property(Widget.Target),music) + !SubString(Window(Home).Property(Widget.FolderPath),skin.helper) + !SubString(Window(Home).Property(Widget.FolderPath),library.data)</visible>
 				</control>
 				<control type="button" id="8082">
 					<description>Open Video Library Button</description>
