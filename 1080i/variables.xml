@@ -4841,7 +4841,6 @@
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
 	<variable name="HomeWidgetCast">
-		<value condition="SubString(Window(Home).Property(Widget.FolderPath),sets)">plugin://script.skin.helper.service/?action=getcast&amp;movieset=$INFO[Window(Home).Property(Widget.DBID)]</value>
 		<value condition="StringCompare(Window(Home).Property(Widget.Type),movies) + IntegerGreaterThan(Window(Home).Property(Widget.DBID),0)">plugin://script.skin.helper.service/?action=getcast&amp;downloadthumbs=true&amp;movie=$INFO[Window(Home).Property(Widget.DBID)]</value>
 		<value condition="StringCompare(Window(Home).Property(Widget.Type),movies) + !IntegerGreaterThan(Window(Home).Property(Widget.DBID),0)">plugin://script.skin.helper.service/?action=getcast&amp;downloadthumbs=true&amp;movie=$INFO[Window(Home).Property(Widget.Title)]</value>
 		<value condition="StringCompare(Window(Home).Property(Widget.Type),episodes) + IntegerGreaterThan(Window(Home).Property(Widget.DBID),0)">plugin://script.skin.helper.service/?action=getcast&amp;downloadthumbs=true&amp;episode=$INFO[Window(Home).Property(Widget.DBID)]</value>
@@ -4854,6 +4853,7 @@
 		<value condition="StringCompare(Window(Home).Property(Widget.Type),mixed) + !IntegerGreaterThan(Window(Home).Property(Widget.DBID),0) + StringCompare(Window(Home).Property(Widget.Poster),episodes)">plugin://script.skin.helper.service/?action=getcast&amp;downloadthumbs=true&amp;tvshow=$INFO[Window(Home).Property(Widget.SubTitle)]</value>
 		<value condition="StringCompare(Window(Home).Property(Widget.Type),mixed) + IntegerGreaterThan(Window(Home).Property(Widget.DBID),0) + StringCompare(Window(Home).Property(Widget.Poster),tvshows)">plugin://script.skin.helper.service/?action=getcast&amp;downloadthumbs=true&amp;tvshow=$INFO[Window(Home).Property(Widget.DBID)]</value>
 		<value condition="StringCompare(Window(Home).Property(Widget.Type),mixed) + !IntegerGreaterThan(Window(Home).Property(Widget.DBID),0) + StringCompare(Window(Home).Property(Widget.Poster),tvshows)">plugin://script.skin.helper.service/?action=getcast&amp;downloadthumbs=true&amp;tvshow=$INFO[Window(Home).Property(Widget.Title)]</value>
+		<value condition="StringCompare(Window(Home).Property(Widget.Type),sets)">plugin://script.skin.helper.service/?action=getcast&amp;movieset=$INFO[Window(Home).Property(Widget.DBID)]</value>
 	</variable>
 
 	<!-- Featured dialog variables -->
