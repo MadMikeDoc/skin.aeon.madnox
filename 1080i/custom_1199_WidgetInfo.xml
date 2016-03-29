@@ -190,8 +190,8 @@
 					<height>220</height>
 					<onleft>1000</onleft>
 					<onright>1000</onright>
-					<onup>8052</onup>
-					<ondown>8052</ondown>
+					<onup>8050</onup>
+					<ondown>8050</ondown>
 					<orientation>horizontal</orientation>
 					<scrolltime>400</scrolltime>
 					<itemlayout height="85" width="87.2">
@@ -274,8 +274,8 @@
 					<height>220</height>
 					<onleft>1000</onleft>
 					<onright>1000</onright>
-					<onup>8052</onup>
-					<ondown>8052</ondown>
+					<onup>8050</onup>
+					<ondown>8050</ondown>
 					<orientation>horizontal</orientation>
 					<scrolltime>400</scrolltime>
 					<itemlayout height="85" width="85.35">
@@ -749,7 +749,7 @@
 					<onclick>PlayMedia($ESCINFO[Window(Home).Property(Widget.FolderPath)],isdir)</onclick>
 					<onclick>Dialog.Close(1199)</onclick>
 					<oninfo>Dialog.Close(1199)</oninfo>
-					<visible>IsEmpty(Window(Home).Property(Widget.FilePath)) + !StringCompare(Window(Home).Property(Widget),trakt) + !StringCompare(Window(Home).Property(Widget),rt) + !StringCompare(Window(Home).Property(Widget),tmdb)</visible>
+					<visible>IsEmpty(Window(Home).Property(Widget.FilePath)) + !StringCompare(Window(Home).Property(Widget),trakt) + !StringCompare(Window(Home).Property(Widget),rt) + !StringCompare(Window(Home).Property(Widget),tmdb) + !StringCompare(Window(Home).Property(Widget.Type),tvshows)</visible>
 				</control>
 				<control type="button" id="8055">
 					<description>Extended Info Open Button</description>
@@ -760,11 +760,20 @@
 					<oninfo>Dialog.Close(1199)</oninfo>
 					<visible>!SubString(Window(Home).Property(Widget.FilePath),playtrailer) + !SubString(Window(Home).Property(Widget.FilePath),playmovie) + [StringCompare(Window(Home).Property(Widget),trakt) | StringCompare(Window(Home).Property(Widget),rt) | StringCompare(Window(Home).Property(Widget),tmdb) | SubString(Window(Home).Property(Widget.FilePath),extendedtvinfo)]</visible>
 				</control>
+				<control type="button" id="8068">
+					<description>Open Video Library Button</description>
+					<include>WidgetInfoButtonsValues</include>
+					<label>14022</label>
+					<onclick>Dialog.Close(1199)</onclick>
+					<onclick>ActivateWindow(Videos,$ESCINFO[Window(Home).Property(Widget.FolderPath)])</onclick>
+					<oninfo>Dialog.Close(1199)</oninfo>
+					<visible>IsEmpty(Window(Home).Property(Widget.FilePath)) + [StringCompare(Window(Home).Property(Widget),library) | StringCompare(Window(Home).Property(Widget),playlist)] + StringCompare(Window(Home).Property(Widget.Target),video)</visible>
+				</control>
 				<control type="image" id="8056">
 					<width>2</width>
 					<height>90</height>
 					<texture colordiffuse="$VAR[HomeWidgetInfoSepColor]">homewidgets/separator3.png</texture>
-					<visible>Control.IsVisible(8053) | Control.IsVisible(8054) | Control.IsVisible(8055)</visible>
+					<visible>Control.IsVisible(8053) | Control.IsVisible(8054) | Control.IsVisible(8055) | Control.IsVisible(8068)</visible>
 				</control>
 				<control type="button" id="8057">
 					<description>Resume Button</description>
@@ -1166,7 +1175,7 @@
 					<onclick>PlayMedia($ESCINFO[Window(Home).Property(Widget.FilePath)],noresume)</onclick>
 					<onclick>Dialog.Close(1199)</onclick>
 					<oninfo>Dialog.Close(1199)</oninfo>
-					<visible>!IsEmpty(Window(Home).Property(Widget.FilePath)) + [StringCompare(Window(Home).Property(Widget),library) | StringCompare(Window(Home).Property(Widget),playlist)] + [StringCompare(Window(Home).Property(Widget.Target),video) | StringCompare(Window(Home).Property(Widget.Target),music)]</visible>
+					<visible>!IsEmpty(Window(Home).Property(Widget.FilePath)) + [StringCompare(Window(Home).Property(Widget.Target),video) | StringCompare(Window(Home).Property(Widget.Target),music)] + !StringCompare(Window(Home).Property(Widget.Type),addon)</visible>
 				</control>
 				<control type="button" id="8074">
 					<description>Play Button</description>
@@ -1175,13 +1184,46 @@
 					<onclick>PlayMedia($ESCINFO[Window(Home).Property(Widget.FolderPath)],isdir)</onclick>
 					<onclick>Dialog.Close(1199)</onclick>
 					<oninfo>Dialog.Close(1199)</oninfo>
-					<visible>IsEmpty(Window(Home).Property(Widget.FilePath)) + [StringCompare(Window(Home).Property(Widget),library) | StringCompare(Window(Home).Property(Widget),playlist)] + [StringCompare(Window(Home).Property(Widget.Target),video) | StringCompare(Window(Home).Property(Widget.Target),music)]</visible>
+					<visible>IsEmpty(Window(Home).Property(Widget.FilePath)) + [StringCompare(Window(Home).Property(Widget.Target),video) | StringCompare(Window(Home).Property(Widget.Target),music)] + !StringCompare(Window(Home).Property(Widget.Type),artists) + !StringCompare(Window(Home).Property(Widget.Type),addon)</visible>
 				</control>
 				<control type="image" id="8075">
 					<width>2</width>
 					<height>90</height>
 					<texture colordiffuse="$VAR[HomeWidgetInfoSepColor]">homewidgets/separator3.png</texture>
 					<visible>Control.IsVisible(8073) | Control.IsVisible(8074)</visible>
+				</control>
+				<control type="button" id="8081">
+					<description>Open Music Library Button</description>
+					<include>WidgetInfoButtonsValues</include>
+					<label>14022</label>
+					<onclick>Dialog.Close(1199)</onclick>
+					<onclick>ActivateWindow(Music,$ESCINFO[Window(Home).Property(Widget.FolderPath)])</onclick>
+					<oninfo>Dialog.Close(1199)</oninfo>
+					<visible>[StringCompare(Window(Home).Property(Widget),library) | StringCompare(Window(Home).Property(Widget),playlist)] + StringCompare(Window(Home).Property(Widget.Target),music) + !SubString(Window(Home).Property(Widget.FolderPath),skin.helper)</visible>
+				</control>
+				<control type="button" id="8082">
+					<description>Open Video Library Button</description>
+					<include>WidgetInfoButtonsValues</include>
+					<label>14022</label>
+					<onclick>Dialog.Close(1199)</onclick>
+					<onclick>ActivateWindow(Videos,$ESCINFO[Window(Home).Property(Widget.FolderPath)])</onclick>
+					<oninfo>Dialog.Close(1199)</oninfo>
+					<visible>IsEmpty(Window(Home).Property(Widget.FilePath)) + [StringCompare(Window(Home).Property(Widget),library) | StringCompare(Window(Home).Property(Widget),playlist)] + StringCompare(Window(Home).Property(Widget.Target),video)</visible>
+				</control>
+				<control type="button" id="8083">
+					<description>Open Addon Button</description>
+					<include>WidgetInfoButtonsValues</include>
+					<label>502</label>
+					<onclick>Dialog.Close(1199)</onclick>
+					<onclick>ActivateWindow(Programs,$ESCINFO[Window(Home).Property(Widget.FolderPath)])</onclick>
+					<oninfo>Dialog.Close(1199)</oninfo>
+					<visible>StringCompare(Window(Home).Property(Widget),addon) + StringCompare(Window(Home).Property(Widget.Type),addon)</visible>
+				</control>
+				<control type="image" id="8084">
+					<width>2</width>
+					<height>90</height>
+					<texture colordiffuse="$VAR[HomeWidgetInfoSepColor]">homewidgets/separator3.png</texture>
+					<visible>Control.IsVisible(8081) | Control.IsVisible(8082) | Control.IsVisible(8083)</visible>
 				</control>
 				<control type="button" id="8076">
 					<description>Resume Button</description>
