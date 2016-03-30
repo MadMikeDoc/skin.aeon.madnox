@@ -28,16 +28,16 @@
 	<!--background label="Live Background - Daily Babe" condition="StringCompare(Window.Property(groupname),mainmenu)">DailyBabe.Live</background-->
 	<background label="Live Background - Recently Added Albums" condition="StringCompare(Window.Property(groupname),mainmenu)">RecentlyAddedAlbums.Live</background>
 	<!-- Live background case -->
-	<propertySettings property="backgroundCase" buttonID="601" title="Case" />
+	<propertySettings property="backgroundCase" buttonID="601" title="$LOCALIZE[31781]" />
 	<property property="backgroundCase">DVD/BR</property>
 	<property property="backgroundCase" label="31786">DVD/BR Clear</property>
 	<property property="backgroundCase" label="31787">DVD/BR Color</property>
 	<property property="backgroundCase" label="31788">CD Cases</property>
 	<property property="backgroundCase" label="31789">CD Cases Clear</property>
 	<!-- Live background image -->
-	<propertySettings property="backgroundLive" buttonID="602" title="Image" imageBrowse="True" />
+	<propertySettings property="backgroundLive" buttonID="602" title="$LOCALIZE[31880]" imageBrowse="True" />
 	<!-- Live background sort-by -->
-	<propertySettings property="backgroundSortby" buttonID="603" requires="background" title="Sort by" />
+	<propertySettings property="backgroundSortby" buttonID="603" requires="background" title="$LOCALIZE[31792]" />
 	<property property="backgroundSortby" label="369">title</property>
 	<property property="backgroundSortby" label="36902">tvshowtitle</property>
 	<property property="backgroundSortby" label="552">date</property>
@@ -49,7 +49,7 @@
 	<property property="backgroundSortby" label="570">dateAdded</property>
 	<property property="backgroundSortby" label="590">random</property>
 	<!-- Live background sort-order -->
-	<propertySettings property="backgroundSort" buttonID="604" requires="background" title="Sort Order" />
+	<propertySettings property="backgroundSort" buttonID="604" requires="background" title="$LOCALIZE[31793]" />
 	<property property="backgroundSort" label="584">ascending</property>
 	<property property="backgroundSort" label="585">descending</property>
 	<!-- Music Vis live background options -->
@@ -317,7 +317,7 @@
 	<propertyfallback property="widgetArt.2d">Poster</propertyfallback>
 
 	<!-- Widget Style 1 -->
-	<propertySettings property="widgetStyle" buttonID="1001" title="Style" />
+	<propertySettings property="widgetStyle" buttonID="1001" title="$LOCALIZE[31750]" />
 	<property property="widgetStyle" label="535">List</property>
 	<property property="widgetStyle" label="31765">Extended List</property>
 	<property property="widgetStyle" label="31804">Panel</property>
@@ -327,7 +327,7 @@
 	<property property="widgetStyle" label="20395">Mixed</property>
 	<property property="widgetStyle" label="31769">Extended Mixed</property>
 	<!-- Widget Style 2 -->
-	<propertySettings property="widgetStyle.2" buttonID="2001" title="Style" />
+	<propertySettings property="widgetStyle.2" buttonID="2001" title="$LOCALIZE[31750]" />
 	<property property="widgetStyle.2" label="535">List</property>
 	<property property="widgetStyle.2" label="31765">Extended List</property>
 	<property property="widgetStyle.2" label="31804">Panel</property>
@@ -337,7 +337,7 @@
 	<property property="widgetStyle.2" label="20395">Mixed</property>
 	<property property="widgetStyle.2" label="31769">Extended Mixed</property>
 	<!-- Widget Back 1 -->
-	<propertySettings property="widgetBack" buttonID="1002" requires="widgetStyle" showNone="False" title="Widget Background" />
+	<propertySettings property="widgetBack" buttonID="1002" requires="widgetStyle" showNone="False" title="$LOCALIZE[31790]" />
 	<property property="widgetBack" label="571">Default</property>
 	<property property="widgetBack" label="31770">Flat</property>
 	<property property="widgetBack" label="386">Clear</property>
@@ -348,7 +348,7 @@
 	<property property="widgetBack" label="31775">Colored Clear White</property>
 	<property property="widgetBack" label="231">None</property>
 	<!-- Widget Back 2 -->
-	<propertySettings property="widgetBack.2" buttonID="2002" requires="widgetStyle.2" showNone="False" title="Widget Background" />
+	<propertySettings property="widgetBack.2" buttonID="2002" requires="widgetStyle.2" showNone="False" title="$LOCALIZE[31790]" />
 	<property property="widgetBack.2" label="571">Default</property>
 	<property property="widgetBack.2" label="31770">Flat</property>
 	<property property="widgetBack.2" label="386">Clear</property>
@@ -359,17 +359,17 @@
 	<property property="widgetBack.2" label="31775">Colored Clear White</property>
 	<property property="widgetBack.2" label="231">None</property>
 	<!-- Widget Title 1 -->
-	<propertySettings property="widgetTitle" buttonID="1003" requires="widgetStyle" templateonly="True" title="Panel Label" />
+	<propertySettings property="widgetTitle" buttonID="1003" requires="widgetStyle" templateonly="True" title="$LOCALIZE[31791]" />
 	<property property="widgetTitle" label="31804">Panel</property>
 	<property property="widgetTitle" label="31806">On Focus</property>
 	<property property="widgetTitle" label="31062">Title</property>
 	<!-- Widget Title 2 -->
-	<propertySettings property="widgetTitle.2" buttonID="2003" requires="widgetStyle.2" templateonly="True" title="Panel Label" />
+	<propertySettings property="widgetTitle.2" buttonID="2003" requires="widgetStyle.2" templateonly="True" title="$LOCALIZE[31791]" />
 	<property property="widgetTitle.2" label="31804">Panel</property>
 	<property property="widgetTitle.2" label="31806">On Focus</property>
 	<property property="widgetTitle.2" label="31062">Title</property>
 	<!-- Widget Art 1 -->
-	<propertySettings property="widgetArt" buttonID="1004" requires="widget" templateonly="True" showNone="False" title="Art"/>
+	<propertySettings property="widgetArt" buttonID="1004" requires="widget" templateonly="True" showNone="False" title="$LOCALIZE[31883]" />
 	<property property="widgetArt" condition="!StringCompare(Container(211).ListItem.Property(widgetType),weather) + !StringCompare(Container(211).ListItem.Property(widgetType),system)" label="31060">Poster</property>
 	<property property="widgetArt" label="31805">Square Poster</property>
 	<property property="widgetArt" label="20445">FanArt</property>
@@ -381,7 +381,7 @@
 	<property property="widgetArt" condition="StringCompare(Container(211).ListItem.Property(widgetType),episodes) + [StringCompare(Container(211).ListItem.Property(widget),library) | StringCompare(Container(211).ListItem.Property(widget),playlist)] + [StringCompare(Container(211).ListItem.Property(widgetType),episodes) | StringCompare(Container(211).ListItem.Property(widgetType),tvshows)]">CharacterArt</property>
 	<property property="widgetArt" condition="[StringCompare(Container(211).ListItem.Property(widget),library) | StringCompare(Container(211).ListItem.Property(widget),playlist) | StringCompare(Container(211).ListItem.Property(widget),trakt)] + [StringCompare(Container(211).ListItem.Property(widgetType),movies) | StringCompare(Container(211).ListItem.Property(widgetType),episodes) | StringCompare(Container(211).ListItem.Property(widgetType),tvshows) | SubString(Container(211).ListItem.Property(widgetPath),skin.helper) | StringCompare(Container(211).ListItem.Property(widgetType),mixed)]" label="31058">Banner</property>
 	<!-- Widget Art 1 - Mixed B -->
-	<propertySettings property="widgetArt.b" buttonID="1005" requires="widget.b" templateonly="True" showNone="False" title="Art"/>
+	<propertySettings property="widgetArt.b" buttonID="1005" requires="widget.b" templateonly="True" showNone="False" title="$LOCALIZE[31883]" />
 	<property property="widgetArt.b" condition="!StringCompare(Container(211).ListItem.Property(widgetType.b),weather) + !StringCompare(Container(211).ListItem.Property(widgetType),system)" label="31060">Poster</property>
 	<property property="widgetArt.b" label="31805">Square Poster</property>
 	<property property="widgetArt.b" label="20445">FanArt</property>
@@ -393,7 +393,7 @@
 	<property property="widgetArt.b" condition="StringCompare(Container(211).ListItem.Property(widgetType.b),episodes) + [StringCompare(Container(211).ListItem.Property(widget.b),library) | StringCompare(Container(211).ListItem.Property(widget.b),playlist)] + [StringCompare(Container(211).ListItem.Property(widgetType.b),episodes) | StringCompare(Container(211).ListItem.Property(widgetType.b),tvshows)]">CharacterArt</property>
 	<property property="widgetArt.b" condition="[StringCompare(Container(211).ListItem.Property(widget.b),library) | StringCompare(Container(211).ListItem.Property(widget.b),playlist) | StringCompare(Container(211).ListItem.Property(widget.b),trakt)] + [StringCompare(Container(211).ListItem.Property(widgetType.b),movies) | StringCompare(Container(211).ListItem.Property(widgetType.b),episodes) | StringCompare(Container(211).ListItem.Property(widgetType.b),tvshows) | SubString(Container(211).ListItem.Property(widgetPath.b),skin.helper) | StringCompare(Container(211).ListItem.Property(widgetType.b),mixed)]" label="31058">Banner</property>
 	<!-- Widget Art 1 - Mixed C -->
-	<propertySettings property="widgetArt.c" buttonID="1006" requires="widget.c" templateonly="True" showNone="False" title="Art"/>
+	<propertySettings property="widgetArt.c" buttonID="1006" requires="widget.c" templateonly="True" showNone="False" title="$LOCALIZE[31883]" />
 	<property property="widgetArt.c" condition="!StringCompare(Container(211).ListItem.Property(widgetType.c),weather)" label="31060">Poster</property>
 	<property property="widgetArt.c" label="31805">Square Poster</property>
 	<property property="widgetArt.c" label="20445">FanArt</property>
@@ -405,7 +405,7 @@
 	<property property="widgetArt.c" condition="StringCompare(Container(211).ListItem.Property(widgetType.c),episodes) + [StringCompare(Container(211).ListItem.Property(widget.c),library) | StringCompare(Container(211).ListItem.Property(widget.c),playlist)] + [StringCompare(Container(211).ListItem.Property(widgetType.c),episodes) | StringCompare(Container(211).ListItem.Property(widgetType.c),tvshows)]">CharacterArt</property>
 	<property property="widgetArt.c" condition="[StringCompare(Container(211).ListItem.Property(widget.c),library) | StringCompare(Container(211).ListItem.Property(widget.c),playlist) | StringCompare(Container(211).ListItem.Property(widget.c),trakt)] + [StringCompare(Container(211).ListItem.Property(widgetType.c),movies) | StringCompare(Container(211).ListItem.Property(widgetType.c),episodes) | StringCompare(Container(211).ListItem.Property(widgetType.c),tvshows) | SubString(Container(211).ListItem.Property(widgetPath.c),skin.helper) | StringCompare(Container(211).ListItem.Property(widgetType.c),mixed)]" label="31058">Banner</property>
 	<!-- Widget Art 1 - Mixed D -->
-	<propertySettings property="widgetArt.d" buttonID="1007" requires="widget.d" templateonly="True" showNone="False" title="Art"/>
+	<propertySettings property="widgetArt.d" buttonID="1007" requires="widget.d" templateonly="True" showNone="False" title="$LOCALIZE[31883]" />
 	<property property="widgetArt.d" condition="!StringCompare(Container(211).ListItem.Property(widgetType.d),weather)" label="31060">Poster</property>
 	<property property="widgetArt.d" label="31805">Square Poster</property>
 	<property property="widgetArt.d" label="20445">FanArt</property>
@@ -417,7 +417,7 @@
 	<property property="widgetArt.d" condition="StringCompare(Container(211).ListItem.Property(widgetType.d),episodes) + [StringCompare(Container(211).ListItem.Property(widget.d),library) | StringCompare(Container(211).ListItem.Property(widget.d),playlist)] + [StringCompare(Container(211).ListItem.Property(widgetType.d),episodes) | StringCompare(Container(211).ListItem.Property(widgetType.d),tvshows)]">CharacterArt</property>
 	<property property="widgetArt.d" condition="[StringCompare(Container(211).ListItem.Property(widget.d),library) | StringCompare(Container(211).ListItem.Property(widget.d),playlist) | StringCompare(Container(211).ListItem.Property(widget.d),trakt)] + [StringCompare(Container(211).ListItem.Property(widgetType.d),movies) | StringCompare(Container(211).ListItem.Property(widgetType.d),episodes) | StringCompare(Container(211).ListItem.Property(widgetType.d),tvshows) | SubString(Container(211).ListItem.Property(widgetPath.d),skin.helper) | StringCompare(Container(211).ListItem.Property(widgetType.d),mixed)]" label="31058">Banner</property>
 	<!-- Widget Art 2 -->
-	<propertySettings property="widgetArt.2" buttonID="2004" requires="widget.2" templateonly="True" showNone="False" title="Art"/>
+	<propertySettings property="widgetArt.2" buttonID="2004" requires="widget.2" templateonly="True" showNone="False" title="$LOCALIZE[31883]" />
 	<property property="widgetArt.2" condition="!StringCompare(Container(211).ListItem.Property(widgetType.2),weather) + !StringCompare(Container(211).ListItem.Property(widgetType.2),system)" label="31060">Poster</property>
 	<property property="widgetArt.2" label="31805">Square Poster</property>
 	<property property="widgetArt.2" label="20445">FanArt</property>
@@ -429,7 +429,7 @@
 	<property property="widgetArt.2" condition="StringCompare(Container(211).ListItem.Property(widgetType.2),episodes) + [StringCompare(Container(211).ListItem.Property(widget.2),library) | StringCompare(Container(211).ListItem.Property(widget.2),playlist)] + [StringCompare(Container(211).ListItem.Property(widgetType.2),episodes) | StringCompare(Container(211).ListItem.Property(widgetType.2),tvshows)]">CharacterArt</property>
 	<property property="widgetArt.2" condition="[StringCompare(Container(211).ListItem.Property(widget.2),library) | StringCompare(Container(211).ListItem.Property(widget.2),playlist) | StringCompare(Container(211).ListItem.Property(widget.2),trakt)] + [StringCompare(Container(211).ListItem.Property(widgetType.2),movies) | StringCompare(Container(211).ListItem.Property(widgetType.2),episodes) | StringCompare(Container(211).ListItem.Property(widgetType.2),tvshows) | SubString(Container(211).ListItem.Property(widgetPath.2),skin.helper) | StringCompare(Container(211).ListItem.Property(widgetType.2),mixed)]" label="31058">Banner</property>
 	<!-- Widget Art 2 - Mixed B -->
-	<propertySettings property="widgetArt.2b" buttonID="2005" requires="widget.2b" templateonly="True" showNone="False" title="Art"/>
+	<propertySettings property="widgetArt.2b" buttonID="2005" requires="widget.2b" templateonly="True" showNone="False" title="$LOCALIZE[31883]" />
 	<property property="widgetArt.2b" condition="!StringCompare(Container(211).ListItem.Property(widgetType.2b),weather)" label="31060">Poster</property>
 	<property property="widgetArt.2b" label="31805">Square Poster</property>
 	<property property="widgetArt.2b" label="20445">FanArt</property>
@@ -441,7 +441,7 @@
 	<property property="widgetArt.2b" condition="StringCompare(Container(211).ListItem.Property(widgetType.2b),episodes) + [StringCompare(Container(211).ListItem.Property(widget.2b),library) | StringCompare(Container(211).ListItem.Property(widget.2b),playlist)] + [StringCompare(Container(211).ListItem.Property(widgetType.2b),episodes) | StringCompare(Container(211).ListItem.Property(widgetType.2b),tvshows)]">CharacterArt</property>
 	<property property="widgetArt.2b" condition="[StringCompare(Container(211).ListItem.Property(widget.2b),library) | StringCompare(Container(211).ListItem.Property(widget.2b),playlist) | StringCompare(Container(211).ListItem.Property(widget.2b),trakt)] + [StringCompare(Container(211).ListItem.Property(widgetType.2b),movies) | StringCompare(Container(211).ListItem.Property(widgetType.2b),episodes) | StringCompare(Container(211).ListItem.Property(widgetType.2b),tvshows) | SubString(Container(211).ListItem.Property(widgetPath.2b),skin.helper) | StringCompare(Container(211).ListItem.Property(widgetType.2b),mixed)]" label="31058">Banner</property>
 	<!-- Widget Art 2 - Mixed C -->
-	<propertySettings property="widgetArt.2c" buttonID="2006" requires="widget.2c" templateonly="True" showNone="False" title="Art"/>
+	<propertySettings property="widgetArt.2c" buttonID="2006" requires="widget.2c" templateonly="True" showNone="False" title="$LOCALIZE[31883]"/>
 	<property property="widgetArt.2c" condition="!StringCompare(Container(211).ListItem.Property(widgetType.2c),weather)" label="31060">Poster</property>
 	<property property="widgetArt.2c" label="31805">Square Poster</property>
 	<property property="widgetArt.2c" label="20445">FanArt</property>
@@ -453,7 +453,7 @@
 	<property property="widgetArt.2c" condition="StringCompare(Container(211).ListItem.Property(widgetType.2c),episodes) + [StringCompare(Container(211).ListItem.Property(widget.2c),library) | StringCompare(Container(211).ListItem.Property(widget.2c),playlist)] + [StringCompare(Container(211).ListItem.Property(widgetType.2c),episodes) | StringCompare(Container(211).ListItem.Property(widgetType.2c),tvshows)]">CharacterArt</property>
 	<property property="widgetArt.2c" condition="[StringCompare(Container(211).ListItem.Property(widget.2c),library) | StringCompare(Container(211).ListItem.Property(widget.2c),playlist) | StringCompare(Container(211).ListItem.Property(widget.2c),trakt)] + [StringCompare(Container(211).ListItem.Property(widgetType.2c),movies) | StringCompare(Container(211).ListItem.Property(widgetType.2c),episodes) | StringCompare(Container(211).ListItem.Property(widgetType.2c),tvshows) | SubString(Container(211).ListItem.Property(widgetPath.2c),skin.helper) | StringCompare(Container(211).ListItem.Property(widgetType.2c),mixed)]" label="31058">Banner</property>
 	<!-- Widget Art 2 - Mixed D -->
-	<propertySettings property="widgetArt.2d" buttonID="2007" requires="widget.2d" templateonly="True" showNone="False" title="Art"/>
+	<propertySettings property="widgetArt.2d" buttonID="2007" requires="widget.2d" templateonly="True" showNone="False" title="$LOCALIZE[31883]" />
 	<property property="widgetArt.2d" condition="!StringCompare(Container(211).ListItem.Property(widgetType.2d),weather)" label="31060">Poster</property>
 	<property property="widgetArt.2d" label="31805">Square Poster</property>
 	<property property="widgetArt.2d" label="20445">FanArt</property>
@@ -465,7 +465,7 @@
 	<property property="widgetArt.2d" condition="StringCompare(Container(211).ListItem.Property(widgetType.2d),episodes) + [StringCompare(Container(211).ListItem.Property(widget.2d),library) | StringCompare(Container(211).ListItem.Property(widget.2d),playlist)] + [StringCompare(Container(211).ListItem.Property(widgetType.2d),episodes) | StringCompare(Container(211).ListItem.Property(widgetType.2d),tvshows)]">CharacterArt</property>
 	<property property="widgetArt.2d" condition="[StringCompare(Container(211).ListItem.Property(widget.2d),library) | StringCompare(Container(211).ListItem.Property(widget.2d),playlist) | StringCompare(Container(211).ListItem.Property(widget.2d),trakt)] + [StringCompare(Container(211).ListItem.Property(widgetType.2d),movies) | StringCompare(Container(211).ListItem.Property(widgetType.2d),episodes) | StringCompare(Container(211).ListItem.Property(widgetType.2d),tvshows) | SubString(Container(211).ListItem.Property(widgetPath.2d),skin.helper) | StringCompare(Container(211).ListItem.Property(widgetType.2d),mixed)]" label="31058">Banner</property>
 	<!-- Widget Case 1 -->
-	<propertySettings property="widgetCase" buttonID="1008" requires="widget" templateonly="True" title="Case" />
+	<propertySettings property="widgetCase" buttonID="1008" requires="widget" templateonly="True" title="$LOCALIZE[31781]" />
 	<property property="widgetCase" icon="homewidgets/glass/portrait.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt),Poster)" label="31782">Glass</property>
 	<property property="widgetCase" icon="homewidgets/glass/square.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt),Square Poster)" label="31782">Glass</property>
 	<property property="widgetCase" icon="homewidgets/glass/landscape.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt),FanArt)" label="31782">Glass</property>
@@ -498,7 +498,7 @@
 	<property property="widgetCase" icon="homewidgets/clearcase/square/cd.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt),Character Art)" label="31783">Clear Case</property>
 	<property property="widgetCase" icon="homewidgets/clearcase/banner/1080p.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt),Banner)" label="31783">Clear Case</property>
 	<!-- Widget Case 1 - Mixed B-->
-	<propertySettings property="widgetCase.b" buttonID="1009" requires="widget.b" templateonly="True" title="Case" />
+	<propertySettings property="widgetCase.b" buttonID="1009" requires="widget.b" templateonly="True" title="$LOCALIZE[31781]" />
 	<property property="widgetCase.b" icon="homewidgets/glass/portrait.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.b),Poster)" label="31782">Glass</property>
 	<property property="widgetCase.b" icon="homewidgets/glass/square.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.b),Square Poster)" label="31782">Glass</property>
 	<property property="widgetCase.b" icon="homewidgets/glass/landscape.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.b),FanArt)" label="31782">Glass</property>
@@ -531,7 +531,7 @@
 	<property property="widgetCase.b" icon="homewidgets/clearcase/square/cd.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.b),Character Art)" label="31783">Clear Case</property>
 	<property property="widgetCase.b" icon="homewidgets/clearcase/banner/1080p.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.b),Banner)" label="31783">Clear Case</property>
 	<!-- Widget Case 1 - Mixed C-->
-	<propertySettings property="widgetCase.c" buttonID="1010" requires="widget.c" templateonly="True" title="Case" />
+	<propertySettings property="widgetCase.c" buttonID="1010" requires="widget.c" templateonly="True" title="$LOCALIZE[31781]" />
 	<property property="widgetCase.c" icon="homewidgets/glass/portrait.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.c),Poster)" label="31782">Glass</property>
 	<property property="widgetCase.c" icon="homewidgets/glass/square.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.c),Square Poster)" label="31782">Glass</property>
 	<property property="widgetCase.c" icon="homewidgets/glass/landscape.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.c),FanArt)" label="31782">Glass</property>
@@ -564,7 +564,7 @@
 	<property property="widgetCase.c" icon="homewidgets/clearcase/square/cd.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.c),Character Art)" label="31783">Clear Case</property>
 	<property property="widgetCase.c" icon="homewidgets/clearcase/banner/1080p.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.c),Banner)" label="31783">Clear Case</property>
 	<!-- Widget Case 1 - Mixed D-->
-	<propertySettings property="widgetCase.d" buttonID="1011" requires="widget.d" templateonly="True" title="Case" />
+	<propertySettings property="widgetCase.d" buttonID="1011" requires="widget.d" templateonly="True" title="$LOCALIZE[31781]" />
 	<property property="widgetCase.d" icon="homewidgets/glass/portrait.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.d),Poster)" label="31782">Glass</property>
 	<property property="widgetCase.d" icon="homewidgets/glass/square.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.d),Square Poster)" label="31782">Glass</property>
 	<property property="widgetCase.d" icon="homewidgets/glass/landscape.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.d),FanArt)" label="31782">Glass</property>
@@ -597,7 +597,7 @@
 	<property property="widgetCase.d" icon="homewidgets/clearcase/square/cd.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.d),Character Art)" label="31783">Clear Case</property>
 	<property property="widgetCase.d" icon="homewidgets/clearcase/banner/1080p.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.d),Banner)" label="31783">Clear Case</property>
 	<!-- Widget Case 2 -->
-	<propertySettings property="widgetCase.2" buttonID="2008" requires="widget.2" templateonly="True" title="Case" />
+	<propertySettings property="widgetCase.2" buttonID="2008" requires="widget.2" templateonly="True" title="$LOCALIZE[31781]" />
 	<property property="widgetCase.2" icon="homewidgets/glass/portrait.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.2),Poster)" label="31782">Glass</property>
 	<property property="widgetCase.2" icon="homewidgets/glass/square.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.2),Square Poster)" label="31782">Glass</property>
 	<property property="widgetCase.2" icon="homewidgets/glass/landscape.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.2),FanArt)" label="31782">Glass</property>
@@ -630,7 +630,7 @@
 	<property property="widgetCase.2" icon="homewidgets/clearcase/square/cd.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.2),Character Art)" label="31783">Clear Case</property>
 	<property property="widgetCase.2" icon="homewidgets/clearcase/banner/1080p.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.2),Banner)" label="31783">Clear Case</property>
 	<!-- Widget Case 2 - Mixed 2 -->
-	<propertySettings property="widgetCase.2b" buttonID="2009" requires="widget.2b" templateonly="True" title="Case" />
+	<propertySettings property="widgetCase.2b" buttonID="2009" requires="widget.2b" templateonly="True" title="$LOCALIZE[31781]" />
 	<property property="widgetCase.2b" icon="homewidgets/glass/portrait.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.2b),Poster)" label="31782">Glass</property>
 	<property property="widgetCase.2b" icon="homewidgets/glass/square.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.2b),Square Poster)" label="31782">Glass</property>
 	<property property="widgetCase.2b" icon="homewidgets/glass/landscape.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.2b),FanArt)" label="31782">Glass</property>
@@ -663,7 +663,7 @@
 	<property property="widgetCase.2b" icon="homewidgets/clearcase/square/cd.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.2b),Character Art)" label="31783">Clear Case</property>
 	<property property="widgetCase.2b" icon="homewidgets/clearcase/banner/1080p.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.2b),Banner)" label="31783">Clear Case</property>
 	<!-- Widget Case 2 - Mixed 3 -->
-	<propertySettings property="widgetCase.2c" buttonID="2010" requires="widget.2c" templateonly="True" title="Case" />
+	<propertySettings property="widgetCase.2c" buttonID="2010" requires="widget.2c" templateonly="True" title="$LOCALIZE[31781]" />
 	<property property="widgetCase.2c" icon="homewidgets/glass/portrait.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.2c),Poster)" label="31782">Glass</property>
 	<property property="widgetCase.2c" icon="homewidgets/glass/square.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.2c),Square Poster)" label="31782">Glass</property>
 	<property property="widgetCase.2c" icon="homewidgets/glass/landscape.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.2c),FanArt)" label="31782">Glass</property>
@@ -696,7 +696,7 @@
 	<property property="widgetCase.2c" icon="homewidgets/clearcase/square/cd.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.2c),Character Art)" label="31783">Clear Case</property>
 	<property property="widgetCase.2c" icon="homewidgets/clearcase/banner/1080p.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.2c),Banner)" label="31783">Clear Case</property>
 	<!-- Widget Case 2 - Mixed 4 -->
-	<propertySettings property="widgetCase.2d" buttonID="2011" requires="widget.2d" templateonly="True" title="Case" />
+	<propertySettings property="widgetCase.2d" buttonID="2011" requires="widget.2d" templateonly="True" title="$LOCALIZE[31781]" />
 	<property property="widgetCase.2d" icon="homewidgets/glass/portrait.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.2d),Poster)" label="31782">Glass</property>
 	<property property="widgetCase.2d" icon="homewidgets/glass/square.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.2d),Square Poster)" label="31782">Glass</property>
 	<property property="widgetCase.2d" icon="homewidgets/glass/landscape.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.2d),FanArt)" label="31782">Glass</property>
@@ -729,7 +729,7 @@
 	<property property="widgetCase.2d" icon="homewidgets/clearcase/square/cd.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.2d),Character Art)" label="31783">Clear Case</property>
 	<property property="widgetCase.2d" icon="homewidgets/clearcase/banner/1080p.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.2d),Banner)" label="31783">Clear Case</property>
 	<!-- Widget Sort By 1 -->
-	<propertySettings property="widgetSortby" buttonID="1012" requires="widget" templateonly="True" title="Sort by" />
+	<propertySettings property="widgetSortby" buttonID="1012" requires="widget" templateonly="True" title="$LOCALIZE[31792]" />
 	<property property="widgetSortby" label="369">title</property>
 	<property property="widgetSortby" label="36902" condition="StringCompare(Container(211).ListItem.Property(widgetType),episodes)">tvshowtitle</property>
 	<property property="widgetSortby" label="552" condition="StringCompare(Container(211).ListItem.Property(widgetType),episodes)">date</property>
@@ -741,7 +741,7 @@
 	<property property="widgetSortby" label="570" condition="!StringCompare(Container(211).ListItem.Property(widgetType),pvr)">dateAdded</property>
 	<property property="widgetSortby" label="590">random</property>
 	<!-- Widget Sort By 1 - Mixed B-->
-	<propertySettings property="widgetSortby.b" buttonID="1013" requires="widget.b" templateonly="True" title="Sort by" />
+	<propertySettings property="widgetSortby.b" buttonID="1013" requires="widget.b" templateonly="True" title="$LOCALIZE[31792]" />
 	<property property="widgetSortby.b" label="369">title</property>
 	<property property="widgetSortby.b" label="36902" condition="StringCompare(Container(211).ListItem.Property(widgetType.b),episodes)">tvshowtitle</property>
 	<property property="widgetSortby.b" label="552" condition="StringCompare(Container(211).ListItem.Property(widgetType.b),episodes)">date</property>
@@ -753,7 +753,7 @@
 	<property property="widgetSortby.b" label="570" condition="!StringCompare(Container(211).ListItem.Property(widgetType.b),pvr)">dateAdded</property>
 	<property property="widgetSortby.b" label="590">random</property>
 	<!-- Widget Sort By 1 - Mixed C-->
-	<propertySettings property="widgetSortby.c" buttonID="1014" requires="widget.c" templateonly="True" title="Sort by" />
+	<propertySettings property="widgetSortby.c" buttonID="1014" requires="widget.c" templateonly="True" title="$LOCALIZE[31792]" />
 	<property property="widgetSortby.c" label="369">title</property>
 	<property property="widgetSortby.c" label="36902" condition="StringCompare(Container(211).ListItem.Property(widgetType.c),episodes)">tvshowtitle</property>
 	<property property="widgetSortby.c" label="552" condition="StringCompare(Container(211).ListItem.Property(widgetType.c),episodes)">date</property>
@@ -765,7 +765,7 @@
 	<property property="widgetSortby.c" label="570" condition="!StringCompare(Container(211).ListItem.Property(widgetType.c),pvr)">dateAdded</property>
 	<property property="widgetSortby.c" label="590">random</property>
 	<!-- Widget Sort By 1 - Mixed D-->
-	<propertySettings property="widgetSortby.d" buttonID="1015" requires="widget.d" templateonly="True" title="Sort by" />
+	<propertySettings property="widgetSortby.d" buttonID="1015" requires="widget.d" templateonly="True" title="$LOCALIZE[31792]" />
 	<property property="widgetSortby.d" label="369">title</property>
 	<property property="widgetSortby.d" label="36902" condition="StringCompare(Container(211).ListItem.Property(widgetType.d),episodes)">tvshowtitle</property>
 	<property property="widgetSortby.d" label="552" condition="StringCompare(Container(211).ListItem.Property(widgetType.d),episodes)">date</property>
@@ -777,23 +777,23 @@
 	<property property="widgetSortby.d" label="570" condition="!StringCompare(Container(211).ListItem.Property(widgetType.d),pvr)">dateAdded</property>
 	<property property="widgetSortby.d" label="590">random</property>
 	<!-- Widget Sort Order 1 -->
-	<propertySettings property="widgetSort" buttonID="1016" requires="widget" templateonly="True" title="Sort Order" />
+	<propertySettings property="widgetSort" buttonID="1016" requires="widget" templateonly="True" title="$LOCALIZE[31793]" />
 	<property property="widgetSort" label="584">ascending</property>
 	<property property="widgetSort" label="585">descending</property>
 	<!-- Widget Sort Order 1 - Mixed B -->
-	<propertySettings property="widgetSort.b" buttonID="1017" requires="widget.b" templateonly="True" title="Sort Order" />
+	<propertySettings property="widgetSort.b" buttonID="1017" requires="widget.b" templateonly="True" title="$LOCALIZE[31793]" />
 	<property property="widgetSort.b" label="584">ascending</property>
 	<property property="widgetSort.b" label="585">descending</property>
 	<!-- Widget Sort Order 1 - Mixed C -->
-	<propertySettings property="widgetSort.c" buttonID="1018" requires="widget.c" templateonly="True" title="Sort Order" />
+	<propertySettings property="widgetSort.c" buttonID="1018" requires="widget.c" templateonly="True" title="$LOCALIZE[31793]" />
 	<property property="widgetSort.c" label="584">ascending</property>
 	<property property="widgetSort.c" label="585">descending</property>
 	<!-- Widget Sort Order 1 - Mixed D -->
-	<propertySettings property="widgetSort.d" buttonID="1019" requires="widget.d" templateonly="True" title="Sort Order" />
+	<propertySettings property="widgetSort.d" buttonID="1019" requires="widget.d" templateonly="True" title="$LOCALIZE[31793]" />
 	<property property="widgetSort.d" label="584">ascending</property>
 	<property property="widgetSort.d" label="585">descending</property>
 	<!-- Widget Sort By 2 -->
-	<propertySettings property="widgetSortby.2" buttonID="2012" requires="widget.2" templateonly="True" title="Sort by" />
+	<propertySettings property="widgetSortby.2" buttonID="2012" requires="widget.2" templateonly="True" title="$LOCALIZE[31792]" />
 	<property property="widgetSortby.2" label="369">title</property>
 	<property property="widgetSortby.2" label="36902" condition="StringCompare(Container(211).ListItem.Property(widgetType.2),episodes)">tvshowtitle</property>
 	<property property="widgetSortby.2" label="552" condition="StringCompare(Container(211).ListItem.Property(widgetType.2),episodes)">date</property>
@@ -805,7 +805,7 @@
 	<property property="widgetSortby.2" label="570" condition="!StringCompare(Container(211).ListItem.Property(widgetType.2),pvr)">dateAdded</property>
 	<property property="widgetSortby.2" label="590">random</property>
 	<!-- Widget Sort By 2 - Mixed B -->
-	<propertySettings property="widgetSortby.2b" requires="widget.2b" templateonly="True" buttonID="2013" title="Sort by" />
+	<propertySettings property="widgetSortby.2b" requires="widget.2b" templateonly="True" buttonID="2013" title="$LOCALIZE[31792]" />
 	<property property="widgetSortby.2b" label="369">title</property>
 	<property property="widgetSortby.2b" label="36902" condition="StringCompare(Container(211).ListItem.Property(widgetType.2b),episodes)">tvshowtitle</property>
 	<property property="widgetSortby.2b" label="552" condition="StringCompare(Container(211).ListItem.Property(widgetType.2b),episodes)">date</property>
@@ -817,7 +817,7 @@
 	<property property="widgetSortby.2b" label="570" condition="!StringCompare(Container(211).ListItem.Property(widgetType.2b),pvr)">dateAdded</property>
 	<property property="widgetSortby.2b" label="590">random</property>
 	<!-- Widget Sort By 2 - Mixed C -->
-	<propertySettings property="widgetSortby.2c" buttonID="2014" requires="widget.2c" templateonly="True" title="Sort by" />
+	<propertySettings property="widgetSortby.2c" buttonID="2014" requires="widget.2c" templateonly="True" title="$LOCALIZE[31792]" />
 	<property property="widgetSortby.2c" label="369">title</property>
 	<property property="widgetSortby.2c" label="36902" condition="StringCompare(Container(211).ListItem.Property(widgetType.2c),episodes)">tvshowtitle</property>
 	<property property="widgetSortby.2c" label="552" condition="StringCompare(Container(211).ListItem.Property(widgetType.2c),episodes)">date</property>
@@ -829,7 +829,7 @@
 	<property property="widgetSortby.2c" label="570" condition="!StringCompare(Container(211).ListItem.Property(widgetType.2c),pvr)">dateAdded</property>
 	<property property="widgetSortby.2c" label="590">random</property>
 	<!-- Widget Sort By 2 - Mixed D -->
-	<propertySettings property="widgetSortby.2d" buttonID="2015" requires="widget.2d" templateonly="True" title="Sort by" />
+	<propertySettings property="widgetSortby.2d" buttonID="2015" requires="widget.2d" templateonly="True" title="$LOCALIZE[31792]" />
 	<property property="widgetSortby.2d" label="369">title</property>
 	<property property="widgetSortby.2d" label="36902" condition="StringCompare(Container(211).ListItem.Property(widgetType.2d),episodes)">tvshowtitle</property>
 	<property property="widgetSortby.2d" label="552" condition="StringCompare(Container(211).ListItem.Property(widgetType.2d),episodes)">date</property>
@@ -841,34 +841,34 @@
 	<property property="widgetSortby.2d" label="570" condition="!StringCompare(Container(211).ListItem.Property(widgetType.2d),pvr)">dateAdded</property>
 	<property property="widgetSortby.2d" label="590">random</property>
 	<!-- Widget Sort Order 2 -->
-	<propertySettings property="widgetSort.2" buttonID="2016" requires="widget.2" templateonly="True" title="Sort Order" />
+	<propertySettings property="widgetSort.2" buttonID="2016" requires="widget.2" templateonly="True" title="$LOCALIZE[31793]" />
 	<property property="widgetSort.2" label="584">ascending</property>
 	<property property="widgetSort.2" label="585">descending</property>
 	<!-- Widget Sort Order 2 - Mixed B -->
-	<propertySettings property="widgetSort.2b" buttonID="2017" requires="widget.2b" templateonly="True" title="Sort Order" />
+	<propertySettings property="widgetSort.2b" buttonID="2017" requires="widget.2b" templateonly="True" title="$LOCALIZE[31793]" />
 	<property property="widgetSort.2b" label="584">ascending</property>
 	<property property="widgetSort.2b" label="585">descending</property>
 	<!-- Widget Sort Order 2 - Mixed C -->
-	<propertySettings property="widgetSort.2c" buttonID="2018" requires="widget.2c" templateonly="True" title="Sort Order" />
+	<propertySettings property="widgetSort.2c" buttonID="2018" requires="widget.2c" templateonly="True" title="$LOCALIZE[31793]" />
 	<property property="widgetSort.2c" label="584">ascending</property>
 	<property property="widgetSort.2c" label="585">descending</property>
 	<!-- Widget Sort Order 2 - Mixed D -->
-	<propertySettings property="widgetSort.2d" buttonID="2019" requires="widget.2d" templateonly="True" title="Sort Order" />
+	<propertySettings property="widgetSort.2d" buttonID="2019" requires="widget.2d" templateonly="True" title="$LOCALIZE[31793]" />
 	<property property="widgetSort.2d" label="584">ascending</property>
 	<property property="widgetSort.2d" label="585">descending</property>
 	<!-- Widget List 1 - Text/Banner -->
-	<propertySettings property="widgetList" buttonID="1020" showNone="False" requires="widgetStyle" templateonly="True" title="List Widget Title" />
+	<propertySettings property="widgetList" buttonID="1020" showNone="False" requires="widgetStyle" templateonly="True" title="$LOCALIZE[31794]" />
 	<property property="widgetList" label="21899">Label</property>
 	<property property="widgetList" label="31058">Banner Art</property>
 	<!-- Widget List 2 - Text/Banner -->
-	<propertySettings property="widgetList.2" buttonID="2020" showNone="False" requires="widgetStyle.2" templateonly="True" title="List Widget Title" />
+	<propertySettings property="widgetList.2" buttonID="2020" showNone="False" requires="widgetStyle.2" templateonly="True" title="$LOCALIZE[31794]" />
 	<property property="widgetList.2" label="21899">Label</property>
 	<property property="widgetList.2" label="31058">Banner Art</property>
 	<!-- Widget Panel Info 1 -->
-	<propertySettings property="widgetPanelInfo" buttonID="1021" requires="widgetStyle" title="Panel Info" />
+	<propertySettings property="widgetPanelInfo" buttonID="1021" requires="widgetStyle" title="$LOCALIZE[31879]" />
 	<property property="widgetPanelInfo" label="305">Enabled</property>
 	<!-- Widget Panel Info 2 -->
-	<propertySettings property="widgetPanelInfo.2" buttonID="2021" requires="widgetStyle.2" title="Panel Info" />
+	<propertySettings property="widgetPanelInfo.2" buttonID="2021" requires="widgetStyle.2" title="$LOCALIZE[31879]" />
 	<property property="widgetPanelInfo.2" label="305">Enabled</property>
 	<!-- Management dialog navigation -->
 	<onback to="800">312</onback>
