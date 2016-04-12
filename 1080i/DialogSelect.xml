@@ -141,120 +141,122 @@
 				</control>
 			</focusedlayout>
 		</control>
-		<control type="list" id="6">
-			<left>375</left>
-			<top>292</top>
-			<width>1172</width>
-			<height>540</height>
-			<onup>6</onup>
-			<ondown>6</ondown>
-			<onleft>3</onleft>
-			<onright>5</onright>
-			<pagecontrol>61</pagecontrol>
-			<scrolltime tween="quadratic">200</scrolltime>
-			<animation effect="slide" end="15,0" time="0" condition="!Control.IsVisible(61)">Conditional</animation>
-			<itemlayout height="90" width="825">
-				<control type="image">
-					<left>15</left>
-					<top>30</top>
-					<width>750</width>
-					<height>60</height>
-					<texture border="1">osd/osd_settings_buttonnf.png</texture>
-				</control>
-				<control type="label">
-					<left>150</left>
-					<width>600</width>
-					<height>45</height>
-					<font>Font_Reg30_2</font>
-					<textcolor>grey2</textcolor>
-					<info>ListItem.Label</info>
-				</control>
-				<control type="image">
-					<left>52</left>
-					<top>8</top>
-					<width>75</width>
-					<height>75</height>
-					<aspectratio>keep</aspectratio>
-					<texture>$INFO[Listitem.Icon]</texture>
-				</control>
-				<control type="label">
-					<left>150</left>
-					<top>45</top>
-					<width>600</width>
-					<height>45</height>
-					<font>Font_Info</font>
-					<textcolor>grey2</textcolor>
-					<info>ListItem.Label2</info>
-				</control>
-			</itemlayout>
-			<focusedlayout height="90" width="825">
-				<control type="button">
-					<include>HiddenObject</include>
-					<onfocus condition="!IsEmpty(Window(selectdialog).Property(Property))">SetProperty(Label,$ESCINFO[Container(6).ListItem.Label])</onfocus>
-					<onfocus condition="!IsEmpty(Window(selectdialog).Property(Property))">SetProperty(Icon,$ESCINFO[Container(6).ListItem.Icon])</onfocus>
-				</control>
-				<control type="image">
-					<left>15</left>
-					<top>30</top>
-					<width>750</width>
-					<height>60</height>
-					<texture border="1">osd/osd_settings_buttonnf.png</texture>
-				</control>
-				<control type="image">
-					<left>8</left>
-					<width>765</width>
-					<height>90</height>
-					<texture border="8">views/tripanel/listselect_fo.png</texture>
-					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-					<animation effect="fade" start="100" end="50" time="160" condition="!Control.HasFocus(6)">Conditional</animation>
-				</control>
-				<control type="label">
-					<left>150</left>
-					<width>600</width>
-					<height>45</height>
-					<font>Font_Reg30_2</font>
-					<info>ListItem.Label</info>
-				</control>
-				<control type="image">
-					<left>52</left>
-					<top>8</top>
-					<width>75</width>
-					<height>75</height>
-					<aspectratio>keep</aspectratio>
-					<texture>$INFO[Listitem.Icon]</texture>
-				</control>
-				<control type="label">
-					<left>150</left>
-					<top>45</top>
-					<width>600</width>
-					<height>45</height>
-					<font>Font_Info</font>
-					<textcolor>grey2</textcolor>
-					<info>ListItem.Label2</info>
-				</control>
-			</focusedlayout>
-		</control>
-		<control type="image">
-			<left>1169</left>
-			<top>375</top>
-			<width>375</width>
-			<height>375</height>
-			<aspectratio>keep</aspectratio>
-			<texture background="true">$INFO[Container(6).Listitem.Icon]</texture>
-			<bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
-			<bordersize>7</bordersize>
-			<visible>Control.IsVisible(6)</visible>
-		</control>
-		<control type="scrollbar" id="61">
-			<left>354</left>
-			<top>285</top>
-			<width>46</width>
-			<height>540</height>
-			<include>Animation_VerticalScrollBar</include>
-			<onleft>5</onleft>
-			<onright>3</onright>
-			<ondown>61</ondown>
-			<onup>61</onup>
-		</control>
-	</controls>
+		       <control type="list" id="6">
+            <left>375</left>
+            <top>292</top>
+            <width>1172</width>
+            <height>540</height>
+            <onup>6</onup>
+            <ondown>6</ondown>
+            <onleft>3</onleft>
+            <onright>5</onright>
+            <pagecontrol>61</pagecontrol>
+            <scrolltime tween="quadratic">200</scrolltime>
+            <animation effect="slide" end="15,0" time="0" condition="!Control.IsVisible(61)">Conditional</animation>
+            <itemlayout height="90" width="825">
+                <control type="image">
+                    <left>15</left>
+                    <top>30</top>
+                    <width>750</width>
+                    <height>60</height>
+                    <texture border="1">osd/osd_settings_buttonnf.png</texture>
+                </control>
+                <control type="label">
+                    <top>22</top>
+                    <left>150</left>
+                    <width>600</width>
+                    <height>45</height>
+                    <font>Font_Reg30</font>
+                    <textcolor>grey2</textcolor>
+                    <info>ListItem.Label</info>
+                </control>
+                <control type="image">
+                    <left>52</left>
+                    <top>8</top>
+                    <width>75</width>
+                    <height>75</height>
+                    <aspectratio>keep</aspectratio>
+                    <texture>$INFO[Listitem.Icon]</texture>
+                </control>
+                <!-- <control type="label">
+                    <left>150</left>
+                    <top>45</top>
+                    <width>600</width>
+                    <height>45</height>
+                    <font>Font_Info</font>
+                    <textcolor>grey2</textcolor>
+                    <info>ListItem.Label2</info>
+                </control> -->
+            </itemlayout>
+            <focusedlayout height="90" width="825">
+                <control type="button">
+                    <include>HiddenObject</include>
+                    <onfocus condition="!IsEmpty(Window(selectdialog).Property(Property))">SetProperty(Label,$ESCINFO[Container(6).ListItem.Label])</onfocus>
+                    <onfocus condition="!IsEmpty(Window(selectdialog).Property(Property))">SetProperty(Icon,$ESCINFO[Container(6).ListItem.Icon])</onfocus>
+                </control>
+                <control type="image">
+                    <left>15</left>
+                    <top>30</top>
+                    <width>750</width>
+                    <height>60</height>
+                    <texture border="1">osd/osd_settings_buttonnf.png</texture>
+                </control>
+                <control type="image">
+                    <left>8</left>
+                    <width>765</width>
+                    <height>90</height>
+                    <texture border="8">views/tripanel/listselect_fo.png</texture>
+                    <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+                    <animation effect="fade" start="100" end="50" time="160" condition="!Control.HasFocus(6)">Conditional</animation>
+                </control>
+                <control type="label">
+                    <top>20</top>
+                    <left>150</left>
+                    <width>600</width>
+                    <height>45</height>
+                    <font>Font_Reg42</font>
+                    <info>ListItem.Label</info>
+                </control>
+                <control type="image">
+                    <left>52</left>
+                    <top>8</top>
+                    <width>75</width>
+                    <height>75</height>
+                    <aspectratio>keep</aspectratio>
+                    <texture>$INFO[Listitem.Icon]</texture>
+                </control>
+                <!-- <control type="label">
+                    <left>150</left>
+                    <top>45</top>
+                    <width>600</width>
+                    <height>45</height>
+                    <font>Font_Info</font>
+                    <textcolor>grey2</textcolor>
+                    <info>ListItem.Label2</info>
+                </control> -->
+            </focusedlayout>
+        </control>
+        <control type="image">
+            <left>1169</left>
+            <top>375</top>
+            <width>375</width>
+            <height>375</height>
+            <aspectratio>keep</aspectratio>
+            <texture background="true">$INFO[Container(6).Listitem.Icon]</texture>
+            <bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
+            <bordersize>7</bordersize>
+            <visible>Control.IsVisible(6)</visible>
+        </control>
+        <control type="scrollbar" id="61">
+            <left>354</left>
+            <top>285</top>
+            <width>46</width>
+            <height>540</height>
+            <include>Animation_VerticalScrollBar</include>
+            <onleft>5</onleft>
+            <onright>3</onright>
+            <ondown>61</ondown>
+            <onup>61</onup>
+        </control>
+    </controls>
 </window>
