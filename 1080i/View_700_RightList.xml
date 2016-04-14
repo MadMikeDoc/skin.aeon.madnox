@@ -1569,16 +1569,6 @@
 				<visible>Skin.HasSetting(RightListShowBGMusic)</visible>
 			</control>
 			<!-- LOGO-->
-			<control type="image" id="656">
-				<left>10</left>
-				<top>30</top>
-				<width>590</width>
-				<height>264</height>
-				<aspectratio>keep</aspectratio>
-				<include>Animation_ListSlideLeft</include>
-				<texture background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist,,/logo.png]</texture>
-				<visible>Skin.HasSetting(rightlistlogoartist)</visible>
-			</control>
 			<control type="image">
 				<left>10</left>
 				<top>30</top>
@@ -1587,7 +1577,7 @@
 				<aspectratio>keep</aspectratio>
 				<include>Animation_ListSlideLeft</include>
 				<texture background="true">$INFO[Window(Home).Property(SkinHelper.Music.ClearLogo)]</texture>
-				<visible>Skin.HasSetting(rightlistlogoartist) + IsEmpty(Control.GetLabel(656))</visible>
+				<visible>Skin.HasSetting(rightlistlogoartist)</visible>
 			</control>
 			<!--Banner-->
 			<control type="group">

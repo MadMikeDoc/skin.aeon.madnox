@@ -20,8 +20,7 @@
 				<height>210</height>
 				<fadetime>100</fadetime>
 				<aspectratio align="left" aligny="bottom">keep</aspectratio>
-				<texture background="true">$INFO[Window(Home).Property(SkinHelper.Music.LogoArt)]</texture>
-				<!--texture background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist,,/logo.png]</texture-->
+				<texture background="true" fallback="empty.png">$INFO[Window(Home).Property(SkinHelper.Music.ClearLogo)]</texture>
 			</control>
 			<!-- End Artist Clearlogo -->
 			<!-- Fake Artist Clearlogo -->
@@ -37,7 +36,7 @@
 				<shadowcolor>black</shadowcolor>
 				<label>$INFO[ListItem.Artist]</label>
 				<scroll>true</scroll>
-				<visible>IsEmpty(Window(Home).Property(SkinHelper.Music.LogoArt))</visible>
+				<visible>IsEmpty(Window(Home).Property(SkinHelper.Music.ClearLogo))</visible>
 			</control>
 			<!-- End of Fake Artist Clearlogo -->
 			<!-- Album Info Box-->

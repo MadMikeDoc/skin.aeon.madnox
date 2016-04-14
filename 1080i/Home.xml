@@ -698,7 +698,7 @@
 					<width>500</width>
 					<height>4</height>
 					<texture>views/list_divider.png</texture>
-					<visible>Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath)) | !Skin.HasSetting(BelowMidLogo)</visible>
+					<visible>Substring(Control.GetLabel(8318),empty.png) | !Skin.HasSetting(BelowMidLogo)</visible>
 				</control>
 				<control type="image">
 					<animation effect="slide" start="-1250" end="-150" time="700" tween="cubic" delay="1100">WindowOpen</animation>
@@ -707,7 +707,7 @@
 					<width>500</width>
 					<height>4</height>
 					<texture>views/list_divider.png</texture>
-					<visible>Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath)) | !Skin.HasSetting(BelowMidLogo)</visible>
+					<visible>Substring(Control.GetLabel(8318),empty.png) | !Skin.HasSetting(BelowMidLogo)</visible>
 				</control>
 				<control type="image" id="8318">
 					<posx>0</posx>
@@ -715,13 +715,13 @@
 					<width>250</width>
 					<fadetime>400</fadetime>
 					<animation effect="fade" start="100" end="0" time="0" condition="Substring(Control.GetLabel(8318),empty.png)">Conditional</animation>
-					<texture background="true" fallback="empty.png">$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/logo.png]</texture>
+					<texture background="true" fallback="empty.png">$INFO[Window(Home).Property(SkinHelper.Music.ClearLogo)]</texture>
 					<aspectratio aligny="center" align="left">keep</aspectratio>
-					<visible>Skin.HasSetting(BelowMidLogo) + !IsEmpty(Skin.String(ArtistsLogosPath))</visible>
+					<visible>Skin.HasSetting(BelowMidLogo)</visible>
 					<animation effect="slide" time="560" start="-270,15" end="0,0" tween="back" easing="inout">VisibleChange</animation>
 				</control>
 				<control type="label">
-					<animation effect="slide" time="250" start="-270,10" end="0,0" tween="Back" easing="out" condition="Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath)) | !Skin.HasSetting(BelowMidLogo)">Conditional</animation>
+					<animation effect="slide" time="250" start="-270,10" end="0,0" tween="Back" easing="out" condition="Substring(Control.GetLabel(8318),empty.png) | !Skin.HasSetting(BelowMidLogo)">Conditional</animation>
 					<posx>0</posx>
 					<posy>0</posy>
 					<width>790</width>
@@ -732,7 +732,7 @@
 					<label>$INFO[MusicPlayer.Artist]</label>
 					<textcolor>$VAR[TitleColorVar]</textcolor>
 					<shadowcolor>black</shadowcolor>
-					<visible>Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath)) | !Skin.HasSetting(BelowMidLogo)</visible>
+					<visible>Substring(Control.GetLabel(8318),empty.png) | !Skin.HasSetting(BelowMidLogo)</visible>
 				</control>
 				<control type="image">
 					<animation effect="slide" start="-250" end="-150" time="700" tween="cubic" delay="1100">WindowOpen</animation>
