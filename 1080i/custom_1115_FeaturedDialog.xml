@@ -2,7 +2,8 @@
 <window id="1115" type="dialog">
 	<defaultcontrol>40</defaultcontrol>
 	<backgroundcolor>backgroundcolor</backgroundcolor>
-	<onload condition="!IsEmpty(Window(home).Property(FeaturedSetup))">ActivateWindow(1128)</onload>
+	<!--onload condition="!IsEmpty(Window(home).Property(FeaturedSetup))">ActivateWindow(1128)</onload-->
+	<onload condition="Window.Previous(SkinSettings)">ActivateWindow(1128)</onload>
 	<onload condition="Window.Previous(home)">SetFocus(5012)</onload>
 	<onload>SetFocus(5000)</onload>
 	<!-- <onunload>CancelAlarm(Tile,true)</onunload>
@@ -19,6 +20,7 @@
 			<include>HiddenObject</include>
 		</control>
 		<control type="button" id="5014">
+			<onfocus>SetProperty(Widget.Poster,episodes,Home)</onfocus>
 			<include>HiddenObject</include>
 			<include name="featuredOnFocus">
 				<param name="id">5002</param>
@@ -36,6 +38,7 @@
 			<visible>Control.HasFocus(5009)</visible>
 		</control>
 		<control type="button" id="5014">
+			<onfocus>SetProperty(Widget.Poster,movies,Home)</onfocus>
 			<include>HiddenObject</include>
 			<include name="featuredOnFocus">
 				<param name="id">5003</param>
@@ -53,6 +56,7 @@
 			<visible>Control.HasFocus(5011)</visible>
 		</control>
 		<control type="button" id="5014">
+			<onfocus>SetProperty(Widget.Poster,movies,Home)</onfocus>
 			<include>HiddenObject</include>
 			<include name="featuredOnFocus">
 				<param name="id">6002</param>
@@ -70,6 +74,7 @@
 			<visible>Control.HasFocus(6010)</visible>
 		</control>
 		<control type="button" id="5014">
+			<onfocus>SetProperty(Widget.Poster,movies,Home)</onfocus>
 			<include>HiddenObject</include>
 			<include name="featuredOnFocus">
 				<param name="id">6003</param>
@@ -87,6 +92,7 @@
 			<visible>Control.HasFocus(6011)</visible>
 		</control>
 		<control type="button" id="5014">
+			<onfocus>SetProperty(Widget.Poster,episodes,Home)</onfocus>
 			<include>HiddenObject</include>
 			<include name="featuredOnFocus">
 				<param name="id">7002</param>
@@ -104,6 +110,7 @@
 			<visible>Control.HasFocus(7010)</visible>
 		</control>
 		<control type="button" id="5014">
+			<onfocus>SetProperty(Widget.Poster,episodes,Home)</onfocus>
 			<include>HiddenObject</include>
 			<include name="featuredOnFocus">
 				<param name="id">7003</param>
@@ -121,6 +128,7 @@
 			<visible>Control.HasFocus(7003)</visible>
 		</control>
 		<control type="button" id="5014">
+			<onfocus>SetProperty(Widget.Poster,movies,Home)</onfocus>
 			<include>HiddenObject</include>
 			<include name="featuredOnFocus">
 				<param name="id">8002</param>
@@ -138,6 +146,7 @@
 			<visible>Control.HasFocus(8010)</visible>
 		</control>
 		<control type="button" id="5014">
+			<onfocus>SetProperty(Widget.Target,music,Home)</onfocus>
 			<include>HiddenObject</include>
 			<include name="featuredOnFocus">
 				<param name="id">8003</param>
@@ -155,6 +164,7 @@
 			<visible>Control.HasFocus(8003)</visible>
 		</control>
 		<control type="button" id="5014">
+			<onfocus>SetProperty(Widget.Target,music,Home)</onfocus>
 			<include>HiddenObject</include>
 			<include name="featuredOnFocus">
 				<param name="id">9003</param>
@@ -172,6 +182,7 @@
 			<visible>Control.HasFocus(9003)</visible>
 		</control>
 		<control type="button" id="5014">
+			<onfocus>SetProperty(Widget.Target,music,Home)</onfocus>
 			<include>HiddenObject</include>
 			<include name="featuredOnFocus">
 				<param name="id">9002</param>

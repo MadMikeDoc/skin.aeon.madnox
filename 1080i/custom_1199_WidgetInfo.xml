@@ -738,6 +738,7 @@
 					<include>WidgetInfoButtonsValues</include>
 					<label>208</label>
 					<onclick>PlayMedia($INFO[Window(Home).Property(Widget.FilePath)],noresume)</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
 					<onclick>Dialog.Close(1199)</onclick>
 					<oninfo>Dialog.Close(1199)</oninfo>
 					<visible>[!IsEmpty(Window(Home).Property(Widget.FilePath)) + !StringCompare(Window(Home).Property(Widget),trakt) + !StringCompare(Window(Home).Property(Widget),rt) + !StringCompare(Window(Home).Property(Widget),tmdb)] | SubString(Window(Home).Property(Widget.FilePath),playmovie)</visible>
@@ -747,6 +748,7 @@
 					<include>WidgetInfoButtonsValues</include>
 					<label>208</label>
 					<onclick>PlayMedia($ESCINFO[Window(Home).Property(Widget.FolderPath)],isdir)</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
 					<onclick>Dialog.Close(1199)</onclick>
 					<oninfo>Dialog.Close(1199)</oninfo>
 					<visible>IsEmpty(Window(Home).Property(Widget.FilePath)) + !StringCompare(Window(Home).Property(Widget),trakt) + !StringCompare(Window(Home).Property(Widget),rt) + !StringCompare(Window(Home).Property(Widget),tmdb) + !StringCompare(Window(Home).Property(Widget.Type),tvshows)</visible>
@@ -1173,6 +1175,7 @@
 					<include>WidgetInfoButtonsValues</include>
 					<label>208</label>
 					<onclick>PlayMedia($ESCINFO[Window(Home).Property(Widget.FilePath)],noresume)</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
 					<onclick>Dialog.Close(1199)</onclick>
 					<oninfo>Dialog.Close(1199)</oninfo>
 					<visible>!IsEmpty(Window(Home).Property(Widget.FilePath)) + [StringCompare(Window(Home).Property(Widget.Target),video) | StringCompare(Window(Home).Property(Widget.Target),music)] + !StringCompare(Window(Home).Property(Widget.Type),addon)</visible>
@@ -1182,6 +1185,7 @@
 					<include>WidgetInfoButtonsValues</include>
 					<label>208</label>
 					<onclick>PlayMedia($ESCINFO[Window(Home).Property(Widget.FolderPath)],isdir)</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
 					<onclick>Dialog.Close(1199)</onclick>
 					<oninfo>Dialog.Close(1199)</oninfo>
 					<visible>IsEmpty(Window(Home).Property(Widget.FilePath)) + [StringCompare(Window(Home).Property(Widget.Target),video) | StringCompare(Window(Home).Property(Widget.Target),music)] + !StringCompare(Window(Home).Property(Widget.Type),artists) + !StringCompare(Window(Home).Property(Widget.Type),addon)</visible>
