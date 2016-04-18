@@ -1366,8 +1366,8 @@
 				<left>1296</left>
 				<top>165</top>
 				<include>Animation_ListSlideRight</include>
-				<visible>![Control.IsVisible(40002) | Control.IsVisible(40003)] + !Container.Content(years) + !Container.Content(directors) + !Container.Content(episodes)</visible>
-				<visible>Skin.HasSetting(roundedcovers)</visible>
+				<visible>![Control.IsVisible(40002) | Control.IsVisible(40003)] + !Container.Content(years) + !Container.Content(directors) + !Container.Content(episodes) + !SubString(System.CurrentWindow,videos)</visible>
+				<visible>Skin.HasSetting(roundedcovers) + !SubString(ListItem.Path,comics)</visible>
 				<control type="image">
 					<left>-36</left>
 					<top>225</top>
@@ -1419,13 +1419,40 @@
 			</control>
 			
 			<control type="group">
+				<left>1296</left>
+				<top>165</top>
+				<include>Animation_ListSlideRight</include>
+				<visible>![Control.IsVisible(40002) | Control.IsVisible(40003)] + !Container.Content(years) + !Container.Content(directors) + !Container.Content(episodes)</visible>
+				<visible>Skin.HasSetting(roundedcovers) + SubString(ListItem.Path,comics)</visible>
+				<control type="image">
+					<left>-19</left>
+					<top>-40</top>
+					<width>550</width>
+					<height>825</height>
+					<aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
+					<texture background="true" diffuse="thumbs/cdcover_mask.png" fallback="DefaultAlbumCover.png">$VAR[ListPosterVar]</texture>
+					<fadetime>IconCrossfadeTime2</fadetime>
+				</control>
+				<control type="image">
+					<left>-19</left>
+					<top>786</top>
+					<width>550</width>
+					<height>825</height>
+					<aspectratio scalediffuse="false" aligny="top">keep</aspectratio>
+					<texture diffuse="thumbs/cdcover_mask_reflect.png" flipy="true" background="true" fallback="DefaultAlbumCover.png">$VAR[ListPosterVar]</texture>
+					<fadetime>IconCrossfadeTime2</fadetime>
+					<colordiffuse>d0FFFFFF</colordiffuse>
+				</control>
+			</control>
+				
+			<control type="group">
 				<left>1256</left>
 				<top>365</top>
 				<include>Animation_ListSlideRight</include>
-				<visible>![Control.IsVisible(40002) | Control.IsVisible(40003)] + Container.Content(episodes)</visible>
+				<visible>![Control.IsVisible(40002) | Control.IsVisible(40003)] + [Container.Content(episodes) | SubString(System.CurrentWindow,videos)]</visible>
 				<visible>Skin.HasSetting(roundedcovers)</visible>
 				<control type="image">
-					<left>-36</left>
+					<left>-39</left>
 					<top>225</top>
 					<width>702</width>
 					<height>378</height>
@@ -1478,8 +1505,8 @@
 				<left>1296</left>
 				<top>165</top>
 				<include>Animation_ListSlideRight</include>
-				<visible>![Control.IsVisible(40002) | Control.IsVisible(40003)] + !Container.Content(years) + !Container.Content(directors) + !Container.Content(episodes)</visible>
-				<visible>!Skin.HasSetting(roundedcovers)</visible>
+				<visible>![Control.IsVisible(40002) | Control.IsVisible(40003)] + !Container.Content(years) + !Container.Content(directors) + !Container.Content(episodes) + !SubString(System.CurrentWindow,videos)</visible>
+				<visible>!Skin.HasSetting(roundedcovers) + !SubString(ListItem.Path,comics)</visible>
 				<control type="image">
 					<top>255</top>
 					<width>510</width>
@@ -1508,10 +1535,37 @@
 			</control>
 			
 			<control type="group">
+				<left>1296</left>
+				<top>165</top>
+				<include>Animation_ListSlideRight</include>
+				<visible>![Control.IsVisible(40002) | Control.IsVisible(40003)] + !Container.Content(years) + !Container.Content(directors) + !Container.Content(episodes)</visible>
+				<visible>!Skin.HasSetting(roundedcovers) + SubString(ListItem.Path,comics)</visible>
+				<control type="image">
+					<left>-19</left>
+					<top>-40</top>
+					<width>550</width>
+					<height>825</height>
+					<aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
+					<texture background="true" fallback="DefaultAlbumCover.png">$VAR[ListPosterVar]</texture>
+					<fadetime>IconCrossfadeTime2</fadetime>
+				</control>
+				<control type="image">
+					<left>-19</left>
+					<top>786</top>
+					<width>550</width>
+					<height>825</height>
+					<aspectratio scalediffuse="false" aligny="top">keep</aspectratio>
+					<texture diffuse="thumbs/cdcover_mask_reflect.png"  flipy="true" background="true" fallback="DefaultAlbumCover.png">$VAR[ListPosterVar]</texture>
+					<fadetime>IconCrossfadeTime2</fadetime>
+					<colordiffuse>d0FFFFFF</colordiffuse>
+				</control>
+			</control>
+			
+			<control type="group">
 				<left>1256</left>
 				<top>365</top>
 				<include>Animation_ListSlideRight</include>
-				<visible>![Control.IsVisible(40002) | Control.IsVisible(40003)] + Container.Content(episodes)</visible>
+				<visible>![Control.IsVisible(40002) | Control.IsVisible(40003)] + [Container.Content(episodes) | SubString(System.CurrentWindow,videos)]</visible>
 				<visible>!Skin.HasSetting(roundedcovers)</visible>
 				<control type="image">
 					<top>250</top>
