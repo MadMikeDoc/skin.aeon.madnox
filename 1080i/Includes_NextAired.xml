@@ -82,6 +82,20 @@
 				<texture background="true">$INFO[ListItem.Property(Art(clearlogo))]</texture>
 				<visible>Skin.HasSetting(NextAiredLogo)</visible>
 			</control>
+			<control type="label">
+				<left>13</left>
+				<top>20</top>
+				<width>405</width>
+				<height>190</height>
+				<font>font_musicviz_small</font>
+				<align>Left</align>
+				<textoffsetx>15</textoffsetx>
+				<textcolor>white2</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<label>$INFO[ListItem.Label]</label>
+				<scroll>true</scroll>
+				<visible>Skin.HasSetting(NextAiredLogo) + IsEmpty(ListItem.Property(Art(clearlogo)))</visible>
+			</control>
 			<control type="group">
 				<top>-30</top>
 				<control type="image">
