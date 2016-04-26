@@ -56,7 +56,7 @@
 				<left>375</left>
 				<top>292</top>
 				<width>1172</width>
-				<height>450</height>
+				<height>550</height>
 				<aligny>center</aligny>
 				<pagecontrol>60</pagecontrol>
 				<onleft>60</onleft>
@@ -138,8 +138,17 @@
 					<onclick condition="!Skin.HasSetting(biggergap) + !Skin.HasSetting(mainmenuicons)">Skin.SetBool(mainmenuicons)</onclick>
 					<onclick condition="Skin.HasSetting(mainmenuicons)">Skin.SetBool(biggergap)</onclick>
 					<onclick condition="Skin.HasSetting(mainmenuicons)">Skin.Reset(mainmenuicons)</onclick>
+					<onclick condition="Skin.HasSetting(mainmenuicons)">Skin.Reset(MenuLargeIcons)</onclick>
 					<onclick condition="Skin.HasSetting(biggergap)">Skin.Reset(biggergap)</onclick>
 					<visible>Stringcompare(Window.Property(actualItem),MainMenu)</visible>
+				</control>
+				<control type="radiobutton" id="491">
+					<discription>Large focus Label</discription>
+					<label>31470</label>
+					<include>Objects_CommonSettingsButton</include>
+					<selected>Skin.HasSetting(MenuLargeIcons)</selected>
+					<onclick>Skin.ToggleSetting(MenuLargeIcons)</onclick>
+					<visible>Stringcompare(Window.Property(actualItem),MainMenu) + Skin.HasSetting(mainmenuicons)</visible>
 				</control>
 				<control type="radiobutton" id="468">
 					<label>$LOCALIZE[31699]</label>

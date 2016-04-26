@@ -75,6 +75,19 @@
 		</itemlayout>
 		<focusedlayout height="225" width="250" condition="Skin.HasSetting(mainmenuicons)">
 			<control type="group">
+				<visible>Skin.HasSetting(MenuLargeicons)</visible>
+				<animation effect="zoom" start="50" end="100" center="296,108" delay="160" tween="back" time="240">Focus</animation>
+				<control type="image">
+					<left>214</left>
+					<top>5</top>
+					<width>160</width>
+					<height>160</height>
+					<texture background="true">$INFO[ListItem.Icon]</texture>
+					<!-- <colordiffuse>$VAR[MainMenuFontColorVar]</colordiffuse> -->
+				</control>
+			</control>
+			<control type="group">
+				<visible>!Skin.HasSetting(MenuLargeicons)</visible>
 				<animation effect="zoom" start="80" end="100" center="296,108" delay="160" tween="back" time="240">Focus</animation>
 				<control type="image">
 					<left>252</left>
