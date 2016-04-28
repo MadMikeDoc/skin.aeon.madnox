@@ -555,13 +555,13 @@
 						<visible>Player.HasMedia + System.IdleTime(8)</visible>
 						<animation effect="fade" end="100" time="840">Visible</animation>
 					</control>
-					<include condition="Skin.HasSetting(mainmenufixedlist)">MainMenuFixedList</include>
-					<include condition="!Skin.HasSetting(mainmenufixedlist)">MainMenuWrapList</include>
 					<control type="group">
 						<animation effect="zoom" end="125,99" center="960,500" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(smallermainmenu)">Conditional</animation>
 						<include>Furniture_ClassicHomeGradient</include>
 						<include>Neon_Home</include>
 					</control>
+						<include condition="Skin.HasSetting(mainmenufixedlist)">MainMenuFixedList</include>
+						<include condition="!Skin.HasSetting(mainmenufixedlist)">MainMenuWrapList</include>
 				</control>
 			</control>
 		</control>
