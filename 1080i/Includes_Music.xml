@@ -48,11 +48,27 @@
 					<fadetime>400</fadetime>
 					<visible>!IsEmpty(Skin.String(ArtistsLogosPath))</visible>
 					<visible>![Control.IsVisible(503) + Skin.HasSetting(landscapeonelogo)]</visible>
-					<visible>[Container.Content(artists) + !Skin.HasSetting(artistslogosfloor)]| Container.Content(albums)</visible>
+					<visible>[Container.Content(artists) + !Skin.HasSetting(artistslogosfloor)] | Container.Content(albums)</visible>
 				</control>
 				<control type="group">
 					<animation effect="slide" end="0,0" time="0" condition="Stringcompare(Control.GetLabel(4420),fanart)">Conditional</animation>
 					<animation effect="slide" end="445,0" reversible="false" condition="StringCompare(Control.GetLabel(4420),fourthumbs)">Conditional</animation>
+					<control type="group">
+						<left>832</left>
+						<top>47</top>
+						<!--Extrafanart-->
+						<control type="multiimage" id="8801">
+							<left>127</left>
+							<top>15</top>
+							<width>776</width>
+							<height>435</height>
+							<aspectratio>scale</aspectratio>
+							<imagepath background="true">$VAR[MusicExtraFanartVar]</imagepath>
+							<bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
+							<bordersize>7</bordersize>
+							<visible>Stringcompare(Control.GetLabel(4420),fanart) + Skin.HasSetting(MusicInfoPanelExtraFanart)</visible>
+						</control>
+					</control>
 					<control type="group">
 						<left>832</left>
 						<top>47</top>
@@ -64,9 +80,8 @@
 							<height>435</height>
 							<aspectratio>scale</aspectratio>
 							<texture background="true" fallback="special://skin/backgrounds/fallback_music.jpg">$INFO[ListItem.Art(fanart)]</texture>
-							<bordertexture border="7">thumbs/thumbshadow.png</bordertexture>
-							<bordersize>7</bordersize>
-							<visible>Stringcompare(Control.GetLabel(4420),fanart)</visible>
+							<include>Animation_VisibleChange200</include>
+							<visible>Stringcompare(Control.GetLabel(4420),fanart) + [!Skin.HasSetting(MusicInfoPanelExtraFanart) | IsEmpty(Control.GetLabel(8801))]</visible>
 						</control>
 					</control>
 					<control type="group">
