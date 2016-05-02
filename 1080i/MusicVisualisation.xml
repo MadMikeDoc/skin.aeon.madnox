@@ -70,7 +70,7 @@
 					<timeperimage>10000</timeperimage> <!-- option for time? -->
 					<aspectratio>keep</aspectratio>
 					<include>MusicVizBG</include>
-					<imagepath background="true">$INFO[Window.Property(ArtistSlideshow)]</imagepath>
+					<imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
 					<visible>IsEmpty(Window.Property(ArtistSlideshowRefresh))</visible>
 					<fadetime>2000</fadetime>
 					<randomize>true</randomize>
@@ -1120,7 +1120,7 @@
 				<align>right</align>
 				<scroll>true</scroll>
 				<font>Font_MainClassic2.low</font>
-				<visible>!Skin.HasSetting(AltMusicVizLayoutArtist) + Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath))</visible>
+				<visible>!Skin.HasSetting(AltMusicVizLayoutArtist) + Substring(Control.GetLabel(8318),empty.png)</visible>
 				<label>$INFO[MusicPlayer.Artist]</label>
 				<textcolor>white</textcolor>
 				<shadowcolor>black</shadowcolor>
