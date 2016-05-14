@@ -1367,7 +1367,7 @@
 				<top>165</top>
 				<include>Animation_ListSlideRight</include>
 				<visible>![Control.IsVisible(40002) | Control.IsVisible(40003)] + !Container.Content(years) + !Container.Content(directors) + !Container.Content(episodes)</visible>
-				<visible>Skin.HasSetting(roundedcovers) + !SubString(ListItem.Path,comics)</visible>
+				<visible>Skin.HasSetting(roundedcovers) + !SubString(ListItem.Path,comics) + !Container.Content(files)</visible>
 				<control type="image">
 					<left>-36</left>
 					<top>225</top>
@@ -1423,7 +1423,7 @@
 				<top>165</top>
 				<include>Animation_ListSlideRight</include>
 				<visible>![Control.IsVisible(40002) | Control.IsVisible(40003)] + !Container.Content(years) + !Container.Content(directors) + !Container.Content(episodes)</visible>
-				<visible>Skin.HasSetting(roundedcovers) + SubString(ListItem.Path,comics)</visible>
+				<visible>Skin.HasSetting(roundedcovers) + [SubString(ListItem.Path,comics) | Container.Content(files)]</visible>
 				<control type="image">
 					<left>-19</left>
 					<top>-40</top>
@@ -1506,7 +1506,7 @@
 				<top>165</top>
 				<include>Animation_ListSlideRight</include>
 				<visible>![Control.IsVisible(40002) | Control.IsVisible(40003)] + !Container.Content(years) + !Container.Content(directors) + !Container.Content(episodes)</visible>
-				<visible>!Skin.HasSetting(roundedcovers) + !SubString(ListItem.Path,comics)</visible>
+				<visible>!Skin.HasSetting(roundedcovers) + !SubString(ListItem.Path,comics) + !Container.Content(files)</visible>
 				<control type="image">
 					<top>255</top>
 					<width>510</width>
@@ -1539,7 +1539,7 @@
 				<top>165</top>
 				<include>Animation_ListSlideRight</include>
 				<visible>![Control.IsVisible(40002) | Control.IsVisible(40003)] + !Container.Content(years) + !Container.Content(directors) + !Container.Content(episodes)</visible>
-				<visible>!Skin.HasSetting(roundedcovers) + SubString(ListItem.Path,comics)</visible>
+				<visible>!Skin.HasSetting(roundedcovers) + [SubString(ListItem.Path,comics) | Container.Content(files)]</visible>
 				<control type="image">
 					<left>-19</left>
 					<top>-40</top>
