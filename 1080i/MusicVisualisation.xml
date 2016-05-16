@@ -169,7 +169,6 @@
 			<include>MusicInfoModePanels</include>
 			<visible>!Window.IsVisible(musicosd) + Skin.HasSetting(musicvisinfomode)</visible>
 		</control>
-		
 		<control type="group">
 			<posy>854</posy>
 			<width>1920</width>
@@ -258,7 +257,7 @@
 					<posx>262</posx>
 					<posy>-243</posy>
 					<visible>Skin.HasSetting(cdartinvis)</visible>
-					<texture background="true">$INFO[Player.FolderPath]cdart.png</texture>
+					<texture background="true">$INFO[Window(Home).Property(SkinHelper.Player.Music.DiscArt)]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
 				<control type="image" id="3334">
@@ -906,7 +905,7 @@
 					<posx>262</posx>
 					<posy>-243</posy>
 					<visible>Skin.HasSetting(cdartinvis)</visible>
-					<texture background="true">$INFO[Player.FolderPath]cdart.png</texture>
+					<texture background="true">$INFO[Window(Home).Property(SkinHelper.Player.Music.DiscArt)]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
 				<control type="image">
