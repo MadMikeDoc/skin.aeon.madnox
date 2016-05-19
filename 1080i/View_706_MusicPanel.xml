@@ -714,7 +714,8 @@
 					<autoscroll time="1500" delay="4000" repeat="5000"></autoscroll>
 					<visible>Container.Content(artists)</visible>
 				</control>
-				<control type="image"><!-- INFO BG-->
+				<!-- INFO BG-->
+				<control type="image">
 					<animation effect="slide" start="0,0" end="290,-800" time="500" tween="cubic" delay="50" condition="Skin.HasSetting(MusicPanelDown)">Conditional</animation>
 					<animation effect="slide" start="0,0" end="0,-100" time="500" tween="cubic" delay="50" condition="Skin.HasSetting(MusicPanelDown) + [Skin.HasSetting(MusicPanelBannerRight) | Skin.HasSetting(MusicPanelBannerRightAlbums)]">Conditional</animation>
 					<animation effect="fade" time="400">VisibleChange</animation>
@@ -750,7 +751,8 @@
 				<top>480</top>
 				<width>900</width>
 				<height>100</height>
-				<control type="image"><!--MoodBG Songs-->
+				<!--MoodBG Songs-->
+				<control type="image">
 					<animation effect="fade" start="95" end="0" time="400" condition="Container.Content(songs)">Conditional</animation>
 					<left>80</left>
 					<top>-10</top>
@@ -787,7 +789,7 @@
 					<texture>views/list_divider.png</texture>
 					<visible>Container.Content(songs)</visible>
 				</control>
-			<!--Various Artist Name-->
+				<!--Various Artist Name-->
 				<control type="label">
 						<visible>Container.Content(songs) + Stringcompare(ListItem.AlbumArtist,Various Artists)</visible>
 						<left>140</left>
@@ -805,7 +807,8 @@
 						<font>font.ml.28</font>
 						<label>$INFO[ListItem.Artist]</label>
 					</control>
-				<control type="grouplist"><!-- Genre | Duration-->
+				<!-- Genre | Duration-->
+				<control type="grouplist">
 					<visible>Skin.HasSetting(MusicPanelMood) | Container.Content(songs)</visible>
 					<animation effect="slide" start="0,0" end="20,230" time="200" tween="cubic" delay="50" condition="Container.Content(songs)">Conditional</animation>
 					<left>120</left>
@@ -847,7 +850,8 @@
 						<visible>Container.Content(songs)</visible>
 					</control>
 				</control>
-				<control type="grouplist"><!-- Mood | Last Played-->
+				<!-- Mood | Last Played-->
+				<control type="grouplist">
 					<visible>Skin.HasSetting(MusicPanelMood) | Container.Content(songs)</visible>
 					<animation effect="slide" start="0,0" end="20,285" time="200" tween="cubic" delay="50" condition="Container.Content(songs)">Conditional</animation>
 					<left>120</left>
@@ -890,7 +894,8 @@
 						<visible>Container.Content(songs)</visible>
 					</control>
 				</control>
-				<control type="grouplist"><!--Style | Playcount-->
+				<!--Style | Playcount-->
+				<control type="grouplist">
 					<visible>Skin.HasSetting(MusicPanelMood) | Container.Content(songs)</visible>
 					<animation effect="slide" start="0,0" end="-350,263" time="200" tween="cubic" delay="50" condition="Container.Content(songs)">Conditional</animation>
 					<left>490</left>
@@ -1081,6 +1086,7 @@
 					</control>
 				</focusedlayout>
 			</control>
+		<!--Scrollbar-->
 			<control type="scrollbar" id="60">
 				<left>1106</left>
 				<top>280</top>
