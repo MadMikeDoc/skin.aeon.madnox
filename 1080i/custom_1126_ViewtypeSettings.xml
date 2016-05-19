@@ -676,8 +676,122 @@
 					<selected>Skin.HasSetting(rightlistCD)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + [Container.Content(Albums) | Container.Content(songs)]</visible>
 				</control>
-
-				<!--MAD - End of Right List options -->
+<!--MAD - End of Right List options -->
+<!--Moo - Start of MusicPanel options -->
+				<control type="radiobutton" id="70601">
+					<description>Move Up</description>
+					<label>31472</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(MusicPanelDown)</onclick>
+					<selected>!Skin.HasSetting(MusicPanelDown)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),MusicPanel)</visible>
+				</control>
+				<control type="radiobutton" id="70602">
+					<description>Show Info</description>
+					<label>31473</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(MusicPanelInfo)</onclick>
+					<selected>Skin.HasSetting(MusicPanelInfo)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),MusicPanel)</visible>
+				</control>
+				<control type="radiobutton" id="70603">
+					<description>Show Genre|Style|Mood</description>
+					<label>31474</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(MusicPanelMood)</onclick>
+					<!--onclick>Skin.Reset(MusicPanelDown)</onclick-->
+					<selected>Skin.HasSetting(MusicPanelMood)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),MusicPanel) + !Container.Content(songs)</visible>
+				</control>
+				<control type="radiobutton" id="70605">
+					<description>Show Next Artist </description>
+					<label>31476</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(MusicPanelNextIconsArtists)</onclick>
+					<!--onclick>Skin.Reset(MusicPanelDown)</onclick-->
+					<selected>Skin.HasSetting(MusicPanelNextIconsArtists)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),MusicPanel) + Container.Content(artists)</visible>
+				</control>
+				<control type="radiobutton" id="706051">
+					<description>Show Next Albums</description>
+					<label>31480</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(MusicPanelNextIconsAlbums)</onclick>
+					<!--onclick>Skin.Reset(MusicPanelDown)</onclick-->
+					<selected>Skin.HasSetting(MusicPanelNextIconsAlbums)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),MusicPanel) + Container.Content(albums)</visible>
+				</control>
+				<control type="radiobutton" id="70606">
+					<description>Logo</description>
+					<label>31481</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(MusicPanelLogo)</onclick>
+					<!--onclick>Skin.Reset(MusicPanelDown)</onclick-->
+					<selected>Skin.HasSetting(MusicPanelLogo)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),MusicPanel)</visible>
+				</control>
+				<control type="radiobutton" id="70607">
+					<description>Banner</description>
+					<label>31485</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(MusicPanelBanner)</onclick>
+					<onclick>Skin.Reset(MusicPanelBannerRight)</onclick>
+					<selected>Skin.HasSetting(MusicPanelBanner)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),MusicPanel) + Container.Content(artists)</visible>
+				</control>
+				<control type="radiobutton" id="70608">
+					<description>Banner Right</description>
+					<label>31486</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(MusicPanelBannerRight)</onclick>
+					<!--onclick>Skin.Reset(MusicPanelDown)</onclick-->
+					<selected>Skin.HasSetting(MusicPanelBannerRight)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),MusicPanel) + Skin.HasSetting(MusicPanelBanner) + Skin.HasSetting(MusicPanelDown) + Container.Content(artists)</visible>
+				</control>
+				<control type="radiobutton" id="706071">
+					<description>Banner Albums Songs</description>
+					<label>Show Banner</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(MusicPanelBannerAlbums)</onclick>
+					<onclick>Skin.Reset(MusicPanelBannerRightAlbums)</onclick>
+					<selected>Skin.HasSetting(MusicPanelBannerAlbums)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),MusicPanel) + !Container.Content(artists)</visible>
+				</control>
+				<control type="radiobutton" id="706081">
+					<description>Banner Right Albums</description>
+					<label>31486</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(MusicPanelBannerRightAlbums)</onclick>
+					<!--onclick>Skin.Reset(MusicPanelDown)</onclick-->
+					<selected>Skin.HasSetting(MusicPanelBannerRightAlbums)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),MusicPanel) + Skin.HasSetting(MusicPanelBannerAlbums) + Skin.HasSetting(MusicPanelDown) + !Container.Content(artists)</visible>
+				</control>
+				<control type="radiobutton" id="70604">
+					<description>round cover</description>
+					<label>31475</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(MusicPanelRound)</onclick>
+					<!--onclick>Skin.Reset(MusicPanelDown)</onclick-->
+					<selected>Skin.HasSetting(MusicPanelRound)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),MusicPanel)</visible>
+				</control>
+				<control type="radiobutton" id="70609">
+					<description>vinyl</description>
+					<label>31487</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(MusicPanelvinyl)</onclick>
+					<selected>Skin.HasSetting(MusicPanelvinyl)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),MusicPanel) + !Container.Content(artists)</visible>
+				</control>
+				<!--control type="radiobutton" id="70609">
+					<description>New Texture</description>
+					<label>Alternative Texture</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(MusicPanelNewTexture)</onclick>
+					<selected>Skin.HasSetting(MusicPanelNewTexture)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),MusicPanel)</visible>
+				</control-->
+				<!--Moo - End of MusicPanel options -->
 				<!--MAD - KodiFlix Options -->
 				<control type="button" id="17085">
 					<description>KodiFlix Options</description>
