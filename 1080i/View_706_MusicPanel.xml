@@ -89,10 +89,10 @@
 		<!-- "Top" Artist Art-->
 			<control type="grouplist">
 				<visible>Skin.HasSetting(MusicPanelNextIconsArtists) + Container.Content(artists)</visible>
-				<animation effect="slide" start="0,0" end="0,-200" time="200" condition="!Skin.HasSetting(MusicPanelDown) + Container.Content(Albums)">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,-300" time="200" condition="!Skin.HasSetting(MusicPanelDown) + !Container.Content(Albums)">Conditional</animation>
-				<animation effect="slide" start="0,0" end="100,120" time="200" condition="Container.Content(Albums)">Conditional</animation>
-				<animation effect="zoom" start="100,100" end="110,100" time="200" condition="Container.Content(Albums)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-200" time="200" condition="!Skin.HasSetting(MusicPanelDown) + Container.Content(albums)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-300" time="200" condition="!Skin.HasSetting(MusicPanelDown) + !Container.Content(albums)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="100,120" time="200" condition="Container.Content(albums)">Conditional</animation>
+				<animation effect="zoom" start="100,100" end="110,100" time="200" condition="Container.Content(albums)">Conditional</animation>
 				<left>150</left>
 				<top>400</top>
 				<width>1200</width>
@@ -137,10 +137,10 @@
 		<!-- "Top" Artist Art overlay-->
 			<control type="group">
 				<visible>Skin.HasSetting(MusicPanelNextIconsArtists) + Container.Content(artists)</visible>
-				<animation effect="slide" start="0,0" end="0,-200" time="200" condition="!Skin.HasSetting(MusicPanelDown) + Container.Content(Albums)">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,-300" time="200" condition="!Skin.HasSetting(MusicPanelDown) + !Container.Content(Albums)">Conditional</animation>
-				<animation effect="slide" start="0,0" end="100,120" time="200" condition="Container.Content(Albums)">Conditional</animation>
-				<animation effect="zoom" start="100,100" end="110,100" time="200" condition="Container.Content(Albums)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-200" time="200" condition="!Skin.HasSetting(MusicPanelDown) + Container.Content(albums)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-300" time="200" condition="!Skin.HasSetting(MusicPanelDown) + !Container.Content(albums)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="100,120" time="200" condition="Container.Content(albums)">Conditional</animation>
+				<animation effect="zoom" start="100,100" end="110,100" time="200" condition="Container.Content(albums)">Conditional</animation>
 				<left>150</left>
 				<top>400</top>
 				<width>1200</width>
@@ -284,7 +284,7 @@
 		<!-- "Bottom" Artist Art-->
 			<control type="grouplist">
 				<visible>Skin.HasSetting(MusicPanelNextIconsArtists) + !Skin.HasSetting(MusicPanelDown) + Container.Content(artists)</visible>
-				<animation effect="zoom" start="100,100" end="130,130" time="200" tween="cubic" condition="Container.Content(Albums)">Conditional</animation>
+				<animation effect="zoom" start="100,100" end="130,130" time="200" tween="cubic" condition="Container.Content(albums)">Conditional</animation>
 				<left>120</left>
 				<top>650</top>
 				<width>1200</width>
@@ -331,7 +331,7 @@
 		<!-- "Bottom" Artist Art overlay-->
 			<control type="group">
 				<visible>Skin.HasSetting(MusicPanelNextIconsArtists) + !Skin.HasSetting(MusicPanelDown) + Container.Content(artists)</visible>
-				<animation effect="zoom" start="100,100" end="130,130" time="200" tween="cubic" condition="Container.Content(Albums)">Conditional</animation>
+				<animation effect="zoom" start="100,100" end="130,130" time="200" tween="cubic" condition="Container.Content(albums)">Conditional</animation>
 				<left>120</left>
 				<top>650</top>
 				<width>1200</width>
@@ -386,7 +386,7 @@
 		<!-- "Bottom" Album Art-->
 			<control type="grouplist">
 				<visible>Skin.HasSetting(MusicPanelNextIconsAlbums) + !Skin.HasSetting(MusicPanelDown) + Container.Content(albums)</visible>
-				<animation effect="zoom" start="100,100" end="130,130" time="200" tween="cubic" condition="Container.Content(Albums)">Conditional</animation>
+				<animation effect="zoom" start="100,100" end="130,130" time="200" tween="cubic" condition="Container.Content(albums)">Conditional</animation>
 				<left>120</left>
 				<top>650</top>
 				<width>1200</width>
@@ -433,7 +433,7 @@
 		<!-- "Bottom" Album Art overlay-->
 			<control type="group">
 				<visible>Skin.HasSetting(MusicPanelNextIconsAlbums) + !Skin.HasSetting(MusicPanelDown) + Container.Content(albums)</visible>
-				<animation effect="zoom" start="100,100" end="130,130" time="200" tween="cubic" condition="Container.Content(Albums)">Conditional</animation>
+				<animation effect="zoom" start="100,100" end="130,130" time="200" tween="cubic" condition="Container.Content(albums)">Conditional</animation>
 				<left>120</left>
 				<top>650</top>
 				<width>1200</width>
@@ -511,7 +511,7 @@
 				<height>380</height>
 				<aspectratio align="right">keep</aspectratio>
 				<texture background="true">$VAR[colorcdARTVar]</texture>
-				<visible>!Skin.HasSetting(vinylart) + !Skin.HasSetting(MusicPanelvinyl) + !Skin.HasSetting(MusicFakeDisc) + !Container.Content(Artists)</visible>
+				<visible>!Skin.HasSetting(vinylart) + !Skin.HasSetting(MusicPanelvinyl) + !Skin.HasSetting(MusicFakeDisc) + !Container.Content(artists)</visible>
 				<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
 				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
 				<include>Animation_CommonFade</include>
@@ -525,7 +525,7 @@
 				<font>Hand_28</font>
 				<aligny>top</aligny>
 				<label>[CR] $INFO[ListItem.AlbumArtist]</label>
-				<visible>!Skin.HasSetting(vinylart) + !Skin.HasSetting(MusicPanelvinyl) + !Skin.HasSetting(MusicFakeDisc) + !Container.Content(Artists)</visible>
+				<visible>!Skin.HasSetting(vinylart) + !Skin.HasSetting(MusicPanelvinyl) + !Skin.HasSetting(MusicFakeDisc) + !Container.Content(artists)</visible>
 				<textcolor>black</textcolor>
 				<wrapmultiline>true</wrapmultiline>
 				<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
@@ -541,7 +541,7 @@
 				<font>Hand_28</font>
 				<aligny>top</aligny>
 				<label>[CR][CR][CR][CR][CR][CR][CR][CR] $INFO[ListItem.Album]</label>
-				<visible>!Skin.HasSetting(vinylart) + !Skin.HasSetting(MusicPanelvinyl) + !Skin.HasSetting(MusicFakeDisc) + !Container.Content(Artists)</visible>
+				<visible>!Skin.HasSetting(vinylart) + !Skin.HasSetting(MusicPanelvinyl) + !Skin.HasSetting(MusicFakeDisc) + !Container.Content(artists)</visible>
 				<textcolor>black</textcolor>
 				<wrapmultiline>true</wrapmultiline>
 				<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
@@ -555,7 +555,7 @@
 				<width>380</width>
 				<height>380</height>
 				<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$VAR[ListAlbumVar]</texture>
-				<visible>IsEmpty(SkinHelper.Music.DiscArt) + Skin.HasSetting(vinylart) + Skin.HasSetting(MusicFakeDisc) + !Container.Content(Artists)</visible>
+				<visible>IsEmpty(SkinHelper.Music.DiscArt) + Skin.HasSetting(vinylart) + Skin.HasSetting(MusicFakeDisc) + !Container.Content(artists)</visible>
 				<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
 				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
 			</control>
@@ -565,7 +565,7 @@
 				<width>380</width>
 				<height>380</height>
 				<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$VAR[ListAlbumVar]</texture>
-				<visible>IsEmpty(SkinHelper.Music.DiscArt) + !Skin.HasSetting(vinylart) + Skin.HasSetting(MusicFakeDisc) + !Container.Content(Artists)</visible>
+				<visible>IsEmpty(SkinHelper.Music.DiscArt) + !Skin.HasSetting(vinylart) + Skin.HasSetting(MusicFakeDisc) + !Container.Content(artists)</visible>
 				<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album) + !IsEmpty(ListItem.Thumb) + Player.HasAudio">Conditional</animation>
 				<animation effect="rotate" end="-360" center="auto" time="2000" loop="false" delay="1500" reversible="false" condition="!Container.OnNext + !Container.OnPrevious + !IsEmpty(ListItem.Thumb) + !Container.Content(songs)">Conditional</animation>
 			</control>
