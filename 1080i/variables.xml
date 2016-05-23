@@ -5493,43 +5493,68 @@
 		<value condition="VideoPlayer.Content(episodes)">S$VAR[VideoSeasonVar]E$VAR[VideoEpisodeVar] - $INFO[VideoPlayer.Title]</value>
 	</variable>
 	<!-- Music Genre/Style/Mood/Playcount-->
-	<variable name="MusicInfoLabel1Var">
-		<value condition="Container.Content(songs)">$INFO[ListItem.Duration]</value>
+	<variable name="MusicGenreVar">
+		<value condition="Container.Content(songs)">$INFO[ListItem.Genre]</value>
 		<value condition="Container.Content(albums)">$INFO[ListItem.Property(Album_Genre)]</value>
 		<value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Genre)]</value>
 		<value condition="Container.Content(addons)">$INFO[ListItem.Property(Addon.Creator)]</value>
 		<value condition="[Window.IsActive(programs) + !Container.Content(addons)]">$INFO[ListItem.Writer]</value>
 	</variable>
-	<variable name="MusicInfoLabel2Var">
-		<value condition="Container.Content(songs) + IsEmpty(Container.ListItem.PlayCount)">0</value>
-		<value condition="Container.Content(songs)">$INFO[ListItem.PlayCount]</value>
+	<variable name="MusicStyleLastPlayedVar">
+		<value condition="Container.Content(songs)">$INFO[ListItem.LastPlayed]</value>
 		<value condition="Container.Content(albums)">$INFO[ListItem.Property(Album_Style)]</value>
 		<value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Style)]</value>
 		<value condition="Container.Content(addons)">$INFO[ListItem.Property(Addon.Creator)]</value>
 		<value condition="[Window.IsActive(programs) + !Container.Content(addons)]">$INFO[ListItem.Writer]</value>
 	</variable>
-	<variable name="MusicInfoLabel3Var">
-		<value condition="Container.Content(songs)">$INFO[ListItem.LastPlayed]</value>
+	<variable name="MusicMoodPlaycountVar">
+		<value condition="Container.Content(songs) + IsEmpty(Container.ListItem.PlayCount)">0</value>
+		<value condition="Container.Content(songs)">$INFO[ListItem.PlayCount]</value>
 		<value condition="Container.Content(albums)">$INFO[ListItem.Property(Album_Mood)]</value>
 		<value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Mood)]</value>
 		<value condition="Container.Content(addons)">$INFO[ListItem.Property(Addon.Creator)]</value>
 		<value condition="[Window.IsActive(programs) + !Container.Content(addons)]">$INFO[ListItem.Writer]</value><value condition="Container.Content(addons)">$LOCALIZE[21863]:</value>
 	</variable>
-	<variable name="MusicInfoTextLabel1Var">
-		<value condition="Container.Content(songs)">Duration : </value>
-		<value condition="Container.Content(addons)">$LOCALIZE[21863] : </value>
-		<value>$LOCALIZE[515]:</value>
-	</variable>
-	<variable name="MusicInfoTextLabel2Var">
-		<value condition="Container.Content(songs)">Playcount : </value>
-		<value condition="Container.Content(albums) | Container.Content(artists)">Style : </value>
-		<value>$LOCALIZE[515]:</value>
-	</variable>
-	<variable name="MusicInfoTextLabel3Var">
+
+	<variable name="MusicStyleLastPlayedLabelVar">
 		<value condition="Container.Content(songs)">Last Played : </value>
-		<value condition="Container.Content(albums) | Container.Content(artists)">Mood : </value>
-		<value>$LOCALIZE[515]:</value>
+		<value condition="Container.Content(albums) | Container.Content(artists)">Style : </value>
 	</variable>
+	<variable name="MusicMoodPlaycountLabelVar">
+		<value condition="Container.Content(songs)">Playcount : </value>
+		<value condition="Container.Content(albums) | Container.Content(artists)">Mood : </value>
+	</variable>
+	<variable name="MusicPanelGermanVar">
+		<value condition="StringCompare(Window(Home).Property(SkinHelper.Music.AlbumCount),1)">$LOCALIZE[31488]</value>
+		<value>$LOCALIZE[31489]</value>
+	</variable>
+	<!-- Music Extra/MediaInfo-->
+	<variable name="MusicExtraInfo1Var">
+		<value condition="Container.Content(artists)">$INFO[Window(Home).Property(SkinHelper.Music.AlbumCount)]</value>
+		<value condition="Container.Content(albums)">$INFO[ListItem.Property(Album_Label)]</value>
+	</variable>
+	<variable name="MusicExtraInfo2Var">
+		<value condition="Container.Content(songs) + IsEmpty(Container.ListItem.PlayCount)">0</value>
+		<value condition="Container.Content(songs)">$INFO[ListItem.PlayCount] Coun </value>
+		<value condition="Container.Content(albums) | Container.Content(artists)">$INFO[Window(Home).Property(SkinHelper.Music.SongCount)] Songs</value>
+	</variable>
+	<variable name="MusicExtraInfo3Var">
+		<value condition="Container.Content(songs)">$INFO[ListItem.LastPlayed]</value>
+		<value condition="Container.Content(artists)">$INFO[Window(home).Property(Artist.Albums.Oldest)]</value>
+		<value condition="Container.Content(albums)">$INFO[ListItem.Year]</value>
+	</variable>
+	<variable name="MusicExtraInfo4Var">
+		<value condition="Container.Content(artists)">$INFO[Window(home).Property(Artist.Albums.Newest)]</value>
+		<value condition="Container.Content(albums) + IsEmpty(Window(home).Property(Artist.Albums.Playcount))">0</value>
+		<value condition="Container.Content(albums)">$INFO[Window(home).Property(Artist.Albums.Playcount)]</value>
+	</variable>
+	<!--Label-->
+		<variable name="MusicExtraInfo1LabelVar">
+		<value condition="Container.Content(songs)">Duration :</value>
+		<value condition="Container.Content(artists)">$LOCALIZE[132]</value><!--Album/Alben andern-->
+	</variable>
+
+
 	<variable name="AcademyAward">
 		<value condition="stringcompare(container.folderpath,special://skin/extras/Playlists/oscars/bestpicture.xsp)">PICTURE</value>
 		<value condition="stringcompare(container.folderpath,special://skin/extras/Playlists/oscars/bestdirector.xsp)">DIRECTOR</value>

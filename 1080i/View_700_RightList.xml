@@ -1932,7 +1932,30 @@
 					<texture>views/list_divider.png</texture>
 				</control-->
 				<control type="grouplist">
-					<animation effect="slide" start="0,0" end="400,550" time="500" tween="cubic" delay="50" condition="Container.Content(songs) + !Skin.HasSetting(RightListShowInfo)">Conditional</animation>
+					<visible>Container.Content(songs)</visible>
+					<left>440</left>
+					<top>540</top>
+					<width>445</width>
+					<orientation>horizontal</orientation>
+					<control type="label">
+						<width min="50" max="400">auto</width>
+						<aligny>bottom</aligny>
+						<font>font.ml.32</font>
+						<label>Duration: </label>
+						<textcolor>$VAR[SubTitleColorVar]</textcolor>
+					</control>
+					<control type="label">
+						<width>330</width>
+						<aligny>bottom</aligny>
+						<font>font.ml.32</font>
+						<label fallback="N/A">$INFO[ListItem.Duration]</label>
+						<textcolor>white6</textcolor>
+						<scroll>true</scroll>
+					</control>
+				</control>
+				<!--Genre-->
+				<control type="grouplist">
+					<animation effect="slide" start="0,0" end="410,570" time="500" tween="cubic" delay="50" condition="Container.Content(songs) + !Skin.HasSetting(RightListShowInfo)">Conditional</animation>
 					<left>30</left>
 					<top>20</top>
 					<width>445</width>
@@ -1940,21 +1963,22 @@
 					<control type="label">
 						<width min="50" max="400">auto</width>
 						<aligny>bottom</aligny>
-						<font>font10</font>
-						<label>$VAR[MusicInfoTextLabel1Var] </label>
+						<font>font.ml</font>
+						<label>Genre : </label>
 						<textcolor>$VAR[SubTitleColorVar]</textcolor>
 					</control>
 					<control type="label">
 						<width>330</width>
 						<aligny>bottom</aligny>
-						<font>font10</font>
-						<label fallback="N/A">$VAR[MusicInfoLabel1Var]</label>
+						<font>font.ml</font>
+						<label fallback="N/A">$VAR[MusicGenreVar]</label>
 						<textcolor>white6</textcolor>
 						<scroll>true</scroll>
 					</control>
 				</control>
+				<!--Style/LastPLayed-->
 				<control type="grouplist">
-					<animation effect="slide" start="0,0" end="-20,565" time="500" tween="cubic" delay="50" condition="Container.Content(songs) + !Skin.HasSetting(RightListShowInfo)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-10,585" time="500" tween="cubic" delay="50" condition="Container.Content(songs) + !Skin.HasSetting(RightListShowInfo)">Conditional</animation>
 					<left>450</left>
 					<top>35</top>
 					<width>445</width>
@@ -1962,21 +1986,22 @@
 					<control type="label">
 						<width min="50" max="400">auto</width>
 						<aligny>bottom</aligny>
-						<font>font10</font>
-						<label>$VAR[MusicInfoTextLabel2Var] </label>
+						<font>font.ml</font>
+						<label>$VAR[MusicStyleLastPlayedLabelVar]</label>
 						<textcolor>$VAR[SubTitleColorVar]</textcolor>
 					</control>
 					<control type="label">
 						<width>300</width>
 						<aligny>bottom</aligny>
-						<font>font10</font>
-						<label fallback="N/A">$VAR[MusicInfoLabel2Var]</label>
+						<font>font.ml</font>
+						<label fallback="N/A">$VAR[MusicStyleLastPlayedVar]</label>
 						<textcolor>white6</textcolor>
 						<scroll>true</scroll>
 					</control>
 				</control>
+				<!-- Mood/Playcount-->
 				<control type="grouplist">
-					<animation effect="slide" start="0,0" end="400,580" time="500" tween="cubic" delay="50" condition="Container.Content(songs) + !Skin.HasSetting(RightListShowInfo)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="410,600" time="500" tween="cubic" delay="50" condition="Container.Content(songs) + !Skin.HasSetting(RightListShowInfo)">Conditional</animation>
 					<left>30</left>
 					<top>50</top>
 					<width>445</width>
@@ -1985,88 +2010,20 @@
 					<control type="label">
 						<width min="50" max="400">auto</width>
 						<aligny>bottom</aligny>
-						<font>font10</font>
-						<label>$VAR[MusicInfoTextLabel3Var] </label>
+						<font>font.ml</font>
+						<label>$VAR[MusicMoodPlaycountLabelVar]</label>
 						<textcolor>$VAR[SubTitleColorVar]</textcolor>
 					</control>
 					<control type="label">
 						<width>330</width>
 						<aligny>bottom</aligny>
-						<font>font10</font>
-						<label fallback="N/A">$VAR[MusicInfoLabel3Var]</label>
+						<font>font.ml</font>
+						<label fallback="N/A">$VAR[MusicMoodPlaycountVar]</label>
 						<textcolor>white6</textcolor>
 						<scroll>true</scroll>
 					</control>
 				</control>
 				</control>
-			<!--OLD Info-->
-			<!--control type="grouplist">
-				<left>470</left>
-				<top>568</top>
-				<width>650</width>
-				<height>385</height>
-				<visible>Skin.HasSetting(RightListShowInfo)</visible>
-				<usecontrolcoords>true</usecontrolcoords>
-				<control type="label">
-					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[557]: [/COLOR] [COLOR white]$INFO[ListItem.Artist][/COLOR]</label>
-					<width>650</width>
-					<include>KodiFlixButtonsValues</include>
-					<visible>!IsEmpty(ListItem.Artist)</visible>
-				</control>
-				<control type="label">
-					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[515]: [/COLOR] [COLOR white]$INFO[ListItem.Genre][/COLOR]</label>
-					<width>650</width>
-					<include>KodiFlixButtonsValues</include>
-					<visible>!IsEmpty(ListItem.Genre)</visible>
-				</control>
-				<control type="label">
-					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[180]: [/COLOR] [COLOR white]$INFO[ListItem.Duration][/COLOR]</label>
-					<width>650</width>
-					<include>KodiFlixButtonsValues</include>
-					<visible>!IsEmpty(ListItem.Duration)</visible>
-				</control>
-				<control type="label">
-					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[21894]: [/COLOR][COLOR white]$INFO[ListItem.Property(Artist_Formed)][/COLOR]</label>
-					<width>650</width>
-					<include>KodiFlixButtonsValues</include>
-					<visible>!IsEmpty(ListItem.Property(Artist_Formed)) + IsEmpty(ListItem.Property(Artist_Genre)) + IsEmpty(ListItem.Property(Artist_Born))</visible>
-				</control>
-				<control type="label">
-					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[21893]: [/COLOR][COLOR white]$INFO[ListItem.Property(Artist_Born)][/COLOR]</label>
-					<width>650</width>
-					<include>KodiFlixButtonsValues</include>
-					<visible>!IsEmpty(ListItem.Property(Artist_Born)) + IsEmpty(ListItem.Property(Artist_Genre))</visible>
-				</control>
-				<control type="label">
-					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[515]: [/COLOR][COLOR white]$INFO[ListItem.Property(Artist_Genre)][/COLOR]</label>
-					<width>650</width>
-					<include>KodiFlixButtonsValues</include>
-					<visible>!IsEmpty(ListItem.Property(Artist_Genre))</visible>
-				</control>
-				<control type="textbox">
-					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[569]: [/COLOR][COLOR white]$INFO[Window(Home).Property(SkinHelper.Music.Info)][/COLOR]</label>
-					<left>15</left>
-					<top>0</top>
-					<width>615</width>
-					<height>180</height>
-					<font>font14_textbox</font>
-					<pagecontrol>62</pagecontrol>
-					<include>KodiFlixButtonsValues</include>
-					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll) + !Control.HasFocus(62)</autoscroll>
-					<visible>!IsEmpty(ListItem.Comment)</visible>
-				</control>
-				<control type="textbox" id="70">
-					<label>$VAR[MusicPlotVar]</label>
-					<left>15</left>
-					<top>0</top>
-					<width>615</width>
-					<height>245</height>
-					<font>font14_textbox</font>
-					<pagecontrol>63</pagecontrol>
-					<textcolor>white</textcolor>
-					<autoscroll time="3000" delay="4000" repeat="5000">!Control.HasFocus(63)</autoscroll>
-				</control>
-			</control-->
 			<control type="group">
 				<left>454</left>
 				<top>740</top>

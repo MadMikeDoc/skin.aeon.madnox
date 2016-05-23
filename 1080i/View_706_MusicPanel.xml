@@ -16,7 +16,7 @@
 				<include>Animation_ListSlideLeft</include>
 				<texture background="true">$INFO[Window(Home).Property(SkinHelper.Music.ClearLogo)]</texture>
 			</control>
-		<!--Banner-->
+		<!-- Banner -->
 			<control type="group">
 			<visible>Skin.HasSetting(MusicPanelBanner) + Container.Content(artists)</visible>
 			<animation effect="slide" start="0,0" end="0,-300" time="500" tween="cubic" delay="50" condition="!Skin.HasSetting(MusicPanelDown)">Conditional</animation>
@@ -50,7 +50,7 @@
 				<visible>!IsEmpty(Window(Home).Property(SkinHelper.Music.Banner))</visible>
 			</control>
 			</control>
-		<!--Banner Albums/Songs-->
+		<!-- Banner Albums/Songs -->
 			<control type="group">
 			<visible>Skin.HasSetting(MusicPanelBannerAlbums) + !Container.Content(artists)</visible>
 			<animation effect="slide" start="0,0" end="0,-300" time="500" tween="cubic" delay="50" condition="!Skin.HasSetting(MusicPanelDown)">Conditional</animation>
@@ -86,7 +86,7 @@
 				<visible>!IsEmpty(Window(Home).Property(SkinHelper.Music.Banner))</visible>
 			</control>
 			</control>
-		<!-- "Top" Artist Art-->
+		<!-- "Top" Artist Art -->
 			<control type="grouplist">
 				<visible>Skin.HasSetting(MusicPanelNextIconsArtists) + Container.Content(artists)</visible>
 				<animation effect="slide" start="0,0" end="0,-200" time="200" condition="!Skin.HasSetting(MusicPanelDown) + Container.Content(albums)">Conditional</animation>
@@ -134,7 +134,7 @@
 					<texture background="true">$INFO[Container(706).ListItemNoWrap(-4).Icon]</texture>
 				</control>
 			</control>
-		<!-- "Top" Artist Art overlay-->
+		<!-- "Top" Artist Art overlay -->
 			<control type="group">
 				<visible>Skin.HasSetting(MusicPanelNextIconsArtists) + Container.Content(artists)</visible>
 				<animation effect="slide" start="0,0" end="0,-200" time="200" condition="!Skin.HasSetting(MusicPanelDown) + Container.Content(albums)">Conditional</animation>
@@ -191,7 +191,7 @@
 					<fadetime>IconCrossfadeTime2</fadetime>
 				</control>
 			</control>
-		<!-- "Top" Album Covers-->
+		<!-- "Top" Album Covers -->
 			<control type="group">
 				<visible>Skin.HasSetting(MusicPanelNextIconsAlbums) + Container.Content(albums)</visible>
 				<animation effect="zoom" start="100,100" end="130,130" condition="true">Conditional</animation>
@@ -281,7 +281,7 @@
 					<fadetime>IconCrossfadeTime2</fadetime>
 				</control>
 			</control>
-		<!-- "Bottom" Artist Art-->
+		<!-- "Bottom" Artist Art -->
 			<control type="grouplist">
 				<visible>Skin.HasSetting(MusicPanelNextIconsArtists) + !Skin.HasSetting(MusicPanelDown) + Container.Content(artists)</visible>
 				<animation effect="zoom" start="100,100" end="130,130" time="200" tween="cubic" condition="Container.Content(albums)">Conditional</animation>
@@ -328,7 +328,7 @@
 					<fadetime>IconCrossfadeTime2</fadetime>
 				</control>
 			</control>
-		<!-- "Bottom" Artist Art overlay-->
+		<!-- "Bottom" Artist Art overlay -->
 			<control type="group">
 				<visible>Skin.HasSetting(MusicPanelNextIconsArtists) + !Skin.HasSetting(MusicPanelDown) + Container.Content(artists)</visible>
 				<animation effect="zoom" start="100,100" end="130,130" time="200" tween="cubic" condition="Container.Content(albums)">Conditional</animation>
@@ -383,7 +383,7 @@
 					<fadetime>IconCrossfadeTime2</fadetime>
 				</control>
 			</control>
-		<!-- "Bottom" Album Art-->
+		<!-- "Bottom" Album Art -->
 			<control type="grouplist">
 				<visible>Skin.HasSetting(MusicPanelNextIconsAlbums) + !Skin.HasSetting(MusicPanelDown) + Container.Content(albums)</visible>
 				<animation effect="zoom" start="100,100" end="130,130" time="200" tween="cubic" condition="Container.Content(albums)">Conditional</animation>
@@ -430,7 +430,7 @@
 					<fadetime>IconCrossfadeTime2</fadetime>
 				</control>
 			</control>
-		<!-- "Bottom" Album Art overlay-->
+		<!-- "Bottom" Album Art overlay -->
 			<control type="group">
 				<visible>Skin.HasSetting(MusicPanelNextIconsAlbums) + !Skin.HasSetting(MusicPanelDown) + Container.Content(albums)</visible>
 				<animation effect="zoom" start="100,100" end="130,130" time="200" tween="cubic" condition="Container.Content(albums)">Conditional</animation>
@@ -485,7 +485,7 @@
 					<fadetime>IconCrossfadeTime2</fadetime>
 				</control>
 			</control>
-		<!--FixedList BG-->
+		<!-- FixedList BG -->
 			<control type="image">
 					<animation effect="slide" start="0,0" end="0,-300" time="500" tween="cubic" delay="50" condition="!Skin.HasSetting(MusicPanelDown)">Conditional</animation>
 					<animation type="WindowOpen">
@@ -499,7 +499,7 @@
 					<height>500</height>
 					<texture border="40">listpanel_back.png</texture>
 			</control>
-		<!--CDArt-->
+		<!-- CDArt -->
 			<control type="group">
 			<animation effect="slide" start="0,0" end="0,-300" time="500" tween="cubic" delay="50" condition="!Skin.HasSetting(MusicPanelDown)">Conditional</animation>
 			<include>Animation_ListSlideLeft</include>
@@ -595,7 +595,7 @@
 				<include>Animation_CommonFade</include>
 			</control>
 			</control>
-		<!--Cover-->
+		<!-- Cover -->
 			<control type="group">
 				<animation effect="slide" start="0,0" end="0,-300" time="500" tween="cubic" delay="50" condition="!Skin.HasSetting(MusicPanelDown)">Conditional</animation>
 				<left>50</left>
@@ -673,7 +673,7 @@
 					<visible>Skin.HasSetting(MusicPanelDown)</visible>
 				</control>
 			</control>
-		<!--SkinHelper| Tracklist/cdlist/info/mood -->
+		<!-- SkinHelper| Tracklist/Albumlist/Info -->
 			<control type="group">
 				<animation effect="slide" start="0,0" end="0,-300" time="500" tween="cubic" delay="50" condition="!Skin.HasSetting(MusicPanelDown)">Conditional</animation>
 				<left>1100</left>
@@ -683,7 +683,7 @@
 					<animation effect="fade" time="400">VisibleChange</animation>
 					<left>-10</left>
 					<top>-15</top>
-					<width>600</width>
+					<width>500</width>
 					<height>450</height>
 					<texture border="40">listpanel_back.png</texture>
 					<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
@@ -743,7 +743,7 @@
 					<visible>Skin.HasSetting(MusicPanelInfo)</visible>
 				</control>
 			</control>
-		<!-- Genre Style Mood Duration Playcount -->
+		<!-- Genre Style Mood Duration Playcount Various Artist Name -->
 			<control type="group">
 				<include>Animation_ListSlideRight</include>
 				<animation effect="slide" start="0,0" end="0,-300" time="500" tween="cubic" delay="50" condition="!Skin.HasSetting(MusicPanelDown)">Conditional</animation>
@@ -751,7 +751,7 @@
 				<top>480</top>
 				<width>900</width>
 				<height>100</height>
-				<!--MoodBG Songs-->
+				<!--BG !Songs-->
 				<control type="image">
 					<animation effect="fade" start="95" end="0" time="400" condition="Container.Content(songs)">Conditional</animation>
 					<left>80</left>
@@ -807,7 +807,7 @@
 						<font>font.ml.28</font>
 						<label>$INFO[ListItem.Artist]</label>
 					</control>
-				<!-- Genre | Duration-->
+				<!--Duration-->
 				<control type="grouplist">
 					<visible>Skin.HasSetting(MusicPanelMood) | Container.Content(songs)</visible>
 					<animation effect="slide" start="0,0" end="20,230" time="200" tween="cubic" delay="50" condition="Container.Content(songs)">Conditional</animation>
@@ -818,16 +818,42 @@
 					<control type="label">
 						<width min="50" max="400">auto</width>
 						<aligny>bottom</aligny>
+						<font>font.ml.32</font>
+						<label>Duration: </label>
+						<textcolor>$VAR[SubTitleColorVar]</textcolor>
+						<visible>Container.Content(songs)</visible>
+					</control>
+					<control type="label">
+						<width>330</width>
+						<aligny>bottom</aligny>
+						<font>font.ml.32</font>
+						<label fallback="N/A">$INFO[ListItem.Duration]</label>
+						<textcolor>white6</textcolor>
+						<scroll>true</scroll>
+						<visible>Container.Content(songs)</visible>
+					</control>
+				</control>
+				<!-- Genre-->
+				<control type="grouplist">
+					<visible>Skin.HasSetting(MusicPanelMood) | Container.Content(songs)</visible>
+					<animation effect="slide" start="0,0" end="20,420" time="200" tween="cubic" delay="50" condition="Container.Content(songs)">Conditional</animation>
+					<left>120</left>
+					<top>20</top>
+					<width>445</width>
+					<orientation>horizontal</orientation>
+					<control type="label">
+						<width min="50" max="400">auto</width>
+						<aligny>bottom</aligny>
 						<font>font.ml</font>
-						<label>$VAR[MusicInfoTextLabel1Var] </label>
+						<label>Genre : </label>
 						<textcolor>$VAR[SubTitleColorVar]</textcolor>
 						<visible>!Container.Content(songs)</visible>
 					</control>
 					<control type="label">
 						<width min="50" max="400">auto</width>
 						<aligny>bottom</aligny>
-						<font>font.ml.32</font>
-						<label>$VAR[MusicInfoTextLabel1Var] </label>
+						<font>font.ml.26</font>
+						<label>Genre : </label>
 						<textcolor>$VAR[SubTitleColorVar]</textcolor>
 						<visible>Container.Content(songs)</visible>
 					</control>
@@ -835,7 +861,7 @@
 						<width>330</width>
 						<aligny>bottom</aligny>
 						<font>font.ml</font>
-						<label fallback="N/A">$VAR[MusicInfoLabel1Var]</label>
+						<label fallback="N/A">$VAR[MusicGenreVar]</label>
 						<textcolor>white6</textcolor>
 						<scroll>true</scroll>
 						<visible>!Container.Content(songs)</visible>
@@ -843,17 +869,17 @@
 					<control type="label">
 						<width>330</width>
 						<aligny>bottom</aligny>
-						<font>font.ml.32</font>
-						<label fallback="N/A">$VAR[MusicInfoLabel1Var]</label>
+						<font>font.ml.26</font>
+						<label fallback="N/A">$VAR[MusicGenreVar]</label>
 						<textcolor>white6</textcolor>
 						<scroll>true</scroll>
 						<visible>Container.Content(songs)</visible>
 					</control>
 				</control>
-				<!-- Mood | Last Played-->
+				<!-- Mood | Playcount-->
 				<control type="grouplist">
 					<visible>Skin.HasSetting(MusicPanelMood) | Container.Content(songs)</visible>
-					<animation effect="slide" start="0,0" end="20,285" time="200" tween="cubic" delay="50" condition="Container.Content(songs)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="20,248" time="200" tween="cubic" delay="50" condition="Container.Content(songs)">Conditional</animation>
 					<left>120</left>
 					<top>50</top>
 					<width>445</width>
@@ -863,15 +889,15 @@
 						<width min="50" max="400">auto</width>
 						<aligny>bottom</aligny>
 						<font>font.ml</font>
-						<label>$VAR[MusicInfoTextLabel3Var]</label>
+						<label>$VAR[MusicMoodPlaycountLabelVar]</label>
 						<textcolor>$VAR[SubTitleColorVar]</textcolor>
 						<visible>!Container.Content(songs)</visible>
 					</control>
 					<control type="label">
 						<width min="50" max="400">auto</width>
 						<aligny>bottom</aligny>
-						<font>font.ml</font>
-						<label>$VAR[MusicInfoTextLabel3Var]</label>
+						<font>font.ml.26</font>
+						<label>$VAR[MusicMoodPlaycountLabelVar]</label>
 						<textcolor>$VAR[SubTitleColorVar]</textcolor>
 						<visible>Container.Content(songs)</visible>
 					</control>
@@ -879,7 +905,7 @@
 						<width>300</width>
 						<aligny>bottom</aligny>
 						<font>font.ml</font>
-						<label fallback="N/A">$VAR[MusicInfoLabel3Var]</label>
+						<label fallback="N/A">$VAR[MusicMoodPlaycountVar]</label>
 						<textcolor>white6</textcolor>
 						<scroll>true</scroll>
 						<visible>!Container.Content(songs)</visible>
@@ -887,17 +913,17 @@
 					<control type="label">
 						<width>300</width>
 						<aligny>bottom</aligny>
-						<font>font.ml</font>
-						<label fallback="N/A">$VAR[MusicInfoLabel3Var]</label>
+						<font>font.ml.26</font>
+						<label fallback="N/A">$VAR[MusicMoodPlaycountVar]</label>
 						<textcolor>white6</textcolor>
 						<scroll>true</scroll>
 						<visible>Container.Content(songs)</visible>
 					</control>
 				</control>
-				<!--Style | Playcount-->
+				<!--Style | LastPlayed-->
 				<control type="grouplist">
 					<visible>Skin.HasSetting(MusicPanelMood) | Container.Content(songs)</visible>
-					<animation effect="slide" start="0,0" end="-350,263" time="200" tween="cubic" delay="50" condition="Container.Content(songs)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-350,300" time="200" tween="cubic" delay="50" condition="Container.Content(songs)">Conditional</animation>
 					<left>490</left>
 					<top>35</top>
 					<width>400</width>
@@ -906,15 +932,15 @@
 						<width min="50" max="400">auto</width>
 						<aligny>bottom</aligny>
 						<font>font.ml</font>
-						<label>$VAR[MusicInfoTextLabel2Var]</label>
+						<label>$VAR[MusicStyleLastPlayedLabelVar]</label>
 						<textcolor>$VAR[SubTitleColorVar]</textcolor>
 						<visible>!Container.Content(songs)</visible>
 					</control>
 					<control type="label">
 						<width min="50" max="400">auto</width>
 						<aligny>bottom</aligny>
-						<font>font.ml.26</font>
-						<label>$VAR[MusicInfoTextLabel2Var]</label>
+						<font>font.ml</font>
+						<label>$VAR[MusicStyleLastPlayedLabelVar]</label>
 						<textcolor>$VAR[SubTitleColorVar]</textcolor>
 						<visible>Container.Content(songs)</visible>
 					</control>
@@ -922,7 +948,7 @@
 						<width>300</width>
 						<aligny>bottom</aligny>
 						<font>font.ml</font>
-						<label fallback="N/A">$VAR[MusicInfoLabel2Var]</label>
+						<label fallback="N/A">$VAR[MusicStyleLastPlayedVar]</label>
 						<textcolor>white6</textcolor>
 						<scroll>true</scroll>
 						<visible>!Container.Content(songs)</visible>
@@ -930,15 +956,84 @@
 					<control type="label">
 						<width>300</width>
 						<aligny>bottom</aligny>
-						<font>font.ml.26</font>
-						<label fallback="N/A">$VAR[MusicInfoLabel2Var]</label>
+						<font>font.ml</font>
+						<label fallback="N/A">$VAR[MusicStyleLastPlayedVar]</label>
 						<textcolor>white6</textcolor>
 						<scroll>true</scroll>
 						<visible>Container.Content(songs)</visible>
 					</control>
 				</control>
 			</control>
-		<!-- FixedList artist/albums/tracks -->
+		<!-- Extra/Media Info -->
+			<control type="image">
+					<animation effect="fade" start="95" end="0" time="400" condition="Container.Content(songs)">Conditional</animation>
+					<left>435</left>
+					<top>960</top>
+					<width>850</width>
+					<height>100</height>
+					<texture border="40">listpanel_back.png</texture>
+					<visible>Skin.HasSetting(MusicPanelExtraInfo)</visible>
+					<include>Animation_CommonFade</include>
+			</control>
+			<control type="group">
+				<top>960</top>
+				<left>480</left>
+				<width>750</width>
+				<height>100</height>
+				<visible>Skin.HasSetting(MusicPanelExtraInfo) + !Container.Content(songs)</visible>
+				<orientation>horizontal</orientation>
+				<include>Animation_CommonFade</include>
+				<!--Artists lvl -->
+				<control type="label">
+					<visible>Container.Content(artists)</visible>
+					<left>0</left>
+					<width min="0" max="300">auto</width>
+					<align>center</align>
+					<label>$INFO[Window(Home).Property(SkinHelper.Music.AlbumCount)] $VAR[MusicPanelGermanVar] $LOCALIZE[31490] $INFO[Window(Home).Property(SkinHelper.Music.SongCount)] Songs</label>
+					<font>Font.ml.28</font>
+				</control>
+				<control type="label">
+					<visible>Container.Content(artists)</visible>
+					<left>400</left>
+					<width min="0" max="100">auto</width>
+					<label>$INFO[Window(home).Property(Artist.Albums.Oldest)]</label>
+					<font>Font.ml.28</font>
+				</control>
+				<control type="label">
+					<visible>Container.Content(artists)</visible>
+					<left>450</left>
+					<width min="0" max="150">auto</width>
+					<label> - $INFO[Window(home).Property(Artist.Albums.Newest)]</label>
+					<font>Font.ml.28</font>
+					<visible>!StringCompare(Window(home).Property(Artist.Albums.Oldest),Window(home).Property(Artist.Albums.Newest))</visible>
+				</control>
+				<!--Albums lvl -->
+				<control type="image" id="99">
+					<visible>Container.Content(albums)</visible>
+					<top>0</top>
+					<left>220</left>
+					<height>80</height>
+					<width min="0" max="500">auto</width>
+					<texture>flags/music/recordlabel/$INFO[ListItem.Property(Album_Label),,.png]</texture>
+					<include>AudioFlagsVars</include>
+				</control>
+				<control type="label">
+					<left>420</left>
+					<width min="0" max="250">auto</width>
+					<label>$INFO[ListItem.Property(Album_Label)]</label>
+					<font>Font.ml.28</font>
+					<visible>IsEmpty(Control.GetLabel(99))</visible>
+				</control>
+				<control type="label">
+					<visible>Container.Content(albums)</visible>
+					<left>50</left>
+					<width min="0" max="250">auto</width>
+					<align>center</align>
+					<label>$INFO[Window(Home).Property(SkinHelper.Music.SongCount)] Songs</label>
+					<font>Font.ml.28</font>
+				</control>
+			</control>
+		<!-- FixedList -->
 			<control type="fixedlist" id="706">
 				<animation effect="slide" start="0,0" end="0,-305" time="500" tween="cubic" delay="50" condition="!Skin.HasSetting(MusicPanelDown)">Conditional</animation>
 				<include>Animation_OpenCloseZoom</include>
@@ -1086,26 +1181,19 @@
 					</control>
 				</focusedlayout>
 			</control>
-		<!--Scrollbar-->
+		<!-- Scrollbar -->
 			<control type="scrollbar" id="60">
-				<left>1106</left>
-				<top>280</top>
-				<width>14</width>
-				<height>380</height>
-				<onup>60</onup>
-				<ondown>60</ondown>
-				<onleft>700</onleft>
-				<onright>SetProperty(MediaMenu,True,home)</onright>
-				<onright>SetFocus(9000)</onright>
-				<texturesliderbackground border="1">-</texturesliderbackground>
-				<texturesliderbar border="6,0,6,0">scrollbar/texturesliderbar_hor.png</texturesliderbar>
-				<texturesliderbarfocus border="6,0,6,0">scrollbar/texturesliderbarfocus_hor.png</texturesliderbarfocus>
-				<textureslidernib>-</textureslidernib>
-				<textureslidernibfocus>-</textureslidernibfocus>
-				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
-				<showonepage>false</showonepage>
-				<orientation>vertical</orientation>
-			</control>
+					<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
+					<left>1091</left>
+					<top>570</top>
+					<width>46</width>
+					<height>400</height>
+					<include>Animation_VerticalScrollBar</include>
+					<onup>60</onup>
+					<ondown>60</ondown>
+					<onright>9000</onright>
+					<onleft>706</onleft>
+				</control>
 		</control>
 	</include>
 </includes>
