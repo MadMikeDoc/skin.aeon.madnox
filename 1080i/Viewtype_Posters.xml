@@ -3286,9 +3286,52 @@
 					<effect type="zoom" start="100" end="0" time="960" center="auto" tween="cubic" />
 				</animation>
 				<visible>Control.HasFocus(5106)</visible>
-			</control>
-		</control>
-	</include>
+			</control>		
+		</control>			
+
+			<!-- Letter-Scrollbar -->
+			<control type="image">
+				<left>110</left>
+				<top>1008</top>
+				<width>1097</width>
+				<height>58</height>
+				<animation effect="fade" start="100" end="100" time="50" condition="Control.HasFocus(6011)">Conditional</animation>
+				<texture>views/directory/sbl_backround.png</texture>
+				<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				<visible>Control.HasFocus(6011) + Skin.HasSetting(AlphabetScrollbar)</visible>
+			</control>			
+			<control type="panel" id="6011">
+				<onup>510</onup>
+				<ondown>61</ondown>
+				<left>120</left>
+				<top>1018</top>
+				<width>1188</width>
+				<height>100%</height>
+				<animation effect="fade" start="100" end="0" time="50" condition="!Control.HasFocus(6011)">Conditional</animation>
+				<itemlayout height="41" width="40">
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>white</colordiffuse>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+						<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="41" width="40">
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+				</focusedlayout>
+				<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
+			</control>		
+</include>
+
 	<include name="PostersViewList">
 		<control type="group">
 			<animation effect="slide" time="880" start="1900,0" end="0,0" tween="cubic">VisibleChange</animation>
@@ -3302,8 +3345,8 @@
 			<onleft condition="!Skin.HasSetting(posterwrap)">8400</onleft>
 			<onright condition="!Skin.HasSetting(posterwrap)">8401</onright>
 			<onup>5106</onup>
-			<ondown condition="Control.IsVisible(61)">61</ondown>
-			<ondown condition="!Control.IsVisible(61)">109</ondown>
+			<ondown condition="Skin.HasSetting(AlphabetScrollbar)">6011</ondown>
+			<ondown condition="!Skin.HasSetting(AlphabetScrollbar)">61</ondown>
 			<orientation>horizontal</orientation>
 			<viewtype label="31271">Wraplist of Posters</viewtype>
 			<pagecontrol>61</pagecontrol>
@@ -3313,7 +3356,7 @@
 			<visible>![!IsEmpty(Skin.String(DisablePostersVL)) + Window.IsActive(videos)]</visible>
 			<itemlayout width="210" height="750"></itemlayout>
 			<focusedlayout width="210" height="750"></focusedlayout>
-		</control>
+		</control>		
 		<control type="button" id="5106">
 			<include>HiddenObject</include>
 			<onup>9000</onup>
@@ -3325,7 +3368,7 @@
 			<onclick condition="IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.FileNameAndPath])</onclick>
 			<onclick condition="Container.Content(tvshows) | Container.Content(seasons)">SetFocus(50)</onclick>
 			<visible>!StringCompare(ListItem.Label,..) + Skin.HasSetting(posterviewinfopane)</visible>
-		</control>
+		</control>		
 	</include>
 	<include name="DiscPosNoCase">
 		<top>-95</top>

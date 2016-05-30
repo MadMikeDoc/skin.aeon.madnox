@@ -232,6 +232,20 @@
 					<selected>Skin.HasSetting(landscapeonelogo)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),Landscape) + Container.Content(artists)</visible>
 				</control>
+				<control type="radiobutton" id="16556">
+					<label>Show MediaFlags</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(LandscapeShowMediaFlags)</onclick>
+					<selected>Skin.HasSetting(LandscapeShowMediaFlags)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Landscape) + Container.Content(movies) + Skin.HasSetting(landscapeonelogo)</visible>
+				</control>
+				<control type="radiobutton" id="16557">
+					<label>Show MediaFlags</label>
+					<include>Objects_MediaMenuButtonAlt2</include>
+					<onclick>Skin.ToggleSetting(LandscapeShowTVMediaFlags)</onclick>
+					<selected>Skin.HasSetting(LandscapeShowTVMediaFlags)</selected>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Landscape) + Container.Content(tvshows) + Skin.HasSetting(landscapeonelogo)</visible>
+				</control>
 				<control type="radiobutton" id="1636">
 					<label>31811</label>
 					<include>Objects_MediaMenuButtonAlt2</include>
@@ -676,8 +690,8 @@
 					<selected>Skin.HasSetting(rightlistCD)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),Video_RightList) + [Container.Content(Albums) | Container.Content(songs)]</visible>
 				</control>
-<!--MAD - End of Right List options -->
-<!--Moo - Start of MusicPanel options -->
+				<!--MAD - End of Right List options -->
+				<!--Moo - Start of MusicPanel options -->
 				<control type="radiobutton" id="70601">
 					<description>Move Up</description>
 					<label>31472</label>
@@ -800,15 +814,13 @@
 					<visible>Stringcompare(Window(home).Property(actualViewtype),MusicPanel)</visible>
 				</control-->
 				<!--Moo - End of MusicPanel options -->
-
-
 				<!--MAD - KodiFlix Options -->
 				<control type="button" id="17085">
 					<description>KodiFlix Options</description>
 					<include>Objects_MediaMenuButtonAlt2</include>
 					<label>31384</label>
 					<onclick>ActivateWindow(1174)</onclick>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)</visible>
+					<visible>SubString(Window(home).Property(actualViewtype),KodiFlixView)</visible>
 				</control>
 				<!--MAD - KodiFlix Options End -->
 				<!--MAD - Movie Sets View -->
@@ -1292,14 +1304,14 @@
 					<include>Objects_MediaMenuButtonAlt2</include>
 					<onclick>Skin.ToggleSetting(titlewall)</onclick>
 					<selected>Skin.HasSetting(titlewall)</selected>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),Wall) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos) | Stringcompare(Container.FolderName,youtube) | [Window.IsActive(pictures) + Substring(Container.FolderPath,\comics\)]]</visible>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Wall) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos) | Stringcompare(Container.FolderName,youtube) | [Window.IsActive(pictures) + Substring(Container.FolderPath,/comics/)]]</visible>
 				</control>
 				<control type="radiobutton" id="1853">
 					<label>$LOCALIZE[31050]</label>
 					<include>Objects_MediaMenuButtonAlt2</include>
 					<onclick>Skin.ToggleSetting(iconlabel)</onclick>
 					<selected>Skin.HasSetting(iconlabel)</selected>
-					<visible>Stringcompare(Window(home).Property(actualViewtype),Wall) + Skin.HasSetting(titlewall) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos) | Stringcompare(Container.FolderName,youtube) | [Window.IsActive(pictures) + Substring(Container.FolderPath,\comics\)]]</visible>
+					<visible>Stringcompare(Window(home).Property(actualViewtype),Wall) + Skin.HasSetting(titlewall) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos) | Stringcompare(Container.FolderName,youtube) | [Window.IsActive(pictures) + Substring(Container.FolderPath,/comics/)]]</visible>
 				</control>
 				<control type="radiobutton" id="16530">
 					<label>31282</label>

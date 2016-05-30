@@ -10,8 +10,8 @@
 		<onleft>501</onleft>
 		<onright>501</onright>
 		<onup>7000</onup>
-		<ondown condition="Control.IsVisible(61)">61</ondown>
-		<ondown condition="!Control.IsVisible(61)">109</ondown>
+		<ondown condition="Skin.HasSetting(AlphabetScrollbar)">6015</ondown>
+		<ondown condition="!Skin.HasSetting(AlphabetScrollbar)">61</ondown>
 		<viewtype label="31028">bigwrap</viewtype>
 		<pagecontrol>61</pagecontrol>
 		<scrolltime tween="quadratic">300</scrolltime>
@@ -310,7 +310,7 @@
 		<itemlayout height="600" width="100" condition="![Control.IsVisible(961) + !Control.IsVisible(6000)] + !Skin.HasSetting(showcasezoom)"/>
 		<focusedlayout height="525" width="858" condition="![Control.IsVisible(961) + !Control.IsVisible(6000)] + !Skin.HasSetting(showcasezoom)"/>
 		<itemlayout height="600" width="200" condition="![Control.IsVisible(961) + !Control.IsVisible(6000)] + Skin.HasSetting(showcasezoom)"/>
-		<focusedlayout height="525" width="858" condition="![Control.IsVisible(961) + !Control.IsVisible(6000)] + Skin.HasSetting(showcasezoom)"/>
+		<focusedlayout height="525" width="858" condition="![Control.IsVisible(961) + !Control.IsVisible(6000)] + Skin.HasSetting(showcasezoom)"/>	
 	</include>
 	<include name="scmfixed">
 		<control type="fixedlist" id="501">
@@ -320,7 +320,7 @@
 	<include name="scmwrap">
 		<control type="wraplist" id="501">
 			<include>contents501list</include>
-		</control>
+		</control>	
 	</include>
 	<include name="Showcase">
 		<control type="group">
@@ -832,7 +832,97 @@
 			<include condition="!Skin.HasSetting(showcasewrap)">scmfixed</include>
 			<include condition="Skin.HasSetting(showcasewrap)">scmwrap</include>
 		</control>
+		
+	<!-- Letter-Scrollbar MOVIES-->
+		<control type="image">
+			<left>410</left>
+			<top>1003</top>
+			<width>1097</width>
+			<height>58</height>
+			<animation effect="fade" start="100" end="80" time="50" condition="Control.HasFocus(6015)">Conditional</animation>
+			<texture>views/directory/sbl_backround.png</texture>
+			<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+			<visible>Control.HasFocus(6015) + Skin.HasSetting(AlphabetScrollbar)</visible>
+			<visible>Container.Content(movies) | Container.Content(sets)</visible>
+		</control>
+		<control type="panel" id="6015">
+			<onup>501</onup>
+			<ondown>61</ondown>
+			<left>420</left>
+			<top>1010</top>
+			<width>1188</width>
+			<height>100%</height>
+			<animation effect="fade" start="100" end="0" time="50" condition="!Control.HasFocus(6015)">Conditional</animation>
+			<visible>Container.Content(movies) | Container.Content(sets)</visible>
+			<itemlayout height="41" width="40">
+				<control type="image">
+					<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+					<colordiffuse>white</colordiffuse>
+					<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+				</control>
+				<control type="image">
+					<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+					<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+					<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
+				</control>
+			</itemlayout>
+			<focusedlayout height="41" width="40">
+				<control type="image">
+					<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+					<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+				</control>
+			</focusedlayout>
+			<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
+		</control>	
+		
+	<!-- Letter-Scrollbar TVSHOWS-->
+		<control type="image">
+			<left>490</left>
+			<top>1004</top>
+			<width>965</width>
+			<height>55</height>
+			<animation effect="fade" start="100" end="80" time="50" condition="Control.HasFocus(6015)">Conditional</animation>
+			<texture>views/directory/sbl_backround.png</texture>
+			<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+			<visible>Control.HasFocus(6015) + Skin.HasSetting(AlphabetScrollbar)</visible>
+			<visible>Container.Content(TVShows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+		</control>
+		<control type="panel" id="6015">
+			<onup>501</onup>
+			<ondown>61</ondown>
+			<left>500</left>
+			<top>1015</top>
+			<width>1000</width>
+			<height>100%</height>
+			<animation effect="fade" start="100" end="0" time="50" condition="!Control.HasFocus(6015)">Conditional</animation>
+				<visible>Container.Content(TVShows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+			<itemlayout height="35" width="35">
+				<control type="image">
+					<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+					<colordiffuse>white</colordiffuse>
+					<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+				</control>
+				<control type="image">
+					<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+					<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+					<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
+				</control>
+			</itemlayout>
+			<focusedlayout height="35" width="35">
+				<control type="image">
+					<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+					<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+				</control>
+			</focusedlayout>
+			<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
+		</control>
+		
 	</include>
+
 	<!-- MikeZBH44 Start remove <control> from <include> -->
 	<include name="MovieShowcaseThumbReflectionDVD">
 		<left>-27</left>
@@ -857,6 +947,7 @@
 		<bordersize>18</bordersize>
 		<visible>Skin.HasSetting(ClearCaseTvshow) + [Container.Content(TvShows) | Container.Content(seasons)]</visible>
 	</include>
+
 	<!-- MikeZBH44 End -->
 	<include name="MovieShowcaseDVDCoverVars">
 		<left>-28</left>
@@ -874,6 +965,7 @@
 		<fadetime>0</fadetime>
 		<!-- <visible>Skin.HasSetting(usecases) + [container.content(sets) | container.content(movies) | Container.Content(musicvideos)]</visible> -->
 	</include>
+
 	<!-- Movie Showcase Variables: Main thumbs -->
 	<include name="MovieShowcaseThumbDimensions">
 		<left>17</left>
@@ -943,6 +1035,7 @@
 		<colordiffuse>d1FFFFFF</colordiffuse>
 		<animation effect="fade" start="70" end="70" time="0" condition="true">Conditional</animation>
 	</include>
+
 	<!-- MikeBZH44 Start : Reflection for movieset without case -->
 	<include name="MovieShowcaseThumbReflectionMovieset">
 		<left>-27</left>
@@ -953,6 +1046,7 @@
 		<fadetime>0</fadetime>
 		<animation effect="fade" start="70" end="70" time="0" condition="true">Conditional</animation>
 	</include>
+
 	<!-- MikeBZH44 End -->
 	<include name="WatchedOverlayShowCase">
 		<left>189</left>
@@ -963,6 +1057,7 @@
 		<animation effect="slide" start="0,0" end="6,-3" time="0" condition="Skin.HasSetting(usecases) + [container.content(movies) | Container.Content(sets) | Container.Content(musicvideos)]">Conditional</animation>
 		<animation effect="slide" start="0,0" end="-10,11" time="0" condition="[container.content(movies) | Container.Content(sets) | Container.Content(musicvideos)] + Skin.HasSetting(usecases) + !Skin.HasSetting(clearcases)">Conditional</animation>
 	</include>
+
 	<!-- Movie Showcase Variables: Thumb glass overlays -->
 	<include name="MovieShowcaseGlassOverlay">
 		<control type="image">
@@ -971,6 +1066,7 @@
 			<visible>![Skin.HasSetting(usecases) + [container.content(movies) | Container.Content(musicvideos)]]</visible>
 		</control>
 	</include>
+
 	<!-- Movie Showcase Items-->
 	<include name="MovieShowCaseItem-7">
 		<include>MovieShowCaseGlow</include>
@@ -2674,6 +2770,7 @@
 			<visible>System.HasAddon(script.videoextras)</visible>
 		</control>
 	</include>
+
 	<!-- Rolling discart -->
 	<include name="MovieShowcaseDisc">
 		<control type="image">

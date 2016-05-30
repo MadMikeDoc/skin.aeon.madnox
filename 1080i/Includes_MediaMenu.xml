@@ -208,8 +208,10 @@
 			<onclick condition="Control.IsVisible(499)">SetProperty(actualViewtype,Wall_Large,home)</onclick>
 			<onclick condition="Control.IsVisible(700)">SetProperty(actualViewtype,Video_RightList,home)</onclick>
 			<onclick condition="Control.IsVisible(706)">SetProperty(actualViewtype,MusicPanel,home)</onclick>
+			<onclick condition="Control.IsVisible(708)">SetProperty(actualViewtype,Shelf3DR,home)</onclick>
 			<onclick condition="Control.IsVisible(750)">SetProperty(actualViewtype,Shelf,home)</onclick>
 			<onclick condition="Control.IsVisible(810)">SetProperty(actualViewtype,MusicFlixView,home)</onclick>
+			<onclick condition="Control.IsVisible(820)">SetProperty(actualViewtype,KodiFlixViewTV,home)</onclick>
 			<onclick condition="Control.IsVisible(507)">SetProperty(actualViewtype,VideoFanartList,home)</onclick>
 			<onclick condition="Control.IsVisible(505)">SetProperty(actualViewtype,VideoBannerInfo,home)</onclick>
 			<onclick condition="Control.IsVisible(800)">SetProperty(actualViewtype,KodiFlixView,home)</onclick>
@@ -268,7 +270,7 @@
 					<width>25</width>
 					<height>25</height>
 					<texture>$VAR[Colortdefaulticons]DefaultFolderBack.png</texture>
-					<animation effect="rotate" end="-90" center="auto" delay="240" time="640" condition="Window.IsActive(musicinformation) | Control.HasFocus(7000) | Control.IsVisible(508) | Control.IsVisible(800) | Control.IsVisible(501) | Control.IsVisible(503) | Control.IsVisible(510) | Control.IsVisible(57) | Control.IsVisible(516) | Control.IsVisible(509) | [Control.IsVisible(500) + !Skin.HasSetting(WallVertical)]">Conditional</animation>
+					<animation effect="rotate" end="-90" center="auto" delay="240" time="640" condition="Window.IsActive(musicinformation) | Control.HasFocus(7000) | Control.IsVisible(508) | Control.IsVisible(800) | Control.IsVisible(820) | Control.IsVisible(501) | Control.IsVisible(503) | Control.IsVisible(510) | Control.IsVisible(57) | Control.IsVisible(516) | Control.IsVisible(509) | [Control.IsVisible(500) + !Skin.HasSetting(WallVertical)]">Conditional</animation>
 					<animation effect="rotate" end="-180" center="auto" delay="240" time="640" condition="ControlGroup(9000).HasFocus">Conditional</animation>
 					<animation effect="rotate" start="-90" end="180" center="auto" delay="240" time="640" condition="Control.IsVisible(503) + [Skin.HasSetting(landscapeonelogo) + Container.Content(movies)]">Conditional</animation>
 					<colordiffuse>$VAR[TitleColorVar]</colordiffuse>

@@ -43,12 +43,14 @@
 				<onup>514</onup>
 				<ondown>514</ondown>
 				<onleft>9000</onleft>
-				<onright>61</onright>
+				<onright condition="!Skin.HasSetting(AlphabetScrollbar)">61</onright>
+				<onright condition="Skin.HasSetting(AlphabetScrollbar)">6003</onright>
 				<preloaditems>2</preloaditems>
 				<pagecontrol>61</pagecontrol>
 				<visible>Container.Content(episodes) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Window.IsActive(musiclibrary)</visible>
 				<visible>![!IsEmpty(Skin.String(DisableEpisodeVL)) + Window.IsActive(videos)]</visible>
 				<animation effect="slide" end="-40,0" time="240" tween="cubic" easing="inout" condition="Control.HasFocus(61)">Conditional</animation>
+				<animation effect="slide" end="-40,0" time="240" tween="cubic" easing="inout" condition="Control.HasFocus(6003)">Conditional</animation>
 				<animation effect="slide" end="-40,0" time="240" tween="cubic" easing="inout" condition="Container.Content(episodes)">Conditional</animation>
 				<animation effect="slide" end="0,65" time="0" condition="!Skin.HasSetting(ClassicTopBar) + !Skin.HasSetting(disabletopbar)">Conditional</animation>
 				<animation effect="slide" end="0,15" time="160" condition="Container(514).Row(0)">Conditional</animation>
@@ -76,7 +78,56 @@
 				<orientation>vertical</orientation>
 				<onleft>514</onleft>
 				<onright>9000</onright>
+				<visible>!Skin.HasSetting(AlphabetScrollbar)</visible>
 			</control>
+			
+		<!-- Letter-Scrollbar -->
+			<control type="image">
+				<left>1875</left>
+				<top>120</top>
+				<width>48</width>
+				<height>930</height>
+				<animation effect="fade" start="100" end="80" time="50" condition="Control.HasFocus(6003)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,60" time="50" condition="Control.HasFocus(6003) + [Container.Content(sets) | SubString(ListItem.Path,videodb://movies/sets)]">Conditional</animation>
+				<texture>views/directory/sbl_framevertical.png</texture>
+				<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				<visible>Control.HasFocus(6003) + Skin.HasSetting(AlphabetScrollbar)</visible>
+			</control>
+			<control type="list" id="6003">
+				<onright>9000</onright>
+				<onleft>514</onleft>
+				<left>1884</left>
+				<top>140</top>
+				<width>88</width>
+				<height>100%</height>
+				<orientation>vertical</orientation>
+				<animation effect="fade" start="100" end="0" time="50" condition="!Control.HasFocus(6003)">Conditional</animation>
+				<itemlayout height="33" width="30">
+					<control type="label">
+						<align>center</align>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>white</textcolor>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+					<control type="label">
+						<align>center</align>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>$VAR[TitleColorVar]</textcolor>
+						<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+						<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="33" width="30">
+					<control type="label">
+						<align>center</align>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>$VAR[TitleColorVar]</textcolor>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+				</focusedlayout>
+				<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
+			</control>
+			
 			<control type="image">
 				<left>92</left>
 				<top>50</top>

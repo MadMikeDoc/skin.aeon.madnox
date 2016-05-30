@@ -111,11 +111,11 @@
 				<font>Font_Reg28_Caps</font>
 				<shadowcolor>floorshadow</shadowcolor>
 				<textcolor>white</textcolor>
-				<visible>![Control.HasFocus(61) | Control.IsVisible(4050)]</visible>
+				<visible>![Control.HasFocus(61)| Control.HasFocus(6015) | Control.HasFocus(6016) | Control.HasFocus(6020) | Control.IsVisible(4050)]</visible>
 				<include>Animation_VisibleChange400</include>
 				<scroll>true</scroll>
 				<scrollspeed>30</scrollspeed>
-				<visible>Container.Content(seasons)+ !Skin.HasSetting(ShowcaseBanner)</visible>
+				<visible>Container.Content(seasons) + !Skin.HasSetting(ShowcaseBanner)</visible>
 			</control>
 			<control type="label">
 				<top>1010</top>
@@ -125,7 +125,7 @@
 				<font>Font_Reg28_Caps</font>
 				<shadowcolor>floorshadow</shadowcolor>
 				<textcolor>white</textcolor>
-				<visible>![Control.HasFocus(61) | Control.IsVisible(4050)]</visible>
+				<visible>![Control.HasFocus(61) | Control.HasFocus(6015) | Control.HasFocus(6016) | Control.HasFocus(6020) | Control.IsVisible(4050)]</visible>
 				<include>Animation_VisibleChange400</include>
 				<scroll>true</scroll>
 				<scrollspeed>30</scrollspeed>
@@ -141,7 +141,7 @@
 				<textcolor>floor</textcolor>
 				<scroll>true</scroll>
 				<scrollspeed>30</scrollspeed>
-				<visible>Container.Content(seasons)+ !Skin.HasSetting(ShowcaseBanner)</visible>
+				<visible>Container.Content(seasons) + !Skin.HasSetting(ShowcaseBanner)</visible>
 			</control>
 			<control type="label">
 				<top>932</top>
@@ -153,7 +153,7 @@
 				<textcolor>floor</textcolor>
 				<scroll>true</scroll>
 				<scrollspeed>30</scrollspeed>
-				<visible>!Container.Content(seasons)</visible>
+				<visible>!Control.HasFocus(6015) + !Control.HasFocus(6016) + !Control.HasFocus(6020) + !Container.Content(seasons)</visible>
 			</control>
 		</control>
 		<!-- MikeBZH44 : Banner for TV shows and season under thumb in showcase view -->
@@ -198,8 +198,7 @@
 		</control>
 	</include>
 	<include name="Furniture_DarkGradient">
-
-		<!--gradient start-->
+	<!--gradient start-->
 		<control type="image">
 			<left>-17</left>
 			<top>1012</top>

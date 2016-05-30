@@ -999,10 +999,99 @@
 			<onleft>500</onleft>
 			<onright>500</onright>
 			<onup>9000</onup>
-			<ondown>61</ondown>
+			<ondown condition="Skin.HasSetting(AlphabetScrollbar)">6016</ondown>
+			<ondown condition="!Skin.HasSetting(AlphabetScrollbar)">61</ondown>
 			<orientation>horizontal</orientation>
 			<include>WallContent</include>
 		</control>
+		
+		<!-- Letter-Scrollbar -->
+			<control type="image">
+				<left>400</left>
+				<top>1003</top>
+				<width>1097</width>
+				<height>58</height>
+				<animation effect="fade" start="100" end="100" time="50" condition="Control.HasFocus(6016)">Conditional</animation>
+				<texture>views/directory/sbl_backround.png</texture>
+				<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				<visible>Control.HasFocus(6016) + Skin.HasSetting(AlphabetScrollbar)</visible>
+				<visible>Container.Content(movies) | Container.Content(sets)</visible>
+			</control>			
+			<control type="panel" id="6016">
+				<onup>500</onup>
+				<ondown>61</ondown>
+				<left>410</left>
+				<top>1013</top>
+				<width>1188</width>
+				<height>100%</height>
+				<animation effect="fade" start="100" end="0" time="50" condition="!Control.HasFocus(6016)">Conditional</animation>
+				<visible>Container.Content(movies) | Container.Content(sets)</visible>
+				<itemlayout height="41" width="40">
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>white</colordiffuse>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+						<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="41" width="40">
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+				</focusedlayout>
+				<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
+			</control>
+			<!-- Letter-Scrollbar TVSHOWS-->
+			<control type="image">
+				<left>450</left>
+				<top>1003</top>
+				<width>1037</width>
+				<height>58</height>
+				<animation effect="fade" start="100" end="100" time="50" condition="Control.HasFocus(6016)">Conditional</animation>
+				<texture>views/directory/sbl_backround.png</texture>
+				<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				<visible>Control.HasFocus(6016) + Skin.HasSetting(AlphabetScrollbar)</visible>
+				<visible>Container.Content(TVShows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+			</control>			
+			<control type="panel" id="6016">
+				<onup>500</onup>
+				<ondown>61</ondown>
+				<left>455</left>
+				<top>1013</top>
+				<width>1188</width>
+				<height>100%</height>
+				<animation effect="fade" start="100" end="0" time="50" condition="!Control.HasFocus(6016)">Conditional</animation>
+				<visible>Container.Content(TVShows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+				<itemlayout height="41" width="38">
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>white</colordiffuse>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+						<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="41" width="38">
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+				</focusedlayout>
+				<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
+			</control>
+			
 	</include>
 
 	<include name="WallVertical">
@@ -1018,6 +1107,7 @@
 			<onleft>500</onleft>
 			<onright>9000</onright>
 			<visible>!Skin.HasSetting(wallfullscreen)</visible>
+			<visible>!Skin.HasSetting(AlphabetScrollbar)</visible>
 		</control>
 		<control type="scrollbar" id="72">
 			<left>1880</left>
@@ -1031,6 +1121,7 @@
 			<onleft>500</onleft>
 			<onright>9000</onright>
 			<visible>Skin.HasSetting(wallfullscreen)</visible>
+			<visible>!Skin.HasSetting(AlphabetScrollbar)</visible>
 		</control>
 		<control type="panel" id="500">
 			<left>129</left>
@@ -1044,13 +1135,64 @@
 			<preloaditems>2</preloaditems>
 			<scrolltime tween="quadratic">200</scrolltime>
 			<onleft>9000</onleft>
-			<onright>72</onright>
+			<onright condition="Skin.HasSetting(AlphabetScrollbar)">6017</onright>
+			<onright condition="!Skin.HasSetting(AlphabetScrollbar)">72</onright>
 			<onup>500</onup>
 			<ondown>500</ondown>
 			<animation effect="zoom" end="113" center="960,600" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(wallfullscreen) + !Container.Content(studios)">Conditional</animation>
 			<orientation>vertical</orientation>
 			<include>WallContent</include>
 		</control>
+		
+	<!-- Letter-Scrollbar -->	
+		<control type="image">
+			<left>1769</left>
+			<top>80</top>
+			<width>50</width>
+			<height>890</height>
+			<animation effect="fade" start="100" end="100" time="50" condition="Control.HasFocus(6017)">Conditional</animation>
+			<animation effect="slide" start="0" end="90" delay="0" time="320" tween="cubic" condition="Skin.HasSetting(wallfullscreen)">Conditional</animation>
+			<texture>views/directory/sbl_framevertical.png</texture>
+			<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+			<visible>Control.HasFocus(6017) + Skin.HasSetting(AlphabetScrollbar)</visible>
+		</control>
+		<control type="list" id="6017">
+			<onleft>500</onleft>
+			<onright>SetProperty(MediaMenu,True,home)</onright>
+			<onright>SetFocus(9000)</onright>
+			<left>1780</left>
+			<top>105</top>
+			<width>45</width>
+			<height>900</height>
+			<orientation>vertical</orientation>
+			<animation effect="fade" start="100" end="0" time="50" condition="!Control.HasFocus(6017)">Conditional</animation>
+			<animation effect="slide" start="0" end="90" delay="0" time="320" tween="cubic" condition="Skin.HasSetting(wallfullscreen)">Conditional</animation>
+			<itemlayout height="31" width="28">
+				<control type="label">
+					<align>center</align>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>white</textcolor>
+					<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+				</control>
+				<control type="label">
+					<align>center</align>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>$VAR[TitleColorVar]</textcolor>
+					<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+					<visible>StringCompare(ListItem.Label,Container(500).ListItem.SortLetter)</visible>
+				</control>
+			</itemlayout>
+			<focusedlayout height="33" width="28">
+			<control type="label">
+					<align>center</align>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>$VAR[TitleColorVar]</textcolor>
+					<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+				</control>
+			</focusedlayout>
+			<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
+		</control>
+		
 	</include>
 
 	<include name="Viewtype_Wall">

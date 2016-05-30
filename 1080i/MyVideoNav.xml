@@ -10,7 +10,7 @@
 	<onload>ClearProperty(BrowseActors,home)</onload>
 	<include condition="!Skin.HasSetting(firstrun4.0)">AutoConfig</include>
 	<onload condition="!Skin.HasSetting(ExplainMediaMenu)">ActivateWindow(1123)</onload>
-	<views>50,52,53,57,500,501,503,550,507,505,508,509,499,700,708,750,800,900,510,511,512,514,516,518,998,999</views>
+	<views>50,52,53,57,500,501,503,550,507,505,508,509,499,700,708,750,800,820,900,510,511,512,514,516,518,998,999</views>
 	<controls>
 		<control type="fadelabel" id="4325">
 			<top>-10000</top>
@@ -68,7 +68,7 @@
 		</control>
 		<!-- BEGIN Add Extra Fanart -->
 		<control type="group">
-			<visible>![Control.IsVisible(516) | Control.IsVisible(800)]</visible>
+			<visible>![Control.IsVisible(516) | Control.IsVisible(800) | Control.IsVisible(820)]</visible>
 			<control type="multiimage">
 				<imagepath background="true" fallback="special://skin/backgrounds/videos/">$VAR[VideoFanartVar]</imagepath>
 				<fadetime>FanartCrossfadeTime</fadetime>
@@ -205,6 +205,7 @@
 				<include>VideoFanartList</include>
 				<include>VideoBannerInfo</include>
 				<include>KodiFlixView</include>
+				<include>KodiFlixViewTV</include>
 				<include>ViewSets</include>
 				<!--MAD - New View - WIP -->
 				<!--include>DirectoryView</include-->
@@ -938,6 +939,167 @@
 					</control>
 				</control>
 				<!--Shelf 3D Discart - End -->
+				<!-- KodiFlix - Sets - Boxsets - Start -->
+				<control type="group">
+					<visible>Control.IsVisible(800) + !Skin.HasSetting(KodiFlixExtras) + Skin.HasSetting(KodiFlixMovieBoxsets) + Skin.HasSetting(KodiFlixMovieBoxsetsDiscArt) + !Skin.HasSetting(KodiFlixMovieBoxsetsActiveMovieSetCases) + [Container.Content(sets) | SubString(ListItem.Path,videodb://movies/sets)]</visible>
+					<animation effect="slide" start="0,0" end="500,0" time="0" pulse="false" condition="Skin.HasSetting(KodiFlixMoviesCenterList) + !Skin.HasSetting(KodiFlixMoviesCenterFocus)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="700,0" time="6000" pulse="false" condition="!Skin.HasSetting(KodiFlixMoviesCenterList) + Skin.HasSetting(KodiFlixMoviesCenterFocus)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="750,0" time="6000" pulse="false" condition="Skin.HasSetting(KodiFlixMoviesCenterList) + Skin.HasSetting(KodiFlixMoviesCenterFocus)">Conditional</animation>
+					<control type="image">
+						<left>2130</left>
+						<top>664</top>
+						<width>290</width>
+						<height>290</height>
+						<aspectratio>keep</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.9.Art(Discart))]</texture>
+						<fadetime>4000</fadetime>
+						<animation type="Conditional" condition="!IsEmpty(Window(home).Property(Set.Movie.9.Art(Discart))) + !Skin.HasSetting(KodiFlixMoviesCenterList) + !Skin.HasSetting(KodiFlixMoviesCenterFocus)" reversible="true">
+							<effect type="slide" start="0,0" end="-1000,0" delay="1200" time="1120" tween="quadratic" easing="out"/>
+							<effect type="rotate" start="0" center="auto" end="720" delay="1200" time="1120" tween="quadratic" easing="out"/>
+						</animation>
+						<animation type="Conditional" condition="!IsEmpty(Window(home).Property(Set.Movie.9.Art(Discart))) + [Skin.HasSetting(KodiFlixMoviesCenterList) | Skin.HasSetting(KodiFlixMoviesCenterFocus)]" reversible="true">
+							<effect type="slide" start="0,0" end="-1300,0" delay="1200" time="1120" tween="quadratic" easing="out"/>
+							<effect type="rotate" start="0" center="auto" end="720" delay="1200" time="1120" tween="quadratic" easing="out"/>
+						</animation>
+					</control>
+					<control type="image">
+						<left>2130</left>
+						<top>664</top>
+						<width>290</width>
+						<height>290</height>
+						<aspectratio>keep</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.8.Art(Discart))]</texture>
+						<fadetime>4000</fadetime>
+						<animation type="Conditional" condition="!IsEmpty(Window(home).Property(Set.Movie.8.Art(Discart))) + !Skin.HasSetting(KodiFlixMoviesCenterList) + !Skin.HasSetting(KodiFlixMoviesCenterFocus)" reversible="true">
+							<effect type="slide" start="0,0" end="-1100,0" delay="1200" time="1120" tween="quadratic" easing="out"/>
+							<effect type="rotate" start="0" center="auto" end="720" delay="1200" time="1120" tween="quadratic" easing="out"/>
+						</animation>
+						<animation type="Conditional" condition="!IsEmpty(Window(home).Property(Set.Movie.8.Art(Discart))) + [Skin.HasSetting(KodiFlixMoviesCenterList) | Skin.HasSetting(KodiFlixMoviesCenterFocus)]" reversible="true">
+							<effect type="slide" start="0,0" end="-1350,0" delay="1200" time="1120" tween="quadratic" easing="out"/>
+							<effect type="rotate" start="0" center="auto" end="720" delay="1200" time="1120" tween="quadratic" easing="out"/>
+						</animation>
+					</control>
+					<control type="image">
+						<left>2130</left>
+						<top>664</top>
+						<width>290</width>
+						<height>290</height>
+						<aspectratio>keep</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.7.Art(Discart))]</texture>
+						<fadetime>4000</fadetime>
+						<animation type="Conditional" condition="!IsEmpty(Window(home).Property(Set.Movie.7.Art(Discart))) + !Skin.HasSetting(KodiFlixMoviesCenterList) + !Skin.HasSetting(KodiFlixMoviesCenterFocus)" reversible="true">
+							<effect type="slide" start="0,0" end="-1200,0" delay="1200" time="1120" tween="quadratic" easing="out"/>
+							<effect type="rotate" start="0" center="auto" end="720" delay="1200" time="1120" tween="quadratic" easing="out"/>
+						</animation>
+						<animation type="Conditional" condition="!IsEmpty(Window(home).Property(Set.Movie.7.Art(Discart))) + [Skin.HasSetting(KodiFlixMoviesCenterList) | Skin.HasSetting(KodiFlixMoviesCenterFocus)]" reversible="true">
+							<effect type="slide" start="0,0" end="-1400,0" delay="1200" time="1120" tween="quadratic" easing="out"/>
+							<effect type="rotate" start="0" center="auto" end="720" delay="1200" time="1120" tween="quadratic" easing="out"/>
+						</animation>
+					</control>
+					<control type="image">
+						<left>2130</left>
+						<top>664</top>
+						<width>290</width>
+						<height>290</height>
+						<aspectratio>keep</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.6.Art(Discart))]</texture>
+						<fadetime>4000</fadetime>
+						<animation type="Conditional" condition="!IsEmpty(Window(home).Property(Set.Movie.6.Art(Discart))) + !Skin.HasSetting(KodiFlixMoviesCenterList) + !Skin.HasSetting(KodiFlixMoviesCenterFocus)" reversible="true">
+							<effect type="slide" start="0,0" end="-1300,0" delay="1200" time="1120" tween="quadratic" easing="out"/>
+							<effect type="rotate" start="0" center="auto" end="720" delay="1200" time="1120" tween="quadratic" easing="out"/>
+						</animation>
+						<animation type="Conditional" condition="!IsEmpty(Window(home).Property(Set.Movie.6.Art(Discart))) + [Skin.HasSetting(KodiFlixMoviesCenterList) | Skin.HasSetting(KodiFlixMoviesCenterFocus)]" reversible="true">
+							<effect type="slide" start="0,0" end="-1450,0" delay="1200" time="1120" tween="quadratic" easing="out"/>
+							<effect type="rotate" start="0" center="auto" end="720" delay="1200" time="1120" tween="quadratic" easing="out"/>
+						</animation>
+					</control>
+					<control type="image">
+						<left>2130</left>
+						<top>664</top>
+						<width>290</width>
+						<height>290</height>
+						<aspectratio>keep</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.5.Art(Discart))]</texture>
+						<fadetime>4000</fadetime>
+						<animation type="Conditional" condition="!IsEmpty(Window(home).Property(Set.Movie.5.Art(Discart))) + !Skin.HasSetting(KodiFlixMoviesCenterList) + !Skin.HasSetting(KodiFlixMoviesCenterFocus)" reversible="true">
+							<effect type="slide" start="0,0" end="-1400,0" delay="1200" time="1120" tween="quadratic" easing="out"/>
+							<effect type="rotate" start="0" center="auto" end="720" delay="1200" time="1120" tween="quadratic" easing="out"/>
+						</animation>
+						<animation type="Conditional" condition="!IsEmpty(Window(home).Property(Set.Movie.5.Art(Discart))) + [Skin.HasSetting(KodiFlixMoviesCenterList) | Skin.HasSetting(KodiFlixMoviesCenterFocus)]" reversible="true">
+							<effect type="slide" start="0,0" end="-1500,0" delay="1200" time="1120" tween="quadratic" easing="out"/>
+							<effect type="rotate" start="0" center="auto" end="720" delay="1200" time="1120" tween="quadratic" easing="out"/>
+						</animation>
+					</control>
+					<control type="image">
+						<left>2130</left>
+						<top>664</top>
+						<width>290</width>
+						<height>290</height>
+						<aspectratio>keep</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.4.Art(Discart))]</texture>
+						<fadetime>4000</fadetime>
+						<animation type="Conditional" condition="!IsEmpty(Window(home).Property(Set.Movie.4.Art(Discart))) + !Skin.HasSetting(KodiFlixMoviesCenterList) + !Skin.HasSetting(KodiFlixMoviesCenterFocus)" reversible="true">
+							<effect type="slide" start="0,0" end="-1500,0" delay="1200" time="1120" tween="quadratic" easing="out"/>
+							<effect type="rotate" start="0" center="auto" end="720" delay="1200" time="1120" tween="quadratic" easing="out"/>
+						</animation>
+						<animation type="Conditional" condition="!IsEmpty(Window(home).Property(Set.Movie.4.Art(Discart))) + [Skin.HasSetting(KodiFlixMoviesCenterList) | Skin.HasSetting(KodiFlixMoviesCenterFocus)]" reversible="true">
+							<effect type="slide" start="0,0" end="-1550,0" delay="1200" time="1120" tween="quadratic" easing="out"/>
+							<effect type="rotate" start="0" center="auto" end="720" delay="1200" time="1120" tween="quadratic" easing="out"/>
+						</animation>
+					</control>
+					<control type="image">
+						<left>2130</left>
+						<top>664</top>
+						<width>290</width>
+						<height>290</height>
+						<aspectratio>keep</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.3.Art(Discart))]</texture>
+						<fadetime>4000</fadetime>
+						<animation type="Conditional" condition="!IsEmpty(Window(home).Property(Set.Movie.3.Art(Discart))) + !Skin.HasSetting(KodiFlixMoviesCenterList) + !Skin.HasSetting(KodiFlixMoviesCenterFocus)" reversible="true">
+							<effect type="slide" start="0,0" end="-1600,0" delay="1200" time="1120" tween="quadratic" easing="out"/>
+							<effect type="rotate" start="0" center="auto" end="720" delay="1200" time="1120" tween="quadratic" easing="out"/>
+						</animation>
+						<animation type="Conditional" condition="!IsEmpty(Window(home).Property(Set.Movie.3.Art(Discart))) + [Skin.HasSetting(KodiFlixMoviesCenterList) | Skin.HasSetting(KodiFlixMoviesCenterFocus)]" reversible="true">
+							<effect type="slide" start="0,0" end="-1600,0" delay="1200" time="1120" tween="quadratic" easing="out"/>
+							<effect type="rotate" start="0" center="auto" end="720" delay="1200" time="1120" tween="quadratic" easing="out"/>
+						</animation>
+					</control>
+					<control type="image">
+						<left>2130</left>
+						<top>664</top>
+						<width>290</width>
+						<height>290</height>
+						<aspectratio>keep</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.2.Art(Discart))]</texture>
+						<fadetime>4000</fadetime>
+						<animation type="Conditional" condition="!IsEmpty(Window(home).Property(Set.Movie.2.Art(Discart))) + !Skin.HasSetting(KodiFlixMoviesCenterList) + !Skin.HasSetting(KodiFlixMoviesCenterFocus)" reversible="true">
+							<effect type="slide" start="0,0" end="-1700,0" delay="1200" time="1120" tween="quadratic" easing="out"/>
+							<effect type="rotate" start="0" center="auto" end="720" delay="1200" time="1120" tween="quadratic" easing="out"/>
+						</animation>
+						<animation type="Conditional" condition="!IsEmpty(Window(home).Property(Set.Movie.2.Art(Discart))) + [Skin.HasSetting(KodiFlixMoviesCenterList) | Skin.HasSetting(KodiFlixMoviesCenterFocus)]" reversible="true">
+							<effect type="slide" start="0,0" end="-1650,0" delay="1200" time="1120" tween="quadratic" easing="out"/>
+							<effect type="rotate" start="0" center="auto" end="720" delay="1200" time="1120" tween="quadratic" easing="out"/>
+						</animation>
+					</control>
+					<control type="image">
+						<left>2130</left>
+						<top>664</top>
+						<width>290</width>
+						<height>290</height>
+						<aspectratio>keep</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.1.Art(Discart))]</texture>
+						<fadetime>4000</fadetime>
+						<animation type="Conditional" condition="!IsEmpty(Window(home).Property(Set.Movie.1.Art(Discart))) + !Skin.HasSetting(KodiFlixMoviesCenterList) + !Skin.HasSetting(KodiFlixMoviesCenterFocus)" reversible="true">
+							<effect type="slide" start="0,0" end="-1800,0" delay="1200" time="1120" tween="quadratic" easing="out"/>
+							<effect type="rotate" start="0" center="auto" end="720" delay="1200" time="1120" tween="quadratic" easing="out"/>
+						</animation>
+						<animation type="Conditional" condition="!IsEmpty(Window(home).Property(Set.Movie.1.Art(Discart))) + [Skin.HasSetting(KodiFlixMoviesCenterList) | Skin.HasSetting(KodiFlixMoviesCenterFocus)]" reversible="true">
+							<effect type="slide" start="0,0" end="-1700,0" delay="1200" time="1120" tween="quadratic" easing="out"/>
+							<effect type="rotate" start="0" center="auto" end="720" delay="1200" time="1120" tween="quadratic" easing="out"/>
+						</animation>
+					</control>
+				</control>
+				<!-- KodiFlix - Sets - Boxsets - End -->
 			</control>
 			<include condition="skin.hassetting(backendmode)">FloorSetDiscArt</include>
 			<control type="group">
@@ -1010,7 +1172,8 @@
 					<texture background="true" fallback="empty.png">$VAR[LogoVar]</texture>
 					<fadetime>200</fadetime>
 					<animation effect="fade" delay="240" time="240" reversible="false">Hidden</animation>
-					<visible>Control.IsVisible(57) | [Control.IsVisible(508) + Skin.HasSetting(tvshowlogosfloor)] | [Control.IsVisible(500) + !StringCompare(Container.FolderName,youtube) + Skin.HasSetting(tvshowlogosfloor)] | Control.IsVisible(501) | [Control.IsVisible(499) + Skin.HasSetting(WallLargeLogo)]</visible>
+					<visible>[!Control.HasFocus(6020) + !Control.HasFocus(6015) + !Control.HasFocus(6016)]</visible>
+					<visible>Control.IsVisible(57) | [Control.IsVisible(508) + Skin.HasSetting(movielogosfloor)] | [Control.IsVisible(508) + Skin.HasSetting(tvshowlogosfloor)] | [Control.IsVisible(500) + !StringCompare(Container.FolderName,youtube) + Skin.HasSetting(tvshowlogosfloor)] | Control.IsVisible(501) | [Control.IsVisible(499) + Skin.HasSetting(WallLargeLogo)]</visible>
 					<visible>[Skin.HasSetting(movielogosfloor) + Container.Content(movies)] | [Skin.HasSetting(WallLargeLogo) + [Container.Content(movies) | Container.Content(tvshows)]] | [Skin.HasSetting(tvshowlogosfloor) + Container.Content(tvshows)] | [Skin.HasSetting(movielogosfloor) + Container.Content(sets)]</visible>
 					<visible>[!Skin.HasSetting(NoFloorLabelMovies) + Skin.HasSetting(movielogosfloor) + Container.Content(movies)] | [Container.Content(tvshows) + !Skin.HasSetting(NoFloorLabelTVshows) + Skin.HasSetting(tvshowlogosfloor)] | [Container.Content(sets) + !Skin.HasSetting(NoFloorLabelMovies)]</visible>
 				</control>

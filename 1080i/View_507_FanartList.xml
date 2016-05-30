@@ -133,9 +133,9 @@
 				<control type="image">
 					<posx>300</posx>
 					<colordiffuse>floor</colordiffuse>
-					<texture>$VAR[ColorFlagsAudio]audio/$VAR[AudioFlagVar,,.png]</texture>
+					<texture>$VAR[LibraryAudioFlagVar]</texture>
 					<include>AudioFlagsVars</include>
-					<visible>!IsEmpty(ListItem.VideoCodec)</visible>
+					<visible>!IsEmpty(ListItem.AudioCodec)</visible>
 					<include>VisibleFadeEffect</include>
 				</control>
 				<control type="image">
@@ -353,7 +353,8 @@
 					<width>1056</width>
 					<height>840</height>
 					<!-- <onleft>62</onleft> -->
-					<onright condition="Control.IsVisible(60)">60</onright>
+					<onright condition="Control.IsVisible(60) + !Skin.HasSetting(AlphabetScrollbar)">60</onright>
+					<onright condition="Skin.HasSetting(AlphabetScrollbar)">6004</onright>
 					<onright condition="!Control.IsVisible(60)">SetProperty(MediaMenu,True,home)</onright>
 					<onright condition="!Control.IsVisible(60)">SetFocus(9000)</onright>
 					<onleft>SetProperty(MediaMenu,True,home)</onleft>
@@ -908,6 +909,54 @@
 					<texturesliderbackground>views/scrollbarbacklist.png</texturesliderbackground>
 					<showonepage>false</showonepage>
 					<orientation>vertical</orientation>
+					<visible>!Skin.HasSetting(AlphabetScrollbar)</visible>
+				</control>
+				
+			<!-- Letter-Scrollbar -->
+				<control type="image">
+					<posx>1041</posx>
+					<posy>62</posy>
+					<width>48</width>
+					<height>900</height>
+					<animation effect="fade" start="100" end="80" time="50" condition="Control.HasFocus(6004)">Conditional</animation>
+					<texture>views/directory/sbl_framevertical.png</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+					<visible>Control.HasFocus(6004) + Skin.HasSetting(AlphabetScrollbar)</visible>
+				</control>
+				<control type="list" id="6004">
+					<onright>SetProperty(MediaMenu,True,home)</onright>
+					<onright>SetFocus(9000)</onright>
+					<onleft>507</onleft>
+					<posx>1050</posx>
+					<posy>77</posy>
+					<width>88</width>
+					<height>900</height>
+					<orientation>vertical</orientation>
+					<animation effect="fade" start="100" end="0" time="50" condition="!Control.HasFocus(6004)">Conditional</animation>
+					<itemlayout height="32" width="30">
+						<control type="label">
+							<align>center</align>
+							<label>$INFO[ListItem.Label]</label>
+							<textcolor>white</textcolor>
+							<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+						</control>
+						<control type="label">
+							<align>center</align>
+							<label>$INFO[ListItem.Label]</label>
+							<textcolor>$VAR[TitleColorVar]</textcolor>
+							<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+							<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
+						</control>
+					</itemlayout>
+					<focusedlayout height="33" width="30">
+						<control type="label">
+							<align>center</align>
+							<label>$INFO[ListItem.Label]</label>
+							<textcolor>$VAR[TitleColorVar]</textcolor>
+							<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+						</control>
+					</focusedlayout>
+					<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
 				</control>
 				<control type="image">
 					<posx>1072</posx>

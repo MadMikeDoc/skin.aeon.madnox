@@ -111,8 +111,8 @@
 		<onleft>503</onleft>
 		<onright>503</onright>
 		<onup>7000</onup>
-		<ondown condition="![Skin.HasSetting(landscapeonelogo) + [Container.Content(tvshows) | Container.Content(movies)]]">61</ondown>
-		<ondown condition="[Skin.HasSetting(landscapeonelogo) + [Container.Content(tvshows) | Container.Content(movies)]]">61</ondown>  <!-- enable scrollbar when push down - by s2k -->
+		<ondown condition="![Skin.HasSetting(landscapeonelogo) + [Container.Content(tvshows) | Container.Content(movies)]] + !Skin.HasSetting(AlphabetScrollbar)">61</ondown>
+		<ondown condition="![Skin.HasSetting(landscapeonelogo) + [Container.Content(tvshows) | Container.Content(movies)]] + Skin.HasSetting(AlphabetScrollbar)">6022</ondown>
 		<ondown condition="[Skin.HasSetting(landscapeonelogo) + [Container.Content(tvshows) | Container.Content(movies)]] + !IsEmpty(ListItem.Trailer)">9000</ondown>
 		<ondown condition="[Skin.HasSetting(landscapeonelogo) + [Container.Content(tvshows) | Container.Content(movies)]] + IsEmpty(ListItem.Trailer)">7000</ondown>
 		<orientation>horizontal</orientation>
@@ -209,7 +209,6 @@
 					<visible>Control.IsVisible(503) + Skin.HasSetting(landscapeonelogo) + [Container.Content(tvshows) | Container.Content(movies) | Container.Content(artists)]</visible>
 					<visible>![Container.OnNext | Container.OnPrevious]</visible>
 				</control>
-				-----------brnetos
 				<control type="label">
 					<left>510</left>
 					<top>1000</top>
@@ -223,7 +222,7 @@
 					<include>Animation_VisibleChange200</include>
 					<scroll>true</scroll>
 					<scrollspeed>30</scrollspeed>
-					<visible>![[Skin.HasSetting(landscapelogo) | Skin.HasSetting(landscapeonelogo)] + [Container.Content(tvshows) | Container.Content(movies) | Container.Content(artists)]]</visible>
+					<visible>!Control.HasFocus(6022) + ![[Skin.HasSetting(landscapelogo) | Skin.HasSetting(landscapeonelogo)] + [Container.Content(tvshows) | Container.Content(movies) | Container.Content(artists)]]</visible>
 					<visible>!Container.Content(episodes) + [[Container.Content(tvshows) + !Skin.HasSetting(NoFloorLabelTVshows)] | [Container.Content(movies)+ !Skin.HasSetting(NoFloorLabelMovies)]]</visible>
 				</control>
 				<control type="label">
@@ -241,7 +240,7 @@
 					<scrollspeed>30</scrollspeed>
 					<visible>Container.Content(episodes)</visible>
 					<!--visible>![[Skin.HasSetting(landscapelogo) | Skin.HasSetting(landscapeonelogo)] + [Container.Content(tvshows) | Container.Content(movies)]]</visible-->
-					<visible>![[Skin.HasSetting(landscapelogo) | Skin.HasSetting(landscapeonelogo)] + [[Container.Content(tvshows) + !Skin.HasSetting(NoFloorLabelTVshows)] | [Container.Content(movies)+ !Skin.HasSetting(NoFloorLabelMovies)]]]</visible>
+					<visible>!Control.HasFocus(6022) + ![[Skin.HasSetting(landscapelogo) | Skin.HasSetting(landscapeonelogo)] + [[Container.Content(tvshows) + !Skin.HasSetting(NoFloorLabelTVshows)] | [Container.Content(movies)+ !Skin.HasSetting(NoFloorLabelMovies)]]]</visible>
 				</control>
 				<control type="label">
 					<left>510</left>
@@ -254,7 +253,7 @@
 					<include>Animation_VisibleChange200</include>
 					<scroll>true</scroll>
 					<scrollspeed>30</scrollspeed>
-					<visible>Skin.HasSetting(landscapelogo) + [[Container.Content(tvshows) + !Skin.HasSetting(NoFloorLabelTVshows)] | [Container.Content(movies)+ !Skin.HasSetting(NoFloorLabelMovies)]] + !Control.HasFocus(61)</visible>
+					<visible>!Control.HasFocus(6022) + Skin.HasSetting(landscapelogo) + [[Container.Content(tvshows) + !Skin.HasSetting(NoFloorLabelTVshows)] | [Container.Content(movies)+ !Skin.HasSetting(NoFloorLabelMovies)]] + !Control.HasFocus(61)</visible>
 				</control>
 			</control>
 		</control>
@@ -281,7 +280,7 @@
 				<include>Animation_VisibleChange200</include>
 				<scroll>true</scroll>
 				<scrollspeed>30</scrollspeed>
-				<visible>Skin.HasSetting(landscapeonelogo) + [Container.Content(tvshows) | Container.Content(movies)] + !Control.HasFocus(61)</visible>
+				<visible>!Control.HasFocus(6022) + Skin.HasSetting(landscapeonelogo) + [Container.Content(tvshows) | Container.Content(movies)] + !Control.HasFocus(61)</visible>
 			</control>
 			<control type="image">
 				<left>200r</left>
@@ -328,6 +327,94 @@
 				<texture>$VAR[VideoextrasOverlay]</texture>
 				<visible>System.HasAddon(script.videoextras)</visible>
 				<visible>[Skin.HasSetting(landscapeclearart) | Skin.HasSetting(landscapelogo) | Skin.HasSetting(landscapeonelogo)]</visible>
+			</control>
+
+			<!-- Letter-Scrollbar MOVIES-->
+			<control type="image">
+				<left>410</left>
+				<top>1003</top>
+				<width>1097</width>
+				<height>58</height>
+				<animation effect="fade" start="100" end="80" time="50" condition="Control.HasFocus(6022)">Conditional</animation>
+				<texture>views/directory/sbl_backround.png</texture>
+				<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				<visible>Control.HasFocus(6022) + Skin.HasSetting(AlphabetScrollbar)</visible>
+				<visible>Container.Content(movies) | Container.Content(sets)</visible>
+			</control>
+			<control type="panel" id="6022">
+				<onup>503</onup>
+				<ondown>61</ondown>
+				<left>420</left>
+				<top>1010</top>
+				<width>1188</width>
+				<height>100%</height>
+				<animation effect="fade" start="100" end="0" time="50" condition="!Control.HasFocus(6022)">Conditional</animation>
+				<visible>Container.Content(movies) | Container.Content(sets)</visible>
+				<itemlayout height="41" width="40">
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>white</colordiffuse>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+						<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="41" width="40">
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+				</focusedlayout>
+				<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
+			</control>
+			
+			<!-- Letter-Scrollbar TVSHOWS-->
+			<control type="image">
+				<left>490</left>
+				<top>1004</top>
+				<width>965</width>
+				<height>55</height>
+				<animation effect="fade" start="100" end="80" time="50" condition="Control.HasFocus(6022)">Conditional</animation>
+				<texture>views/directory/sbl_backround.png</texture>
+				<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				<visible>Control.HasFocus(6022) + Skin.HasSetting(AlphabetScrollbar)</visible>
+				<visible>Container.Content(TVShows)</visible>
+			</control>
+			<control type="panel" id="6022">
+				<onup>503</onup>
+				<ondown>61</ondown>
+				<left>500</left>
+				<top>1015</top>
+				<width>1000</width>
+				<height>100%</height>
+				<animation effect="fade" start="100" end="0" time="50" condition="!Control.HasFocus(6022)">Conditional</animation>
+				<visible>Container.Content(TVShows)</visible>
+				<itemlayout height="35" width="35">
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>white</colordiffuse>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+						<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="35" width="35">
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+				</focusedlayout>
+				<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
 			</control>
 		</control>
 	</include>

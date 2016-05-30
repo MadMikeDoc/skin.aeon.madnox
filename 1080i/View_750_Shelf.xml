@@ -133,8 +133,9 @@
 				<texturesliderbarfocus border="1">scrollbar/texturesliderbar3.png</texturesliderbarfocus>
 				<showonepage>false</showonepage>
 				<orientation>vertical</orientation>
-				<visible>!Skin.HasSetting(Shelf3DNoInfoPanel)</visible>
-			</control>
+				<visible>!Skin.HasSetting(Shelf3DNoInfoPanel) + !Skin.HasSetting(AlphabetScrollbar)</visible>
+			</control>		
+			
 			<!--Fanart-->
 			<control type="group">
 				<animation effect="rotatey" center="1230" start="-12" end="-12" time="0" condition="!Skin.HasSetting(Shelf3DFlatInfoPanel)">Conditional</animation>
@@ -199,17 +200,18 @@
 					<left>110</left>
 					<top>1060</top>
 					<width>1680</width>
-					<height>13</height>
+					<height>12</height>
 					<onup>750</onup>
-					<texturesliderbackground border="1">-</texturesliderbackground>
-					<texturesliderbar border="6,0,6,0">scrollbar/texturesliderbar_hor.png</texturesliderbar>
-					<texturesliderbarfocus border="6,0,6,0">scrollbar/texturesliderbarfocus_hor.png</texturesliderbarfocus>
+					<ondown>750</ondown>
+					<texturesliderbackground border="12,0,12,0">views/scrollbarbacklist2.png</texturesliderbackground>
+					<texturesliderbar border="14,0,14,0">views/scrollbar/scrollbar_horizontal.png</texturesliderbar>
+					<texturesliderbarfocus border="8,0,8,0">views/scrollbar/scrollbar_horizontal.png</texturesliderbarfocus>
 					<textureslidernib>-</textureslidernib>
 					<textureslidernibfocus>-</textureslidernibfocus>
 					<showonepage>false</showonepage>
 					<orientation>horizontal</orientation>
 					<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(88) + !Container.Scrolling">Conditional</animation>
-				</control>
+				</control>	
 				<control type="fixedlist" id="750">
 					<viewtype label="Shelf 3D">list</viewtype>
 					<left>0</left>
@@ -220,7 +222,8 @@
 					<onright>750</onright>
 					<onup>SetProperty(MediaMenu,True,home)</onup>
 					<onup>SetFocus(9000)</onup>
-					<ondown>88</ondown>
+					<ondown condition="Skin.HasSetting(AlphabetScrollbar)">6012</ondown>
+					<ondown condition="!Skin.HasSetting(AlphabetScrollbar)">88</ondown>
 					<orientation>horizontal</orientation>
 					<focusposition>2</focusposition>
 					<scrolltime>100</scrolltime>
@@ -360,6 +363,7 @@
 						</control>
 					</focusedlayout>
 				</control>
+
 				<!-- Spine -->
 				<control type="image">
 					<left>563</left>
@@ -518,7 +522,7 @@
 					<control type="image">
 						<left>460</left>
 						<include>MediaFlagVarsShelf</include>
-						<texture>$VAR[ColorFlagsAudio]audio/$VAR[AudioFlagVar,,.png]</texture>
+						<texture>$VAR[LibraryAudioFlagVar]</texture>
 						<visible>!IsEmpty(ListItem.AudioCodec)</visible>
 					</control>
 					<control type="group">
@@ -599,9 +603,54 @@
 						</control>
 					</control>
 				</control>
-			</control>
+			</control>				
+
+			<!-- Letter-Scrollbar -->
+			<control type="image">
+				<left>50</left>
+				<top>990</top>
+				<width>1097</width>
+				<height>58</height>
+				<animation effect="fade" start="100" end="100" time="50" condition="Control.HasFocus(6012)">Conditional</animation>
+				<texture>views/directory/sbl_backround.png</texture>
+				<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				<visible>Control.HasFocus(6012) + Skin.HasSetting(AlphabetScrollbar)</visible>
+			</control>			
+			<control type="panel" id="6012">
+				<onup>750</onup>
+				<ondown>88</ondown>
+				<left>60</left>
+				<top>1000</top>
+				<width>1188</width>
+				<height>100%</height>
+				<animation effect="fade" start="100" end="0" time="50" condition="!Control.HasFocus(6012)">Conditional</animation>
+				<itemlayout height="41" width="40">
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>white</colordiffuse>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+						<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="41" width="40">
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+				</focusedlayout>
+				<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
+			</control>	
+			
 		</control>
 	</include>
+
+
 	<!-- Music -->
 	<include name="Shelf_Music">
 		<control type="group">
@@ -816,9 +865,9 @@
 					<width>1680</width>
 					<height>13</height>
 					<onup>750</onup>
-					<texturesliderbackground border="1">-</texturesliderbackground>
-					<texturesliderbar border="6,0,6,0">scrollbar/texturesliderbar_hor.png</texturesliderbar>
-					<texturesliderbarfocus border="6,0,6,0">scrollbar/texturesliderbarfocus_hor.png</texturesliderbarfocus>
+					<texturesliderbackground border="12,0,12,0">views/scrollbarbacklist2.png</texturesliderbackground>
+					<texturesliderbar border="14,0,14,0">views/scrollbar/scrollbar_horizontal.png</texturesliderbar>
+					<texturesliderbarfocus border="8,0,8,0">views/scrollbar/scrollbar_horizontal.png</texturesliderbarfocus>
 					<textureslidernib>-</textureslidernib>
 					<textureslidernibfocus>-</textureslidernibfocus>
 					<showonepage>false</showonepage>

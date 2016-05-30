@@ -525,6 +525,24 @@
 	<variable name="AudioFlagVar">
 		<value>$INFO[ListItem.AudioCodec]$INFO[ListItem.AudioChannels]</value>
 	</variable>
+	<variable name="PlayerAudioFlagVar">
+	    <value condition="SubString(Window(Home).Property(SkinHelper.ListItemTags),atmos)">$VAR[ColorFlagsAudio]audio\dolbyatmoslogo.png</value>
+	    <value condition="SubString(Window(Home).Property(SkinHelper.ListItemTags),dtsx)">$VAR[ColorFlagsAudio]audio\dtsxlogo.png</value>
+	    <value condition="SubString(Window(Home).Property(SkinHelper.ListItemTags),auro)">$VAR[ColorFlagsAudio]audio\aurologo.png</value>
+	    <value condition="SubString(Player.Filename,dtsx)">$VAR[ColorFlagsAudio]audio\dtsxlogo.png</value>
+	    <value condition="SubString(Player.Filename,auro)">$VAR[ColorFlagsAudio]audio\aurologo.png</value>
+	    <value condition="SubString(Player.Filename,atmos)">$VAR[ColorFlagsAudio]audio\dolbyatmoslogo.png</value>
+		<value>$VAR[ColorFlagsAudio]audio/$INFO[VideoPlayer.AudioCodec]$INFO[VideoPlayer.AudioChannels,,.png]</value>
+	</variable>
+	<variable name="LibraryAudioFlagVar">
+	    <value condition="SubString(Window(Home).Property(SkinHelper.ListItemTags),atmos)">$VAR[ColorFlagsAudio]audio\dolbyatmoslogo.png</value>
+	    <value condition="SubString(Window(Home).Property(SkinHelper.ListItemTags),dtsx)">$VAR[ColorFlagsAudio]audio\dtsxlogo.png</value>
+	    <value condition="SubString(Window(Home).Property(SkinHelper.ListItemTags),auro)">$VAR[ColorFlagsAudio]audio\aurologo.png</value>
+	    <value condition="SubString(ListItem.Filename,atmos)">$VAR[ColorFlagsAudio]audio\dolbyatmoslogo.png</value>
+	    <value condition="SubString(ListItem.Filename,dtsx)">$VAR[ColorFlagsAudio]audio\dtsxlogo.png</value>
+	    <value condition="SubString(ListItem.Filename,auro)">$VAR[ColorFlagsAudio]audio\aurologo.png</value>
+	    <value>$VAR[ColorFlagsAudio]audio/$VAR[AudioFlagVar,,.png]</value>
+	</variable>
 	<variable name="NextEpisodeVar">
 		<value condition="!IsEmpty(Window(Home).Property(NextAired.Label)) + !IsEmpty(Window(Home).Property(NextAired.NextDay))">$INFO[Window(Home).Property(NextAired.NextDay)]</value>
 		<value condition="SubString(Window(Home).Property(NextAired.StatusID),1)">$LOCALIZE[31246]</value>
@@ -630,6 +648,7 @@
 		<value>$LOCALIZE[31025]</value>
 	</variable>
 	<variable name="VideoExtraFanartVar">
+		<value condition="ListItem.IsCollection">$INFO[Window(Home).Property(SkinHelper.ExtraFanArtPath)]</value>
 		<value condition="Container.Content(movies) | Container.Content(tvshows)">$INFO[ListItem.Path,,extrafanart/]</value>
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Path,,../extrafanart/]</value>
 		<value condition="Container.Content(seasons)">$INFO[ListItem.Path,,./extrafanart/]</value>
@@ -2487,7 +2506,7 @@
 		<value condition="!IsEmpty(ListItem.Studio) + Skin.HasSetting(StudiosColorFlag)">$INFO[ListItem.Studio,resource://resource.images.studios.coloured/,.png]</value>
 		<value condition="Container.Content(studios) + !Stringcompare(ListItem.Label,..) + !Skin.HasSetting(StudiosColorFlag)">$INFO[ListItem.Label,resource://resource.images.studios.white/,.png]</value>
 		<value condition="Container.Content(studios) + !Stringcompare(ListItem.Label,..) + Skin.HasSetting(StudiosColorFlag)">$INFO[ListItem.Label,resource://resource.images.studios.coloured/,.png]</value>
-		<value condition="ListItem.IsCollection">overlays/showcase/set.png</value>
+		<value condition="ListItem.IsCollection">views/kodiflix/spines/seticon.png</value>
 		<value condition="!Stringcompare(ListItem.Label,..)">$INFO[ListItem.Icon]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
@@ -2589,8 +2608,7 @@
 		<value condition="Container.Content(tags)">$INFO[ListItem.Label,special://skin/extras/tags/video/icons/,.jpg]</value>
 		<value condition="Stringcompare(ListItem.label,..)">DefaultFolderBack.png</value>
 		<value condition="Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/genre/video/icons/,.jpg]</value>
-		<value condition="!IsEmpty(Window(home).Property(SkinHelper.AnimatedPoster)) + Skin.HasSetting(SkinHelperAnimations) + [Control.Isvisible(50) | Control.Isvisible(52) | Control.Isvisible(511) | Control.Isvisible(550) | Control.Isvisible(700)| Control.Isvisible(514) | Control.Isvisible(516)]">$INFO[Window(home).Property(SkinHelper.AnimatedPoster)]</value>
-		<!--value condition="Skin.HasSetting(SkinHelperAnimations)">http://localhost:52307/getanimatedposter&amp;imdbid=$INFO[Listitem.IMDBNumber]&amp;fallback=$INFO[Listitem.Art(poster)]</value-->
+		<value condition="Skin.HasSetting(SkinHelperAnimations) + !IsEmpty(ListItem.Art(animatedposter))">$INFO[ListItem.Art(animatedposter)]</value>
 		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value condition="!IsEmpty(Container.ListItem.Art(poster))">$INFO[Container.ListItem.Art(poster)]</value>
 		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
@@ -2603,7 +2621,7 @@
 		<value condition="Container.Content(tags)">$INFO[ListItem.Label,special://skin/extras/tags/video/icons/,.jpg]</value>
 		<value condition="Stringcompare(ListItem.label,..)">DefaultFolderBack.png</value>
 		<value condition="Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/genre/video/iconsBW/,.jpg]</value>
-		<value condition="!IsEmpty(Window(home).Property(SkinHelper.AnimatedPoster)) + Skin.HasSetting(SkinHelperAnimations) + [Control.Isvisible(50) | Control.Isvisible(52) | Control.Isvisible(511) | Control.Isvisible(550) | Control.Isvisible(700)| Control.Isvisible(514) | Control.Isvisible(516)]">$INFO[Window(home).Property(SkinHelper.AnimatedPoster)]</value>
+		<value condition="Skin.HasSetting(SkinHelperAnimations) + !IsEmpty(ListItem.Art(animatedposter))">$INFO[ListItem.Art(animatedposter)]</value>
 		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value condition="!IsEmpty(Container.ListItem.Art(poster))">$INFO[Container.ListItem.Art(poster)]</value>
 		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
@@ -2618,6 +2636,7 @@
 		<value condition="!IsEmpty(Window(home).Property(SkinHelper.AnimatedPoster)) + Skin.HasSetting(SkinHelperAnimations) + [Control.Isvisible(50) | Control.Isvisible(52) | Control.Isvisible(511) | Control.Isvisible(550) | Control.Isvisible(700)| Control.Isvisible(514) | Control.Isvisible(516)]">$INFO[Window(home).Property(SkinHelper.AnimatedPoster)]</value>
 		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value condition="!IsEmpty(Container.ListItem.Art(poster))">$INFO[Container.ListItem.Art(poster)]</value>
+		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Art(tvshow.poster)]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
@@ -3486,10 +3505,11 @@
 	</variable> -->
 
 	<variable name="VideoPlotVar3">
-		<value condition="!IsEmpty(ListItem.PlotOutline) + !IsEmpty(ListItem.Tagline)">[COLOR $VAR[FontColorVar]]$INFO[ListItem.Tagline] - [/COLOR]$INFO[ListItem.PlotOutline]</value>
-		<value condition="IsEmpty(ListItem.PlotOutline) + !IsEmpty(ListItem.Tagline)">[COLOR $VAR[FontColorVar]]$INFO[ListItem.Tagline] - [/COLOR]$INFO[ListItem.Plot]</value>
-		<value condition="!IsEmpty(Window(home).Property(Set.Movies.ExtendedPlot))">$INFO[Window(home).Property(Set.Movies.ExtendedPlot)]</value>
-		<value>$INFO[ListItem.Plot]</value>
+		<value condition="Skin.HasSetting(preferplot) + !IsEmpty(ListItem.PlotOutline) + !IsEmpty(ListItem.Tagline)">[COLOR $VAR[FontColorVar]]$INFO[ListItem.Tagline] - [/COLOR]$INFO[ListItem.PlotOutline]</value>
+		<value condition="Skin.HasSetting(preferplot) + IsEmpty(ListItem.PlotOutline) + !IsEmpty(ListItem.Tagline)">[COLOR $VAR[FontColorVar]]$INFO[ListItem.Tagline] - [/COLOR]$INFO[ListItem.Plot]</value>
+		<value condition="Skin.HasSetting(preferplot) + !IsEmpty(Window(home).Property(Set.Movies.ExtendedPlot))">$INFO[Window(home).Property(Set.Movies.ExtendedPlot)]</value>
+		<value condition="Skin.HasSetting(preferplot)">$INFO[ListItem.Plot]</value>
+		<value>$INFO[ListItem.PlotOutline]</value>
 	</variable>
 	<variable name="PathFlagsAudioChannels">
 		<value condition="Skin.HasSetting(coloredflags)">$INFO[ListItem.AudioChannels,flags/colored/channels/,.png]</value>
@@ -3674,8 +3694,8 @@
 		<value condition="SubString(Container(5801).Listitem.mpaa,UK:12)">BBFC_12_Certificate_UK</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,UK:15)">BBFC_15_Certificate_UK</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,UK:18)">BBFC_18_Certificate_UK</value>
-		<value condition="SubString(Container(5801).Listitem.mpaa,Germany:0) |SubString(Container(5801).Listitem.mpaa,ab 0) | SubString(Container(5801).Listitem.mpaa,o.A) |SubString(Container(5801).Listitem.mpaa,Rated 0) | SubString(Container(5801).Listitem.mpaa,FSK 0) | SubString(Container(5801).Listitem.mpaa,FSK:0)">FSK-0</value>
-		<value condition="SubString(Container(5801).Listitem.mpaa,Germany:6) |SubString(Container(5801).Listitem.mpaa,ab 6) | !SubString(Container(5801).Listitem.mpaa,16) + SubString(Container(5801).Listitem.mpaa,6) | SubString(Container(5801).Listitem.mpaa,FSK 6) | SubString(Container(5801).Listitem.mpaa,FSK:6)">FSK-6</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Germany:0) | SubString(Container(5801).Listitem.mpaa,ab 0) | SubString(Container(5801).Listitem.mpaa,o.A) | SubString(Container(5801).Listitem.mpaa,Rated 0) | SubString(Container(5801).Listitem.mpaa,FSK 0)">FSK-0</value>
+		<value condition="SubString(Container(5801).Listitem.mpaa,Germany:6) | SubString(Container(5801).Listitem.mpaa,ab 6) | !SubString(Container(5801).Listitem.mpaa,16) + SubString(Container(5801).Listitem.mpaa,6) | SubString(Container(5801).Listitem.mpaa,FSK 6) | SubString(Container(5801).Listitem.mpaa,FSK:6)">FSK-6</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,Germany:12) |SubString(Container(5801).Listitem.mpaa,ab 12) | SubString(Container(5801).Listitem.mpaa,12) | SubString(Container(5801).Listitem.mpaa,FSK 12) | SubString(Container(5801).Listitem.mpaa,FSK:12)">FSK-12</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,Germany:16) |SubString(Container(5801).Listitem.mpaa,ab 16) | SubString(Container(5801).Listitem.mpaa,16) | SubString(Container(5801).Listitem.mpaa,FSK 16) | SubString(Container(5801).Listitem.mpaa,FSK:16)">FSK-16</value>
 		<value condition="SubString(Container(5801).Listitem.mpaa,Germany:18) |SubString(Container(5801).Listitem.mpaa,ab 18) | SubString(Container(5801).Listitem.mpaa,18) | SubString(Container(5801).Listitem.mpaa,FSK 18) | SubString(Container(5801).Listitem.mpaa,FSK:18)">FSK-18</value>
@@ -3957,17 +3977,25 @@
 		<value condition="Container.Content(artists) + !IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description)]</value>
 		<value condition="Container.Content(artists)">$LOCALIZE[547]</value>
 	</variable>
-	<variable name="KodiFlixDimValueVar">
-		<value condition="Skin.HasSetting(KodiFlixDimValueVar_50)">50 %</value>
-		<value condition="Skin.HasSetting(KodiFlixDimValueVar_60)">60 %</value>
-		<value condition="Skin.HasSetting(KodiFlixDimValueVar_70)">70 %</value>
-		<value condition="Skin.HasSetting(KodiFlixDimValueVar_80)">80 %</value>
+	<variable name="KodiFlixMoviesDimValueVar">
+		<value condition="Skin.HasSetting(KodiFlixMoviesDimValueVar_50)">50 %</value>
+		<value condition="Skin.HasSetting(KodiFlixMoviesDimValueVar_60)">60 %</value>
+		<value condition="Skin.HasSetting(KodiFlixMoviesDimValueVar_70)">70 %</value>
+		<value condition="Skin.HasSetting(KodiFlixMoviesDimValueVar_80)">80 %</value>
+	</variable>
+	<variable name="KodiFlixTVDimValueVar">
+		<value condition="Skin.HasSetting(KodiFlixTVDimValueVar_50)">50 %</value>
+		<value condition="Skin.HasSetting(KodiFlixTVDimValueVar_60)">60 %</value>
+		<value condition="Skin.HasSetting(KodiFlixTVDimValueVar_70)">70 %</value>
+		<value condition="Skin.HasSetting(KodiFlixTVDimValueVar_80)">80 %</value>
 	</variable>
 	<variable name="KodiFlixViewLayout">
 		<value condition="Skin.HasSetting(KodiFlixViewLayoutDefault)">Default</value>
 		<value condition="Skin.HasSetting(KodiFlixLandscapeView)">Landscape</value>
 		<value condition="Skin.HasSetting(KodiFlixClearArtView)">ClearArt</value>
 		<value condition="Skin.HasSetting(KodiFlixDiscArtView)">DiscArt</value>
+		<value condition="Skin.HasSetting(KodiFlixDVDShelfView)">DVDShelf</value>
+		<value condition="Skin.HasSetting(KodiFlixMovieBoxsets)">Boxsets</value>
 		<value>$LOCALIZE[571]</value>
 	</variable>
 	<!-- <variable name="PlayerTimeRemainingVar">
@@ -4819,6 +4847,7 @@
 	<!-- Widget Artwork -->
 	<variable name="HomeWidgetPortraitCaseVar">
 		<value condition="ListItem.IsStereoscopic | SubString(ListItem.Filename,.3D.) | SubString(ListItem.Filename,.3d.)">3d.png</value>
+		<value condition="!IsEmpty(ListItem.TVShowTitle)">tvseries.png</value>
 		<value condition="SubString(ListItem.Filename,3D) | SubString(ListItem.Filename,3d)">3d.png</value>	<!-- added by s2k -->
 		<value condition="SubString(ListItem.Filename, 3D.) | SubString(ListItem.Filename, 3d.)">3d.png</value>
 		<value condition="SubString(ListItem.Filename,.3DBD.) | SubString(ListItem.Filename,.3dbd.)">3d.png</value>
@@ -4840,7 +4869,7 @@
 		<value condition="SubString(ListItem.Filename, 4K.) | SubString(ListItem.Filename, 4k.)">4k.png</value>
 		<value condition="!IsEmpty(ListItem.VideoResolution)">$INFO[ListItem.VideoResolution]p.png</value>
 		<value condition="!IsEmpty(ListItem.Property(VideoResolution))">$INFO[ListItem.Property(VideoResolution)]p.png</value>
-		<value condition="!IsEmpty(ListItem.VideoResolution) + IsEmpty(ListItem.TVShowTitle)">tvseries.png</value>
+		<value condition="!IsEmpty(ListItem.VideoResolution) + !IsEmpty(ListItem.TVShowTitle)">tvseries.png</value>
 		<value condition="IsEmpty(ListItem.Property(VideoResolution)) + IsEmpty(ListItem.TVShowTitle) + [!IsEmpty(ListItem.Trailer) | SubString(ListItem.FolderPath,extendedinfo)]">trailers.png</value>
 		<value>p.png</value>
 	</variable>
@@ -5553,8 +5582,43 @@
 		<value condition="Container.Content(songs)">Duration :</value>
 		<value condition="Container.Content(artists)">$LOCALIZE[132]</value><!--Album/Alben andern-->
 	</variable>
-
-
+	<variable name="MusicInfoLabel1Var">
+		<value condition="Container.Content(songs)">$INFO[ListItem.Duration]</value>
+		<value condition="Container.Content(albums)">$INFO[ListItem.Property(Album_Genre)]</value>
+		<value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Genre)]</value>
+		<value condition="Container.Content(addons)">$INFO[ListItem.Property(Addon.Creator)]</value>
+		<value condition="[Window.IsActive(programs) + !Container.Content(addons)]">$INFO[ListItem.Writer]</value>
+	</variable>
+	<variable name="MusicInfoLabel2Var">
+		<value condition="Container.Content(songs) + IsEmpty(Container.ListItem.PlayCount)">0</value>
+		<value condition="Container.Content(songs)">$INFO[ListItem.PlayCount]</value>
+		<value condition="Container.Content(albums)">$INFO[ListItem.Property(Album_Style)]</value>
+		<value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Style)]</value>
+		<value condition="Container.Content(addons)">$INFO[ListItem.Property(Addon.Creator)]</value>
+		<value condition="[Window.IsActive(programs) + !Container.Content(addons)]">$INFO[ListItem.Writer]</value>
+	</variable>
+	<variable name="MusicInfoLabel3Var">
+		<value condition="Container.Content(songs)">$INFO[ListItem.LastPlayed]</value>
+		<value condition="Container.Content(albums)">$INFO[ListItem.Property(Album_Mood)]</value>
+		<value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Mood)]</value>
+		<value condition="Container.Content(addons)">$INFO[ListItem.Property(Addon.Creator)]</value>
+		<value condition="[Window.IsActive(programs) + !Container.Content(addons)]">$INFO[ListItem.Writer]</value><value condition="Container.Content(addons)">$LOCALIZE[21863]:</value>
+	</variable>
+	<variable name="MusicInfoTextLabel1Var">
+		<value condition="Container.Content(songs)">Duration: </value>
+		<value condition="Container.Content(addons)">$LOCALIZE[21863]:</value>
+		<value>$LOCALIZE[515]:</value>
+	</variable>
+	<variable name="MusicInfoTextLabel2Var">
+		<value condition="Container.Content(songs)">Playcount: </value>
+		<value condition="Container.Content(albums) | Container.Content(artists)">Style: </value>
+		<value>$LOCALIZE[515]:</value>
+	</variable>
+	<variable name="MusicInfoTextLabel3Var">
+		<value condition="Container.Content(songs)">Last Played: </value>
+		<value condition="Container.Content(albums) | Container.Content(artists)">Mood :</value>
+		<value>$LOCALIZE[515]:</value>
+	</variable>
 	<variable name="AcademyAward">
 		<value condition="stringcompare(container.folderpath,special://skin/extras/Playlists/oscars/bestpicture.xsp)">PICTURE</value>
 		<value condition="stringcompare(container.folderpath,special://skin/extras/Playlists/oscars/bestdirector.xsp)">DIRECTOR</value>
@@ -5568,5 +5632,44 @@
 		<value condition="stringcompare(container.folderpath,special://skin/extras/Playlists/oscars/bestoriginalscreenplay.xsp)"> ORIG.SCREENPLAY </value>
 		<value condition="stringcompare(container.folderpath,special://skin/extras/Playlists/oscars/bestadaptedscreenplay.xsp)"> ADAPT.SCREENPLAY </value>
 		<value condition="stringcompare(container.folderpath,special://skin/extras/Playlists/oscars/bestforeign.xsp)">FOREIGN</value>
+	</variable>
+	<variable name="GlobalSpineVar">
+		<value condition="[Container.Content(tvshows) | Container.Content(seasons)]">tvseries.png</value>
+		<value condition="SubString(ListItem.Filename,3D) | SubString(ListItem.Filename,3d)">3d.png</value>
+		<value condition="SubString(ListItem.Filename,.3D.) | SubString(ListItem.Filename,.3d.)">3d.png</value>
+		<value condition="SubString(ListItem.Filename, 3D.) | SubString(ListItem.Filename, 3d.)">3d.png</value>
+		<value condition="SubString(ListItem.Filename,.3DBD.) | SubString(ListItem.Filename,.3dbd.)">3d.png</value>
+		<value condition="SubString(ListItem.Filename, 3DBD.) | SubString(ListItem.Filename, 3dbd.)">3d.png</value>
+		<value condition="SubString(ListItem.Filename,.HDDVD.) | SubString(ListItem.Filename,.hddvd.)">hddvd.png</value>
+		<value condition="SubString(ListItem.Filename, HDDVD.) | SubString(ListItem.Filename, hddvd.)">hddvd.png</value>
+		<value condition="SubString(ListItem.Filename,.SDTV.) | SubString(ListItem.Filename,.sdtv.)">sdtv.png</value>
+		<value condition="SubString(ListItem.Filename, SDTV.) | SubString(ListItem.Filename, sdtv.)">sdtv.png</value>
+		<value condition="SubString(ListItem.Filename,.HDTV.) | SubString(ListItem.Filename,.hdtv.)">hdtv.png</value>
+		<value condition="SubString(ListItem.Filename, HDTV.) | SubString(ListItem.Filename, hdtv.)">hdtv.png</value>
+		<value condition="SubString(ListItem.Filename,.WEBDL.) | SubString(ListItem.Filename,.webdl.)">webdl.png</value>
+		<value condition="SubString(ListItem.Filename, WEBDL.) | SubString(ListItem.Filename, webdl.)">webdl.png</value>
+		<value condition="SubString(ListItem.Filename,.WEB-DL.) | SubString(ListItem.Filename,.web-dl.)">webdl.png</value>
+		<value condition="SubString(ListItem.Filename, WEB-DL.) | SubString(ListItem.Filename, web-dl.)">webdl.png</value>
+		<value condition="SubString(ListItem.Filename,.4K.) | SubString(ListItem.Filename,.4k.)">4k.png</value>
+		<value condition="SubString(ListItem.Filename, 4K.) | SubString(ListItem.Filename, 4k.)">4k.png</value>
+		<value>$INFO[ListItem.VideoResolution]p.png</value>
+	</variable>
+	<variable name="KodiFlixTVViewLayout">
+		<value condition="Skin.HasSetting(KodiFlixViewTVLayoutDefault)">Default</value>
+		<value condition="Skin.HasSetting(KodiFlixTVPosters)">Posters</value>
+		<value condition="Skin.HasSetting(KodiFlixBoxsets)">Boxsets</value>
+		<value>$LOCALIZE[571]</value>
+	</variable>
+	<variable name="KodiFlixMovieSetCasesDelayVar">
+		<value condition="Skin.HasSetting(KodiFlixMovieSetCasesDelay_5)">5 seconds</value>
+		<value condition="Skin.HasSetting(KodiFlixMovieSetCasesDelay_10)">10 seconds</value>
+		<value condition="Skin.HasSetting(KodiFlixMovieSetCasesDelay_20)">20 seconds</value>
+		<value condition="Skin.HasSetting(KodiFlixMovieSetCasesDelay_30)">30 seconds</value>
+	</variable>
+	<variable name="KodiFlixTVSetCasesDelayVar">
+		<value condition="Skin.HasSetting(KodiFlixTVSetCasesDelay_5)">5 seconds</value>
+		<value condition="Skin.HasSetting(KodiFlixTVSetCasesDelay_10)">10 seconds</value>
+		<value condition="Skin.HasSetting(KodiFlixTVSetCasesDelay_20)">20 seconds</value>
+		<value condition="Skin.HasSetting(KodiFlixTVSetCasesDelay_30)">30 seconds</value>
 	</variable>
 </includes>

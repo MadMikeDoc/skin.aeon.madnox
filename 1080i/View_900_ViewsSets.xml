@@ -401,7 +401,8 @@
 					<top>501</top>
 					<width>720</width>
 					<height>360</height>
-					<onleft>9000</onleft>
+					<onleft condition="Skin.HasSetting(AlphabetScrollbar)">6019</onleft>
+					<onleft condition="!Skin.HasSetting(AlphabetScrollbar)">9000</onleft>
 					<onright>5801</onright>
 					<orientation>vertical</orientation>
 					<pagecontrol>80</pagecontrol>
@@ -457,6 +458,49 @@
 						</control>
 					</focusedlayout>
 				</control>
+				
+		<!-- Letter-Scrollbar -->
+			<control type="image">
+				<left>420</left>
+				<top>995</top>
+				<width>1097</width>
+				<height>58</height>
+				<animation effect="fade" start="100" end="100" time="50" condition="Control.HasFocus(6019)">Conditional</animation>
+				<texture>views/directory/sbl_backround.png</texture>
+				<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				<visible>Control.HasFocus(6019) + Skin.HasSetting(AlphabetScrollbar)</visible>
+			</control>			
+			<control type="panel" id="6019">
+				<onup>900</onup>
+				<ondown>9000</ondown>
+				<left>430</left>
+				<top>1005</top>
+				<width>1188</width>
+				<height>100%</height>
+				<animation effect="fade" start="100" end="0" time="50" condition="!Control.HasFocus(6019)">Conditional</animation>
+				<itemlayout height="41" width="40">
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>white</colordiffuse>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+						<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="41" width="40">
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+				</focusedlayout>
+				<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
+			</control>
+				
 				<control type="image">
 					<left>1285</left>
 					<top>500</top>

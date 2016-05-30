@@ -13,7 +13,8 @@
 					<height>807</height>
 					<visible>![!IsEmpty(Skin.String(DisableInfoWallVL)) + Window.IsActive(videos)] + !IsEmpty(Container.FolderPath) + !Container.Content(years)</visible>
 					<onleft>9000</onleft>
-					<onright>60</onright>
+					<onright condition="!Skin.HasSetting(AlphabetScrollbar)">60</onright>
+					<onright condition="Skin.HasSetting(AlphabetScrollbar)">6007</onright>
 					<onup>512</onup>
 					<ondown>512</ondown>
 					<preloaditems>2</preloaditems>
@@ -1335,6 +1336,53 @@
 					<texturesliderbackground>views/scrollbarbacklist.png</texturesliderbackground>
 					<onleft>512</onleft>
 					<onright>9000</onright>
+					<visible>!Skin.HasSetting(AlphabetScrollbar)</visible>
+				</control>
+				
+			<!-- Letter-Scrollbar -->	
+				<control type="image">
+					<posx>1005</posx>
+					<posy>104</posy>
+					<width>48</width>
+					<height>905</height>
+					<animation effect="fade" start="100" end="80" time="50" condition="Control.HasFocus(6007)">Conditional</animation>
+					<texture>views/directory/sbl_framevertical.png</texture>
+					<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+					<visible>Control.HasFocus(6007) + Skin.HasSetting(AlphabetScrollbar)</visible>
+				</control>
+				<control type="list" id="6007">
+					<onleft>512</onleft>
+					<onright>9000</onright>
+					<posx>1015</posx>
+					<posy>124</posy>
+					<width>88</width>
+					<height>900</height>
+					<orientation>vertical</orientation>
+					<animation effect="fade" start="100" end="0" time="50" condition="!Control.HasFocus(6007)">Conditional</animation>
+					<itemlayout height="32" width="30">
+						<control type="label">
+							<align>center</align>
+							<label>$INFO[ListItem.Label]</label>
+							<textcolor>white</textcolor>
+							<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+						</control>
+						<control type="label">
+							<align>center</align>
+							<label>$INFO[ListItem.Label]</label>
+							<textcolor>$VAR[TitleColorVar]</textcolor>
+							<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+							<visible>StringCompare(ListItem.Label,Container(512).ListItem.SortLetter)</visible>
+						</control>
+					</itemlayout>
+					<focusedlayout height="33" width="30">
+						<control type="label">
+							<align>center</align>
+							<label>$INFO[ListItem.Label]</label>
+							<textcolor>$VAR[TitleColorVar]</textcolor>
+							<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+						</control>
+					</focusedlayout>
+					<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
 				</control>
 				<control type="group">
 					<left>-22</left>
@@ -1485,6 +1533,20 @@
 							<visible>!SubString(ListItem.Label,*,left) + [Substring(Container.FolderPath,videodb://,left) | Substring(Container.FolderPath,special://profile/playlist,left)] + Skin.HasSetting(InfoWallEpisodeThumb)</visible>
 							<include>Animation_VisibleChange200</include>
 						</control>
+						
+						<control type="multiimage">
+							<width>790</width>
+							<height>444</height>
+							<aspectratio>stretch</aspectratio>
+							<fadetime>FanartCrossfadeTime</fadetime>
+							<include condition="Window.IsActive(pictures)">Aspectratio_Keep</include>
+							<include condition="!Window.IsActive(pictures)">Aspectratio_stretch</include>
+							<timeperimage>3000</timeperimage>
+							<imagepath background="true">$INFO[Window(Home).Property(SkinHelper.ExtraFanArtPath)]</imagepath>
+							<visible>ListItem.IsCollection</visible>
+							<include>Animation_VisibleChange200</include>
+						</control>
+						
 
 						<control type="label">
 							<top>-200</top>

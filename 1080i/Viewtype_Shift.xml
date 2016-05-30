@@ -299,8 +299,8 @@
 				<onright>57</onright>
 				<onup condition="!Window.IsActive(musiclibrary) | !Control.IsVisible(7000)">9000</onup>
 				<onup condition="Window.IsActive(musiclibrary) + Control.IsVisible(7000)">SetFocus(7000)</onup>
-				<ondown condition="Control.IsVisible(61)">61</ondown>
-				<ondown condition="!Control.IsVisible(61)">109</ondown>
+				<ondown condition="Skin.HasSetting(AlphabetScrollbar)">6014</ondown>
+				<ondown condition="!Skin.HasSetting(AlphabetScrollbar)">61</ondown>
 				<orientation>horizontal</orientation>
 				<viewtype label="31235">BigWrap</viewtype>
 				<pagecontrol>61</pagecontrol>
@@ -437,8 +437,51 @@
 				</itemlayout>
 				<focusedlayout width="157" height="500" condition="Skin.HasSetting(smallshiftview) + !Window.IsActive(programs)">
 					<include>ShiftThumbsSmall</include>
-				</focusedlayout>
+				</focusedlayout>	
 			</control>
+			
+			<!-- Letter-Scrollbar -->
+			<control type="image">
+				<left>450</left>
+				<top>930</top>
+				<width>1097</width>
+				<height>58</height>
+				<animation effect="fade" start="100" end="100" time="50" condition="Control.HasFocus(6014)">Conditional</animation>
+				<texture>views/directory/sbl_backround.png</texture>
+				<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				<visible>Control.HasFocus(6014) + Skin.HasSetting(AlphabetScrollbar)</visible>
+			</control>			
+			<control type="panel" id="6014">
+				<onup>57</onup>
+				<ondown>61</ondown>
+				<left>460</left>
+				<top>940</top>
+				<width>1188</width>
+				<height>100%</height>
+				<animation effect="fade" start="100" end="0" time="50" condition="!Control.HasFocus(6014)">Conditional</animation>
+				<itemlayout height="41" width="40">
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>white</colordiffuse>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+						<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="41" width="40">
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+				</focusedlayout>
+				<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
+			</control>
+			
 			<control type="group">
 				<include>Animation_OpenCloseZoom</include>
 				<visible>[Control.IsVisible(8822) + !Container.OnScrollNext + !Container.OnScrollPrevious] | !Control.IsVisible(8822)</visible>
@@ -545,7 +588,7 @@
 				<fadetime>IconCrossfadeTime2</fadetime>
 				<colordiffuse>floor</colordiffuse>
 				<visible>!Skin.HasSetting(smallshiftview) + Container.Content(movies)</visible>
-			</control>
-		</control>
+			</control>	
+		</control>	
 	</include>
 </includes>

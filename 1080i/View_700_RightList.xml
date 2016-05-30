@@ -491,9 +491,9 @@
 				<control type="image">
 					<left>600</left>
 					<colordiffuse>floor</colordiffuse>
-					<texture>$VAR[ColorFlagsAudio]audio/$VAR[AudioFlagVar,,.png]</texture>
+					<texture>$VAR[LibraryAudioFlagVar]</texture>
 					<include>AudioFlagsVars</include>
-					<visible>!IsEmpty(ListItem.VideoCodec)</visible>
+					<visible>!IsEmpty(ListItem.AudioCodec)</visible>
 					<include>VisibleFadeEffect</include>
 				</control>
 				<control type="image">
@@ -613,7 +613,8 @@
 				<top>95</top>
 				<width>1000</width>
 				<height>840</height>
-				<onright condition="Control.IsVisible(60)">60</onright>
+				<onright condition="Control.IsVisible(60) + !Skin.HasSetting(AlphabetScrollbar)">60</onright>
+				<onright condition="Skin.HasSetting(AlphabetScrollbar)">6009</onright>
 				<onleft condition="Control.IsVisible(63)">63</onleft>
 				<onleft condition="!Control.IsVisible(63)">62</onleft>
 				<!--onleft condition="!Control.IsVisible(63)">SetFocus(9050)</onleft-->
@@ -1554,6 +1555,54 @@
 				<animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
 				<showonepage>false</showonepage>
 				<orientation>vertical</orientation>
+				<visible>!Skin.HasSetting(AlphabetScrollbar)</visible>
+			</control>
+			
+		<!-- Letter-Scrollbar -->	
+			<control type="image">
+				<left>1884</left>
+				<top>90</top>
+				<width>38</width>
+				<height>860</height>
+				<animation effect="fade" start="100" end="80" time="50" condition="Control.HasFocus(6009)">Conditional</animation>
+				<texture>views/directory/sbl_framevertical.png</texture>
+				<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				<visible>Control.HasFocus(6009) + Skin.HasSetting(AlphabetScrollbar)</visible>
+			</control>
+			<control type="list" id="6009">
+				<onleft>700</onleft>
+				<onright>SetProperty(MediaMenu,True,home)</onright>
+				<onright>SetFocus(9000)</onright>
+				<left>1889</left>
+				<top>110</top>
+				<width>88</width>
+				<height>900</height>
+				<orientation>vertical</orientation>
+				<animation effect="fade" start="100" end="0" time="50" condition="!Control.HasFocus(6009)">Conditional</animation>
+				<itemlayout height="30" width="30">
+					<control type="label">
+						<align>center</align>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>white</textcolor>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+					<control type="label">
+						<align>center</align>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>$VAR[TitleColorVar]</textcolor>
+						<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+						<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="33" width="30">
+				<control type="label">
+						<align>center</align>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>$VAR[TitleColorVar]</textcolor>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+				</focusedlayout>
+				<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
 			</control>
 		</control>
 	</include>
@@ -2024,6 +2073,74 @@
 					</control>
 				</control>
 				</control>
+			<!--OLD Info-->
+			<!--control type="grouplist">
+				<left>470</left>
+				<top>568</top>
+				<width>650</width>
+				<height>385</height>
+				<visible>Skin.HasSetting(RightListShowInfo)</visible>
+				<usecontrolcoords>true</usecontrolcoords>
+				<control type="label">
+					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[557]: [/COLOR] [COLOR white]$INFO[ListItem.Artist][/COLOR]</label>
+					<width>650</width>
+					<include>KodiFlixButtonsValues</include>
+					<visible>!IsEmpty(ListItem.Artist)</visible>
+				</control>
+				<control type="label">
+					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[515]: [/COLOR] [COLOR white]$INFO[ListItem.Genre][/COLOR]</label>
+					<width>650</width>
+					<include>KodiFlixButtonsValues</include>
+					<visible>!IsEmpty(ListItem.Genre)</visible>
+				</control>
+				<control type="label">
+					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[180]: [/COLOR] [COLOR white]$INFO[ListItem.Duration][/COLOR]</label>
+					<width>650</width>
+					<include>KodiFlixButtonsValues</include>
+					<visible>!IsEmpty(ListItem.Duration)</visible>
+				</control>
+				<control type="label">
+					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[21894]: [/COLOR][COLOR white]$INFO[ListItem.Property(Artist_Formed)][/COLOR]</label>
+					<width>650</width>
+					<include>KodiFlixButtonsValues</include>
+					<visible>!IsEmpty(ListItem.Property(Artist_Formed)) + IsEmpty(ListItem.Property(Artist_Genre)) + IsEmpty(ListItem.Property(Artist_Born))</visible>
+				</control>
+				<control type="label">
+					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[21893]: [/COLOR][COLOR white]$INFO[ListItem.Property(Artist_Born)][/COLOR]</label>
+					<width>650</width>
+					<include>KodiFlixButtonsValues</include>
+					<visible>!IsEmpty(ListItem.Property(Artist_Born)) + IsEmpty(ListItem.Property(Artist_Genre))</visible>
+				</control>
+				<control type="label">
+					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[515]: [/COLOR][COLOR white]$INFO[ListItem.Property(Artist_Genre)][/COLOR]</label>
+					<width>650</width>
+					<include>KodiFlixButtonsValues</include>
+					<visible>!IsEmpty(ListItem.Property(Artist_Genre))</visible>
+				</control>
+				<control type="textbox">
+					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[569]: [/COLOR][COLOR white]$INFO[Window(Home).Property(SkinHelper.Music.Info)][/COLOR]</label>
+					<left>15</left>
+					<top>0</top>
+					<width>615</width>
+					<height>180</height>
+					<font>font14_textbox</font>
+					<pagecontrol>62</pagecontrol>
+					<include>KodiFlixButtonsValues</include>
+					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll) + !Control.HasFocus(62)</autoscroll>
+					<visible>!IsEmpty(ListItem.Comment)</visible>
+				</control>
+				<control type="textbox" id="70">
+					<label>$VAR[MusicPlotVar]</label>
+					<left>15</left>
+					<top>0</top>
+					<width>615</width>
+					<height>245</height>
+					<font>font14_textbox</font>
+					<pagecontrol>63</pagecontrol>
+					<textcolor>white</textcolor>
+					<autoscroll time="3000" delay="4000" repeat="5000">!Control.HasFocus(63)</autoscroll>
+				</control>
+			</control-->
 			<control type="group">
 				<left>454</left>
 				<top>740</top>

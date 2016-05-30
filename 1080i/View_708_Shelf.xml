@@ -14,6 +14,7 @@
 				<colordiffuse>D8FFFFFF</colordiffuse>
 				<visible>!Stringcompare(ListItem.Label,..)</visible>
 			</control>
+		<!-- Info Panel -->
 			<control type="group">
 				<animation effect="rotatey" center="50" start="8" end="8" time="0" condition="true">Conditional</animation>
 				<left>-85</left>
@@ -98,7 +99,7 @@
 					<orientation>vertical</orientation>
 					<visible>!Stringcompare(ListItem.Label,..)</visible>
 				</control>
-				<control type="multiimage" id="9908">
+				<control type="multiimage" id="70801">
 					<left>1126</left>
 					<top>162</top>
 					<width>662</width>
@@ -107,9 +108,9 @@
 					<fadetime>650</fadetime>
 					<visible>!ListItem.IsCollection</visible>
 					<aspectratio aligny="top">scale</aspectratio>
-					<imagepath background="true">$INFO[Window(Home).Property(SkinHelper.ExtraFanArtPath)]</imagepath>
+					<imagepath background="true">$VAR[VideoExtraFanartVar]</imagepath>
 				</control>
-				<control type="multiimage" id="9909">
+				<control type="multiimage" id="70802">
 					<left>1126</left>
 					<top>162</top>
 					<width>662</width>
@@ -118,7 +119,7 @@
 					<fadetime>650</fadetime>
 					<visible>!ListItem.IsCollection</visible>
 					<aspectratio aligny="top">scale</aspectratio>
-					<visible>IsEmpty(Control.GetLabel(9908))</visible>
+					<visible>IsEmpty(Control.GetLabel(70801))</visible>
 					<imagepath background="true">$INFO[Container.ListItem.Path,,extrathumbs/]</imagepath>
 				</control>
 				<control type="image">
@@ -126,7 +127,7 @@
 					<top>162</top>
 					<width>662</width>
 					<height>360</height>
-					<visible>[IsEmpty(Control.GetLabel(9908)) + IsEmpty(Control.GetLabel(9909))] + !ListItem.IsCollection</visible>
+					<visible>[IsEmpty(Control.GetLabel(70801)) + IsEmpty(Control.GetLabel(70802))] + !ListItem.IsCollection</visible>
 					<aspectratio aligny="top">scale</aspectratio>
 					<texture background="true">$INFO[Container.ListItem(0).Art(fanart)]</texture>
 					<bordertexture border="1,1,2,1">thumbs/panel_border.png</bordertexture>
@@ -144,7 +145,7 @@
 					<bordersize>1,1,2,1</bordersize>
 					<visible>Skin.HasSetting(SkinHelperAnimations) + !IsEmpty(Window(home).Property(SkinHelper.AnimatedFanart)) + !Skin.HasSetting(Shelf3DRDisableAnimatedFanart)</visible>
 				</control>
-				<control type="image">
+				<control type="multiimage">
 					<left>1126</left>
 					<top>162</top>
 					<width>662</width>
@@ -153,7 +154,7 @@
 					<fadetime>650</fadetime>
 					<visible>ListItem.IsCollection</visible>
 					<aspectratio aligny="top">scale</aspectratio>
-					<texture background="true">$INFO[Window(Home).Property(SkinHelper.ExtraFanArtPath)]</texture>
+					<imagepath background="true">$INFO[Window(Home).Property(SkinHelper.ExtraFanArtPath)]</imagepath>
 				</control>
 				<control type="image">
 					<left>121</left>
@@ -228,7 +229,7 @@
 						<left>300</left>
 						<colordiffuse>grey2</colordiffuse>
 						<include>MediaFlagVarsShelf</include>
-						<texture>$VAR[ColorFlagsAudio]audio/$VAR[AudioFlagVar,,.png]</texture>
+						<texture>$VAR[LibraryAudioFlagVar]</texture>
 						<visible>!IsEmpty(ListItem.AudioCodec)</visible>
 					</control>
 					<control type="image">
@@ -268,17 +269,18 @@
 					</control>
 				</control>
 			</control>
+		<!-- Cases -->
 			<control type="group">
 				<control type="scrollbar" id="88">
 					<left>110</left>
 					<top>1060</top>
 					<width>1680</width>
-					<height>13</height>
+					<height>12</height>
 					<onup>708</onup>
 					<ondown>708</ondown>
-					<texturesliderbackground>scrollbar/texturesliderbackground3.png</texturesliderbackground>
-					<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar3.png</texturesliderbar>
-					<texturesliderbarfocus border="1">scrollbar/texturesliderbar3.png</texturesliderbarfocus>
+					<texturesliderbackground border="12,0,12,0">views/scrollbarbacklist2.png</texturesliderbackground>
+					<texturesliderbar border="14,0,14,0">views/scrollbar/scrollbar_horizontal.png</texturesliderbar>
+					<texturesliderbarfocus border="8,0,8,0">views/scrollbar/scrollbar_horizontal.png</texturesliderbarfocus>
 					<textureslidernib>-</textureslidernib>
 					<textureslidernibfocus>-</textureslidernibfocus>
 					<showonepage>false</showonepage>
@@ -295,7 +297,8 @@
 					<onright>708</onright>
 					<onup>SetProperty(MediaMenu,True,home)</onup>
 					<onup>SetFocus(9000)</onup>
-					<ondown>88</ondown>
+					<ondown condition="Skin.HasSetting(AlphabetScrollbar)">6013</ondown>
+					<ondown condition="!Skin.HasSetting(AlphabetScrollbar)">88</ondown>
 					<orientation>horizontal</orientation>
 					<focusposition>5</focusposition>
 					<scrolltime>100</scrolltime>
@@ -308,17 +311,17 @@
 							<left>150</left>
 							<top>0</top>
 							<control type="image">
-								<left>-95</left>
+								<left>-94</left>
 								<top>164</top>
-								<width>258</width>
+								<width>260</width>
 								<height>339</height>
 								<texture diffuse="views/shelf3DR/diffuse_box.png" background="true">$VAR[ListPosterVar]</texture>
 								<aspectratio>stretch</aspectratio>
 							</control>
 							<control type="image">
-								<left>-95</left>
+								<left>-94</left>
 								<top>512</top>
-								<width>264</width>
+								<width>260</width>
 								<height>337</height>
 								<texture flipy="true" diffuse="views/shelf3DR/reflect_poster.png" background="true">$VAR[ListPosterVar]</texture>
 								<aspectratio>stretch</aspectratio>
@@ -365,7 +368,7 @@
 							<control type="image">
 								<left>-136</left>
 								<top>67</top>
-								<width>349</width>
+								<width>351</width>
 								<height>477</height>
 								<texture diffuse="views/shelf3DR/diffuse_box.png" background="true">$VAR[ListPosterVar]</texture>
 								<aspectratio scalediffuse="false">stretch</aspectratio>
@@ -376,7 +379,7 @@
 							<control type="image">
 								<left>-136</left>
 								<top>555</top>
-								<width>357</width>
+								<width>359</width>
 								<height>475</height>
 								<visible>Control.HasFocus(708)</visible>
 								<colordiffuse>45FFFFFF</colordiffuse>
@@ -495,26 +498,26 @@
 							<top>0</top>
 							<control type="image">
 								<left>-136</left>
-								<top>71</top>
-								<width>357</width>
-								<height>475</height>
+								<top>67</top>
+								<width>351</width>
+								<height>477</height>
 								<texture diffuse="views/shelf3DR/diffuse_box.png" background="true">$VAR[ListPosterVar]</texture>
 								<aspectratio scalediffuse="false">stretch</aspectratio>
 							</control>
 							<control type="image">
 								<left>-136</left>
 								<top>555</top>
-								<width>357</width>
+								<width>359</width>
 								<height>475</height>
 								<colordiffuse>45FFFFFF</colordiffuse>
 								<texture flipy="true" background="true">$VAR[ListPosterVar]</texture>
 								<aspectratio scalediffuse="false">stretch</aspectratio>
 							</control>
 							<control type="image">
-								<left>103</left>
-								<top>50</top>
-								<width>150</width>
-								<height>150</height>
+								<left>125</left>
+								<top>47</top>
+								<width>120</width>
+								<height>116</height>
 								<bordersize>20</bordersize>
 								<visible>[Container.Content(movies)] | [Container.Content(seasons) | Container.Content(tvshows)]</visible>
 								<texture>$VAR[OverlayVar]</texture>
@@ -669,7 +672,7 @@
 								<height>50</height>
 								<aspectratio>keep</aspectratio>
 								<colordiffuse>C9FFFFFF</colordiffuse>
-								<texture>$VAR[ColorFlagsAudio]audio/$VAR[AudioFlagVar,,.png]</texture>
+								<texture>$VAR[LibraryAudioFlagVar]</texture>
 							</control>
 							<control type="image">
 								<left>1</left>
@@ -749,7 +752,7 @@
 								<height>50</height>
 								<aspectratio>keep</aspectratio>
 								<colordiffuse>55FFFFFF</colordiffuse>
-								<texture>$VAR[ColorFlagsAudio]audio/$VAR[AudioFlagVar,,.png]</texture>
+								<texture>$VAR[LibraryAudioFlagVar]</texture>
 							</control>
 							<control type="image">
 								<left>1</left>
@@ -851,7 +854,7 @@
 								<width>60</width>
 								<height>60</height>
 								<aspectratio>keep</aspectratio>
-								<texture>$VAR[ColorFlagsAudio]audio/$VAR[AudioFlagVar,,.png]</texture>
+								<texture>$VAR[LibraryAudioFlagVar]</texture>
 							</control>
 							<control type="image">
 								<left>80</left>
@@ -917,6 +920,48 @@
 					</control>
 				</control>
 
+			<!-- Letter-Scrollbar -->
+			<control type="image">
+				<left>20</left>
+				<top>990</top>
+				<width>1097</width>
+				<height>58</height>
+				<animation effect="fade" start="100" end="100" time="50" condition="Control.HasFocus(6013)">Conditional</animation>
+				<texture>views/directory/sbl_backround.png</texture>
+				<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				<visible>Control.HasFocus(6013) + Skin.HasSetting(AlphabetScrollbar)</visible>
+			</control>			
+			<control type="panel" id="6013">
+				<onup>708</onup>
+				<ondown>88</ondown>
+				<left>30</left>
+				<top>1000</top>
+				<width>1188</width>
+				<height>100%</height>
+				<animation effect="fade" start="100" end="0" time="50" condition="!Control.HasFocus(6013)">Conditional</animation>
+				<itemlayout height="41" width="40">
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>white</colordiffuse>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+						<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="41" width="40">
+					<control type="image">
+						<texture>views/directory/1/$INFO[ListItem.Label].png</texture>
+						<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+				</focusedlayout>
+				<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
+			</control>
+				
 			</control>
 		</control>
 	</include>

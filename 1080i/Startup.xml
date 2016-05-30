@@ -7,7 +7,7 @@
 	<onload condition="System.HasAddon(script.toolbox)">RunScript(script.toolbox,daemon=True,radius=30)</onload>
 	<onload condition="System.HasAddon(script.skin.info.service)">RunScript(script.skin.info.service)</onload>
 	<!-- Intro Movie -->
-	<onload condition="!Skin.HasSetting(DisableIntro)">PlayMedia(special://skin/extras/intro.mp4,1)</onload>
+	<!--onload condition="!Skin.HasSetting(DisableIntro)">PlayMedia(special://skin/extras/intro.mp4,1)</onload-->
 	<!--onunload>PlayerControl(Stop)</onunload-->
 	<!-- Intro End -->
 	<onunload>Skin.SetString(SkinHelper.RandomFanartDelay,7)</onunload>
@@ -50,7 +50,7 @@
 			<colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
 			<animation effect="rotate" end="-360" center="auto" time="2000" loop="true" reversible="false" condition="true">Conditional</animation>
 			<animation effect="fade" start="70" time="1200" condition="true" pulse="true">Conditional</animation>
-			<visible>Skin.HasSetting(DisableIntro)</visible>
+			<!--visible>Skin.HasSetting(DisableIntro)</visible-->
 		</control>
 		<control type="image">
 			<left>560</left>
@@ -60,7 +60,7 @@
 			<aspectratio scalediffuse="false" alignx="center">keep</aspectratio>
 			<texture>KODI_Logo.png</texture>
 			<!-- <colordiffuse>white</colordiffuse> -->
-			<visible>Skin.HasSetting(DisableIntro)</visible>
+			<!--visible>Skin.HasSetting(DisableIntro)</visible-->
 		</control>
 		<control type="videowindow">
 			<include>FullscreenDimensions</include>

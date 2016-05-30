@@ -242,7 +242,7 @@
 	<include name="FloorFlags">
 		<control type="group">
 			<include>Animation_FlagSlideDown</include>
-			<visible>Control.IsVisible(550) | Control.IsVisible(508) | Control.IsVisible(499) | [Control.IsVisible(503) + !Skin.HasSetting(landscapeonelogo)]  | Control.IsVisible(501) | Control.IsVisible(500) | Control.IsVisible(512) | Control.IsVisible(516)</visible>
+			<visible>Control.IsVisible(550) | Control.IsVisible(508) | Control.IsVisible(499) | [Control.IsVisible(503) + !Skin.HasSetting(landscapeonelogo)] | [Control.IsVisible(503) + [Container.Content(movies) | Containter.Content(sets)] + Skin.HasSetting(landscapeonelogo) + Skin.HasSetting(LandscapeShowMediaFlags)] | [Control.IsVisible(503) + Container.Content(tvshows) + Skin.HasSetting(landscapeonelogo) + Skin.HasSetting(LandscapeShowTVMediaFlags)] | Control.IsVisible(501) | Control.IsVisible(500) | Control.IsVisible(512) | Control.IsVisible(516)</visible>
 			<visible>![SubString(Container.FolderPath,addons://) | SubString(Container.FolderPath,plugin.video)]</visible>
 			<top>1000</top>
 			<control type="group">
@@ -324,7 +324,7 @@
 						</control>
 						<control type="image">
 							<left>1770</left>
-							<texture>$VAR[ColorFlagsAudio]audio/$VAR[AudioFlagVar,,.png]</texture>
+							<texture>$VAR[LibraryAudioFlagVar]</texture>
 							<!--Audio logo-->
 							<include>AudioFlagsVars</include>
 							<animation effect="slide" end="-5" condition="Control.IsVisible(12100)">Conditional</animation>
@@ -591,7 +591,7 @@
 			<control type="image">
 				<left>1255</left>
 				<top>-9</top>
-				<texture>$VAR[ColorFlagsStudio]$INFO[ListItem.Studio,,.png]</texture>
+				<texture>$VAR[StudioImageVar]</texture>
 				<width>150</width>
 				<height>84</height>
 				<aspectratio>keep</aspectratio>
@@ -603,9 +603,9 @@
 				<visible>Container.Content(tvshows) | [Container.Content(seasons) + ListItem.IsFolder]</visible>
 			</control>
 			<control type="image">
-				<left>1915</left>
+				<left>1925</left>
 				<top>-9</top>
-				<texture>$VAR[ColorFlagsStudio]$INFO[ListItem.Studio,,.png]</texture>
+				<texture>$VAR[StudioImageVar]</texture>
 				<width>150</width>
 				<height>84</height>
 				<aspectratio>keep</aspectratio>
@@ -653,7 +653,7 @@
 			</control>
 			<control type="image">
 				<left>1660</left>
-				<texture>$VAR[ColorFlagsAudio]audio/$VAR[AudioFlagVar,,.png]</texture>
+				<texture>$VAR[LibraryAudioFlagVar]</texture>
 				<include>OSDFlagVars</include>
 				<visible>!ListItem.IsFolder</visible>
 				<animation effect="slide"  end="-20,0" time="100" delay="150" condition="Container.Content(movies)">Conditional</animation>
@@ -663,7 +663,7 @@
 				<animation effect="slide"  end="-30,0" time="100" delay="150" condition="Container.Content(movies)">Conditional</animation>
 				<visible>[Container.Content(episodes) + !IsEmpty(ListItem.TVShowTitle)] | [Container.Content(movies) + !SubString(ListItem.Path,videodb://movies/sets)]</visible>
 				<control type="image" id="1126">
-					<left>1790</left>
+					<left>1820</left>
 					<texture>$VAR[ColorFlagsRating]rating/$VAR[RatingFlagVar,,.png]</texture>
 					<include>OSDFlagVars</include>
 				</control>
@@ -1159,7 +1159,7 @@
 				</control>
 				<control type="image">
 					<left>1535</left>
-					<texture>$VAR[ColorFlagsAudio]audio/$VAR[AudioFlagVar,,.png]</texture>
+					<texture>$VAR[LibraryAudioFlagVar]</texture>
 					<include>AudioFlagsVars</include>
 				</control>
 				<control type="image">

@@ -13,6 +13,15 @@
 				<include>Animation_WindowFade200</include>
 			</control>
 			<!-- Artist Clearlogo -->
+			<control type="image" id="8101">
+				<left>50</left>
+				<top>25</top>
+				<width>490</width>
+				<height>210</height>
+				<fadetime>100</fadetime>
+				<aspectratio align="left" aligny="bottom">keep</aspectratio>
+				<texture background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist,,/logo.png]</texture>
+			</control>
 			<control type="image" id="8100">
 				<left>50</left>
 				<top>25</top>
@@ -20,7 +29,9 @@
 				<height>210</height>
 				<fadetime>100</fadetime>
 				<aspectratio align="left" aligny="bottom">keep</aspectratio>
-				<texture background="true" fallback="empty.png">$INFO[Window(Home).Property(SkinHelper.Music.ClearLogo)]</texture>
+				<texture background="true">$INFO[Window(Home).Property(SkinHelper.Music.ClearLogo)]</texture>
+				<!--texture background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist,,/logo.png]</texture-->
+				<visible>IsEmpty(Control.GetLabel(8101))</visible>
 			</control>
 			<!-- End Artist Clearlogo -->
 			<!-- Fake Artist Clearlogo -->
@@ -36,7 +47,7 @@
 				<shadowcolor>black</shadowcolor>
 				<label>$INFO[ListItem.Artist]</label>
 				<scroll>true</scroll>
-				<visible>IsEmpty(Window(Home).Property(SkinHelper.Music.ClearLogo))</visible>
+				<visible>IsEmpty(Window(Home).Property(SkinHelper.Music.ClearLogo)) + IsEmpty(Control.GetLabel(8101))</visible>
 			</control>
 			<!-- End of Fake Artist Clearlogo -->
 			<!-- Album Info Box-->
@@ -87,9 +98,28 @@
 				</control>
 				<!-- End Album Info -->
 				<!--Album Song list-->
+				<control type="textbox">
+					<top>-2</top>
+					<left>15</left>
+					<width>650</width>
+					<label>[COLOR $VAR[FocusTextureColorVar]]Albums: [/COLOR]</label>
+					<include>KodiFlixButtonsValues</include>
+					<visible>!StringCompare(ListItem.Label,..) + Container.Content(artists)</visible>
+				</control>
+				<control type="textbox">
+					<label>[COLOR white]$INFO[Window(Home).Property(SkinHelper.Music.Albums)][/COLOR]</label>
+					<top>-2</top>
+					<left>130</left>
+					<width>610</width>
+					<height>160</height>
+					<align>left</align>
+					<include>KodiFlixButtonsValues</include>
+					<autoscroll time="3000" delay="4000" repeat="5000"></autoscroll>
+					<visible>!StringCompare(ListItem.Label,..) + Container.Content(artists)</visible>
+				</control>
 				<control type="group">
 					<left>0</left>
-					<top>130</top>
+					<top>120</top>
 					<visible>Control.IsVisible(810)</visible>
 					<include>VisibleFadeEffect</include>
 					<control type="textbox" id="70">
@@ -240,7 +270,3 @@
 		<!--End Media Flags-->
 	</include>
 </includes>
-<!-- MusicFlix Album view by UsefulG -->
-<!-- Credit and Thanks to MikeSilvo164 for his Aeon Nox Silvo skin on which this is based-->
-<!-- Credit and Thanks to Mike_Doc and Schimi2k for their Madnox Kodiflix view which I love and has inspired this view and has a good chunk of their code in it -->
-<!-- Credit to Butchabay's Cirrus Extended skin for showing me how to get Logos and ExtraFanart associated with the Launcher items -->

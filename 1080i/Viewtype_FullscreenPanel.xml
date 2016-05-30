@@ -40,7 +40,8 @@
 					<visible>Container.Content(episodes) | Container.Content(tvshows) | Container.Content(artists) | Container.Content(albums) | Container.Content(addons) | Container.Content(movies)</visible>
 					<visible>![!IsEmpty(Skin.String(DisableInfoPanelVL)) + Window.IsActive(videos)]</visible>
 					<onleft>9000</onleft>
-					<onright>68</onright>
+					<onright condition="!Skin.HasSetting(AlphabetScrollbar)">68</onright>
+					<onright condition="Skin.HasSetting(AlphabetScrollbar)">6006</onright>
 					<onup>518</onup>
 					<ondown>518</ondown>
 					<orientation>vertical</orientation>
@@ -1005,6 +1006,7 @@
 				<orientation>vertical</orientation>
 				<animation effect="slide" end="-813" time="0" condition="Skin.HasSetting(infopanelfanart)">Conditional</animation>
 				<visible>!Skin.HasSetting(infopanelbackground)</visible>
+				<visible>!Skin.HasSetting(AlphabetScrollbar)</visible>
 			</control>
 			<control type="scrollbar" id="68">
 				<left>1877</left>
@@ -1019,6 +1021,109 @@
 				<onleft>518</onleft>
 				<onright>9000</onright>
 				<visible>Skin.HasSetting(infopanelbackground)</visible>
+				<visible>!Skin.HasSetting(AlphabetScrollbar)</visible>
+			</control>
+			
+		<!-- Letter-Scrollbar -->	
+			<control type="image">
+				<left>1753</left>
+				<top>90</top>
+				<width>48</width>
+				<height>900</height>
+				<animation effect="fade" start="100" end="80" time="50" condition="Control.HasFocus(6006)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,60" time="50" condition="Control.HasFocus(6006) + [Container.Content(sets) | SubString(ListItem.Path,videodb://movies/sets)]">Conditional</animation>
+				<animation effect="slide" end="-813" time="0" condition="Skin.HasSetting(infopanelfanart)">Conditional</animation>
+				<texture>views/directory/sbl_framevertical.png</texture>
+				<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				<visible>Control.HasFocus(6006) + Skin.HasSetting(AlphabetScrollbar)</visible>
+				<visible>!Skin.HasSetting(infopanelbackground)</visible>
+			</control>
+			<control type="list" id="6006">
+				<visible>!Skin.HasSetting(infopanelbackground)</visible>
+				<onleft>518</onleft>
+				<onright>9000</onright>
+				<left>1763</left>
+				<top>110</top>
+				<width>88</width>
+				<height>900</height>
+				<orientation>vertical</orientation>
+				<animation effect="fade" start="100" end="0" time="50" condition="!Control.HasFocus(6006)">Conditional</animation>
+				<animation effect="slide" end="-813" time="0" condition="Skin.HasSetting(infopanelfanart)">Conditional</animation>
+				<itemlayout height="32" width="30">
+					<control type="label">
+						<align>center</align>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>white</textcolor>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+					<control type="label">
+						<align>center</align>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>$VAR[TitleColorVar]</textcolor>
+						<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+						<visible>StringCompare(ListItem.Label,Container(518).ListItem.SortLetter)</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="33" width="30">
+					<control type="label">
+						<align>center</align>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>$VAR[TitleColorVar]</textcolor>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+				</focusedlayout>
+				<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
+			</control>
+			<control type="image">
+				<left>1877</left>
+				<top>100</top>
+				<width>48</width>
+				<height>900</height>
+				<animation effect="fade" start="100" end="80" time="50" condition="Control.HasFocus(6006)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,60" time="50" condition="Control.HasFocus(6006) + [Container.Content(sets) | SubString(ListItem.Path,videodb://movies/sets)]">Conditional</animation>
+				<animation effect="slide" end="-933" time="0" condition="Skin.HasSetting(infopanelfanart)">Conditional</animation>
+				<animation effect="zoom" start="70" end="100" center="auto" tween="back" time="320" condition="Control.HasFocus(6006)">Conditional</animation>
+				<texture>views/directory/sbl_framevertical.png</texture>
+				<colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+				<visible>Control.HasFocus(6006) + Skin.HasSetting(AlphabetScrollbar)</visible>
+				<visible>Skin.HasSetting(infopanelbackground)</visible>
+			</control>
+			<control type="list" id="6006">
+				<visible>Skin.HasSetting(infopanelbackground)</visible>
+				<onleft>518</onleft>
+				<onright>9000</onright>
+				<left>1887</left>
+				<top>115</top>
+				<width>88</width>
+				<height>900</height>
+				<orientation>vertical</orientation>
+				<animation effect="fade" start="100" end="0" time="50" condition="!Control.HasFocus(6006)">Conditional</animation>
+				<animation effect="slide" end="-933" time="0" condition="Skin.HasSetting(infopanelfanart)">Conditional</animation>
+				<animation effect="zoom" start="70" end="100" center="auto" tween="back" time="320" condition="Control.HasFocus(6006)">Conditional</animation>
+				<itemlayout height="32" width="30">
+					<control type="label">
+						<align>center</align>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>white</textcolor>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+					<control type="label">
+						<align>center</align>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>$VAR[TitleColorVar]</textcolor>
+						<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+						<visible>StringCompare(ListItem.Label,Container(518).ListItem.SortLetter)</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="33" width="30">
+					<control type="label">
+						<align>center</align>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>$VAR[TitleColorVar]</textcolor>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+				</focusedlayout>
+				<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
 			</control>
 		</control>
 	</include>
