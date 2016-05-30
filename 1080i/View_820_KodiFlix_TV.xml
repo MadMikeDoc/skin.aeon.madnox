@@ -1164,7 +1164,8 @@
 				<include condition="Skin.HasSetting(KodiFlixTVShortList) + Skin.HasSetting(KodiFlixViewTVLayoutDefault)">KodiFlixTVLandscapeShortListWidth</include>
 				<include condition="Skin.HasSetting(KodiFlixTVShortList) + Skin.HasSetting(KodiFlixTVPosters)">KodiFlixTVPostersShortListWidth</include>
 				<include condition="Skin.HasSetting(KodiFlixTVShortList) + Skin.HasSetting(KodiFlixBoxsets)">KodiFlixTVBoxsetsShortListWidth</include>
-				<include condition="!Skin.HasSetting(KodiFlixTVShortList)">KodiFlixTVNormalListWidth</include>
+				<include condition="!Skin.HasSetting(KodiFlixTVShortList) + Skin.Hassetting(KodiFlixTVCenterList)">KodiFlixTVPostersCenterListWidth</include>
+				<include condition="!Skin.HasSetting(KodiFlixTVShortList) + !Skin.Hassetting(KodiFlixTVCenterList)">KodiFlixTVNormalListWidth</include>
 				<height>900</height>
 				<onleft>820</onleft>
 				<animation effect="slide" start="0,0" end="620,0" delay="0" time="800" tween="cubic" easing="inout" condition="Skin.Hassetting(KodiFlixTVCenterList)">Conditional</animation>
@@ -2292,13 +2293,16 @@
 		<bordersize>8</bordersize>
 	</include>
 	<include name="KodiFlixTVNormalListWidth">
-		<width>2100</width>
+		<width>1900</width>
 	</include>
 	<include name="KodiFlixTVLandscapeShortListWidth">
 		<width>930</width>
 	</include>
 	<include name="KodiFlixTVPostersShortListWidth">
-		<width>830</width>
+		<width>627</width>
+	</include>
+	<include name="KodiFlixTVPostersCenterListWidth">
+		<width>1327</width>
 	</include>
 	<include name="KodiFlixTVBoxsetsShortListWidth">
 		<width>1040</width>
