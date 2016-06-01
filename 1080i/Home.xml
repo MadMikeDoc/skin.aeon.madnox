@@ -181,7 +181,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>Hand_26</font>
-					<visible>StringCompare(Control.GetLabel(3333),common/cdart/blank.png) + !Skin.HasSetting(BelowMidCD)</visible>
+					<visible>StringCompare(Control.GetLabel(3333),common/cdart/blank.png) + !Skin.HasSetting(BelowMidCD) + Skin.HasSetting(NowPlayingBelowBar)</visible>
 					<label> $INFO[MusicPlayer.Artist]</label>
 					<textcolor>black</textcolor>
 					<wrapmultiline>true</wrapmultiline>
@@ -202,7 +202,7 @@
 					<posy>1183</posy>
 					<align>center</align>
 					<font>Hand_26</font>
-					<visible>StringCompare(Control.GetLabel(3333),common/cdart/blank.png) + !Skin.HasSetting(BelowMidCD)</visible>
+					<visible>StringCompare(Control.GetLabel(3333),common/cdart/blank.png) + !Skin.HasSetting(BelowMidCD) + Skin.HasSetting(NowPlayingBelowBar)</visible>
 					<aligny>center</aligny>
 					<label> $INFO[MusicPlayer.Album]</label>
 					<textcolor>black</textcolor>
@@ -319,7 +319,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>Hand_26</font>
-					<visible>StringCompare(Control.GetLabel(3334),common/cdart/blank.png) + Skin.HasSetting(BelowMidCD)</visible>
+					<visible>StringCompare(Control.GetLabel(3334),common/cdart/blank.png) + Skin.HasSetting(BelowMidCD) + Skin.HasSetting(NowPlayingBelowBar)</visible>
 					<label> $INFO[MusicPlayer.Artist]</label>
 					<textcolor>black</textcolor>
 					<wrapmultiline>true</wrapmultiline>
@@ -340,7 +340,7 @@
 					<posy>1170</posy>
 					<align>center</align>
 					<font>Hand_26</font>
-					<visible>StringCompare(Control.GetLabel(3334),common/cdart/blank.png) + Skin.HasSetting(BelowMidCD)</visible>
+					<visible>StringCompare(Control.GetLabel(3334),common/cdart/blank.png) + Skin.HasSetting(BelowMidCD) + Skin.HasSetting(NowPlayingBelowBar)</visible>
 					<aligny>center</aligny>
 					<label> $INFO[MusicPlayer.Album]</label>
 					<textcolor>black</textcolor>
@@ -755,7 +755,7 @@
 					<shadowcolor>black</shadowcolor>
 					<scroll>true</scroll>
 					<label>[COLOR=white]$INFO[MusicPlayer.Title, ','][/COLOR]</label>
-					<visible>Skin.HasSetting(BelowMidLogo) | Substring(Control.GetLabel(8318),empty.png)</visible>
+					<visible>Skin.HasSetting(BelowMidLogo) | !Substring(Control.GetLabel(8318),empty.png)</visible>
 				</control>
 				<control type="label">
 					<animation effect="slide" time="250" start="-265,15" end="0,0" tween="Back" easing="out" condition="!Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath)) | !Skin.HasSetting(BelowMidLogo)">Conditional</animation>
@@ -783,7 +783,7 @@
 					<textcolor>$VAR[TitleColorVar]</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<scroll>true</scroll>
-					<visible>Skin.HasSetting(BelowMidLogo) | Substring(Control.GetLabel(8318),empty.png)</visible>
+					<visible>Skin.HasSetting(BelowMidLogo) | !Substring(Control.GetLabel(8318),empty.png)</visible>
 				</control>
 				<control type="label">
 					<animation effect="slide" time="250" start="-270,10" end="0,0" tween="Back" easing="out" condition="!Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath)) | !Skin.HasSetting(BelowMidLogo)">Conditional</animation>
@@ -811,7 +811,7 @@
 					<lefttexture>-</lefttexture>
 					<righttexture>-</righttexture>
 					<info>Player.Progress</info>
-					<visible>Substring(Control.GetLabel(8318),empty.png) | IsEmpty(Skin.String(ArtistsLogosPath)) | !Skin.HasSetting(BelowMidLogo)</visible>
+					<visible>Substring(Control.GetLabel(8318),empty.png) | !Skin.HasSetting(BelowMidLogo)</visible>
 					<visible>Player.HasDuration</visible>
 				</control>
 			</control>
