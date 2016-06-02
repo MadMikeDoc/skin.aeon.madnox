@@ -210,7 +210,7 @@
 					<left>250</left>
 					<width>100</width>
 					<height>100</height>
-					<aspectratio scalediffuse="false">scale</aspectratio>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture background="true">$INFO[Container(706).ListItemNoWrap(-4).Icon]</texture>
 					<fadetime>IconCrossfadeTime2</fadetime>
 				</control>
@@ -220,7 +220,7 @@
 					<left>245</left>
 					<width>110</width>
 					<height>110</height>
-					<aspectratio scalediffuse="false">scale</aspectratio>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture>mooviz/square.png</texture>
 					<fadetime>IconCrossfadeTime2</fadetime>
 				</control>
@@ -229,7 +229,7 @@
 					<left>180</left>
 					<width>150</width>
 					<height>150</height>
-					<aspectratio scalediffuse="false">scale</aspectratio>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture background="true">$INFO[Container(706).ListItemNoWrap(-3).Icon]</texture>
 					<fadetime>IconCrossfadeTime2</fadetime>
 				</control>
@@ -239,7 +239,7 @@
 					<left>175</left>
 					<width>160</width>
 					<height>160</height>
-					<aspectratio scalediffuse="false">scale</aspectratio>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture>mooviz/square.png</texture>
 					<fadetime>IconCrossfadeTime2</fadetime>
 				</control>
@@ -248,7 +248,7 @@
 					<left>100</left>
 					<width>200</width>
 					<height>200</height>
-					<aspectratio scalediffuse="false">scale</aspectratio>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture background="true">$INFO[Container(706).ListItemNoWrap(-2).Icon]</texture>
 					<fadetime>IconCrossfadeTime2</fadetime>
 				</control>
@@ -258,7 +258,7 @@
 					<left>95</left>
 					<width>210</width>
 					<height>210</height>
-					<aspectratio scalediffuse="false">scale</aspectratio>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture>mooviz/square.png</texture>
 					<fadetime>IconCrossfadeTime2</fadetime>
 				</control>
@@ -267,7 +267,7 @@
 					<left>0</left>
 					<width>250</width>
 					<height>250</height>
-					<aspectratio scalediffuse="false">scale</aspectratio>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture background="true">$INFO[Container(706).ListItemNoWrap(-1).Icon]</texture>
 				</control>
 				<control type="image">
@@ -596,6 +596,7 @@
 			</control>
 			</control>
 		<!-- Cover -->
+			<!--Round-->
 			<control type="group">
 				<animation effect="slide" start="0,0" end="0,-300" time="500" tween="cubic" delay="50" condition="!Skin.HasSetting(MusicPanelDown)">Conditional</animation>
 				<left>50</left>
@@ -606,7 +607,7 @@
 					<top>255</top>
 					<width>410</width>
 					<height>410</height>
-					<aspectratio scalediffuse="false">scale</aspectratio>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture background="true" diffuse="thumbs/cdcover_mask.png">common/bgcolor.png</texture>
 					<fadetime>0</fadetime>
 				</control>
@@ -614,7 +615,7 @@
 					<top>255</top>
 					<width>410</width>
 					<height>410</height>
-					<aspectratio scalediffuse="false">scale</aspectratio>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture background="true" diffuse="thumbs/cdcover_mask.png" fallback="DefaultAlbumCover.png">$VAR[ListAlbumVar]</texture>
 					<fadetime>IconCrossfadeTime2</fadetime>
 				</control>
@@ -622,7 +623,7 @@
 					<top>686</top>
 					<width>410</width>
 					<height>410</height>
-					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+					<aspectratio scalediffuse="false" aligny="top">stretch</aspectratio>
 					<texture diffuse="thumbs/cdcover_mask_reflect.png" flipy="true" background="true" fallback="DefaultAlbumCover.png">$VAR[ListAlbumVar]</texture>
 					<fadetime>IconCrossfadeTime2</fadetime>
 					<colordiffuse>d0FFFFFF</colordiffuse>
@@ -633,12 +634,13 @@
 					<top>235</top>
 					<width>450</width>
 					<height>450</height>
-					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+					<aspectratio scalediffuse="false" aligny="top">stretch</aspectratio>
 					<texture diffuse="thumbs/cdcover_mask.png">thumbs/cdcover_glass_aa.png</texture>
 					<bordertexture border="20">thumbs/cd_shadow.png</bordertexture>
 					<bordersize>20</bordersize>
 				</control>
 			</control>
+			<!--!round-->
 			<control type="group">
 				<animation effect="slide" start="0,0" end="0,-300" time="500" tween="cubic" delay="50" condition="!Skin.HasSetting(MusicPanelDown)">Conditional</animation>
 				<left>50</left>
@@ -649,7 +651,7 @@
 					<top>255</top>
 					<width>410</width>
 					<height>410</height>
-					<aspectratio scalediffuse="false">scale</aspectratio>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture background="true">common/bgcolor.png</texture>
 					<fadetime>0</fadetime>
 				</control>
@@ -657,7 +659,7 @@
 					<top>255</top>
 					<width>410</width>
 					<height>410</height>
-					<aspectratio scalediffuse="false">scale</aspectratio>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture background="true" fallback="DefaultAlbumCover.png">$VAR[ListAlbumVar]</texture>
 					<fadetime>IconCrossfadeTime2</fadetime>
 				</control>
@@ -666,7 +668,7 @@
 					<top>686</top>
 					<width>410</width>
 					<height>410</height>
-					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+					<aspectratio scalediffuse="false" aligny="top">stretch</aspectratio>
 					<texture flipy="true" background="true" fallback="DefaultAlbumCover.png">$VAR[ListAlbumVar]</texture>
 					<fadetime>IconCrossfadeTime2</fadetime>
 					<colordiffuse>d0FFFFFF</colordiffuse>

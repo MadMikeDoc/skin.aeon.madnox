@@ -1805,7 +1805,7 @@
 					<top>255</top>
 					<width>410</width>
 					<height>410</height>
-					<aspectratio scalediffuse="false">scale</aspectratio>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture background="true" diffuse="thumbs/cdcover_mask.png">common/bgcolor.png</texture>
 					<fadetime>0</fadetime>
 				</control>
@@ -1813,7 +1813,7 @@
 					<top>255</top>
 					<width>410</width>
 					<height>410</height>
-					<aspectratio scalediffuse="false">scale</aspectratio>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture background="true" diffuse="thumbs/cdcover_mask.png" fallback="DefaultAlbumCover.png">$VAR[ListAlbumVar]</texture>
 					<fadetime>IconCrossfadeTime2</fadetime>
 				</control>
@@ -1821,7 +1821,7 @@
 					<top>686</top>
 					<width>410</width>
 					<height>410</height>
-					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+					<aspectratio scalediffuse="false" aligny="top">stretch</aspectratio>
 					<texture diffuse="thumbs/cdcover_mask_reflect.png" flipy="true" background="true" fallback="DefaultAlbumCover.png">$VAR[ListAlbumVar]</texture>
 					<fadetime>IconCrossfadeTime2</fadetime>
 					<colordiffuse>d0FFFFFF</colordiffuse>
@@ -1831,7 +1831,7 @@
 					<top>235</top>
 					<width>450</width>
 					<height>450</height>
-					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+					<aspectratio scalediffuse="false" aligny="top">stretch</aspectratio>
 					<texture diffuse="thumbs/cdcover_mask.png">thumbs/cdcover_glass_aa.png</texture>
 					<bordertexture border="20">thumbs/cd_shadow.png</bordertexture>
 					<bordersize>20</bordersize>
@@ -1846,7 +1846,7 @@
 					<top>255</top>
 					<width>410</width>
 					<height>410</height>
-					<aspectratio scalediffuse="false">scale</aspectratio>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture background="true">common/bgcolor.png</texture>
 					<fadetime>0</fadetime>
 				</control>
@@ -1854,7 +1854,7 @@
 					<top>255</top>
 					<width>410</width>
 					<height>410</height>
-					<aspectratio scalediffuse="false">scale</aspectratio>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture background="true" fallback="DefaultAlbumCover.png">$VAR[ListAlbumVar]</texture>
 					<fadetime>IconCrossfadeTime2</fadetime>
 				</control>
@@ -1862,7 +1862,7 @@
 					<top>686</top>
 					<width>410</width>
 					<height>410</height>
-					<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+					<aspectratio scalediffuse="false" aligny="top">stretch</aspectratio>
 					<texture flipy="true" background="true" fallback="DefaultAlbumCover.png">$VAR[ListAlbumVar]</texture>
 					<fadetime>IconCrossfadeTime2</fadetime>
 					<colordiffuse>d0FFFFFF</colordiffuse>
@@ -2073,74 +2073,6 @@
 					</control>
 				</control>
 				</control>
-			<!--OLD Info-->
-			<!--control type="grouplist">
-				<left>470</left>
-				<top>568</top>
-				<width>650</width>
-				<height>385</height>
-				<visible>Skin.HasSetting(RightListShowInfo)</visible>
-				<usecontrolcoords>true</usecontrolcoords>
-				<control type="label">
-					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[557]: [/COLOR] [COLOR white]$INFO[ListItem.Artist][/COLOR]</label>
-					<width>650</width>
-					<include>KodiFlixButtonsValues</include>
-					<visible>!IsEmpty(ListItem.Artist)</visible>
-				</control>
-				<control type="label">
-					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[515]: [/COLOR] [COLOR white]$INFO[ListItem.Genre][/COLOR]</label>
-					<width>650</width>
-					<include>KodiFlixButtonsValues</include>
-					<visible>!IsEmpty(ListItem.Genre)</visible>
-				</control>
-				<control type="label">
-					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[180]: [/COLOR] [COLOR white]$INFO[ListItem.Duration][/COLOR]</label>
-					<width>650</width>
-					<include>KodiFlixButtonsValues</include>
-					<visible>!IsEmpty(ListItem.Duration)</visible>
-				</control>
-				<control type="label">
-					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[21894]: [/COLOR][COLOR white]$INFO[ListItem.Property(Artist_Formed)][/COLOR]</label>
-					<width>650</width>
-					<include>KodiFlixButtonsValues</include>
-					<visible>!IsEmpty(ListItem.Property(Artist_Formed)) + IsEmpty(ListItem.Property(Artist_Genre)) + IsEmpty(ListItem.Property(Artist_Born))</visible>
-				</control>
-				<control type="label">
-					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[21893]: [/COLOR][COLOR white]$INFO[ListItem.Property(Artist_Born)][/COLOR]</label>
-					<width>650</width>
-					<include>KodiFlixButtonsValues</include>
-					<visible>!IsEmpty(ListItem.Property(Artist_Born)) + IsEmpty(ListItem.Property(Artist_Genre))</visible>
-				</control>
-				<control type="label">
-					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[515]: [/COLOR][COLOR white]$INFO[ListItem.Property(Artist_Genre)][/COLOR]</label>
-					<width>650</width>
-					<include>KodiFlixButtonsValues</include>
-					<visible>!IsEmpty(ListItem.Property(Artist_Genre))</visible>
-				</control>
-				<control type="textbox">
-					<label>[COLOR $VAR[FocusTextureColorVar]]$LOCALIZE[569]: [/COLOR][COLOR white]$INFO[Window(Home).Property(SkinHelper.Music.Info)][/COLOR]</label>
-					<left>15</left>
-					<top>0</top>
-					<width>615</width>
-					<height>180</height>
-					<font>font14_textbox</font>
-					<pagecontrol>62</pagecontrol>
-					<include>KodiFlixButtonsValues</include>
-					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll) + !Control.HasFocus(62)</autoscroll>
-					<visible>!IsEmpty(ListItem.Comment)</visible>
-				</control>
-				<control type="textbox" id="70">
-					<label>$VAR[MusicPlotVar]</label>
-					<left>15</left>
-					<top>0</top>
-					<width>615</width>
-					<height>245</height>
-					<font>font14_textbox</font>
-					<pagecontrol>63</pagecontrol>
-					<textcolor>white</textcolor>
-					<autoscroll time="3000" delay="4000" repeat="5000">!Control.HasFocus(63)</autoscroll>
-				</control>
-			</control-->
 			<control type="group">
 				<left>454</left>
 				<top>740</top>
