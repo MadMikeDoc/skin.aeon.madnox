@@ -89,7 +89,7 @@
 				<control type="radiobutton" id="17044">
 					<description>Show Extra Fanart</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Show Extra Fanart</label>
+					<label>$LOCALIZE[31385]</label>
 					<onclick>Skin.ToggleSetting(NetFiixExtraFanart)</onclick>
 					<selected>Skin.HasSetting(NetFiixExtraFanart)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
@@ -97,14 +97,14 @@
 				<control type="radiobutton" id="80109">
 					<description>Show Extra Fanart</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Show Extra Fanart</label>
+					<label>$LOCALIZE[31385]</label>
 					<onclick>Skin.ToggleSetting(NetFiixTVExtraFanart)</onclick>
 					<selected>Skin.HasSetting(NetFiixTVExtraFanart)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixViewTV) + [Container.Content(tvshows)]</visible>
 				</control>
 				<control type="button" id="17094">
 					<description>View Layout</description>
-					<label>View Layout:</label>
+					<label>$LOCALIZE[31518]</label>
 					<label2>[COLOR $VAR[FontColorVar]]$VAR[KodiFlixViewLayout][/COLOR]</label2>
 					<include>Objects_MediaMenuButtonAround</include>
 					<onclick condition="!Skin.HasSetting(KodiFlixLandscapeView) + !Skin.HasSetting(KodiFlixClearArtView) + !Skin.HasSetting(KodiFlixDiscArtView) + !Skin.HasSetting(KodiFlixDVDShelfView)">Skin.SetBool(KodiFlixViewLayoutDefault)</onclick>
@@ -133,7 +133,7 @@
 				</control>
 				<control type="button" id="80112">
 					<description>View Layout</description>
-					<label>View Layout:</label>
+					<label>$LOCALIZE[31518]</label>
 					<label2>[COLOR $VAR[FontColorVar]]$VAR[KodiFlixTVViewLayout][/COLOR]</label2>
 					<include>Objects_MediaMenuButtonAround</include>
 					<onclick condition="!Skin.HasSetting(KodiFlixTVPosters) + !Skin.HasSetting(KodiFlixBoxsets)">Skin.SetBool(KodiFlixViewTVLayoutDefault)</onclick>
@@ -152,7 +152,7 @@
 				<control type="radiobutton" id="17084">
 					<description>Lower Info</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Lower Info</label>
+					<label>$LOCALIZE[31519]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixMoviesLowerInfo)</onclick>
 					<selected>Skin.HasSetting(KodiFlixMoviesLowerInfo)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + Skin.HasSetting(KodiFlixMoviesCenterList) + !Skin.HasSetting(NetFiixMoviesHideFilmInfo)</visible>
@@ -160,7 +160,7 @@
 				<control type="radiobutton" id="80106">
 					<description>Lower Info</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Lower Info</label>
+					<label>$LOCALIZE[31519]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixTVLowerInfo)</onclick>
 					<selected>Skin.HasSetting(KodiFlixTVLowerInfo)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixViewTV) + Skin.HasSetting(KodiFlixTVCenterList) + !Skin.HasSetting(NetFiixTVHideFilmInfo)</visible>
@@ -168,7 +168,7 @@
 				<control type="radiobutton" id="17075">
 					<description>Hide Info</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Hide Info</label>
+					<label>$LOCALIZE[31512]</label>
 					<onclick>Skin.ToggleSetting(NetFlixMoviesHideFilmInfo)</onclick>
 					<selected>Skin.HasSetting(NetFlixMoviesHideFilmInfo)</selected>
 					<visible>[Container.Content(movies) | Container.Content(sets)] + Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)</visible>
@@ -176,7 +176,7 @@
 				<control type="radiobutton" id="80107">
 					<description>Hide Info</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Hide Info</label>
+					<label>$LOCALIZE[31512]</label>
 					<onclick>Skin.ToggleSetting(NetFlixTVHideFilmInfo)</onclick>
 					<selected>Skin.HasSetting(NetFlixTVHideFilmInfo)</selected>
 					<visible>[Container.Content(tvshows) | Container.Content(seasons)] + Stringcompare(Window(home).Property(actualViewtype),KodiFlixViewTV)</visible>
@@ -184,7 +184,7 @@
 				<control type="radiobutton" id="17062">
 					<description>Kodi Cases</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Cases</label>
+					<label>$LOCALIZE[31482]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixCases)</onclick>
 					<selected>Skin.HasSetting(KodiFlixCases)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + [Container.Content(movies) | Container.Content(sets)] + Skin.HasSetting(KodiFlixViewLayoutDefault)</visible>
@@ -192,7 +192,7 @@
 				<control type="radiobutton" id="17068">
 					<description>Kodi Open Cases</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Open Cases</label>
+					<label>$LOCALIZE[31513]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixOpenCase)</onclick>
 					<selected>Skin.HasSetting(KodiFlixOpenCase)</selected>
 					<visible>Skin.HasSetting(KodiFlixViewLayoutDefault) + Skin.HasSetting(KodiFlixCases) + Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + [Container.Content(movies) | Container.Content(sets)]</visible>
@@ -200,7 +200,7 @@
 				<control type="radiobutton" id="17074">
 					<description>Kodi IMDB Selector</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>IMDB Icon</label>
+					<label>$LOCALIZE[31514]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixIMDBIcon)</onclick>
 					<selected>Skin.HasSetting(KodiFlixIMDBIcon)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + Container.Content(movies)</visible>
@@ -208,7 +208,7 @@
 				<control type="radiobutton" id="17095">
 					<description>Hide Item Background Panel</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Hide Background Panel</label>
+					<label>$LOCALIZE[31515]</label>
 					<onclick>Skin.ToggleSetting(NetFLixMoviesHideBackgroundPanel)</onclick>
 					<selected>Skin.HasSetting(NetFlixMoviesHideBackgroundPanel)</selected>
 					<visible>[Container.Content(movies) | Container.Content(sets)] + Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + !Skin.HasSetting(KodiFlixDVDShelfView) + !Skin.HasSetting(KodiFlixMovieBoxsets)</visible>
@@ -216,7 +216,7 @@
 				<control type="radiobutton" id="80108">
 					<description>Hide Item Background Panel</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Hide Background Panel</label>
+					<label>$LOCALIZE[31515]</label>
 					<onclick>Skin.ToggleSetting(NetFlixTVHideBackgroundPanel)</onclick>
 					<selected>Skin.HasSetting(NetFlixTVHideBackgroundPanel)</selected>
 					<visible>[Container.Content(tvshows) | Container.Content(seasons)] + Stringcompare(Window(home).Property(actualViewtype),KodiFlixViewTV) + !Skin.HasSetting(KodiFlixBoxsets)</visible>
@@ -224,7 +224,7 @@
 				<control type="radiobutton" id="17064">
 					<description>Kodi TV Thumbnail Counter</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Thumbnail Info</label>
+					<label>$LOCALIZE[31516]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixThumbnailInfo)</onclick>
 					<selected>Skin.HasSetting(KodiFlixThumbnailInfo)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixViewTV) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
@@ -239,7 +239,7 @@
 				<control type="radiobutton" id="17071">
 					<description>Kodi Season Title</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Season Title</label>
+					<label>$LOCALIZE[31517]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixSeasonTitle)</onclick>
 					<selected>Skin.HasSetting(KodiFlixSeasonTitle)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixViewTV) + Container.Content(seasons) + Skin.HasSetting(KodiFlixTVPosters)</visible>
@@ -247,7 +247,7 @@
 				<control type="radiobutton" id="17097">
 					<description>Kodi Show Extras</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Extras</label>
+					<label>$LOCALIZE[31020]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixExtras)</onclick>
 					<selected>Skin.HasSetting(KodiFlixExtras)</selected>
 					<visible>SubString(Window(home).Property(actualViewtype),KodiFlixView) + !Skin.HasSetting(KodiFlixMoviesCenterList)</visible>
@@ -270,7 +270,7 @@
 				<control type="radiobutton" id="17110">
 					<description>Kodi Small Fanart</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Small Fanart</label>
+					<label>$LOCALIZE[31520]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixSmallFanart)</onclick>
 					<selected>Skin.HasSetting(KodiFlixSmallFanart)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)</visible>
@@ -280,7 +280,7 @@
 				<control type="radiobutton" id="80110">
 					<description>Kodi Small Fanart</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Small Fanart</label>
+					<label>$LOCALIZE[31520]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixTVSmallFanart)</onclick>
 					<selected>Skin.HasSetting(KodiFlixTVSmallFanart)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixViewTV)</visible>
@@ -290,7 +290,7 @@
 				<control type="radiobutton" id="80116">
 					<description>Kodi Boxsets Disc Art</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Disc Art</label>
+					<label>$LOCALIZE[31521]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixMovieBoxsetsDiscArt)</onclick>
 					<selected>Skin.HasSetting(KodiFlixMovieBoxsetsDiscArt)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + Skin.HasSetting(KodiFlixMovieBoxsets)</visible>
@@ -298,7 +298,7 @@
 				<control type="radiobutton" id="80117">
 					<description>Kodi Boxsets Active Cases</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>MovieSet Cases</label>
+					<label>$LOCALIZE[31522]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixMovieBoxsetsActiveMovieSetCases)</onclick>
 					<selected>Skin.HasSetting(KodiFlixMovieBoxsetsActiveMovieSetCases)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + Skin.HasSetting(KodiFlixMovieBoxsets) + !Skin.HasSetting(KodiFlixMoviesCenterList) + !Skin.HasSetting(KodiFlixMoviesCenterFocus)</visible>
@@ -321,7 +321,7 @@
 				<control type="radiobutton" id="80119">
 					<description>Kodi Boxsets Active Cases - Discs</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label> - Enable Discs</label>
+					<label> - $LOCALIZE[31523]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixMovieBoxsetsActiveMovieSetDiscs)</onclick>
 					<selected>Skin.HasSetting(KodiFlixMovieBoxsetsActiveMovieSetDiscs)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + Skin.HasSetting(KodiFlixMovieBoxsetsActiveMovieSetCases) + Skin.HasSetting(KodiFlixMovieBoxsets) + !Skin.HasSetting(KodiFlixMoviesCenterList) + !Skin.HasSetting(KodiFlixMoviesCenterFocus)</visible>
@@ -329,7 +329,7 @@
 				<control type="radiobutton" id="80120">
 					<description>Kodi Boxsets Active Cases - Extra Films</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label> - Extra Films</label>
+					<label> - $LOCALIZE[31524]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixMovieBoxsetsActiveMovieSetExtraFilms)</onclick>
 					<selected>Skin.HasSetting(KodiFlixMovieBoxsetsActiveMovieSetExtraFilms)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + Skin.HasSetting(KodiFlixMovieBoxsetsActiveMovieSetCases) + Skin.HasSetting(KodiFlixMovieBoxsets) + !Skin.HasSetting(KodiFlixMoviesCenterList) + !Skin.HasSetting(KodiFlixMoviesCenterFocus)</visible>
@@ -338,7 +338,7 @@
 				<control type="radiobutton" id="80121">
 					<description>Kodi Boxsets Active Cases</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>BoxSet Cases</label>
+					<label>$LOCALIZE[31525]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixTVBoxsetsActiveBoxSetCases)</onclick>
 					<selected>Skin.HasSetting(KodiFlixTVBoxsetsActiveBoxSetCases)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixViewTV) + Skin.HasSetting(KodiFlixBoxsets) + !Skin.HasSetting(KodiFlixTVCenterList) + !Skin.HasSetting(KodiFlixTVCenterFocus)</visible>
@@ -361,7 +361,7 @@
 				<control type="radiobutton" id="80123">
 					<description>Kodi Boxsets Active Cases - Extra Seasons</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label> - Extra Seasons</label>
+					<label> - $LOCALIZE[31526]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixTVBoxsetsActiveBoxSetExtraSeasons)</onclick>
 					<selected>Skin.HasSetting(KodiFlixTVBoxsetsActiveBoxSetExtraSeasons)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixViewTV) + Skin.HasSetting(KodiFlixTVBoxsetsActiveBoxSetCases) + Skin.HasSetting(KodiFlixBoxsets) + !Skin.HasSetting(KodiFlixTVCenterList) + !Skin.HasSetting(KodiFlixTVCenterFocus)</visible>
@@ -377,7 +377,7 @@
 				<control type="radiobutton" id="17078">
 					<description>Center List</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Center List</label>
+					<label>$LOCALIZE[31527]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixMoviesCenterList)</onclick>
 					<onclick>Skin.Reset(KodiFlixMoviesDimItems)</onclick>
 					<onclick>Skin.Reset(KodiFlixMovieBoxsetsActiveMovieSetCases)</onclick>
@@ -392,7 +392,7 @@
 				<control type="radiobutton" id="80102">
 					<description>Center List</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Center List</label>
+					<label>$LOCALIZE[31527]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixTVCenterList)</onclick>
 					<onclick>Skin.Reset(KodiFlixTVDimItems)</onclick>
 					<onclick>Skin.Reset(KodiFlixTVBoxsetsActiveBoxSetCases)</onclick>
@@ -405,7 +405,7 @@
 				<control type="radiobutton" id="17069">
 					<description>Kodi Short List</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Short List</label>
+					<label>$LOCALIZE[31528]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixMoviesShortList)</onclick>
 					<selected>Skin.HasSetting(KodiFlixMoviesShortList)</selected>
 					<onclick>Dialog.Close(all,true)</onclick>
@@ -416,7 +416,7 @@
 				<control type="radiobutton" id="80101">
 					<description>Kodi Short List</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Short List</label>
+					<label>$LOCALIZE[31528]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixTVShortList)</onclick>
 					<selected>Skin.HasSetting(KodiFlixTVShortList)</selected>
 					<onclick>Dialog.Close(all,true)</onclick>
@@ -427,7 +427,7 @@
 				<control type="radiobutton" id="17082">
 					<description>Dim List</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Dim List</label>
+					<label>$LOCALIZE[31529]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixMoviesDimItems)</onclick>
 					<selected>Skin.HasSetting(KodiFlixMoviesDimItems)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixView)</visible>
@@ -435,7 +435,7 @@
 				</control>
 				<control type="button" id="17083">
 					<description>Dim Amount</description>
-					<label>Dim Amount:</label>
+					<label>$LOCALIZE[31530]</label>
 					<label2>[COLOR $VAR[FontColorVar]]$VAR[KodiFlixMoviesDimValueVar][/COLOR]</label2>
 					<include>Objects_MediaMenuButtonAround</include>
 					<onclick condition="!Skin.HasSetting(KodiFlixMoviesDimValueVar_60) + !Skin.HasSetting(KodiFlixMoviesDimValueVar_70) + !Skin.HasSetting(KodiFlixMoviesDimValueVar_80)">Skin.SetBool(KodiFlixMoviesDimValueVar_50)</onclick>
@@ -453,7 +453,7 @@
 				<control type="radiobutton" id="80103">
 					<description>Dim List</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Dim List</label>
+					<label>$LOCALIZE[31529]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixTVDimItems)</onclick>
 					<selected>Skin.HasSetting(KodiFlixTVDimItems)</selected>
 					<visible>Stringcompare(Window(home).Property(actualViewtype),KodiFlixViewTV)</visible>
@@ -461,7 +461,7 @@
 				</control>
 				<control type="button" id="80104">
 					<description>Dim Amount</description>
-					<label>Dim Amount:</label>
+					<label>$LOCALIZE[31530]</label>
 					<label2>[COLOR $VAR[FontColorVar]]$VAR[KodiFlixTVDimValueVar][/COLOR]</label2>
 					<include>Objects_MediaMenuButtonAround</include>
 					<onclick condition="!Skin.HasSetting(KodiFlixTVDimValueVar_60) + !Skin.HasSetting(KodiFlixTVDimValueVar_70) + !Skin.HasSetting(KodiFlixTVDimValueVar_80)">Skin.SetBool(KodiFlixTVDimValueVar_50)</onclick>
@@ -479,7 +479,7 @@
 				<control type="radiobutton" id="17086">
 					<description>Center Focus</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Center Focus</label>
+					<label>$LOCALIZE[31531]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixMoviesCenterFocus)</onclick>
 					<onclick>Skin.Reset(KodiFlixMoviesBoxsetsExtrazoom)</onclick>
 					<onclick>Skin.Reset(KodiFlixMovieBoxsetsActiveMovieSetCases)</onclick>
@@ -493,7 +493,7 @@
 				<control type="radiobutton" id="80105">
 					<description>Center Focus</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Center Focus</label>
+					<label>$LOCALIZE[31531]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixTVCenterFocus)</onclick>
 					<onclick>Skin.Reset(KodiFlixTVBoxsetsActiveBoxSetCases)</onclick>
 					<selected>Skin.HasSetting(KodiFlixTVCenterFocus)</selected>
@@ -504,7 +504,7 @@
 				<control type="radiobutton" id="17087">
 					<description>Extra Zoom Focus</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Extra Zoom Focus</label>
+					<label>$LOCALIZE[31532]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixBoxsetsExtrazoom)</onclick>
 					<onclick>Dialog.Close(all,true)</onclick>
 					<include condition="!Window.IsActive(script-Rom_Collection_Browser-main.xml)">ReloadWindowOnClick</include>
@@ -514,7 +514,7 @@
 				<control type="radiobutton" id="80114">
 					<description>Extra Zoom Focus</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Extra Zoom Focus</label>
+					<label>$LOCALIZE[31532]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixMoviesBoxsetsExtrazoom)</onclick>
 					<onclick>Dialog.Close(all,true)</onclick>
 					<include condition="!Window.IsActive(script-Rom_Collection_Browser-main.xml)">ReloadWindowOnClick</include>
@@ -525,7 +525,7 @@
 				<control type="radiobutton" id="80113">
 					<description>Remove TV Focus Surround</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Remove Focus Surround</label>
+					<label>$LOCALIZE[31533]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixBoxsetsRemoveFocusSurround)</onclick>
 					<selected>Skin.HasSetting(KodiFlixBoxsetsRemoveFocusSurround)</selected>
 					<visible>[Container.Content(tvshows) | Container.Content(seasons)] + Stringcompare(Window(home).Property(actualViewtype),KodiFlixViewTV) + Skin.HasSetting(KodiFlixBoxsets)</visible>
@@ -533,7 +533,7 @@
 				<control type="radiobutton" id="80115">
 					<description>Remove Movies Focus Surround</description>
 					<include>Objects_MediaMenuButtonAround</include>
-					<label>Remove Focus Surround</label>
+					<label>$LOCALIZE[31533]</label>
 					<onclick>Skin.ToggleSetting(KodiFlixMovieBoxsetsRemoveFocusSurround)</onclick>
 					<selected>Skin.HasSetting(KodiFlixMovieBoxsetsRemoveFocusSurround)</selected>
 					<visible>Container.Content(sets) + Stringcompare(Window(home).Property(actualViewtype),KodiFlixView) + Skin.HasSetting(KodiFlixMovieBoxsets)</visible>
