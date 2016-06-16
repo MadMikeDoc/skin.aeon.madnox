@@ -1053,6 +1053,24 @@
 					<animation effect="zoom" end="112" time="0" delay="0" reversible="false" condition="true">Conditional</animation>
 					<visible>![StringCompare(Control.GetLabel(4420),fourthumbs) | StringCompare(Control.GetLabel(4420),fanart) | StringCompare(Control.GetLabel(4420),extrathumbs)]</visible>
 				</control>
+				<!--  Posters for sets: ShadowTek -->
+                <control type="image">
+                    <left>1591</left>
+                    <top>78</top>
+                    <width>264</width>
+                    <height>400</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture background="true" diffuse="thumbs/movieposter_mask.png">$VAR[ListPosterVar]</texture>
+                    <fadetime>200</fadetime>
+                    <bordertexture border="-50">thumbs/poster_shadow.png</bordertexture>
+                    <bordersize>0</bordersize>
+                    <animation effect="rotatey" center="auto" start="-45" end="45" time="0" condition="true">Conditional</animation>
+                    <camera x="1250" y="370"/>
+                    <animation effect="zoom" end="112" time="0" delay="0" reversible="false" condition="true">Conditional</animation>
+                    <visible>SubString(ListItem.Path,videodb://movies/sets)</visible>
+                </control>
+                <!--  END Posters for sets: ShadowTek -->	
+				
 				<control type="image">   <!--  Posters Poster glass right -->
 					<left>1591</left>
 					<top>78</top>
