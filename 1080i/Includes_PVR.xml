@@ -342,6 +342,15 @@
 						<include>Objects_MediaMenuButtonIcons1</include>
 						<onclick>ActivateWindow(1170)</onclick>
 					</control>
+					<!-- Include button to toggle skinhelper tv fanart onoff START -->
+					<control type="radiobutton" id="9231">
+						<include>ViewtypeSettingsButton</include>
+						<include>Objects_MediaMenuButtonIcons</include>
+							<label>PVR Artwork ON</label>
+						<selected>Skin.HasSetting(SkinHelper.EnablePVRThumbs)</selected>
+						<onclick>Skin.ToggleSetting(SkinHelper.EnablePVRThumbs)</onclick>
+					</control> 
+					<!-- Include button to toggle skinhelper tv fanart onoff END -->
 				</control>
 			</control>
 		</control>
@@ -413,9 +422,11 @@
 				<width>260</width>
 				<height>200</height>
 				<align>center</align>
+				<!-- QUIQUI -->
 				<texture>$INFO[VideoPlayer.Cover]</texture>
 				<aspectratio>keep</aspectratio>
 				<fadetime>IconCrossfadeTime2</fadetime>
+				<visible>!IsEmpty(VideoPlayer.Cover)</visible>
 			</control>
 		</control>
 		<!-- Top Info (ChannelNr, Name, Date, Time & Back-end info) -->

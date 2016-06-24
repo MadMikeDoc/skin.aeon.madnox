@@ -21,7 +21,8 @@
 			<animation effect="zoom" end="91" center="960,360" time="320" tween="cubic" easing="inout" condition="true">Conditional</animation>
 			<include>Furniture_SettingsBackPanel</include>
 			<control type="group">
-				<animation effect="fade" start="100" end="0" time="160" tween="cubic" easing="inout" condition="Window.IsActive(DialogPVRChannelManager.xml)">Conditional</animation>
+				<!-- Modified to show Group Manager Background -->
+				<animation effect="fade" start="100" end="0" time="160" tween="cubic" easing="inout" condition="[Window.IsActive(DialogPVRChannelManager.xml) | Window.IsActive(DialogPVRGroupManager.xml)]">Conditional</animation>
 				<control type="grouplist" id="3">
 					<left>63</left>
 					<top>180</top>

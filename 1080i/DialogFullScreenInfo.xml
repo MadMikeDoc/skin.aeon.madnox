@@ -117,8 +117,6 @@
 			</control>
 			<control type="group">
 				<visible>VideoPlayer.Content(movies) + Skin.HasSetting(Plotinfoscreen)</visible>
-
-
 				<control type="label">
 					<visible>!Skin.HasSetting(DisableVideoThumb) + Skin.HasSetting(Discinfoscreen)</visible>
 					<left>440</left>
@@ -130,7 +128,6 @@
 					<textcolor>FF017196</textcolor>
 					<label>PLOT</label>
 				</control>
-
 				<control type="textbox">
 					<visible>!Skin.HasSetting(DisableVideoThumb) + Skin.HasSetting(Discinfoscreen)</visible>
 					<description>Plot</description>
@@ -144,7 +141,6 @@
 					<label fallback="31203">$INFO[VideoPlayer.Plot]</label>
 					<autoscroll delay="20000" time="4000" repeat="15000">true</autoscroll>
 				</control>
-
 				<control type="label">
 					<visible>!Skin.HasSetting(DisableVideoThumb) + !Skin.HasSetting(Discinfoscreen)</visible>
 					<left>380</left>
@@ -156,7 +152,6 @@
 					<textcolor>FF017196</textcolor>
 					<label>PLOT</label>
 				</control>
-
 				<control type="textbox">
 					<visible>!Skin.HasSetting(DisableVideoThumb) + !Skin.HasSetting(Discinfoscreen)</visible>
 					<description>Plot</description>
@@ -170,7 +165,6 @@
 					<label fallback="31203">$INFO[VideoPlayer.Plot]</label>
 					<autoscroll delay="20000" time="4000" repeat="15000">true</autoscroll>
 				</control>
-
 				<control type="label">
 					<visible>Skin.HasSetting(DisableVideoThumb)</visible>
 					<left>130</left>
@@ -236,7 +230,6 @@
 					<animation effect="fade" end="5" condition="true">Conditional</animation>
 				</control>
 			</control>
-
 			<control type="group">
 				<visible>VideoPlayer.Content(episodes) + Skin.HasSetting(Plotinfoscreen)</visible>
 				<control type="label">
@@ -1284,7 +1277,6 @@
 				</control>
 			</control>
 		</control>
-
 		<!-- New DialogInfo for LiveTV -->
 		<control type="group" id="9006">
 			<animation effect="slide" start="0,1080" end="0,60" time="400" easing="out" tween="back">WindowOpen</animation>
@@ -1327,7 +1319,9 @@
 					<colordiffuse>$VAR[DialogColorVar]</colordiffuse>
 					<visible>false</visible>
 				</control>
-				<control type="image"> <!-- Channel logo -->
+				<!-- Channel logo -->
+<!-- 				<control type="image"> 
+					<visible>!StringCompare(VideoPlayer.Cover,DefaultVideo.png)</visible>
 					<left>1050</left>
 					<top>100</top>
 					<width>200</width>
@@ -1336,17 +1330,18 @@
 					<align>center</align>
 					<texture>$INFO[VideoPlayer.Cover]</texture>
 					<visible>IsEmpty(VideoPlayer.PlotOutline)</visible>
-				</control>
+				</control> -->
 				<control type="image"> <!-- Show\Movie poster -->
 					<left>1050</left>
-					<top>100</top>
+					<top>130</top>
 					<width>250</width>
 					<height>440</height>
 					<align>center</align>
 					<aspectratio>keep</aspectratio>
-					<texture>$INFO[VideoPlayer.PlotOutline]</texture>
-					<visible>!IsEmpty(VideoPlayer.PlotOutline)</visible>
+					<texture>http://localhost:52307/getthumb&amp;title=$INFO[VideoPlayer.Title]</texture> 
+					<!-- <visible>!IsEmpty(VideoPlayer.PlotOutline)</visible> -->
 				</control>
+				
 				<control type="group">
 					<visible>IsEmpty(Window(home).Property(LiveTVShowEpgNext))</visible>
 					<control type="label">

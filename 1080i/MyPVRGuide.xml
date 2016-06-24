@@ -274,6 +274,7 @@
 						<visible>SubString(ListItem.PlotOutline,"http://",Left) | SubString(ListItem.PlotOutline,"https://",Left)</visible>
 					</control>
 					<control type="image">
+						<visible>!StringCompare(ListItem.Icon,DefaultVideo.png)</visible>
 						<left>80</left>
 						<top>-25</top>
 						<width>300</width>
@@ -283,6 +284,34 @@
 						<texture>$INFO[Container(10).ListItem.Icon]</texture>
 						<visible>!Control.IsVisible(82)</visible>
 					</control>
+					<control type="image">
+						<left>80</left>
+						<top>-25</top>
+						<width>300</width>
+						<height>300</height>
+						<texture>new_pvr/mod/PVRSmallBG.png</texture>						
+						<visible> IsEmpty(Window(home).Property(SkinHelper.PVR.Thumb) + !Player.HasVideo + IsEmpty(Container(10).ListItem.Thumb)</visible>
+						<aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+						<animation effect="fade" start="100" end="40" time="200" condition="Control.IsVisible(56)">Conditional</animation>
+					</control>
+					<control type="image">
+						<left>80</left>
+						<top>30</top>
+						<width>300</width>
+						<height>175</height>
+						<texture>$INFO[Window(home).Property(SkinHelper.PVR.FanArt)]</texture>
+						<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+						<visible>!IsEmpty(Window(home).Property(SkinHelper.PVR.FanArt)) + !Player.HasVideo + Skin.HasSetting(SkinHelper.EnablePVRThumbs)</visible>
+					</control>	
+					<control type="image">
+						<left>80</left>
+						<top>30</top>
+						<width>300</width>
+						<height>175</height>
+						<texture>$INFO[Window(home).Property(SkinHelper.PVR.Thumb)]</texture>
+						<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+						<visible>IsEmpty(Window(home).Property(SkinHelper.PVR.FanArt)) + !IsEmpty(Window(home).Property(SkinHelper.PVR.Thumb)) + !Player.HasVideo + Skin.HasSetting(SkinHelper.EnablePVRThumbs)</visible>
+					</control>					
 				</control>
 				<control type="group">
 					<left>465</left>
@@ -384,6 +413,7 @@
 							<texture>osd/osd_settings_buttonnf.png</texture>
 						</control>
 						<control type="image">
+							<visible>!StringCompare(ListItem.Icon,DefaultVideo.png)</visible>
 							<left>3</left>
 							<top>8</top>
 							<width>45</width>
@@ -469,6 +499,7 @@
 							<texture colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texture>
 						</control>
 						<control type="image">
+							<visible>!StringCompare(ListItem.Icon,DefaultVideo.png)</visible>
 							<left>3</left>
 							<top>8</top>
 							<width>45</width>
@@ -557,13 +588,33 @@
 				<width>400</width>
 				<control type="group">
 					<control type="image">
+						<visible>!StringCompare(ListItem.Icon,DefaultVideo.png)</visible>
 						<left>100</left>
-						<top>35</top>
-						<width>200</width>
-						<height>150</height>
+						<top>25</top>
+						<width>300</width>
+						<height>175</height>
 						<aspectratio>keep</aspectratio>
 						<texture>$INFO[Container(11).ListItem.Icon]</texture>
 						<visible>!Control.IsVisible(55)</visible>
+					</control>
+					<control type="image">
+						<left>100</left>
+						<top>25</top>
+						<width>300</width>
+						<height>175</height>
+						<texture>$INFO[Window(home).Property(SkinHelper.PVR.Thumb)]</texture>
+						<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+						<visible>!IsEmpty(Window(home).Property(SkinHelper.PVR.Thumb)) + !Player.HasVideo + Skin.HasSetting(SkinHelper.EnablePVRThumbs)</visible>
+					</control>	
+					<control type="image">
+						<left>100</left>
+						<top>25</top>
+						<width>300</width>
+						<height>175</height>
+						<texture>new_pvr/mod/PVRSmallBG.png</texture>						
+						<visible> IsEmpty(Window(home).Property(SkinHelper.PVR.Thumb) + !Player.HasVideo + IsEmpty(Container(10).ListItem.Thumb)</visible>
+						<aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+						<animation effect="fade" start="100" end="40" time="200" condition="Control.IsVisible(56)">Conditional</animation>
 					</control>
 					<control type="image" id="55">
 						<left>0</left>
@@ -651,6 +702,7 @@
 							<texture>osd/osd_settings_buttonnf.png</texture>
 						</control>
 						<control type="image">
+							<visible>!StringCompare(ListItem.Icon,DefaultVideo.png)</visible>
 							<left>3</left>
 							<top>8</top>
 							<width>45</width>
@@ -736,6 +788,7 @@
 							<texture colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texture>
 						</control>
 						<control type="image">
+							<visible>!StringCompare(ListItem.Icon,DefaultVideo.png)</visible>
 							<left>3</left>
 							<top>8</top>
 							<width>45</width>
