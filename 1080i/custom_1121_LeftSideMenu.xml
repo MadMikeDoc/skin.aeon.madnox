@@ -220,7 +220,14 @@
 				<item>
 					<label>$LOCALIZE[31133]</label>
 					<onclick>Container.SetViewMode(800)</onclick>
-					<visible>Container.Content(Movies) | Container.Content(Sets) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes)</visible>
+					<visible>Container.Content(Movies) | Container.Content(Sets)</visible>
+					<visible>![Window.IsActive(videos) + !IsEmpty(Skin.String(DisableKodiFlixVL))]</visible>
+					<visible>IsEmpty(Window(home).Property(quicknavsetup))</visible>
+				</item>
+				<item>
+					<label>$LOCALIZE[31133]</label>
+					<onclick>Container.SetViewMode(820)</onclick>
+					<visible>Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes)</visible>
 					<visible>![Window.IsActive(videos) + !IsEmpty(Skin.String(DisableKodiFlixVL))]</visible>
 					<visible>IsEmpty(Window(home).Property(quicknavsetup))</visible>
 				</item>
