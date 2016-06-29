@@ -264,6 +264,13 @@
 					<visible>IsEmpty(Window(home).Property(quicknavsetup))</visible>
 				</item>
 				<item>
+					<label>Shelf 3D Right</label>
+					<onclick>Container.SetViewMode(708)</onclick>
+					<visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs)</visible>
+					<visible>![Window.IsActive(videos) + !IsEmpty(Skin.String(DisableShelfVL))]</visible>
+					<visible>IsEmpty(Window(home).Property(quicknavsetup))</visible>
+				</item>
+				<item>
 					<label>MusicFlix</label>
 					<onclick>Container.SetViewMode(810)</onclick>
 					<visible>Container.Content(albums)</visible>
