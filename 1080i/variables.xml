@@ -3097,6 +3097,30 @@
 		<value condition="Window.IsActive(musicinformation)">$INFO[ListItem.FileNameAndPath,,/cdart3.png]</value>
 		<value>$INFO[ListItem.Path,,cdart3.png]</value>
 	</variable>
+	<variable name="cdARTVarDisc4">
+		<value condition="Container.Content(albums) + Stringcompare(Skin.String(LibraryStructure),2)">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist]\$INFO[ListItem.Year] - $INFO[ListItem.Album,,\cdart4.png]</value>
+		<value condition="Container.Content(albums) + Stringcompare(Skin.String(LibraryStructure),3)">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist]\$INFO[ListItem.Album] $INFO[ListItem.Year,(,)\cdart4.png]</value>
+		<value condition="Container.Content(albums) + Stringcompare(Skin.String(LibraryStructure),4)">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist] - $INFO[ListItem.Album] $INFO[ListItem.Year,(,)\cdart4.png]</value>
+		<value condition="Container.Content(albums)">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist]\$INFO[ListItem.Album,,\cdart4.png]</value>
+		<value condition="Window.IsActive(musicinformation)">$INFO[ListItem.FileNameAndPath,,/cdart4.png]</value>
+		<value>$INFO[ListItem.Path,,cdart4.png]</value>
+	</variable>
+	<variable name="cdARTVarDisc5">
+		<value condition="Container.Content(albums) + Stringcompare(Skin.String(LibraryStructure),2)">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist]\$INFO[ListItem.Year] - $INFO[ListItem.Album,,\cdart5.png]</value>
+		<value condition="Container.Content(albums) + Stringcompare(Skin.String(LibraryStructure),3)">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist]\$INFO[ListItem.Album] $INFO[ListItem.Year,(,)\cdart5.png]</value>
+		<value condition="Container.Content(albums) + Stringcompare(Skin.String(LibraryStructure),4)">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist] - $INFO[ListItem.Album] $INFO[ListItem.Year,(,)\cdart5.png]</value>
+		<value condition="Container.Content(albums)">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist]\$INFO[ListItem.Album,,\cdart5.png]</value>
+		<value condition="Window.IsActive(musicinformation)">$INFO[ListItem.FileNameAndPath,,/cdart5.png]</value>
+		<value>$INFO[ListItem.Path,,cdart5.png]</value>
+	</variable>
+	<variable name="cdARTVarDisc6">
+		<value condition="Container.Content(albums) + Stringcompare(Skin.String(LibraryStructure),2)">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist]\$INFO[ListItem.Year] - $INFO[ListItem.Album,,\cdart6.png]</value>
+		<value condition="Container.Content(albums) + Stringcompare(Skin.String(LibraryStructure),3)">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist]\$INFO[ListItem.Album] $INFO[ListItem.Year,(,)\cdart6.png]</value>
+		<value condition="Container.Content(albums) + Stringcompare(Skin.String(LibraryStructure),4)">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist] - $INFO[ListItem.Album] $INFO[ListItem.Year,(,)\cdart6.png]</value>
+		<value condition="Container.Content(albums)">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist]\$INFO[ListItem.Album,,\cdart6.png]</value>
+		<value condition="Window.IsActive(musicinformation)">$INFO[ListItem.FileNameAndPath,,/cdart6.png]</value>
+		<value>$INFO[ListItem.Path,,cdart6.png]</value>
+	</variable>
 	<variable name="colorcdARTVar">
 		<value condition="SubString(ListItem.Album,s,Left) | SubString(ListItem.Album,a,Left) | SubString(ListItem.Album,j,Left)">common/cdart/blank.png</value>
 		<value condition="SubString(ListItem.Album,m,Left) | SubString(ListItem.Album,c,Left) | SubString(ListItem.Album,l,Left)">common/cdart/grey1.png</value>
@@ -3580,39 +3604,57 @@
 	</variable>
 	<!-- TV Show Discs by Burgess -->
 	<variable name="SeasonDiscVar1">
-		<value condition="!IntegerGreaterThan(ListItem.Season,9)">$INFO[ListItem.Path]$INFO[ListItem.Season,../season0,-disc1.png]</value>
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Path]season1-disc.png</value>
+		<value condition="Container.Content(seasons) + SubString(ListItem.Label,* All seasons)">$INFO[ListItem.Path]season1-disc.png</value>
+		<value condition="Container.Content(seasons) + !IntegerGreaterThan(ListItem.Season,9)">$INFO[ListItem.Path]$INFO[ListItem.Label]\$INFO[ListItem.Season,season0,-disc1.png]</value>
 		<value>$INFO[ListItem.Path]$INFO[ListItem.Season,../season,-disc1.png]</value>
 	</variable>
 	<variable name="SeasonDiscVar2">
-		<value condition="!IntegerGreaterThan(ListItem.Season,9)">$INFO[ListItem.Path]$INFO[ListItem.Season,../season0,-disc2.png]</value>
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Path]season2-disc.png</value>
+		<value condition="Container.Content(seasons) + SubString(ListItem.Label,* All seasons)">$INFO[ListItem.Path]season2-disc.png</value>
+		<value condition="Container.Content(seasons) + !IntegerGreaterThan(ListItem.Season,9)">$INFO[ListItem.Path]$INFO[ListItem.Label]\$INFO[ListItem.Season,season0,-disc2.png]</value>
 		<value>$INFO[ListItem.Path]$INFO[ListItem.Season,../season,-disc2.png]</value>
 	</variable>
 	<variable name="SeasonDiscVar3">
-		<value condition="!IntegerGreaterThan(ListItem.Season,9)">$INFO[ListItem.Path]$INFO[ListItem.Season,../season0,-disc3.png]</value>
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Path]season3-disc.png</value>
+		<value condition="Container.Content(seasons) + SubString(ListItem.Label,* All seasons)">$INFO[ListItem.Path]season3-disc.png</value>
+		<value condition="Container.Content(seasons) + !IntegerGreaterThan(ListItem.Season,9)">$INFO[ListItem.Path]$INFO[ListItem.Label]\$INFO[ListItem.Season,season0,-disc3.png]</value>
 		<value>$INFO[ListItem.Path]$INFO[ListItem.Season,../season,-disc3.png]</value>
 	</variable>
 	<variable name="SeasonDiscVar4">
-		<value condition="!IntegerGreaterThan(ListItem.Season,9)">$INFO[ListItem.Path]$INFO[ListItem.Season,../season0,-disc4.png]</value>
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Path]season4-disc.png</value>
+		<value condition="Container.Content(seasons) + SubString(ListItem.Label,* All seasons)">$INFO[ListItem.Path]season4-disc.png</value>
+		<value condition="Container.Content(seasons) + !IntegerGreaterThan(ListItem.Season,9)">$INFO[ListItem.Path]$INFO[ListItem.Label]\$INFO[ListItem.Season,season0,-disc4.png]</value>
 		<value>$INFO[ListItem.Path]$INFO[ListItem.Season,../season,-disc4.png]</value>
 	</variable>
 	<variable name="SeasonDiscVar5">
-		<value condition="!IntegerGreaterThan(ListItem.Season,9)">$INFO[ListItem.Path]$INFO[ListItem.Season,../season0,-disc5.png]</value>
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Path]season5-disc.png</value>
+		<value condition="Container.Content(seasons) + SubString(ListItem.Label,* All seasons)">$INFO[ListItem.Path]season5-disc.png</value>
+		<value condition="Container.Content(seasons) + !IntegerGreaterThan(ListItem.Season,9)">$INFO[ListItem.Path]$INFO[ListItem.Label]\$INFO[ListItem.Season,season0,-disc5.png]</value>
 		<value>$INFO[ListItem.Path]$INFO[ListItem.Season,../season,-disc5.png]</value>
 	</variable>
 	<variable name="SeasonDiscVar6">
-		<value condition="!IntegerGreaterThan(ListItem.Season,9)">$INFO[ListItem.Path]$INFO[ListItem.Season,../season0,-disc6.png]</value>
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Path]season6-disc.png</value>
+		<value condition="Container.Content(seasons) + SubString(ListItem.Label,* All seasons)">$INFO[ListItem.Path]season6-disc.png</value>
+		<value condition="Container.Content(seasons) + !IntegerGreaterThan(ListItem.Season,9)">$INFO[ListItem.Path]$INFO[ListItem.Label]\$INFO[ListItem.Season,season0,-disc6.png]</value>
 		<value>$INFO[ListItem.Path]$INFO[ListItem.Season,../season,-disc6.png]</value>
 	</variable>
 	<variable name="SeasonDiscVar7">
-		<value condition="!IntegerGreaterThan(ListItem.Season,9)">$INFO[ListItem.Path]$INFO[ListItem.Season,../season0,-disc7.png]</value>
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Path]season7-disc.png</value>
+		<value condition="Container.Content(seasons) + SubString(ListItem.Label,* All seasons)">$INFO[ListItem.Path]season7-disc.png</value>
+		<value condition="Container.Content(seasons) + !IntegerGreaterThan(ListItem.Season,9)">$INFO[ListItem.Path]$INFO[ListItem.Label]\$INFO[ListItem.Season,season0,-disc7.png]</value>
 		<value>$INFO[ListItem.Path]$INFO[ListItem.Season,../season,-disc7.png]</value>
 	</variable>
 	<variable name="SeasonDiscVar8">
-		<value condition="!IntegerGreaterThan(ListItem.Season,9)">$INFO[ListItem.Path]$INFO[ListItem.Season,../season0,-disc8.png]</value>
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Path]season8-disc.png</value>
+		<value condition="Container.Content(seasons) + SubString(ListItem.Label,* All seasons)">$INFO[ListItem.Path]season8-disc.png</value>
+		<value condition="Container.Content(seasons) + !IntegerGreaterThan(ListItem.Season,9)">$INFO[ListItem.Path]$INFO[ListItem.Label]\$INFO[ListItem.Season,season0,-disc8.png]</value>
 		<value>$INFO[ListItem.Path]$INFO[ListItem.Season,../season,-disc8.png]</value>
 	</variable>
 	<variable name="SeasonDiscVar9">
-		<value condition="!IntegerGreaterThan(ListItem.Season,9)">$INFO[ListItem.Path]$INFO[ListItem.Season,../season0,-disc9.png]</value>
+		<value condition="Container.Content(tvshows)">$INFO[ListItem.Path]season9-disc.png</value>
+		<value condition="Container.Content(seasons) + SubString(ListItem.Label,* All seasons)">$INFO[ListItem.Path]season9-disc.png</value>
+		<value condition="Container.Content(seasons) + !IntegerGreaterThan(ListItem.Season,9)">$INFO[ListItem.Path]$INFO[ListItem.Label]\$INFO[ListItem.Season,season0,-disc9.png]</value>
 		<value>$INFO[ListItem.Path]$INFO[ListItem.Season,../season,-disc9.png]</value>
 	</variable>
 	<!-- End TV Show Discs by Burgess -->

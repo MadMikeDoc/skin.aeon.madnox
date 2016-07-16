@@ -1226,7 +1226,7 @@
 			<animation effect="slide" end="0,-165" time="120" condition="!Skin.HasSetting(nohighlist)">Conditional</animation>
 			<animation effect="slide" end="0,45" time="120" condition="!Skin.HasSetting(TVshowCases)">Conditional</animation>
 			<animation effect="slide" end="-40,0" time="320" easing="inout" tween="cubic" condition="Control.HasFocus(69)">Conditional</animation>
-			<visible>container.content(seasons)</visible>
+			<visible>container.content(tvshows) | container.content(seasons)</visible>
 			<!--Disc 6 -->
 			<control type="group">
 				<left>1010</left>
@@ -1234,7 +1234,31 @@
 				<width>300</width>
 				<height>300</height>
 				<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-				<visible>Container.Content(seasons) + !Control.HasFocus(5001) + Skin.HasSetting(TVshowFakeDiscs) + !Stringcompare(ListItem.Label,..) + IntegerGreaterThan(ListItem.Property(TotalEpisodes),020) + !IsEmpty(Container.ListItem.Art(poster))</visible>
+				<visible>Container.Content(tvshows) + !Control.HasFocus(5001) + Skin.HasSetting(TVshowFakeDiscs)</visible>
+				<animation effect="slide" start="-890,0" end="0,0" delay="2000" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+				<control type="image">
+					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$VAR[SeasonDiscVar6]</texture>
+				</control>
+			</control>
+			<control type="group">
+				<left>1010</left>
+				<top>562</top>
+				<width>300</width>
+				<height>300</height>
+				<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+				<visible>Container.Content(seasons) + !Control.HasFocus(5001) + Skin.HasSetting(TVshowFakeDiscs) + Stringcompare(ListItem.Label,* All seasons)</visible>
+				<animation effect="slide" start="-890,0" end="0,0" delay="2000" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+				<control type="image">
+					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$VAR[SeasonDiscVar6]</texture>
+				</control>
+			</control>
+			<control type="group">
+				<left>1010</left>
+				<top>562</top>
+				<width>300</width>
+				<height>300</height>
+				<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+				<visible>Container.Content(seasons) + !Control.HasFocus(5001) + Skin.HasSetting(TVshowFakeDiscs) + !Stringcompare(ListItem.Label,..) + IntegerGreaterThan(ListItem.Property(TotalEpisodes),020) + !IsEmpty(Container.ListItem.Art(poster)) + !Stringcompare(ListItem.Label,* All seasons)</visible>
 				<animation effect="slide" start="-890,0" end="0,0" delay="2000" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
 				<control type="image">
 					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[Container.ListItem.Art(poster)]</texture>
@@ -1250,7 +1274,31 @@
 				<width>300</width>
 				<height>300</height>
 				<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-				<visible>Container.Content(seasons) + !Control.HasFocus(5001) + Skin.HasSetting(TVshowFakeDiscs) + !Stringcompare(ListItem.Label,..) + IntegerGreaterThan(ListItem.Property(TotalEpisodes),016) + !IsEmpty(Container.ListItem.Art(poster))</visible>
+				<visible>Container.Content(tvshows) + !Control.HasFocus(5001) + Skin.HasSetting(TVshowFakeDiscs)</visible>
+				<animation effect="slide" start="-740,0" end="0,0" delay="1800" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+				<control type="image">
+					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$VAR[SeasonDiscVar5]</texture>
+				</control>
+			</control>
+			<control type="group">
+				<left>860</left>
+				<top>562</top>
+				<width>300</width>
+				<height>300</height>
+				<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+				<visible>Container.Content(seasons) + !Control.HasFocus(5001) + Skin.HasSetting(TVshowFakeDiscs) + Stringcompare(ListItem.Label,* All seasons)</visible>
+				<animation effect="slide" start="-740,0" end="0,0" delay="1800" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+				<control type="image">
+					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$VAR[SeasonDiscVar5]</texture>
+				</control>
+			</control>
+			<control type="group">
+				<left>860</left>
+				<top>562</top>
+				<width>300</width>
+				<height>300</height>
+				<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+				<visible>Container.Content(seasons) + !Control.HasFocus(5001) + Skin.HasSetting(TVshowFakeDiscs) + !Stringcompare(ListItem.Label,..) + IntegerGreaterThan(ListItem.Property(TotalEpisodes),016) + !IsEmpty(Container.ListItem.Art(poster)) + !Stringcompare(ListItem.Label,* All seasons)</visible>
 				<animation effect="slide" start="-740,0" end="0,0" delay="1800" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
 				<control type="image">
 					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[Container.ListItem.Art(poster)]</texture>
@@ -1266,7 +1314,31 @@
 				<width>300</width>
 				<height>300</height>
 				<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-				<visible>Container.Content(seasons) + !Control.HasFocus(5001) + Skin.HasSetting(TVshowFakeDiscs) + !Stringcompare(ListItem.Label,..) + IntegerGreaterThan(ListItem.Property(TotalEpisodes),012) + !IsEmpty(Container.ListItem.Art(poster))</visible>
+				<visible>Container.Content(tvshows) + !Control.HasFocus(5001) + Skin.HasSetting(TVshowFakeDiscs)</visible>
+				<animation effect="slide" start="-590,0" end="0,0" delay="1600" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+				<control type="image">
+					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$VAR[SeasonDiscVar4]</texture>
+				</control>
+			</control>
+			<control type="group">
+				<left>710</left>
+				<top>562</top>
+				<width>300</width>
+				<height>300</height>
+				<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+				<visible>Container.Content(seasons) + !Control.HasFocus(5001) + Skin.HasSetting(TVshowFakeDiscs) + Stringcompare(ListItem.Label,* All seasons)</visible>
+				<animation effect="slide" start="-590,0" end="0,0" delay="1600" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+				<control type="image">
+					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$VAR[SeasonDiscVar4]</texture>
+				</control>
+			</control>
+			<control type="group">
+				<left>710</left>
+				<top>562</top>
+				<width>300</width>
+				<height>300</height>
+				<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+				<visible>Container.Content(seasons) + !Control.HasFocus(5001) + Skin.HasSetting(TVshowFakeDiscs) + !Stringcompare(ListItem.Label,..) + IntegerGreaterThan(ListItem.Property(TotalEpisodes),012) + !IsEmpty(Container.ListItem.Art(poster)) + !Stringcompare(ListItem.Label,* All seasons)</visible>
 				<animation effect="slide" start="-590,0" end="0,0" delay="1600" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
 				<control type="image">
 					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[Container.ListItem.Art(poster)]</texture>
@@ -1282,7 +1354,31 @@
 				<width>300</width>
 				<height>300</height>
 				<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-				<visible>Container.Content(seasons) + !Control.HasFocus(5001) + Skin.HasSetting(TVshowFakeDiscs) + !Stringcompare(ListItem.Label,..) + IntegerGreaterThan(ListItem.Property(TotalEpisodes),008) + !IsEmpty(Container.ListItem.Art(poster))</visible>
+				<visible>Container.Content(tvshows) + !Control.HasFocus(5001) + Skin.HasSetting(TVshowFakeDiscs)</visible>
+				<animation effect="slide" start="-450,0" end="0,0" delay="1400" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+				<control type="image">
+					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$VAR[SeasonDiscVar3]</texture>
+				</control>
+			</control>
+			<control type="group">
+				<left>570</left>
+				<top>562</top>
+				<width>300</width>
+				<height>300</height>
+				<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+				<visible>Container.Content(seasons) + !Control.HasFocus(5001) + Skin.HasSetting(TVshowFakeDiscs) + Stringcompare(ListItem.Label,* All seasons)</visible>
+				<animation effect="slide" start="-450,0" end="0,0" delay="1400" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+				<control type="image">
+					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$VAR[SeasonDiscVar3]</texture>
+				</control>
+			</control>
+			<control type="group">
+				<left>570</left>
+				<top>562</top>
+				<width>300</width>
+				<height>300</height>
+				<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+				<visible>Container.Content(seasons) + !Control.HasFocus(5001) + Skin.HasSetting(TVshowFakeDiscs) + !Stringcompare(ListItem.Label,..) + IntegerGreaterThan(ListItem.Property(TotalEpisodes),008) + !IsEmpty(Container.ListItem.Art(poster)) + !Stringcompare(ListItem.Label,* All seasons)</visible>
 				<animation effect="slide" start="-450,0" end="0,0" delay="1400" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
 				<control type="image">
 					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[Container.ListItem.Art(poster)]</texture>
@@ -1298,7 +1394,31 @@
 				<width>300</width>
 				<height>300</height>
 				<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-				<visible>Container.Content(seasons) + !Control.HasFocus(5001) + Skin.HasSetting(TVshowFakeDiscs) + !Stringcompare(ListItem.Label,..) + IntegerGreaterThan(ListItem.Property(TotalEpisodes),004) + !IsEmpty(Container.ListItem.Art(poster))</visible>
+				<visible>Container.Content(tvshows) + !Control.HasFocus(5001) + Skin.HasSetting(TVshowFakeDiscs)</visible>
+				<animation effect="slide" start="-300,0" end="0,0" delay="1200" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+				<control type="image">
+					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$VAR[SeasonDiscVar2]</texture>
+				</control>
+			</control>
+			<control type="group">
+				<left>430</left>
+				<top>562</top>
+				<width>300</width>
+				<height>300</height>
+				<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+				<visible>Container.Content(seasons) + !Control.HasFocus(5001) + Skin.HasSetting(TVshowFakeDiscs) + Stringcompare(ListItem.Label,* All seasons)</visible>
+				<animation effect="slide" start="-300,0" end="0,0" delay="1200" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+				<control type="image">
+					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$VAR[SeasonDiscVar2]</texture>
+				</control>
+			</control>
+			<control type="group">
+				<left>430</left>
+				<top>562</top>
+				<width>300</width>
+				<height>300</height>
+				<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+				<visible>Container.Content(seasons) + !Control.HasFocus(5001) + Skin.HasSetting(TVshowFakeDiscs) + !Stringcompare(ListItem.Label,..) + IntegerGreaterThan(ListItem.Property(TotalEpisodes),004) + !IsEmpty(Container.ListItem.Art(poster)) + !Stringcompare(ListItem.Label,* All seasons)</visible>
 				<animation effect="slide" start="-300,0" end="0,0" delay="1200" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
 				<control type="image">
 					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[Container.ListItem.Art(poster)]</texture>
@@ -1314,7 +1434,31 @@
 				<width>300</width>
 				<height>300</height>
 				<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-				<visible>Container.Content(seasons) + !Control.HasFocus(5001) + Skin.HasSetting(TVshowFakeDiscs) + !Stringcompare(ListItem.Label,..) + IntegerGreaterThan(ListItem.Property(TotalEpisodes),000) + !IsEmpty(Container.ListItem.Art(poster))</visible>
+				<visible>Container.Content(tvshows) + !Control.HasFocus(5001) + Skin.HasSetting(TVshowFakeDiscs)</visible>
+				<animation effect="slide" start="-165,0" end="0,0" delay="1000" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+				<control type="image">
+					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$VAR[SeasonDiscVar1]</texture>
+				</control>
+			</control>
+			<control type="group">
+				<left>290</left>
+				<top>562</top>
+				<width>300</width>
+				<height>300</height>
+				<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+				<visible>Container.Content(seasons) + !Control.HasFocus(5001) + Skin.HasSetting(TVshowFakeDiscs) + Stringcompare(ListItem.Label,* All seasons)</visible>
+				<animation effect="slide" start="-165,0" end="0,0" delay="1000" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
+				<control type="image">
+					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$VAR[SeasonDiscVar1]</texture>
+				</control>
+			</control>
+			<control type="group">
+				<left>290</left>
+				<top>562</top>
+				<width>300</width>
+				<height>300</height>
+				<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+				<visible>Container.Content(seasons) + !Control.HasFocus(5001) + Skin.HasSetting(TVshowFakeDiscs) + !Stringcompare(ListItem.Label,..) + IntegerGreaterThan(ListItem.Property(TotalEpisodes),000) + !IsEmpty(Container.ListItem.Art(poster)) + !Stringcompare(ListItem.Label,* All seasons)</visible>
 				<animation effect="slide" start="-165,0" end="0,0" delay="1000" time="800" tween="cubic" easing="inout" condition="!Container.OnNext + !Container.OnPrevious">Conditional</animation>
 				<control type="image">
 					<texture background="true" diffuse="thumbs/sets/cdart-mask.png">$INFO[Container.ListItem.Art(poster)]</texture>
