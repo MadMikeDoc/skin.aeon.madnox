@@ -81,6 +81,8 @@
 					<include>Objects_CommonSettingsButton</include>
 					<onclick>Skin.ToggleSetting(widgetpola)</onclick>
 					<onclick>Skin.Reset(AltMusicVizLayout)</onclick>
+					<onclick>Skin.Reset(ThirdMusicVizLayout)</onclick>
+					<onclick>Skin.Reset(FourthMusicVizLayout)</onclick>
 					<selected>Skin.HasSetting(widgetpola)</selected>
 				</control>
 				<control type="radiobutton" id="449">
@@ -164,18 +166,31 @@
 				<control type="label" id="4366">
 					<width>600</width>
 					<height>60</height>
-					<label>31328</label>
+					<label>         Music Viz Settings</label>
 					<font>Font_Bold33</font>
 					<textcolor>$VAR[TitleColorVar]</textcolor>
 				</control>
-				<control type="radiobutton" id="17100">
+				<control type="button" id="451666">
+					<label>Music Visualisirung </label>
+					<label2>[COLOR $VAR[FontColorVar]]$VAR[MusicVizSettingsVar][/COLOR]</label2>
+					<include>Objects_CommonSettingsButton</include>
+					<onclick condition="!Skin.HasSetting(AltMusicVizLayout) | !Skin.HasSetting(ThirdMusicVizLayout) | !Skin.HasSetting(ThirdMusicVizLayout)">Skin.Reset(widgetpola)</onclick>
+					<onclick condition="!Skin.HasSetting(AltMusicVizLayout) + !Skin.HasSetting(ThirdMusicVizLayout) + !Skin.HasSetting(FourthMusicVizLayout)">Skin.SetBool(AltMusicVizLayout)</onclick>
+					<onclick condition="Skin.HasSetting(AltMusicVizLayout)">Skin.SetBool(ThirdMusicVizLayout)</onclick>
+					<onclick condition="Skin.HasSetting(AltMusicVizLayout)">Skin.Reset(AltMusicVizLayout)</onclick>
+					<onclick condition="Skin.HasSetting(ThirdMusicVizLayout)">Skin.SetBool(FourthMusicVizLayout)</onclick>
+					<onclick condition="Skin.HasSetting(ThirdMusicVizLayout)">Skin.Reset(ThirdMusicVizLayout)</onclick>
+					<onclick condition="Skin.HasSetting(FourthMusicVizLayout)">Skin.Reset(FourthMusicVizLayout)</onclick>
+					
+				</control>
+				<!--control type="radiobutton" id="17100">
 					<label>31337</label>
 					<include>Objects_CommonSettingsButton</include>
 					<onclick>Skin.ToggleSetting(AltMusicVizLayout)</onclick>
 					<onclick>Skin.Reset(widgetpola)</onclick>
 					<onclick>Skin.Reset(ThirdMusicVizLayout)</onclick>
 					<selected>Skin.HasSetting(AltMusicVizLayout)</selected>
-				</control>
+				</control-->
 				<control type="radiobutton" id="17109">
 					<label>31437</label>
 					<visible>Skin.HasSetting(AltMusicVizLayout)</visible>
@@ -306,7 +321,7 @@
 					<visible>Skin.HasSetting(AltMusicVizLayout)</visible>
 				</control>
 				<!--Music Viz Layout 3-->
-				<control type="label" id="4367">
+				<!--control type="label" id="4367">
 					<width>600</width>
 					<height>60</height>
 					<label>31329</label>
@@ -320,7 +335,7 @@
 					<onclick>Skin.Reset(widgetpola)</onclick>
 					<onclick>Skin.Reset(AltMusicVizLayout)</onclick>
 					<selected>Skin.HasSetting(ThirdMusicVizLayout)</selected>
-				</control>
+				</control-->
 				<control type="radiobutton" id="18201">
 					<label>31346</label>
 					<include>Objects_CommonSettingsButton</include>
@@ -351,6 +366,35 @@
 					<selected>Skin.HasSetting(ThirdMusicVizShowViz)</selected>
 					<enable>Skin.HasSetting(ThirdMusicVizLayout) + Skin.HasSetting(HideVizBG)</enable>
 					<visible>Skin.HasSetting(ThirdMusicVizLayout)</visible>
+				</control>
+<!-- FourthMusicVizLayout--->
+				<control type="radiobutton" id="418200">
+					<label>Move Down</label>
+					<include>Objects_CommonSettingsButton</include>
+					<onclick>Skin.ToggleSetting(FourthMusicVizLayoutDown)</onclick>
+					<selected>Skin.HasSetting(FourthMusicVizLayoutDown)</selected>
+					<visible>Skin.HasSetting(FourthMusicVizLayout)</visible>
+				</control>
+				<control type="radiobutton" id="418201">
+					<label>Show Info</label>
+					<include>Objects_CommonSettingsButton</include>
+					<onclick>Skin.ToggleSetting(FourthMusicVizLayoutShowInfo)</onclick>
+					<selected>Skin.HasSetting(FourthMusicVizLayoutShowinfo)</selected>
+					<visible>Skin.HasSetting(FourthMusicVizLayout)</visible>
+				</control>
+				<control type="radiobutton" id="418202">
+					<label>Show Rating</label>
+					<include>Objects_CommonSettingsButton</include>
+					<onclick>Skin.ToggleSetting(FourthMusicVizLayoutShowRating)</onclick>
+					<selected>Skin.HasSetting(FourthMusicVizLayoutShowRating)</selected>
+					<visible>Skin.HasSetting(FourthMusicVizLayout)</visible>
+				</control>
+				<control type="radiobutton" id="418203">
+					<label>Show Time and Progress</label>
+					<include>Objects_CommonSettingsButton</include>
+					<onclick>Skin.ToggleSetting(FourthMusicVizLayoutProgress)</onclick>
+					<selected>Skin.HasSetting(FourthMusicVizLayoutProgress)</selected>
+					<visible>Skin.HasSetting(FourthMusicVizLayout)</visible>
 				</control>
 				
 				<control type="label" id="430">
