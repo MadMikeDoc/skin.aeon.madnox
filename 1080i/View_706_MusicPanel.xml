@@ -793,7 +793,7 @@
 				</control>
 				<!--Various Artist Name-->
 				<control type="label">
-						<visible>Container.Content(songs) + Stringcompare(ListItem.AlbumArtist,Various Artists)</visible>
+						<visible>Container.Content(songs) + [Stringcompare(ListItem.AlbumArtist,Various Artists) | Window.IsActive(musicplaylist)]</visible>
 						<left>140</left>
 						<top>200</top>
 						<width>580</width>
@@ -802,7 +802,7 @@
 						<textcolor>$VAR[SubTitleColorVar]</textcolor>
 					</control>
 				<control type="label">
-						<visible>Container.Content(songs) + Stringcompare(ListItem.AlbumArtist,Various Artists)</visible>
+						<visible>Container.Content(songs) + [Stringcompare(ListItem.AlbumArtist,Various Artists) | Window.IsActive(musicplaylist)]</visible>
 						<left>210</left>
 						<top>200</top>
 						<width>580</width>

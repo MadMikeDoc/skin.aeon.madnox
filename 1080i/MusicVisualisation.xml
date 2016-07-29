@@ -209,7 +209,9 @@
 				<visible>Player.Paused</visible>
 				<font>Font_Reg18_Caps</font>
 			</control>
+		<!--Background viz 1 + 2-->
 			<control type="image">
+				<visible>!Skin.HasSetting(ThirdMusicVizLayout) + !Skin.HasSetting(FourthMusicVizLayout)</visible>
 				<top>-400</top>
 				<width>2100</width>
 				<height>780</height>
@@ -2239,22 +2241,24 @@
 		</control>
 		<!-- Third Layout End -->
 <!--Fourth Layout -->
+		<!-- Background-->
 		<control type="image">
 				<visible>Skin.HasSetting(FourthMusicVizLayout) + !Skin.HasSetting(FourthMusicVizLayoutDown)</visible>
-				<animation effect="slide" start="0,0" end="0,450" time="200" tween="cubic" condition="Skin.HasSetting(FourthMusicVizLayoutDown)">Conditional</animation>
 				<top>0</top>
 				<width>2100</width>
 				<height>780</height>
 				<texture flipy="true">home/nowplaying_shadow.png</texture>
+				<include>Animation_VisibleChange400</include>
 			</control>
 			<control type="image">
 				<visible>Skin.HasSetting(FourthMusicVizLayout) + Skin.HasSetting(FourthMusicVizLayoutDown)</visible>
-				<animation effect="slide" start="0,0" end="0,450" time="200" tween="cubic" condition="Skin.HasSetting(FourthMusicVizLayoutDown)">Conditional</animation>
-				<top>-130</top>
+				<top>480</top>
 				<width>2100</width>
-				<height>780</height>
+				<height>600</height>
 				<texture>home/nowplaying_shadow.png</texture>
+				<include>Animation_VisibleChange400</include>
 			</control>
+		<!-- Logo Artist-->
 		<control type="group">
 			<visible>Skin.HasSetting(FourthMusicVizLayout)</visible>
 			<animation effect="slide" start="0,0" end="0,450" time="200" tween="cubic" condition="Skin.HasSetting(FourthMusicVizLayoutDown)">Conditional</animation>
@@ -2283,6 +2287,7 @@
 				<textcolor>$VAR[TitleColorVar]</textcolor>
 				<shadowcolor>black</shadowcolor>
 			</control>
+			<!-- Title -->
 			<control type="image">
 				<left>460</left>
 				<top>350</top>
@@ -2302,6 +2307,7 @@
 				<scroll>true</scroll>
 				<label>[COLOR=white]$INFO[MusicPlayer.Title, “ , ”][/COLOR]</label>
 			</control>
+			<!-- Album-->
 			<control type="image">
 				<left>460</left>
 				<top>420</top>
@@ -2321,28 +2327,44 @@
 				<shadowcolor>black</shadowcolor>
 				<scroll>true</scroll>
 			</control>
+			<!-- Repeat/Shuffle-->
 			<control type="image">
 				<visible>Player.HasDuration + !MusicPartyMode.Enabled</visible>
 				<left>710</left>
-				<top>480</top>
-				<width>50</width>
-				<height>50</height>
+				<top>505</top>
+				<width>45</width>
+				<height>45</height>
 				<texture>$VAR[MusicVizOSDRepeatButtonVar]</texture>
 				<aspectratio>keep</aspectratio>
 			</control>
 			<control type="image">
 				<visible>Player.HasDuration + !MusicPartyMode.Enabled</visible>
 				<left>1150</left>
-				<top>480</top>
-				<width>50</width>
-				<height>50</height>
+				<top>505</top>
+				<width>45</width>
+				<height>45</height>
 				<texture>$VAR[MusicVizOSDShuffleButtonVar]</texture>
 				<colordiffuse>$VAR[TitleColorVar]</colordiffuse>
+			</control>
+			<!-- Progressbar/Time-->
+			<control type="progress">
+				<visible>Player.HasDuration + Skin.HasSetting(FourthMusicVizLayoutProgress)</visible>
+				<animation effect="fade" end="80" condition="true">Conditional</animation>
+				<left>710</left>
+				<top>490</top>
+				<width>500</width>
+				<height>10</height>
+				<reveal>true</reveal>
+				<texturebg border="3">mooviz/progress.border.png</texturebg>
+				<midtexture>mooviz/progress.png</midtexture>
+				<lefttexture>-</lefttexture>
+				<righttexture>-</righttexture>
+				<info>Player.Progress</info>
 			</control>
 			<control type="group">
 				<visible>Player.HasDuration + Skin.HasSetting(FourthMusicVizLayoutProgress)</visible>
 				<left>460</left>
-				<top>460</top>
+				<top>490</top>
 				<width>1000</width>
 				<height>75</height>
 				<control type="label">
@@ -2363,26 +2385,13 @@
 					<align>center</align>
 				</control>
 			</control>
-			<control type="progress">
-				<visible>Player.HasDuration + Skin.HasSetting(FourthMusicVizLayoutProgress)</visible>
-				<animation effect="fade" end="80" condition="true">Conditional</animation>
-				<left>710</left>
-				<top>465</top>
-				<width>500</width>
-				<height>10</height>
-				<reveal>true</reveal>
-				<texturebg border="3">mooviz/progress.border.png</texturebg>
-				<midtexture>mooviz/progress.png</midtexture>
-				<lefttexture>-</lefttexture>
-				<righttexture>-</righttexture>
-				<info>Player.Progress</info>
-			</control>
 		</control>
+		<!-- Info -->
 		<control type="label">
 			<visible>Skin.HasSetting(FourthMusicVizLayout) + Skin.HasSetting(FourthMusicVizLayoutShowInfo)</visible>
 			<animation effect="slide" start="0,0" end="0,450" time="200" tween="cubic" condition="Skin.HasSetting(FourthMusicVizLayoutDown)">Conditional</animation>
 			<left>460</left>
-			<top>530</top>
+			<top>540</top>
 			<width>1000</width>
 			<height>40</height>
 			<align>center</align>
@@ -2390,6 +2399,7 @@
 			<shadowcolor>black</shadowcolor>
 			<label>[COLOR=white]$INFO[MusicPlayer.Codec][/COLOR]  [COLOR=gray]•[/COLOR]  $INFO[MusicPlayer.Bitrate][COLOR=$VAR[TitleColorVar]] kbps[/COLOR]  [COLOR=gray]•[/COLOR]  $INFO[MusicPlayer.Samplerate][COLOR=$VAR[TitleColorVar]] kHz[/COLOR]  [COLOR=gray]•[/COLOR]  $INFO[MusicPlayer.BitsPerSample][COLOR=$VAR[TitleColorVar]] Bits[/COLOR]  [COLOR=gray]•[/COLOR]  [COLOR=white]$INFO[MusicPlayer.Genre][/COLOR]</label>
 		</control>
+		<!-- Rating-->
 		<control type="image">
 			<visible>Skin.HasSetting(FourthMusicVizLayout) + Skin.HasSetting(FourthMusicVizLayoutShowRating)</visible>
 			<animation effect="slide" start="0,0" end="0,450" time="200" tween="cubic" condition="Skin.HasSetting(FourthMusicVizLayoutDown)">Conditional</animation>
