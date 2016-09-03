@@ -9,6 +9,7 @@
 	<onload condition="!Skin.HasSetting(backendmode)">Skin.SetBool(backendmode)</onload>
 	<onload>Skin.SetBool(SkinHelper.EnableAnimatedPosters)</onload>
 	<onload>Skin.SetBool(SkinHelper.EnableAddonsLookups)</onload>
+	<onload condition="System.HasAddon(plugin.image.mypicsdb)">RunScript(plugin.image.mypicsdb,0,?action='setproperties'&amp;method='Random'&amp;sort='Added'&amp;limit=10)</onload>
 	<onunload>ClearProperty(SkinHelper.WidgetContainer,home)</onunload>
 	<onunload>ClearProperty(Widget.CaseHome,home)</onunload>
 	<controls>

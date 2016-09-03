@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Live backgrounds for homepage -->
 <includes>
-
+	<include name="PicturePos">
+        <left>64</left>
+        <top>57</top>
+        <width>312</width>
+        <height>312</height>
+    </include>
+    <include name="PolaroidPos">
+        <left>0</left>
+        <top>0</top>
+        <width>461</width>
+        <height>500</height>
+    </include>
+    
 	<!-- Live DVD/BD Cases -->
 	<include name="LiveBG">
 		<control type="group">
@@ -601,6 +613,181 @@
 				</control>
 			</control>
 
+			<!-- My Pics -->
+			<control type="group">
+				<animation effect="fade" time="600">VisibleChange</animation>
+				<include>Animation_WindowFade250</include>
+				<include>FullscreenDimensions</include>
+				<visible>[Control.HasFocus(9010) + SubString(Container(9010).ListItem.Property(background),.Live,right) + IntegerGreaterThan(Container(8011).NumItems,0) + SubString(Container(9010).ListItem.Property(backgroundCase),Polaroid)] |
+					[SubString(Container(9000).ListItem.Property(background),.Live,right) + ![Control.HasFocus(9010) + [SubString(Container(9010).ListItem.Property(background),FanartList,right) | SubString(Container(9010).ListItem.Property(background),.Live,right)] + IntegerGreaterThan(Container(8011).NumItems,0) + !IsEmpty(Container(8011).ListItem.Art(fanart))] + SubString(Container(9000).ListItem.Property(backgroundCase),Polaroid)] | 
+					SubString(Control.GetLabel(4322),case,left)</visible>
+				<control type="group">
+					<control type="group">
+						<control type="group">
+							<description>Picture 1</description>
+							<left>630</left>
+							<top>820</top>
+							<animation effect="rotate" center="auto" start="-65" end="-65" time="0" condition="true">Conditional</animation>
+							<control type="image">
+								<include>PicturePos</include>
+								<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+								<fadetime>IconCrossfadeTime</fadetime>
+								<texture background="true" diffuse="thumbs/boxes/polaroid_mask.png">$INFO[Window(home).Property(MyPicsDBRandom.1.Path)]</texture>
+							</control>
+							<control type="image">
+								<include>PolaroidPos</include>
+								<!--aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio-->
+								<texture background="true">thumbs/boxes/polaroid.png</texture>
+							</control>
+						</control>
+						<control type="group">
+							<description>Picture 2</description>
+								<left>100</left>
+								<top>-375</top>
+           						<animation effect="rotate" center="auto" start="65" end="65" time="0" condition="true">Conditional</animation>
+							<control type="image">
+								<include>PicturePos</include>
+								<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+								<fadetime>IconCrossfadeTime</fadetime>
+								<texture background="true" diffuse="thumbs/boxes/polaroid_mask.png">$INFO[Window(home).Property(MyPicsDBRandom.2.Path)]</texture>
+							</control>
+							<control type="image">
+								<include>PolaroidPos</include>
+								<texture background="true">thumbs/boxes/polaroid.png</texture>
+							</control>
+						</control>
+						<control type="group">
+							<description>Picture 3</description>
+							<left>20</left>
+							<top>-200</top>
+							<animation effect="rotate" center="auto" start="10" end="10" time="0" condition="true">Conditional</animation>
+							<control type="image">
+								<include>PicturePos</include>
+								<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+								<fadetime>IconCrossfadeTime</fadetime>
+								<texture background="true" diffuse="thumbs/boxes/polaroid_mask.png">$INFO[Window(home).Property(MyPicsDBRandom.3.Path)]</texture>
+							</control>
+							<control type="image">
+								<include>PolaroidPos</include>
+								<texture background="true">thumbs/boxes/polaroid.png</texture>
+							</control>
+						</control>
+						<control type="group">
+							<description>Picture 4</description>
+							<left>1400</left>
+							<top>-50</top>
+							<animation effect="rotate" center="auto" start="-20" end="-20" time="0" condition="true">Conditional</animation>
+							<control type="image">
+								<include>PicturePos</include>
+								<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+								<fadetime>IconCrossfadeTime</fadetime>
+								<texture background="true" diffuse="thumbs/boxes/polaroid_mask.png">$INFO[Window(home).Property(MyPicsDBRandom.4.Path)]</texture>
+							</control>
+							<control type="image">
+								<include>PolaroidPos</include>
+								<texture background="true">thumbs/boxes/polaroid.png</texture>
+							</control>
+						</control>
+						<control type="group">
+							<description>Picture 5</description>
+							<left>500</left>
+							<top>-230</top>
+							<animation effect="rotate" center="auto" start="25" end="25" time="0" condition="true">Conditional</animation>
+							<control type="image">
+								<include>PicturePos</include>
+								<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+								<fadetime>IconCrossfadeTime</fadetime>
+								<texture background="true" diffuse="thumbs/boxes/polaroid_mask.png">$INFO[Window(home).Property(MyPicsDBRandom.5.Path)]</texture>
+							</control>
+							<control type="image">
+								<include>PolaroidPos</include>
+								<texture background="true">thumbs/boxes/polaroid.png</texture>
+							</control>
+						</control>
+						<control type="group">
+							<description>Picture 6</description>
+							<left>1600</left>
+							<top>-400</top>
+							<animation effect="rotate" center="auto" start="75" end="75" time="0" condition="true">Conditional</animation>
+							<control type="image">
+								<include>PicturePos</include>
+								<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+								<fadetime>IconCrossfadeTime</fadetime>
+								<texture background="true" diffuse="thumbs/boxes/polaroid_mask.png">$INFO[Window(home).Property(MyPicsDBRandom.6.Path)]</texture>
+							</control>
+							<control type="image">
+								<include>PolaroidPos</include>
+								<texture background="true">thumbs/boxes/polaroid.png</texture>
+							</control>
+						</control>
+						<control type="group">
+							<description>Picture 7</description>
+							<left>1200</left>
+							<top>400</top>
+							<animation effect="rotate" center="auto" start="45" end="45" time="0" condition="true">Conditional</animation>
+							<control type="image">
+								<include>PicturePos</include>
+								<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+								<fadetime>IconCrossfadeTime</fadetime>
+								<texture background="true" diffuse="thumbs/boxes/polaroid_mask.png">$INFO[Window(home).Property(MyPicsDBRandom.7.Path)]</texture>
+							</control>
+							<control type="image">
+								<include>PolaroidPos</include>
+								<texture background="true">thumbs/boxes/polaroid.png</texture>
+							</control>
+						</control>
+						<control type="group">
+							<description>Picture 8</description>
+							<left>1300</left>
+							<top>300</top>
+							<animation effect="rotate" center="auto" start="-35" end="-35" time="0" condition="true">Conditional</animation>
+							<control type="image">
+								<include>PicturePos</include>
+								<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+								<fadetime>IconCrossfadeTime</fadetime>
+								<texture background="true" diffuse="thumbs/boxes/polaroid_mask.png">$INFO[Window(home).Property(MyPicsDBRandom.8.Path)]</texture>
+							</control>
+							<control type="image">
+								<include>PolaroidPos</include>
+								<texture background="true">thumbs/boxes/polaroid.png</texture>
+							</control>
+						</control>
+						<control type="group">
+							<description>Picture 9</description>
+							<left>685</left>
+							<top>0</top>
+							<animation effect="rotate" center="auto" start="-10" end="-10" time="0" condition="true">Conditional</animation>
+							<control type="image">
+								<include>PicturePos</include>
+								<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+								<fadetime>IconCrossfadeTime</fadetime>
+								<texture background="true" diffuse="thumbs/boxes/polaroid_mask.png">$INFO[Window(home).Property(MyPicsDBRandom.9.Path)]</texture>
+							</control>
+							<control type="image">
+								<include>PolaroidPos</include>
+								<texture background="true">thumbs/boxes/polaroid.png</texture>
+							</control>
+						</control>
+						<control type="group">
+							<description>Picture 10</description>
+							<left>400</left>
+							<top>450</top>
+							<animation effect="rotate" center="auto" start="3" end="3" time="0" condition="true">Conditional</animation>
+							<control type="image">
+								<include>PicturePos</include>
+								<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+								<fadetime>IconCrossfadeTime</fadetime>
+								<texture background="true" diffuse="thumbs/boxes/polaroid_mask.png">$INFO[Window(home).Property(MyPicsDBRandom.10.Path)]</texture>
+							</control>
+							<control type="image">
+								<include>PolaroidPos</include>
+								<texture background="true">thumbs/boxes/polaroid.png</texture>
+							</control>
+						</control>
+					</control>
+				</control>
+			</control>
+			
 			<!-- No cases -->
 			<control type="group">
 				<animation effect="fade" time="480">VisibleChange</animation>
